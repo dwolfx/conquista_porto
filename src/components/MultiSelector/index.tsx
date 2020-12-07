@@ -6,20 +6,7 @@ import React, {
   MutableRefObject,
 } from 'react'
 
-import {
-  StSelectWrapper,
-  StSelectContainer,
-  StOptionsContainer,
-  StOptionsUl,
-  StOptionLi,
-  StOptionIcon,
-  StSelectedListContainer,
-  StSelectedListUl,
-  StSelectedListLi,
-  StSelectedListButton,
-  StText,
-  StSelectedListIcon,
-} from './styles'
+import * as s from './styles'
 
 import { dict } from 'components/IconExporter'
 
@@ -34,7 +21,7 @@ import { IProps, IOption } from './types'
  *
  * @component
  * @param {Object} props
- * @param {Array} options
+ * @param {Array<IOption>} options
  * @param {Boolean} disabled
  * @param {String} inputLabel
  * @param {Boolean} loading
@@ -65,11 +52,13 @@ const MultiSelector: React.FC<IProps> = ({
   inputLabel = 'Selecione',
   loading = false,
   onChange,
+  selectedOptions,
+  setSelectedOptions,
+  ...rest
 }) => {
   const [inputValue, setInputValue] = useState('')
   const [filteredOptions, setFilteredOptions] = useState<IOption[]>([])
   const [selectOptionsDropdown, setSelectOptionsDropdown] = useState(false)
-  const [selectedOptions, setSelectedOptions] = useState<IOption[]>([])
   const [selectIcon, setSelectIcon] = useState<keyof typeof dict>('arrowdown')
 
   const selectContainerElement = useRef<HTMLDivElement>() as MutableRefObject<
@@ -87,10 +76,7 @@ const MultiSelector: React.FC<IProps> = ({
     [selectOptionsDropdown, selectContainerElement]
   )
 
-  const handleChange = useCallback(
-    selectedOptions => onChange(selectedOptions),
-    [onChange]
-  )
+  const handleChange = useCallback(selected => onChange(selected), [onChange])
 
   //filter select options on input change
   useEffect(() => {
@@ -151,16 +137,20 @@ const MultiSelector: React.FC<IProps> = ({
     if (checkIfOptionAlreadyExistsOnSelectedOptions(selectedOptions, option)) {
       removeOptionToSelectList(option)
     } else {
-      setSelectedOptions(arr => arr.concat(option))
+      setSelectedOptions((arr: IOption[]) => arr.concat(option))
     }
   }
 
   function removeOptionToSelectList(option: IOption) {
-    setSelectedOptions(arr => arr.filter(item => item.id !== option.id))
+    setSelectedOptions((selectedOptions: IOption[]) =>
+      selectedOptions.filter(
+        (selectedOption: { id: number }) => selectedOption.id !== option.id
+      )
+    )
   }
 
   function handleOptionClick(option: IOption) {
-    if (selectedOptions.some(item => item.id === option.id)) {
+    if (selectedOptions.some((item: { id: number }) => item.id === option.id)) {
       removeOptionToSelectList(option)
     } else {
       addOptionToSelectList(option)
@@ -168,8 +158,12 @@ const MultiSelector: React.FC<IProps> = ({
   }
 
   return (
-    <StSelectContainer ref={selectContainerElement} data-testid={'select'}>
-      <StSelectWrapper>
+    <s.SelectContainer
+      ref={selectContainerElement}
+      data-testid={'select'}
+      {...rest}
+    >
+      <s.SelectWrapper>
         <InputText
           onFocus={() => setSelectOptionsDropdown(true)}
           label={inputLabel}
@@ -189,55 +183,60 @@ const MultiSelector: React.FC<IProps> = ({
             )
           }
         />
-        <StOptionsContainer $hasOptions={selectOptionsDropdown}>
-          <StOptionsUl>
+        <s.OptionsContainer
+          $hasOptions={selectOptionsDropdown}
+          optionBoxDirection="top"
+        >
+          <s.OptionsUl>
             {filteredOptions.map(option => (
-              <StOptionLi
+              <s.OptionLi
                 key={option.id}
                 onClick={() => handleOptionClick(option)}
               >
                 <Text type="headline">{option.text}</Text>
-                {selectedOptions.some(item => item.id === option.id) ? (
-                  <StOptionIcon
+                {selectedOptions.some(
+                  (item: { id: number }) => item.id === option.id
+                ) ? (
+                  <s.OptionIcon
                     color="blue4"
                     name="remove"
                     width={21}
                     height={21}
                   />
                 ) : (
-                  <StOptionIcon
+                  <s.OptionIcon
                     color="blue4"
                     name="add"
                     width={21}
                     height={21}
                   />
                 )}
-              </StOptionLi>
+              </s.OptionLi>
             ))}
-          </StOptionsUl>
-        </StOptionsContainer>
-      </StSelectWrapper>
-      <StSelectedListContainer $selectedOptionsLength={selectedOptions.length}>
-        <StSelectedListUl>
-          {selectedOptions.map(option => (
-            <StSelectedListLi key={option.id}>
-              <StSelectedListButton>
-                <StText type="subheading" textTransform="uppercase">
+          </s.OptionsUl>
+        </s.OptionsContainer>
+      </s.SelectWrapper>
+      <s.SelectedListContainer $selectedOptionsLength={selectedOptions.length}>
+        <s.SelectedListUl>
+          {selectedOptions.map((option: IOption) => (
+            <s.SelectedListLi key={option.id}>
+              <s.SelectedListButton>
+                <s.Text type="subheading" textTransform="uppercase">
                   {option.text}
-                </StText>
-                <StSelectedListIcon
+                </s.Text>
+                <s.SelectedListIcon
                   onClick={() => removeOptionToSelectList(option)}
                   color="blue4"
                   name="removeMultiselector"
                   width={21}
                   height={21}
                 />
-              </StSelectedListButton>
-            </StSelectedListLi>
+              </s.SelectedListButton>
+            </s.SelectedListLi>
           ))}
-        </StSelectedListUl>
-      </StSelectedListContainer>
-    </StSelectContainer>
+        </s.SelectedListUl>
+      </s.SelectedListContainer>
+    </s.SelectContainer>
   )
 }
 

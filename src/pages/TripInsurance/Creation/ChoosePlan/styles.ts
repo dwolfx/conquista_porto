@@ -5,6 +5,12 @@ import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;

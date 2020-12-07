@@ -52,7 +52,7 @@ const ChoosePlan: StepComponent = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
-    <>
+    <s.Container>
       <ComparativeModal isOpen={modalOpen} handleClose={setModalOpen} />
       <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} />
       <s.BackgroundWrapper>
@@ -200,7 +200,7 @@ const ChoosePlan: StepComponent = () => {
           alterar dados
         </s.Button>
       </s.Footer>
-    </>
+    </s.Container>
   )
 }
 

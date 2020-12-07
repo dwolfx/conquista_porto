@@ -32,7 +32,7 @@ describe('OriginTripStep component', () => {
     expect(originCountryLabel).toBeVisible()
     expect(originCountryValue).toBeVisible()
     expect(destinationCountryLabel).toBeVisible()
-    expect(destinationCountryValue).toHaveLength(3)
+    expect(destinationCountryValue).toHaveLength(2)
     expect(button).toBeVisible()
   })
 

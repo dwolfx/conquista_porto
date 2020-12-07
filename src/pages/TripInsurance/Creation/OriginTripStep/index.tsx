@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
@@ -8,35 +8,60 @@ import * as T from './types'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 
 import Text from 'components/Text'
-import MultiSelector from 'components/MultiSelector'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
 
 import { IOption } from 'components/MultiSelector/types'
 import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import DestinationTypeSelect from 'pages/TripInsurance/commons/DestinationTypeSelect'
+
+// mock, remove after
+const countries: IOption[] = [
+  {
+    text: 'Brasil',
+    id: 1,
+    value: 'brasil',
+  },
+  {
+    text: 'Alemanha',
+    id: 2,
+    value: 'alemanha',
+  },
+  {
+    text: 'Itália',
+    id: 3,
+    value: 'italia',
+  },
+  {
+    text: 'Estados Unidos',
+    id: 4,
+    value: 'estadosunidos',
+  },
+  {
+    text: 'Espanha',
+    id: 5,
+    value: 'espanha',
+  },
+  {
+    text: 'Inglaterra',
+    id: 6,
+    value: 'inglaterra',
+  },
+  {
+    text: 'Paises Baixos',
+    id: 7,
+    value: 'paisesbaixos',
+  },
+]
 
 const OriginTripStep: StepComponent = () => {
   const isTabletVertical = useMedia('md')
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
+
   const [selectedOriginCountry, setOriginCountry] = useState<T.ISelected>({
     id: 1,
     name: 'Brasil',
   })
-  const [selectedDestinationType, setSelectedDestinationType] = useState<
-    T.ISelected
-  >({
-    id: 0,
-    name: 'Selecione',
-  })
 
-  const { instantiate } = useStackFluxManagement<StepComponentProps>()
-
-  const [selectedDestinationCountry] = useState<T.ISelected>({
-    id: 8,
-    name: 'Selecione',
-  })
-
-  // mock, remove after
   const originOptions = [
     {
       text: 'Brasil',
@@ -45,65 +70,29 @@ const OriginTripStep: StepComponent = () => {
     },
   ]
 
-  // mock, remove after
-  const destinationTypeOptions = [
+  const [destinationTypes] = useState([
     {
+      id: 1,
       text: 'Nacional',
-      id: 1,
-      onClick: () => setSelectedDestinationType({ name: 'Nacional', id: 1 }),
+      onClick: () => setSelectedDestinationType({ id: 1, name: 'Nacional' }),
     },
     {
+      id: 2,
       text: 'Internacional',
-      id: 2,
       onClick: () =>
-        setSelectedDestinationType({ name: 'Internacional', id: 2 }),
+        setSelectedDestinationType({ id: 2, name: 'Internacional' }),
     },
-  ]
-  // mock, remove after
-  const countries: IOption[] = [
-    {
-      text: 'Brasil',
-      id: 1,
-      value: 'brasil',
-      //onClick: () => setDestinationCountry({ name: 'Brasil', id: 1 }),
-    },
-    {
-      text: 'Alemanha',
-      id: 2,
-      value: 'alemanha',
-      //onClick: () => setDestinationCountry({ name: 'Alemanha', id: 2 }),
-    },
-    {
-      text: 'Itália',
-      id: 3,
-      value: 'italia',
-      //onClick: () => setDestinationCountry({ name: 'Itália', id: 3 }),
-    },
-    {
-      text: 'Estados Unidos',
-      id: 4,
-      value: 'estadosunidos',
-      //onClick: () => setDestinationCountry({ name: 'Estados Unidos', id: 4 }),
-    },
-    {
-      text: 'Espanha',
-      id: 5,
-      value: 'espanha',
-      //onClick: () => setDestinationCountry({ name: 'Espanha', id: 5 }),
-    },
-    {
-      text: 'Inglaterra',
-      id: 6,
-      value: 'inglaterra',
-      //onClick: () => setDestinationCountry({ name: 'Inglaterra', id: 6 }),
-    },
-    {
-      text: 'Paises Baixos',
-      id: 7,
-      value: 'paisesbaixos',
-      //onClick: () => setDestinationCountry({ name: 'Paises Baixos', id: 7 }),
-    },
-  ]
+  ])
+
+  const [selectedDestinationType, setSelectedDestinationType] = useState({
+    id: 0,
+    name: 'Selecione',
+  })
+
+  const [
+    selectedDestinationCountries,
+    setSelectedDestinationCountries,
+  ] = useState<IOption[]>([])
 
   return (
     <>
@@ -134,21 +123,28 @@ const OriginTripStep: StepComponent = () => {
                 disabled
                 label="origem"
               />
-              <DestinationTypeSelect
-                options={destinationTypeOptions}
-                label="destino"
+              <S.Select
+                options={destinationTypes}
                 selected={selectedDestinationType}
-                disabled={false}
+                label="Destino"
               />
-              <MultiSelector
-                options={countries}
-                inputLabel="Você irá para qual(is) país(es)?"
-                onChange={selectedDestinationCountry =>
-                  selectedDestinationCountry
-                }
-              />
+              {selectedDestinationType.id !== 2 ? null : (
+                <S.MultiSelector
+                  options={countries}
+                  inputLabel="Você irá para qual(is) país(es)?"
+                  onChange={selectedDestinationCountry =>
+                    selectedDestinationCountry
+                  }
+                  selectedOptions={selectedDestinationCountries}
+                  setSelectedOptions={setSelectedDestinationCountries}
+                />
+              )}
               <S.StyledButton
-                disabled={selectedDestinationCountry.id === 0}
+                disabled={
+                  selectedDestinationType.id === 0 ||
+                  (selectedDestinationType.id === 2 &&
+                    !selectedDestinationCountries.length)
+                }
                 onClick={() => instantiate(Steps.coverageDate)}
               >
                 Próximo

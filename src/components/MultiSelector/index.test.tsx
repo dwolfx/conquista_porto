@@ -6,9 +6,10 @@ import { render } from 'testUtils'
 import theme from 'styles/theme'
 
 import MultiSelector from '.'
+import { IOption } from './types'
 
 describe('MultiSelector component', () => {
-  const options = [
+  const options: IOption[] = [
     { text: 'Brasil', id: 1, value: 'brasil' },
     { text: 'Alemanha', id: 2, value: 'alemanha' },
     { text: 'Itália', id: 3, value: 'italia' },
@@ -18,6 +19,7 @@ describe('MultiSelector component', () => {
     { text: 'Paises Baixos', id: 7, value: 'paisesbaixos' },
   ]
   const inputLabel = 'Você irá para qual(is) país(es)'
+  const mockedFunction = jest.fn()
 
   it('should be visible', () => {
     const { getByTestId } = render(
@@ -26,10 +28,11 @@ describe('MultiSelector component', () => {
           options={options}
           inputLabel={inputLabel}
           onChange={val => val}
+          selectedOptions={options}
+          setSelectedOptions={mockedFunction}
         />
       </ThemeProvider>
     )
     expect(getByTestId('select')).toBeVisible()
   })
-  
 })

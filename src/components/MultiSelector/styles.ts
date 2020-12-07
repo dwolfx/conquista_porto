@@ -1,31 +1,35 @@
 import styled from 'styled-components'
 import IconExporter from 'components/IconExporter'
-import Text from 'components/Text'
+import TextComponent from 'components/Text'
 
-import { IStOptionsContainer, ISelectedListContainer } from './types'
+import { IOptionsContainer, ISelectedListContainer } from './types'
 
-export const StSelectContainer = styled.div`
+export const SelectContainer = styled.div`
   width: 100%;
 `
 
-export const StSelectWrapper = styled.div`
+export const SelectWrapper = styled.div`
   position: relative;
 `
 
-export const StInput = styled.input`
+export const Input = styled.input`
   width: 100%;
 `
 
-export const StOptionsContainer = styled.div<IStOptionsContainer>`
+export const OptionsContainer = styled.div<IOptionsContainer>`
   position: absolute;
   display: ${props => (props.$hasOptions ? 'block' : 'none')};
   width: 100%;
   max-height: 350px;
   overflow-y: auto;
   z-index: 99;
+  ${({ optionBoxDirection, theme }) =>
+    optionBoxDirection === 'top'
+      ? `bottom: ${theme.spacing(10)}px`
+      : `top: ${theme.spacing(10)}px`};
 `
 
-export const StOptionsUl = styled.ul`
+export const OptionsUl = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -37,7 +41,7 @@ export const StOptionsUl = styled.ul`
   border-radius: 4px;
 `
 
-export const StOptionLi = styled.li`
+export const OptionLi = styled.li`
   width: 100%;
   font-size: 18px;
   &:first-of-type {
@@ -52,16 +56,16 @@ export const StOptionLi = styled.li`
   cursor: pointer;
 `
 
-export const StOptionIcon = styled(IconExporter)`
+export const OptionIcon = styled(IconExporter)`
   cursor: pointer;
 `
 
-export const StSelectedListContainer = styled.div<ISelectedListContainer>`
+export const SelectedListContainer = styled.div<ISelectedListContainer>`
   display: ${props => (props.$selectedOptionsLength ? 'block' : 'none')};
   margin-top: ${({ theme }) => theme.spacing(4)}px;
 `
 
-export const StSelectedListUl = styled.ul`
+export const SelectedListUl = styled.ul`
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -70,7 +74,7 @@ export const StSelectedListUl = styled.ul`
   flex-wrap: wrap;
 `
 
-export const StSelectedListLi = styled.li`
+export const SelectedListLi = styled.li`
   &:last-of-type {
     margin-right: 0;
   }
@@ -78,24 +82,25 @@ export const StSelectedListLi = styled.li`
   margin-top: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const StSelectedListButton = styled.button`
+export const SelectedListButton = styled.button`
   background-color: ${({ theme }) => theme.colors.white};
-  border:${({theme}) => `1px solid ${theme.colors.blue4}`};
+  border: ${({ theme }) => `1px solid ${theme.colors.blue4}`};
   box-sizing: border-box;
   border-radius: 4px;
   color: ${props => props.theme.colors.blue4};
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: ${({theme}) => `${theme.spacing(1)}px 0 ${theme.spacing(1)}px ${theme.spacing(2)}px`};
+  padding: ${({ theme }) =>
+    `${theme.spacing(1)}px 0 ${theme.spacing(1)}px ${theme.spacing(2)}px`};
   font-size: 11px;
 `
 
-export const StText = styled(Text)`
+export const Text = styled(TextComponent)`
   white-space: nowrap;
 `
 
-export const StSelectedListIcon = styled(IconExporter)`
+export const SelectedListIcon = styled(IconExporter)`
   cursor: pointer;
   margin-left: ${({ theme }) => theme.spacing(1)}px;
   margin-right: ${({ theme }) => theme.spacing(2)}px;

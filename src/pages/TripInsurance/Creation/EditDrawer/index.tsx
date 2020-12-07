@@ -11,6 +11,7 @@ import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 
 import * as s from './styles'
+import { IOption } from 'components/MultiSelector/types'
 
 interface IEditDrawer {
   isDrawerOpen: boolean
@@ -54,6 +55,10 @@ const EditDrawer: React.FC<IEditDrawer> = ({
     id: 1,
     name: 'Nacional',
   })
+  const [
+    selectedDestinationCountries,
+    setSelectedDestinationCountries,
+  ] = useState<IOption[]>([])
   const [initialDate, setInitialDate] = useState<moment.Moment | null>(null)
   const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
   const [focusedInput, setFocusedInput] = useState(null)
@@ -211,6 +216,8 @@ const EditDrawer: React.FC<IEditDrawer> = ({
             options={countryOptions}
             onChange={() => {}}
             inputLabel="Você irá para qual(is) país(es)"
+            selectedOptions={selectedDestinationCountries}
+            setSelectedOptions={setSelectedDestinationCountries}
           />
           <s.Divisor />
           <s.Label>Periodo da Viagem</s.Label>
