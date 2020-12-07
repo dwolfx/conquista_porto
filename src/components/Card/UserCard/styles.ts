@@ -8,8 +8,8 @@ export const Card = styled(BaseCard)`
   }
 `
 
-export const Thumbnail = styled.div`
-  background: ${({ theme }) => theme.colors.green2};
+export const Thumbnail = styled.div<{ hasError?: boolean }>`
+  background: ${({ theme, hasError }) => hasError ? theme.colors.gray1 : theme.colors.green2};
   width: 47px;
   height: 47px;
   border-radius: 50%;

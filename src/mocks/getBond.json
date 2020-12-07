@@ -1,0 +1,16 @@
+{
+  "Message": {
+    "TipoCritica": "SUCESSO",
+    "Mensagem": "SUCESSO"
+  },
+  "susepUtilizacao": "1V11RJ",
+  "vinculoParceiroResponseType": {
+    "codigo": "4049",
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "nome": "Corretor - Funil",
+    "email": "ranyele.martins@livetouch.com.br"
+  }
+}

@@ -19,6 +19,7 @@ const redeemPOSTMock = require('./src/mocks/redeemPOST.json')
 const fundDetails = require('./src/mocks/fundDetails.json')
 const privateWelfare = require('./src/mocks/privateWelfare.json')
 const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatusPRE.json')
+const getBond = require('./src/mocks/getBond.json')
 
 server.use(middlewares)
 
@@ -118,6 +119,9 @@ router.render = (req, res) => {
   }
   if (req.originalUrl.endsWith('/adesoes/titular/cpf')) {
     return res.status(200).jsonp(privateWelfare)
+  }
+  if (req.originalUrl.includes('/investimento/cadastro/v1/vinculo')) {
+    return res.status(200).jsonp(getBond)
   }
   if (req.originalUrl.endsWith('/adesoes/aprovada/titular/cpf')) {
     return res.status(200).jsonp(privateWelfateWithStatusPRE)

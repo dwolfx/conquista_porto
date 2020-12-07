@@ -73,6 +73,7 @@ import { ReactComponent as pdf } from 'assets/icons/pdf.svg'
 import { ReactComponent as personaccident } from 'assets/icons/person-accident.svg'
 import { ReactComponent as persongroup } from 'assets/icons/person-group.svg'
 import { ReactComponent as persongroup2 } from 'assets/icons/person-group2.svg'
+import { ReactComponent as arrowround } from 'assets/icons/arrow-round.svg'
 import { ReactComponent as petpaw } from 'assets/icons/pet-paw.svg'
 import { ReactComponent as phone } from 'assets/icons/phone.svg'
 import { ReactComponent as piechart } from 'assets/icons/pie-chart.svg'
@@ -107,6 +108,7 @@ export const dict = {
   arrowdown,
   arrowleft,
   arrowright,
+  arrowround,
   arrowsortable,
   arrowup,
   awesome,

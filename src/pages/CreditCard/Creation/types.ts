@@ -55,6 +55,8 @@ export interface ICreditCardCreationPayload {
   tipoDocumento?: string
   uf?: string
   idParceiro?: string
+  nacionalidade?: string
+  idOportunidade?: string
 }
 
 export interface ICreditCardProposalResponse {
@@ -140,4 +142,21 @@ export interface IBase64DecodedResponse {
   cpfCliente: number
   idCorretor: string
   nomeCliente: string
+}
+
+export interface IGetBondResponse {
+  Message: {
+    TipoCritica: string,
+    Mensagem: string
+  },
+  susepUtilizacao: string,
+  vinculoParceiroResponseType: {
+    codigo: string,
+    Message: {
+      TipoCritica: string,
+      Mensagem: string
+    },
+    nome: string,
+    email: string
+  }
 }

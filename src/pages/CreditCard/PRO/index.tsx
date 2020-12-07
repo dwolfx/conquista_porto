@@ -5,8 +5,9 @@ import { Container, Col, Row } from 'styled-bootstrap-grid'
 
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { getCookieValue, base64decode } from 'helpers'
+import { base64decode } from 'helpers'
 import { axiosInstance, baseURLNamespaceInvestAws, post } from 'services/api'
+import { baseURL } from 'services/apiConfig'
 
 import {
   GetCreditCardExpirationDaysRequest,
@@ -40,17 +41,18 @@ import {
   CEPResponse,
   ICreditCardCreationPayload,
   IBase64DecodedResponse,
+  IGetBondResponse
 } from '../Creation/types'
 
 const CreditCardPro = () => {
-  const token = getCookieValue('TOKEN') || null
   const { addToast } = useToast()
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const { hash } = useParams<{ hash: string }>()
 
-  const [customerName, setCustomerName] = useState<string>('')
-  const [codCorretor, setCodCorretor] = useState<string>('')
+  const [customer, setCustomer] = useState<IBase64DecodedResponse | null>(null)
+  const [customerIsLoading, setCustomerIsLoading] = useState(false)
+  const [customerHasError, setCustomerHasError] = useState(false)
 
   const [selectedFlag, setSelectedFlag] = useState<FLAGS | ''>('')
   const [selectedDay, setSelectedDay] = useState<IOption>({ id: 0, name: '' })
@@ -70,24 +72,38 @@ const CreditCardPro = () => {
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
   const [submitErrorCount, setSubmitErrorCount] = useState<number>(0)
 
-  useEffect(() => {
-    // Setar a header do Axios com este accessToken
-    if (token) {
-      console.log('Token', token)
+  const getClientName = React.useCallback(async () => {
+    try{
+      setCustomerHasError(false)
+      setCustomerIsLoading(true)
+      const { data } = await axiosInstance.get<IGetBondResponse>(`${baseURL}/investimento/cadastro/v1/vinculo`, {
+        params: { cpf: customer!.cpfCliente, codigoProduto: '1' }
+      })
+      const { nome } = data.vinculoParceiroResponseType
+      setCustomer({ ...customer, nomeCliente: nome } as IBase64DecodedResponse)
+      setCustomerIsLoading(false)
+    } catch {
+      setCustomerHasError(true)
     }
-  }, [token])
+  }, [customer])
 
   // Base64 Decode
   useEffect(() => {
-    if (hash && base64decode(hash)) {
+    if (hash) {
       const dataDecoded: IBase64DecodedResponse = base64decode(hash)
-      console.log('Base64 Decoded', dataDecoded)
-      setCustomerName(dataDecoded.nomeCliente)
-      setCodCorretor(dataDecoded.idCorretor)
+      dataDecoded.nomeCliente = ''
+
+      if(dataDecoded)
+        setCustomer(dataDecoded)
     } else {
       setShowErrorMessage(true)
     }
   }, [hash])
+
+  useEffect(() => {
+    if (customer?.cpfCliente && !customer?.nomeCliente)
+      getClientName()
+  }, [customer, getClientName])
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -128,7 +144,8 @@ const CreditCardPro = () => {
     setIsLoading(true)
 
     const payload: ICreditCardCreationPayload = {
-      idParceiro: codCorretor,
+      codigoCanal: '2',
+      idParceiro: customer?.idCorretor || '',
       cep: cep,
       cidade: city,
       logradouro: streetAddress,
@@ -138,21 +155,31 @@ const CreditCardPro = () => {
       uf: stateOption.name,
       codigoBandeira: selectedFlag,
       diaVencimento: selectedDay.name,
+      codigoEstadoCivil: '',
+      codigoProfissao: '',
+      dataNascimento: '',
+      nacionalidade: '',
+      email: '',
+      dddTelefone: '',
+      numeroTelefone: '',
+      nome: customer?.nomeCliente || '',
+      sexo: '',
+      tipoDocumento: '',
+      numeroDocumentoIdentificacao: '',
+      orgaoExpedidor: '',
+      dataEmissaoDocumento: '',
+      nomeMae: '',
+      idOportunidade: '',
+      idSimulacao: ''
     }
 
-    console.log('[Form Payload]:', payload)
-
     try {
-      const {
-        data: {
-          mensagem: { tipoCritica, mensagem },
-        },
-      } = await post(`${baseURLNamespaceInvestAws}/cartoes/sugestao`, payload)
+      const { data } = await post(`${baseURLNamespaceInvestAws}/cartoes/sugestao`, payload)
 
-      if (tipoCritica === 'SUCESSO') {
+      if (data.Message.tipoCritica === 'SUCESSO') {
         setShowSuccessMessage(true)
       } else {
-        throw new Error(JSON.stringify({ msg: mensagem }))
+        throw new Error(JSON.stringify({ msg: data.Message }))
       }
     } catch (error) {
       setSubmitErrorCount(submitErrorCount + 1)
@@ -173,7 +200,7 @@ const CreditCardPro = () => {
   if (showSuccessMessage) {
     return (
       <ContentWrapper>
-        <ProposalResolutionSuccess customerName={customerName} />
+        <ProposalResolutionSuccess customerName={customer?.nomeCliente || ''} />
       </ContentWrapper>
     )
   }
@@ -194,7 +221,13 @@ const CreditCardPro = () => {
             <SidebarWrapper>
               <Title>Dados da Proposta</Title>
               <SubTitle>ENVIAR PROPOSTA PARA</SubTitle>
-              <UserCard name={customerName} role="Cliente" />
+              <UserCard
+                name={customer?.nomeCliente || ''}
+                role="Cliente"
+                loading={customerIsLoading}
+                error={customerHasError}
+                retry={getClientName}
+                />
             </SidebarWrapper>
           </Col>
           <Col md={9} sm={12}>
