@@ -1,6 +1,10 @@
 import React from 'react'
+
 import Text from 'components/Text'
+
 import * as S from './styles'
+import UserCardLoading from './Loading'
+import UserCardError from './Error'
 
 /**
  * Component to show short informations about user
@@ -10,6 +14,9 @@ import * as S from './styles'
  * @param {String} name - User name or main information
  * @param {String} role - Role or secundary information
  * @param {String} [thumbnail=true] - Whether there should be a thumbnail
+ * @param {Boolean} [loading=false] - Shows the loading component
+ * @param {Boolean} [error=false] - Shows the error component
+ * @param {Function} [retry=()=>{}] - Retry function in case of error
  * @return {*}
  *
  * @example Sample
@@ -19,11 +26,17 @@ export default function UserCard({
   name,
   role,
   thumbnail = true,
+  loading = false,
+  error = false,
+  retry = () => {},
   ...rest
 }: {
   name: String
   role: String
   thumbnail?: Boolean
+  loading?: Boolean
+  error?: Boolean
+  retry?: () => void
 }) {
   function initials(name: String): String {
     const [firstName, lastName] = name.split(' ').map(i => i.toUpperCase())
@@ -36,6 +49,10 @@ export default function UserCard({
       return firstName.charAt(0)
     }
   }
+
+  if(loading) return <UserCardLoading />
+
+  if(error) return <UserCardError retry={retry}/>
 
   return (
     <S.Card {...rest} data-testid="userCard">
