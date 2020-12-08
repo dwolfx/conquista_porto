@@ -36,7 +36,7 @@ const PassengerStep: StepComponent = () => {
       <StepBar actualStep={3} totalNumberOfSteps={5} />
       <S.Wrapper data-testid="passenger-step">
         <S.StyledContainer>
-          <Row
+          <S.Row
             alignItems="center"
             justifyContent={isTabletVertical ? 'center' : 'start'}
           >
@@ -93,7 +93,7 @@ const PassengerStep: StepComponent = () => {
                 Próximo
               </S.StyledButton>
             </Col>
-          </Row>
+          </S.Row>
         </S.StyledContainer>
       </S.Wrapper>
     </>

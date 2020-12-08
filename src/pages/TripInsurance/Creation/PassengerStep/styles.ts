@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container } from 'styled-bootstrap-grid'
+import { Container, Row as RowComponent } from 'styled-bootstrap-grid'
 
 import InputNumber from 'components/Inputs/Number'
 import Button from 'components/Button'
@@ -12,6 +12,11 @@ export const Wrapper = styled.div`
 
 export const StyledContainer = styled(Container)`
   padding: ${({ theme }) => `${theme.spacing(14)}px ${theme.spacing(2)}px`};
+  height: 100%;
+`
+
+export const Row = styled(RowComponent)`
+  height: 100%;
 `
 
 export const StyledCounter = styled(InputNumber)`
@@ -24,19 +29,18 @@ export const StyledButton = styled(Button)`
 `
 
 export const FlexContainer = styled.div`
-
   @media ${props => props.theme.mediaQueries.xs} {
-      width: 75%;
-      margin: 0 auto;
+    width: 75%;
+    margin: 0 auto;
   }
 
   > h5 {
-      > span {
-        @media ${props => props.theme.mediaQueries.mdUp} {
-          display: none;
-        }
-        vertical-align: middle;
-        margin-left: 14px;
+    > span {
+      @media ${props => props.theme.mediaQueries.mdUp} {
+        display: none;
       }
+      vertical-align: middle;
+      margin-left: 14px;
+    }
   }
 `

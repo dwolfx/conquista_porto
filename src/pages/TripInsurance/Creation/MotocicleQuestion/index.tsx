@@ -41,7 +41,7 @@ const MotocicleQuestion: StepComponent = () => {
     <s.ContentWrapper>
       <StepBar actualStep={5} totalNumberOfSteps={5} />
       <s.ContentContainer>
-        <s.ContentRow justifyContent="center">
+        <s.ContentRow justifyContent={isMobile ? 'center' : 'start'}>
           <Col lg={3} md={3} hiddenMdDown>
             <s.ContentWrapper>
               <s.TitleInfo type="heading4" bold>
@@ -54,7 +54,7 @@ const MotocicleQuestion: StepComponent = () => {
               </Text>
             </s.ContentWrapper>
           </Col>
-          <Col lg={1} md={1} hiddenSmDown />
+          <Col lg={1} md={1} hiddenMdDown />
           <Col lg={4} md={4} sm={6}>
             <s.ContentWrapper>
               <s.QuestionText textAlign="center" type="headline">
