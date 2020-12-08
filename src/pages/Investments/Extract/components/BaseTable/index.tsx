@@ -2,12 +2,12 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
-import ExtractTableTabletVertical from './Tablet'
-
-import { columns } from './constants'
-import { ITransaction } from '../types'
-import * as S from './styles'
 import useMedia from 'hooks/useMedia'
+
+import ExtractTableTabletVertical from './Tablet'
+import { columns } from './formatter'
+import { ITransaction } from '../../AccountExtract/types'
+import * as S from './styles'
 
 interface IProps {
   extracts: ITransaction[]
@@ -19,7 +19,7 @@ interface IProps {
     dataFinal: string | null
   }
 }
-const ExtractTable = (props: IProps) => {
+const BaseTable = (props: IProps) => {
   const { extracts, isLoading, hasError, request } = props
   const columnsToRender = columns()
   const dispatch = useDispatch()
@@ -43,4 +43,4 @@ const ExtractTable = (props: IProps) => {
   )
 }
 
-export default ExtractTable
+export default BaseTable

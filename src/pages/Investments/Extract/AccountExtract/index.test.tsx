@@ -121,7 +121,7 @@ describe('AccountExtract tests', () => {
       </MemoryRouter>, { container: createRootContainer() }
     )
     expect(screen.getByTestId('card-account-info')).toBeInTheDocument()
-    expect(screen.getByTestId('table-account-extract')).toBeInTheDocument()
+    expect(screen.getByTestId('table-account-Base')).toBeInTheDocument()
   })
   test('filter functions should reflect on buttons', () => {
     renderWithReduxAndTheme(

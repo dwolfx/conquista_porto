@@ -8,13 +8,13 @@ import useMedia from 'hooks/useMedia'
 // atualizar quando existir informações sobre o serviço de Saldo a liquidar
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
-import BaseLayer from '../BaseLayer'
+import BaseLayer from '../components/BaseLayer'
 import TableFilter from './TableFilter'
 import AmountsToBeSettleTableMobile from './AmountsToBeSettledTable/Mobile'
 import AmountToBeSettledTable from './AmountsToBeSettledTable'
 import amountToBeSettledFilters from './TableFilter/utils/amountToBeSettledFilters'
 import TableFilterDrawer from './TableFilterDrawer'
-import { FloatButton } from '../BaseLayer/styles'
+import { FloatButton } from '../components/BaseLayer/styles'
 import { INTERVAL_SELECT_OPTIONS } from '../constants'
 import { IFilter, IInterval, ITransaction, ISelectInterval } from './types'
 

@@ -6,11 +6,11 @@ import Text from 'components/Text'
 import Button from 'components/Button'
 import Loading from 'components/Loading'
 
-import { ITransaction } from '../../types'
 import * as S from '../styles'
 import { formatMoney } from 'helpers'
 import { useDispatch } from 'react-redux'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
+import { ITransaction } from 'pages/Investments/Extract/AccountExtract/types'
 
 interface IProps {
   extracts: ITransaction[]
@@ -62,7 +62,7 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
   }
 
   return (
-  <>
+    <>
       {extracts.slice(0, listSize).map((extract, index, array) => (
           <S.StyledCard
             data-testid="table-account-extract"

@@ -8,13 +8,15 @@ import FundDetailDrawer from 'components/FundDetail/Drawer'
 import FundDetailModal from 'components/FundDetail/Modal'
 import useMedia from 'hooks/useMedia'
 
-import ExtractTableMobile from 'pages/Investments/Extract/AccountExtract/ExtractTable/Mobile' // copy components
-import { FloatButton } from '../BaseLayer/styles'
+// import ExtractTableMobile from 'pages/Investments/Extract/AccountExtract/ExtractTable/Mobile' // copy components
+import { FloatButton } from '../components/BaseLayer/styles'
 
-import BaseLayer from '../BaseLayer'
+import BaseLayer from '../components/BaseLayer'
+import BaseTable from '../components/BaseTable'
+import BaseTableMobile from '../components/BaseTable/Mobile'
 import TableFilter from './TableFilter'
 import TableFilterDrawer from './TableFilterDrawer'
-import ExtractTable from './ExtractTable'
+// import ExtractTable from './ExtractTable'
 
 import { FundDetailContainer, ColFundDetail, ColStyled, ContentCard, TableWrapper } from './styles'
 import { ISelectInterval, IInterval } from '../AccountExtract/types'
@@ -98,7 +100,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
         <ColStyled lg={9} md={12} data-testid="table-fund-extract">
           {isMobile ? (
             <>
-              <ExtractTableMobile
+              <BaseTableMobile
                 isLoading={isLoadingExtractFund}
                 hasError={hasErrorExtractFund}
                 extracts={getExtracts()}
@@ -139,11 +141,15 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
                   handleInterval={setInterval}
                   handleClearFilters={cleanFilters}
                 />
-                <ExtractTable 
+                <BaseTable 
                   isLoading={isLoadingExtractFund}
                   hasError={hasErrorExtractFund}
                   extracts={getExtracts()}
-                  request={false}
+                  request={{
+                    tipoFiltro: 0,
+                    dataInicial: interval.startDate,
+                    dataFinal: interval.endDate
+                  }}
                 />
               </TableWrapper>
             </ContentCard>

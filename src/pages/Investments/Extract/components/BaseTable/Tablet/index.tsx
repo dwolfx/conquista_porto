@@ -7,7 +7,8 @@ import Text from 'components/Text'
 import Button from 'components/Button'
 import Loading from 'components/Loading'
 
-import { ITransaction } from '../../types'
+import { ITransaction } from 'pages/Investments/Extract/AccountExtract/types'
+
 import * as S from '../styles'
 import { formatMoney } from 'helpers'
 import { useDispatch } from 'react-redux'

@@ -7,14 +7,14 @@ import moment from 'moment'
 import useMedia from 'hooks/useMedia'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
-import BaseLayer from '../BaseLayer'
+import BaseLayer from '../components/BaseLayer'
 import TableFilter from './TableFilter'
-import ExtractTableMobile from './ExtractTable/Mobile'
-import ExtractTable from './ExtractTable'
+import BaseTableMobile from '../components/BaseTable/Mobile'
+import BaseTable from '../components/BaseTable'
 import accountExtractFilters from './TableFilter/utils/accountExtractFilters'
 import InvestmentAccountDetail from './InvestmentAccountDetail'
 import TableFilterDrawer from './TableFilterDrawer'
-import { FloatButton } from '../BaseLayer/styles'
+import { FloatButton } from '../components/BaseLayer/styles'
 import { INTERVAL_SELECT_OPTIONS } from '../constants'
 import { IFilter, IInterval, ITransaction, ISelectInterval } from './types'
 
@@ -87,7 +87,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
         <ColStyled lg={9} md={12}>
           {isMobile ? (
             <>
-              <ExtractTableMobile
+              <BaseTableMobile
                 isLoading={isLoading}
                 hasError={hasError}
                 extracts={filteredExtracts}
@@ -119,9 +119,9 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
             </>
           ) : (
             <ContentCard
-                data-testid="table-account-extract"
+                data-testid="table-account-Base"
               >
-                <TableWrapper hasError={false}>
+               <TableWrapper hasError={false}>
                   <TableFilter
                     filters={filters}
                     handleFilters={setFilters}
@@ -131,7 +131,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
                     handleSelectInterval={setSelectedInterval}
                     handleClearFilters={clearFilters}
                   />
-                  <ExtractTable
+                  <BaseTable
                     isLoading={isLoading}
                     hasError={hasError}
                     extracts={filteredExtracts}
