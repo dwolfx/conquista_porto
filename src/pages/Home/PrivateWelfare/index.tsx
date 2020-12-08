@@ -10,7 +10,7 @@ import {
   IPrivateWelfare,
   IPrivateWelfareWithStatusPRE,
 } from 'store/modules/PrivateWelfare/types'
-import { formatMoney, handlePrivateWelfareRedirect } from 'helpers'
+import { formatMoney, handlePrivateWelfareRedirectWithAffiliation } from 'helpers'
 
 import PrivateWelfareEmptyState from './PrivateWelfareEmptyState'
 import PrivateWelfareLoadingState from './PrivateWelfareLoadingState'
@@ -300,7 +300,7 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
                   </ContentWrapper>
                   <ButtonWrapper>
                     <ManageButton
-                      onClick={() => handlePrivateWelfareRedirect()}
+                      onClick={() => handlePrivateWelfareRedirectWithAffiliation(pV?.affiliationId)}
                       data-gtm-type="click"
                       data-gtm-clicktype="button"
                       data-gtm-subname="Gerenciar previdencia privada"

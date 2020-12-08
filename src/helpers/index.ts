@@ -106,6 +106,13 @@ export function handlePrivateWelfareRedirect() {
       : 'http://otclienthom.portoseguro.brasil/react/previdencia.html#/'
 }
 
+export function handlePrivateWelfareRedirectWithAffiliation(affiliationID: number) {
+  window.location.href =
+    process.env.REACT_APP_ENV === 'production'
+      ? `https://cliente.portoseguro.com.br/react/previdencia.html#/previdencia-privada/visualizar/${affiliationID}`
+      : `http://otclienthom.portoseguro.brasil/react/previdencia.html#/previdencia-privada/visualizar/${affiliationID}`
+}
+
 export const getCookieValue = (key: string) => {
   return Cookies.get(key)
 }
