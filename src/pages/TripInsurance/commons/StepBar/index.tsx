@@ -8,11 +8,15 @@ import Text from 'components/Text'
 import { IProps } from './types'
 import * as S from './styles'
 
-export default function StepBar({ actualStep, totalNumberOfSteps }: IProps) {
+export default function StepBar({ 
+  actualStep = null,
+  totalNumberOfSteps = null,
+  showSteps = true 
+}: IProps) {
   const isMobile = useMedia('xs')
 
   return (
-    <S.StepBar step={actualStep}>
+    <S.StepBar>
       <S.GridContainer>
         <S.GridRowStepBar>
           <S.ColStepBar lg={12}>
@@ -26,11 +30,11 @@ export default function StepBar({ actualStep, totalNumberOfSteps }: IProps) {
                   Seguro Viagem
                 </Text>,
               ]}
-              endItems={[
+              endItems={showSteps ? [
                 <Text color="gray4" type="title">
                   {`ETAPA ${actualStep} de ${totalNumberOfSteps}`}
                 </Text>
-              ]}
+              ] : null}
               css={`
                   width: 100%;
                   padding: 0;
