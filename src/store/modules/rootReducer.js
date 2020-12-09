@@ -24,6 +24,7 @@ import income from './Investment/Income/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
+import fluxManagement from './FluxManagement/reducer'
 import points from './Points/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import notifications from './Notifications/reducer'
@@ -60,6 +61,7 @@ export default combineReducers({
   investmentDetails,
   investmentPosition,
   comparativeProfitability,
+  fluxManagement,
   income,
   lifeInsurance,
   consolidatedPosition,

@@ -32,6 +32,8 @@ interface IProps {
   isOpen: boolean
   headerControlls?: React.ReactNode
   preSelectedRange?: IPreSelectedRange
+  blockFutureDays?: boolean
+  blockPastDays?: boolean
   onChangeModalOpen: (open: boolean) => void
   onHandleApply: (
     startDate: moment.Moment | null,
@@ -45,6 +47,8 @@ const DatePickerRangeModal: React.FC<IProps> = ({
   preSelectedRange,
   onChangeModalOpen,
   onHandleApply,
+  blockFutureDays = false,
+  blockPastDays = false,
 }) => {
   const [focusedInput, setFocusedInput] = useState<FocusedInputShape | null>(
     'startDate'
@@ -133,6 +137,8 @@ const DatePickerRangeModal: React.FC<IProps> = ({
             numberOfMonths={numberOfMonths}
             idDatePickerRange="idDPR_Modal"
             isOpenInsideModal
+            blockFutureDays={blockFutureDays}
+            blockPastDays={blockPastDays}
             rangeDates={rangeDates}
             focusedInput={focusedInput}
             onHandleFocusedInput={handleFocusedInput}

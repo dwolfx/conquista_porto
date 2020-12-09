@@ -44,6 +44,7 @@ const RadioComponent = ({
       <RadioLabel
         key={`#${item.name}-${item.value}-${index}`}
         disabled={item.disabled}
+        itemsDirection={itemsDirection}
       >
         <RadioInput
           data-gtm-form="input"

@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 import Icon from 'components/IconExporter'
 
+interface InputGroupWrapperInterface {
+  noBorderRadius: boolean
+}
+
 const inputDefaultStyle = css`
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.gray3};

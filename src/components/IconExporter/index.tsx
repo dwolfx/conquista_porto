@@ -81,6 +81,9 @@ import { ReactComponent as plane } from 'assets/icons/plane.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
 import { ReactComponent as reload } from 'assets/icons/reload.svg'
 import { ReactComponent as remove } from 'assets/icons/remove.svg'
+import { ReactComponent as plus } from 'assets/icons/plus.svg'
+import { ReactComponent as subtract } from 'assets/icons/subtract.svg'
+import { ReactComponent as removeMultiselector } from 'assets/icons/removeMultiselector.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as scale } from 'assets/icons/scale.svg'
 import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
@@ -156,6 +159,8 @@ export const dict = {
   hospital,
   idea,
   information,
+  plus,
+  subtract,
   leave,
   linechart,
   link,
@@ -180,6 +185,7 @@ export const dict = {
   refresh,
   reload,
   remove,
+  removeMultiselector,
   safebox,
   scale,
   smartphone,

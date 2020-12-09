@@ -1,0 +1,31 @@
+import { Col, Container, Row } from 'styled-bootstrap-grid'
+import styled from 'styled-components'
+
+export const StepBar = styled.div<{ step: number }>`
+  background-color: ${props => props.theme.colors.grayblue1};
+  height: 56px;
+  position: relative;
+`
+
+export const GridContainer = styled(Container)`
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    padding: 0px;
+  }
+`
+
+export const GridRowStepBar = styled(Row)`
+  margin: 0;
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const ColStepBar = styled(Col)`
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+`

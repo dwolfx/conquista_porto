@@ -19,6 +19,7 @@ export default function Select({
   optionBoxSize = 400,
   optionBoxDirection = 'bottom',
   emptyText = 'Não há opções disponíveis',
+  hasLockIcon = false,
   ...rest
 }: t.IProps) {
   const [isOptionsOpen, setOptionsOpen] = useState(false)
@@ -55,6 +56,29 @@ export default function Select({
     ))
   }, [options, selected, emptyText])
 
+  const suffixRender = () => {
+    if (isLoading) {
+      return <Loading type="spinner" color="blue4" />
+    } else if (hasLockIcon) {
+      return (
+        <Icon
+          name="lock"
+          color={disabled ? 'gray4' : 'gray6'}
+          width={21}
+          height={21}
+        />
+      )
+    } else {
+      return (
+        <Icon
+          name={isOptionsOpen ? 'arrowup' : 'arrowdown'}
+          color={disabled ? 'gray4' : 'gray6'}
+          width={21}
+          height={21}
+        />
+      )
+    }
+  }
   return (
     <s.Container {...rest}>
       <s.InputContainer
@@ -70,18 +94,7 @@ export default function Select({
           placeholder="Selecione"
           value={selected?.name}
           disabled={isLoading || disabled}
-          suffix={
-            isLoading ? (
-              <Loading type="spinner" color="blue4" />
-            ) : (
-              <Icon
-                name={isOptionsOpen ? 'arrowup' : 'arrowdown'}
-                color={disabled ? 'gray4' : 'gray6'}
-                width={21}
-                height={21}
-              />
-            )
-          }
+          suffix={suffixRender()}
           readOnly
           data-testid={`select-option-input-${testId}`}
         />

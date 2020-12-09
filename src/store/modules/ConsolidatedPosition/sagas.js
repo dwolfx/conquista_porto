@@ -6,6 +6,7 @@ import {
   baseURLNamespaceInvest,
 } from 'services/api'
 
+import { loggerSucess, loggerError } from 'logger'
 import { Types } from './types'
 import {
   GetConsolidatedPositionDataSuccess,
@@ -13,11 +14,9 @@ import {
 } from './action'
 
 export function* getData() {
+  const getConsolidatedPositionURL = `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
   try {
-    const response = yield call(
-      get,
-      `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
-    )
+    const response = yield call(get, getConsolidatedPositionURL)
     /*
       Esta alteração "remendo" que estamos fazendo na release 3.1.1, é para ajustar
       um problema que ocorreu no dia 23/09/2020. Ao subir a release 3.1.1 em
@@ -95,8 +94,10 @@ export function* getData() {
     */
 
     yield put(GetConsolidatedPositionDataSuccess(response.data))
+    loggerSucess(getConsolidatedPositionURL, 'GET', response?.status)
   } catch (err) {
     yield put(GetConsolidatedPositionDataFailure())
+    loggerError(getConsolidatedPositionURL, 'GET', err)
   }
 }
 

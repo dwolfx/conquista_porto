@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useLocation } from 'react-router-dom'
 
 import moment from 'moment'
 // eslint-disable-next-line no-unused-vars
 import { css, ThemeContext } from 'styled-components/macro'
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
+import TripInsuranceCreation from 'pages/TripInsurance/Creation'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -25,6 +25,7 @@ import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
+import { ResetFluxManagement } from 'store/modules/FluxManagement/actions'
 import {
   AddBtnLink,
   PageTitle,
@@ -49,8 +50,10 @@ export default function ManagementTripInsurance() {
 
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [selectedTripInsurance, setSelectedTripInsurance] = useState(null)
+  const [isOpenCreationLayer, setOpenCreationLayer] = useState(false)
   const themeContext = useContext(ThemeContext)
-  const { state: locationState } = useLocation()
+  const dispatch = useDispatch()
+  // const { state: locationState } = useLocation()
 
   const tripInsurance = useSelector(state => state.tripInsurance)
   useEffect(() => {
@@ -73,6 +76,13 @@ export default function ManagementTripInsurance() {
     )
     return (
       <>
+        <TripInsuranceCreation
+          isOpen={isOpenCreationLayer}
+          closeHandler={() => {
+            setOpenCreationLayer(false)
+            dispatch(ResetFluxManagement())
+          }}
+        />
         <Container>
           <PageContent id="trip-insurance-top-page">
             <LeftNav>
@@ -81,15 +91,7 @@ export default function ManagementTripInsurance() {
                 data-gtm-clicktype="card"
                 data-gtm-subname="card custodia visualizar"
                 data-gtm-name="adicionar"
-                onClick={() => {
-                  handleGiwRedirect(
-                    `portaldecliente/conquista/seguro-viagem/simular?r=true${
-                      (locationState || {}).idGoal
-                        ? `&idObjetivo=${(locationState || {}).idGoal}`
-                        : ''
-                    }`
-                  )
-                }}
+                onClick={() => setOpenCreationLayer(true)}
               >
                 <Icon width="48" fill="#ccc" name="add" />
                 <Text fontColor="#aaa" fontSize="14px">

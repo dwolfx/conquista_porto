@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import { SingleDatePicker as SDP } from 'react-dates'
+import { SingleDatePicker as SDP, isInclusivelyBeforeDay } from 'react-dates'
 import { ButtonNavPrev, ButtonNavNext } from '../styles'
 
 /* Usar esta propriedade para bloquear uma lista de datas */
@@ -34,6 +34,8 @@ interface IDatePicker {
   dateItem: moment.Moment | null
   focusedInput: boolean
   daysToBlock?: moment.Moment[]
+  blockFutureDays?: boolean
+  blockPastDays?: boolean
   onHandleFocusedInput: (res: boolean) => void
   onHandleSetDateItem: (dateItem: moment.Moment | null) => void
 }
@@ -44,6 +46,8 @@ const DatePicker: React.FC<IDatePicker> = ({
   daysToBlock,
   onHandleFocusedInput,
   onHandleSetDateItem,
+  blockFutureDays = false,
+  blockPastDays = false,
 }) => {
   return (
     <s.Container>
@@ -69,7 +73,15 @@ const DatePicker: React.FC<IDatePicker> = ({
         /* Usar esta prop para definir aparecer somente um mês no calendário */
         numberOfMonths={1}
         /* Usar esta prop para com valor false para habilitar seleção de datas passadas */
-        isOutsideRange={() => false}
+        isOutsideRange={day => {
+          if (blockFutureDays) {
+            return !isInclusivelyBeforeDay(day, moment())
+          }
+          if (blockPastDays) {
+            return isInclusivelyBeforeDay(day, moment())
+          }
+          return false
+        }}
         /* Adiciona componente customizado para seta se navegação "anterior" */
         navPrev={<ButtonNavPrev />}
         /* Adiciona componente customizado para seta se navegação "próximo" */

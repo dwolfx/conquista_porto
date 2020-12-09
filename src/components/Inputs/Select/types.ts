@@ -21,6 +21,7 @@ export interface IProps {
   testId?: string
   disabled?: boolean
   isLoading?: boolean
+  hasLockIcon?: boolean
   emptyText?: string
   optionBoxDirection?: 'top' | 'bottom'
   optionBoxSize?: number

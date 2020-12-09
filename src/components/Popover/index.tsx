@@ -17,6 +17,7 @@ interface IProps {
   placement?: TPlacement
   trigger?: string
   tooltip?: boolean
+  zIndex?: number
 }
 
 const Popover: React.FC<IProps> = ({
@@ -28,6 +29,7 @@ const Popover: React.FC<IProps> = ({
   placement = 'top',
   trigger,
   tooltip = false,
+  zIndex = 12,
   ...rest
 }) => {
   const portalContainer = document.querySelector('#root')
@@ -68,12 +70,14 @@ const Popover: React.FC<IProps> = ({
   const renderPopover = (
     ref: React.Ref<any>,
     style: object,
-    innerPlacement: string
+    innerPlacement: string,
+    zIndex: number
   ) => (
     <PopoverContainer
       ref={ref}
       style={style}
       placement={placement || innerPlacement}
+      zIndex={zIndex}
     >
       <Arrow placement={placement || innerPlacement} />
       {renderContent()}
@@ -85,7 +89,12 @@ const Popover: React.FC<IProps> = ({
     style: object,
     innerPlacement: TPlacement
   ) => (
-    <Tooltip ref={ref} style={style} placement={placement || innerPlacement}>
+    <Tooltip
+      ref={ref}
+      style={style}
+      placement={placement || innerPlacement}
+      zIndex={zIndex}
+    >
       <Arrow placement={placement || innerPlacement} tooltip />
       {renderContent()}
     </Tooltip>
@@ -123,7 +132,7 @@ const Popover: React.FC<IProps> = ({
               {({ placement: innerPlacement, ref, style }: any) =>
                 tooltip
                   ? renderTooltip(ref, style, innerPlacement)
-                  : renderPopover(ref, style, innerPlacement)
+                  : renderPopover(ref, style, innerPlacement, zIndex)
               }
             </Popper>,
             portalContainer

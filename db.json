@@ -231,6 +231,31 @@
       }
     ]
   },
+  "posicao_consolidada": {
+    "saldototal": 20655214.49,
+    "categorias": [
+      {
+        "nome": "Renda Variável",
+        "valor": 3463712.95
+      },
+      {
+        "nome": "Renda Fixa",
+        "valor": 566894.46
+      },
+      {
+        "nome": "Multimercado",
+        "valor": 16488884.2
+      },
+      {
+        "nome": "Cambial",
+        "valor": 47424.17
+      },
+      {
+        "nome": "Investimento no exterior",
+        "valor": 88298.71
+      }
+    ]
+  },
   "cartao_credito": [
     {
       "CodigoCanal": 0,
@@ -6057,7 +6082,20 @@
       }
     ]
   },
-  "goal_recommendations": {},
+  "goal_recommendations": {
+    "nickname": "aaaaaa",
+    "target_date": "30/05/2021",
+    "target_value": 2222.22,
+    "initial_value": 121424234.32,
+    "monthly_value": 35432.52,
+    "uf": "SP",
+    "is_easy_to_save_planned_amount": false,
+    "is_target_date_flexible": false,
+    "would_like_to_receive_before_final_date": false,
+    "would_like_to_receive_monthly_income": false,
+    "goal_type": "1",
+    "profile": 3
+  },
   "goal_management": {
     "id": "77",
     "answer": {

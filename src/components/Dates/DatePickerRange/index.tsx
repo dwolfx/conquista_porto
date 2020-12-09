@@ -1,6 +1,10 @@
 import React from 'react'
 import moment from 'moment'
-import { DateRangePicker as DRP, FocusedInputShape } from 'react-dates'
+import {
+  DateRangePicker as DRP,
+  FocusedInputShape,
+  isInclusivelyBeforeDay,
+} from 'react-dates'
 
 import { ButtonNavPrev, ButtonNavNext } from '../styles'
 
@@ -33,6 +37,8 @@ interface IDatePickerRange {
   idDatePickerRange: string
   numberOfMonths: number
   rangeDates: IRangeDates
+  blockFutureDays?: boolean
+  blockPastDays?: boolean
   focusedInput: FocusedInputShape | null
   isOpenInsideModal?: boolean
   daysToBlock?: moment.Moment[]
@@ -41,6 +47,8 @@ interface IDatePickerRange {
     startDate: moment.Moment | null,
     endDate: moment.Moment | null
   ) => void
+  startDateText?: string
+  endDateText?: string
 }
 
 const DatePickerRange: React.FC<IDatePickerRange> = ({
@@ -52,11 +60,16 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
   daysToBlock,
   onHandleFocusedInput,
   onHandleSetRangeDates,
+  blockFutureDays = false,
+  blockPastDays = false,
+  startDateText = 'Data inicial',
+  endDateText = 'Data final',
+  ...rest
 }) => {
   moment.locale('pt-BR')
 
   return (
-    <s.Container isOpenInsideModal={isOpenInsideModal}>
+    <s.Container {...rest} isOpenInsideModal={isOpenInsideModal}>
       <DRP
         /* Usar esta prop para tirar a borda dos inputs */
         noBorder
@@ -89,15 +102,23 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
         /* Usar esta prop para setar o focus nos inputs*/
         onFocusChange={res => onHandleFocusedInput(res)}
         /* Usar esta prop para informar no placeholder do input inicial um valor */
-        startDatePlaceholderText="Data inicial"
+        startDatePlaceholderText={startDateText}
         /* Usar esta prop para informar no placeholder do input final um valor */
-        endDatePlaceholderText="Data final"
+        endDatePlaceholderText={endDateText}
         /* Usar esta prop para formatar a data dos inputs */
         displayFormat="DD/MM/YYYY"
         /* Usar esta prop para desabilitar informações de teclas de atalho */
         hideKeyboardShortcutsPanel
         /* Usar esta prop para habilitar ou desabilitar seleção de datas passadas */
-        isOutsideRange={() => false}
+        isOutsideRange={day => {
+          if (blockFutureDays) {
+            return !isInclusivelyBeforeDay(day, moment())
+          }
+          if (blockPastDays) {
+            return isInclusivelyBeforeDay(day, moment())
+          }
+          return false
+        }}
         /* Usar esta prop para definir aparecer somente um mês no calendário */
         numberOfMonths={numberOfMonths}
       />
