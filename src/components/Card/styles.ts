@@ -5,6 +5,10 @@ interface ICard {
   hasFooter: boolean
 }
 
+interface ICardBody {
+  overflow: string
+}
+
 export const CardWrapper = styled.div<ICard>`
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.gray3};
@@ -62,11 +66,11 @@ export const CardIconInfo = styled.div`
 
 export const CardTitle = styled(Text)``
 
-export const CardBody = styled.div`
+export const CardBody = styled.div<ICardBody>`
   display: flex;
   flex: 1;
   flex-direction: column;
-  overflow: hidden;
+  overflow: ${props => props.overflow};
 `
 
 export const CardFooter = styled.div`

@@ -10,7 +10,7 @@ interface IProps {
   value: string | undefined
 }
 
-const DataShower = ({ label, value }: IProps) => {
+const DataShower = ({ label, value, ...rest }: IProps) => {
   const isMobile = useMedia('sm')
 
   const labelTextType = isMobile ? 'captionUppercase' : 'caption'
@@ -18,7 +18,7 @@ const DataShower = ({ label, value }: IProps) => {
   const valueTextType = isMobile ? 'headline' : 'title'
 
   return (
-    <S.FlexWrapper>
+    <S.FlexWrapper {...rest}>
       <S.KeyWrapper>
         <Text bold type={labelTextType} color={labelColor}>
           {label}

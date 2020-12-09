@@ -88,6 +88,7 @@ import { ReactComponent as subtract } from 'assets/icons/subtract.svg'
 import { ReactComponent as removeMultiselector } from 'assets/icons/removeMultiselector.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as scale } from 'assets/icons/scale.svg'
+import { ReactComponent as search } from 'assets/icons/search.svg'
 import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
 import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 import { ReactComponent as star } from 'assets/icons/star.svg'
@@ -192,6 +193,7 @@ export const dict = {
   removeMultiselector,
   safebox,
   scale,
+  search,
   smartphone,
   spinner,
   star,

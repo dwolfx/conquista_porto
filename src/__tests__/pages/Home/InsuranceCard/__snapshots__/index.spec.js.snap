@@ -584,6 +584,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
   <div
     className="c16 c17"
     data-testid="card-body"
+    overflow="hidden"
   >
     <div
       className="slick-slider c18 slick-initialized"

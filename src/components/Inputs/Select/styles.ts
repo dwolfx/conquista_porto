@@ -21,7 +21,7 @@ export const InputContainer = styled.div`
   }
 
   input {
-      text-transform: capitalize;
+    text-transform: capitalize;
   }
 `
 
@@ -36,6 +36,7 @@ export const OptionsWrapper = styled.div<{
   max-height: ${({ optionBoxSize }) => `${optionBoxSize}px`};
   padding: ${({ theme }) => `${theme.spacing(2)}px 0`};
   overflow-y: auto;
+  background-color: ${({ theme }) => theme.colors.white};
   ${({ optionBoxDirection, theme }) =>
     optionBoxDirection === 'top'
       ? `bottom: ${theme.spacing(10)}px`
@@ -78,9 +79,10 @@ export const Overlay = styled.div`
 
 export const TooltipText = styled(Text)`
   width: 213px;
-` 
+`
 
 export const Popover = styled(PopoverCmp)`
   width: 100%;
-  margin: ${({ theme }) => theme.spacing(4)}px 0 ${({ theme }) => theme.spacing(4)}px 0 ;
+  margin: ${({ theme }) => theme.spacing(4)}px 0
+    ${({ theme }) => theme.spacing(4)}px 0;
 `
