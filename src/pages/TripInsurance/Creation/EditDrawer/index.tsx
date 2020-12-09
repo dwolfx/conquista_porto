@@ -20,9 +20,8 @@ interface IEditDrawer {
 const EditDrawer: React.FC<IEditDrawer> = ({
   isDrawerOpen,
   handleClose,
-  ...rest
 }) => {
-  const isMobile = useMedia('sm')
+  // Olhar depois os SETTERS ==========================
   const [isLoading, setIsLoading] = useState(false)
   const [originOptions, setOriginOptions] = useState<TOptions[]>([
     { text: 'Brasil', id: 1 },
@@ -51,6 +50,45 @@ const EditDrawer: React.FC<IEditDrawer> = ({
       onClick: () => setSelectedDestination({ id: 2, name: 'Internacional' }),
     },
   ])
+
+  const [adventureSportsOptions, setAdventureSportsOptions] = useState([
+    {
+      id: 1,
+      text: 'Irei praticar',
+      onClick: () =>
+        setSelectedAdventureSportsOption({ id: 1, name: 'Irei praticar' }),
+    },
+    {
+      id: 2,
+      text: 'Não irei praticar',
+      onClick: () =>
+        setSelectedAdventureSportsOption({ id: 2, name: 'Não irei praticar' }),
+    },
+  ])
+  const [
+    selectedAdventureSportsOption,
+    setSelectedAdventureSportsOption,
+  ] = useState({
+    id: 2,
+    name: 'Não irei praticar',
+  })
+  const [motocicleOptions, setMotocicleOptions] = useState([
+    {
+      id: 1,
+      text: 'Irei praticar',
+      onClick: () =>
+        setSelectedMotocicleOption({ id: 1, name: 'Irei praticar' }),
+    },
+    {
+      id: 2,
+      text: 'Não irei praticar',
+      onClick: () =>
+        setSelectedMotocicleOption({ id: 2, name: 'Não irei praticar' }),
+    },
+  ])
+  // Olhar depois os SETTERS ==========================
+  
+  const isMobile = useMedia('sm')
   const [selectedDestination, setSelectedDestination] = useState({
     id: 1,
     name: 'Nacional',
@@ -105,41 +143,6 @@ const EditDrawer: React.FC<IEditDrawer> = ({
     setNumberOfPassangersAboveSeventyYears,
   ] = useState({ id: '0', name: '0', value: 0 })
 
-  const [adventureSportsOptions, setAdventureSportsOptions] = useState([
-    {
-      id: 1,
-      text: 'Irei praticar',
-      onClick: () =>
-        setSelectedAdventureSportsOption({ id: 1, name: 'Irei praticar' }),
-    },
-    {
-      id: 2,
-      text: 'Não irei praticar',
-      onClick: () =>
-        setSelectedAdventureSportsOption({ id: 2, name: 'Não irei praticar' }),
-    },
-  ])
-  const [
-    selectedAdventureSportsOption,
-    setSelectedAdventureSportsOption,
-  ] = useState({
-    id: 2,
-    name: 'Não irei praticar',
-  })
-  const [motocicleOptions, setMotocicleOptions] = useState([
-    {
-      id: 1,
-      text: 'Irei praticar',
-      onClick: () =>
-        setSelectedMotocicleOption({ id: 1, name: 'Irei praticar' }),
-    },
-    {
-      id: 2,
-      text: 'Não irei praticar',
-      onClick: () =>
-        setSelectedMotocicleOption({ id: 2, name: 'Não irei praticar' }),
-    },
-  ])
   const [selectedMotocicleOption, setSelectedMotocicleOption] = useState({
     id: 2,
     name: 'Não irei praticar',
