@@ -23,6 +23,7 @@ export const AccordionHeaderText = styled(Text).attrs(() => ({
 
 interface IAccordionWrapper {
   isOpen?: boolean
+  wrapperPadding?: string
   bodyPadding?: string
 }
 
@@ -47,7 +48,8 @@ export const AccordionCloseButton = styled(IconButton).attrs(() => ({
 export const AccordionWrapper = styled.div<IAccordionWrapper>`
   background-color: ${props => props.theme.colors.white};
   overflow: hidden;
-  padding: 28px 7px;
+  padding: ${({ wrapperPadding, theme }) => 
+    wrapperPadding ? wrapperPadding : `${theme.spacing(4)}px ${theme.spacing(1)}px`};
   transition: all ease-in-out 0.6s;
 
   ${AccordionCloseButton} {

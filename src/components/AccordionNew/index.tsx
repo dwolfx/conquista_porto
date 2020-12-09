@@ -11,6 +11,7 @@ import {
 
 interface IProps {
   bodyPadding?: string
+  wrapperPadding?: string
   openByDefault?: boolean
   titleNode: React.ReactNode | string
   triggerCloseOnArrow: boolean
@@ -18,6 +19,7 @@ interface IProps {
 
 const AccordionNew: React.FC<IProps> = ({
   bodyPadding,
+  wrapperPadding,
   children,
   openByDefault = false,
   titleNode,
@@ -56,7 +58,7 @@ const AccordionNew: React.FC<IProps> = ({
   }
 
   return (
-    <AccordionWrapper isOpen={isOpen} bodyPadding={bodyPadding} {...rest}>
+    <AccordionWrapper isOpen={isOpen} bodyPadding={bodyPadding} wrapperPadding={wrapperPadding} {...rest}>
       <AccordionHeader
         onClick={() => (!triggerCloseOnArrow ? handleToggle() : null)}
         css={`

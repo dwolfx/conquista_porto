@@ -1,8 +1,8 @@
 import { Col, Container, Row } from 'styled-bootstrap-grid'
 import styled from 'styled-components'
 
-export const StepBar = styled.div<{ step: number }>`
-  background-color: ${props => props.theme.colors.grayblue1};
+export const StepBar = styled.div`
+  background-color: ${({ theme }) => theme.colors.grayblue1};
   height: 56px;
   position: relative;
 `
