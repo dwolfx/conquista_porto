@@ -164,6 +164,7 @@ const ChoosePlan: StepComponent = () => {
                   thridCoverageAmount={plano.thridCoverageAmount}
                   isLoading={plano.isLoading}
                   key={plano.planName}
+                  onHireClick={() => {}}
                 />
               ))}
             </s.CardsWrapper>

@@ -34,6 +34,11 @@ export default function (state = INITIAL_STATE, action: any) {
           ...updatedKeys
         }
       }
+    case Types.FLUX_MANAGEMENT_RESET_FORM:
+      return {
+        ...state,
+        form: {},
+      }
 
     case Types.FLUX_MANAGEMENT_RESET_FLUX:
       return {

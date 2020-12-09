@@ -20,8 +20,14 @@ export function UpdateFormFluxManagementStack<T>(updatedKeys: T) {
   }
 }
 
-export function ResetFluxManagement() {
+export function ResetFormFluxManagement() {
   return {
     type: Types.FLUX_MANAGEMENT_RESET_FLUX,
+  }
+}
+
+export function ResetFluxManagement() {
+  return {
+    type: Types.FLUX_MANAGEMENT_RESET_FORM,
   }
 }

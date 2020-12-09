@@ -16,6 +16,7 @@ interface IPlanCardProps {
   secondCoverageAmount: string
   thridCoverageAmount: string
   isLoading: boolean
+  onHireClick: () => void
 }
 
 const PlanCard = ({
@@ -27,6 +28,7 @@ const PlanCard = ({
   secondCoverageAmount = 'R$ 250.000,00',
   thridCoverageAmount = 'R$ 350.000,00',
   isLoading = true,
+  onHireClick = () => {}
 }: IPlanCardProps) => {
   const isMobile = useMedia('sm')
   const isMdUp = useMedia('mdUp')
@@ -52,6 +54,7 @@ const PlanCard = ({
         color="secondary"
         loading={isLoading}
         loadingColor="green3"
+        onClick={onHireClick}
       >
         Contratar
       </s.ContractButton>

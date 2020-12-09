@@ -30,8 +30,8 @@ export default function useStackFluxManagement<T> () {
   }, [dispatch])
 
   const instantiate = React.useCallback((element: StepComponent) => {
-    const algumaCoisa = React.createElement(element) as React.ReactElement
-    add(algumaCoisa)
+    const jsxElement = React.createElement(element) as React.ReactElement
+    add(jsxElement)
   }, [add])
 
   const pop = React.useCallback(() => {
