@@ -350,6 +350,7 @@ Object {
         <div
           class="c2"
           data-testid="card-body"
+          overflow="hidden"
         >
           <div
             class="c3"
@@ -425,8 +426,9 @@ Object {
       class="sc-fznZeY jVvOhJ sc-fzqNqU jfbFek"
     >
       <div
-        class="sc-fzoLag iPUVVZ"
         data-testid="card-body"
+        class="sc-fzoLag kvFCaS"
+        overflow="hidden"
       >
         <div
           class="sc-fzoNJl dFSshK"

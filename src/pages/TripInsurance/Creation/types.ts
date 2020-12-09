@@ -5,6 +5,7 @@ import CoverageDate from './CoverageDate'
 import MotocicleQuestion from './MotocicleQuestion'
 import ChoosePlan from './ChoosePlan'
 import Status from '../Hire/Status'
+import InformationConfirmation from '../Hire/InformationConfirmation'
 
 export const Steps = {
   status: Status,
@@ -14,6 +15,7 @@ export const Steps = {
   adventureSports: AdventureSports,
   motocicleQuestion: MotocicleQuestion,
   choosePlan: ChoosePlan,
+  informationConfirmation: InformationConfirmation,
 }
 export interface IForm {
   // Definir os valores padrões

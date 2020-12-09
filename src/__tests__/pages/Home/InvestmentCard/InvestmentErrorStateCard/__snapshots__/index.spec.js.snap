@@ -334,6 +334,7 @@ exports[`Home InvestmentCard InvestmentErrorStateCard Renders correctly 1`] = `
   <div
     className="c9"
     data-testid="card-body"
+    overflow="hidden"
   >
     <div
       className="c10"

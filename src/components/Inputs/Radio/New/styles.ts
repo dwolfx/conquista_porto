@@ -36,7 +36,9 @@ export const RadioInput = styled.input`
   }
 `
 
-export const RadioLabel = styled.label<{ disabled: boolean }>`
+export const RadioLabel = styled.label<{
+  disabled: boolean
+}>`
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -45,7 +47,6 @@ export const RadioLabel = styled.label<{ disabled: boolean }>`
 
   ${({ theme, disabled }) => `
     color: ${disabled ? theme.colors.gray5 : theme.colors.black}};
-    font-style: ${disabled ? 'italic' : 'normal'};
     pointer-events: ${disabled ? 'none' : 'all'};
   `}
 
@@ -57,4 +58,3 @@ export const RadioInputWrapper = styled.div`
   display: flex;
   align-items: center;
 `
-

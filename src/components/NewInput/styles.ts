@@ -86,7 +86,8 @@ export const ErrorIcon = styled(Icon)`
 export const Input = styled.input`
   background-color: inherit;
   border: none;
-  color: ${({ theme, disabled }) => disabled ? theme.colors.gray4 : theme.colors.gray6};
+  color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.gray4 : theme.colors.gray6};
   font: inherit;
   height: 100%;
   padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};

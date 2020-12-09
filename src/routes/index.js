@@ -305,6 +305,12 @@ export default function Routes({ ...props }) {
           component={ManagementTripInsurance}
           pageTitle="Gestão - Seguro de Viagem"
         />
+        <Route
+          path="/seguro-viagem/simular"
+          exact
+          component={Creation}
+          pageTitle="Simulação - Seguro Viagem"
+        />
         <DefaultRoute
           path="/financiamento-veiculo/visualizar"
           exact

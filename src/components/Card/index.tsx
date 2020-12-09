@@ -25,6 +25,7 @@ interface IProps {
   footer?: React.ReactNode
   headerEndItem?: React.ReactNode
   tooltip?: boolean
+  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto'
 }
 
 const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
@@ -37,6 +38,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
   headerEndItem: HeaderEndItem,
   footer,
   tooltip = true,
+  overflow = 'hidden',
   ...rest
 }) => {
   const CardHeaderContent = () => {
@@ -96,7 +98,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
           )}
         </CardHeader>
       )}
-      <CardBody data-testid="card-body">{children}</CardBody>
+      <CardBody data-testid="card-body" overflow={overflow}>{children}</CardBody>
       {footer && <CardFooter>{footer}</CardFooter>}
     </CardWrapper>
   )

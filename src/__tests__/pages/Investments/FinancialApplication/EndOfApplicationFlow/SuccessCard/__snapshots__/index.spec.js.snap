@@ -532,6 +532,7 @@ Object {
         <div
           class="c2"
           data-testid="card-body"
+          overflow="hidden"
         >
           <div
             class="c3"
@@ -788,6 +789,8 @@ Object {
       <div
         class="sc-fzpjYC ikWzWA"
         data-testid="card-body"
+        class="sc-fzpjYC fUicIH"
+        overflow="hidden"
       >
         <div
           class="sc-fzpmMD jfcpLp"
