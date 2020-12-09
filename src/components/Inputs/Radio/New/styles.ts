@@ -34,6 +34,15 @@ export const RadioInput = styled.input`
       background-color: ${props => props.theme.colors.blue4};
     }
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    &:checked {
+      &:after {
+        background-color: ${props => props.theme.colors.gray4};
+      }
+    }
+  }
 `
 
 export const RadioLabel = styled.label<{

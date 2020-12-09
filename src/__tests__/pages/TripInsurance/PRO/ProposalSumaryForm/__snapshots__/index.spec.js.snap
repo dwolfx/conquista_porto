@@ -416,6 +416,14 @@ Array [
   background-color: #00ADEF;
 }
 
+.c22:disabled {
+  cursor: not-allowed;
+}
+
+.c22:disabled:checked:after {
+  background-color: #BABABA;
+}
+
 .c23 {
   -webkit-align-items: center;
   -webkit-box-align: center;

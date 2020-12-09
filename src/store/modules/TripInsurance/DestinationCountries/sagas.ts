@@ -6,7 +6,6 @@ import {
   IDestinationCountry,
   IFilteredDestinationCountry,
 } from './types'
-
 import {
   GetDestinationCountriesSuccess,
   GetDestinationCountriesFailure,

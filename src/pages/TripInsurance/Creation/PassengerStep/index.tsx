@@ -16,7 +16,6 @@ import { truncateString, calculateAge } from 'helpers'
 
 import PassengersOverSeventyModal from './PassengersOverSeventyModal'
 import { Steps, IForm } from '../types'
-
 import * as S from './styles'
 
 const PassengerStep: StepComponent = () => {

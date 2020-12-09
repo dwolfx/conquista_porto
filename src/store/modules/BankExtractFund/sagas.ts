@@ -25,7 +25,7 @@ export function* getData({ payload }: any) {
       if (id === COME_COTAS) {
         return 'COME-COTAS'
       }
-      
+
       if (Object.values(APLICACAO).some(value => value === id)) {
         return 'APLICAÇÃO'
       }
@@ -37,38 +37,42 @@ export function* getData({ payload }: any) {
       if (Object.values(OUTROS).some(value => value === id)) {
         return 'OUTROS'
       }
-    } 
-    if (newResponse.operacoes === "") {
+    }
+    if (newResponse.operacoes === '') {
       newResponse = {
         ...newResponse,
         operacoes: {
-          operacao: []
-        }
+          operacao: [],
+        },
       }
     } else if (!Array.isArray(newResponse.operacoes.operacao)) {
       newResponse = {
         ...newResponse,
         operacoes: {
-          operacao: [newResponse.operacoes.operacao].map((operacaoItem: any) => ({
-            ...operacaoItem,
-            data: operacaoItem.data_operacao,
-            tipoOperacao: operacaoItem.tipo_operacao,
-            tipo: getType(Number(operacaoItem.tipo_movimentacao_operacao)),
-            valor: operacaoItem.valor_bruto
-          }))
-        }
+          operacao: [newResponse.operacoes.operacao].map(
+            (operacaoItem: any) => ({
+              ...operacaoItem,
+              data: operacaoItem.data_operacao,
+              tipoOperacao: operacaoItem.tipo_operacao,
+              tipo: getType(Number(operacaoItem.tipo_movimentacao_operacao)),
+              valor: operacaoItem.valor_bruto,
+            })
+          ),
+        },
       }
     } else {
       newResponse = {
         operacoes: {
-          operacao: newResponse?.operacoes?.operacao.map((operacaoItem: any) => ({
-            ...operacaoItem,
-            data: operacaoItem.data_operacao,
-            tipoOperacao: operacaoItem.tipo_operacao,
-            tipo: getType(Number(operacaoItem.tipo_movimentacao_operacao)),
-            valor: operacaoItem.valor_bruto
-          }))
-        }
+          operacao: newResponse?.operacoes?.operacao.map(
+            (operacaoItem: any) => ({
+              ...operacaoItem,
+              data: operacaoItem.data_operacao,
+              tipoOperacao: operacaoItem.tipo_operacao,
+              tipo: getType(Number(operacaoItem.tipo_movimentacao_operacao)),
+              valor: operacaoItem.valor_bruto,
+            })
+          ),
+        },
       }
     }
     yield put(GetBankExtractFundSuccess(newResponse))

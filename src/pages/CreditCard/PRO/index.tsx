@@ -93,7 +93,6 @@ const CreditCardPro = () => {
   useEffect(() => {
     if (hash) {
       const dataDecoded: IBase64DecodedResponse = base64decode(hash)
-      dataDecoded.nomeCliente = ''
 
       if(dataDecoded)
         setCustomer(dataDecoded)

@@ -20,6 +20,7 @@ export default function TripInsurenceCreation({
   isOpen: boolean
   closeHandler: () => void
 }) {
+
   const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
     StepComponentProps
   >()

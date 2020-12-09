@@ -24,16 +24,16 @@ export interface IMainPassenger {
 export interface IInsuranceQuotationRequest {
   dataIda?: string
   dataVolta?: string
-  motivoViagem?: 1
+  motivoViagem?: number
   isPraticaAventura?: boolean
   isMotocicleta?: boolean
   qtdPassagMenorSetentaAnos?: number
   qtdPassagMaiorSetentaAnos?: number
   codigoUfOrigem?: string
-  codigoPaisDestino?: string | string[]
+  codigoPaisDestino?: string
   paisesAdicionais?: IAdditionalCountries[]
   passageiroPrincipal?: IMainPassenger
-  codigoCanal?: 1
+  codigoCanal?: number
 }
 
 export interface ICoverage {
@@ -49,19 +49,19 @@ export interface ICreditCardInstallment {
 
 export interface IPlan {
   valorCartaoPortoSeguro: string
+  valorTotal: string
+  codigoPlano: string
+  nomePlano: string
+  urlManualPlano: string
+  valorAssistencia: string
+  valorSeguroBruto: string
   ViagemCobertura: {
     coberturas: ICoverage[]
   }
-  valorAssistencia: string
   formasPagamento: {
     listaParcelamentoCartao: ICreditCardInstallment[]
     listaParcelamentoCartaoPorto: ICreditCardInstallment[]
   }
-  valorTotal: number
-  codigoPlano: string
-  nomePlano: string
-  urlManualPlano: string
-  valorSeguroBruto: string
 }
 
 export interface IInsuranceQuotationResponse {

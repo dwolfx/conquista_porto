@@ -420,6 +420,14 @@ Array [
   background-color: #00ADEF;
 }
 
+.c23:disabled {
+  cursor: not-allowed;
+}
+
+.c23:disabled:checked:after {
+  background-color: #BABABA;
+}
+
 .c24 {
   -webkit-align-items: center;
   -webkit-box-align: center;

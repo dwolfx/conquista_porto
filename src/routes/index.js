@@ -34,8 +34,9 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
 import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
-import TripInsuranceProposalPROCreation from 'pages/TripInsurance/PRO/Creation'
-import TripInsuranceProposalCreation from 'pages/TripInsurance/Creation'
+import TripInsurenceCreation from 'pages/TripInsurance/Creation'
+import TripInsurenceParnerPRO from 'pages/TripInsurance/PRO/Creation/PartnerOffer'
+import TripInsurenceCustomerPRO from 'pages/TripInsurance/PRO/Creation/CustomerProposalOffer'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -245,23 +246,27 @@ export default function Routes({ ...props }) {
         apenas nos nossos ambientes de desenvolvimento */}
         {process.env.REACT_APP_ENV === 'development' ||
         process.env.REACT_APP_ENV === 'local' ? (
-          <Route
-            path="/seguro-viagem/simular/pro"
-            exact
-            component={TripInsuranceProposalPROCreation}
-            pageTitle="Seguro Viagem - Simular"
-          />
+          <>
+            <Route
+              path="/seguro-viagem/simular"
+              exact
+              component={TripInsurenceCreation}
+              pageTitle="Seguro Viagem - Simular"
+            />
+            <Route
+              path="/seguro-viagem/simular/pro/:hash"
+              exact
+              component={TripInsurenceParnerPRO}
+              pageTitle="Seguro Viagem - Simular"
+            />
+            <Route
+              path="/seguro-viagem/simular/pro/contratar/:key"
+              exact
+              component={TripInsurenceCustomerPRO}
+              pageTitle="Seguro Viagem - Simular"
+            />
+          </>
         ) : null}
-        {process.env.REACT_APP_ENV === 'development' ||
-        process.env.REACT_APP_ENV === 'local' ? (
-          <Route
-            path="/seguro-viagem/simular"
-            exact
-            component={TripInsuranceProposalCreation}
-            pageTitle="Seguro Viagem - Simular"
-          />
-        ) : null}
-
         <DefaultRoute
           path="/seguro-viagem"
           exact

@@ -1,0 +1,468 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProposalCard renders correctly 1`] = `
+.c4 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.c14 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 7px 14px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c5.c5 > * {
+  margin-bottom: 11px;
+}
+
+.c5.c5 :last-child {
+  margin-bottom: 0px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c16.c16 > * {
+  margin-bottom: 7px;
+}
+
+.c16.c16 :last-child {
+  margin-bottom: 0px;
+}
+
+.c11 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c6 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+}
+
+.c7 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c12 {
+  color: #898989;
+  text-align: center;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c17 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c19 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c19 svg {
+  height: 21px;
+}
+
+.c19 svg path {
+  fill: currentColor;
+}
+
+.c8 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c8:hover:active {
+  pointer-events: auto;
+}
+
+.c8:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c8:hover:before {
+  width: 100%;
+}
+
+.c8:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c8:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c15 {
+  padding: 0 14px;
+}
+
+.c1 {
+  margin-bottom: 14px;
+  height: auto;
+}
+
+.c3 {
+  padding: 11px 14px 7px;
+}
+
+.c9 {
+  margin: 14px 0;
+}
+
+.c13 {
+  margin: 21px 0;
+}
+
+.c18 {
+  margin: 14px 0;
+}
+
+.c20 {
+  margin: 21px 14px 11px;
+}
+
+<div
+  className="c0 c1"
+>
+  <div
+    className="c2"
+    data-testid="card-body"
+    overflow="hidden"
+  >
+    <div
+      className="c3"
+    >
+      <div
+        className="c4"
+      >
+        <div
+          className="c5"
+        >
+          <h4
+            className="c6"
+            color="gray6"
+            type="heading4"
+          >
+            Brasil Prata
+          </h4>
+          <span
+            className="c7"
+            color="gray5"
+            type="captionUppercase"
+          >
+            6x SEM JUROS DE R$ 1,45
+          </span>
+          <h4
+            className="c6"
+            color="gray6"
+            type="heading4"
+          >
+            R$ 8,70
+             à vista
+          </h4>
+        </div>
+      </div>
+    </div>
+    <button
+      className="c8 c9"
+      color="secondary"
+      disabled={false}
+      onClick={[Function]}
+    >
+      <span
+        className="c10"
+      >
+        selecionar plano
+      </span>
+    </button>
+    <div
+      className="c11"
+    />
+    <p
+      className="c12 c13"
+      color="gray5"
+      type="subheading"
+    >
+      PRINCIPAIS COBERTURAS
+    </p>
+    <div
+      className="c14 c15"
+    >
+      <div
+        className="c16"
+      >
+        <span
+          className="c7"
+          color="gray5"
+          type="captionUppercase"
+        >
+          Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO
+        </span>
+        <h5
+          className="c17"
+          color="gray6"
+          type="headline"
+        >
+          R$ 10.000,00
+        </h5>
+      </div>
+    </div>
+    <div
+      className="c11 c18"
+    />
+    <div
+      className="c14 c15"
+    >
+      <div
+        className="c16"
+      >
+        <span
+          className="c7"
+          color="gray5"
+          type="captionUppercase"
+        >
+          Morte acidental
+        </span>
+        <h5
+          className="c17"
+          color="gray6"
+          type="headline"
+        >
+          R$ 80.000,00
+        </h5>
+      </div>
+    </div>
+    <div
+      className="c11 c18"
+    />
+    <div
+      className="c14 c15"
+    >
+      <div
+        className="c16"
+      >
+        <span
+          className="c7"
+          color="gray5"
+          type="captionUppercase"
+        >
+          Invalidez Permanente Total ou Parcial por Acidente
+        </span>
+        <h5
+          className="c17"
+          color="gray6"
+          type="headline"
+        >
+          R$ 80.000,00
+        </h5>
+      </div>
+    </div>
+    <a
+      className="c19 c20"
+      disabled={false}
+      onClick={[MockFunction]}
+    >
+      lista completa
+    </a>
+  </div>
+</div>
+`;

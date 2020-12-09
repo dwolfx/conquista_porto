@@ -11,7 +11,7 @@ export type TOptions = {
 export type TSelected = {
   id?: number | string
   name?: string
-  value?: number
+  value?: any
 }
 
 export interface IProps {

@@ -271,15 +271,15 @@ const MultiSelector: React.FC<IProps> = ({
           {selectedOptions.map((option: IOption) => (
             <s.SelectedListLi key={option.id}>
               <s.SelectedListButton>
-                <s.Text type="subheading" textTransform="uppercase">
+                <s.Text type="button" bold color="blue4">
                   {option.text}
                 </s.Text>
                 <s.SelectedListIcon
                   onClick={() => removeOptionToSelectList(option)}
                   color="blue4"
                   name="removeMultiselector"
-                  width={21}
-                  height={21}
+                  width={14}
+                  height={14}
                 />
               </s.SelectedListButton>
             </s.SelectedListLi>

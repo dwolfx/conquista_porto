@@ -95,4 +95,31 @@ describe('ComparativeModal component', () => {
     )
     expect(container.children[0].children[1].children[1]).toBeEmptyDOMElement()
   })
+  it('should render loading state', () => {
+    setup()
+    renderWithReduxAndTheme(
+      <ComparativeModal
+        isOpen
+        handleClose={() => {}}
+        travelPlans={tripInsuranceQuotationMock.ViagemPacote.pacotes}
+        isLoading
+      />,
+      {
+        container: createRootContainer(),
+      }
+    )
+
+    expect(
+      screen.getByText(/aguarde, estamos buscando suas informações\.\.\./i)
+    ).toBeDefined()
+  })
+  it('should render empty state', () => {
+    const { container } = renderWithReduxAndTheme(
+      <ComparativeModal isOpen handleClose={() => {}} travelPlans={null} />,
+      {
+        container: createRootContainer(),
+      }
+    )
+    expect(container.children[0].children[1].children[1]).toBeEmptyDOMElement()
+  })
 })

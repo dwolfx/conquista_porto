@@ -7,7 +7,7 @@ import renderer, { act } from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components'
 
 import theme from 'styles/theme'
-import ComissionDetailsModal from 'pages/TripInsurance/PRO/CustomerDataForm/ComissionDetailsModal'
+import ComissionDetailsModal from 'pages/TripInsurance/PRO/Creation/PartnerOffer/Steps/TravelDetailsForm/ComissionDetailsModal'
 
 beforeAll(() => {
   // eslint-disable-next-line no-unused-vars

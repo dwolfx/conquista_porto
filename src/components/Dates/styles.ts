@@ -23,6 +23,22 @@ export const DatePickerStyled = styled.div`
       height: 35px;
     }
 
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: ${({ theme }) => theme.colors.gray4};
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: ${({ theme }) => theme.colors.gray4};
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: ${({ theme }) => theme.colors.gray4};
+    }
+
     @media ${props => props.theme.mediaQueries.sm} {
       width: 100%;
       height: 35px;

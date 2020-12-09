@@ -32,10 +32,10 @@ export function* postInsuranceQuotation({
           pacotes: [data.ViagemPacote.pacotes].flatMap(pacote => pacote),
         },
       }
-    }
 
-    yield put(PostInsuranceQuotationSuccess(newData))
-    if (onSuccess) onSuccess()
+      yield put(PostInsuranceQuotationSuccess(newData))
+      if (onSuccess) onSuccess()
+    }
   } catch (err) {
     yield put(PostInsuranceQuotationFailure())
     onErrorToast({

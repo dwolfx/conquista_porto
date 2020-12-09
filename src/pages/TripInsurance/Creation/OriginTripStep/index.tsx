@@ -51,6 +51,7 @@ const OriginTripStep: StepComponent = () => {
     hasErrorDestinationCountries: state.destinationCountries.hasError,
   }))
 
+
   const originOptions = [
     {
       text: 'Brasil',

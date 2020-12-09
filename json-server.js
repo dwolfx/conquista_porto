@@ -199,7 +199,9 @@ router.render = (req, res) => {
 
   if (req.originalUrl.endsWith('/viagem/cotacao/seguro')) {
     if (req.method === 'POST') {
-      return res.status(200).jsonp({ ...tripInsuranceQuotationMock })
+      return Math.ceil(Math.random() * 10) % 2 === 0
+        ? res.status(200).jsonp({ ...tripInsuranceQuotationMock })
+        : res.status(500).jsonp({ message: 'Internal server error mock' })
     }
   }
 

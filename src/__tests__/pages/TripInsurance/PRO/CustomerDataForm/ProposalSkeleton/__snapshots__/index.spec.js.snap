@@ -30,7 +30,7 @@ exports[`ComissionDetailsModal renders correctly 1`] = `
 }
 
 .c1 {
-  margin-bottom: 21px;
+  margin-bottom: 14px;
   height: auto;
 }
 

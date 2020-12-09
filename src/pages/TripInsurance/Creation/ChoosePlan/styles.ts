@@ -11,7 +11,6 @@ import { Container as ContainerCmp } from 'styled-bootstrap-grid'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   height: auto;
   padding-bottom: ${({ theme }) => theme.spacing(9)}px;
   justify-content: center;

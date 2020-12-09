@@ -5,7 +5,7 @@ import renderer, { act } from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components'
 
 import theme from 'styles/theme'
-import ProposalSkeleton from 'pages/TripInsurance/PRO/CustomerDataForm/ProposalSkeleton'
+import ProposalSkeleton from 'pages/TripInsurance/PRO/Creation/PartnerOffer/Steps/TravelDetailsForm/ProposalSkeleton'
 
 beforeAll(() => {
   ReactDOM.createPortal = jest.fn(element => element)

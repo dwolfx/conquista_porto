@@ -1,9 +1,13 @@
 import React from 'react'
+
 import { TColumns } from 'components/Table/types'
-import * as s from './styles'
+
 import { ITableTitles } from './types'
+
+import * as s from './styles'
+
 export const columns = (columnTitles: ITableTitles[]): TColumns[] => {
-  let columnsTemplate: TColumns[] = [
+  const columnsTemplate: TColumns[] = [
     {
       accessor: 'coverage',
       Header: 'COBERTURAS',

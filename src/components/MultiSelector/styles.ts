@@ -82,7 +82,7 @@ export const SelectedListLi = styled.li`
     margin-right: 0;
   }
   margin-right: ${({ theme }) => theme.spacing(1)}px;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const SelectedListButton = styled.button`

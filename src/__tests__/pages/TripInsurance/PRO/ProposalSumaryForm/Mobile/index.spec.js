@@ -9,7 +9,7 @@ import { ThemeProvider } from 'styled-components'
 
 import theme from 'styles/theme'
 
-import ProposalSumaryForm from 'pages/TripInsurance/PRO/PartnerOffer/ProposalSumaryForm'
+import InsuranceSummary from 'pages/TripInsurance/PRO/Creation/CustomerProposalOffer/Steps/InsuranceSummary'
 
 const INITIAL_STATE = {
   customerProfile: {
@@ -47,7 +47,7 @@ it('ProposalSumaryForm renders correctly', () => {
       <Provider store={store}>
         <BrowserRouter>
           <ThemeProvider theme={theme}>
-            <ProposalSumaryForm />
+            <InsuranceSummary />
           </ThemeProvider>
         </BrowserRouter>
       </Provider>
