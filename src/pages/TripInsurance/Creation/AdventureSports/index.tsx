@@ -1,6 +1,6 @@
 import React from 'react'
 import * as s from './styles'
-import { Container, Col, Row } from 'styled-bootstrap-grid'
+import { Col } from 'styled-bootstrap-grid'
 import Radio from 'components/Inputs/Radio'
 import { useState } from 'react'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
@@ -22,7 +22,7 @@ const radioOptions = [
 const AdventureSports: StepComponent = () => {
   const [hasAdventureSports, setHasAdventureSports] = useState<string>()
 
-  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
+  const { instantiate } = useStackFluxManagement<
     StepComponentProps
   >()
 

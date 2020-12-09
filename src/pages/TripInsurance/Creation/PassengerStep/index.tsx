@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col } from 'styled-bootstrap-grid'
+import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 
 import useMedia from 'hooks/useMedia'

@@ -24,12 +24,15 @@ const radioOptions = [
 ]
 
 const MotocicleQuestion: StepComponent = () => {
-  const [isAnswerPositive, setIsAnswerPositive] = useState<string>()
+  // Olhar depois os SETTERS ==========================
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  // Olhar depois os SETTERS ==========================
+
+  const [isAnswerPositive, setIsAnswerPositive] = useState<string>()
 
   const isMobile = useMedia('md')
 
-  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
+  const { instantiate } = useStackFluxManagement<
     StepComponentProps
   >()
 

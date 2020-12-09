@@ -23,7 +23,7 @@ const CoverageDate: StepComponent = () => {
   const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
 
-  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
+  const { instantiate } = useStackFluxManagement<
     StepComponentProps
   >()
 

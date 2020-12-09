@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
