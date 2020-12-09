@@ -19,13 +19,15 @@ const RadioComponent = ({
   value,
   checked,
   handleChange,
-  disabled = false
+  disabled = false,
+  ...rest
 }: IProps & React.HTMLAttributes<HTMLInputElement>) => {
 
   return (
-    <s.RadioInputWrapper>
+    <s.RadioInputWrapper {...rest}>
       <s.RadioInput
         id={`input-radio-${id}`}
+        data-testid={`input-radio-${id}`}
         type="radio"
         name={name}
         value={value}
