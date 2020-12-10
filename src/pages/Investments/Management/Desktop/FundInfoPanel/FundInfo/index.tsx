@@ -128,7 +128,7 @@ const FundInformation = ({
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
     funds: state.investmentsList.data,
     fundsError: state.investmentsList.isError,
-    fundsIsLoading: state.investmentsList.isError,
+    fundsIsLoading: state.investmentsList.isLoading,
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
     idFund: state.investmentPosition.idFund,

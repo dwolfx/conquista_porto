@@ -53,6 +53,7 @@ interface IProps {
   idFundo: number
   financialApplication: {
     dados_para_aplicacao: {
+      fechado_aplicacao: boolean
       fundo: {
         hora_aplicacao: string
         link_termo_adesao: string
@@ -300,8 +301,39 @@ const FormFinancialContribution = ({
   ])
 
   const handleClickButtonNext = () => {
+    console.log({
+      financialApplication,
+      data_form: moment(formData.whenToInvest, 'DD/MM/YYYY').format('YYYY-MM-DD'),
+      hoje: moment().format('YYYY-MM-DD'),
+      condition: financialApplication.dados_para_aplicacao.fechado_aplicacao &&
+      moment(formData.whenToInvest, 'DD/MM/YYYY').isSame(
+        moment()
+      )
+    })
+    if (financialApplication.dados_para_aplicacao.fechado_aplicacao &&
+      moment(formData.whenToInvest, 'DD/MM/YYYY').isBefore(
+        moment(financialApplication.dados_para_aplicacao.data_operacao, 'YYYY-MM-DD')
+      )) {
+        console.log('caiu aqui')
+        dispatch(
+          GetFinancialApplicationDataRequest({
+            data: {
+              id_fundo: idFundo,
+              data_operacao: moment(formData.whenToInvest, 'DD/MM/YYYY').add(1, 'day').format(
+                'YYYY-MM-DD'
+              ),
+            },
+            onSuccess: () => {
+              setShowError(false)
+              handleGetIsAwareOfTerms()
+            },
+            onErrorToast: addToast,
+          })
+        )
+      }
+
     if (
-      !moment(formData.whenToInvest, 'DD/MM/YYYY').isSame(
+      moment(formData.whenToInvest, 'DD/MM/YYYY').isSameOrAfter(
         moment(financialApplication.dados_para_aplicacao.data_operacao)
       )
     ) {
@@ -337,7 +369,6 @@ const FormFinancialContribution = ({
         bankData.hasError ||
         financialApplicationLoading ||
         financialApplicationHasError ||
-        financialApplicationLoading ||
         nextButtonLoading ||
         alignmentTermsLoading
       }

@@ -59,12 +59,11 @@ export function* getFinancialApplicationData({
   // data_operacao = YYYY-MM-DD
   const { id_fundo, data_operacao } = data
   const { id_cotista } = yield select(getSuitabilityInfo)
-  const { cpf } = yield select(getAuth)
 
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvestAws}/cotista/aplicacoes?id_fundo=${id_fundo}&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${data_operacao}`
+      `${baseURLNamespaceInvestAws}/cotista/aplicacoes?id_fundo=${id_fundo}&id_cotista=${id_cotista}&data_operacao=${data_operacao}`
     )
 
     yield put(GetFinancialApplicationDataSuccess(response.data))
