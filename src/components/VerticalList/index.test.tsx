@@ -1,17 +1,18 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+
+import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import VerticalList from '.'
 
 describe('VerticalList', () => {
   test('render one child', () => {
-    const { getByTestId } = render(
+    renderWithReduxAndTheme(
       <VerticalList elements={[<span data-testid="first">first child</span>]} />
     )
-    expect(getByTestId('first').textContent).toBe('first child')
+    expect(screen.getByTestId('first').textContent).toBe('first child')
   })
   test('render two childs', () => {
-    const { getByTestId } = render(
+    renderWithReduxAndTheme(
       <VerticalList
         elements={[
           <span data-testid="first">first child</span>,
@@ -19,7 +20,7 @@ describe('VerticalList', () => {
         ]}
       />
     )
-    expect(getByTestId('first').textContent).toBe('first child')
-    expect(getByTestId('second').textContent).toBe('second child')
+    expect(screen.getByTestId('first').textContent).toBe('first child')
+    expect(screen.getByTestId('second').textContent).toBe('second child')
   })
 })

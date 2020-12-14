@@ -5,6 +5,7 @@ import { Container, ListElements } from './styles'
 
 interface IProps {
   elements: React.ReactNode[]
+  noSpacing?: boolean
 }
 export default function VerticalList({ elements, ...rest }: IProps) {
   return (
