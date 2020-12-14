@@ -285,7 +285,7 @@ describe('PrivateWelfareSection - Home', () => {
     renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
     fireEvent.click(screen.getByRole('button', { name: /gerenciar/i }))
     expect(window.location.href).toBe(
-      'https://cliente.portoseguro.com.br/react/previdencia.html#/'
+      'https://cliente.portoseguro.com.br/react/previdencia.html#/previdencia-privada/visualizar/980130000'
     )
   })
 })

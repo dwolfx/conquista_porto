@@ -5,7 +5,7 @@ import Text from 'components/Text'
 import Popover from 'components/Popover'
 import Icon from 'components/IconExporter'
 import { INewPrivateWelfare } from '../index'
-import { formatMoney, handlePrivateWelfareRedirect } from 'helpers'
+import { formatMoney, handlePrivateWelfareRedirectWithAffiliation } from 'helpers'
 
 import { findBenefitById } from '../'
 
@@ -45,7 +45,7 @@ const PrivateWelfareMobile = ({
                   {pV?.product?.productId === 2074 ||
                   pV?.product?.productId === 3074
                     ? `Porto Seguro ${
-                        pV?.product?.productId === 2074 ? 'VGBL' : 'PGBL'
+                        pV?.product?.productId === 2074 ? 'PGBL' : 'VGBL'
                       } Individual`
                     : ''}
                 </Text>,
@@ -142,7 +142,7 @@ const PrivateWelfareMobile = ({
           </ContentWrapper>
           <ButtonWrapper>
             <ManageButton
-              onClick={() => handlePrivateWelfareRedirect()}
+              onClick={() => handlePrivateWelfareRedirectWithAffiliation(pV?.affiliationId)}
               data-gtm-type="click"
               data-gtm-clicktype="button"
               data-gtm-subname="Gerenciar previdencia privada"
