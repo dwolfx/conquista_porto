@@ -193,8 +193,8 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
                           pV?.product?.productId === 3074
                             ? `Porto Seguro ${
                                 pV?.product?.productId === 2074
-                                  ? 'VGBL'
-                                  : 'PGBL'
+                                  ? 'PGBL'
+                                  : 'VGBL'
                               } Individual`
                             : ''}
                         </Text>,
