@@ -138,7 +138,7 @@ const SummaryFinancialContribution = ({
               ]}
               endItems={[
                 <>
-                  {!moment(formData.whenToInvest, 'DD/MM/YYYY').isSame(
+                  {moment(formData.whenToInvest, 'DD/MM/YYYY').isBefore(
                     moment(
                       financialApplicationGetData.dados_para_aplicacao
                         .data_operacao

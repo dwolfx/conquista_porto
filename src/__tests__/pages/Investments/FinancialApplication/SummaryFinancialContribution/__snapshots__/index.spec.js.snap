@@ -37,21 +37,7 @@ Object {
   line-height: 25px;
 }
 
-.c14 {
-  color: #BABABA;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-.c16 {
+.c15 {
   color: #272727;
   text-align: unset;
   text-transform: none;
@@ -65,7 +51,7 @@ Object {
   line-height: 19px;
 }
 
-.c17 {
+.c16 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -173,7 +159,7 @@ Object {
   overflow: hidden;
 }
 
-.c18 {
+.c17 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -187,11 +173,11 @@ Object {
   min-height: 63px;
 }
 
-.c15 {
+.c14 {
   padding: 21px;
 }
 
-.c20 {
+.c19 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -209,11 +195,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c20:hover:active {
+.c19:hover:active {
   pointer-events: auto;
 }
 
-.c20:hover:active:after {
+.c19:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -221,11 +207,11 @@ Object {
   transition: all ease 0s;
 }
 
-.c20:hover:before {
+.c19:hover:before {
   width: 100%;
 }
 
-.c20:hover:after {
+.c19:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -240,7 +226,7 @@ Object {
   width: 100%;
 }
 
-.c20:before {
+.c19:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -252,7 +238,7 @@ Object {
   width: 0;
 }
 
-.c23 {
+.c22 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -270,11 +256,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c23:hover:active {
+.c22:hover:active {
   pointer-events: none;
 }
 
-.c23:hover:active:after {
+.c22:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -282,7 +268,7 @@ Object {
   transition: all ease 0s;
 }
 
-.c23:before {
+.c22:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -294,7 +280,7 @@ Object {
   width: 0;
 }
 
-.c22 {
+.c21 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -325,7 +311,7 @@ Object {
   height: 100%;
 }
 
-.c21 {
+.c20 {
   font-size: 11px;
   line-height: 15px;
   margin-right: 14px;
@@ -338,11 +324,11 @@ Object {
   text-transform: uppercase;
 }
 
-.c21:first-child {
+.c20:first-child {
   margin-right: 7px;
 }
 
-.c24 {
+.c23 {
   font-size: 11px;
   line-height: 15px;
   margin-right: 14px;
@@ -356,11 +342,11 @@ Object {
   min-width: 128px;
 }
 
-.c24:first-child {
+.c23:first-child {
   margin-right: 7px;
 }
 
-.c19 {
+.c18 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -402,14 +388,14 @@ Object {
 }
 
 @media (max-width:480px) {
-  .c21 {
+  .c20 {
     margin: 0;
     width: 100%;
   }
 }
 
 @media (max-width:480px) {
-  .c21 {
+  .c20 {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -417,14 +403,14 @@ Object {
 }
 
 @media (max-width:480px) {
-  .c24 {
+  .c23 {
     margin: 0;
     width: 100%;
   }
 }
 
 @media (max-width:480px) {
-  .c24 {
+  .c23 {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -432,7 +418,7 @@ Object {
 }
 
 @media (max-width:480px) {
-  .c19 {
+  .c18 {
     -webkit-box-pack: space-around;
     -webkit-justify-content: space-around;
     -ms-flex-pack: space-around;
@@ -541,21 +527,6 @@ Object {
                   class="c13"
                 >
                   <h5
-                    class="c14"
-                    color="gray4"
-                    type="headline"
-                  >
-                    20/08/2020
-                  </h5>
-                  <svg
-                    aria-label="arrowright"
-                    fill="#BABABA"
-                    role="img"
-                    width="21"
-                  >
-                    arrow-right.svg
-                  </svg>
-                  <h5
                     class="c8"
                     color="gray6"
                     type="headline"
@@ -566,10 +537,10 @@ Object {
               </div>
             </div>
             <div
-              class="c15"
+              class="c14"
             >
               <p
-                class="c16"
+                class="c15"
                 color="gray6"
                 type="body"
               >
@@ -580,10 +551,10 @@ Object {
               class="c9"
             />
             <div
-              class="c15"
+              class="c14"
             >
               <p
-                class="c17"
+                class="c16"
                 color="gray5"
                 type="body"
               >
@@ -595,28 +566,28 @@ Object {
           </div>
         </div>
         <div
-          class="c18"
+          class="c17"
         >
           <div
-            class="c19"
+            class="c18"
           >
             <button
-              class="c20 sc-fzoWqW c21"
+              class="c19 sc-fzoWqW c20"
               color="primary"
             >
               <span
-                class="c22"
+                class="c21"
               >
                 VOLTAR
               </span>
             </button>
             <button
-              class="c23 sc-fzoWqW c24"
+              class="c22 sc-fzoWqW c23"
               color="secondary"
               disabled=""
             >
               <span
-                class="c22"
+                class="c21"
               >
                 CONFIRMAR
               </span>
@@ -701,21 +672,6 @@ Object {
               <div
                 class="sc-fzoyTs dcaVVS"
               >
-                <h5
-                  class="sc-AxirZ hFdQKs"
-                  color="gray4"
-                  type="headline"
-                >
-                  20/08/2020
-                </h5>
-                <svg
-                  aria-label="arrowright"
-                  fill="#BABABA"
-                  role="img"
-                  width="21"
-                >
-                  arrow-right.svg
-                </svg>
                 <h5
                   class="sc-AxirZ gsnnra"
                   color="gray6"

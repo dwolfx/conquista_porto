@@ -35,20 +35,12 @@ describe('Investment/FinancialApplication Sagas', () => {
         select(state => state.suitabilityInfo.data).type
       )
 
-      const secondSelect = generator.next({
-        id_cotista: '888888',
-        cpf: '33333333333',
-      }).value
-      expect(secondSelect && secondSelect.type).toEqual(
-        select(state => state.auth).type
-      )
-
       expect(
-        generator.next({ id_cotista: '888888', cpf: '33333333333' }).value
+        generator.next({ id_cotista: '888888' }).value
       ).toEqual(
         call(
           get,
-          `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&cpf_cnpj=33333333333&data_operacao=2020-08-08`
+          `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&data_operacao=2020-08-08`
         )
       )
 
@@ -130,20 +122,12 @@ describe('Investment/FinancialApplication Sagas', () => {
         select(state => state.suitabilityInfo.data).type
       )
 
-      const secondSelect = generator.next({
-        id_cotista: '888888',
-        cpf: '33333333333',
-      }).value
-      expect(secondSelect && secondSelect.type).toEqual(
-        select(state => state.auth).type
-      )
-
       expect(
-        generator.next({ id_cotista: '888888', cpf: '33333333333' }).value
+        generator.next({ id_cotista: '888888' }).value
       ).toEqual(
         call(
           get,
-          `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&cpf_cnpj=33333333333&data_operacao=2020-08-08`
+          `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&data_operacao=2020-08-08`
         )
       )
 
@@ -220,24 +204,21 @@ describe('Investment/FinancialApplication Sagas', () => {
         type: Types.ALIGNMENT_TERMS_DATA_GET_REQUEST,
       })
 
-      generator.next()
       generator.next({
         id_cotista: '888888',
-        cpf: '33333333333',
       })
 
       expect(
-        generator.next({ id_cotista: '888888', cpf: '33333333333' }).value
+        generator.next({ id_cotista: '888888' }).value
       ).toEqual(
         call(
           get,
-          `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&cpf_cnpj=33333333333&data_operacao=2020-08-08`
+          `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&data_operacao=2020-08-08`
         )
       )
-      const response = undefined
-      expect(generator.next(response).value).toEqual(
+      expect(generator.throw({ message: "Cannot read property 'data' of undefined" }).value).toEqual(
         put(
-          GetFinancialApplicationDataFailure({
+          GetFinancialApplicationDataFailure({ 
             message: "Cannot read property 'data' of undefined",
           })
         )
