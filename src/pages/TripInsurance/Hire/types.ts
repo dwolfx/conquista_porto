@@ -1,5 +1,7 @@
 import PaymentStep from './PaymentStep'
+import CompanionStep from './CompanionStep'
 
 export const Steps = {
-  paymentStep: PaymentStep
+  paymentStep: PaymentStep,
+  companionStep: CompanionStep
 }
