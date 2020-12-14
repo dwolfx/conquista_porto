@@ -11,7 +11,6 @@ import Layer from 'components/Layer'
 
 import { HeaderContent, LogoWrapper, CloseIcon, PreviousIcon } from './styles'
 import { Steps } from './types'
-import Status from '../Hire/Status'
 
 export default function TripInsurenceCreation({
   isOpen = true,
