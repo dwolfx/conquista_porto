@@ -2,7 +2,7 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { buildToast, ToastTypes } from 'store/modules/toastActions'
-import { Types } from './types'
+import { Types, APLICACAO, OUTROS, COME_COTAS, RESGATE } from './types'
 import { GetBankExtractFundFailure, GetBankExtractFundSuccess } from './action'
 
 export function* getData({ payload }: any) {
@@ -21,11 +21,21 @@ export function* getData({ payload }: any) {
 
     let newResponse = response.data[0]
 
-    const getType = (tipo: string) => {
-      if (tipo === 'APLICAÇÃO' || tipo === 'TED ENVIADA') {
-        return 'Retirada'
-      } else {
-        return 'Entrada'
+    const getType = (id: number) => {
+      if (id === COME_COTAS) {
+        return 'COME-COTAS'
+      }
+      
+      if (Object.values(APLICACAO).some(value => value === id)) {
+        return 'APLICAÇÃO'
+      }
+
+      if (Object.values(RESGATE).some(value => value === id)) {
+        return 'RESGATE'
+      }
+
+      if (Object.values(OUTROS).some(value => value === id)) {
+        return 'OUTROS'
       }
     } 
     if (newResponse.operacoes === "") {
@@ -42,7 +52,8 @@ export function* getData({ payload }: any) {
           operacao: [newResponse.operacoes.operacao].map((operacaoItem: any) => ({
             ...operacaoItem,
             data: operacaoItem.data_operacao,
-            tipo: getType(operacaoItem.tipo_operacao),
+            tipoOperacao: operacaoItem.tipo_operacao,
+            tipo: getType(Number(operacaoItem.tipo_movimentacao_operacao)),
             valor: operacaoItem.valor_bruto
           }))
         }
@@ -53,7 +64,8 @@ export function* getData({ payload }: any) {
           operacao: newResponse?.operacoes?.operacao.map((operacaoItem: any) => ({
             ...operacaoItem,
             data: operacaoItem.data_operacao,
-            tipo: getType(operacaoItem.tipo_operacao),
+            tipoOperacao: operacaoItem.tipo_operacao,
+            tipo: getType(Number(operacaoItem.tipo_movimentacao_operacao)),
             valor: operacaoItem.valor_bruto
           }))
         }

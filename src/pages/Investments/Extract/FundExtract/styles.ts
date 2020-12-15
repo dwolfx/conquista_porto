@@ -28,6 +28,11 @@ export const ColStyled = styled(Col)`
 
 export const ContentCard = styled(Card)`
   height: 460px;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    min-height: 460px;
+    height: 100%;
+  }
 `
 
 export const HeaderWrapper = styled.div`
@@ -78,5 +83,11 @@ export const TableWrapper = styled.div<ITableWrapperProps>`
 
   > div:nth-child(2) {
     height: calc(100% - 63px);
+  }
+
+  @media ${props => props.theme.mediaQueries.md} {
+    > div:nth-child(2) {
+      height: 100%;
+    }
   }
 `

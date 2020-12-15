@@ -11,6 +11,7 @@ import * as S from './styles'
 
 interface IProps {
   extracts: ITransaction[]
+  isFundTransaction?: boolean
   isLoading: boolean,
   hasError: boolean
   request: {
@@ -20,8 +21,8 @@ interface IProps {
   }
 }
 const BaseTable = (props: IProps) => {
-  const { extracts, isLoading, hasError, request } = props
-  const columnsToRender = columns()
+  const { extracts, isLoading, hasError, request, isFundTransaction = false } = props
+  const columnsToRender = columns(isFundTransaction)
   const dispatch = useDispatch()
   const isTabletVertical = useMedia('md')
 

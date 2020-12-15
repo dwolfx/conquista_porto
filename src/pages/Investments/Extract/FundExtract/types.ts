@@ -7,8 +7,15 @@ export interface ISelectedExtractFundFilter {
   dataFinal?: moment.Moment | null
 }
 
+export interface ITransaction {
+  tipo: string
+  data: string
+  valor: string
+}
+
 export interface IFundExtractFilter {
   apply: boolean
   redeem: boolean
   quotaEater: boolean
+  others: boolean
 }

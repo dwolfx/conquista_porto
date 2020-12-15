@@ -7,20 +7,20 @@ import Text from 'components/Text'
 import Button from 'components/Button'
 import Loading from 'components/Loading'
 
-import { ITransaction } from 'pages/Investments/Extract/AccountExtract/types'
-
 import * as S from '../styles'
 import { formatMoney } from 'helpers'
 import { useDispatch } from 'react-redux'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
+import { IBankExtract } from '../types'
 
 interface IProps {
-  extracts: ITransaction[]
-  isLoading: boolean,
+  extracts: IBankExtract[]
+  isLoading: boolean
+  isFundTransaction?: boolean
   hasError: boolean
   request: any
 }
-const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) => {
+const ExtractTableTablet = ({ extracts, isLoading, hasError, request, isFundTransaction = false }: IProps) => {
   const [listSize, setListSize] = useState(8)
   const dispatch = useDispatch()
 
@@ -86,7 +86,23 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
                     endItems={[
                       <Text bold type="title">{formatMoney(extract.valor)}</Text>
                     ]}
+                  />,
+                  <>
+                  {isFundTransaction && (
+                    <S.StyledHorizontalList
+                    startItems={[
+                      <Text bold type="body" color="gray5">
+                        Descrição
+                      </Text>,
+                    ]}
+                    endItems={[
+                      <Text bold type="title">
+                        {extract.tipoOperacao}
+                      </Text>,
+                    ]}
                   />
+                  )}
+                  </>,
                 ]}
               />
             </S.StyledCard>
@@ -112,4 +128,4 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
   )
 }
 
-export default ExtractTableMobile
+export default ExtractTableTablet

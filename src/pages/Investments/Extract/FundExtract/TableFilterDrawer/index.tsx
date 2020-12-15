@@ -64,7 +64,8 @@ const TableFilterDrawer = ({
   const [newFilters, setNewFilters] = useState<IFundExtractFilter>({
     apply: false,
     redeem: false,
-    quotaEater: false
+    quotaEater: false,
+    others: false
   })
   const [newInterval, setNewInterval] = useState<IInterval>({
     startDate: '',
@@ -223,6 +224,7 @@ const TableFilterDrawer = ({
               <DatePickerRange
                 idDatePickerRange="id-interval"
                 numberOfMonths={1}
+                blockFutureDays
                 rangeDates={{
                   dateBegin: initialDate,
                   dateEnd: finalDate,
@@ -286,6 +288,17 @@ const TableFilterDrawer = ({
               }}
             >
               come-cotas
+            </ButtonTag>
+            <ButtonTag
+              color={newFilters.others ? 'primary' : ''}
+              onClick={() => {
+                setNewFilters({
+                  ...newFilters,
+                  others: !newFilters.others
+                })
+              }}
+            >
+              outros
             </ButtonTag>
           </FilterButtonsWrapper>
         </FilterContentWrapper>

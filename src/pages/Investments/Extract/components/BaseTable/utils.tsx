@@ -8,6 +8,8 @@ export const DateFormatter = ({ data }: IBankExtract) => <S.StyledDate data-test
 
 export const TypeFormatter = ({ tipo }: IBankExtract) => <S.BoldText>{tipo.toLowerCase()}</S.BoldText>
 
+export const Description = ({ tipoOperacao }: IBankExtract) =>  <S.BoldText>{tipoOperacao}</S.BoldText>
+
 export const MoneyFormatter = ({ valor }: IBankExtract) => {
   return <S.BoldText>{formatMoney(valor)}</S.BoldText>
 }

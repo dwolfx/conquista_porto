@@ -30,10 +30,10 @@ describe('get bank extract', () => {
   })
 
   it('failure triggers failure action', () => {
-    //Mock JSON.parse toast err.message
-    JSON.parse = jest.fn().mockImplementationOnce(() => {
-      return { msg: `Cannot read property 'data' of undefined` }
-    })
+    // Mock JSON.parse toast err.message
+    JSON.parse = jest.fn().mockImplementationOnce(() => ({
+      msg: `Cannot read property 'data' of undefined`,
+    }))
 
     const payload = {
       tipoFiltro: 30,
@@ -49,9 +49,7 @@ describe('get bank extract', () => {
       )
     )
 
-    expect(generator.next().value).toEqual(
-      put(GetBankExtractFailure())
-    )
+    expect(generator.next().value).toEqual(put(GetBankExtractFailure()))
 
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })

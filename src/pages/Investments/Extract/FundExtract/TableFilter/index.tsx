@@ -76,6 +76,7 @@ const TableFilter = ({
     <Wrapper>
       {isDatepickerOpen && <DatePickerRangeModal
         isOpen={isDatepickerOpen}
+        blockFutureDays
         onChangeModalOpen={() => setIsDatepickerOpen(false)}
         onHandleApply={(startDate, endDate) => {
           handleInterval({
@@ -135,6 +136,15 @@ const TableFilter = ({
           })}
         >
           come-cotas
+        </ButtonTag>
+        <ButtonTag
+          color={filters.others ? 'primary' : ''}
+          onClick={() => handleFilters({
+            ...filters,
+            others: !filters.others
+          })}
+        >
+          outros
         </ButtonTag>
       </ButtonsWrapper>
       <ButtonLink

@@ -5,7 +5,6 @@ import { get, baseURLNamespaceInvest } from 'services/api'
 import { loggerError } from 'logger'
 import { Types } from './types'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
-import { buildToast, ToastTypes } from '../toastActions'
 
 export function* getData({
   payload: { tipoFiltro, dataInicial, dataFinal },
@@ -65,10 +64,7 @@ export function* getData({
     }
     yield put(GetBankExtractSuccess(newResponse.data))
   } catch (err) {
-    yield put({
-      ...GetBankExtractFailure(),
-      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
-    })
+    yield put(GetBankExtractFailure())
     loggerError(getBankExtractURL, 'GET', err)
   }
 }

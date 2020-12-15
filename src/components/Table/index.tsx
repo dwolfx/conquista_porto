@@ -50,9 +50,9 @@ const Table = ({
     canNextPage,
     nextPage,
     previousPage,
-    pageOptions,
     state: { pageIndex },
     gotoPage,
+    pageCount
   } = useTable(
     {
       // to edit how each column should render see formatColumns function
@@ -61,6 +61,8 @@ const Table = ({
         onRowClick,
       ]),
       data,
+      autoResetPage: true,
+      manualPagination: false,
       initialState: { pageIndex: 0, pageSize: 12 },
     },
     useSortBy,
@@ -84,6 +86,11 @@ const Table = ({
       inputRef.current.value = '1'
     }
   }, [inputRef, data, gotoPage, setIndexPage])
+
+  useEffect(() => {
+      setIndexPage(pageIndex + 1)
+      inputRef.current.value = (pageIndex + 1).toString()
+  }, [pageCount, indexPage, pageIndex, inputRef])
 
   useEffect(() => {
     if (tableRef?.current?.onscroll) {
@@ -180,23 +187,25 @@ const Table = ({
               ref={inputRef}
               type="text"
               defaultValue={pageIndex + 1}
+              onFocus={() => inputRef.current.value = ''}
+              onBlur={() => inputRef.current.value = (pageIndex + 1).toString()}
               onChange={e => {
                 const page = e.target.value ? Number(e.target.value) - 1 : 0
                 if (page < 0 || page === 0) {
                   gotoPage(0)
                   setIndexPage(1)
                   inputRef.current.value = ''
-                } else if(page > pageOptions.length - 1) {
-                  gotoPage(pageOptions.length - 1)
-                  setIndexPage(pageOptions.length)
-                  inputRef.current.value = pageOptions.length.toString()
+                } else if(page > pageCount -1) {
+                  gotoPage(pageCount -1)
+                  setIndexPage(pageCount -1)
+                  inputRef.current.value = (pageCount - 1).toString()
                 } else {
                   setIndexPage(page)
                   gotoPage(page)
                 }
               }}
             />
-          <Text type="body" bold color="gray5">de {hasError ? 0 : pageOptions.length}</Text>
+          <Text type="body" bold color="gray5">de {hasError ? 0 : pageCount}</Text>
           <s.PageButtons>
             <s.Button onClick={() => {
               previousPage()
