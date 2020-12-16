@@ -22,9 +22,7 @@ const radioOptions = [
 const AdventureSports: StepComponent = () => {
   const [hasAdventureSports, setHasAdventureSports] = useState<string>()
 
-  const { instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const handleChange = (value: string) => {
     setHasAdventureSports(value)
