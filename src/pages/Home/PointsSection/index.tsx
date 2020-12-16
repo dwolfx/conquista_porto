@@ -345,16 +345,6 @@ export default function PointsSection({ points }: IProps) {
       )
     }
 
-    if (points && Object.entries(points).length === 0) {
-      return (
-        <PointsEmptyContainer>
-          <Text type="headline" color="gray5">
-            Você não possui movimentações referente a pontos no momento.
-          </Text>
-        </PointsEmptyContainer>
-      )
-    }
-
     const pointsInfoAmountBalance = () => {
       const balanceValue =
         !!balanceData.consultaPontosResponseType &&
@@ -364,6 +354,61 @@ export default function PointsSection({ points }: IProps) {
       return balanceData.consultaPontosResponseType
         ? `Você tem ${balanceValue} pontos`
         : 'Você tem 0 pontos'
+    }
+
+    if (points && Object.entries(points).length === 0) {
+      return (
+        <>
+          {!!balanceData.consultaPontosResponseType && !!pointsAmountBalance ? (
+            <PointsInfo>
+              <LabelText>{pointsInfoAmountBalance()}</LabelText>
+              <Popover
+                content={() => (
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      width: 140px;
+                    `}
+                  >
+                    Pontos acumulados no Conquista e no Cartão Porto Seguro
+                  </Text>
+                )}
+              >
+                <Icon name="information" color="blue4" />
+              </Popover>
+              {points && (
+                <PointsButtonWrapper>
+                  <Button
+                    data-gtm-subname="card pontos"
+                    data-gtm-name="resgatar"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                    color="secondary"
+                    loading={isLoadingRedeem}
+                    loadingColor="white"
+                    onClick={() =>
+                      dispatch(
+                        PostRedeemPointsRequest({
+                          onSuccess: redirectToRescuePointsSystem,
+                          onErrorToast: addToast,
+                        })
+                      )
+                    }
+                  >
+                    Resgatar
+                  </Button>
+                </PointsButtonWrapper>
+              )}
+            </PointsInfo>
+          ) : null}
+          <PointsEmptyContainer>
+            <Text type="headline" color="gray5">
+              Você não possui movimentações referente a pontos no momento.
+            </Text>
+          </PointsEmptyContainer>
+        </>
+      )
     }
 
     return (
