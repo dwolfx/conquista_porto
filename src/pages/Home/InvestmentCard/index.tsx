@@ -2,14 +2,8 @@ import React, { useContext, useState, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 import { useSelector } from 'react-redux'
-import 'styled-components/macro'
-
 import { DefaultTheme } from 'styled-components/macro'
-import InvestmentEmptyStateCard from './InvestmentEmptyStateCard'
-import InvestmentErrorStateCard from './InvestmentErrorStateCard'
-import InvestmentLoadingStateCard from './InvestmentLoadingStateCard'
-import ModalAccountPortoInfo from './ModalAccountPortoInfo/ModalAccountPortoInfo'
-import ChartMiddleInfoContent from './ChartMiddleInfoContent'
+
 import PieChart from 'components/PieChart'
 import Popover from 'components/Popover/index'
 import Icon from 'components/IconExporter'
@@ -17,11 +11,16 @@ import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 import VerticalList from 'components/VerticalList'
 
+import useMedia from 'hooks/useMedia'
+import { formatMoney } from 'helpers'
 import * as t from './types'
 import * as s from './styles'
 
-import useMedia from 'hooks/useMedia'
-import { formatMoney } from 'helpers'
+import ChartMiddleInfoContent from './ChartMiddleInfoContent'
+import ModalAccountPortoInfo from './ModalAccountPortoInfo/ModalAccountPortoInfo'
+import InvestmentErrorStateCard from './InvestmentErrorStateCard'
+import InvestmentLoadingStateCard from './InvestmentLoadingStateCard'
+import InvestmentEmptyStateCard from './InvestmentEmptyStateCard'
 
 export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
   onFetchInvestments,
@@ -42,9 +41,12 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
   const { data: consolidatedPosition, isLoading, hasError } = useSelector(
     (state: t.IConsolidatedPositionState) => state.consolidatedPosition
   )
-  const { bankData } = useSelector((state: t.IBankDataState) => ({
-    bankData: state.bankData.data,
-  }))
+  const { bankData, isLoadingBankData } = useSelector(
+    (state: t.IBankDataState) => ({
+      bankData: state.bankData.data,
+      isLoadingBankData: state.bankData.isLoading,
+    })
+  )
   const { suitabilityInfo } = useSelector((state: t.ISuitabilityInfoState) => ({
     suitabilityInfo: state.suitabilityInfo.data,
   }))
@@ -258,13 +260,15 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
         !(
           consolidatedPosition && Object.entries(consolidatedPosition).length
         )) ||
-      consolidatedPosition?.saldototal <= 0
+      suitabilityInfo?.status_cotista === false
+      // ||
+      // consolidatedPosition?.saldototal <= 0
     ) {
       return <InvestmentEmptyStateCard {...rest} />
     }
     // Loading state
     if (
-      isLoading &&
+      (isLoading || isLoadingBankData) &&
       !(consolidatedPosition && Object.entries(consolidatedPosition).length)
     ) {
       return <InvestmentLoadingStateCard {...rest} />
@@ -272,9 +276,10 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
     // Card with data
     if (
       consolidatedPosition &&
-      suitabilityInfo?.status_cotista &&
-      consolidatedPosition?.saldototal > 0 &&
-      bankData?.DadosContaPortoSeguro?.saldo_disponivel
+      suitabilityInfo?.status_cotista
+      // &&
+      // consolidatedPosition?.saldototal > 0 &&
+      // bankData?.DadosContaPortoSeguro?.saldo_disponivel
     ) {
       return (
         <>
