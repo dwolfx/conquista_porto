@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { 
+import {
   Container as ContainerComponent,
-  Row as RowComponent
+  Row as RowComponent,
 } from 'styled-bootstrap-grid'
 
 import ButtonComponent from 'components/Button'
@@ -16,7 +16,7 @@ export const Card = styled(CardComponent)`
     margin: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(1)}px`};
   }
 `
-  
+
 export const StatusCard = styled(CardComponent)`
   height: calc(100vh - 272px);
 
@@ -27,7 +27,7 @@ export const StatusCard = styled(CardComponent)`
       padding: 0;
     }
   }
-  
+
   @media ${({ theme }) => theme.mediaQueries.lg} {
     height: calc(100vh - 179px);
   }
@@ -40,13 +40,13 @@ export const StatusCard = styled(CardComponent)`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     height: calc(100vh - 272px);
-    margin: ${({ theme }) => `0 ${theme.spacing(1)}px ${theme.spacing(2)}px`}; 
+    margin: ${({ theme }) => `0 ${theme.spacing(1)}px ${theme.spacing(2)}px`};
   }
 `
- 
+
 export const Container = styled(ContainerComponent)`
   margin-top: ${({ theme }) => theme.spacing(3)}px;
-  
+
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin-top: ${({ theme }) => theme.spacing(2)}px;
   }
@@ -82,7 +82,7 @@ export const ContentWrapper = styled.div`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
-    flex-direction: column;
+    flex-direction: row;
   }
 `
 
@@ -97,13 +97,13 @@ export const IconWrapper = styled.div`
 export const ErrorIcon = styled(Icon).attrs(() => ({
   name: 'closerounded',
   color: 'magenta2',
-  width: '28px'
+  width: '28px',
 }))``
 
 export const SuccessIcon = styled(Icon).attrs(() => ({
   name: 'check',
   color: 'green4',
-  width: '28px'
+  width: '28px',
 }))``
 
 export const SumaryTextWrapper = styled.div`
@@ -118,26 +118,28 @@ export const StatusTextWrapper = styled.div`
   }
 `
 export const Button = styled(ButtonComponent).attrs(() => ({
-  color: 'primary'
+  color: 'primary',
 }))`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
   }
 `
 
-
 export const TextTitle = styled(Text).attrs(() => ({
   bold: true,
   type: 'captionUppercase',
-  color: 'gray5'
+  color: 'gray5',
 }))`
-  margin: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(1)}px ${theme.spacing(2)}px`};
+  margin: ${({ theme }) =>
+    `${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(
+      1
+    )}px ${theme.spacing(2)}px`};
 `
 
 export const TextValue = styled(Text).attrs(() => ({
   type: 'headline',
   bold: true,
-  color: 'gray6'
+  color: 'gray6',
 }))`
   margin: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}px 0`};
 `
@@ -145,12 +147,12 @@ export const TextValue = styled(Text).attrs(() => ({
 export const TextStatusTitle = styled(Text).attrs(() => ({
   type: 'headline',
   bold: true,
-  color: 'gray6'
+  color: 'gray6',
 }))`
   margin-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 export const TextStatusDescription = styled(Text).attrs(() => ({
   type: 'body',
   bold: true,
-  color: 'gray5'
+  color: 'gray5',
 }))``

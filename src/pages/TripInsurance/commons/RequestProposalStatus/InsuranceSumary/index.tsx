@@ -10,7 +10,7 @@ const InsuranceSumary = () => {
   const isTabletVertical = useMedia('md')
   return (
     <>
-    {isTabletVertical ? (
+      {isTabletVertical ? (
         <InsuranceSumaryTablet />
       ) : (
         <InsuranceSumaryDesktop />

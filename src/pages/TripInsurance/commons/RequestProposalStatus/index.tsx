@@ -5,19 +5,20 @@ import 'styled-components/macro'
 import SuccessState from './Success'
 import ErrorState from './Error'
 import InsuranceSumary from './InsuranceSumary'
-import StepBar from '../../commons/StepBar'
+import StepBar from '../StepBar'
 
 import * as S from './styles'
+
 interface IProps {
   type: 'success' | 'error'
+  errorType?: 'errorRequest' | 'errorPayment'
 }
-const Status = ({ type }: IProps) => {
-
+const RequestProposalStatus = ({ type, errorType = 'errorRequest' }: IProps) => {
   const renderStatus = () => {
     if (type === 'success') {
       return <SuccessState />
     }
-    return <ErrorState type="errorRequest"/>
+    return <ErrorState type={errorType} />
   }
 
   return (
@@ -29,11 +30,7 @@ const Status = ({ type }: IProps) => {
             <InsuranceSumary />
           </Col>
           <Col lg={9} md={8} sm={12}>
-            <S.StatusCard 
-              footer={
-                <S.Button>inicio</S.Button>
-              }
-            >
+            <S.StatusCard footer={<S.Button>inicio</S.Button>}>
               {renderStatus()}
             </S.StatusCard>
           </Col>
@@ -43,4 +40,4 @@ const Status = ({ type }: IProps) => {
   )
 }
 
-export default Status
+export default RequestProposalStatus
