@@ -200,11 +200,6 @@ Array [
   margin-bottom: 0px;
 }
 
-.c15 {
-  margin: 14px;
-  width: auto;
-}
-
 .c2 {
   position: relative;
   width: 100%;
@@ -286,6 +281,11 @@ Array [
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.c15 {
+  margin: 14px;
+  width: auto;
 }
 
 @media (min-width:768px) {

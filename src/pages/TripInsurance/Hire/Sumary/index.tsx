@@ -9,7 +9,7 @@ import Divisor from 'components/Divisor'
 import useMedia from 'hooks/useMedia'
 
 import * as S from './styles'
-import DataRow from './DataRow'
+import DataRow from '../../commons/DataRow'
 
 const Sumary = () => {
   const isMobile = useMedia('xs')
