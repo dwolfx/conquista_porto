@@ -4,7 +4,7 @@ import OriginTrip from './OriginTripStep'
 import CoverageDate from './CoverageDate'
 import MotocicleQuestion from './MotocicleQuestion'
 import ChoosePlan from './ChoosePlan'
-import Status from '../Hire/Status'
+import Status from '../commons/RequestProposalStatus'
 import InformationConfirmation from '../Hire/InformationConfirmation'
 
 export const Steps = {

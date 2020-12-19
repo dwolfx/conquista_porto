@@ -1,7 +1,7 @@
 import React from 'react'
-import * as S from './styles'
 import IconExporter from 'components/IconExporter'
 import Text from 'components/Text'
+import * as S from './styles'
 import BottomNavigationContent from '../commons/BottomNavigationContent'
 
 export default function ProposalResolutionFail() {
