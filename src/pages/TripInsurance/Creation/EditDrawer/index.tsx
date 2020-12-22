@@ -17,16 +17,11 @@ interface IEditDrawer {
   isDrawerOpen: boolean
   handleClose: (isDrawerOpen: boolean) => void
 }
-const EditDrawer: React.FC<IEditDrawer> = ({
-  isDrawerOpen,
-  handleClose,
-}) => {
+const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   // Olhar depois os SETTERS ==========================
-  const [isLoading, setIsLoading] = useState(false)
-  const [originOptions, setOriginOptions] = useState<TOptions[]>([
-    { text: 'Brasil', id: 1 },
-  ])
-  const [countryOptions, setCountryOptions] = useState([
+  const [isLoading] = useState(false)
+  const [originOptions] = useState<TOptions[]>([{ text: 'Brasil', id: 1 }])
+  const [countryOptions] = useState([
     { text: 'Alemanha', id: 2, value: 'Alemanha' },
     { text: 'Itália', id: 3, value: 'Itália' },
     { text: 'Estados Unidos', id: 4, value: 'estadosunidos' },
@@ -34,11 +29,11 @@ const EditDrawer: React.FC<IEditDrawer> = ({
     { text: 'Inglaterra', id: 6, value: 'Inglaterra' },
     { text: 'Paises Baixos', id: 7, value: 'paisesbaixos' },
   ])
-  const [selectedCountry, setSelectedCountry] = useState<TSelected>({
+  const [selectedCountry] = useState<TSelected>({
     id: 1,
     name: 'Brasil',
   })
-  const [destinations, setDestionations] = useState([
+  const [destinations] = useState([
     {
       id: 1,
       text: 'Nacional',
@@ -51,7 +46,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({
     },
   ])
 
-  const [adventureSportsOptions, setAdventureSportsOptions] = useState([
+  const [adventureSportsOptions] = useState([
     {
       id: 1,
       text: 'Irei praticar',
@@ -72,7 +67,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({
     id: 2,
     name: 'Não irei praticar',
   })
-  const [motocicleOptions, setMotocicleOptions] = useState([
+  const [motocicleOptions] = useState([
     {
       id: 1,
       text: 'Irei praticar',
@@ -87,7 +82,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({
     },
   ])
   // Olhar depois os SETTERS ==========================
-  
+
   const isMobile = useMedia('sm')
   const [selectedDestination, setSelectedDestination] = useState({
     id: 1,
