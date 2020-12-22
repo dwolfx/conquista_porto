@@ -1,16 +1,16 @@
-import React from 'react'
-import * as s from './styles'
+import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import Radio from 'components/Inputs/Radio'
-import { useState } from 'react'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 import Popover from 'components/Popover'
 
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+
+import * as s from './styles'
+import { Steps } from '../types'
 
 const radioOptions = [
   {
@@ -25,16 +25,14 @@ const radioOptions = [
 
 const MotocicleQuestion: StepComponent = () => {
   // Olhar depois os SETTERS ==========================
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading] = useState<boolean>(false)
   // Olhar depois os SETTERS ==========================
 
   const [isAnswerPositive, setIsAnswerPositive] = useState<string>()
 
   const isMobile = useMedia('md')
 
-  const { instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const handleChange = (value: string) => {
     setIsAnswerPositive(value)
