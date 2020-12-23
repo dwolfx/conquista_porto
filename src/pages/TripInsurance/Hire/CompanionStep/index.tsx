@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { uuid } from 'uuidv4'
-import { Container, Col } from 'styled-bootstrap-grid'
+import { Col } from 'styled-bootstrap-grid'
 import useMedia from 'hooks/useMedia'
 
 import Icon from 'components/IconExporter'
 import ButtonLink from 'components/Button/Link'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
+import CompanionEditDrawer from './EditDrawer'
 
 import * as s from './styles'
 
@@ -22,18 +23,18 @@ interface ICompanion {
 const renderTableCompanionDataMock = [
   {
     name: 'Bruno Mizhari',
+    status: true,
+  },
+  {
+    name: '',
     status: false,
   },
   {
-    name: 'Valesca',
+    name: '',
     status: false,
   },
   {
-    name: 'Anitta',
-    status: false,
-  },
-  {
-    name: 'Pablo Vittar',
+    name: '',
     status: false,
   },
 ]
@@ -42,6 +43,8 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
   const isDesktop = useMedia('lgUp')
   const isTablet = useMedia('mdUp')
   const isMobile = useMedia('sm')
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [companionEditable, setCompanionEditable] = useState({})
 
   const renderStatusBody = (companionStatus: boolean) => {
     return (
@@ -73,10 +76,15 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
             <ButtonLink
               data-gtm-type="click"
               data-gtm-clicktype="link"
-              data-gtm-name="Inserir Dados"
+              data-gtm-name={
+                companion.status ? 'Alterar Dados ' : 'Inserir Dados'
+              }
               noIcon={true}
               noIconPadding
-              onClick={() => {}}
+              onClick={() => {
+                setCompanionEditable(companion)
+                setIsDrawerOpen(true)
+              }}
             >
               INSERIR DADOS
             </ButtonLink>
@@ -89,6 +97,11 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
 
   return (
     <>
+      <CompanionEditDrawer
+        isDrawerOpen={isDrawerOpen}
+        handleClose={setIsDrawerOpen}
+        companion={companionEditable}
+      />
       <StepBar actualStep={2} totalNumberOfSteps={5} />
       <s.ContentWrapper>
         <s.Row

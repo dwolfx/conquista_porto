@@ -72,8 +72,9 @@ export const RadioLabel = styled.label<ILabel>`
 }`
 
 interface IWrapper {
-  itemsAlign: 'flex-start' | 'center' | 'flex-end'
+  itemsAlign: 'flex-start' | 'start ' | 'center' | 'flex-end' | 'end'
   itemsDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+  justifyContent: 'flex-start' | 'center' | 'flex-end'
   paddingLeft: number
   paddingRight: number
   marginLeft: number
@@ -91,7 +92,7 @@ export const RadioWrapper = styled.div<IWrapper>`
   margin-right: ${props => `${props.marginRight}px`};
   width: ${props =>
     typeof props.width === 'string' ? props.width : `${props.width}%`};
-  justify-content: center;
+  justify-content: ${props => props.justifyContent};
 
   @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;

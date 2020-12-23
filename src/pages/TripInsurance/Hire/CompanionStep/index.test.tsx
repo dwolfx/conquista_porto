@@ -4,6 +4,16 @@ import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
 import CompanionStep from '.'
 
+const createRootContainer = () => {
+  let portalRoot = document.getElementById('root')
+  if (!portalRoot) {
+    portalRoot = document.createElement('div')
+    portalRoot.setAttribute('id', 'root')
+    document.body.appendChild(portalRoot)
+  }
+  return portalRoot
+}
+
 describe('Companion Form tests', () => {
   const renderTableCompanionDataMock = [
     {
@@ -11,15 +21,15 @@ describe('Companion Form tests', () => {
       status: false,
     },
     {
-      name: 'Valesca',
+      name: 'Acompanhante 2',
       status: false,
     },
     {
-      name: 'Anitta',
+      name: 'Acompanhante 3',
       status: false,
     },
     {
-      name: 'Pablo Vittar',
+      name: 'Acompanhante 4',
       status: false,
     },
   ]
@@ -28,7 +38,8 @@ describe('Companion Form tests', () => {
   })
   it('should render correctly', () => {
     renderWithReduxAndTheme(
-      <CompanionStep companions={renderTableCompanionDataMock} />
+      <CompanionStep companions={renderTableCompanionDataMock} />,
+      { container: createRootContainer() }
     )
     const names = renderTableCompanionDataMock.map(item => {
       return item.name

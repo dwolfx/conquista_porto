@@ -122,7 +122,7 @@ const InformationConfirmation: StepComponent = () => {
               <Text type="headline" bold>
                 Você reside no Brasil?
               </Text>
-              <s.RadioOptionsWrapper data-testId="radio-brazilian-resident">
+              <s.RadioOptionsWrapper data-testid="radio-brazilian-resident">
                 <s.Radio
                   id={uuid()}
                   name="Yes"
@@ -141,13 +141,7 @@ const InformationConfirmation: StepComponent = () => {
                   handleChange={() => null}
                 />
               </s.RadioOptionsWrapper>
-              <s.WarningWrapper>
-                <s.Icon name="alertrounded" color="magenta2" />
-                <s.WarningText type="title" bold>
-                  Este seguro só poderá ser contratado pelo segurado residente
-                  no Brasil.
-                </s.WarningText>
-              </s.WarningWrapper>
+              <s.WarningFlag title="Este seguro só poderá ser contratado pelo segurado residente no Brasil." />
             </s.RadioContainer>
           </s.Card>
           <s.Card>
@@ -197,7 +191,7 @@ const InformationConfirmation: StepComponent = () => {
                 militares de alto nível, dirigentes de empresas públicas ou
                 dirigentes de partidos políticos.
               </Text>
-              <s.RadioOptionsWrapper data-testId="radio-ppe">
+              <s.RadioOptionsWrapper data-testid="radio-ppe">
                 <s.Radio
                   id={uuid()}
                   name="Yes"
