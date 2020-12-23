@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { uuid } from 'uuidv4'
-import useMedia from 'hooks/useMedia'
 
 import { StepComponent } from 'hooks/FluxManagement/types'
 import Text from 'components/Text'
@@ -9,6 +8,12 @@ import Divisor from 'components/Divisor'
 import StepBar from '../StepBar'
 import HorizontalCard from './HorizontalCard'
 import VerticalCard from './VerticalCard'
+
+import useMedia from 'hooks/useMedia'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+
+import { StepComponentProps } from 'hooks/FluxManagement/types'
+import { Steps } from '../types'
 
 import * as s from './styles'
 import * as t from './types'
@@ -50,6 +55,8 @@ const ChoosePlan: StepComponent = () => {
   const IsMdUp = useMedia('mdUp')
   const Islg = useMedia('lg')
   const [selectedCard, setSelectedCard] = useState('Brasil Prata')
+
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const renderDesktop = (plans: t.IPlan[]) => {
     if (plans.length === 1) {
@@ -164,7 +171,12 @@ const ChoosePlan: StepComponent = () => {
           <s.NextButton color="primary" outline>
             REJEITAR PROPOSTA
           </s.NextButton>
-          <s.NextButton color="secondary">AVANÇAR</s.NextButton>
+          <s.NextButton
+            color="secondary"
+            onClick={() => instantiate(Steps.proposalSummaryForm)}
+          >
+            AVANÇAR
+          </s.NextButton>
         </s.FooterCol>
       </s.FooterContainer>
     </>

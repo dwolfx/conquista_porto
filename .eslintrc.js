@@ -117,7 +117,7 @@ module.exports = {
     'react/jsx-uses-vars': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/prop-types': 2,
+    'react/prop-types': 0,
     'react/require-default-props': 1,
     'react/require-extension': 0,
     'react/self-closing-comp': 0,

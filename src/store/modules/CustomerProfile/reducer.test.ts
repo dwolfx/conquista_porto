@@ -51,6 +51,7 @@ describe('Customer Profile reducer', () => {
             dataNascimento: '',
             numeroTelefone: '',
             dddNumeroTelefone: '',
+            sexo: '',
           },
         }
       )
@@ -59,6 +60,7 @@ describe('Customer Profile reducer', () => {
         cpfCnpj: '',
         customerName: '',
         customerEmail: '',
+        customerGender: '',
         customerState: '',
         customerBirthdate: '',
         customerPhoneNumber: '',
