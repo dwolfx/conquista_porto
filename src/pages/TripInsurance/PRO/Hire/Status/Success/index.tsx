@@ -37,7 +37,7 @@ export default function ProposalResolutionSuccess({ customerName }: IProps) {
         >
           Proposta enviada para:
         </Text>
-        <UserCard name={customerName} role="Cliente" />
+        <UserCard name={customerName} type="Cliente" />
       </S.UserBox>
     </S.FlexibleLayerContent>
   )

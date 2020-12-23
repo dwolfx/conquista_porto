@@ -76,7 +76,7 @@ describe('PaymentStep component', () => {
     const select = getByTestId('select-option-input-parcelas')
 
     fireEvent.click(select)
-    fireEvent.click(getByTestId('option-12x de R$310,00'))
+    fireEvent.click(getByTestId('option-12x-de-R$310,00'))
 
     fireEvent.change(getByTestId('número do cartão'), {
       target: { value: '8888' },

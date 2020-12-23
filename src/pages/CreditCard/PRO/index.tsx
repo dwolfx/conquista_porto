@@ -223,7 +223,7 @@ const CreditCardPro = () => {
               <SubTitle>ENVIAR PROPOSTA PARA</SubTitle>
               <UserCard
                 name={customer?.nomeCliente || ''}
-                role="Cliente"
+                type="Cliente"
                 loading={customerIsLoading}
                 error={customerHasError}
                 retry={getClientName}

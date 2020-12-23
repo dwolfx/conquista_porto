@@ -52,13 +52,13 @@ const Layer: React.FC<IProps> = ({
   }, [handleClose, isOpen])
 
   return ReactDOM.createPortal(
-    <LayerWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
+    <LayerWrapper isOpen={isOpen} id="layer-wrapper" alignItems={alignItems} {...rest}>
       <LayerContainer>
         <LayerHeader>{headerContent}</LayerHeader>
-        <ChildrenWrapper>{children}</ChildrenWrapper>
+        <ChildrenWrapper id="layer-children">{children}</ChildrenWrapper>
       </LayerContainer>
     </LayerWrapper>,
-    document.querySelector('#root') as HTMLInputElement
+    document.querySelector('#root') as HTMLInputElement,
   )
 }
 

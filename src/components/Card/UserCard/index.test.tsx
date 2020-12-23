@@ -1,83 +1,49 @@
 import React from 'react'
-
-import 'jest-styled-components'
-import { ThemeProvider } from 'styled-components'
-import { render } from 'testUtils'
-import theme from 'styles/theme'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import UserCard from '.'
 
 describe('UserCard component', () => {
   it('should be exists', () => {
-    const { getByTestId } = render(
-      <ThemeProvider theme={theme}>
-        <UserCard name="Fulado DeTal" role="CEO" />
-      </ThemeProvider>
-    )
-    expect(getByTestId('userCard')).toBeVisible()
+    renderWithReduxAndTheme(<UserCard name="Fulado DeTal" type="CEO" />)
+    expect(screen.getByTestId('userCard')).toBeVisible()
   })
 
   it('should be text in content', () => {
-    const { getByText } = render(
-      <ThemeProvider theme={theme}>
-        <UserCard name="Fulano DeTal" role="CEO" />
-      </ThemeProvider>
-    )
-
-    expect(getByText('Fulano DeTal')).toBeVisible()
-    expect(getByText('CEO')).toBeVisible()
+    renderWithReduxAndTheme(<UserCard name="Fulano DeTal" type="CEO" />)
+    expect(screen.getByText('Fulano DeTal')).toBeVisible()
+    expect(screen.getByText('CEO')).toBeVisible()
   })
 
   describe('should be check if thumbnail', () => {
     it('exist', () => {
-      const { getByTestId } = render(
-        <ThemeProvider theme={theme}>
-          <UserCard name="Fulano DeTal" role="CEO" />
-        </ThemeProvider>
-      )
-
-      expect(getByTestId('userCardThumbnail')).toBeVisible()
+      renderWithReduxAndTheme(<UserCard name="Fulano DeTal" type="CEO" />)
+      expect(screen.getByTestId('userCardThumbnail')).toBeVisible()
     })
 
     it('not exist', () => {
       expect(() => {
-        const { getByTestId } = render(
-          <ThemeProvider theme={theme}>
-            <UserCard name="Fulano DeTal" role="CEO" thumbnail={false} />
-          </ThemeProvider>
+        renderWithReduxAndTheme(
+          <UserCard name="Fulano DeTal" type="CEO" thumbnail={false} />
         )
-        getByTestId('userCardThumbnail')
+        screen.getByTestId('userCardThumbnail')
       }).toThrowError()
     })
   })
 
   describe('should be return initial name letters', () => {
     it('when name has lastname', () => {
-      const { getByText } = render(
-        <ThemeProvider theme={theme}>
-          <UserCard name="Fulano DeTal" role="CEO" />
-        </ThemeProvider>
-      )
-
-      expect(getByText('FD')).toBeVisible()
+      renderWithReduxAndTheme(<UserCard name="Fulano DeTal" type="CEO" />)
+      expect(screen.getByText('FD')).toBeVisible()
     })
 
     it('when name has only firstname', () => {
-      const { getByText } = render(
-        <ThemeProvider theme={theme}>
-          <UserCard name="Fulano" role="CEO" />
-        </ThemeProvider>
-      )
-
-      expect(getByText('FU')).toBeVisible()
+      renderWithReduxAndTheme(<UserCard name="Fulano" type="CEO" />)
+      expect(screen.getByText('FU')).toBeVisible()
     })
     it('when name has only firtname letter', () => {
-      const { getAllByText } = render(
-        <ThemeProvider theme={theme}>
-          <UserCard name="F" role="CEO" />
-        </ThemeProvider>
-      )
-      expect(getAllByText('F')).toHaveLength(2)
+      renderWithReduxAndTheme(<UserCard name="F" type="CEO" />)
+      expect(screen.getAllByText('F')).toHaveLength(2)
     })
   })
 })

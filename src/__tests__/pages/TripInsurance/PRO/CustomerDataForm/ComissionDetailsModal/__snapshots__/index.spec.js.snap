@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComissionDetailsModal renders correctly 1`] = `
+.c10 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c11 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c6 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c1 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: visible;
+  opacity: 1;
+  left: 0;
+  top: 0;
+}
+
+.c8 {
+  overflow: auto;
+  padding: 21px 14px;
+}
+
+.c7 {
+  margin: 0 auto;
+}
+
+.c2 {
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  border-radius: 8px;
+  position: fixed;
+  margin: 28px 0;
+  max-height: calc(100vh - (28px * 2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  top: 0;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px;
+}
+
+.c3 svg {
+  margin-right: 15px;
+}
+
+.c4 {
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  color: #272727;
+  font-weight: normal;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c5 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.c5:hover {
+  fill: #00ADEF;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 1;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  visibility: visible;
+  width: 100vw;
+  z-index: 13;
+}
+
+.c9 {
+  margin: 7px 0;
+}
+
+.c13 {
+  margin-top: 28px;
+  max-width: 578px;
+  padding: 28px 21px;
+  border-radius: 8px;
+  background-color: #F1F1F1;
+}
+
+.c12 {
+  margin-bottom: 21px;
+}
+
+@media (max-width:736px) {
+  .c8 {
+    padding: 21px 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    min-width: unset;
+    width: calc(100vw - 28px);
+    top: auto;
+    margin: 0;
+    max-height: calc(100vh - (14px * 2));
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    onClick={[MockFunction]}
+  />
+  <div
+    className="c2"
+  >
+    <header
+      className="c3"
+    >
+      <h3
+        className="c4"
+      >
+        Orientações
+      </h3>
+      <svg
+        aria-label="close"
+        className="c5"
+        data-gtm-clicktype="button"
+        data-gtm-name="botao fechar"
+        data-gtm-subname="modal Orientações"
+        data-gtm-type="click"
+        fill="#BABABA"
+        height={28}
+        onClick={[MockFunction]}
+        role="img"
+        width={28}
+      >
+        close.svg
+      </svg>
+    </header>
+    <div
+      className="c6 c7"
+    />
+    <div
+      className="c8"
+    >
+      <div
+        className="c9"
+      >
+        <h5
+          className="c10"
+          color="gray6"
+          type="headline"
+        >
+          Seguro Viagem
+        </h5>
+      </div>
+      <div
+        className="c9"
+      >
+        <h5
+          className="c11 c12"
+          color="gray5"
+          type="headline"
+        >
+          O valor numérico representa a % do prêmio que será pago como 
+          <br />
+          remuneração. A letra representa o valor do agenciamento.
+        </h5>
+        <h5
+          className="c11"
+          color="gray5"
+          type="headline"
+        >
+          A - Sem agenciamento
+        </h5>
+        <h5
+          className="c11"
+          color="gray5"
+          type="headline"
+        >
+          B - Primeira parcela (1/12) do prêmio
+        </h5>
+        <h5
+          className="c11"
+          color="gray5"
+          type="headline"
+        >
+          C - Primeira e segunda parcela (2/12) do prêmio
+        </h5>
+      </div>
+      <div
+        className="c13"
+      >
+        <h5
+          className="c10"
+          color="gray6"
+          type="headline"
+        >
+          Exemplo
+        </h5>
+        <br />
+        <h5
+          className="c11"
+          color="gray5"
+          type="headline"
+        >
+          30A - 30% do prêmio sem agenciamento
+        </h5>
+        <h5
+          className="c11"
+          color="gray5"
+          type="headline"
+        >
+          25B - 25% do prêmio com agenciamento (Primeira parcela)
+        </h5>
+        <h5
+          className="c11"
+          color="gray5"
+          type="headline"
+        >
+          20C - 20% do prêmio com agenciamento (Primeira e segunda parcela)
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;

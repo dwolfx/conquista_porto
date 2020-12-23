@@ -14,12 +14,12 @@ export const Container = styled.div<IContainerProps>`
     noSpacing ? '0' : `${theme.spacing(1)}px ${theme.spacing(2)}px`};
 `
 
-export const ListElements = styled.div`
+export const ListElements = styled.div<{ marginBetweenElements?: number }>`
   display: flex;
   flex-direction: column;
   width: 100%;
   && > * {
-    margin-bottom: 7px;
+    margin-bottom: ${({ marginBetweenElements }) => marginBetweenElements}px;
   }
   && :last-child {
     margin-bottom: 0px;

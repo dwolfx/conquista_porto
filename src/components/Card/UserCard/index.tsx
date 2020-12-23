@@ -12,7 +12,7 @@ import UserCardError from './Error'
  * @export
  * @param {Object} props
  * @param {String} name - User name or main information
- * @param {String} role - Role or secundary information
+ * @param {String} type - Role or secundary information
  * @param {String} [thumbnail=true] - Whether there should be a thumbnail
  * @param {Boolean} [loading=false] - Shows the loading component
  * @param {Boolean} [error=false] - Shows the error component
@@ -24,7 +24,7 @@ import UserCardError from './Error'
  */
 export default function UserCard({
   name,
-  role,
+  type,
   thumbnail = true,
   loading = false,
   error = false,
@@ -32,7 +32,7 @@ export default function UserCard({
   ...rest
 }: {
   name: String
-  role: String
+  type: String
   thumbnail?: Boolean
   loading?: Boolean
   error?: Boolean
@@ -67,7 +67,7 @@ export default function UserCard({
         <Text type="headline" bold>
           {name}
         </Text>
-        <Text type="caption">{role}</Text>
+        <Text type="caption">{type}</Text>
       </S.Info>
     </S.Card>
   )
