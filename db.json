@@ -6452,7 +6452,8 @@
     "dddNumeroTelefone": "11",
     "nomeCliente": "Rubao",
     "dataNascimento": "1981-11-11T00:00:00-03:00",
-    "cep": "01010010"
+    "cep": "01010010",
+    "sexo": "M"
   },
   "assinatura_eletronica": {
     "usuario": "37282985812",

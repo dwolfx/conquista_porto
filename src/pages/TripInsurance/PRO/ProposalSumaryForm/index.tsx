@@ -1,20 +1,30 @@
-import Text from 'components/Text'
-import React from 'react'
+import React, { useState } from 'react'
 import 'styled-components/macro'
 import { Row, Col } from 'styled-bootstrap-grid'
 
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
+import Text from 'components/Text'
+import DataRow from '../../commons/DataRow'
+import EditHirerData from './EditingData/EditHirerData'
+
 import useMedia from 'hooks/useMedia'
 
-import DataRow from '../../commons/DataRow'
 import * as S from './styles'
 
 const ProposalSumaryForm = () => {
   const isMobile = useMedia('xs')
 
+  const [isHirerDataDrawerOpen, setIsHirerDataDrawerOpen] = useState<boolean>(
+    false
+  )
+
   return (
     <>
+      <EditHirerData
+        isOpen={isHirerDataDrawerOpen}
+        handleClose={() => setIsHirerDataDrawerOpen(false)}
+      />
       <S.Container>
         <Row>
           <S.HeaderCol lg={3} md={3} sm={12}>
@@ -40,7 +50,13 @@ const ProposalSumaryForm = () => {
                   <Text type="subheading" bold color="gray5">
                     DADOS DO CONTRATANTE
                   </Text>
-                  <ButtonLink>ALTERAR</ButtonLink>
+                  <ButtonLink
+                    onClick={() => {
+                      setIsHirerDataDrawerOpen(true)
+                    }}
+                  >
+                    ALTERAR
+                  </ButtonLink>
                 </S.CardTitleWrapper>
 
                 <DataRow label="Nome" value="Bruno Mizrahi" />

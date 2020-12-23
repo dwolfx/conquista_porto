@@ -2,7 +2,967 @@
 
 exports[`ProposalSumaryForm renders correctly 1`] = `
 Array [
-  .c5 {
+  .c12 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c4 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c10 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c11 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c26 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c8 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 7px 14px;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c9.c9 > * {
+  margin-bottom: 7px;
+}
+
+.c9.c9 :last-child {
+  margin-bottom: 0px;
+}
+
+.c6 {
+  fill: #BABABA;
+  cursor: pointer;
+  height: 28px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 28px;
+}
+
+.c6:hover {
+  fill: #00ADEF;
+}
+
+.c7 {
+  overflow-y: auto;
+  height: 100%;
+  padding: 28px 14px;
+}
+
+.c28 {
+  border-top: 1px solid #DDDDDD;
+  height: 63px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 14px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.c3 {
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 14px 14px;
+}
+
+.c5 {
+  color: #272727;
+}
+
+.c2 {
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  max-width: 392px;
+  top: 0;
+  right: calc(-100% - 7px);
+}
+
+.c0 {
+  width: 100%;
+  height: 100%;
+  z-index: 13;
+}
+
+.c1 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 14px 0px 14px 14px;
+  margin-top: 28px;
+  border: 1px solid #E72176;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px 0px 4px 8px rgba(231,33,118,0.14);
+  border-radius: 8px;
+  -webkit-transform: rotate(0.25deg);
+  -ms-transform: rotate(0.25deg);
+  transform: rotate(0.25deg);
+}
+
+.c27 {
+  max-width: 199px;
+}
+
+.c25 {
+  margin-right: 14px;
+  height: 21px;
+  width: 37px;
+}
+
+.c14 {
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  border: 1px solid #00ADEF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #00ADEF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c14:hover:active {
+  pointer-events: auto;
+}
+
+.c14:hover:active:after {
+  background-color: #EFFBFF;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c14:hover:before {
+  width: 100%;
+}
+
+.c14:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c14:before {
+  background-color: #EFFBFF;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c29 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c29:hover:active {
+  pointer-events: auto;
+}
+
+.c29:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c29:hover:before {
+  width: 100%;
+}
+
+.c29:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c29:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c16 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c22 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  min-width: 20px;
+}
+
+.c22:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #BABABA;
+}
+
+.c22:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c22:checked:after {
+  background-color: #00ADEF;
+}
+
+.c23 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin: 8px 16px 8px 0;
+  color: #000;
+  pointer-events: all;
+}
+
+.c23:last-of-type {
+  margin-right: 0;
+}
+
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13 {
+  margin: 7px 0;
+}
+
+.c15 {
+  width: 100%;
+  margin: 21px 0;
+}
+
+.c30 {
+  width: 100%;
+}
+
+.c20 .c21 {
+  margin-right: 14px;
+}
+
+.c20:first-child {
+  margin-right: 14px;
+}
+
+.c17 {
+  padding-top: 7px;
+  margin-left: 14px;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 28px;
+  margin-left: 14px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+  .c7 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c28 {
+    padding: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c28 {
+    padding: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c3 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c2 {
+    max-width: 484px;
+    margin: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    min-width: 100vw;
+    padding: 0;
+  }
+}
+
+@media (min-width:736px) {
+  .c24 {
+    margin-top: 14px;
+    max-width: 410px;
+  }
+}
+
+@media (min-width:736px) {
+  .c27 {
+    max-width: 347px;
+  }
+}
+
+@media (min-width:736px) {
+  .c18 {
+    margin-top: 14px;
+  }
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+      onClick={[Function]}
+    />
+    <div
+      className="c2"
+      size="sm"
+    >
+      <div
+        className="c3"
+      >
+        <h5
+          className="c4 c5"
+          color="unset"
+          type="headline"
+        >
+          Alterar dados do contratante
+        </h5>
+        <svg
+          aria-label="close"
+          className="c6"
+          data-gtm-clicktype="button"
+          data-gtm-name="botao fechar"
+          data-gtm-subname="menu Alterar dados do contratante"
+          data-gtm-type="click"
+          fill="#BABABA"
+          onClick={[Function]}
+          role="img"
+          width={21}
+        >
+          close.svg
+        </svg>
+      </div>
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+        >
+          <div
+            className="c9"
+          >
+            <span
+              className="c10"
+              color="gray5"
+              type="captionUppercase"
+            >
+              NOME
+            </span>
+            <h5
+              className="c11"
+              color="gray6"
+              type="headline"
+            >
+              Rubao
+            </h5>
+          </div>
+        </div>
+        <div
+          className="c12 c13"
+        />
+        <div
+          className="c8"
+        >
+          <div
+            className="c9"
+          >
+            <span
+              className="c10"
+              color="gray5"
+              type="captionUppercase"
+            >
+              CPF
+            </span>
+            <h5
+              className="c11"
+              color="gray6"
+              type="headline"
+            >
+              362.753.128-07
+            </h5>
+          </div>
+        </div>
+        <div
+          className="c12 c13"
+        />
+        <div
+          className="c8"
+        >
+          <div
+            className="c9"
+          >
+            <span
+              className="c10"
+              color="gray5"
+              type="captionUppercase"
+            >
+              DATA DE NASCIMENTO
+            </span>
+            <h5
+              className="c11"
+              color="gray6"
+              type="headline"
+            >
+              11/11/1981
+            </h5>
+          </div>
+        </div>
+        <div
+          className="c12 c13"
+        />
+        <div
+          className="c8"
+        >
+          <div
+            className="c9"
+          >
+            <span
+              className="c10"
+              color="gray5"
+              type="captionUppercase"
+            >
+              SEXO
+            </span>
+            <h5
+              className="c11"
+              color="gray6"
+              type="headline"
+            >
+              Masculino
+            </h5>
+          </div>
+        </div>
+        <button
+          className="c14 c15"
+          color="primary"
+          data-gtm-clicktype="button"
+          data-gtm-name="alterar no perfil"
+          data-gtm-subname="alterar dados do contratante - seguro viagem"
+          data-gtm-type="click"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="c16"
+          >
+            ALTERAR NO PERFIL
+          </span>
+        </button>
+        <div
+          className="c12 c13"
+        />
+        <h5
+          className="c11 c17"
+          color="gray6"
+          type="headline"
+        >
+          Você reside no Brasil?
+        </h5>
+        <div
+          className="c18"
+          data-testid="radio-brazil-resident"
+        >
+          <div
+            className="c19 c20"
+          >
+            <input
+              aria-checked={false}
+              aria-label="Sim"
+              checked={false}
+              className="c21 c22"
+              data-testid="input-radio-sim"
+              disabled={false}
+              id="input-radio-sim"
+              name="radio-brazil-resident"
+              onChange={[Function]}
+              tabIndex={0}
+              type="radio"
+              value={false}
+            />
+            <label
+              className="c23"
+              disabled={false}
+              htmlFor="input-radio-sim"
+            >
+              Sim
+            </label>
+          </div>
+          <div
+            className="c19 c20"
+          >
+            <input
+              aria-checked={true}
+              aria-label="Não"
+              checked={true}
+              className="c21 c22"
+              data-testid="input-radio-nao"
+              disabled={false}
+              id="input-radio-nao"
+              name="radio-brazil-resident"
+              onChange={[Function]}
+              tabIndex={0}
+              type="radio"
+              value={true}
+            />
+            <label
+              className="c23"
+              disabled={false}
+              htmlFor="input-radio-nao"
+            >
+              Não
+            </label>
+          </div>
+        </div>
+        <div
+          className="c24"
+        >
+          <svg
+            aria-label="alertrounded"
+            className="c25"
+            fill="#E72176"
+            role="img"
+            width={21}
+          >
+            alert-rounded.svg
+          </svg>
+          <h6
+            className="c26 c27"
+            color="unset"
+            type="title"
+          >
+            Este seguro só poderá ser contratado pelo segurado residente no Brasil.
+          </h6>
+        </div>
+      </div>
+      <div
+        className="c28"
+      >
+        <button
+          className="c29 c30"
+          color="primary"
+          data-gtm-clicktype="button"
+          data-gtm-name="salvar alterações"
+          data-gtm-subname="alterar dados do contratante - seguro viagem"
+          data-gtm-type="click"
+          disabled={false}
+        >
+          <span
+            className="c16"
+          >
+            SALVAR ALTERAÇÕES
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  .c1 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c14 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c14 svg {
+  height: 21px;
+}
+
+.c14 svg path {
+  fill: currentColor;
+}
+
+.c25 {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #E72176;
+  margin-left: 3px;
+  margin-bottom: 6px;
+}
+
+.c23 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c5 {
   color: #272727;
   text-align: unset;
   text-transform: none;
@@ -87,71 +1047,6 @@ Array [
   letter-spacing: 0;
   font-weight: 400;
   line-height: 16px;
-}
-
-.c1 {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.c7 {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.c14 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #00ADEF;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c14 svg {
-  height: 21px;
-}
-
-.c14 svg path {
-  fill: currentColor;
-}
-
-.c25 {
-  padding: 4px;
-  border-radius: 50%;
-  background-color: #E72176;
-  margin-left: 3px;
-  margin-bottom: 6px;
-}
-
-.c23 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: 100%;
 }
 
 .c15 {
@@ -368,6 +1263,42 @@ Array [
   }
 }
 
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
 @media (min-width:576px) {
   .c2 {
     -ms-flex: 0 0 100%;
@@ -526,7 +1457,7 @@ Array [
 }
 
 <div
-    className="sc-AxirZ c0"
+    className="sc-AxjAm c0"
     data-name="container"
   >
     <div
@@ -591,6 +1522,7 @@ Array [
                 <a
                   className="c14"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <svg
@@ -1664,6 +2596,42 @@ Array [
 }
 
 @media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
 
 }
 

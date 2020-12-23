@@ -17,6 +17,7 @@ interface IAction {
     dataNascimento: string
     numeroTelefone: string
     dddNumeroTelefone: string
+    sexo: string
   }
 }
 
@@ -38,6 +39,7 @@ export default function(state = INITIAL_STATE, action: IAction) {
           customerBirthdate: action.payload.dataNascimento,
           customerPhoneNumber: action.payload.numeroTelefone,
           customerAreaCode: action.payload.dddNumeroTelefone,
+          customerGender: action.payload.sexo,
         },
         status: 'loaded',
         isLoading: false,

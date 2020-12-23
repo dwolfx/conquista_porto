@@ -22,7 +22,6 @@ describe('Motocicle Question tests', () => {
   it('should have the button disabled', () => {
     renderWithReduxAndTheme(<MotocicleQuestion />)
     const simulateButton = screen.getByRole('button')
-    screen.debug(simulateButton)
     expect(simulateButton).toBeDisabled()
   })
   it('should have the button enabled', () => {

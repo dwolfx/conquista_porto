@@ -250,6 +250,12 @@ export default function Routes({ ...props }) {
         <Route
           path="/seguro-viagem/simular"
           exact
+          component={Creation}
+          pageTitle="Simulação - Seguro Viagem"
+        />
+        <Route
+          path="/seguro-viagem/simular/pro"
+          exact
           component={PartnerOffer}
           pageTitle="Seguro Viagem - Simular"
         />
@@ -317,12 +323,6 @@ export default function Routes({ ...props }) {
           path="/seguro-viagem/visualizar"
           component={ManagementTripInsurance}
           pageTitle="Gestão - Seguro de Viagem"
-        />
-        <Route
-          path="/seguro-viagem/simular"
-          exact
-          component={Creation}
-          pageTitle="Simulação - Seguro Viagem"
         />
         <DefaultRoute
           path="/financiamento-veiculo/visualizar"
