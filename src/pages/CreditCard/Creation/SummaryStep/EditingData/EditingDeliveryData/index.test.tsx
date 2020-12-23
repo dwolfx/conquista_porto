@@ -184,7 +184,7 @@ describe('EditingDeliveryData component', () => {
       expect(BrazilianStatesInput).toHaveValue('Acre')
 
       userEvent.click(BrazilianStatesInput)
-      userEvent.click(screen.getByTestId('option-Rio Grande do Norte'))
+      userEvent.click(screen.getByTestId('option-Rio-Grande-do-Norte'))
 
       rerender(
         <EditingDeliveryData

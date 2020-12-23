@@ -12,6 +12,8 @@ import Layer from 'components/Layer'
 import { HeaderContent, LogoWrapper, CloseIcon, PreviousIcon } from './styles'
 import { Steps } from './types'
 
+import CustomerDataForm from '../PRO/CustomerDataForm'
+
 export default function TripInsurenceCreation({
   isOpen = true,
   closeHandler = () => {},
@@ -19,6 +21,7 @@ export default function TripInsurenceCreation({
   isOpen: boolean
   closeHandler: () => void
 }) {
+
   const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
     StepComponentProps
   >()
@@ -69,7 +72,8 @@ export default function TripInsurenceCreation({
         </Container>
       }
     >
-      {getLast()}
+      {/* {getLast()} */}
+      <CustomerDataForm />
     </Layer>
   )
 }

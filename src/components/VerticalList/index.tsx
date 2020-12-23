@@ -6,11 +6,13 @@ import { Container, ListElements } from './styles'
 interface IProps {
   elements: React.ReactNode[]
   noSpacing?: boolean
+  marginBetweenElements?: number
+  customContainerPadding?: string | number
 }
-export default function VerticalList({ elements, ...rest }: IProps) {
+export default function VerticalList({ elements, marginBetweenElements = 7, ...rest }: IProps) {
   return (
     <Container {...rest}>
-      <ListElements>
+      <ListElements marginBetweenElements={marginBetweenElements}>
         {elements &&
           elements.map((Item, index) => (
             <React.Fragment key={index.toString()}>{Item}</React.Fragment>

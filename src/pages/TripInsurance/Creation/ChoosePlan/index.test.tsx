@@ -41,7 +41,6 @@ describe('Choose Plan tests', () => {
     const planName = screen.getByText(/BRASIL TERRA/i)
     const installmentsAmount = screen.getByText('6X SEM JUROS DE R$ 5.31')
     const upfrontAmount = screen.getByText('R$ 31.83 a vista')
-    screen.debug()
     const firstCoverageAmount = screen.getAllByText('R$ 10.000,00')
     const secondCoverageAmount = screen.getAllByText('R$ 80.000,00')
     const openModal = screen.getByText('comparativo de coberturas')

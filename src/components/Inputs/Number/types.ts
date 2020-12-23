@@ -12,7 +12,7 @@ export interface IGetFillColorArguments {
 }
 
 export interface IProps {
-  label?: string
+  label?: string | React.ReactNode
   minValue?: number
   maxValue?: number
   testId?: string
