@@ -4,7 +4,7 @@ export const RadioInput = styled.input`
   height: 20px;
   margin-right: 10px;
   position: relative;
-  width: 20px;
+  min-width: 20px;
 
   &:before {
     content: '';

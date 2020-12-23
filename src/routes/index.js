@@ -26,8 +26,8 @@ import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
 import ConsortiumBuilding from 'pages/ConsortiumBuilding'
 import ManagementConsortiumBuilding from 'pages/ConsortiumBuilding/Management'
 import CartaoCredito from 'pages/CreditCard'
-
-// import Creation from 'pages/TripInsurance/Creation'
+import Creation from 'pages/TripInsurance/Creation'
+import CompanionStep from 'pages/TripInsurance/Hire/CompanionStep'
 // import CartaoCreditoPro from 'pages/CreditCard/PRO'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
@@ -241,6 +241,12 @@ export default function Routes({ ...props }) {
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
         /> */}
+        <Route
+          path="/seguro-viagem/contratar"
+          exact
+          component={CompanionStep}
+          pageTitle="Seguro Viagem - Simular"
+        />
         <Route
           path="/seguro-viagem/simular"
           exact
