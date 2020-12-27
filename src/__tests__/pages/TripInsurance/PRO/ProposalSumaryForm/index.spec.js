@@ -9,7 +9,7 @@ import { ThemeProvider } from 'styled-components'
 
 import theme from 'styles/theme'
 
-import ProposalSumaryForm from 'pages/TripInsurance/PRO/ProposalSumaryForm'
+import ProposalSumaryForm from 'pages/TripInsurance/PRO/PartnerOffer/ProposalSumaryForm'
 
 const INITIAL_STATE = {
   customerProfile: {

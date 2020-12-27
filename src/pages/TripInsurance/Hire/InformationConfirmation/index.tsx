@@ -14,7 +14,7 @@ import * as t from 'components/Inputs/Select/types'
 import { formatCpf, formatPhoneNumber } from 'helpers'
 import * as s from './styles'
 
-import CEPSearch from './CEPSearch'
+import AddressForm from './AddressForm'
 
 const genders: t.TOptions[] = [
   {
@@ -107,16 +107,15 @@ const InformationConfirmation: StepComponent = () => {
                 </Text>
               </ButtonLink>
             </s.CardTitleWrapper>
-
             <s.DataDisplay label="Nome" value="Bruno Mizrahi" />
             <Divisor />
             <s.DataDisplay label="CPF" value="421.980.660-20" />
             <Divisor />
             <s.DataDisplay label="Data de nascimento" value="14/02/1987" />
             <Divisor />
-            <s.TextInputContainer>
+            <s.DelimiterWrapper>
               <s.Select label="sexo" options={genders} selected={selected} />
-            </s.TextInputContainer>
+            </s.DelimiterWrapper>
             <Divisor />
             <s.RadioContainer>
               <Text type="headline" bold>
@@ -211,7 +210,7 @@ const InformationConfirmation: StepComponent = () => {
                 />
               </s.RadioOptionsWrapper>
             </s.RadioContainerPPE>
-            <s.TextInputContainer>
+            <s.DelimiterWrapper>
               <s.Select
                 label={
                   isSmUp
@@ -222,13 +221,13 @@ const InformationConfirmation: StepComponent = () => {
                 selected={selected}
                 optionBoxDirection="bottom"
               />
-              <s.TextInput label="nome completo" value="Maria Eduarda" />
+              <s.PPENameInput label="nome completo" value="Maria Eduarda" />
               <s.TextInput
                 label="cpf"
                 value={formatCpf('00000000000')}
                 onChange={() => null}
               />
-            </s.TextInputContainer>
+            </s.DelimiterWrapper>
           </s.Card>
           <s.Card overflow="visible">
             <s.CardTitleText
@@ -255,7 +254,7 @@ const InformationConfirmation: StepComponent = () => {
               </s.AddressText>
             )}
             <s.TextInputContainer>
-              <CEPSearch />
+              <AddressForm />
             </s.TextInputContainer>
           </s.Card>
           <s.Card>

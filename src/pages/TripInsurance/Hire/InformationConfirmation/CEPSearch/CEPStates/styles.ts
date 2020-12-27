@@ -6,13 +6,14 @@ import IconExporter from 'components/IconExporter'
 import SelectComponent from 'components/Inputs/Select'
 
 export const LinkCEPWrapper = styled.div`
-  margin: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}`}px;
+  margin: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}px`};
+  display: flex;
+  flex-direction: column-reverse;
   @media ${({ theme }) => theme.mediaQueries.smUp} {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0;
+    flex-direction: row-reverse;
+    margin: ${({ theme }) => theme.spacing(1)}px 0 0 0;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
   }
 `
 
@@ -29,10 +30,14 @@ export const CEPStateWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    margin-bottom: 0;
+  }
 `
 
 export const Loading = styled(LoadingComponent)`
-  margin: 0px;
+  height: 28px;
 `
 
 export const LoadingWrapper = styled.div`
@@ -41,15 +46,34 @@ export const LoadingWrapper = styled.div`
 `
 
 export const AddressWrapper = styled.div`
-  padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}`}px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    margin-bottom: 0;
+  }
 `
 
-export const AddressText = styled(Text)``
+export const AddressInput = styled(NewInput)`
+  margin-top: ${({ theme }) => theme.spacing(4)}px;
+`
 
 export const TextInput = styled(NewInput)`
-  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}`}px 0px;
+  margin: ${({ theme }) => theme.spacing(4)}px 0;
   &:last-of-type {
-    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+    margin-bottom: 0px;
+  }
+`
+
+export const NeighbourhoodInput = styled(NewInput)`
+  margin-top: ${({ theme }) => theme.spacing(4)}px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    margin-top: 0;
+  }
+`
+
+export const CityInput = styled(NewInput)`
+  margin: ${({ theme }) => theme.spacing(4)}px 0;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    margin-top: 0;
   }
 `
 
@@ -70,6 +94,9 @@ export const NotFoundMessageWrapper = styled.div`
   align-items: flex-start;
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   justify-content: space-between;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    margin-bottom: 0;
+  }
 `
 
 export const ManualFillCard = styled.div`
@@ -85,7 +112,7 @@ export const ManualFillCard = styled.div`
   transform: rotate(0.25deg);
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
-    margin-top: ${({ theme }) => theme.spacing(2)}px;
+    margin-top: ${({ theme }) => theme.spacing(3)}px;
     max-width: 410px;
   }
 `
@@ -132,13 +159,15 @@ export const ManualFillText = styled(Text)`
 `
 
 export const Select = styled(SelectComponent)`
-  margin: ${({ theme }) =>
-    `${theme.spacing(4)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
+  margin-top: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const NumberComplementWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    flex-direction: row;
+  }
 `
 
 export const TextInputNumber = styled(NewInput)`
@@ -150,9 +179,16 @@ export const TextInputNumber = styled(NewInput)`
 `
 
 export const TextInputComplement = styled(NewInput)`
-  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}`}px 0px;
-  width: 410px;
   @media ${({ theme }) => theme.mediaQueries.smUp} {
-    margin-top: ${({ theme }) => theme.spacing(3)}px;
+    margin: ${({ theme }) =>
+      `${theme.spacing(4)}px 0px ${theme.spacing(4)}px ${theme.spacing(2)}px`};
+    width: 410px;
+  }
+`
+
+export const CityText = styled(Text)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    margin-bottom: 0;
   }
 `
