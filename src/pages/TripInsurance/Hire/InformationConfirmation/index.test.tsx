@@ -101,11 +101,8 @@ describe('InformationConfirmation component tests', () => {
   it('should render correctly "Endereço" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)
     const textsToBeDefined = [
-      'Endereço',
       'Por favor, inclua somente CEPs de endereços no Brasil.',
       'Endereços no exterior não são válidos.',
-      'Águas de São Pedro / SP',
-      'Não sabe o CEP?',
     ]
 
     const suiteTests = textsToBeDefined.map(word => ({
@@ -113,18 +110,6 @@ describe('InformationConfirmation component tests', () => {
     }))
 
     suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
-
-    const cep = screen.getByDisplayValue('03659-874')
-    const addressNumber = screen.getByDisplayValue('987')
-    const addressComplement = screen.getByDisplayValue('Apto 98')
-    const addressNeighborhood = screen.getByDisplayValue('Cerqueira César')
-
-    expect([
-      cep,
-      addressNumber,
-      addressComplement,
-      addressNeighborhood,
-    ]).toBeDefined()
   })
   it('should render correctly "Contato em caso de acidentes" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)

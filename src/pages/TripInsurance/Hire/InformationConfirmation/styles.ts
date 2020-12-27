@@ -140,8 +140,12 @@ export const TextInput = styled(NewInput)`
   }
 `
 
+export const PPENameInput = styled(NewInput)`
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px `};
+`
+
 export const AddressText = styled(Text)`
-  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}`}px;
+  margin: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(2)}`}px 0;
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     margin-bottom: 0px;
@@ -206,6 +210,15 @@ export const NextButton = styled(Button)`
   }
 `
 
+export const DelimiterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    width: 630px;
+  }
+`
+
 export const FooterContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -232,6 +245,7 @@ export const EmergencyContactTextInput = styled(NewInput)`
 `
 
 export const TextInputContainer = styled.div`
+  padding: ${({ theme }) => theme.spacing(2)}px;
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     width: 630px;
   }

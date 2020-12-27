@@ -5,11 +5,12 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Text from 'components/Text'
-import DataRow from '../../commons/DataRow'
-import EditHirerData from './EditingData/EditHirerData'
+
+import EditHirerData from '../../ProposalSumaryForm/EditingData/EditHirerData'
 
 import useMedia from 'hooks/useMedia'
 
+import DataRow from '../../../commons/DataRow'
 import * as S from './styles'
 
 const ProposalSumaryForm = () => {

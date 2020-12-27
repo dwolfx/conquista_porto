@@ -1,5 +1,5 @@
 import ChoosePlan from './ChoosePlan'
-import ProposalSummaryForm from '../ProposalSumaryForm'
+import ProposalSummaryForm from './ProposalSumaryForm'
 
 export const Steps = {
   choosePlan: ChoosePlan,

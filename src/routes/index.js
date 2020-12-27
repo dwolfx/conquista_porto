@@ -36,7 +36,7 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
 // import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
-import PartnerOffer from 'pages/TripInsurance/PRO/PartnerOffer'
+import TripInsuranceProposalCreation from 'pages/TripInsurance/PRO/Creation'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -256,7 +256,7 @@ export default function Routes({ ...props }) {
         <Route
           path="/seguro-viagem/simular/pro"
           exact
-          component={PartnerOffer}
+          component={TripInsuranceProposalCreation}
           pageTitle="Seguro Viagem - Simular"
         />
         <DefaultRoute
@@ -266,6 +266,23 @@ export default function Routes({ ...props }) {
           data={tripInsuranceData}
           hook={useFetchTripInsurance}
           pageTitle="Home - Seguro Viagem"
+        />
+        <DefaultRoute
+          path="/seguro-viagem/visualizar"
+          component={ManagementTripInsurance}
+          pageTitle="Gestão - Seguro de Viagem"
+        />
+        <Route
+          path="/seguro-viagem/simular"
+          exact
+          component={Creation}
+          pageTitle="Simulação - Seguro Viagem"
+        />
+        <Route
+          path="/seguro-viagem/pro/proposta"
+          exact
+          component={TripInsuranceProposalCreation}
+          pageTitle="Seguro Viagem - Simular"
         />
         <DefaultRoute
           path="/financiamento-veiculo"
@@ -319,11 +336,6 @@ export default function Routes({ ...props }) {
           component={SummaryProposal}
           pageTitle="Proposta - Cartão de Crédito"
         /> */}
-        <DefaultRoute
-          path="/seguro-viagem/visualizar"
-          component={ManagementTripInsurance}
-          pageTitle="Gestão - Seguro de Viagem"
-        />
         <DefaultRoute
           path="/financiamento-veiculo/visualizar"
           exact

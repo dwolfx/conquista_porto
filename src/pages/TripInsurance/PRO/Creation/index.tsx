@@ -1,0 +1,67 @@
+import React from 'react'
+import 'styled-components/macro'
+import { Col, Row, Container } from 'styled-bootstrap-grid'
+
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
+
+import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
+
+import Layer from 'components/Layer'
+
+import { HeaderContent, LogoWrapper, CloseIcon, PreviousIcon } from './styles'
+import { Steps } from './types'
+
+export default function TripInsurenceCreation({
+  isOpen = true,
+  closeHandler = () => {},
+}: {
+  isOpen: boolean
+  closeHandler: () => void
+}) {
+  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
+    StepComponentProps
+  >()
+
+  React.useEffect(() => {
+    if (isOpen && getLength() === 0) instantiate(Steps.summaryProposal)
+  }, [isOpen, instantiate, getLength])
+
+  return (
+    <Layer
+      isOpen={isOpen}
+      handleClose={closeHandler}
+      data-testid="trip-insurance-layer"
+      headerContent={
+        <Container>
+          <Row>
+            <Col lg={12}>
+              <HeaderContent>
+                <PreviousIcon
+                  data-gtm-subname="layer oferta parceiro seguro viagem"
+                  data-gtm-name="botao voltar step"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={() => (getLength() === 1 ? closeHandler() : pop())}
+                />
+                <LogoWrapper>
+                  <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
+                </LogoWrapper>
+                <CloseIcon
+                  className="layer-close-button"
+                  data-gtm-subname="layer oferta parceiro seguro viagem"
+                  data-gtm-name="botao fechar"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={closeHandler}
+                />
+              </HeaderContent>
+            </Col>
+          </Row>
+        </Container>
+      }
+    >
+      {getLast()}
+    </Layer>
+  )
+}

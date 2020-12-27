@@ -5,7 +5,7 @@ import { StepComponent } from 'hooks/FluxManagement/types'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
-import StepBar from '../StepBar'
+import StepBar from '../commons/StepBar'
 import HorizontalCard from './HorizontalCard'
 import VerticalCard from './VerticalCard'
 
@@ -78,7 +78,6 @@ const ChoosePlan: StepComponent = () => {
     ))
   }
 
-  // eslint-disable-next-line react/no-unused-prop-types
   const renderCards = ({ plans }: { plans: t.IPlan[] }) => {
     switch (true) {
       // mobile
