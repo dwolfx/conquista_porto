@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Container, Row } from 'styled-bootstrap-grid'
 import CountryOriginSelect from 'pages/TripInsurance/commons/CountryOriginSelect'
 import Button from 'components/Button'
@@ -38,6 +38,18 @@ export const Select = styled(InputSelect)`
   margin-bottom: ${({ theme }) => theme.spacing(5)}px;
 `
 
-export const MultiSelector = styled(MultiSelectorComponent)`
+export const MultiSelector = styled(MultiSelectorComponent)<{
+  marginBottom: boolean
+}>`
   margin-bottom: ${({ theme }) => theme.spacing(5)}px;
+
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${({ theme }) => theme.spacing(10)}px;
+    `}
+
+  svg {
+    width: 21px;
+  }
 `

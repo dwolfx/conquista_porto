@@ -6,16 +6,15 @@ import React, {
   MutableRefObject,
 } from 'react'
 
-import * as s from './styles'
-
 import { dict } from 'components/IconExporter'
-
 import InputText from 'components/NewInput'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 import Loading from 'components/Loading'
 
 import { IProps, IOption } from './types'
+
+import * as s from './styles'
 
 /** This component is a multi selector
  *
@@ -47,11 +46,13 @@ import { IProps, IOption } from './types'
  */
 
 const MultiSelector: React.FC<IProps> = ({
+  error = false,
   options,
   disabled = false,
   inputLabel = 'Selecione',
   loading = false,
   onChange,
+  onFocusFunction = () => {},
   selectedOptions,
   setSelectedOptions,
   ...rest
@@ -165,7 +166,19 @@ const MultiSelector: React.FC<IProps> = ({
     >
       <s.SelectWrapper>
         <InputText
-          onFocus={() => setSelectOptionsDropdown(true)}
+          error={
+            error
+              ? {
+                  icon: 'alertrounded',
+                  message:
+                    'Erro ao carregar informações. Por favor, tente novamente',
+                }
+              : false
+          }
+          onFocus={() => {
+            onFocusFunction()
+            setSelectOptionsDropdown(true)
+          }}
           label={inputLabel}
           placeholder="Selecione"
           onChange={e => setInputValue(e.target.value)}

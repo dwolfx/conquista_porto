@@ -12,9 +12,12 @@ export default function useFormFluxManagement<T>() {
   const form: T = useSelector((state: any) => state.fluxManagement.form)
   const dispatch = useDispatch()
 
-  const updateForm = useCallback((updatedKeys: T) => {
-    dispatch(UpdateFormFluxManagementStack(updatedKeys))
-  }, [])
+  const updateForm = useCallback(
+    (updatedKeys: T) => {
+      dispatch(UpdateFormFluxManagementStack(updatedKeys))
+    },
+    [dispatch]
+  )
 
   return { form, updateForm }
 }

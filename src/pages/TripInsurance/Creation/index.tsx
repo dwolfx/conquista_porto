@@ -23,8 +23,16 @@ export default function TripInsurenceCreation({
     StepComponentProps
   >()
 
+  // Steps:
+  // 1 - originTrip
+  // 2 - coverageDate
+  // 3 - passengerStep
+  // 4 - adventureSports
+  // 5 - motocicleQuestion
+  // 6 - choosePlan
+
   React.useEffect(() => {
-    if (isOpen && getLength() === 0) instantiate(Steps.informationConfirmation)
+    if (isOpen && getLength() === 0) instantiate(Steps.originTrip)
   }, [isOpen, instantiate, getLength])
 
   return (

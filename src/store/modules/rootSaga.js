@@ -13,6 +13,7 @@ import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import customerProfile from './CustomerProfile/sagas'
+import destinationCountries from './TripInsurance/DestinationCountries/sagas'
 import {
   financialApplicationGetData,
   financialApplicationPostData,
@@ -57,6 +58,7 @@ export default function* rootSaga() {
     consortiumBuilding,
     consortiumVehicle,
     customerProfile,
+    destinationCountries,
     financialApplicationGetData,
     financialApplicationPostData,
     investmentsList,

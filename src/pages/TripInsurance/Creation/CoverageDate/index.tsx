@@ -1,20 +1,20 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import moment from 'moment'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
+
+import Popover from 'components/Popover'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 
 import useMedia from 'hooks/useMedia'
 
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-
-import * as s from './styles'
-import Popover from 'components/Popover'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
-
-import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+
+import { Steps } from '../types'
+import * as s from './styles'
 
 const CoverageDate: StepComponent = () => {
   const [initialDate, setInitialDate] = useState<moment.Moment | null>(null)
@@ -23,9 +23,7 @@ const CoverageDate: StepComponent = () => {
   const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
 
-  const { instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const onHandleRangeFocused = (focus: any) => {
     setFocusedInput(focus)
@@ -82,7 +80,7 @@ const CoverageDate: StepComponent = () => {
                   }}
                   startDateText="Data de partida"
                   endDateText="Data de chegada"
-                  blockPastDays={true}
+                  blockPastDays
                 />
                 <s.NextButton
                   id="next-button"
