@@ -14,8 +14,8 @@ describe('Investment/Redeem/AlignmentTerms actions', () => {
         valor_bruto: '',
         tipo_operacao: '',
       },
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
     expect(GetRedeemAlignmentTermsRequest(payload)).toEqual({
       payload,

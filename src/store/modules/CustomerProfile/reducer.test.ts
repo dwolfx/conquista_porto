@@ -3,6 +3,7 @@ import { Types } from './types'
 
 describe('Customer Profile reducer', () => {
   it('should return INITIAL_STATE', () => {
+    // @ts-expect-error
     expect(reducer(undefined, {})).toEqual({
       data: null,
       status: '',

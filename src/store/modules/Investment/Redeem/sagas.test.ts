@@ -16,7 +16,7 @@ describe('Investment/Redeem Sagas', () => {
     const payload = {
       id_fundo: '',
       data_operacao: '',
-      onErrorToast: (toast: {}) => {},
+      onErrorToast: () => {},
     }
 
     const selectsData = {

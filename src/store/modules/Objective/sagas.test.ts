@@ -85,10 +85,10 @@ describe('Objective Insurance Sagas', () => {
   })
 
   it('POST: failure triggers failure action', () => {
-    //Mock JSON.parse toast err.message
-    JSON.parse = jest.fn().mockImplementationOnce(() => {
-      return { msg: `Cannot read property 'data' of undefined` }
-    })
+    // Mock JSON.parse toast err.message
+    JSON.parse = jest.fn().mockImplementationOnce(() => ({
+      msg: `Cannot read property 'data' of undefined`,
+    }))
 
     const param = {
       payload: {

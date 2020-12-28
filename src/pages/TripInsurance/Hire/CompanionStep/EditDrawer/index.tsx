@@ -7,9 +7,10 @@ import { formatCpf, formatPhoneNumber } from 'helpers'
 import useMedia from 'hooks/useMedia'
 
 import * as s from './styles'
+import * as t from './types'
 
 interface ICompanionEditDrawer {
-  companion: any
+  companion: t.IFormDrawerCompanion
   isDrawerOpen: boolean
   handleClose: (isDrawerOpen: boolean) => void
 }
@@ -60,7 +61,7 @@ const CompanionEditDrawer: React.FC<ICompanionEditDrawer> = ({
           maxLength={20}
           label="CPF"
           onChange={() => {}}
-          value={formatCpf(companion.cpf || '00000000000')}
+          value={formatCpf(companion.documentNumber || '00000000000')}
         />
       </s.ColInput>
       <s.ColInput>
@@ -80,7 +81,7 @@ const CompanionEditDrawer: React.FC<ICompanionEditDrawer> = ({
             { id: 1, text: 'Masculino' },
             { id: 2, text: 'Feminino' },
           ]}
-          selected={{ id: 1, name: 'Masculino' }}
+          selected={companion.gender}
           label="Sexo"
           optionBoxSize={200}
         />

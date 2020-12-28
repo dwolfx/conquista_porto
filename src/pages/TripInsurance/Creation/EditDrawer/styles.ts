@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import NewInput from 'components/NewInput'
-import CountryOriginSelectCmp from '../../commons/CountryOriginSelect'
 import DivisorCmp from 'components/Divisor'
 import SelectCmp from 'components/Inputs/Select'
 import DatePickerRangeCmp from 'components/Dates/DatePickerRange'
@@ -9,6 +8,7 @@ import ButtonCmp from 'components/Button'
 import Text from 'components/Text'
 import PopoverCmp from 'components/Popover'
 import IconExporter from 'components/IconExporter'
+import CountryOriginSelectCmp from '../../commons/CountryOriginSelect'
 
 export const Input = styled(NewInput)`
   margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(5)}px`};
@@ -43,7 +43,7 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
   width: max-content;
   .DateRangePickerInput_arrow {
     width: 7px;
-    
+
     @media ${props => props.theme.mediaQueries.lg} {
       width: 14px !important;
     }
@@ -51,7 +51,6 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
     @media ${props => props.theme.mediaQueries.xs} {
       width: 21px !important;
     }
-
   }
 
   .DateInput {
@@ -73,7 +72,6 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
         width: 150px;
       }
     }
-
   }
 `
 
@@ -91,11 +89,12 @@ export const ButtonSubmit = styled(ButtonCmp)`
 
 export const TooltipText = styled(Text)`
   width: 213px;
-` 
+`
 
 export const Popover = styled(PopoverCmp)`
   width: 100%;
-  margin: ${({ theme }) => theme.spacing(4)}px 0 ${({ theme }) => theme.spacing(4)}px 0 ;
+  margin: ${({ theme }) => theme.spacing(4)}px 0
+    ${({ theme }) => theme.spacing(4)}px 0;
 `
 
 export const InfoIcon = styled(IconExporter)`

@@ -3,16 +3,12 @@ import React from 'react'
 import 'jest-styled-components'
 import { renderWithReduxAndTheme } from 'testUtils'
 
-import PassengerStep from '.'
 import { fireEvent } from '@testing-library/dom'
-
-const fn = jest.fn()
+import PassengerStep from '.'
 
 describe('PassengerStep tests', () => {
   it('should exists', () => {
-    const { getByTestId } = renderWithReduxAndTheme(
-      <PassengerStep />
-    )
+    const { getByTestId } = renderWithReduxAndTheme(<PassengerStep />)
     expect(getByTestId('passenger-step')).toBeVisible()
   })
 
@@ -27,7 +23,7 @@ describe('PassengerStep tests', () => {
   })
 
   it('should increment state on afterOnChange', () => {
-    const { getAllByRole, getByText, getAllByTestId } = renderWithReduxAndTheme(
+    const { getAllByRole, getAllByTestId } = renderWithReduxAndTheme(
       <PassengerStep />
     )
     const button = getAllByRole('button', { name: 'plus' })[0]

@@ -6,16 +6,16 @@ import { renderWithReduxAndTheme } from 'testUtils'
 import { storeFactory } from 'setupTests'
 import theme from 'styles/theme'
 
+import { fireEvent } from '@testing-library/dom'
 import TripInsuranceCreation from '.'
 import { WhiteContent } from './styles'
-import { fireEvent } from '@testing-library/dom'
 
 const fn = jest.fn()
 
 const store = storeFactory({
   fluxManagement: {
     form: {},
-    stack: []
+    stack: [],
   },
 })
 
@@ -34,8 +34,9 @@ describe('Trip Insurance creation', () => {
   it('should exists', () => {
     const { getByTestId } = renderWithReduxAndTheme(
       <ThemeProvider theme={theme}>
-        <TripInsuranceCreation isOpen={true} closeHandler={fn}/>
-      </ThemeProvider>, { store, container: createRootContainer() }
+        <TripInsuranceCreation isOpen closeHandler={fn} />
+      </ThemeProvider>,
+      { store, container: createRootContainer() }
     )
     expect(getByTestId('trip-insurance-layer')).toBeVisible()
   })
@@ -43,8 +44,9 @@ describe('Trip Insurance creation', () => {
   it('should instantiate first step', () => {
     renderWithReduxAndTheme(
       <ThemeProvider theme={theme}>
-        <TripInsuranceCreation isOpen={true} closeHandler={fn} />
-      </ThemeProvider>, { store, container: createRootContainer() }
+        <TripInsuranceCreation isOpen closeHandler={fn} />
+      </ThemeProvider>,
+      { store, container: createRootContainer() }
     )
     expect(store.getState().fluxManagement.stack).toHaveLength(1)
   })
@@ -53,13 +55,14 @@ describe('Trip Insurance creation', () => {
     const storeA = storeFactory({
       fluxManagement: {
         form: {},
-        stack: ['test', 'test2']
+        stack: ['test', 'test2'],
       },
     })
     const { getByRole } = renderWithReduxAndTheme(
       <ThemeProvider theme={theme}>
-        <TripInsuranceCreation isOpen={true} closeHandler={fn} />
-      </ThemeProvider>, { store: storeA, container: createRootContainer() }
+        <TripInsuranceCreation isOpen closeHandler={fn} />
+      </ThemeProvider>,
+      { store: storeA, container: createRootContainer() }
     )
     fireEvent.click(getByRole('img', { name: /arrowleft/i }))
     expect(storeA.getState().fluxManagement.stack).toHaveLength(1)
@@ -68,9 +71,8 @@ describe('Trip Insurance creation', () => {
   })
 
   it('should be able to render WhiteContent', () => {
-    renderWithReduxAndTheme(
-      <WhiteContent />
-    )
+    renderWithReduxAndTheme(<WhiteContent />)
+    // eslint-disable-next-line no-unused-expressions
     expect(WhiteContent).toBeVisible
   })
 })

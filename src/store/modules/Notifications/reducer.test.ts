@@ -34,9 +34,7 @@ describe('Notifications Reducer', () => {
       )
     ).toEqual({
       data: {
-        novas: [
-          { titulo: 'nova mensagem', textoConteudo: 'nova mensagem' },
-        ],
+        novas: [{ titulo: 'nova mensagem', textoConteudo: 'nova mensagem' }],
         anteriores: [
           { titulo: 'mensagem antiga', textoConteudo: 'mensagem antiga' },
         ],
@@ -79,7 +77,7 @@ describe('Notifications Reducer', () => {
           },
         },
         {
-          type: Types.GET_DATA_FAILURE
+          type: Types.GET_DATA_FAILURE,
         }
       )
     ).toEqual({

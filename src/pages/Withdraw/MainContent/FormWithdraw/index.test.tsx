@@ -104,9 +104,9 @@ describe('FormWitdraw', () => {
     )
 
     expect(
-      getByText((text, el) => {
-        return text.includes(`O valor não pode ser maior do que R$ 1.000,00`)
-      })
+      getByText((text, el) =>
+        text.includes(`O valor não pode ser maior do que R$ 1.000,00`)
+      )
     ).toBeDefined()
   })
 
@@ -133,14 +133,14 @@ describe('FormWitdraw', () => {
         formData={formData}
         onChangeFormData={mockOnChangeFormData}
         setIsInputValueValid={mockIsValueValid}
-        accountBalanceValue={''}
+        accountBalanceValue=""
       />
     )
 
     expect(
-      getByText((text, el) => {
-        return text.includes(`O valor não pode ser maior do que R$ 0,00`)
-      })
+      getByText((text, el) =>
+        text.includes(`O valor não pode ser maior do que R$ 0,00`)
+      )
     ).toBeDefined()
   })
 })

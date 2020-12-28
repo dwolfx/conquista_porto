@@ -13,8 +13,8 @@ describe('Investment/FinancialApplication/AlignmentTerms actions', () => {
         valor_bruto: 0,
         id_fundo: '',
       },
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
     expect(GetAlignmentTermsDataRequest(payload)).toEqual({
       payload,

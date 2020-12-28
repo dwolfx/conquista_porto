@@ -7,6 +7,7 @@ import { Types } from './types'
 describe('Investment/FinancialApplication', () => {
   describe('financialApplicationGetData', () => {
     it('should return INITIAL_STATE', () => {
+      // @ts-expect-error
       expect(financialApplicationGetData(undefined, {})).toEqual({
         data: null,
         isLoading: false,

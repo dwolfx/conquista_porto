@@ -1,6 +1,9 @@
 import { call, put } from 'redux-saga/effects'
 import { get } from 'services/api'
 
+import PrivateWelfareResponse from 'mocks/privateWelfare.json'
+import privateWelfateWithStatusPREResponse from 'mocks/privateWelfateWithStatusPRE.json'
+import BadRequestException from 'services/exceptions/BadRequestException'
 import { IPrivateWelfare } from './types'
 import {
   GetPrivateWelfareFailure,
@@ -9,11 +12,8 @@ import {
   GetPrivateWelfareWithStatusPRESuccess,
   GetPrivateWelfareWithStatusPREFailure,
 } from './action'
-import PrivateWelfareResponse from 'mocks/privateWelfare.json'
-import privateWelfateWithStatusPREResponse from 'mocks/privateWelfateWithStatusPRE.json'
 
 import { getPrivateWelfareData, getPrivateWelfareWithStatusPRE } from './sagas'
-import BadRequestException from 'services/exceptions/BadRequestException'
 
 describe('PrivateWelfare sagas test', () => {
   describe('getPrivateWelfareData', () => {
@@ -32,18 +32,19 @@ describe('PrivateWelfare sagas test', () => {
       }
       const newData = [response.data].flatMap(item => item)
 
-      //pega todas as previdências que não possuem status 'CAN' ou 'RCH' ou 'ERR
-      //@ts-ignore
+      // pega todas as previdências que não possuem status 'CAN' ou 'RCH' ou 'ERR
+      // @ts-ignore
       const filteredData: IPrivateWelfare[] = [...newData].filter(
-        //@ts-ignore
+        // @ts-ignore
         (pv: IPrivateWelfare) =>
           pv.status !== 'CAN' && pv.status !== 'RCH' && pv.status !== 'ERR'
       )
 
-      //garante que o retorno do campo 'benefits' será um array
-      const filteredDataWithNewBenefitsArray = [...filteredData].map(pv => {
-        return { ...pv, benefits: [pv.benefits].flatMap(item => item) }
-      })
+      // garante que o retorno do campo 'benefits' será um array
+      const filteredDataWithNewBenefitsArray = [...filteredData].map(pv => ({
+        ...pv,
+        benefits: [pv.benefits].flatMap(item => item),
+      }))
 
       generator.next() // já testado
       expect(generator.next(response).value).toEqual(

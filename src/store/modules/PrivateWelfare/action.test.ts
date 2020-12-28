@@ -1,6 +1,6 @@
-import { Types } from './types'
 import PrivateWelfareResponse from 'mocks/privateWelfare.json'
 import privateWelfateWithStatusPREResponse from 'mocks/privateWelfateWithStatusPRE.json'
+import { Types } from './types'
 
 import {
   GetPrivateWelfareRequest,
@@ -20,7 +20,7 @@ describe('PrivateWelfare action tests', () => {
       })
     })
     it('should call success action', () => {
-      //@ts-ignore
+      // @ts-ignore
       expect(GetPrivateWelfareSuccess(PrivateWelfareResponse)).toEqual({
         type: Types.PRIVATE_WELFARE_SUCCESS,
         payload: PrivateWelfareResponse,

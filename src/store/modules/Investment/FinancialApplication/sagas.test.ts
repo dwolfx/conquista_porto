@@ -22,8 +22,8 @@ describe('Investment/FinancialApplication Sagas', () => {
           data_operacao: '2020-08-08',
           id_fundo: '123456',
         },
-        onSuccess: (data: {}) => {},
-        onErrorToast: (toast: {}) => {},
+        onSuccess: () => {},
+        onErrorToast: () => {},
       }
       const generator = getFinancialApplicationData({
         payload,
@@ -35,9 +35,7 @@ describe('Investment/FinancialApplication Sagas', () => {
         select(state => state.suitabilityInfo.data).type
       )
 
-      expect(
-        generator.next({ id_cotista: '888888' }).value
-      ).toEqual(
+      expect(generator.next({ id_cotista: '888888' }).value).toEqual(
         call(
           get,
           `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&data_operacao=2020-08-08`
@@ -122,9 +120,7 @@ describe('Investment/FinancialApplication Sagas', () => {
         select(state => state.suitabilityInfo.data).type
       )
 
-      expect(
-        generator.next({ id_cotista: '888888' }).value
-      ).toEqual(
+      expect(generator.next({ id_cotista: '888888' }).value).toEqual(
         call(
           get,
           `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&data_operacao=2020-08-08`
@@ -196,8 +192,8 @@ describe('Investment/FinancialApplication Sagas', () => {
           data_operacao: '2020-08-08',
           id_fundo: '123456',
         },
-        onSuccess: (data: {}) => {},
-        onErrorToast: (toast: {}) => {},
+        onSuccess: () => {},
+        onErrorToast: () => {},
       }
       const generator = getFinancialApplicationData({
         payload,
@@ -208,17 +204,18 @@ describe('Investment/FinancialApplication Sagas', () => {
         id_cotista: '888888',
       })
 
-      expect(
-        generator.next({ id_cotista: '888888' }).value
-      ).toEqual(
+      expect(generator.next({ id_cotista: '888888' }).value).toEqual(
         call(
           get,
           `/cotista/aplicacoes?id_fundo=123456&id_cotista=888888&data_operacao=2020-08-08`
         )
       )
-      expect(generator.throw({ message: "Cannot read property 'data' of undefined" }).value).toEqual(
+      expect(
+        generator.throw({ message: "Cannot read property 'data' of undefined" })
+          .value
+      ).toEqual(
         put(
-          GetFinancialApplicationDataFailure({ 
+          GetFinancialApplicationDataFailure({
             message: "Cannot read property 'data' of undefined",
           })
         )
@@ -404,6 +401,7 @@ describe('Investment/FinancialApplication Sagas', () => {
 
       const response = undefined
 
+      // @ts-expect-error
       expect(generator.next(response).value).toEqual(
         put(
           PostFinancialApplicationDataFailure({
@@ -457,6 +455,7 @@ describe('Investment/FinancialApplication Sagas', () => {
 
       const response = undefined
 
+      // @ts-expect-error
       expect(generator.next(response).value).toEqual(
         put(
           PostFinancialApplicationDataFailure({

@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects'
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get } from 'services/api'
 
 import { getData } from './sagas'
 import {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
 import { renderWithReduxAndTheme, screen } from 'testUtils'
-import { fireEvent } from '@testing-library/react'
 
 import EditDrawer from './index'
 
@@ -19,6 +18,13 @@ describe('Edit Objective Drawer Component', () => {
   it('should render Edit Drawer title and inputs', async () => {
     const companion = {
       name: 'Nome Teste',
+      status: false,
+      documentNumber: '',
+      birthdayDate: new Date(),
+      gender: { id: 0, name: '' },
+      isBrazilianResident: false,
+      hasPoliticallyExposedPerson: false,
+      isSameContactForEmergencyData: true,
     }
     const handleClose = jest.fn()
 

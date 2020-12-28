@@ -1,17 +1,16 @@
-import { all, takeLatest, call, put, select } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import { get } from 'services/api'
 
+import { getDataValidate } from 'store/modules/SuitabilityInfo/sagas'
+import { Types as SuitabilityTypes } from 'store/modules/SuitabilityInfo/types'
 import { getWithdrawDetails, getWithdrawSummary } from './sagas'
 import {
   GetWithdrawSummarySuccess,
   GetWithdrawSummaryFailure,
-  GetWithdrawDetailsSuccess,
   GetWithdrawDetailsFailure,
 } from './action'
-import { getDataValidate } from 'store/modules/SuitabilityInfo/sagas'
 
 import { getAuth, getSuitabilityInfo } from './selectors'
-import { Types as SuitabilityTypes } from 'store/modules/SuitabilityInfo/types'
 
 describe('Withdraw Sagas', () => {
   describe('getWithdrawDetails', () => {

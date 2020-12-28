@@ -16,9 +16,10 @@ describe('Investment/FinancialApplication actions', () => {
         data_operacao: '',
         id_fundo: '',
       },
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
+    // @ts-expect-error
     expect(GetFinancialApplicationDataRequest(payload)).toEqual({
       payload,
       type: Types.DATA_GET_REQUEST,
@@ -98,6 +99,7 @@ describe('Investment/FinancialApplication actions', () => {
       onSuccess: () => {},
       onError: () => {},
     }
+    // @ts-expect-error
     expect(PostFinancialApplicationDataRequest(payload)).toEqual({
       payload,
       type: Types.DATA_POST_REQUEST,

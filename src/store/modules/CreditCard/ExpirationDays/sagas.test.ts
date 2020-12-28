@@ -4,7 +4,7 @@ import { get } from 'services/api'
 import { getExpirationDays } from './sagas'
 import {
   GetCreditCardExpirationDaysFailure,
-  GetCreditCardExpirationDaysSuccess
+  GetCreditCardExpirationDaysSuccess,
 } from './action'
 
 describe('ExpirationDays sagas tests', () => {
@@ -13,29 +13,29 @@ describe('ExpirationDays sagas tests', () => {
   })
   it('success triggers success action', () => {
     const generator = getExpirationDays()
-    const response = { 
+    const response = {
       data: {
         codRetorno: '0',
         bandeiras: [
           {
             codBandeira: '1',
             bandeira: 'VISA',
-            descricao: '1'
+            descricao: '1',
           },
           {
             codBandeira: '1',
             bandeira: 'VISA',
-            descricao: '3'
+            descricao: '3',
           },
           {
             codBandeira: '2',
             bandeira: 'MASTER',
-            descricao: '1'
+            descricao: '1',
           },
           {
             codBandeira: '2',
             bandeira: 'MASTER',
-            descricao: '3'
+            descricao: '3',
           },
         ],
         msgRetorno: 'Consulta realizada com sucesso.',
@@ -43,32 +43,34 @@ describe('ExpirationDays sagas tests', () => {
           {
             codBandeira: '1',
             bandeira: 'VISA',
-            descricao: '1'
+            descricao: '1',
           },
           {
             codBandeira: '1',
             bandeira: 'VISA',
-            descricao: '3'
+            descricao: '3',
           },
         ],
         mastercard: [
           {
             codBandeira: '2',
             bandeira: 'MASTER',
-            descricao: '1'
+            descricao: '1',
           },
           {
             codBandeira: '2',
             bandeira: 'MASTER',
-            descricao: '3'
+            descricao: '3',
           },
-        ]
+        ],
       },
       isLoading: false,
-      hasError: false
+      hasError: false,
     }
 
-    expect(generator.next().value).toEqual(call(get, '/cartoes/dia/vencimento?codigo_canal=14'))
+    expect(generator.next().value).toEqual(
+      call(get, '/cartoes/dia/vencimento?codigo_canal=14')
+    )
 
     expect(generator.next(response).value).toEqual(
       put(GetCreditCardExpirationDaysSuccess(response.data))
@@ -79,8 +81,9 @@ describe('ExpirationDays sagas tests', () => {
     const generator = getExpirationDays()
     const response = undefined
     generator.next()
-    expect(generator.throw(response).value).toEqual(put(GetCreditCardExpirationDaysFailure()))
+    expect(generator.throw(response).value).toEqual(
+      put(GetCreditCardExpirationDaysFailure())
+    )
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
- 
 })

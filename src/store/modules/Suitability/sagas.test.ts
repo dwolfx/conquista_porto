@@ -65,6 +65,7 @@ describe('get Suitability', () => {
       },
     }
 
+    // @ts-expect-error
     delete window.location
     window.location = { ...window.location, href: '/' }
 
@@ -115,6 +116,7 @@ describe('get Suitability', () => {
       },
     }
 
+    // @ts-expect-error
     delete window.location
     window.location = { ...window.location, href: '/' }
 
@@ -143,10 +145,10 @@ describe('get Suitability', () => {
     expect(generator.next(response)).toEqual({ done: true, value: undefined })
   })
   it('should trigger SetSuitabilityLoading and GetSuitabilityDataFailure when failure', () => {
-    //Mock JSON.parse toast err.message
-    JSON.parse = jest.fn().mockImplementationOnce(() => {
-      return { msg: `Cannot read property 'status' of undefined` }
-    })
+    // Mock JSON.parse toast err.message
+    JSON.parse = jest.fn().mockImplementationOnce(() => ({
+      msg: `Cannot read property 'status' of undefined`,
+    }))
 
     const payload = {
       link: '',
@@ -166,6 +168,7 @@ describe('get Suitability', () => {
 
     const generator = getDataAndRedirect({ payload })
 
+    // @ts-expect-error
     delete window.location
     window.location = { ...window.location, href: '/' }
 
@@ -209,6 +212,7 @@ describe('get Suitability', () => {
 
     const generator = getDataAndRedirect({ payload })
 
+    // @ts-expect-error
     delete window.location
     window.location = { ...window.location, href: '/' }
 

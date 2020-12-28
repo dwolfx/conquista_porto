@@ -2,7 +2,11 @@ import { call, put } from 'redux-saga/effects'
 import axios from 'axios'
 
 import { getData, sendNoticationRead } from './sagas'
-import { GetDataSuccess, GetDataFailure, SendNotificationReadSuccess } from './action'
+import {
+  GetDataSuccess,
+  GetDataFailure,
+  SendNotificationReadSuccess,
+} from './action'
 
 describe('Notifications Sagas', () => {
   it('generator success triggers success action', () => {

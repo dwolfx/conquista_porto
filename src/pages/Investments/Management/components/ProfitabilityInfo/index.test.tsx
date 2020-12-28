@@ -41,9 +41,8 @@ const profitabilityMock = {
   data_referencia: '2020-03-23T00:00:00-03:00',
 }
 
-const setup = (children: React.ReactElement) => {
-  return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
-}
+const setup = (children: React.ReactElement) =>
+  render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 
 describe('It renders correcly', () => {
   test('It renders card', () => {

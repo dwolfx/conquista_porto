@@ -10,6 +10,7 @@ describe('Investment/Position reducer', () => {
     isLoading: false,
   }
   it('should return the initial state', () => {
+    // @ts-expect-error
     expect(reducer(undefined, {})).toEqual(INITIAL_STATE)
   })
 

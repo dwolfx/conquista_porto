@@ -30,25 +30,25 @@ describe('Notifications Actions', () => {
   })
 
   test('if SendNotificationReadRequest returns the correct object', () => {
-    const notificationId = 1;
-    const cpfCnpj = "11111111111";
+    const notificationId = 1
+    const cpfCnpj = '11111111111'
     const payload = {
       notificationId,
-      cpfCnpj
+      cpfCnpj,
     }
     expect(SendNotificationReadRequest(notificationId, cpfCnpj)).toEqual({
       type: Types.SEND_NOTIFICATION_READ_REQUEST,
-      payload
+      payload,
     })
   })
 
   test('if SendNotificationReadSuccess returns the correct object', () => {
-    const notificationId = 1;
+    const notificationId = 1
     const payload = notificationId
-    
+
     expect(SendNotificationReadSuccess(notificationId)).toEqual({
       type: Types.SEND_NOTIFICATION_READ_SUCCESS,
-      payload
+      payload,
     })
   })
 })
