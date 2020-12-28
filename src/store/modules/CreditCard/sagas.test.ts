@@ -12,6 +12,7 @@ describe('get credit cards', () => {
     expect(generator.next().value).toEqual(call(get, '/cartoes?codigoCanal=0'))
 
     expect(generator.next(response).value).toEqual(
+      // @ts-expect-error
       put(GetCreditCardDataSuccess(response.data))
     )
     expect(generator.next()).toEqual({ done: true, value: undefined })

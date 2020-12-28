@@ -11,13 +11,16 @@ describe('Credit Card actions', () => {
   it('should return the correct type: CREDIT_CARD_EXPIRATION_DAYS_SUCCESS', () => {
     const payload: ICreditCardExpirationDays = {
       codRetorno: '0',
-      bandeiras: [{
-        bandeira: 'VISA',
-        codBandeira: '1',
-        descricao: '12'
-      }],
-      msgRetorno: 'Consulta realizada com sucesso.'
+      bandeiras: [
+        {
+          bandeira: 'VISA',
+          codBandeira: '1',
+          descricao: '12',
+        },
+      ],
+      msgRetorno: 'Consulta realizada com sucesso.',
     }
+
     expect(a.GetCreditCardExpirationDaysSuccess(payload)).toEqual({
       type: Types.CREDIT_CARD_EXPIRATION_DAYS_SUCCESS,
       payload,
@@ -32,8 +35,7 @@ describe('Credit Card actions', () => {
 
   it('should return the correct type: CREDIT_CARD_EXPIRATION_DAYS_CLEAR_DATA', () => {
     expect(a.GetCreditCardExpirationDaysClearData()).toEqual({
-      type: Types.CREDIT_CARD_EXPIRATION_DAYS_CLEAR_DATA
+      type: Types.CREDIT_CARD_EXPIRATION_DAYS_CLEAR_DATA,
     })
   })
-
 })

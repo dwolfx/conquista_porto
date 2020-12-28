@@ -18,8 +18,8 @@ describe('Occupation actions', () => {
     expect(a.GetCreditCardOccupationFailure()).toEqual({
       type: Types.CREDIT_CARD_OCCUPATION_FAILURE,
       payload: {
-        profissoesVO: []
-      }
+        profissoesVO: [],
+      },
     })
   })
 })

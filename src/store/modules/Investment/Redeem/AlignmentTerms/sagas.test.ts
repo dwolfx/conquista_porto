@@ -1,10 +1,9 @@
 import { call, put, select } from 'redux-saga/effects'
 import { get } from 'services/api'
 
-import { Types } from './types'
-
 import { getRedeemSummaryData } from 'store/modules/Investment/Redeem/SummaryRedeem/sagas'
 import { SetRedeemSummaryLoading } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
+import { Types } from './types'
 import { getRedeemAlignmentTermsData } from './sagas'
 
 import {
@@ -21,8 +20,8 @@ describe('Investment/Redeem/AlignmentTerms Sagas', () => {
         valor_bruto: '',
         tipo_operacao: '',
       },
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
 
     const selectsData = {

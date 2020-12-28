@@ -10,6 +10,7 @@ import StepBar from 'pages/TripInsurance/commons/StepBar'
 import CompanionEditDrawer from './EditDrawer'
 
 import * as s from './styles'
+import { IFormDrawerCompanion } from './EditDrawer/types'
 
 interface ICompanionsData {
   name: string
@@ -20,22 +21,46 @@ interface ICompanion {
   companions: ICompanionsData[]
 }
 
-const renderTableCompanionDataMock = [
+const renderTableCompanionDataMock: IFormDrawerCompanion[] = [
   {
     name: 'Bruno Mizhari',
     status: true,
+    documentNumber: '000.000.001-91',
+    birthdayDate: new Date(1995, 10, 8),
+    gender: { id: 1, name: 'Masculino' },
+    isBrazilianResident: false,
+    hasPoliticallyExposedPerson: false,
+    isSameContactForEmergencyData: true,
   },
   {
     name: '',
     status: false,
+    documentNumber: '000.000.001-92',
+    birthdayDate: new Date(1995, 12, 1),
+    gender: { id: 1, name: 'Feminino' },
+    isBrazilianResident: false,
+    hasPoliticallyExposedPerson: false,
+    isSameContactForEmergencyData: true,
   },
   {
     name: '',
     status: false,
+    documentNumber: '000.000.001-93',
+    birthdayDate: new Date(1999, 8, 11),
+    gender: { id: 1, name: 'Feminino' },
+    isBrazilianResident: false,
+    hasPoliticallyExposedPerson: false,
+    isSameContactForEmergencyData: true,
   },
   {
     name: '',
     status: false,
+    documentNumber: '000.000.001-92',
+    birthdayDate: new Date(1991, 3, 28),
+    gender: { id: 1, name: 'Masculino' },
+    isBrazilianResident: false,
+    hasPoliticallyExposedPerson: false,
+    isSameContactForEmergencyData: true,
   },
 ]
 
@@ -44,7 +69,18 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
   const isTablet = useMedia('mdUp')
   const isMobile = useMedia('sm')
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [companionEditable, setCompanionEditable] = useState({})
+  const [companionEditable, setCompanionEditable] = useState<
+    IFormDrawerCompanion
+  >({
+    name: '',
+    status: false,
+    documentNumber: '',
+    birthdayDate: new Date(),
+    gender: { id: 0, name: '' },
+    isBrazilianResident: false,
+    hasPoliticallyExposedPerson: false,
+    isSameContactForEmergencyData: true,
+  })
 
   const renderStatusBody = (companionStatus: boolean) => {
     return (
@@ -67,8 +103,8 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
     )
   }
 
-  const renderTableBody = (companions: ICompanionsData[]) => {
-    return companions.map((companion: ICompanionsData, index) => (
+  const renderTableBody = (companions: IFormDrawerCompanion[]) => {
+    return companions.map((companion: IFormDrawerCompanion, index) => (
       <s.Tr key={uuid()}>
         <s.Td>
           <s.NameText bold>

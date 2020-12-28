@@ -88,6 +88,7 @@ describe('SuitabilityInfo Sagas', () => {
       }
 
       // TODO: Mais um caso de teste ser igual porem achar que é diferente
+      // eslint-disable-next-line no-unused-expressions
       generator.next(suitabilityInfo).value
       // expect(generator.next(response).value).toEqual(
       //   put(GetDataSuccess({...suitabilityInfo, isValid: false }))

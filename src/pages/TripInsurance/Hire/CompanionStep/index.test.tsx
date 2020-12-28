@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import CompanionStep from '.'
 
@@ -41,9 +41,7 @@ describe('Companion Form tests', () => {
       <CompanionStep companions={renderTableCompanionDataMock} />,
       { container: createRootContainer() }
     )
-    const names = renderTableCompanionDataMock.map(item => {
-      return item.name
-    })
+    const names = renderTableCompanionDataMock.map(item => item.name)
     const textsToBeDefined = [
       'Acompanhantes',
       'Aqui você vai inserir os dados das pessoas que irão viajar junto com você.',

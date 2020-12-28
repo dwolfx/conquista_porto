@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Sumary from '.'
 
 describe('Sumary tests', () => {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
 import { renderWithReduxAndTheme, screen } from 'testUtils'
-import { fireEvent } from '@testing-library/react'
 
 import EditDrawer from './index'
 

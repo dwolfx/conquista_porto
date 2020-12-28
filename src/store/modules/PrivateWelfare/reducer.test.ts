@@ -1,7 +1,7 @@
-import reducer from './reducer'
-import { Types } from './types'
 import privateWelfareResponse from 'mocks/privateWelfare.json'
 import privateWelfateWithStatusPREResponse from 'mocks/privateWelfateWithStatusPRE.json'
+import reducer from './reducer'
+import { Types } from './types'
 
 const INITIAL_STATE = {
   data: null,

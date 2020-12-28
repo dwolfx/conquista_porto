@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 import { get } from 'services/api'
 
-import { getExtract, getBalance, postRescuePoints } from './sagas'
+import { getExtract, getBalance } from './sagas'
 import {
   GetPointsExtractSuccess,
   GetPointsExtractFailure,

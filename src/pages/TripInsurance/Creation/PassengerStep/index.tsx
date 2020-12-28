@@ -11,9 +11,9 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 
-import * as S from './styles'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import * as S from './styles'
 import { Steps } from '../types'
 
 const PassengerStep: StepComponent = () => {

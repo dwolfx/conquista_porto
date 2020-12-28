@@ -8,7 +8,7 @@ import {
 describe('Investment actions', () => {
   test('if GetInvestmentListRequest returns the correct object', () => {
     const payload = {
-      onSuccess: (data: []) => {},
+      onSuccess: () => {},
       onErrorToast: () => {},
     }
     expect(GetInvestmentListRequest(payload)).toEqual({

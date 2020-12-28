@@ -104,7 +104,7 @@ describe('EditHirerData component', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
       setup(defaultStore)
 
-      //@ts-expect-error
+      // @ts-expect-error
       delete window.location
       window.location = {
         ...window.location,

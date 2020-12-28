@@ -13,7 +13,7 @@ describe('Investment/Redeem/SummaryRedeem Sagas', () => {
       data_operacao: '2020-08-08',
       valor: '1000',
       tipo_operacao: '30',
-      onErrorToast: (toast: {}) => {},
+      onErrorToast: () => {},
     }
 
     const generator = getRedeemSummaryData({
@@ -92,7 +92,7 @@ describe('Investment/Redeem/SummaryRedeem Sagas', () => {
       data_operacao: '2020-08-08',
       valor: '1000',
       tipo_operacao: '30',
-      onErrorToast: (toast: {}) => {},
+      onErrorToast: () => {},
     }
 
     const generator = getRedeemSummaryData({

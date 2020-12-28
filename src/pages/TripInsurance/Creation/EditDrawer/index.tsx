@@ -10,8 +10,8 @@ import Modal from 'components/Modal/ModalNew'
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 
-import * as s from './styles'
 import { IOption } from 'components/MultiSelector/types'
+import * as s from './styles'
 
 interface IEditDrawer {
   isDrawerOpen: boolean
@@ -176,7 +176,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
 
   const footerDrawer = () => (
     <s.ButtonSubmit
-      data-gtm-subname={`drawer editar seguro viagem`}
+      data-gtm-subname="drawer editar seguro viagem"
       data-gtm-name="atualizar simulação"
       disabled={
         numberOfPassangersAboveSeventyYears.value +
@@ -196,88 +196,86 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     />
   )
 
-  const renderContent = () => {
-    return (
-      <>
-        <s.Container>
-          <s.CountryOriginSelect
-            options={originOptions}
-            selected={selectedCountry}
-            label="Origem"
-          />
+  const renderContent = () => (
+    <>
+      <s.Container>
+        <s.CountryOriginSelect
+          options={originOptions}
+          selected={selectedCountry}
+          label="Origem"
+        />
+        <s.Select
+          options={destinations}
+          selected={selectedDestination}
+          label="Destino"
+        />
+        <MultiSelector
+          options={countryOptions}
+          onChange={() => {}}
+          inputLabel="Você irá para qual(is) país(es)"
+          selectedOptions={selectedDestinationCountries}
+          setSelectedOptions={setSelectedDestinationCountries}
+        />
+        <s.Divisor />
+        <s.Label>Periodo da Viagem</s.Label>
+        <s.DatePickerRange
+          idDatePickerRange="id-coverage-date-range-drawer"
+          numberOfMonths={1}
+          rangeDates={{
+            dateBegin: initialDate,
+            dateEnd: finalDate,
+            intervalDateType: INTERVAL_DATE_TYPE.MONTH,
+          }}
+          onHandleFocusedInput={focused => onHandleRangeFocused(focused)}
+          focusedInput={focusedInput}
+          onHandleSetRangeDates={(initialDateInput, finalDateInput) => {
+            setInitialDate(initialDateInput)
+            setFinalDate(finalDateInput)
+          }}
+          startDateText="Data de partida"
+          endDateText="Data de chegada"
+          blockPastDays={true}
+        />
+        <s.Select
+          options={numberOfPassangersBelowSeventyYearsOptions}
+          selected={numberOfPassangersBelowSeventyYears}
+          label="Passageiros até 70 anos"
+          optionBoxSize={300}
+        />
+        <s.Select
+          options={numberOfPassangersAboveSeventyYearsOptions}
+          selected={numberOfPassangersAboveSeventyYears}
+          label="Passageiros de 71 até 90 anos"
+          optionBoxSize={200}
+        />
+        <s.Popover
+          content={() => (
+            <s.TooltipText bold type="body" color="gray5">
+              A cobertura de esportes de aventura não é acionado quando há
+              passageiros maiores de 71 anos.
+            </s.TooltipText>
+          )}
+          placement="top"
+          turnOff={numberOfPassangersAboveSeventyYears.value === 0}
+          zIndex={14}
+        >
           <s.Select
-            options={destinations}
-            selected={selectedDestination}
-            label="Destino"
+            options={adventureSportsOptions}
+            selected={selectedAdventureSportsOption}
+            label="Esportes de aventura"
+            hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
+            disabled={numberOfPassangersAboveSeventyYears.value > 0}
           />
-          <MultiSelector
-            options={countryOptions}
-            onChange={() => {}}
-            inputLabel="Você irá para qual(is) país(es)"
-            selectedOptions={selectedDestinationCountries}
-            setSelectedOptions={setSelectedDestinationCountries}
-          />
-          <s.Divisor />
-          <s.Label>Periodo da Viagem</s.Label>
-          <s.DatePickerRange
-            idDatePickerRange="id-coverage-date-range-drawer"
-            numberOfMonths={1}
-            rangeDates={{
-              dateBegin: initialDate,
-              dateEnd: finalDate,
-              intervalDateType: INTERVAL_DATE_TYPE.MONTH,
-            }}
-            onHandleFocusedInput={focused => onHandleRangeFocused(focused)}
-            focusedInput={focusedInput}
-            onHandleSetRangeDates={(initialDateInput, finalDateInput) => {
-              setInitialDate(initialDateInput)
-              setFinalDate(finalDateInput)
-            }}
-            startDateText="Data de partida"
-            endDateText="Data de chegada"
-            blockPastDays={true}
-          />
-          <s.Select
-            options={numberOfPassangersBelowSeventyYearsOptions}
-            selected={numberOfPassangersBelowSeventyYears}
-            label="Passageiros até 70 anos"
-            optionBoxSize={300}
-          />
-          <s.Select
-            options={numberOfPassangersAboveSeventyYearsOptions}
-            selected={numberOfPassangersAboveSeventyYears}
-            label="Passageiros de 71 até 90 anos"
-            optionBoxSize={200}
-          />
-          <s.Popover
-            content={() => (
-              <s.TooltipText bold type="body" color="gray5">
-                A cobertura de esportes de aventura não é acionado quando há
-                passageiros maiores de 71 anos.
-              </s.TooltipText>
-            )}
-            placement="top"
-            turnOff={numberOfPassangersAboveSeventyYears.value === 0}
-            zIndex={14}
-          >
-            <s.Select
-              options={adventureSportsOptions}
-              selected={selectedAdventureSportsOption}
-              label="Esportes de aventura"
-              hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
-              disabled={numberOfPassangersAboveSeventyYears.value > 0}
-            />
-          </s.Popover>
-          <s.Select
-            options={motocicleOptions}
-            selected={selectedMotocicleOption}
-            label="Motocicleta"
-            optionBoxDirection="top"
-          />
-        </s.Container>
-      </>
-    )
-  }
+        </s.Popover>
+        <s.Select
+          options={motocicleOptions}
+          selected={selectedMotocicleOption}
+          label="Motocicleta"
+          optionBoxDirection="top"
+        />
+      </s.Container>
+    </>
+  )
 
   if (isMobile) {
     return (
