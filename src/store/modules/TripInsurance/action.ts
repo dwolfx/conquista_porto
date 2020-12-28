@@ -6,7 +6,7 @@ export function GetTripInsuranceDataRequest() {
   }
 }
 
-export function GetTripInsuranceDataSuccess(payload) {
+export function GetTripInsuranceDataSuccess(payload: any) {
   return {
     type: Types.GET_DATA_SUCCESS,
     payload,

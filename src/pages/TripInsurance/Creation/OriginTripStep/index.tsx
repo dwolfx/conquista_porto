@@ -1,66 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 import { Col } from 'styled-bootstrap-grid'
+
+import Text from 'components/Text'
+
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
+
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+
+import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
+
+import { IOption } from 'components/MultiSelector/types'
+import { Steps, IForm } from '../types'
 
 import * as S from './styles'
 import * as T from './types'
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-
-import Text from 'components/Text'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
-
-import { IOption } from 'components/MultiSelector/types'
-import { Steps } from '../types'
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-
-// mock, remove after
-const countries: IOption[] = [
-  {
-    text: 'Brasil',
-    id: 1,
-    value: 'brasil',
-  },
-  {
-    text: 'Alemanha',
-    id: 2,
-    value: 'alemanha',
-  },
-  {
-    text: 'Itália',
-    id: 3,
-    value: 'italia',
-  },
-  {
-    text: 'Estados Unidos',
-    id: 4,
-    value: 'estadosunidos',
-  },
-  {
-    text: 'Espanha',
-    id: 5,
-    value: 'espanha',
-  },
-  {
-    text: 'Inglaterra',
-    id: 6,
-    value: 'inglaterra',
-  },
-  {
-    text: 'Paises Baixos',
-    id: 7,
-    value: 'paisesbaixos',
-  },
-]
 
 const OriginTripStep: StepComponent = () => {
+  const dispatch = useDispatch()
   const isTabletVertical = useMedia('md')
+  const { updateForm } = useFormFluxManagement<IForm>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const [selectedOriginCountry, setOriginCountry] = useState<T.ISelected>({
     id: 1,
     name: 'Brasil',
   })
+
+  const [countries, setCountries] = useState<IOption[]>([])
+
+  const {
+    customerProfileData,
+    destinationCountriesData,
+    isLoadingDestinationCountries,
+    hasErrorDestinationCountries,
+  } = useSelector((state: any) => ({
+    customerProfileData: state.customerProfile.data,
+    destinationCountriesData: state.destinationCountries.data,
+    isLoadingDestinationCountries: state.destinationCountries.isLoading,
+    hasErrorDestinationCountries: state.destinationCountries.hasError,
+  }))
 
   const originOptions = [
     {
@@ -93,6 +77,46 @@ const OriginTripStep: StepComponent = () => {
     selectedDestinationCountries,
     setSelectedDestinationCountries,
   ] = useState<IOption[]>([])
+
+  useEffect(() => {
+    if (selectedDestinationType.id === 2) {
+      if (destinationCountriesData) {
+        setCountries(destinationCountriesData?.ViagemPais?.destinos)
+      }
+    }
+  }, [selectedDestinationType, destinationCountriesData])
+
+  const handleClick = () => {
+    updateForm({
+      passageiroPrincipal: {
+        nome: customerProfileData.customerName,
+        email: customerProfileData.customerEmail,
+        dataNascimento: moment(customerProfileData.customerBirthdate).format(
+          'DD/MM/YYYY'
+        ),
+        sexo: customerProfileData.customerGender,
+        celularDDD: customerProfileData.customerAreaCode,
+        celularNumero: customerProfileData.customerPhoneNumber,
+        numeroCpf: customerProfileData.cpfCnpj.slice(0, 9),
+        digitoCpf: customerProfileData.cpfCnpj.slice(9),
+        contato: {
+          nome: customerProfileData.customerName,
+          celularDDD: customerProfileData.customerAreaCode,
+          celularNumero: customerProfileData.customerPhoneNumber,
+        },
+      },
+      codigoPaisDestino: `${selectedDestinationCountries[0].id}`,
+      paisesAdicionais: selectedDestinationCountries
+        .slice(1)
+        .map((selectedCountry: IOption) => ({
+          codigo: `${selectedCountry.id}`,
+          descricao: selectedCountry.text,
+        })),
+      motivoViagem: 1,
+      codigoCanal: 1,
+    })
+    instantiate(Steps.coverageDate)
+  }
 
   return (
     <>
@@ -130,11 +154,20 @@ const OriginTripStep: StepComponent = () => {
               />
               {selectedDestinationType.id !== 2 ? null : (
                 <S.MultiSelector
+                  error={hasErrorDestinationCountries}
+                  marginBottom={hasErrorDestinationCountries}
+                  loading={isLoadingDestinationCountries}
+                  disabled={isLoadingDestinationCountries}
                   options={countries}
                   inputLabel="Você irá para qual(is) país(es)?"
                   onChange={selectedDestinationCountry =>
                     selectedDestinationCountry
                   }
+                  onFocusFunction={() => {
+                    if (!destinationCountriesData) {
+                      dispatch(GetDestinationCountriesRequest())
+                    }
+                  }}
                   selectedOptions={selectedDestinationCountries}
                   setSelectedOptions={setSelectedDestinationCountries}
                 />
@@ -145,7 +178,7 @@ const OriginTripStep: StepComponent = () => {
                   (selectedDestinationType.id === 2 &&
                     !selectedDestinationCountries.length)
                 }
-                onClick={() => instantiate(Steps.coverageDate)}
+                onClick={() => handleClick()}
               >
                 Próximo
               </S.StyledButton>

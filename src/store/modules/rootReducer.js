@@ -12,6 +12,7 @@ import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import customerProfile from './CustomerProfile/reducer'
+import destinationCountries from './TripInsurance/DestinationCountries/reducer'
 import {
   financialApplicationGetData,
   financialApplicationPostData,
@@ -55,6 +56,7 @@ export default combineReducers({
   creditCardOccupation,
   creditCardOffer,
   customerProfile,
+  destinationCountries,
   financialApplicationGetData,
   financialApplicationPostData,
   investmentsList,

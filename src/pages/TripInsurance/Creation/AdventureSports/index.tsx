@@ -1,12 +1,14 @@
-import React from 'react'
-import * as s from './styles'
+import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
+
 import Radio from 'components/Inputs/Radio'
-import { useState } from 'react'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import { Steps } from '../types'
+
+import * as s from './styles'
 
 const radioOptions = [
   {

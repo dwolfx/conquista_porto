@@ -2,19 +2,18 @@ import React from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 
-import useMedia from 'hooks/useMedia'
-
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
-
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
-
-import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
+import useMedia from 'hooks/useMedia'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import * as S from './styles'
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+
 import { Steps } from '../types'
+
+import * as S from './styles'
 
 const PassengerStep: StepComponent = () => {
   const maximumPermittedPassengers = 20
@@ -24,7 +23,10 @@ const PassengerStep: StepComponent = () => {
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   React.useEffect(() => {
-    setCounts(counts => ({ ...counts, total: counts.young + counts.old }))
+    setCounts(prevCounts => ({
+      ...prevCounts,
+      total: prevCounts.young + prevCounts.old,
+    }))
   }, [counts.young, counts.old])
 
   const handleButtonClick = () => {

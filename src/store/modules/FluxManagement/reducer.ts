@@ -1,18 +1,16 @@
 import { Types } from './types'
 
-const INITIAL_STATE: { stack: React.ReactElement[], form: {} } = {
+const INITIAL_STATE: { stack: React.ReactElement[]; form: {} } = {
   stack: [],
-  form: {
-    counter: ''
-  },
+  form: {},
 }
 
-export default function (state = INITIAL_STATE, action: any) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.FLUX_MANAGEMENT_ADD_TO_STACK:
       return {
         ...state,
-        stack: [...state.stack, action.element]
+        stack: [...state.stack, action.element],
       }
 
     case Types.FLUX_MANAGEMENT_POP_FROM_STACK:
@@ -21,7 +19,7 @@ export default function (state = INITIAL_STATE, action: any) {
 
       return {
         ...state,
-        stack: newState
+        stack: newState,
       }
 
     case Types.FLUX_MANAGEMENT_UPDATE_FORM:
@@ -31,8 +29,8 @@ export default function (state = INITIAL_STATE, action: any) {
         ...state,
         form: {
           ...state.form,
-          ...updatedKeys
-        }
+          ...updatedKeys,
+        },
       }
     case Types.FLUX_MANAGEMENT_RESET_FORM:
       return {
@@ -43,7 +41,7 @@ export default function (state = INITIAL_STATE, action: any) {
     case Types.FLUX_MANAGEMENT_RESET_FLUX:
       return {
         ...state,
-        ...INITIAL_STATE
+        ...INITIAL_STATE,
       }
 
     default:
