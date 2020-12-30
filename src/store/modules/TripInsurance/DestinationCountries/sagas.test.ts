@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects'
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvestAws } from 'services/api'
 import destinationContriesMock from 'mocks/destinationCountries.json'
 
 import { getDestinationCountries } from './sagas'
@@ -16,7 +16,7 @@ describe('Trip Insurance Destination Countries Sagas', () => {
     const response = { data: destinationContriesMock }
 
     expect(generator.next().value).toEqual(
-      call(get, `/investimento/aws/v1/viagem/paises/destino`)
+      call(get, `${baseURLNamespaceInvestAws}/viagem/paises/destino`)
     )
 
     const filteredDestinationCountries = response.data.ViagemPais.destinos
@@ -58,7 +58,7 @@ describe('Trip Insurance Destination Countries Sagas', () => {
     const generator = getDestinationCountries()
     const response = undefined
     expect(generator.next().value).toEqual(
-      call(get, `/investimento/aws/v1/viagem/paises/destino`)
+      call(get, `${baseURLNamespaceInvestAws}/viagem/paises/destino`)
     )
     expect(generator.next(response).value).toEqual(
       put(GetDestinationCountriesFailure())

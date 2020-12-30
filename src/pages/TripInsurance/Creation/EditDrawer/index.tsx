@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react'
-
-import useMedia from 'hooks/useMedia'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Drawer from 'components/Drawer'
-import MultiSelector from 'components/MultiSelector'
 import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 
+import useMedia from 'hooks/useMedia'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+
+import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
+
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-
 import { IOption } from 'components/MultiSelector/types'
+import { IForm } from 'pages/TripInsurance/Creation/types'
+
 import * as s from './styles'
 
 interface IEditDrawer {
@@ -18,17 +22,12 @@ interface IEditDrawer {
   handleClose: (isDrawerOpen: boolean) => void
 }
 const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
+  const dispatch = useDispatch()
+  const { form } = useFormFluxManagement<IForm>()
   // Olhar depois os SETTERS ==========================
   const [isLoading] = useState(false)
   const [originOptions] = useState<TOptions[]>([{ text: 'Brasil', id: 1 }])
-  const [countryOptions] = useState([
-    { text: 'Alemanha', id: 2, value: 'Alemanha' },
-    { text: 'Itália', id: 3, value: 'Itália' },
-    { text: 'Estados Unidos', id: 4, value: 'estadosunidos' },
-    { text: 'Espanha', id: 5, value: 'Espanha' },
-    { text: 'Inglaterra', id: 6, value: 'Inglaterra' },
-    { text: 'Paises Baixos', id: 7, value: 'paisesbaixos' },
-  ])
+  const [countryOptions, setCountryOptions] = useState<IOption[]>([])
   const [selectedCountry] = useState<TSelected>({
     id: 1,
     name: 'Brasil',
@@ -84,10 +83,14 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   // Olhar depois os SETTERS ==========================
 
   const isMobile = useMedia('sm')
-  const [selectedDestination, setSelectedDestination] = useState({
+  const [selectedDestination, setSelectedDestination] = useState<{
+    id: 1 | 2
+    name: 'Nacional' | 'Internacional'
+  }>({
     id: 1,
     name: 'Nacional',
   })
+
   const [
     selectedDestinationCountries,
     setSelectedDestinationCountries,
@@ -189,6 +192,56 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     </s.ButtonSubmit>
   )
 
+  const {
+    destinationCountriesData,
+    isLoadingDestinationCountries,
+    hasErrorDestinationCountries,
+  } = useSelector((state: any) => ({
+    destinationCountriesData: state.destinationCountries.data,
+    isLoadingDestinationCountries: state.destinationCountries.isLoading,
+    hasErrorDestinationCountries: state.destinationCountries.hasError,
+  }))
+
+  // Adiciona as opções do multiSelector e retira a opção Brasil
+  useEffect(() => {
+    if (selectedDestination.id === 2) {
+      if (destinationCountriesData) {
+        setCountryOptions(destinationCountriesData?.ViagemPais?.destinos)
+      }
+    }
+  }, [selectedDestination, destinationCountriesData])
+
+  // Atualiza a opção do destino de acordo com o form
+  useEffect(() => {
+    if (form.nationalDestination) {
+      setSelectedDestination({ id: 1, name: 'Nacional' })
+    } else {
+      setSelectedDestination({ id: 2, name: 'Internacional' })
+    }
+  }, [form, destinationCountriesData])
+
+  // Atualiza as tags do multiselector de acordo com o form
+  useEffect(() => {
+    if (!form.nationalDestination) {
+      const selectedCountries: number[] = []
+      if (form.codigoPaisDestino) {
+        selectedCountries.push(+form.codigoPaisDestino)
+      }
+      form.paisesAdicionais?.forEach(country =>
+        selectedCountries.push(+country.codigo)
+      )
+
+      setSelectedDestinationCountries(
+        countryOptions.filter(country => selectedCountries.includes(country.id))
+      )
+    }
+  }, [
+    form.nationalDestination,
+    form.codigoPaisDestino,
+    form.paisesAdicionais,
+    countryOptions,
+  ])
+
   const loadingContent = () => (
     <Loading
       type="bar"
@@ -209,13 +262,27 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
           selected={selectedDestination}
           label="Destino"
         />
-        <MultiSelector
-          options={countryOptions}
-          onChange={() => {}}
-          inputLabel="Você irá para qual(is) país(es)"
-          selectedOptions={selectedDestinationCountries}
-          setSelectedOptions={setSelectedDestinationCountries}
-        />
+        {selectedDestination.id !== 2 ? null : (
+          <s.MultiSelector
+            error={hasErrorDestinationCountries}
+            marginBottom={hasErrorDestinationCountries}
+            loading={isLoadingDestinationCountries}
+            disabled={isLoadingDestinationCountries}
+            options={countryOptions.filter(
+              (destino: IOption) => destino.value !== 'brasil'
+            )}
+            inputLabel="Você irá para qual(is) país(es)"
+            onChange={selectedDestinationCountry => selectedDestinationCountry}
+            onFocusFunction={() => {
+              if (!destinationCountriesData) {
+                dispatch(GetDestinationCountriesRequest())
+              }
+            }}
+            selectedOptions={selectedDestinationCountries}
+            setSelectedOptions={setSelectedDestinationCountries}
+            optionsContainerHeight={220}
+          />
+        )}
         <s.Divisor />
         <s.Label>Periodo da Viagem</s.Label>
         <s.DatePickerRange

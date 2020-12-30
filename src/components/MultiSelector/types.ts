@@ -14,6 +14,7 @@ export interface IProps {
   onFocusFunction?: () => void
   selectedOptions: IOption[]
   setSelectedOptions: React.Dispatch<React.SetStateAction<IOption[]>>
+  optionsContainerHeight?: number
 }
 
 //styled
@@ -21,6 +22,7 @@ export interface IProps {
 export interface IOptionsContainer {
   $hasOptions: boolean
   optionBoxDirection?: string
+  optionsContainerHeight: number
 }
 
 export interface ISelectedListContainer {

@@ -55,6 +55,7 @@ const MultiSelector: React.FC<IProps> = ({
   onFocusFunction = () => {},
   selectedOptions,
   setSelectedOptions,
+  optionsContainerHeight = 350,
   ...rest
 }) => {
   const [inputValue, setInputValue] = useState('')
@@ -197,6 +198,7 @@ const MultiSelector: React.FC<IProps> = ({
           }
         />
         <s.OptionsContainer
+          optionsContainerHeight={optionsContainerHeight}
           $hasOptions={selectOptionsDropdown}
           optionBoxDirection="top"
         >
