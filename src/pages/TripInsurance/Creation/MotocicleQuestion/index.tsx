@@ -9,8 +9,9 @@ import StepBar from 'pages/TripInsurance/commons/StepBar'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import * as s from './styles'
-import { Steps } from '../types'
+import { IForm, Steps } from '../types'
 
 const radioOptions = [
   {
@@ -24,6 +25,7 @@ const radioOptions = [
 ]
 
 const MotocicleQuestion: StepComponent = () => {
+  const { updateForm, form } = useFormFluxManagement<IForm>()
   // Olhar depois os SETTERS ==========================
   const [isLoading] = useState<boolean>(false)
   // Olhar depois os SETTERS ==========================
@@ -36,6 +38,14 @@ const MotocicleQuestion: StepComponent = () => {
 
   const handleChange = (value: string) => {
     setIsAnswerPositive(value)
+  }
+
+  const submitButton = (isMotocicleta: boolean) => {
+    updateForm({
+      ...form,
+      isMotocicleta,
+    })
+    instantiate(Steps.choosePlan)
   }
 
   return (
@@ -85,7 +95,7 @@ const MotocicleQuestion: StepComponent = () => {
                 disabled={isAnswerPositive === undefined}
                 loading={isLoading}
                 color="secondary"
-                onClick={() => instantiate(Steps.choosePlan)}
+                onClick={() => submitButton(isAnswerPositive === '1')}
               >
                 Simular
               </s.SimulateButton>

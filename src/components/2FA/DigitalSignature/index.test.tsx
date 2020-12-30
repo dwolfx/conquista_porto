@@ -45,8 +45,6 @@ const setup = (initialState: any = defaultStore) => {
 
 describe('DigitalSignature', () => {
   it('should render with 5 buttons', () => {
-    const store = storeFactory(defaultStore)
-
     const { getByText } = setup()
     defaultStore.virtualKeyboard.data.forEach((item: any) => {
       const [key] = Object.keys(item)
