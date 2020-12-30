@@ -17,14 +17,12 @@ export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.GET_REQUEST:
     case Types.POST_REQUEST:
-    case Types.GET_REQUEST:
       return {
         ...state,
         isLoading: true,
       }
     case Types.GET_SUCCESS:
     case Types.POST_SUCCESS:
-    case Types.GET_SUCCESS:
       return {
         ...state,
         data: action.payload,
@@ -32,7 +30,6 @@ export default function(state = INITIAL_STATE, action: any) {
       }
     case Types.GET_FAILURE:
     case Types.POST_FAILURE:
-    case Types.GET_FAILURE:
       return {
         ...state,
         data: {},

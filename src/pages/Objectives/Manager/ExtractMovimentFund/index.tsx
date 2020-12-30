@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import moment from 'moment'
 
@@ -55,7 +55,7 @@ export default function ExtractMovimentFund({
     setFilters([])
   }
 
-  const request = () => {
+  const request = useCallback(() => {
     dispatch(
       GetObjectiveManagementExtractFundRequest({
         id: +objectiveId,
@@ -66,13 +66,21 @@ export default function ExtractMovimentFund({
         finalDate: interval.finalDate,
       })
     )
-  }
+  }, [
+    dispatch,
+    addToast,
+    filters,
+    fundId,
+    interval.finalDate,
+    interval.initialDate,
+    objectiveId,
+  ])
 
   useEffect(() => {
     if (filters.length > 0 || (interval.initialDate && interval.finalDate)) {
       request()
     }
-  }, [filters, interval])
+  }, [filters, interval, request])
 
   return (
     <s.ExtractFund data-testid="ExtractMovimentFund">

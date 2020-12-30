@@ -559,7 +559,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
               </div>
             </div>
             <span
-              className="c14 c15"
+              className="c16 c17"
               color="gray5"
               type="captionUppercase"
             >
@@ -601,14 +601,14 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
               className="c27"
             >
               <span
-                className="c26"
+                className="c28"
                 color="gray4"
                 type="captionUppercase"
               >
                 ALCANÇADO
               </span>
               <h5
-                className="c27"
+                className="c29"
                 color="gray6"
                 type="headline"
               >
@@ -628,14 +628,14 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
               className="c27"
             >
               <span
-                className="c26"
+                className="c28"
                 color="gray4"
                 type="captionUppercase"
               >
                 FALTAM
               </span>
               <h5
-                className="c27"
+                className="c29"
                 color="gray6"
                 type="headline"
               >
@@ -655,14 +655,14 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
               className="c27"
             >
               <span
-                className="c26"
+                className="c28"
                 color="gray4"
                 type="captionUppercase"
               >
                 META
               </span>
               <h5
-                className="c27"
+                className="c29"
                 color="gray6"
                 type="headline"
               >

@@ -3,7 +3,87 @@
 exports[`Investments/FinancialApplication Renders correctly 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .c19 {
+  "baseElement": .c38 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c89 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: calc(100% - 14px);
+}
+
+.c55 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.c56 {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+}
+
+.c56 + .c57 {
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+.c56 + .c57:before {
+  content: '';
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #BABABA;
+  box-sizing: border-box;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 4px;
+}
+
+.c56:checked + .c57:before {
+  border: 1px solid #00ADEF;
+}
+
+.c56:checked + .c57:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  width: 6px;
+  height: 12px;
+  border-right: solid 3px #00ADEF;
+  border-bottom: solid 3px #00ADEF;
+  -webkit-transform: rotate(45deg) translateY(-50%) translateX(-50%);
+  -ms-transform: rotate(45deg) translateY(-50%) translateX(-50%);
+  transform: rotate(45deg) translateY(-50%) translateX(-50%);
+  top: 50%;
+}
+
+.c56:disabled + .c57:before {
+  border: 1px solid #BABABA;
+  cursor: not-allowed;
+}
+
+.c56:disabled + .c57:after {
+  cursor: not-allowed;
+  border-right: solid 3px #BABABA;
+  border-bottom: solid 3px #BABABA;
+}
+
+.c19 {
   color: #BABABA;
   text-align: unset;
   text-transform: none;
@@ -118,6 +198,197 @@ Object {
   line-height: 19px;
 }
 
+.c61 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c61:hover:active {
+  pointer-events: none;
+}
+
+.c61:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c61:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c93 {
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  border: 1px solid #00ADEF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #00ADEF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c93:hover:active {
+  pointer-events: auto;
+}
+
+.c93:hover:active:after {
+  background-color: #EFFBFF;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c93:hover:before {
+  width: 100%;
+}
+
+.c93:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c93:before {
+  background-color: #EFFBFF;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c94 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c94:hover:active {
+  pointer-events: auto;
+}
+
+.c94:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c94:hover:before {
+  width: 100%;
+}
+
+.c94:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c94:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c63 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
 .c16 {
   width: 100%;
   height: 28px;
@@ -168,217 +439,6 @@ Object {
   margin-left: 14px;
 }
 
-.c61 {
-  background: #EBEBEB;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #BABABA;
-  cursor: not-allowed;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c61:hover:active {
-  pointer-events: none;
-}
-
-.c61:hover:active:after {
-  background-color: #2F736B;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c61:before {
-  background-color: #2F736B;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c92 {
-  background: #FFFFFF;
-  background-repeat: no-repeat;
-  border: 1px solid #00ADEF;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #00ADEF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c92:hover:active {
-  pointer-events: auto;
-}
-
-.c92:hover:active:after {
-  background-color: #EFFBFF;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c92:hover:before {
-  width: 100%;
-}
-
-.c92:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c92:before {
-  background-color: #EFFBFF;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c93 {
-  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #FFFFFF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c93:hover:active {
-  pointer-events: auto;
-}
-
-.c93:hover:active:after {
-  background-color: #018CB7;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c93:hover:before {
-  width: 100%;
-}
-
-.c93:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c93:before {
-  background-color: #018CB7;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c63 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 25px;
-  position: relative;
-  width: 100%;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c38 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: 100%;
-  height: 28px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0 14px;
-}
-
 .c84 {
   background-color: rgba(39,39,39,0.63);
   height: 100%;
@@ -392,12 +452,12 @@ Object {
   top: 0;
 }
 
-.c90 {
+.c91 {
   overflow: auto;
   padding: 21px 14px;
 }
 
-.c89 {
+.c90 {
   margin: 0 auto;
 }
 
@@ -495,7 +555,7 @@ Object {
   max-width: 484px;
 }
 
-.c91 {
+.c92 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -507,76 +567,8 @@ Object {
   justify-content: flex-end;
 }
 
-.c91 button:last-of-type {
+.c92 button:last-of-type {
   margin-left: 14px;
-}
-
-.c55 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  width: 100%;
-}
-
-.c56 {
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  opacity: 0;
-  width: 100%;
-}
-
-.c56 + .c57 {
-  position: relative;
-  cursor: pointer;
-  padding-left: 30px;
-}
-
-.c56 + .c57:before {
-  content: '';
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  left: 0;
-  bottom: 0;
-  border: 1px solid #BABABA;
-  box-sizing: border-box;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 4px;
-}
-
-.c56:checked + .c57:before {
-  border: 1px solid #00ADEF;
-}
-
-.c56:checked + .c57:after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  width: 6px;
-  height: 12px;
-  border-right: solid 3px #00ADEF;
-  border-bottom: solid 3px #00ADEF;
-  -webkit-transform: rotate(45deg) translateY(-50%) translateX(-50%);
-  -ms-transform: rotate(45deg) translateY(-50%) translateX(-50%);
-  transform: rotate(45deg) translateY(-50%) translateX(-50%);
-  top: 50%;
-}
-
-.c56:disabled + .c57:before {
-  border: 1px solid #BABABA;
-  cursor: not-allowed;
-}
-
-.c56:disabled + .c57:after {
-  cursor: not-allowed;
-  border-right: solid 3px #BABABA;
-  border-bottom: solid 3px #BABABA;
 }
 
 .c67 {
@@ -1212,7 +1204,7 @@ Object {
 }
 
 @media (max-width:736px) {
-  .c90 {
+  .c91 {
     padding: 21px 14px;
   }
 }
@@ -1677,11 +1669,11 @@ Object {
                   data-name="container"
                 >
                   <div
-                    class="sc-fzpmMD c14"
+                    class="sc-fznyAO c14"
                     data-name="row"
                   >
                     <div
-                      class="sc-fznxKY c15"
+                      class="sc-fznKkj c15"
                       data-name="col-lg-12"
                     >
                       <div
@@ -1718,21 +1710,21 @@ Object {
                 class="c22"
               >
                 <div
-                  class="sc-fzoXWK c23"
+                  class="sc-fzplWN c23"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzpmMD c24"
+                    class="sc-fznyAO c24"
                     data-name="row"
                   >
                     <div
-                      class="sc-fznxKY c25"
+                      class="sc-fznKkj c25"
                       data-name="col-sm-12 col-md-4 col-lg-3"
                     >
                       <div />
                     </div>
                     <div
-                      class="sc-fznxKY c26"
+                      class="sc-fznKkj c26"
                       data-name="col-sm-12 col-md-8 col-lg-9"
                     >
                       <div
@@ -1740,6 +1732,7 @@ Object {
                       >
                         <div
                           class="c29 c30"
+                          data-testid="card-body"
                         >
                           <div
                             class="c31"
@@ -1807,11 +1800,11 @@ Object {
                             class="c38 c39"
                           />
                           <div
-                            class="sc-fzpmMD c40"
+                            class="sc-fznyAO c40"
                             data-name="row"
                           >
                             <div
-                              class="sc-fznxKY c41"
+                              class="sc-fznKkj c41"
                               data-name="col-sm-6"
                             >
                               <h5
@@ -1848,7 +1841,7 @@ Object {
                               </div>
                             </div>
                             <div
-                              class="sc-fznxKY c41"
+                              class="sc-fznKkj c41"
                               data-name="col-sm-6"
                             >
                               <h5
@@ -1958,7 +1951,7 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-fzoXWK c64"
+                  class="sc-fzplWN c64"
                   data-name="container"
                 >
                   <div
@@ -1966,7 +1959,7 @@ Object {
                     data-name="row"
                   >
                     <div
-                      class="sc-fznxKY c65"
+                      class="sc-fznKkj c65"
                       data-name=""
                     >
                       <p
@@ -1977,15 +1970,15 @@ Object {
                         Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                       </p>
                       <div
-                        class="sc-fzoXWK c67 c68"
+                        class="sc-fzplWN c67 c68"
                         data-name="container"
                       >
                         <div
-                          class="sc-fzpmMD c69"
+                          class="sc-fznyAO c69"
                           data-name="row"
                         >
                           <div
-                            class="sc-fznxKY c70"
+                            class="sc-fznKkj c70"
                             data-name="col-lg-12"
                           >
                             <div
@@ -2173,10 +2166,10 @@ Object {
                   </svg>
                 </header>
                 <div
-                  class="c38 c89"
+                  class="c89 c90"
                 />
                 <div
-                  class="c90"
+                  class="c91"
                 >
                   <h5
                     class="c42"
@@ -2186,10 +2179,10 @@ Object {
                     Todas as informações serão perdidas e a solicitação não será finalizada.
                   </h5>
                   <div
-                    class="c91"
+                    class="c92"
                   >
                     <button
-                      class="c92"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2199,7 +2192,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c93"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2245,10 +2238,10 @@ Object {
                   </svg>
                 </header>
                 <div
-                  class="c38 c89"
+                  class="c89 c90"
                 />
                 <div
-                  class="c90"
+                  class="c91"
                 >
                   <h5
                     class="c42"
@@ -2258,10 +2251,10 @@ Object {
                     Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
                   </h5>
                   <div
-                    class="c91"
+                    class="c92"
                   >
                     <button
-                      class="c92"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2271,7 +2264,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c93"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2389,7 +2382,7 @@ Object {
                         class="sc-fzqNqU gbjgec"
                       >
                         <h5
-                          class="sc-AxjAm jcWOvb"
+                          class="sc-AxhUy hHoTUF"
                           color="gray4"
                           type="headline"
                         >
@@ -2400,7 +2393,7 @@ Object {
                         class="sc-fzoyTs dcaVVS"
                       >
                         <h6
-                          class="sc-AxjAm inUCKS"
+                          class="sc-AxhUy YrglI"
                           color="gray4"
                           type="title"
                         >
@@ -2450,21 +2443,21 @@ Object {
                               class="sc-pJurq dWXwp"
                             >
                               <span
-                                class="sc-AxjAm gyHhKC"
+                                class="sc-AxhUy ldvITA"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 conta de investimento
                               </span>
                               <h5
-                                class="sc-AxjAm esYIWJ"
+                                class="sc-AxhUy hUEjxf"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 1.987.123,99
                               </h5>
                               <span
-                                class="sc-AxjAm kRUhHc"
+                                class="sc-AxhUy CYAhy"
                                 color="gray5"
                                 type="caption"
                               >
@@ -2479,21 +2472,21 @@ Object {
                               class="sc-pJurq dWXwp"
                             >
                               <span
-                                class="sc-AxjAm gyHhKC"
+                                class="sc-AxhUy ldvITA"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 fundo
                               </span>
                               <h5
-                                class="sc-AxjAm esYIWJ"
+                                class="sc-AxhUy hUEjxf"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 31.905,05
                               </h5>
                               <span
-                                class="sc-AxjAm kRUhHc"
+                                class="sc-AxhUy CYAhy"
                                 color="gray5"
                                 type="caption"
                               >
@@ -2514,7 +2507,7 @@ Object {
                             data-name="col-sm-6"
                           >
                             <h5
-                              class="sc-AxjAm fJtvcl"
+                              class="sc-AxhUy iPsvxf"
                               color="gray6"
                               type="headline"
                             >
@@ -2551,7 +2544,7 @@ Object {
                             data-name="col-sm-6"
                           >
                             <h5
-                              class="sc-AxjAm fJtvcl"
+                              class="sc-AxhUy iPsvxf"
                               color="gray6"
                               type="headline"
                             >
@@ -2585,7 +2578,7 @@ Object {
                           class="sc-fzqOul hQzBzN"
                         >
                           <p
-                            class="sc-AxjAm fvLGTa"
+                            class="sc-AxhUy iuUFuM"
                             color="gray5"
                             type="body"
                           >
@@ -2601,7 +2594,7 @@ Object {
                           class="sc-pReKu iiNcfy"
                         >
                           <div
-                            class="sc-fzqNqU UOrqS"
+                            class="sc-AxirZ kxJjvp"
                           >
                             <input
                               class="sc-AxhCb jfaQnC"
@@ -2613,7 +2606,7 @@ Object {
                               for="checkbox-1"
                             >
                               <p
-                                class="sc-AxjAm fvLGTa"
+                                class="sc-AxhUy iuUFuM"
                                 color="gray5"
                                 type="body"
                               >
@@ -2669,7 +2662,7 @@ Object {
                     data-name=""
                   >
                     <p
-                      class="sc-AxjAm fvLGTa sc-fznNvL gmTXou"
+                      class="sc-AxhUy iuUFuM sc-fznNvL gmTXou"
                       color="gray5"
                       type="body"
                     >
@@ -2691,14 +2684,14 @@ Object {
                             class="sc-fzoydu cQInoN"
                           >
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
                             </p>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2712,7 +2705,7 @@ Object {
                               href="mailto:ouvidoria@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
+                                class="sc-AxhUy bMvKdH sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2720,7 +2713,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2734,7 +2727,7 @@ Object {
                               href="mailto:suporte.conquista@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
+                                class="sc-AxhUy bMvKdH sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2742,14 +2735,14 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               .
                             </p>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2767,7 +2760,7 @@ Object {
                               target="_blank"
                             >
                               <p
-                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
+                                class="sc-AxhUy bMvKdH sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2775,7 +2768,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2878,7 +2871,7 @@ Object {
                 class="sc-fzoXWK gsqYKB"
               >
                 <h5
-                  class="sc-AxjAm fJtvcl"
+                  class="sc-AxhUy iPsvxf"
                   color="gray6"
                   type="headline"
                 >
@@ -2950,7 +2943,7 @@ Object {
                 class="sc-fzoXWK gsqYKB"
               >
                 <h5
-                  class="sc-AxjAm fJtvcl"
+                  class="sc-AxhUy iPsvxf"
                   color="gray6"
                   type="headline"
                 >

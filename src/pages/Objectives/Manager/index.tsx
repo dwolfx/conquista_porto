@@ -163,7 +163,7 @@ export default function ObjectiveManager() {
         item => item.pendency === 'INITIAL_VALUE_PENDING'
       )
       const notPending = objectiveData?.fund_list.filter(
-        item => item.pendency !== 'INITIAL_VALUE_PENDING'
+        item => item.pendency !== 'INITIAL_VALUE_PENDING' && item.invested > 0
       )
 
       setPendingFunds(pending || [])

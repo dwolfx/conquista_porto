@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import { uuid } from 'uuidv4'
 
@@ -27,7 +26,6 @@ const ExtractTableTablet = ({
   request,
 }: IProps) => {
   const [listSize, setListSize] = useState(8)
-  const dispatch = useDispatch()
 
   if (isLoading) {
     return (

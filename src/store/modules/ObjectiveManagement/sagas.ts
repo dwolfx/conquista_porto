@@ -3,7 +3,6 @@ import { all, takeLatest, call, select, put } from 'redux-saga/effects'
 import {
   get,
   post,
-  put as axiosPut,
   remove,
   patch,
   baseURLNamespaceGoal,

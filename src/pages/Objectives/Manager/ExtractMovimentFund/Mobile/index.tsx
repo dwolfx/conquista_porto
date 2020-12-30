@@ -7,8 +7,6 @@ import Loading from 'components/Loading'
 
 import { formatMoney } from 'helpers'
 
-import { GetObjectiveManagementExtractFundRequest } from 'store/modules/ObjectiveManagement/action'
-
 import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
 import * as S from '../styles'
 

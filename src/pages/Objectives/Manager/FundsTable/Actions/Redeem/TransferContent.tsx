@@ -64,7 +64,7 @@ export default function({
         ? [...objectiveList]
             .filter(item => item.id !== objectiveDetails.id)
             .map(item => ({
-              name: item.nickname,
+              text: item.nickname,
               id: item.id,
               icon: goalTypeIcons[item.goal_type],
               onClick: () => {
@@ -144,7 +144,11 @@ export default function({
         Para qual objetivo você deseja transferir?
       </Text>
 
-      <SelectInput selected={objectiveSelected} options={itemsDropdown} />
+      <SelectInput
+        label="Objetivos"
+        selected={objectiveSelected}
+        options={itemsDropdown}
+      />
 
       <Text
         type="headline"

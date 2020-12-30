@@ -599,6 +599,7 @@ Array [
       </div>
       <div
         className="c10 c11"
+        data-testid="card-body"
       >
         <div
           className="c12"

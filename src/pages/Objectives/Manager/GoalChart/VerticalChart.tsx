@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
-import PropTypes from 'prop-types'
 
 import Card from 'components/Card'
 import Text from 'components/Text'
