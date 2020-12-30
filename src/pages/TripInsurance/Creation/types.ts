@@ -87,7 +87,7 @@ export interface ICompanion extends IMainPassenger {
 export interface IForm {
   dataIda?: string
   dataVolta?: string
-  motivoViagem: 1
+  motivoViagem?: 1
   isPraticaAventura?: boolean
   isMotocicleta?: boolean
   qtdPassagMenorSetentaAnos?: number
@@ -103,5 +103,6 @@ export interface IForm {
   isAceiteTermos?: boolean
   isCienteMoto?: boolean
   idSimulacao?: number
-  codigoCanal: 1
+  codigoCanal?: 1
+  nationalDestination?: boolean
 }

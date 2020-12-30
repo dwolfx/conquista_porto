@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import NewInput from 'components/NewInput'
 import DivisorCmp from 'components/Divisor'
@@ -9,6 +9,7 @@ import Text from 'components/Text'
 import PopoverCmp from 'components/Popover'
 import IconExporter from 'components/IconExporter'
 import CountryOriginSelectCmp from '../../commons/CountryOriginSelect'
+import MultiSelectorComponent from 'components/MultiSelector'
 
 export const Input = styled(NewInput)`
   margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(5)}px`};
@@ -100,4 +101,18 @@ export const Popover = styled(PopoverCmp)`
 export const InfoIcon = styled(IconExporter)`
   margin-left: ${({ theme }) => theme.spacing(1.5)}px;
   margin-bottom: -${({ theme }) => theme.spacing(0.5)}px;
+`
+
+export const MultiSelector = styled(MultiSelectorComponent)<{
+  marginBottom: boolean
+}>`
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${({ theme }) => theme.spacing(10)}px;
+    `}
+
+  svg {
+    width: 21px;
+  }
 `

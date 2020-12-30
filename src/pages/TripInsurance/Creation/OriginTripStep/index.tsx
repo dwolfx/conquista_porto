@@ -79,9 +79,21 @@ const OriginTripStep: StepComponent = () => {
   ] = useState<IOption[]>([])
 
   useEffect(() => {
+    if (selectedDestinationType.id === 1) {
+      if (!destinationCountriesData) {
+        dispatch(GetDestinationCountriesRequest())
+      }
+    }
+  }, [selectedDestinationType, destinationCountriesData, dispatch])
+
+  useEffect(() => {
     if (selectedDestinationType.id === 2) {
       if (destinationCountriesData) {
-        setCountries(destinationCountriesData?.ViagemPais?.destinos)
+        setCountries(
+          destinationCountriesData?.ViagemPais?.destinos.filter(
+            (destino: IOption) => destino.value !== 'brasil'
+          )
+        )
       }
     }
   }, [selectedDestinationType, destinationCountriesData])
@@ -105,7 +117,12 @@ const OriginTripStep: StepComponent = () => {
           celularNumero: customerProfileData.customerPhoneNumber,
         },
       },
-      codigoPaisDestino: `${selectedDestinationCountries[0].id}`,
+      codigoPaisDestino:
+        selectedDestinationType.id === 1
+          ? destinationCountriesData?.ViagemPais?.destinos.filter(
+              (c: IOption) => c.value === 'brasil'
+            )[0].id
+          : `${selectedDestinationCountries[0].id}`,
       paisesAdicionais: selectedDestinationCountries
         .slice(1)
         .map((selectedCountry: IOption) => ({
@@ -114,6 +131,7 @@ const OriginTripStep: StepComponent = () => {
         })),
       motivoViagem: 1,
       codigoCanal: 1,
+      nationalDestination: selectedDestinationType.id === 1,
     })
     instantiate(Steps.coverageDate)
   }
@@ -173,6 +191,10 @@ const OriginTripStep: StepComponent = () => {
                 />
               )}
               <S.StyledButton
+                loading={
+                  selectedDestinationType.id === 1 &&
+                  isLoadingDestinationCountries
+                }
                 disabled={
                   selectedDestinationType.id === 0 ||
                   (selectedDestinationType.id === 2 &&

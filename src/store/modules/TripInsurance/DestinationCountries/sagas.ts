@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvestAws } from 'services/api'
 import {
   Types,
   IDestinationCountry,
@@ -15,7 +15,7 @@ export function* getDestinationCountries() {
   try {
     const { data } = yield call(
       get,
-      `/investimento/aws/v1/viagem/paises/destino`
+      `${baseURLNamespaceInvestAws}/viagem/paises/destino`
     )
 
     const { destinos } = data.ViagemPais
