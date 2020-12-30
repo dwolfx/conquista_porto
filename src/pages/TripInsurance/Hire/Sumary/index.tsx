@@ -9,9 +9,8 @@ import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-
 import { capitalize, formatMoney } from 'helpers'
-
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
@@ -172,11 +171,12 @@ const Sumary = () => {
 
   return (
     <>
-      <DrawerChangePayment
-        isOpen={drawerChangePayment}
-        handleClose={() => setDrawerChangePayment(false)}
-      />
+      <StepBar actualStep={4} totalNumberOfSteps={4} />
       <S.Container>
+        <DrawerChangePayment
+          isOpen={drawerChangePayment}
+          handleClose={() => setDrawerChangePayment(false)}
+        />
         <Row>
           <S.HeaderCol lg={3} md={12}>
             <S.HeaderWrapper>

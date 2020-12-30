@@ -46,3 +46,8 @@ export const validityError = {
   icon: 'information' as keyof typeof dict,
   message: 'Digite uma data válida.',
 }
+
+export const validityErrorCvc = {
+  icon: 'information' as keyof typeof dict,
+  message: 'Digite um CVC válido.',
+}

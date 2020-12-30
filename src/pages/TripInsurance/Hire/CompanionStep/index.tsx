@@ -47,7 +47,9 @@ const CompanionStep = () => {
     const checkAllStatusTrue = form.acompanhantes?.every(
       companion => companion.status === true
     )
-    checkAllStatusTrue && setIsCompanionsFilled(true)
+    if (checkAllStatusTrue) {
+      setIsCompanionsFilled(true)
+    }
   }, [form])
 
   const { creditCardData, isCreditCardLoading } = useSelector(
@@ -121,7 +123,7 @@ const CompanionStep = () => {
             {companion?.status ? 'ALTERAR DADOS ' : 'INSERIR DADOS'}
           </ButtonLink>
         </s.Td>
-        <s.Td center={true}>{renderStatusBody(!!companion?.status)}</s.Td>
+        <s.Td center>{renderStatusBody(!!companion?.status)}</s.Td>
       </s.Tr>
     ))
   }

@@ -37,7 +37,7 @@ export const errorCEP = (
 }
 
 export const validtionGeneric = (
-  value: string | undefined,
+  value: string | number | undefined,
   touch: boolean,
   extra: boolean = true,
   error: errorObject = {

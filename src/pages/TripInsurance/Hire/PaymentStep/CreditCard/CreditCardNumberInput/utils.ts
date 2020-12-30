@@ -7,7 +7,7 @@ const cardFlags = {
   masterCard: /^(5[1-5][0-9]{2})|(222[1-9])|(22[3-9][0-9])|(2[3-6][0-9]{2})|(27[0-1][0-9])|(2720)$/,
 }
 
-const setCreditCardFlag = (
+export const setCreditCardFlag = (
   strippedValue: string,
   setFlagName: React.Dispatch<React.SetStateAction<TFlagName>>
 ): void => {
@@ -103,4 +103,9 @@ export const creditCardError = {
 export const isNotPortoCreditCardError = {
   icon: 'information' as keyof typeof dict,
   message: 'Por favor, insira o seu cartão Porto Seguro selecionado acima.',
+}
+
+export const isRequestInputCreditCardError = {
+  icon: 'information' as keyof typeof dict,
+  message: 'Campo obrigatório',
 }
