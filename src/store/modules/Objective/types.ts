@@ -27,7 +27,15 @@ export interface IAnswer {
   target_value: number
   initial_value: number
   monthly_value: number
-  goal_type: number
+  goal_type:
+    | string
+    | 'TRAVEL'
+    | 'RETIRE'
+    | 'CAR'
+    | 'COURSE'
+    | 'EVENT'
+    | 'HOUSE'
+    | 'MONEY'
   is_easy_to_save_planned_amount?: boolean
   is_target_date_flexible?: boolean
   would_like_to_receive_before_final_date?: boolean
@@ -127,4 +135,21 @@ export interface IRecommendations {
   }
   credit_product?: ICreditProduct
   suggestion_goal?: ISuggestion
+}
+
+export interface IObjectiveList {
+  id: number
+  nickname: string
+  total_balance: number
+  remaining_value: number
+  target_value: number
+  percentage: number
+  goal_type:
+    | 'TRAVEL'
+    | 'RETIRE'
+    | 'CAR'
+    | 'COURSE'
+    | 'EVENT'
+    | 'HOUSE'
+    | 'MONEY'
 }

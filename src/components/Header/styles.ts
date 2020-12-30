@@ -6,6 +6,7 @@ import ConquistaIcon from 'components/IconExporter'
 import NotificationBellComponent from 'components/NotificationBell'
 import AvatarComponent from 'components/Avatar'
 import Tag from 'components/Tag'
+import DropDownCmp from 'components/Dropdown'
 
 interface BgWrapperProps {
   isScrolled?: boolean
@@ -27,7 +28,7 @@ export const BgWrapper = styled.div<BgWrapperProps>`
 export const FixedHeaderContainer = styled.div`
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 7;
 `
 
 export const GridContainer = styled(Container)`
@@ -120,3 +121,5 @@ export const NotificationBell = styled(NotificationBellComponent)`
 export const Avatar = styled(AvatarComponent)`
   cursor: pointer;
 `
+
+export const DropDown = styled(DropDownCmp)``

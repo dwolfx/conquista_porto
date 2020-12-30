@@ -1,0 +1,239 @@
+{
+  "id": 1,
+  "nickname": "Disney",
+  "target_value": 70000,
+  "initial_value": 10000,
+  "monthly_value": 1000,
+  "target_date": "01/08/2050",
+  "goal_type": "TRAVEL",
+  "conquered": false,
+  "total_balance": 40000,
+  "years": [
+    {
+      "year": 2019,
+      "month_map": {
+        "4": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 2222
+        },
+        "5": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 6666
+        },
+        "6": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 123
+        },
+        "7": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "8": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "9": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5666
+        },
+        "10": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5000
+        },
+        "11": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5000
+        },
+        "12": {
+          "projected_balance": 2000,
+          "deposit": 4000,
+          "expected_deposit": 5000
+        }
+      }
+    },
+    {
+      "year": 2020,
+      "month_map": {
+        "1": {
+          "projected_balance": 1000,
+          "expected_deposit": 2000,
+          "deposit": 2000
+        },
+        "2": {
+          "projected_balance": 2000,
+          "deposit": 2355,
+          "expected_deposit": 3333
+        },
+        "3": {
+          "projected_balance": 2000,
+          "deposit": 555,
+          "expected_deposit": 3333
+        },
+        "4": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 2222
+        },
+        "5": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 6666
+        },
+        "6": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 123
+        },
+        "7": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "8": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "9": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5666
+        },
+        "10": {
+          "projected_balance": 2000,
+          "deposit": 5000,
+          "expected_deposit": 5000
+        },
+        "11": {
+          "projected_balance": 2000,
+          "deposit": 5000,
+          "expected_deposit": 5000
+        },
+        "12": {
+          "projected_balance": 5000,
+          "deposit": 5000,
+          "expected_deposit": 5000
+        }
+      }
+    },
+    {
+      "year": 2021,
+      "month_map": {
+        "1": {
+          "projected_balance": 2000,
+          "deposit": 2355,
+          "expected_deposit": 5000
+        },
+        "2": {
+          "projected_balance": 2000,
+          "deposit": 2355,
+          "expected_deposit": 5000
+        },
+        "3": {
+          "projected_balance": 2000,
+          "deposit": 555,
+          "expected_deposit": 5000
+        },
+        "4": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        }
+      }
+    }
+  ],
+  "fund_list": [
+    {
+      "fund_id": 51380023,
+      "name": "Arx Income FI Ações",
+      "nickname": "Arx Income FIA",
+      "company_name": "ARX Investimentos",
+      "profile_risk": "alto",
+      "order_profile_risk": 5,
+      "initial_date": "17/06/1999",
+      "manager": "ARX Investimentos",
+      "min_initial_value": 500,
+      "min_value_to_apply": 100,
+      "release_to_apply": true,
+      "min_rescue_value": 100,
+      "release_to_rescue": true,
+      "min_balance_value": 100,
+      "time_limit_to_apply": "17:00",
+      "time_limit_to_rescue": "17:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+1 (Úteis)",
+      "financial_rescue_days": "D+2 (Úteis)",
+      "count_rescue_days": "Úteis",
+      "arena_category": "Renda Variável",
+      "anbima_category": "Ações Dividendos",
+      "adm_tax": 3,
+      "performance_rate": 0,
+      "classification": "Ações",
+      "tribute_ir": {
+        "additionalProp1": 0,
+        "additionalProp2": 0,
+        "additionalProp3": 0
+      },
+      "iof": "Isento",
+      "benchmark": "IBOVESPA",
+      "profitability": [
+        {
+          "name": "IBOVESPA",
+          "value": {
+            "additionalProp1": 0,
+            "additionalProp2": 0,
+            "additionalProp3": 0
+          }
+        }
+      ],
+      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
+      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
+      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
+      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_ARXINCOMEFIA.pdf",
+      "url_manager_logo": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_ARX.png",
+      "quota_type": "Fechamento",
+      "cnpj": "string",
+      "pl": 0,
+      "pl_last_year": 0,
+      "initial_value": 1100,
+      "monthly_value": 100,
+      "annual_rate": 9.5,
+      "fund_wallet_type": "recommended",
+      "balance": 40000,
+      "available": 23000,
+      "invested": 17000,
+      "goals": [
+        {
+          "id": 8,
+          "name": "Aposentadoria 2078",
+          "value": 1000000,
+          "goal_type": "TRAVEL"
+        }
+      ],
+      "fundActive": true
+    }
+  ],
+  "creditProduct": {
+    "name": "Financiamento de Veículo",
+    "values": {
+      "name": "Valor a Contratar",
+      "value": 478688.72,
+      "info": "string",
+      "checked": false
+    }
+  },
+  "additional": {
+    "travel_security": false,
+    "life_security": false,
+    "credit_card": true
+  }
+}

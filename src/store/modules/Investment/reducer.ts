@@ -1,5 +1,6 @@
 import { Types } from './types'
 
+/** @TODO mudar key de 'isError' pra 'hasError' por questões de concordância rs  */
 const INITIAL_STATE = {
   data: [],
   isLoading: false,

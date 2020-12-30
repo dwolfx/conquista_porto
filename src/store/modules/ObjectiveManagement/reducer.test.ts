@@ -4,10 +4,14 @@ import { Types } from './types'
 const defaultState = {
   data: null,
   isLoading: true,
-  isLoadingSave: false,
+  isLoadingObjectiveList: true,
   isLoadingDelete: false,
-  otherGoalsManagement: {},
-  isLoadingOtherGoals: true,
+  isLoadingUpdate: false,
+  isLoadingFundsMovement: false,
+  hasErrorFundsMovement: false,
+  isLoadingTransfer: false,
+  isLoadingExtractFund: false,
+  dataExtract: [],
 }
 
 describe('ObjectiveManagement Reducer', () => {
@@ -66,57 +70,6 @@ describe('ObjectiveManagement Reducer', () => {
     })
   })
 
-  it('should handle PUT_SAVE_FUNDS_REQUEST', () => {
-    expect(
-      reducer(
-        {
-          ...defaultState,
-        },
-        {
-          type: Types.PUT_SAVE_FUNDS_REQUEST,
-        }
-      )
-    ).toEqual({
-      ...defaultState,
-      isLoadingSave: true,
-    })
-  })
-
-  it('should handle PUT_SAVE_FUNDS_SUCCESS', () => {
-    expect(
-      reducer(
-        {
-          ...defaultState,
-        },
-        {
-          type: Types.PUT_SAVE_FUNDS_SUCCESS,
-          payload: {},
-        }
-      )
-    ).toEqual({
-      ...defaultState,
-      data: {},
-      isLoadingSave: false,
-    })
-  })
-
-  it('should handle PUT_SAVE_FUNDS_FAILURE', () => {
-    expect(
-      reducer(
-        {
-          ...defaultState,
-        },
-        {
-          type: Types.PUT_SAVE_FUNDS_FAILURE,
-        }
-      )
-    ).toEqual({
-      ...defaultState,
-      error: true,
-      isLoadingSave: false,
-    })
-  })
-
   it('should handle GET_REQUEST', () => {
     expect(
       reducer(
@@ -165,57 +118,6 @@ describe('ObjectiveManagement Reducer', () => {
       ...defaultState,
       data: {},
       isLoading: false,
-    })
-  })
-
-  it('should handle GET_OTHER_GOALS_REQUEST', () => {
-    expect(
-      reducer(
-        {
-          ...defaultState,
-        },
-        {
-          type: Types.GET_OTHER_GOALS_REQUEST,
-        }
-      )
-    ).toEqual({
-      ...defaultState,
-      isLoadingOtherGoals: true,
-    })
-  })
-
-  it('should handle GET_OTHER_GOALS_SUCCESS', () => {
-    expect(
-      reducer(
-        {
-          ...defaultState,
-        },
-        {
-          type: Types.GET_OTHER_GOALS_SUCCESS,
-          payload: {},
-        }
-      )
-    ).toEqual({
-      ...defaultState,
-      otherGoalsManagement: {},
-      isLoadingOtherGoals: false,
-    })
-  })
-
-  it('should handle GET_OTHER_GOALS_FAILURE', () => {
-    expect(
-      reducer(
-        {
-          ...defaultState,
-        },
-        {
-          type: Types.GET_OTHER_GOALS_FAILURE,
-        }
-      )
-    ).toEqual({
-      ...defaultState,
-      otherGoalsManagement: {},
-      isLoadingOtherGoals: false,
     })
   })
 

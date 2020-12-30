@@ -1,6 +1,6 @@
 import { dict } from 'components/IconExporter'
 
-export const TRIP = '1'
+export const TRAVEL = '1'
 export const RETIREMENT = '2'
 export const CAR = '3'
 export const COURSE = '4'

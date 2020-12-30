@@ -86,6 +86,16 @@ feature/PCNE-01
 
 bugfix/PCNE-01
 
+## Run Sonar on localhost
+
+Download the following docker image of sonar:
+
+`docker run -d --name sonarqube -p 9000:9000 sonarqube`
+
+After the docker has started, run the command:
+
+`yarn sonar:scan`
+
 ## Pull Request Guidelines
 
 - It's OK to merge a PR if, and only if it has 2 approvals.

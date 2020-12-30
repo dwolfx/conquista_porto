@@ -15,6 +15,7 @@ import {
 interface IProps {
   drawerTitle?: string
   footer?: React.ReactNode
+  footerHeight?: string
   handleClose?: () => any
   header?: React.ReactNode
   isLoading?: boolean
@@ -26,6 +27,7 @@ interface IProps {
 const Drawer: React.FC<IProps> = ({
   children,
   footer,
+  footerHeight,
   handleClose,
   header,
   isOpen,
@@ -69,7 +71,9 @@ const Drawer: React.FC<IProps> = ({
           )}
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
-        {footer && <DrawerFooter>{footer}</DrawerFooter>}
+        {footer && (
+          <DrawerFooter footerHeight={footerHeight}>{footer}</DrawerFooter>
+        )}
       </DrawerContent>
     </DrawerWrapper>,
     document.querySelector('#root') as HTMLDivElement

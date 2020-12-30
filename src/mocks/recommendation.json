@@ -11,12 +11,12 @@
     "is_target_date_flexible": false,
     "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
-    "goal_type": 1,
+    "goal_type": "TRAVEL",
     "profile": 3
   },
   "income": {
     "pessimistic": 20726.1,
-    "median": 20912.49,
+    "median": 30912.49,
     "optimistic": 21100.87
   },
   "funds": [

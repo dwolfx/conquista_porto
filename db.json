@@ -8,6 +8,7 @@
       "date": "16/11/2020 10:57:21"
     }
   },
+  "goals_summary": [],
   "redeem_summary_get": {
     "Message": {
       "TipoCritica": "SUCESSO",
@@ -6066,176 +6067,263 @@
     "cod_prog": "001"
   },
   "recommendations_recalculate_funds_post": {
-    "target_date": "01/08/2050",
+    "target_date": "11/07/2021",
     "fund_list": [
       {
-        "category": "Renda Variável",
-        "fund_id": 51380023,
-        "initial_amount": 1100,
+        "category": "Multimercado",
+        "fund_id": 51380026,
+        "initial_amount": 1600,
         "monthly_amount": 100
       },
       {
         "category": "Renda Fixa",
-        "fund_id": 5138002,
-        "initial_amount": 1000,
-        "monthly_amount": 100
+        "fund_id": 51380014,
+        "initial_amount": 1600,
+        "monthly_amount": 200
+      },
+      {
+        "category": "Renda Fixa",
+        "fund_id": 51380042,
+        "initial_amount": 1800,
+        "monthly_amount": 500
+      },
+      {
+        "category": "Renda Variável",
+        "fund_id": 5094,
+        "initial_amount": 5000,
+        "monthly_amount": 200
       }
     ]
   },
   "goal_recommendations": {
-    "nickname": "aaaaaa",
-    "target_date": "30/05/2021",
-    "target_value": 2222.22,
-    "initial_value": 121424234.32,
-    "monthly_value": 35432.52,
-    "uf": "SP",
-    "is_easy_to_save_planned_amount": false,
-    "is_target_date_flexible": false,
-    "would_like_to_receive_before_final_date": false,
-    "would_like_to_receive_monthly_income": false,
-    "goal_type": "1",
-    "profile": 3
-  },
-  "goal_management": {
-    "id": "77",
-    "answer": {
-      "nickname": "Disney",
-      "target_date": "01/08/2050",
-      "target_value": 70000,
-      "initial_value": 10000,
-      "monthly_value": 1000,
-      "uf": "SP",
-      "is_easy_to_save_planned_amount": false,
-      "is_target_date_flexible": false,
-      "would_like_to_receive_before_final_date": false,
-      "would_like_to_receive_monthly_income": false,
-      "goal_type": "1",
-      "profile": 4
-    },
-    "fund_total_income": {
-      "additionalProp1": 0,
-      "additionalProp2": 0,
-      "additionalProp3": 0
-    },
-    "funds": [
+    "id": "1",
+    "nickname": "Meu Carrito Super Daora",
+    "target_value": 22000,
+    "initial_value": 15300,
+    "monthly_value": 1500,
+    "target_date": "10/10/2021",
+    "goal_type": "TRAVEL",
+    "conquered": false,
+    "total_balance": 16000,
+    "years": [
       {
-        "fund_id": 51380023,
-        "name": "Arx Income FI Ações",
-        "nickname": "Arx Income FIA",
-        "profile_risk": "alto",
-        "share_holder_profile_risk": 5,
-        "initial_date": "17/06/1999",
-        "manager": "ARX Investimentos",
-        "min_initial_value": 500,
-        "min_value_to_apply": 100,
-        "release_to_apply": true,
-        "min_rescue_value": 100,
-        "release_to_rescue": true,
-        "min_balance_value": 100,
-        "time_limit_to_apply": "17:00",
-        "time_limit_to_rescue": "17:00",
-        "quotation_apply_days": "D+0",
-        "financial_apply_days": "D+0",
-        "quotation_rescue_days": "D+1 (Úteis)",
-        "financial_rescue_days": "D+2 (Úteis)",
-        "count_rescue_days": "Úteis",
-        "arena_category": "Renda Variável",
-        "ambima_category": "Ações Dividendos",
-        "adm_tax": 3,
-        "performance_rate": 0,
-        "classification": "Ações",
-        "tribute_ir": {
-          "additionalProp1": 0,
-          "additionalProp2": 0,
-          "additionalProp3": 0
-        },
-        "iof": "Isento",
-        "benchmark": "IBOVESPA",
-        "profitability": [
-          {
-            "name": "IBOVESPA",
-            "value": {
-              "additionalProp1": 0,
-              "additionalProp2": 0,
-              "additionalProp3": 0
-            }
+        "year": 2019,
+        "month_map": {
+          "4": {
+            "projected_balance": 2000,
+            "deposit": 2000,
+            "expected_deposit": 2222
+          },
+          "5": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 6666
+          },
+          "6": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 123
+          },
+          "7": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 3999
+          },
+          "8": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 3999
+          },
+          "9": {
+            "projected_balance": 2000,
+            "deposit": 2000,
+            "expected_deposit": 5666
+          },
+          "10": {
+            "projected_balance": 2000,
+            "deposit": 2000,
+            "expected_deposit": 5000
+          },
+          "11": {
+            "projected_balance": 2000,
+            "deposit": 2000,
+            "expected_deposit": 5000
+          },
+          "12": {
+            "projected_balance": 2000,
+            "deposit": 4000,
+            "expected_deposit": 5000
           }
-        ],
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
-        "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
-        "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_ARXINCOMEFIA.pdf",
-        "url_manager_logo": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_ARX.png",
-        "quota_type": "Fechamento",
-        "cnpj": "string",
-        "pl": 0,
-        "pl_last_year": 0,
-        "initial_value": 1100,
-        "monthly_value": 100,
-        "annual_rate": 9.5,
-        "fundActive": true
+        }
       },
       {
-        "fund_id": 5138002,
-        "name": "Not Arx Income FI Ações",
-        "nickname": "Arx Income FIA",
-        "profile_risk": "medio",
-        "share_holder_profile_risk": 3,
-        "initial_date": "17/06/1999",
-        "manager": "ARX Investimentos",
-        "min_initial_value": 500,
+        "year": 2020,
+        "month_map": {
+          "1": {
+            "projected_balance": 1000,
+            "expected_deposit": 2000,
+            "deposit": 2000
+          },
+          "2": {
+            "projected_balance": 2000,
+            "deposit": 2355,
+            "expected_deposit": 3333
+          },
+          "3": {
+            "projected_balance": 2000,
+            "deposit": 555,
+            "expected_deposit": 3333
+          },
+          "4": {
+            "projected_balance": 2000,
+            "deposit": 2000,
+            "expected_deposit": 2222
+          },
+          "5": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 6666
+          },
+          "6": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 123
+          },
+          "7": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 3999
+          },
+          "8": {
+            "projected_balance": 2000,
+            "deposit": 1000,
+            "expected_deposit": 3999
+          },
+          "9": {
+            "projected_balance": 2000,
+            "deposit": 2000,
+            "expected_deposit": 5666
+          },
+          "10": {
+            "projected_balance": 2000,
+            "deposit": 5000,
+            "expected_deposit": 5000
+          },
+          "11": {
+            "projected_balance": 2000,
+            "deposit": 5000,
+            "expected_deposit": 5000
+          },
+          "12": {
+            "projected_balance": 5000,
+            "deposit": 5000,
+            "expected_deposit": 5000
+          }
+        }
+      },
+      {
+        "year": 2021,
+        "month_map": {
+          "1": {
+            "projected_balance": 2000,
+            "deposit": 2355,
+            "expected_deposit": 5000
+          },
+          "2": {
+            "projected_balance": 2000,
+            "deposit": 2355,
+            "expected_deposit": 5000
+          },
+          "3": {
+            "projected_balance": 2000,
+            "deposit": 555,
+            "expected_deposit": 5000
+          },
+          "4": {
+            "projected_balance": 1000,
+            "expected_deposit": 1000,
+            "deposit": 1000
+          }
+        }
+      }
+    ],
+    "fund_list": [
+      {
+        "name": "Porto Seguro FI Referenciado DI Credito Privado",
+        "nickname": "Porto Seguro FI RF Ref. DI CP",
+        "classification": "Longo Prazo",
+        "benchmark": "CDI",
+        "balance": 86558.46,
+        "available": 84057.06,
+        "invested": 1500.7,
+        "goals": [
+          {
+            "id": 626,
+            "name": "PVEV-772",
+            "value": 1000.7,
+            "goal_type": "TRAVEL"
+          }
+        ],
+        "arena_category": "Renda Fixa",
+        "fund_id": 5105,
+        "order_profile_risk": 4,
+        "initial_date": "27/02/2014",
+        "min_initial_value": 1000,
         "min_value_to_apply": 100,
         "release_to_apply": true,
-        "min_rescue_value": 100,
         "release_to_rescue": true,
-        "min_balance_value": 100,
-        "time_limit_to_apply": "17:00",
-        "time_limit_to_rescue": "17:00",
+        "min_balance_value": 1000,
+        "time_limit_to_apply": "15:00",
         "quotation_apply_days": "D+0",
         "financial_apply_days": "D+0",
-        "quotation_rescue_days": "D+1 (Úteis)",
-        "financial_rescue_days": "D+2 (Úteis)",
-        "count_rescue_days": "Úteis",
-        "arena_category": "Renda Fixa",
-        "ambima_category": "Ações Dividendos",
-        "adm_tax": 3,
+        "quotation_rescue_days": "D+0 (Úteis)",
+        "financial_rescue_days": "D+0 (Úteis)",
+        "anbima_category": "",
+        "adm_tax": 0.4,
         "performance_rate": 0,
-        "classification": "Renda Fixa",
-        "tribute_ir": {
-          "additionalProp1": 0,
-          "additionalProp2": 0,
-          "additionalProp3": 0
-        },
-        "iof": "Isento",
-        "benchmark": "CDI",
         "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": 0.61,
+              "2": 0.55,
+              "3": 1.73,
+              "4": 8.24,
+              "5": 15.54
+            }
+          },
           {
             "name": "CDI",
             "value": {
-              "additionalProp1": 0,
-              "additionalProp2": 0,
-              "additionalProp3": 0
+              "1": 0.18,
+              "2": 2.19,
+              "3": 3.47,
+              "4": 9.96,
+              "5": 17.28
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "1": 342.57,
+              "2": 24.9,
+              "3": 49.97,
+              "4": 82.77,
+              "5": 89.9
             }
           }
         ],
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
-        "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
-        "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_ARXINCOMEFIA.pdf",
-        "url_manager_logo": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_ARX.png",
-        "quota_type": "Fechamento",
-        "cnpj": "string",
-        "pl": 0,
-        "pl_last_year": 0,
-        "initial_value": 1000,
-        "monthly_value": 100,
-        "annual_rate": 9.5,
-        "fundActive": true
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
+        "is_fund_active": true,
+        "initial_value": 10300.23,
+        "monthly_value": 1100.77,
+        "fund_wallet_type": "RECOMMENDED"
       }
     ],
     "additional": {
       "travel_security": false,
-      "life_security": false,
+      "life_security": true,
       "credit_card": true
     },
     "credit_product": {
@@ -6243,12 +6331,19 @@
       "values": [
         {
           "name": "Valor a Contratar",
-          "value": 478688.72,
-          "info": "string",
+          "value": "R$ 45.343,61",
           "checked": false
         }
       ]
     }
+  },
+  "goal_management": {
+    "fund_list": [
+      {
+        "fund_id": 5071,
+        "value": 0
+      }
+    ]
   },
   "suitability": {
     "idpessoa": 632,
@@ -9120,5 +9215,23 @@
     "tipoLogradouro": "R",
     "bairro": "PARAISO",
     "logradouro": "SAMPAIO VIANA"
-  }
+  },
+  "goals_update_nickname": {},
+  "goal_transfer_between_goals": {},
+  "goal_extract_fund": [
+    {
+      "transaction_date": "01/01/2020",
+      "transaction_type": "INVEST",
+      "value": 9000,
+      "transaction_status": "DONE",
+      "processed_transaction_date": "01/01/2020"
+    }
+  ],
+  "redeem_questions": [
+    {
+      "id": 1,
+      "text": "Vou fazer uma compra"
+    }
+  ],
+  "redeem_answers": {}
 }

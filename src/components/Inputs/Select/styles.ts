@@ -40,6 +40,10 @@ export const OptionsWrapper = styled.div<{
     optionBoxDirection === 'top'
       ? `bottom: ${theme.spacing(10)}px`
       : `top: ${theme.spacing(10)}px`};
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    max-height: 270px;
+  }
 `
 
 interface IOptionsItem {

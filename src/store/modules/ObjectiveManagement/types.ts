@@ -1,0 +1,208 @@
+import { IToast } from 'hooks/toast'
+import { TProfitability, IRecommendations } from 'store/modules/Objective/types'
+
+export const Types = {
+  POST_REQUEST: 'MANAGEMENT_POST_REQUEST',
+  POST_SUCCESS: 'MANAGEMENT_POST_SUCCESS',
+  POST_FAILURE: 'MANAGEMENT_POST_FAILURE',
+  GET_REQUEST: 'MANAGEMENT_GET_REQUEST',
+  GET_SUCCESS: 'MANAGEMENT_GET_SUCCESS',
+  GET_FAILURE: 'MANAGEMENT_GET_FAILURE',
+  DELETE_REQUEST: 'MANAGEMENT_DELETE_REQUEST',
+  DELETE_SUCCESS: 'MANAGEMENT_DELETE_SUCCESS',
+  DELETE_FAILURE: 'MANAGEMENT_DELETE_FAILURE',
+  PUT_FUNDS_MOVEMENT_REQUEST: 'PUT_FUNDS_MOVEMENT_REQUEST',
+  PUT_FUNDS_MOVEMENT_SUCCESS: 'PUT_FUNDS_MOVEMENT_SUCCESS',
+  PUT_FUNDS_MOVEMENT_FAILURE: 'PUT_FUNDS_MOVEMENT_FAILURE',
+  CLEAN_DATA: 'MANAGEMENT_CLEAN_DATA',
+  UPDATE_OBJECTIVE_NICKNAME_REQUEST: 'MANAGEMENT_UPDATE_NICKNAME_REQUEST',
+  UPDATE_OBJECTIVE_NICKNAME_SUCCESS: 'MANAGEMENT_UPDATE_NICKNAME_SUCCESS',
+  UPDATE_OBJECTIVE_NICKNAME_FAILURE: 'MANAGEMENT_UPDATE_NICKNAME_FAILURE',
+  TRANSFER_BETWEEN_OBJECTIVES_REQUEST: 'TRANSFER_BETWEEN_OBJECTIVES_REQUEST',
+  TRANSFER_BETWEEN_OBJECTIVES_SUCCESS: 'TRANSFER_BETWEEN_OBJECTIVES_SUCCESS',
+  TRANSFER_BETWEEN_OBJECTIVES_FAILURE: 'TRANSFER_BETWEEN_OBJECTIVES_FAILURE',
+  GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST: 'GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST',
+  GET_OBJECTIVE_FUNDS_EXTRACT_SUCCESS: 'GET_OBJECTIVE_FUNDS_EXTRACT_SUCCESS',
+  GET_OBJECTIVE_FUNDS_EXTRACT_FAILURE: 'GET_OBJECTIVE_FUNDS_EXTRACT_FAILURE',
+}
+
+/**
+ * API CONTRACT INTERFACES
+ */
+
+type TMonthsInNumbers =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | '11'
+  | '12'
+
+type TYear = {
+  year: number
+  month_map: {
+    [key in TMonthsInNumbers]: {
+      projected_balance: number
+      deposit: number
+      expected_deposit: number
+    }
+  }
+}
+
+export type TObjectiveFunds = {
+  name: string
+  nickname: string
+  arena_category: string
+  classification: string
+  benchmark: string
+  balance: number
+  available: number
+  invested: number
+  fund_id: number
+  order_profile_risk: 1 | 2 | 3 | 4 | 5
+  initial_date: string
+  min_initial_value: number
+  min_value_to_apply: number
+  release_to_apply: boolean
+  release_to_rescue: boolean
+  min_balance_value: number
+  time_limit_to_apply: string
+  quotation_apply_days: string
+  financial_apply_days: string
+  quotation_rescue_days: string
+  financial_rescue_days: string
+  anbima_category: string
+  adm_tax: number
+  performance_rate: number
+  url_performance_info_pdf: string
+  url_fund_rules_pdf: string
+  is_fund_active: boolean
+  initial_value: number
+  monthly_value: number
+  fund_wallet_type: string
+  goals: {
+    id: number
+    name: string
+    value: number
+    goal_type: string
+  }[]
+  profitability: TProfitability[]
+  pendency?: 'INITIAL_VALUE_PENDING'
+}
+
+export type TAdditional = {
+  [key in 'travel_security' | 'life_security' | 'credit_card']: boolean
+}
+
+export interface IObjectManagement {
+  id: number
+  nickname: string
+  initial_value: number
+  monthly_value: number
+  target_value: number
+  target_date: string
+  goal_type: string
+  conquered: boolean
+  total_balance: number
+  years: TYear[]
+  fund_list: TObjectiveFunds[]
+  additional: TAdditional
+  credit_product: {
+    name: string
+    values: {
+      name: string
+      value: string
+      checked: boolean
+    }[]
+  }
+}
+
+export interface IFundExtract {
+  transaction_date: string
+  transaction_type: string
+  value: number
+  transaction_status: string
+  processed_transaction_date: string
+}
+
+/**
+ * ACTIONS INTERFACES
+ */
+
+type TToast = (toast: Omit<IToast, 'id'>) => void
+
+export interface IPostObjectiveManagementDataRequest {
+  type: typeof Types.POST_REQUEST
+  data: Omit<IRecommendations, 'income'>
+  pushHistory: (path: string) => void
+  onSuccess: () => void
+  onError: () => void
+  addToast: TToast
+}
+
+export interface IGetObjectiveManagementDataRequest {
+  type: typeof Types.GET_REQUEST
+  id: number
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}
+
+export interface IGetObjectiveManagementExtractFundRequest {
+  type: typeof Types.GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST
+  allocationTypeList?: number[]
+  initialDate?: string
+  finalDate?: string
+  id: number
+  fund_id: number
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}
+
+export interface IDeleteObjectiveRequest {
+  type: typeof Types.DELETE_REQUEST
+  id: number
+  pushHistoryToHomeScreen: () => void
+  addToast: TToast
+}
+
+export interface IPutObjectiveFundsMovementRequest {
+  type: typeof Types.PUT_FUNDS_MOVEMENT_REQUEST
+  data: {
+    fund_list: {
+      fund_id: number
+      value: number
+    }[]
+  }
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}
+
+export interface IUpdateObjectiveNicknameRequest {
+  type: typeof Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST
+  id: number
+  nickname: string
+  onSuccess?: () => void
+  addToast: TToast
+}
+
+export interface ITransferBetweenObjectivesRequest {
+  type: typeof Types.TRANSFER_BETWEEN_OBJECTIVES_REQUEST
+  data: {
+    fund_id: number
+    value: number
+    from_goal_id: number
+    to_goal_id: number
+  }
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}

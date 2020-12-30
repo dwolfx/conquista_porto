@@ -7,10 +7,8 @@ import Button from 'components/Button'
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
-import {
-  GetObjectiveManagementDataRequest,
-  GetOtherGoalsDataRequest,
-} from 'store/modules/ObjectiveManagement/action'
+import { useToast } from 'hooks/toast'
+import { GetObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 
 import { IObjectiveProps } from '../types'
 import {
@@ -27,8 +25,13 @@ import {
 export default function Objective({ objective }: IObjectiveProps) {
   const dispatch = useDispatch()
   const history = useHistory()
+  const { addToast } = useToast()
+
+  const [loadingObjectiveButton, setLoadingObjectiveButton] = useState<
+    number | undefined
+  >(undefined)
+
   const { isLoading } = useSelector((state: any) => state.objectiveManagement)
-  const [loadingObjectiveButton, setLoadingObjectiveButton] = useState('')
 
   const horizontalListProgressAndPorcentage = (
     actual: number,
@@ -37,7 +40,7 @@ export default function Objective({ objective }: IObjectiveProps) {
   ) => (
     <ObjectivePercentageContainer>
       <LinearProgressBarContent>
-        <MiniLinearProgressBar atual={actual} max={max} />
+        <MiniLinearProgressBar current={actual} max={max} />
       </LinearProgressBarContent>
       <Text
         type="captionUppercase"
@@ -137,11 +140,12 @@ export default function Objective({ objective }: IObjectiveProps) {
             dispatch(
               GetObjectiveManagementDataRequest({
                 id: objective.id,
-                history,
-                path: `/objetivos/gerenciar/${objective.id}`,
+                onSuccess: () =>
+                  history.push(`/objetivos/gerenciar/${objective.id}`),
+                onError: () => history.push('/'),
+                addToast,
               })
             )
-            dispatch(GetOtherGoalsDataRequest({ id: objective.id }))
           }}
           loading={isLoading && loadingObjectiveButton === objective.id}
           disabled={isLoading && loadingObjectiveButton === objective.id}

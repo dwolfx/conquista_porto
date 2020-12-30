@@ -12,20 +12,23 @@ const TableBody = ({
   isLoading,
   hasError,
   errorMessage,
+  emptyMessage = 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.',
+  loadingMessage = 'Aguarde enquanto buscamos informações de fundos de investimentos...',
   rows,
   prepareRow,
   onError,
   onRowClick,
   isFiltering,
+  filteringEmptyMessage = 'Nenhum fundo de investimento encontrado com os filtros selecionados.',
+  hasPagination,
+  page,
 }: ITableBody) => {
+  const rowOrPage = hasPagination ? page : rows
   if (isLoading) {
     return (
       <s.InfoTableContent>
         <div>
-          <Loading
-            type="bar"
-            legend="Aguarde enquanto buscamos informações de fundos de investimentos..."
-          />
+          <Loading type="bar" legend={loadingMessage} />
         </div>
       </s.InfoTableContent>
     )
@@ -42,22 +45,20 @@ const TableBody = ({
               margin-bottom: 14px;
             `}
           >
-            ${errorMessage}
+            {errorMessage}
           </Text>
-          <Button onClick={onError}>Tentar novamente</Button>
+          {onError ? <Button onClick={onError}>Tentar novamente</Button> : null}
         </div>
       </s.InfoTableContent>
     )
   }
 
-  if (!rows || rows.length === 0) {
+  if (!rowOrPage || rowOrPage.length === 0) {
     return (
       <s.InfoTableContent>
         <div>
           <Text type="headline" color="gray5">
-            {isFiltering
-              ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
-              : 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.'}
+            {isFiltering ? filteringEmptyMessage : emptyMessage}
           </Text>
         </div>
       </s.InfoTableContent>
@@ -66,7 +67,7 @@ const TableBody = ({
 
   return (
     <>
-      {rows.map((row: any) => {
+      {rowOrPage.map((row: any) => {
         prepareRow(row)
 
         return (

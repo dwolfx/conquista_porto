@@ -96,7 +96,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
           )}
         </CardHeader>
       )}
-      <CardBody>{children}</CardBody>
+      <CardBody data-testid="card-body">{children}</CardBody>
       {footer && <CardFooter>{footer}</CardFooter>}
     </CardWrapper>
   )

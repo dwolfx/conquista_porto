@@ -40,7 +40,7 @@ export const InfoRow = styled(Row)`
 
 export const PercetualInfosWrapper = styled.div`
   flex: 1;
-  padding-left: ${({ theme }) => theme.spacing(1)}px;
+  padding-left: ${({ theme }) => theme.spacing(3)}px;
   padding-right: ${({ theme }) => theme.spacing(1)}px;
 `
 

@@ -1,70 +1,97 @@
 import styled, { css } from 'styled-components'
 
-const arrowDirection = {
-  bottom: {
-    main: css`
-      top: -14px;
-      left: calc(50% - 7px);
-    `,
-    pseudo: css`
-      border-color: ${(props: any) =>
-        `${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        } transparent transparent ${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        }`};
-      top: 9px;
-      left: calc(50% - 5px);
-    `,
-  },
-  left: {
-    main: css`
-      top: calc(50% - 7px);
-      right: -14px;
-    `,
-    pseudo: css`
-      border-color: ${(props: any) =>
-        `${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        } ${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        } transparent transparent`};
-      top: 1px;
-      left: -5px;
-    `,
-  },
-  right: {
-    main: css`
-      top: calc(50% - 7px);
-      left: -14px;
-    `,
-    pseudo: css`
-      border-color: ${(props: any) =>
-        `transparent transparent ${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        } ${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        }`};
-      top: 1px;
-      right: -5px;
-    `,
-  },
-  top: {
-    main: css`
-      bottom: -14px;
-      left: calc(50% - 7px);
-    `,
-    pseudo: css`
-      border-color: ${(props: any) =>
-        `transparent ${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        } ${
-          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
-        } transparent`};
-      top: -5px;
-      left: calc(50% - 5px);
-    `,
-  },
+const arrowDirection = (direction?: string) => {
+  switch (direction) {
+    case 'bottom':
+      return {
+        main: css`
+          top: -14px;
+          left: calc(50% - 7px);
+        `,
+        pseudo: css`
+          border-color: ${(props: any) =>
+            `${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            } transparent transparent ${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            }`};
+          top: 9px;
+          left: calc(50% - 5px);
+        `,
+      }
+    case 'left':
+      return {
+        main: css`
+          top: calc(50% - 7px);
+          right: -14px;
+        `,
+        pseudo: css`
+          border-color: ${(props: any) =>
+            `${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            } ${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            } transparent transparent`};
+          top: 1px;
+          left: -5px;
+        `,
+      }
+    case 'right':
+      return {
+        main: css`
+          top: calc(50% - 7px);
+          left: -14px;
+        `,
+        pseudo: css`
+          border-color: ${(props: any) =>
+            `transparent transparent ${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            } ${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            }`};
+          top: 1px;
+          right: -5px;
+        `,
+      }
+    case 'top':
+      return {
+        main: css`
+          bottom: -14px;
+          left: calc(50% - 7px);
+        `,
+        pseudo: css`
+          border-color: ${(props: any) =>
+            `transparent ${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            } ${
+              props.tooltip
+                ? props.theme.colors.gray6
+                : props.theme.colors.white
+            } transparent`};
+          top: -5px;
+          left: calc(50% - 5px);
+        `,
+      }
+    default:
+      return {
+        main: css``,
+        pseudo: css``,
+      }
+  }
 }
 
 export const PopoverContainer = styled.div<any>`
@@ -84,7 +111,7 @@ export const Tooltip = styled(PopoverContainer)`
 `
 
 interface IArrow {
-  placement: 'bottom' | 'left' | 'right' | 'top'
+  placement?: string
   tooltip?: boolean
 }
 
@@ -94,14 +121,20 @@ export const Arrow = styled.div<IArrow>`
   position: absolute;
   width: 14px;
   z-index: -1;
-  ${props => arrowDirection[props.placement].main};
+  ${({ placement }) => {
+    const direction = arrowDirection(placement)
+    return direction.main
+  }};
   &:before {
     border: 5px solid;
     content: '';
     position: absolute;
     transform: rotate(45deg);
     z-index: 10;
-    ${props => arrowDirection[props.placement].pseudo};
+    ${({ placement }) => {
+      const direction = arrowDirection(placement)
+      return direction.pseudo
+    }};
   }
   &:after {
     border: 5px solid;
@@ -110,7 +143,10 @@ export const Arrow = styled.div<IArrow>`
     position: absolute;
     transform: rotate(-45deg);
     z-index: -10;
-    ${props => arrowDirection[props.placement].pseudo};
+    ${({ placement }) => {
+      const direction = arrowDirection(placement)
+      return direction.pseudo
+    }};
   }
 `
 

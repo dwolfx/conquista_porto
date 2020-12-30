@@ -10,7 +10,7 @@ import {
 import { getSuitabilityInfo, getAuth } from './selectors'
 
 export function* getRedeemData({
-  payload: { data_operacao, id_fundo, onErrorToast },
+  payload: { data_operacao, id_fundo, onErrorToast, onSuccess },
 }: IGetRedeemRequestData) {
   const { id_cotista } = yield select(getSuitabilityInfo)
   const { cpf } = yield select(getAuth)
@@ -23,6 +23,10 @@ export function* getRedeemData({
     )
     yield put(RedeemLayerToggleOpen())
     yield put(GetRedeemSuccess(responseRedeem.data))
+
+    if (onSuccess) {
+      onSuccess()
+    }
   } catch (err) {
     yield put(GetRedeemFailure(err))
     onErrorToast({

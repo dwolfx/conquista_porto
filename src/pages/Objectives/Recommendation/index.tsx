@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
+import InformativeHeader from 'components/Objective/InformativeHeader'
 import UnsavedChangedPrompt from 'components/Modal/Prompt'
 
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
@@ -19,7 +20,6 @@ import ProductBannerSection from './ProductBanner'
 import RecommendationMessage from './RecommendationMessage'
 import SuggestedPlanDetail from './SuggestedPlanDetail'
 import CardEstimatedResults from './CardEstimatedResults'
-import InformativeHeader from './InformativeHeader'
 import WalletEdit from './Edit/Wallet'
 
 import * as s from './styles'
@@ -137,7 +137,11 @@ const Recommendation = ({
       <s.SectionsRecommendation>
         <Container>
           <InformativeHeader
-            answer={answer}
+            nickname={answer.nickname}
+            targetDate={answer.target_date}
+            targetValue={answer.target_value}
+            initialInvestment={answer.initial_value}
+            monthlyInvestment={answer.monthly_value}
             openEdit={() => {
               if (suggestion_goal && !credit_product) {
                 setIsEditingSuggestion(true)

@@ -11,4 +11,5 @@ export interface IItemsProps {
   text?: string
   path?: string
   children?: IChildSecondProp[]
+  onClick?: (event?: React.MouseEvent<HTMLDivElement>) => void
 }

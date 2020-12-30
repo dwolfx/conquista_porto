@@ -12,6 +12,7 @@ import * as HorizontalListStyled from 'components/HorizontalList/styles'
 import ConquistaIcon from 'components/IconExporter'
 import { LegendText } from 'components/Loading/styles'
 import VerticalList from 'components/VerticalList'
+import MiniLinearProgressBarCmp from 'components/MiniLinearProgressBar'
 
 export const GridContainer = styled(Container)``
 
@@ -347,6 +348,7 @@ export const HorizontalListTruncateStartBlock = styled(HorizontalList)`
     min-width: 0;
   }
 `
+
 export const PointsHorizontal = styled(HorizontalList)`
   @media ${props => props.theme.mediaQueries.sm} {
     display: block;
@@ -377,6 +379,10 @@ export const GridColFlexContainer = styled(GridCol)`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     flex-direction: column;
   }
+`
+
+export const MiniLinearProgressBar = styled(MiniLinearProgressBarCmp)`
+  width: 112px;
 `
 
 export const LinearProgressBarContent = styled.div`
@@ -423,4 +429,8 @@ export const ButtonLink = styled(ButtonLinkComponent)`
   & > svg {
     margin-left: 0;
   }
+`
+
+export const ObjectivePercentageText = styled(Text)`
+  min-width: 44px;
 `

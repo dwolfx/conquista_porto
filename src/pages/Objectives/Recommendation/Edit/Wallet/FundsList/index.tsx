@@ -5,6 +5,7 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import Anbima from 'components/Anbima'
 import Button from 'components/Button'
 import Header from 'components/Header/TransactionsHeader'
+import FundDetails from 'components/Objective/FundDetails'
 import Table from 'components/Table/TableWithCheckbox'
 import { TColumns } from 'components/Table/types'
 import Text from 'components/Text'
@@ -19,12 +20,12 @@ import DrawerFilter from 'pages/Investments/FundsList/DrawerFilter'
 import sortFundList from 'pages/Investments/FundsList/DrawerFilter/sortFundList'
 import Filter from 'pages/Investments/FundsList/Filter'
 
+import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 import { IFundsList } from 'store/modules/Investment/types'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { IFunds } from 'store/modules/Objective/types'
 
 import { FundoOutterWrapper, FundoWrapper, FundoNameWrapper } from '../styles'
-import FundDetails from './FundDetails'
 import FundsListMobile from './Mobile'
 import { IFundsListProps, IFundSort, IFilterProps } from './types'
 import * as s from './styles'
@@ -224,7 +225,7 @@ export default function FundsList({
   >(state => ({
     fundsListData: state.investmentsList.data,
     isFundsListLoading: state.investmentsList.isLoading,
-    hasFundsListError: state.investmentsList.hasError,
+    hasFundsListError: state.investmentsList.isError,
   }))
 
   // trigger request to funds API, if data on store is empty
@@ -439,6 +440,8 @@ export default function FundsList({
                   disableSort={isTabletHorizontal || isTabletVertical}
                   onSelect={onSelectCallback}
                   isLoading={isFundsListLoading}
+                  hasError={hasFundsListError}
+                  onError={() => dispatch(GetInvestmentListRequest())}
                   showSelectAll={false}
                   isSticky={isTabletHorizontal || isTabletVertical}
                 />

@@ -1,13 +1,17 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import moment from 'moment'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { ThemeContext } from 'styled-components'
+import moment from 'moment'
 import 'styled-components/macro'
-import { useToast } from 'hooks/toast'
-import HorizontalList from 'components/HorizontalList'
-import Text from 'components/Text'
-import FundDetailCard from 'components/FundDetail/Card'
-import Modal from 'components/Modal/Confirmation'
+
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
+import Button from 'components/Button'
+import FundDetailCard from 'components/FundDetail/Card'
+import HorizontalList from 'components/HorizontalList'
+import Modal from 'components/Modal/Confirmation'
+import Text from 'components/Text'
+
+import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinancialApplication/AlignmentTerms/action'
@@ -36,6 +40,8 @@ import {
   LayerFinancialApplication,
   MobileScrollContent,
   InvestLegalInfo,
+  LoadingSlashErrorContainer,
+  LoadingBar,
 } from './styles'
 
 interface IProps {
@@ -43,6 +49,9 @@ interface IProps {
   isOpen: boolean
   selectedFundId: number
   isAwareOfTerms: boolean
+  isLoading?: boolean
+  hasError?: boolean
+  onError?: () => void
 }
 
 export type IFormData = {
@@ -58,6 +67,9 @@ const LayerInvestment: React.FC<IProps> = ({
   isOpen = false,
   selectedFundId,
   isAwareOfTerms,
+  isLoading,
+  hasError,
+  onError,
 }) => {
   const FORM_DATA_INTIAL_STATE: IFormData = {
     moneyToInvest: '',
@@ -65,6 +77,8 @@ const LayerInvestment: React.FC<IProps> = ({
     isAwareOfTerms,
     updated: false,
   }
+
+  const theme = useContext(ThemeContext)
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const [step, setStep] = useState(0)
@@ -91,8 +105,6 @@ const LayerInvestment: React.FC<IProps> = ({
   } = useSelector((state: any) => ({
     funds: state.investmentsList,
     financialApplicationData: state.financialApplicationGetData.data,
-    financialApplicationFundData:
-      state.financialApplicationGetData.data.dados_para_aplicacao.fundo,
     alignmentTermsIsLoading: state.alignmentTerms.isLoading,
   }))
 
@@ -105,7 +117,7 @@ const LayerInvestment: React.FC<IProps> = ({
         ...prevState,
         moneyToInvest: '0,00',
         whenToInvest: moment(
-          financialApplicationData.dados_para_aplicacao.data_operacao
+          financialApplicationData?.dados_para_aplicacao?.data_operacao
         ).format('DD/MM/YYYY'),
         isAwareOfTerms,
         updated: true,
@@ -387,59 +399,108 @@ const LayerInvestment: React.FC<IProps> = ({
     }
   }, [isAlignmentTermOpen])
 
-  return financialApplicationData?.dados_para_aplicacao ? (
+  const renderLayerContent = () => {
+    if (isLoading) {
+      return (
+        <LoadingSlashErrorContainer>
+          <LoadingBar type="bar" legend="Buscando informações do fundo..." />
+        </LoadingSlashErrorContainer>
+      )
+    }
+
+    if (hasError) {
+      return (
+        <LoadingSlashErrorContainer>
+          <div>
+            <Text
+              type="headline"
+              color="magenta2"
+              css={`
+                margin-bottom: ${theme.spacing(1)}px;
+              `}
+            >
+              Não foi possível carregar as informações do fundo.
+              <br />
+              Por favor, tente novamente
+            </Text>
+            <Button
+              onClick={() => {
+                if (onError) {
+                  onError()
+                }
+              }}
+            >
+              Tentar novamente
+            </Button>
+          </div>
+        </LoadingSlashErrorContainer>
+      )
+    }
+
+    return (
+      <>
+        {isAlignmentTermOpen ? (
+          <AlignmentTerms
+            acceptAlignmentTerms={acceptAlignmentTerms}
+            onHandleChangeacceptAlignmentTerms={
+              handleChangeacceptAlignmentTerms
+            }
+            onHandleCloseAlignmentTerm={handleCloseAlignmentTerm}
+            onHandleConfirmNextStep={handleConfirmNextStep}
+          />
+        ) : (
+          getBodySteps()
+        )}
+        <Modal
+          isOpen={isConfirmationModalOpen}
+          title="Sair da página?"
+          buttonTextCancel={`continuar ${isMobile ? '' : 'solicitação'}`}
+          buttonTextConfirm="sair"
+          onClose={() => {
+            setIsConfirmationModalOpen(false)
+          }}
+          onConfirmation={() => {
+            setIsConfirmationModalOpen(false)
+            handleClose()
+          }}
+        >
+          <Text type="headline" color="gray6">
+            Todas as informações serão perdidas e a solicitação não será
+            finalizada.
+          </Text>
+        </Modal>
+        <Modal
+          isOpen={isAlignmentTermModalOpen}
+          title="Risco acima do seu perfil"
+          buttonTextCancel="ver termo"
+          buttonTextConfirm="cancelar"
+          onClose={() => {
+            handleAlignmentTermCloseModal()
+            setIsAlignmentTermOpen(true)
+            setAcceptAlignmentTerms(false)
+          }}
+          onConfirmation={handleAlignmentTermCloseModal}
+          onCloseHeaderButton={handleAlignmentTermCloseModal}
+        >
+          <Text type="headline" color="gray6">
+            Sua carteira passará a ter uma risco maior do que o permitido para o
+            seu perfil. Para continuar, você deve assinar o termo de
+            desenquadramento.
+          </Text>
+        </Modal>
+      </>
+    )
+  }
+
+  return financialApplicationData?.dados_para_aplicacao ||
+    isLoading ||
+    hasError ? (
     <LayerFinancialApplication
       handleClose={handleClose}
       isOpen={isOpen}
       headerContent={<LayerHeader {...headerAttributes} />}
     >
-      {isAlignmentTermOpen ? (
-        <AlignmentTerms
-          acceptAlignmentTerms={acceptAlignmentTerms}
-          onHandleChangeacceptAlignmentTerms={handleChangeacceptAlignmentTerms}
-          onHandleCloseAlignmentTerm={handleCloseAlignmentTerm}
-          onHandleConfirmNextStep={handleConfirmNextStep}
-        />
-      ) : (
-        getBodySteps()
-      )}
-      <Modal
-        isOpen={isConfirmationModalOpen}
-        title="Sair da página?"
-        buttonTextCancel={`continuar ${isMobile ? '' : 'solicitação'}`}
-        buttonTextConfirm="sair"
-        onClose={() => {
-          setIsConfirmationModalOpen(false)
-        }}
-        onConfirmation={() => {
-          setIsConfirmationModalOpen(false)
-          handleClose()
-        }}
-      >
-        <Text type="headline" color="gray6">
-          Todas as informações serão perdidas e a solicitação não será
-          finalizada.
-        </Text>
-      </Modal>
-      <Modal
-        isOpen={isAlignmentTermModalOpen}
-        title="Risco acima do seu perfil"
-        buttonTextCancel="ver termo"
-        buttonTextConfirm="cancelar"
-        onClose={() => {
-          handleAlignmentTermCloseModal()
-          setIsAlignmentTermOpen(true)
-          setAcceptAlignmentTerms(false)
-        }}
-        onConfirmation={handleAlignmentTermCloseModal}
-        onCloseHeaderButton={handleAlignmentTermCloseModal}
-      >
-        <Text type="headline" color="gray6">
-          Sua carteira passará a ter uma risco maior do que o permitido para o
-          seu perfil. Para continuar, você deve assinar o termo de
-          desenquadramento.
-        </Text>
-      </Modal>
+      {renderLayerContent()}
     </LayerFinancialApplication>
   ) : null
 }

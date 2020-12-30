@@ -3,7 +3,87 @@
 exports[`Investments/FinancialApplication Renders correctly 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .c19 {
+  "baseElement": .c38 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c89 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: calc(100% - 14px);
+}
+
+.c55 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.c56 {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+}
+
+.c56 + .c57 {
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+.c56 + .c57:before {
+  content: '';
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #BABABA;
+  box-sizing: border-box;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 4px;
+}
+
+.c56:checked + .c57:before {
+  border: 1px solid #00ADEF;
+}
+
+.c56:checked + .c57:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  width: 6px;
+  height: 12px;
+  border-right: solid 3px #00ADEF;
+  border-bottom: solid 3px #00ADEF;
+  -webkit-transform: rotate(45deg) translateY(-50%) translateX(-50%);
+  -ms-transform: rotate(45deg) translateY(-50%) translateX(-50%);
+  transform: rotate(45deg) translateY(-50%) translateX(-50%);
+  top: 50%;
+}
+
+.c56:disabled + .c57:before {
+  border: 1px solid #BABABA;
+  cursor: not-allowed;
+}
+
+.c56:disabled + .c57:after {
+  cursor: not-allowed;
+  border-right: solid 3px #BABABA;
+  border-bottom: solid 3px #BABABA;
+}
+
+.c19 {
   color: #BABABA;
   text-align: unset;
   text-transform: none;
@@ -118,6 +198,197 @@ Object {
   line-height: 19px;
 }
 
+.c61 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c61:hover:active {
+  pointer-events: none;
+}
+
+.c61:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c61:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c93 {
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  border: 1px solid #00ADEF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #00ADEF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c93:hover:active {
+  pointer-events: auto;
+}
+
+.c93:hover:active:after {
+  background-color: #EFFBFF;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c93:hover:before {
+  width: 100%;
+}
+
+.c93:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c93:before {
+  background-color: #EFFBFF;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c94 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c94:hover:active {
+  pointer-events: auto;
+}
+
+.c94:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c94:hover:before {
+  width: 100%;
+}
+
+.c94:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c94:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c63 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
 .c16 {
   width: 100%;
   height: 28px;
@@ -168,203 +439,6 @@ Object {
   margin-left: 14px;
 }
 
-.c61 {
-  background: #EBEBEB;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #BABABA;
-  cursor: not-allowed;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c61:hover:active {
-  pointer-events: none;
-}
-
-.c61:hover:active:after {
-  background-color: #2F736B;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c61:before {
-  background-color: #2F736B;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c92 {
-  background: #FFFFFF;
-  background-repeat: no-repeat;
-  border: 1px solid #00ADEF;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #00ADEF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c92:hover:active {
-  pointer-events: auto;
-}
-
-.c92:hover:active:after {
-  background-color: #EFFBFF;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c92:hover:before {
-  width: 100%;
-}
-
-.c92:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c92:before {
-  background-color: #EFFBFF;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c93 {
-  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #FFFFFF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c93:hover:active {
-  pointer-events: auto;
-}
-
-.c93:hover:active:after {
-  background-color: #018CB7;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c93:hover:before {
-  width: 100%;
-}
-
-.c93:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c93:before {
-  background-color: #018CB7;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c63 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 25px;
-  position: relative;
-  width: 100%;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c38 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: 100%;
-}
-
 .c84 {
   background-color: rgba(39,39,39,0.63);
   height: 100%;
@@ -378,12 +452,12 @@ Object {
   top: 0;
 }
 
-.c90 {
+.c91 {
   overflow: auto;
   padding: 21px 14px;
 }
 
-.c89 {
+.c90 {
   margin: 0 auto;
 }
 
@@ -481,7 +555,7 @@ Object {
   max-width: 484px;
 }
 
-.c91 {
+.c92 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -493,76 +567,8 @@ Object {
   justify-content: flex-end;
 }
 
-.c91 button:last-of-type {
+.c92 button:last-of-type {
   margin-left: 14px;
-}
-
-.c55 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  width: 100%;
-}
-
-.c56 {
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  opacity: 0;
-  width: 100%;
-}
-
-.c56 + .c57 {
-  position: relative;
-  cursor: pointer;
-  padding-left: 30px;
-}
-
-.c56 + .c57:before {
-  content: '';
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  left: 0;
-  bottom: 0;
-  border: 1px solid #BABABA;
-  box-sizing: border-box;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 4px;
-}
-
-.c56:checked + .c57:before {
-  border: 1px solid #00ADEF;
-}
-
-.c56:checked + .c57:after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  width: 6px;
-  height: 12px;
-  border-right: solid 3px #00ADEF;
-  border-bottom: solid 3px #00ADEF;
-  -webkit-transform: rotate(45deg) translateY(-50%) translateX(-50%);
-  -ms-transform: rotate(45deg) translateY(-50%) translateX(-50%);
-  transform: rotate(45deg) translateY(-50%) translateX(-50%);
-  top: 50%;
-}
-
-.c56:disabled + .c57:before {
-  border: 1px solid #BABABA;
-  cursor: not-allowed;
-}
-
-.c56:disabled + .c57:after {
-  cursor: not-allowed;
-  border-right: solid 3px #BABABA;
-  border-bottom: solid 3px #BABABA;
 }
 
 .c67 {
@@ -1198,7 +1204,7 @@ Object {
 }
 
 @media (max-width:736px) {
-  .c90 {
+  .c91 {
     padding: 21px 14px;
   }
 }
@@ -1588,15 +1594,15 @@ Object {
             class="c3"
           >
             <div
-              class="sc-fzoXWK c4"
+              class="sc-fzplWN c4"
               data-name="container"
             >
               <div
-                class="sc-fzpmMD c5"
+                class="sc-fznyAO c5"
                 data-name="row"
               >
                 <div
-                  class="sc-fznxKY c6"
+                  class="sc-fznKkj c6"
                   data-name="col-lg-12"
                 >
                   <div
@@ -1659,15 +1665,15 @@ Object {
                 class="c13"
               >
                 <div
-                  class="sc-fzoXWK c4"
+                  class="sc-fzplWN c4"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzpmMD c14"
+                    class="sc-fznyAO c14"
                     data-name="row"
                   >
                     <div
-                      class="sc-fznxKY c15"
+                      class="sc-fznKkj c15"
                       data-name="col-lg-12"
                     >
                       <div
@@ -1704,21 +1710,21 @@ Object {
                 class="c22"
               >
                 <div
-                  class="sc-fzoXWK c23"
+                  class="sc-fzplWN c23"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzpmMD c24"
+                    class="sc-fznyAO c24"
                     data-name="row"
                   >
                     <div
-                      class="sc-fznxKY c25"
+                      class="sc-fznKkj c25"
                       data-name="col-sm-12 col-md-4 col-lg-3"
                     >
                       <div />
                     </div>
                     <div
-                      class="sc-fznxKY c26"
+                      class="sc-fznKkj c26"
                       data-name="col-sm-12 col-md-8 col-lg-9"
                     >
                       <div
@@ -1726,6 +1732,7 @@ Object {
                       >
                         <div
                           class="c29 c30"
+                          data-testid="card-body"
                         >
                           <div
                             class="c31"
@@ -1793,11 +1800,11 @@ Object {
                             class="c38 c39"
                           />
                           <div
-                            class="sc-fzpmMD c40"
+                            class="sc-fznyAO c40"
                             data-name="row"
                           >
                             <div
-                              class="sc-fznxKY c41"
+                              class="sc-fznKkj c41"
                               data-name="col-sm-6"
                             >
                               <h5
@@ -1834,7 +1841,7 @@ Object {
                               </div>
                             </div>
                             <div
-                              class="sc-fznxKY c41"
+                              class="sc-fznKkj c41"
                               data-name="col-sm-6"
                             >
                               <h5
@@ -1944,15 +1951,15 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-fzoXWK c64"
+                  class="sc-fzplWN c64"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzpmMD c5"
+                    class="sc-fznyAO c5"
                     data-name="row"
                   >
                     <div
-                      class="sc-fznxKY c65"
+                      class="sc-fznKkj c65"
                       data-name=""
                     >
                       <p
@@ -1963,15 +1970,15 @@ Object {
                         Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                       </p>
                       <div
-                        class="sc-fzoXWK c67 c68"
+                        class="sc-fzplWN c67 c68"
                         data-name="container"
                       >
                         <div
-                          class="sc-fzpmMD c69"
+                          class="sc-fznyAO c69"
                           data-name="row"
                         >
                           <div
-                            class="sc-fznxKY c70"
+                            class="sc-fznKkj c70"
                             data-name="col-lg-12"
                           >
                             <div
@@ -2159,10 +2166,10 @@ Object {
                   </svg>
                 </header>
                 <div
-                  class="c38 c89"
+                  class="c89 c90"
                 />
                 <div
-                  class="c90"
+                  class="c91"
                 >
                   <h5
                     class="c42"
@@ -2172,10 +2179,10 @@ Object {
                     Todas as informações serão perdidas e a solicitação não será finalizada.
                   </h5>
                   <div
-                    class="c91"
+                    class="c92"
                   >
                     <button
-                      class="c92"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2185,7 +2192,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c93"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2231,10 +2238,10 @@ Object {
                   </svg>
                 </header>
                 <div
-                  class="c38 c89"
+                  class="c89 c90"
                 />
                 <div
-                  class="c90"
+                  class="c91"
                 >
                   <h5
                     class="c42"
@@ -2244,10 +2251,10 @@ Object {
                     Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
                   </h5>
                   <div
-                    class="c91"
+                    class="c92"
                   >
                     <button
-                      class="c92"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2257,7 +2264,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c93"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2286,15 +2293,15 @@ Object {
           class="sc-fzplgP pGJde"
         >
           <div
-            class="sc-fzoXWK sc-fzpdbB kuEyUr"
+            class="sc-fzplWN sc-fzpdbB kuEyUr"
             data-name="container"
           >
             <div
-              class="sc-fzpmMD sc-fzobTh dlSOua"
+              class="sc-fznyAO sc-fzobTh dlSOua"
               data-name="row"
             >
               <div
-                class="sc-fznxKY sc-fzqyvX kYYZPG"
+                class="sc-fznKkj sc-fzqyvX kYYZPG"
                 data-name="col-lg-12"
               >
                 <div
@@ -2357,25 +2364,25 @@ Object {
               class="sc-fzqKVi hnwrlp"
             >
               <div
-                class="sc-fzoXWK sc-fzpdbB kuEyUr"
+                class="sc-fzplWN sc-fzpdbB kuEyUr"
                 data-name="container"
               >
                 <div
-                  class="sc-fzpmMD sc-fzoCUK kMREUh"
+                  class="sc-fznyAO sc-fzoCUK kMREUh"
                   data-name="row"
                 >
                   <div
-                    class="sc-fznxKY sc-fzoOEf bzVMDC"
+                    class="sc-fznKkj sc-fzoOEf bzVMDC"
                     data-name="col-lg-12"
                   >
                     <div
-                      class="sc-AxgMl fjwUFN FinancialApplication___StyledHorizontalList-sc-17j3vvk-0 czNdDi"
+                      class="sc-fzqARJ fAGcW FinancialApplication___StyledHorizontalList-sc-17j3vvk-0 czNdDi"
                     >
                       <div
-                        class="sc-AxheI iUjYEW"
+                        class="sc-fzqNqU gbjgec"
                       >
                         <h5
-                          class="sc-AxjAm jcWOvb"
+                          class="sc-AxhUy hHoTUF"
                           color="gray4"
                           type="headline"
                         >
@@ -2383,10 +2390,10 @@ Object {
                         </h5>
                       </div>
                       <div
-                        class="sc-Axmtr iaWKVR"
+                        class="sc-fzoyTs dcaVVS"
                       >
                         <h6
-                          class="sc-AxjAm inUCKS"
+                          class="sc-AxhUy YrglI"
                           color="gray4"
                           type="title"
                         >
@@ -2402,54 +2409,55 @@ Object {
               class="sc-fzppip eazbjw"
             >
               <div
-                class="sc-fzoXWK sc-fzppAM eWqgXy"
+                class="sc-fzplWN sc-fzppAM eWqgXy"
                 data-name="container"
               >
                 <div
-                  class="sc-fzpmMD sc-fznNTe iAMgki"
+                  class="sc-fznyAO sc-fznNTe iAMgki"
                   data-name="row"
                 >
                   <div
-                    class="sc-fznxKY sc-fzqyvX eEwMEi"
+                    class="sc-fznKkj sc-fzqyvX eEwMEi"
                     data-name="col-sm-12 col-md-4 col-lg-3"
                   >
                     <div />
                   </div>
                   <div
-                    class="sc-fznxKY sc-fzqyvX eMKwAC"
+                    class="sc-fznKkj sc-fzqyvX eMKwAC"
                     data-name="col-sm-12 col-md-8 col-lg-9"
                   >
                     <div
-                      class="sc-fznLxA dRhPYK sc-pAZqv cXLTGx"
+                      class="sc-fznLxA dRhPYK sc-pRTZB bGtRXb"
                     >
                       <div
                         class="sc-fzoxnE bLirWg"
+                        data-testid="card-body"
                       >
                         <div
-                          class="sc-pRTZB hdgDsL"
+                          class="sc-oTmZL bSpqfV"
                         >
                           <div
-                            class="sc-qQmou jPuWFI sc-qapaw kIBbVT"
+                            class="sc-pAZqv kIeQpj sc-pbIaG dOeYGc"
                           >
                             <div
-                              class="sc-qYiqT ghlBFd"
+                              class="sc-pJurq dWXwp"
                             >
                               <span
-                                class="sc-AxjAm gyHhKC"
+                                class="sc-AxhUy ldvITA"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 conta de investimento
                               </span>
                               <h5
-                                class="sc-AxjAm esYIWJ"
+                                class="sc-AxhUy hUEjxf"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 1.987.123,99
                               </h5>
                               <span
-                                class="sc-AxjAm kRUhHc"
+                                class="sc-AxhUy CYAhy"
                                 color="gray5"
                                 type="caption"
                               >
@@ -2458,27 +2466,27 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-qQmou jPuWFI sc-qapaw kIBbVT"
+                            class="sc-pAZqv kIeQpj sc-pbIaG dOeYGc"
                           >
                             <div
-                              class="sc-qYiqT ghlBFd"
+                              class="sc-pJurq dWXwp"
                             >
                               <span
-                                class="sc-AxjAm gyHhKC"
+                                class="sc-AxhUy ldvITA"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 fundo
                               </span>
                               <h5
-                                class="sc-AxjAm esYIWJ"
+                                class="sc-AxhUy hUEjxf"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 31.905,05
                               </h5>
                               <span
-                                class="sc-AxjAm kRUhHc"
+                                class="sc-AxhUy CYAhy"
                                 color="gray5"
                                 type="caption"
                               >
@@ -2488,40 +2496,40 @@ Object {
                           </div>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx sc-oTmZL itomSK"
+                          class="sc-AxjAm gmpEky sc-pkhIR jMrKny"
                         />
                         <div
-                          class="sc-fzpmMD sc-pbIaG imBiIp"
+                          class="sc-fznyAO sc-psCJM dnZqQf"
                           data-name="row"
                         >
                           <div
-                            class="sc-fznxKY sc-pkhIR fxFPJo"
+                            class="sc-fznKkj sc-qQxXP KnGyc"
                             data-name="col-sm-6"
                           >
                             <h5
-                              class="sc-AxjAm fJtvcl"
+                              class="sc-AxhUy iPsvxf"
                               color="gray6"
                               type="headline"
                             >
                               Quanto você quer investir?
                             </h5>
                             <div
-                              class="sc-pZBmh bhuluA FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
+                              class="sc-paXsP cJsVCc FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
                             >
                               <div
-                                class="sc-fzocqA bYmYVq"
+                                class="sc-fzqyOu bcbJTE"
                               >
                                 <div
-                                  class="sc-fzonZV kPrvdv"
+                                  class="sc-fzqKxP kSwxHA"
                                 >
                                   <div
-                                    class="sc-fzqKxP cFDYXW"
+                                    class="sc-pIJJz hQZVwb"
                                     id="prefix"
                                   >
                                     R$
                                   </div>
                                   <input
-                                    class="sc-pRFjI deXRDE"
+                                    class="sc-oTbqq hMgGlq"
                                     data-gtm-form="input"
                                     data-gtm-name="quanto investir"
                                     data-testid="financial-application-money-input"
@@ -2532,27 +2540,27 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-fznxKY sc-pkhIR fxFPJo"
+                            class="sc-fznKkj sc-qQxXP KnGyc"
                             data-name="col-sm-6"
                           >
                             <h5
-                              class="sc-AxjAm fJtvcl"
+                              class="sc-AxhUy iPsvxf"
                               color="gray6"
                               type="headline"
                             >
                               Quando você deseja investir?
                             </h5>
                             <div
-                              class="sc-pZBmh bhuluA FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
+                              class="sc-paXsP cJsVCc FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
                             >
                               <div
-                                class="sc-fzocqA bYmYVq"
+                                class="sc-fzqyOu bcbJTE"
                               >
                                 <div
-                                  class="sc-fzonZV kPrvdv"
+                                  class="sc-fzqKxP kSwxHA"
                                 >
                                   <input
-                                    class="sc-pRFjI deXRDE"
+                                    class="sc-oTbqq hMgGlq"
                                     data-gtm-form="input"
                                     data-gtm-name="quando investir"
                                     maxlength="10"
@@ -2564,13 +2572,13 @@ Object {
                           </div>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx sc-oTmZL hapgae"
+                          class="sc-AxjAm gmpEky sc-pkhIR chNxZa"
                         />
                         <div
                           class="sc-fzqOul hQzBzN"
                         >
                           <p
-                            class="sc-AxjAm fvLGTa"
+                            class="sc-AxhUy iuUFuM"
                             color="gray5"
                             type="body"
                           >
@@ -2580,32 +2588,32 @@ Object {
                           </p>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx"
+                          class="sc-AxjAm gmpEky"
                         />
                         <div
-                          class="sc-pBolk bFNXtZ"
+                          class="sc-pReKu iiNcfy"
                         >
                           <div
-                            class="sc-fzqNqU UOrqS"
+                            class="sc-AxirZ kxJjvp"
                           >
                             <input
-                              class="sc-fzoNJl FjBCk"
+                              class="sc-AxhCb jfaQnC"
                               id="checkbox-1"
                               type="checkbox"
                             />
                             <label
-                              class="sc-fzoyTs crHzLr"
+                              class="sc-AxiKw bOTXee"
                               for="checkbox-1"
                             >
                               <p
-                                class="sc-AxjAm fvLGTa"
+                                class="sc-AxhUy iuUFuM"
                                 color="gray5"
                                 type="body"
                               >
                                 Confirmo que li e concordo com todas as informações contidas no
                                  
                                 <a
-                                  class="sc-pJkiN ignSan"
+                                  class="sc-pZaHX hHwbTm"
                                   href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf"
                                   rel="noopener noreferrer"
                                   target="_blank"
@@ -2622,15 +2630,15 @@ Object {
                         class="sc-fzoMdx fKNxrg"
                       >
                         <div
-                          class="sc-qYSYK ghnCgO"
+                          class="sc-pJkiN iYeAld"
                         >
                           <button
-                            class="sc-fznyAO heVZBW sc-pReKu cJhGTg"
+                            class="sc-fzoLsD kMUBbT sc-oTBUA gmZoMM"
                             color="secondary"
                             disabled=""
                           >
                             <span
-                              class="sc-fznKkj jCEIWO"
+                              class="sc-fzpans kaZFLm"
                             >
                               Próximo
                             </span>
@@ -2642,48 +2650,48 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzoXWK sc-fznBtT eKEyFd"
+                class="sc-fzplWN sc-fznBtT eKEyFd"
                 data-name="container"
               >
                 <div
-                  class="sc-fzpmMD sc-fzobTh dlSOua"
+                  class="sc-fznyAO sc-fzobTh dlSOua"
                   data-name="row"
                 >
                   <div
-                    class="sc-fznxKY sc-fzqyvX kzptRM"
+                    class="sc-fznKkj sc-fzqyvX kzptRM"
                     data-name=""
                   >
                     <p
-                      class="sc-AxjAm fvLGTa sc-fznNvL gmTXou"
+                      class="sc-AxhUy iuUFuM sc-fznNvL gmTXou"
                       color="gray5"
                       type="body"
                     >
                       Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                     </p>
                     <div
-                      class="sc-fzoXWK sc-fzomME hxweyS sc-fznBMq vAArz"
+                      class="sc-fzplWN sc-fzomME hxweyS sc-fznBMq vAArz"
                       data-name="container"
                     >
                       <div
-                        class="sc-fzpmMD sc-fzqMAW eWkClp"
+                        class="sc-fznyAO sc-fzqMAW eWkClp"
                         data-name="row"
                       >
                         <div
-                          class="sc-fznxKY sc-fzqAbL MNidL"
+                          class="sc-fznKkj sc-fzqAbL MNidL"
                           data-name="col-lg-12"
                         >
                           <div
                             class="sc-fzoydu cQInoN"
                           >
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
                             </p>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2697,7 +2705,7 @@ Object {
                               href="mailto:ouvidoria@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
+                                class="sc-AxhUy bMvKdH sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2705,7 +2713,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2719,7 +2727,7 @@ Object {
                               href="mailto:suporte.conquista@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
+                                class="sc-AxhUy bMvKdH sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2727,14 +2735,14 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               .
                             </p>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2752,7 +2760,7 @@ Object {
                               target="_blank"
                             >
                               <p
-                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
+                                class="sc-AxhUy bMvKdH sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2760,7 +2768,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
+                              class="sc-AxhUy bMvKdH sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2825,25 +2833,25 @@ Object {
             </div>
           </div>
           <div
-            class="sc-fznJRM jsvdDk sc-fzoiQi cAolya"
+            class="sc-fzqPZZ OHzIS sc-fzoKki exbVFm"
           >
             <div
-              class="sc-fzokOt cypBsd"
+              class="sc-fzoNJl CtmJN"
             />
             <div
-              class="sc-fzoyAV gvIPuS"
+              class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fzoLag kVRISV"
+                class="sc-fznMAR ikWISA"
               >
                 <h3
-                  class="sc-fzpjYC AJPdY"
+                  class="sc-fzolEj kXgqsQ"
                 >
                   Sair da página?
                 </h3>
                 <svg
                   aria-label="close"
-                  class="sc-fznxsB kyXIjQ"
+                  class="sc-fzqBkg dLzlrc"
                   data-gtm-clicktype="button"
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Sair da página?"
@@ -2857,37 +2865,37 @@ Object {
                 </svg>
               </header>
               <div
-                class="sc-fznZeY bIELTx sc-fzqNJr knweed"
+                class="sc-AxjAm JzSYK sc-fzpmMD ezznjC"
               />
               <div
-                class="sc-fzqBZW esRFc"
+                class="sc-fzoXWK gsqYKB"
               >
                 <h5
-                  class="sc-AxjAm fJtvcl"
+                  class="sc-AxhUy iPsvxf"
                   color="gray6"
                   type="headline"
                 >
                   Todas as informações serão perdidas e a solicitação não será finalizada.
                 </h5>
                 <div
-                  class="sc-fzqARJ juUTYs"
+                  class="sc-fzoYkl jZTrth"
                 >
                   <button
-                    class="sc-fznyAO ivwQqX"
+                    class="sc-fzoLsD fjbqDy"
                     color="primary"
                   >
                     <span
-                      class="sc-fznKkj jCEIWO"
+                      class="sc-fzpans kaZFLm"
                     >
                       continuar solicitação
                     </span>
                   </button>
                   <button
-                    class="sc-fznyAO ctwKrs"
+                    class="sc-fzoLsD fpEBiB"
                     color="primary"
                   >
                     <span
-                      class="sc-fznKkj jCEIWO"
+                      class="sc-fzpans kaZFLm"
                     >
                       sair
                     </span>
@@ -2897,25 +2905,25 @@ Object {
             </div>
           </div>
           <div
-            class="sc-fznJRM jsvdDk sc-fzoiQi cAolya"
+            class="sc-fzqPZZ OHzIS sc-fzoKki exbVFm"
           >
             <div
-              class="sc-fzokOt cypBsd"
+              class="sc-fzoNJl CtmJN"
             />
             <div
-              class="sc-fzoyAV gvIPuS"
+              class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fzoLag kVRISV"
+                class="sc-fznMAR ikWISA"
               >
                 <h3
-                  class="sc-fzpjYC AJPdY"
+                  class="sc-fzolEj kXgqsQ"
                 >
                   Risco acima do seu perfil
                 </h3>
                 <svg
                   aria-label="close"
-                  class="sc-fznxsB kyXIjQ"
+                  class="sc-fzqBkg dLzlrc"
                   data-gtm-clicktype="button"
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Risco acima do seu perfil"
@@ -2929,37 +2937,37 @@ Object {
                 </svg>
               </header>
               <div
-                class="sc-fznZeY bIELTx sc-fzqNJr knweed"
+                class="sc-AxjAm JzSYK sc-fzpmMD ezznjC"
               />
               <div
-                class="sc-fzqBZW esRFc"
+                class="sc-fzoXWK gsqYKB"
               >
                 <h5
-                  class="sc-AxjAm fJtvcl"
+                  class="sc-AxhUy iPsvxf"
                   color="gray6"
                   type="headline"
                 >
                   Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
                 </h5>
                 <div
-                  class="sc-fzqARJ juUTYs"
+                  class="sc-fzoYkl jZTrth"
                 >
                   <button
-                    class="sc-fznyAO ivwQqX"
+                    class="sc-fzoLsD fjbqDy"
                     color="primary"
                   >
                     <span
-                      class="sc-fznKkj jCEIWO"
+                      class="sc-fzpans kaZFLm"
                     >
                       ver termo
                     </span>
                   </button>
                   <button
-                    class="sc-fznyAO ctwKrs"
+                    class="sc-fzoLsD fpEBiB"
                     color="primary"
                   >
                     <span
-                      class="sc-fznKkj jCEIWO"
+                      class="sc-fzpans kaZFLm"
                     >
                       cancelar
                     </span>

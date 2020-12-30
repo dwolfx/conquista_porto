@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,10 +6,7 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { useToast } from 'hooks/toast'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
-import {
-  GetOtherGoalsDataRequest,
-  PostObjectiveManagementDataRequest,
-} from 'store/modules/ObjectiveManagement/action'
+import { PostObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 import { IRecommendations } from 'store/modules/Objective/types'
 
 import { ButtonBar, SectionBar } from './styles'
@@ -61,11 +57,8 @@ const BottomBar = ({ recommendationData }: IProps) => {
         },
         pushHistory,
         addToast,
-        onSuccess: () =>
-          dispatch(
-            GetOtherGoalsDataRequest({ id: recommendationData.id, addToast })
-          ),
-        onError: null,
+        onSuccess: () => null,
+        onError: () => null,
       })
     )
   }

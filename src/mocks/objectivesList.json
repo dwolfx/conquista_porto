@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nickname": "Minha faculdade",
+    "total_balance": 8200,
+    "remaining_value": 1500,
+    "target_value": 9700,
+    "percentage": 84.53,
+    "goal_type": "TRAVEL"
+  },
+  {
+    "id": 2,
+    "nickname": "Carro zero",
+    "total_balance": 9200,
+    "remaining_value": 2500,
+    "target_value": 11700,
+    "percentage": 78.63,
+    "goal_type": "HOUSE"
+  },
+  {
+    "id": 7,
+    "nickname": "Disney",
+    "total_balance": 30000,
+    "remaining_value": 40000,
+    "target_value": 70000,
+    "percentage": 75,
+    "goal_type": "TRAVEL"
+  }
+]

@@ -8,17 +8,16 @@ export interface IProps {
   iconWidth?: number | string
   isLoading?: boolean
   onClick?: () => void
+  shape?: 'square' | 'round'
 }
 
-interface IButtonProps {
-  color?: 'primary' | 'secondary' | 'transparent'
-  size: 'small' | 'medium' | 'large'
-}
+type IButtonProps = Pick<IProps, 'color' | 'size' | 'shape'>
+
 export const ButtonStyled = styled.button<IButtonProps>`
   align-items: center;
   background: ${props => handleButtonColor(props)};
   border: none;
-  border-radius: 50%;
+  border-radius: ${({ shape }) => (shape === 'square' ? '4px' : '50%')};
   cursor: pointer;
   display: flex;
   height: ${props => handleSizing(props)};

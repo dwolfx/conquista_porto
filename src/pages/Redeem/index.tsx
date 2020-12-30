@@ -271,7 +271,6 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         <TransactionHeader
           onBack={goBackHandler}
           onClose={() => {
-            history.push('/investimentos')
             resetValues()
             handleClose()
           }}

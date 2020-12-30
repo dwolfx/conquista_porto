@@ -583,6 +583,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
   </div>
   <div
     className="c16 c17"
+    data-testid="card-body"
   >
     <div
       className="slick-slider c18 slick-initialized"

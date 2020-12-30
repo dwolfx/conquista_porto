@@ -286,6 +286,7 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
   </div>
   <div
     className="c9"
+    data-testid="card-body"
   >
     <div
       className="c10"

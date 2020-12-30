@@ -5,6 +5,7 @@ import AnbimaComponent from 'components/Anbima'
 import Card from 'components/Card'
 import Layer from 'components/Layer'
 import { ChildrenWrapper } from 'components/Layer/styles'
+import LoadingCmp from 'components/Loading'
 
 export const LayerFinancialApplication = styled(Layer)`
   ${ChildrenWrapper} {
@@ -155,4 +156,17 @@ export const InvestLegalInfo = styled(TextComponent)`
   @media ${props => props.theme.mediaQueries.sm} {
     padding: 0 ${({ theme }) => theme.spacing(3)}px;
   }
+`
+
+export const LoadingSlashErrorContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+`
+
+export const LoadingBar = styled(LoadingCmp)`
+  max-width: 100%;
+  width: 450px;
 `

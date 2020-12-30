@@ -22,21 +22,29 @@ const SelectCardFlag = ({ selectedOption, setSelectedOption }: IProps) => {
   })
 
   if (!options.length) {
-    setOptions([{
-      id: FLAGS.VISA,
-      text: 'VISA',
-      onClick: () => setSelectedOption(FLAGS.VISA),
-    }, {
-      id: FLAGS.MASTERCARD,
-      text: 'MASTERCARD',
-      onClick: () => setSelectedOption(FLAGS.MASTERCARD),
-    }])
+    setOptions([
+      {
+        id: FLAGS.VISA,
+        text: 'VISA',
+        onClick: () => setSelectedOption(FLAGS.VISA),
+      },
+      {
+        id: FLAGS.MASTERCARD,
+        text: 'MASTERCARD',
+        onClick: () => setSelectedOption(FLAGS.MASTERCARD),
+      },
+    ])
   }
 
   useEffect(() => {
-    const selectedStateObject = options.find(option => option.id === selectedOption)
+    const selectedStateObject = options.find(
+      option => option.id === selectedOption
+    )
     if (selectedStateObject) {
-      const option = { id: selectedStateObject.id, name: selectedStateObject.text }
+      const option = {
+        id: selectedStateObject.id,
+        name: selectedStateObject.text,
+      }
       setSelected(option)
     }
   }, [options, selectedOption])

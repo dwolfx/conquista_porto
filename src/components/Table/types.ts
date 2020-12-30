@@ -1,11 +1,11 @@
+import { RefObject } from 'react'
 import { Row } from 'react-table'
 
 export type TColumns = {
   Header: string
   accessor: string
-  align?: string
-  justifyHeader?: string
-  format?: (row: any) => void
+  align?: 'flex-start' | 'flex-end' | 'center' | 'start' | 'end'
+  justifyHeader?: 'flex-start' | 'flex-end' | 'center'
   styles?: {
     width?: string | number
     minWidth?: string | number
@@ -16,6 +16,8 @@ export type TColumns = {
   }
   sticky?: 'left' | 'right'
   canSort?: boolean
+  format?: (row: any, toogleFunc?: any) => any
+  sort?: (valueA: any, valueB: any) => void
 }
 
 type TRow = {
@@ -28,13 +30,6 @@ export interface ICell {
   id: string
   column: any
   value: any
-}
-
-export interface IColumn {
-  accessor: string
-  format: (row: any, toogleFunc?: any) => any
-  sort?: (valueA: any, valueB: any) => void
-  canSort?: boolean
 }
 
 interface THeader {
@@ -72,8 +67,14 @@ export interface ITable {
   isLoading?: boolean
   hasError?: boolean
   errorMessage?: string
+  onError?: () => void
+  emptyMessage?: string
+  loadingMessage?: string
   isFiltering?: boolean
+  filteringEmptyMessage?: string
   isSticky?: boolean
+  hasPagination?: boolean
+  customRef?: RefObject<HTMLDivElement>
   onRowClick?: (param: any) => void
 }
 
@@ -81,9 +82,14 @@ export interface ITableBody {
   isLoading: boolean
   hasError: boolean
   errorMessage: string
+  emptyMessage?: string
+  loadingMessage?: string
   isFiltering: boolean
+  filteringEmptyMessage?: string
   onError?: () => void
   onRowClick?: (param: any) => void
   prepareRow: (row: Row<object>) => void
   rows: Row<object>[]
+  page: Row<object>[]
+  hasPagination: boolean
 }

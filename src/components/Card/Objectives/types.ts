@@ -5,7 +5,7 @@ import {
   HOME,
   RETIREMENT,
   SAVE_MONEY,
-  TRIP,
+  TRAVEL,
 } from 'pages/Objectives/GoalStreams/types'
 
 export default [
@@ -14,7 +14,7 @@ export default [
     icon: 'plane',
     title: 'Viagem',
     link: '/objetivos/viagem',
-    goalType: TRIP,
+    goalType: TRAVEL,
   },
   {
     id: 2,

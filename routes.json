@@ -63,5 +63,11 @@
   "/invest/aws/cartoes/ofertas\\?codigoCanal=1&nome=:nome&uf=:uf&dataNascimento=:dataNascimento": "/credit-card-ofertas",
   "/invest/aws/cartoes/profissoes": "/cartao-profissoes",
   "/invest/aws/cliente/endereco\\?cep=:cep&cepSufixo=:cepSufixo": "/cep-mock",
-  "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock"
+  "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock",
+  "/goal/goals/summary": "/goals_summary",
+  "/goal/goals/:id?nickname=:nickname": "goals_update_nickname",
+  "/goal/goals/transfer-fund-value": "goal_transfer_between_goals",
+  "/goal/goals/allocation-statement/:id?fund_id=:fund_id": "goal_extract_fund",
+  "/goal/redeems/questions": "redeem_questions",
+  "/goal/redeems/answers": "redeem_answers"
 }

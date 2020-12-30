@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import ConquistaIcon from 'components/IconExporter'
+import Text from 'components/Text'
 
 export const RelativeHolder = styled.div<{ disabled: boolean }>`
   position: relative;
@@ -13,8 +14,9 @@ export const RelativeHolder = styled.div<{ disabled: boolean }>`
     `}
 `
 interface IContainerProps {
-  isOpen: boolean
-  ref: any
+  isOpen?: boolean
+  ref?: any
+  zIndex: number
 }
 
 export const Container = styled.div<IContainerProps>`
@@ -25,7 +27,7 @@ export const Container = styled.div<IContainerProps>`
   padding: 0px;
   border-radius: 4px;
   position: absolute;
-  z-index: 2;
+  z-index: ${({ zIndex }) => zIndex};
 
   ::-webkit-scrollbar {
     display: none;
@@ -51,15 +53,15 @@ export const Wrapper = styled.div<IWrapperProps>`
   background-color: ${props => props.theme.colors.white};
 `
 
-export const Backdrop = styled.div<{ isOpen: boolean }>`
-  width: 100%;
+export const Backdrop = styled.div<{ isOpen: boolean; zIndex: number }>`
+  background-color: rgba(0, 0, 0, 0);
+  display: ${props => (props.isOpen ? 'block' : 'none')};
   height: 100%;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0);
-  z-index: 1;
-  display: ${props => (props.isOpen ? 'block' : 'none')};
+  width: 100%;
+  z-index: ${({ zIndex }) => zIndex - 1};
 `
 
 export const ItemWrapper = styled.div`
@@ -77,6 +79,7 @@ export const ItemWrapper = styled.div`
 `
 
 export const ItemIconContainer = styled.div<{ alignToEnd?: boolean }>`
+  display: flex;
   margin: ${props => (props.alignToEnd ? '0px 21px' : '0px 0px 0px 21px')};
 `
 
@@ -88,7 +91,7 @@ export const ItemIcon = styled(ConquistaIcon).attrs(props => ({
   fill: ${props => props.theme.colors.gray5};
 `
 
-export const ItemText = styled.div`
+export const ItemText = styled(Text)`
   flex: 1;
   margin-left: 21px;
 `

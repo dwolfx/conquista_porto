@@ -17,23 +17,19 @@ import ButtonIcon from 'components/Button/Icon'
 import Card from 'components/Card'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
+import InformativeHeader from 'components/Objective/InformativeHeader'
+import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
-import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
-import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
-
 import {
   UpdateRecommendationRequest,
   PostRecalculateFundsRequest,
 } from 'store/modules/Objective/action'
-import {
-  GetOtherGoalsDataRequest,
-  PostObjectiveManagementDataRequest,
-} from 'store/modules/ObjectiveManagement/action'
+import { PostObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 
 import ResultPredictionCard from './ResultPrediction/Card'
 import ResultPredictionModal from './ResultPrediction/Modal'
@@ -334,9 +330,6 @@ export default function WalletComposition({ onClose }: IProps) {
           addToast,
           onSuccess: () => {
             setIsLoadingObjectiveManagement(false)
-            dispatch(
-              GetOtherGoalsDataRequest({ id: recommendationData.id, addToast })
-            )
           },
           onError: () => setIsLoadingObjectiveManagement(false),
         })
@@ -481,7 +474,13 @@ export default function WalletComposition({ onClose }: IProps) {
       <s.Container isFirst>
         <s.InformativeRow>
           <Col>
-            <InformativeHeader answer={recommendationData.answer} />
+            <InformativeHeader
+              nickname={recommendationData.answer.nickname}
+              targetDate={recommendationData.answer.target_date}
+              targetValue={recommendationData.answer.target_value}
+              initialInvestment={recommendationData.answer.initial_value}
+              monthlyInvestment={recommendationData.answer.monthly_value}
+            />
           </Col>
         </s.InformativeRow>
 

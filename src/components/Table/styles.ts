@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import CheckboxComponent from 'components/Inputs/Checkbox'
 import Text from 'components/Text'
+import NewInput from 'components/NewInput'
 
 interface IWrapper {
   lineHeight?: string
@@ -108,7 +109,7 @@ export const TheadTh = styled.div<ITheadTh>`
   display: inline-block;
   position: relative;
   height: 100%;
-  padding-left: ${({ theme }) => theme.spacing(2)}px;
+  padding-left: ${({ theme }) => theme.spacing(3)}px;
   padding-right: ${({ theme }) => theme.spacing(1)}px;
   min-width: ${({ minWidth, theme }) => {
     if (minWidth) {
@@ -266,9 +267,11 @@ export const TbodyTd = styled.div<ITbodyTd>`
 
     return 0
   }};
-  width: ${props => {
-    if (props.width) {
-      return typeof props.width === 'string' ? props.width : `${props.width}px`
+  width: ${({ theme, width }) => {
+    if ({ width, theme }) {
+      return typeof width === 'string'
+        ? `calc(${width || 0} + ${theme.spacing(1)}px)`
+        : `${(width || 0) + theme.spacing(1)}px`
     }
 
     return 'auto'
@@ -328,5 +331,57 @@ export const Checkbox = styled(CheckboxComponent)`
 
   input {
     z-index: 1;
+  }
+
+`
+export const PaginationWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
+`
+
+export const Pagination = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const Input = styled(NewInput)`
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+  width: 70px;
+  height: 35px;
+
+  input {
+    color: ${({ theme }) => theme.colors.gray4};
+  }
+`
+
+export const PageButtons = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid ${({ theme }) => theme.colors.blue4};
+  height: 35px;
+  margin-left: ${({ theme }) => `${theme.spacing(4)}px`};
+`
+
+export const Button = styled.button`
+  appearance: none;
+  width: 42px;
+  height: 100%;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  & + button {
+    border-left: 1px solid ${({ theme }) => theme.colors.gray3};
+  }
+
+  svg {
+    margin: auto;
+    display: block;
   }
 `
