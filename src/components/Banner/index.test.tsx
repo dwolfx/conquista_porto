@@ -2,8 +2,8 @@ import React from 'react'
 import { renderWithReduxAndTheme } from 'testUtils'
 import theme from 'styles/theme'
 
-import Banner from '.'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.png'
+import Banner from '.'
 
 describe('Banner', () => {
   it('Should render close button', () => {
@@ -11,7 +11,7 @@ describe('Banner', () => {
       <Banner
         bgImage={theme.colors.gray4}
         title="Close Button"
-        hasCloseButton={true}
+        hasCloseButton
         onClose={() => {}}
       />
     )

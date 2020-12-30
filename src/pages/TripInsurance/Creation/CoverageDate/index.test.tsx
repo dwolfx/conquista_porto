@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import CoverageDate from '.'
 
