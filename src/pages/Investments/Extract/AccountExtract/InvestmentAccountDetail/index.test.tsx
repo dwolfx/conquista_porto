@@ -173,8 +173,7 @@ describe('Investment account detail', () => {
 
     const button = screen.getByRole('button', { name: /info-account-detail/i })
     fireEvent.click(button)
-    const closeButton = screen.getByTestId('modal-close-button')
-    fireEvent.click(closeButton)
+    fireEvent.click(screen.getByRole('img', { name: 'close' }))
 
     expect(screen.getAllByText('Conta de investimento')).toHaveLength(2)
     expect(screen.getByRole('button', { name: /info-account-detail/i })).toBeInTheDocument()

@@ -148,7 +148,8 @@ describe('TableFilter tests', () => {
       { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
-    fireEvent.click(screen.getByTestId('select-period'))
+        fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
+
     fireEvent.click(screen.getByText(/Últimos 30 dias/i))
     rerender(
       <MemoryRouter>
@@ -183,7 +184,7 @@ describe('TableFilter tests', () => {
       { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
     fireEvent.click(screen.getByText(/Período Específico/i))
     expect(screen.getByRole('application', { name: /Calendar/i })).toBeInTheDocument()
   })
@@ -203,7 +204,7 @@ describe('TableFilter tests', () => {
       { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
     fireEvent.click(screen.getByText(/Período Específico/i))
     expect(screen.getByRole('application', { name: /Calendar/i })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'button close modal' }))
@@ -226,7 +227,7 @@ describe('TableFilter tests', () => {
       { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
     fireEvent.click(screen.getByText(/Período Específico/i))
     expect(screen.getByRole('application', { name: /Calendar/i })).toBeInTheDocument()
     fireEvent.change(screen.getByRole('textbox', { name: 'Data inicial'}), { target: { value: '28/09/2020'}})

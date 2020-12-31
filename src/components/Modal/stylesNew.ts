@@ -4,7 +4,7 @@ import CloseIcon from 'components/IconExporter'
 import DivisorComponent from 'components/Divisor'
 
 interface IProps {
-  noChildrenPadding: boolean
+  noChildrenPadding?: boolean
 }
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`

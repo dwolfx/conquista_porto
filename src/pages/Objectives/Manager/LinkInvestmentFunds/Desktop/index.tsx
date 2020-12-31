@@ -7,6 +7,7 @@ import { ILinkableFunds } from '../types'
 import { PutObjectiveFundsMovementRequest } from 'store/modules/ObjectiveManagement/action'
 import { useToast } from 'hooks/toast'
 import Button from 'components/Button'
+import { formatLocaleStringToNumber } from 'helpers'
 
 export default function LinkInvestmentFundsDesktop({
   funds,
@@ -51,7 +52,7 @@ export default function LinkInvestmentFundsDesktop({
         ...changedFunds,
         {
           fund_id: inputFundId,
-          value: inputValue,
+          value: formatLocaleStringToNumber(inputValue),
         },
       ])
     })

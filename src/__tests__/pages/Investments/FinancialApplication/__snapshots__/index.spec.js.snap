@@ -2153,7 +2153,6 @@ Object {
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Sair da página?"
                     data-gtm-type="click"
-                    data-testid="modal-close-button"
                     fill="#BABABA"
                     height="28"
                     role="img"
@@ -2226,7 +2225,6 @@ Object {
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Risco acima do seu perfil"
                     data-gtm-type="click"
-                    data-testid="modal-close-button"
                     fill="#BABABA"
                     height="28"
                     role="img"
@@ -2840,7 +2838,7 @@ Object {
               class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fzoLag jCCsch"
+                class="sc-fznMAR gbmMMc"
               >
                 <h3
                   class="sc-fzolEj kXgqsQ"
@@ -2854,7 +2852,6 @@ Object {
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Sair da página?"
                   data-gtm-type="click"
-                  data-testid="modal-close-button"
                   fill="#BABABA"
                   height="28"
                   role="img"
@@ -2913,7 +2910,7 @@ Object {
               class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fzoLag jCCsch"
+                class="sc-fznMAR gbmMMc"
               >
                 <h3
                   class="sc-fzolEj kXgqsQ"
@@ -2927,7 +2924,6 @@ Object {
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Risco acima do seu perfil"
                   data-gtm-type="click"
-                  data-testid="modal-close-button"
                   fill="#BABABA"
                   height="28"
                   role="img"

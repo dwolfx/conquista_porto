@@ -338,57 +338,7 @@ export const Checkbox = styled(CheckboxComponent)`
   }
 
 `
-export const PaginationWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
-`
 
-export const Pagination = styled.div`
-  display: flex;
-  align-items: center;
-`
-export const Input = styled(NewInput)`
-  margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
-  width: 70px;
-  height: 35px;
-
-  input {
-    color: ${({ theme }) => theme.colors.gray4};
-  }
-`
-
-export const PageButtons = styled.div`
-  display: flex;
-  align-items: center;
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.blue4};
-  height: 35px;
-  margin-left: ${({ theme }) => `${theme.spacing(4)}px`};
-`
-
-export const Button = styled.button`
-  appearance: none;
-  width: 42px;
-  height: 100%;
-  background: none;
-  border: 0;
-  cursor: pointer;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  & + button {
-    border-left: 1px solid ${({ theme }) => theme.colors.gray3};
-  }
-
-  svg {
-    margin: auto;
-    display: block;
-  }
-`
 export const PaginationWrapper = styled.div`
   width: 100%;
   display: flex;

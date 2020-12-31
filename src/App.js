@@ -6,6 +6,7 @@ import AppProviders from 'AppProviders'
 import 'moment/locale/pt-br'
 import injectExternalScripts from 'ExternalScripts/injectExternalScripts'
 import smoothscroll from 'smoothscroll-polyfill'
+import getConqVersion from 'helpers/version'
 
 import GlobalStyle from './styles/global'
 import Routes from './routes'
@@ -20,7 +21,7 @@ function ScrollToTopOnMount() {
 }
 
 injectExternalScripts()
-
+getConqVersion()
 smoothscroll.polyfill()
 
 const App = () => (

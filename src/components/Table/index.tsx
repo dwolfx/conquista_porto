@@ -88,11 +88,6 @@ const Table = ({
   }, [inputRef, data, gotoPage, setIndexPage])
 
   useEffect(() => {
-      setIndexPage(pageIndex + 1)
-      inputRef.current.value = (pageIndex + 1).toString()
-  }, [pageCount, indexPage, pageIndex, inputRef])
-
-  useEffect(() => {
     if (tableRef?.current?.onscroll) {
       tableRef.current.onscroll = ({ srcElement }: any) => {
         const { scrollLeft, clientWidth, scrollWidth } = srcElement

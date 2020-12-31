@@ -93,7 +93,8 @@ const TableFilter = ({
           nodes={[renderSelectItems]}
           title="Outros Objetivos"
           containerPadding="7px 0"
-          openingSide="left"
+          openingSide="start"
+          zIndex={15}
         >
           <ButtonContent>
             <Text type="captionUppercase" bold color="blue4" data-testid="select-value">

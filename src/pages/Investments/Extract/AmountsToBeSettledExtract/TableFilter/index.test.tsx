@@ -155,7 +155,8 @@ describe('TableFilter tests', () => {
     expect(screen.getByTestId('select-value').innerHTML).toEqual(
       'Últimos 7 dias'
     )
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
+
     fireEvent.click(screen.getByText(/Últimos 30 dias/i))
     rerender(
       <MemoryRouter>
@@ -196,7 +197,8 @@ describe('TableFilter tests', () => {
     expect(screen.getByTestId('select-value').innerHTML).toEqual(
       'Últimos 7 dias'
     )
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
+
     fireEvent.click(screen.getByText(/Período Específico/i))
     expect(
       screen.getByRole('application', { name: /Calendar/i })
@@ -220,7 +222,8 @@ describe('TableFilter tests', () => {
     expect(screen.getByTestId('select-value').innerHTML).toEqual(
       'Últimos 7 dias'
     )
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
+
     fireEvent.click(screen.getByText(/Período Específico/i))
     expect(
       screen.getByRole('application', { name: /Calendar/i })
@@ -247,7 +250,8 @@ describe('TableFilter tests', () => {
     expect(screen.getByTestId('select-value').innerHTML).toEqual(
       'Últimos 7 dias'
     )
-    fireEvent.click(screen.getByTestId('select-period'))
+    fireEvent.click(screen.getByRole('img', { name: 'calendar' }))
+
     fireEvent.click(screen.getByText(/Período Específico/i))
     expect(
       screen.getByRole('application', { name: /Calendar/i })
