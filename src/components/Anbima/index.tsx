@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import {
   AnchorTag,
@@ -71,18 +72,20 @@ const Anbima = ({ ...rest }) => (
             de AAIs (Agentes autônomos de Investimentos), Lista de AAIs e
             Assembléias acesse `}
           </Text>
-          <Link
-            target="_blank"
-            to={{
-              pathname: `/redirect?to=https://www.conquista.com.vc`,
-            }}
-            data-gtm-type="click"
-            data-gtm-clicktype="link"
-            data-gtm-subname="Anbima"
-            data-gtm-name="www.conquista.com.vc"
-          >
-            <BlueText>www.conquista.com.vc</BlueText>
-          </Link>
+          <BrowserRouter>
+            <Link
+              target="_blank"
+              to={{
+                pathname: `/redirect?to=https://www.conquista.com.vc`,
+              }}
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-subname="Anbima"
+              data-gtm-name="www.conquista.com.vc"
+            >
+              <BlueText>www.conquista.com.vc</BlueText>
+            </Link>
+          </BrowserRouter>
           <Text>.</Text>
         </TextWrapper>
         <LogosContainer>

@@ -17,7 +17,7 @@ import Home from 'pages/Home'
 import Investimentos from 'pages/Investments'
 import InvestmentsFunds from 'pages/Investments/FundsList'
 import ManagementInvestimentos from 'pages/Investments/Management'
-import InvestimentosExtrato from 'pages/Investments/Extract'
+// import PrevidenciaPrivada from 'pages/PrivateWelfare'
 import VehicleFinancing from 'pages/VehicleFinancing'
 import ManagementVehicleFinancing from 'pages/VehicleFinancing/Management'
 import TripInsurance from 'pages/TripInsurance'
@@ -333,12 +333,6 @@ export default function Routes({ ...props }) {
           exact
           component={ManagementSeguroVida}
           pageTitle="Gestão - Seguro de Vida"
-        />
-        <Route
-          path="/investimentos/extrato"
-          exact
-          component={InvestimentosExtrato}
-          pageTitle="Investimentos - Extrato"
         />
         <DefaultRoute
           path="/investimentos/lista-fundos"

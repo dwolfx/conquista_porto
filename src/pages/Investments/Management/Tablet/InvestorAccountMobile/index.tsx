@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
@@ -9,8 +8,8 @@ import Divisor from 'components/Divisor'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 import { formatMoney, formatLocaleStringToNumber } from 'helpers'
-
 import { InvestorAccountInfoEnum } from '../../types'
 
 import {
@@ -31,7 +30,6 @@ import {
 const InvestorAccountMobile = () => {
   useFetchBankData()
   const dispatch = useDispatch()
-  const history = useHistory()
 
   const {
     bankData,
@@ -68,9 +66,7 @@ const InvestorAccountMobile = () => {
     return (
       <TextHeadline
         data-testid={id}
-        css={`
-          -webkit-text-security: ${displayInformation ? 'disc' : 'none'};
-        `}
+        css={`-webkit-text-security: ${displayInformation ? 'disc' : 'none'};`}
       >
         {formatMoney(value)}
       </TextHeadline>
@@ -115,9 +111,7 @@ const InvestorAccountMobile = () => {
             data-gtm-type="click"
             data-gtm-button="button"
             color="primary"
-            onClick={() => {
-              history.push('/investimentos/extrato')
-            }}
+            onClick={() => dispatch(OpenAccountExtractLayer())}
             disabled={
               !formatLocaleStringToNumber(
                 bankData?.DadosContaPortoSeguro?.saldo_disponivel || '0'
@@ -178,6 +172,8 @@ const InvestorAccountMobile = () => {
               />,
             ]}
           />
+          {/* 
+          Quando o serviço de 'saldos em conta' existir, apresentar este botão
           {Number(
             bankData &&
               bankData.DadosContaPortoSeguro &&
@@ -190,12 +186,12 @@ const InvestorAccountMobile = () => {
               data-gtm-button="button"
               color="primary"
               onClick={() => {
-                history.push('/investimentos/extrato')
+                dispatch(OpenBankExtractFundLayer())
               }}
             >
               ver extrato
             </ButtonBlock>
-          )}
+          )} */}
         </InfoContainer>
       </CardAccordion>
     )

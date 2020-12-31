@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import CloseIcon from 'components/IconExporter'
 import DivisorComponent from 'components/Divisor'
 
+interface IProps {
+  noChildrenPadding?: boolean
+}
+
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   background-color: rgba(39, 39, 39, 0.63);
   height: 100%;
@@ -15,14 +19,14 @@ export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   top: 0;
 `
 
-export const ChildrenWrapper = styled.div`
+export const ChildrenWrapper = styled.div<IProps>`
   overflow: auto;
-  padding: ${props => props.theme.spacing(3)}px
-    ${props => props.theme.spacing(2)}px;
+  padding: ${props => !props.noChildrenPadding && props.theme.spacing(3)}px
+    ${props => !props.noChildrenPadding && props.theme.spacing(2)}px;
 
   @media ${props => props.theme.mediaQueries.sm} {
-    padding: ${props => props.theme.spacing(3)}px
-      ${props => props.theme.spacing(2)}px;
+    padding: ${props => !props.noChildrenPadding && props.theme.spacing(3)}px
+      ${props => !props.noChildrenPadding && props.theme.spacing(2)}px;
   }
 `
 
@@ -56,9 +60,6 @@ export const ModalHeader = styled.header`
   align-items: center;
   display: flex;
   padding: ${props => props.theme.spacing(2)}px;
-  svg {
-    margin-right: 15px;
-  }
 `
 export const TitleWrapper = styled.div`
   display: flex;

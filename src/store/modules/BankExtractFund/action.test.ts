@@ -9,11 +9,9 @@ import {
 describe('BankExtractFund Actions', () => {
   test('if GetBankExtractFundRequest returns the correct object', () => {
     const payload = {}
-    const cpf = '1111111111'
-    expect(GetBankExtractFundRequest(payload, cpf)).toEqual({
+    expect(GetBankExtractFundRequest(payload)).toEqual({
       type: Types.GET_REQUEST,
       payload,
-      cpf,
     })
   })
 

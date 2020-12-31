@@ -152,7 +152,8 @@ const ChartPosition: React.FC = () => {
     if (consolidatedPosition.data) {
       settingPieChartInfo({
         value:
-          (consolidatedPosition.data && consolidatedPosition.data.saldototal) ||
+          (consolidatedPosition.data &&
+            consolidatedPosition.data.saldototal) ||
           0,
       })
     }

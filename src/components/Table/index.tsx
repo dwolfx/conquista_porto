@@ -36,6 +36,7 @@ const Table = ({
   hasPagination = false,
   onRowClick,
   customRef,
+  onError = () => {},
   ...rest
 }: ITable) => {
   const {
@@ -49,9 +50,9 @@ const Table = ({
     canNextPage,
     nextPage,
     previousPage,
-    pageOptions,
     state: { pageIndex },
     gotoPage,
+    pageCount
   } = useTable(
     {
       // to edit how each column should render see formatColumns function
@@ -60,11 +61,13 @@ const Table = ({
         onRowClick,
       ]),
       data,
+      autoResetPage: true,
+      manualPagination: false,
       initialState: { pageIndex: 0, pageSize: 12 },
     },
     useSortBy,
     usePagination,
-    useSticky
+    useSticky,
   )
 
   const ref = useRef() as React.RefObject<HTMLDivElement>
@@ -129,7 +132,7 @@ const Table = ({
     .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 0px)')
 
   return (
-    <>
+    <s.Wrapper>
       <s.TableWrapper {...rest}>
         {isSticky && !!stickyElementLeft && showLeftShadow && (
           <s.StickyDivisor position={stickyElementLeft} side="left" />
@@ -166,65 +169,58 @@ const Table = ({
               filteringEmptyMessage={filteringEmptyMessage}
               onRowClick={onRowClick}
               hasPagination={hasPagination}
+              onError={onError}
             />
           </s.Tbody>
         </s.Table>
       </s.TableWrapper>
-      {hasPagination && (
-        <s.PaginationWrapper>
-          <s.Pagination>
-            <Text type="body" bold color="gray5">
-              Página
-            </Text>
+      {hasPagination &&
+      <s.PaginationWrapper>
+        <s.Pagination>
+          <Text type="body" bold color="gray5">Página</Text>
             <s.Input
               ref={inputRef}
               type="text"
               defaultValue={pageIndex + 1}
+              onFocus={() => inputRef.current.value = ''}
+              onBlur={() => inputRef.current.value = (pageIndex + 1).toString()}
               onChange={e => {
                 const page = e.target.value ? Number(e.target.value) - 1 : 0
-                if (page <= 0) {
+                if (page < 0 || page === 0) {
                   gotoPage(0)
                   setIndexPage(1)
                   inputRef.current.value = ''
-                } else if (page > pageOptions.length - 1) {
-                  gotoPage(pageOptions.length - 1)
-                  setIndexPage(pageOptions.length)
-                  inputRef.current.value = pageOptions.length.toString()
+                } else if(page > pageCount -1) {
+                  gotoPage(pageCount -1)
+                  setIndexPage(pageCount -1)
+                  inputRef.current.value = (pageCount - 1).toString()
                 } else {
                   setIndexPage(page)
                   gotoPage(page)
                 }
               }}
             />
-            <Text type="body" bold color="gray5">
-              de {hasError ? 0 : pageOptions.length}
-            </Text>
-            <s.PageButtons>
-              <s.Button
-                onClick={() => {
-                  previousPage()
-                  setIndexPage(indexPage - 1)
-                  inputRef.current.value = (indexPage - 1).toString()
-                }}
-                disabled={!canPreviousPage}
-              >
-                <IconExporter name="arrowleft" color="blue4" />
-              </s.Button>
-              <s.Button
-                onClick={() => {
-                  nextPage()
-                  setIndexPage(indexPage + 1)
-                  inputRef.current.value = (indexPage + 1).toString()
-                }}
-                disabled={!canNextPage}
-              >
-                <IconExporter name="arrowright" color="blue4" />
-              </s.Button>
-            </s.PageButtons>
-          </s.Pagination>
-        </s.PaginationWrapper>
-      )}
-    </>
+          <Text type="body" bold color="gray5">de {hasError ? 0 : pageCount}</Text>
+          <s.PageButtons>
+            <s.Button onClick={() => {
+              previousPage()
+              setIndexPage(indexPage - 1)
+              inputRef.current.value = (indexPage - 1).toString()
+            }} disabled={!canPreviousPage}>
+              <IconExporter name="arrowleft" color="blue4" />
+            </s.Button>
+            <s.Button onClick={() => {
+              nextPage()
+              setIndexPage(indexPage + 1)
+              inputRef.current.value = (indexPage + 1).toString()
+            }} disabled={!canNextPage}>
+              <IconExporter name="arrowright" color="blue4"/>
+            </s.Button>
+          </s.PageButtons>
+        </s.Pagination>
+      </s.PaginationWrapper>
+      }
+    </s.Wrapper>
   )
 }
 

@@ -10,7 +10,7 @@ interface IConsolidatedPositionCategory {
 */
 export interface IConsolidatedPosition {
   categorias: IConsolidatedPositionCategory[]
-  saldo_total: number
+  saldototal: number
 }
 
 /*
@@ -20,5 +20,5 @@ export interface IConsolidatedPosition {
 */
 export interface IConsolidatedPositionOld {
   categorias: IConsolidatedPositionCategory[]
-  saldototal: number
+  saldo_total: number
 }

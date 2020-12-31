@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import { SingleDatePicker as SDP, isInclusivelyBeforeDay } from 'react-dates'
+import { SingleDatePicker as SDP, isInclusivelyAfterDay, isInclusivelyBeforeDay } from 'react-dates'
 import { ButtonNavPrev, ButtonNavNext } from '../styles'
 
 /* Usar esta propriedade para bloquear uma lista de datas */

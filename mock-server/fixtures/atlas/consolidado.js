@@ -1,7 +1,7 @@
 const { conservador, moderado, arrojado } = require('../tokens');
 
 const _consolidado = {
-  saldo_total: 20655214.49,
+  saldototal: 20655214.49,
   categorias: [
     {
       nome: 'Renda Variável',

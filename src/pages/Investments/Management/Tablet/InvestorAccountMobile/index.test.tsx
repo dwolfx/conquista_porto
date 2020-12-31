@@ -47,7 +47,10 @@ describe('InvestorAccountMobile', () => {
         { store: customStore }
       )
       expect(getByTestId('retirar')).toBeDefined()
-      expect(getAllByRole('button', { name: 'ver extrato' })).toHaveLength(2)
+      // Botão ver extrato "Saldo a liquidar" retirado pois não há serviço.
+      // expect(getAllByRole('button', { name: 'ver extrato' })).toHaveLength(2)
+      expect(getAllByRole('button', { name: 'ver extrato' })).toHaveLength(1)
+
     })
   })
   describe('renders correcly with 0 values', () => {
@@ -114,42 +117,6 @@ describe('InvestorAccountMobile', () => {
     })
   })
   describe('behaves correcly', () => {
-    it('goes to ballance extract page after clicking at "view extract"', () => {
-      let locationLocal: RouteProps['location']
-      const { getAllByRole } = renderWithReduxAndTheme(
-        <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccountMobile />
-          <Route
-            path="*"
-            render={({ location }) => {
-              locationLocal = location
-              return null
-            }}
-          />
-        </MemoryRouter>,
-        { store: customStore }
-      )
-      fireEvent.click(getAllByRole('button', { name: 'ver extrato' })[0])
-      expect(locationLocal!.pathname).toBe('/investimentos/extrato')
-    })
-    it('goes to settle extract page after clicking at "view extract"', () => {
-      let locationLocal: RouteProps['location']
-      const { getAllByRole } = renderWithReduxAndTheme(
-        <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccountMobile />
-          <Route
-            path="*"
-            render={({ location }) => {
-              locationLocal = location
-              return null
-            }}
-          />
-        </MemoryRouter>,
-        { store: customStore }
-      )
-      fireEvent.click(getAllByRole('button', { name: 'ver extrato' })[1])
-      expect(locationLocal!.pathname).toBe('/investimentos/extrato')
-    })
     it('reloads data when click at retry button', () => {
       const storeError = storeFactory({
         bankData: {

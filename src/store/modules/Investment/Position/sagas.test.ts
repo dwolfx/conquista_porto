@@ -22,7 +22,7 @@ describe('get customer profile', () => {
   it('success triggers success action without store data', () => {
     const generator = getData()
     const response = {
-      data: { saldototal: 10, TipoCritica: 'CRITICA_NEGOCIO' },
+      data: { saldo_total: 10, TipoCritica: 'CRITICA_NEGOCIO' },
     }
 
     expect(generator.next(response).value).toEqual(

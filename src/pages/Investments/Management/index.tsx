@@ -3,26 +3,38 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Anbima from 'components/Anbima'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
+import useFetchSuitabilityInfo from 'hooks/Suitability/useFetchSuitabilityInfo'
 import useMedia from 'hooks/useMedia'
+import Redeem from 'pages/Redeem'
+import AccountExtract from 'pages/Investments/Extract/AccountExtract'
+import FundExtract from 'pages/Investments/Extract/FundExtract'
+import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
+import { SetIdFund } from 'store/modules/Investment/Position/action'
 
 import useFilter from './useFilter'
 import DesktopComponent from './Desktop'
 import TabletComponent from './Tablet'
+// import AmountsToBeSettledExtract from '../Extract/AmountsToBeSettledExtract'
 import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
-import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
-import Redeem from 'pages/Redeem'
-import useFetchSuitabilityInfo from 'hooks/Suitability/useFetchSuitabilityInfo'
-import { SetIdFund } from 'store/modules/Investment/Position/action'
+import { CloseAccountExtractLayer } from 'store/modules/BankExtract/action'
+import { CloseBankExtractFundLayer } from 'store/modules/BankExtractFund/action'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {
-  const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
   const dispatch = useDispatch()
-  const [filters, setFilters] = useState<string[]>([])
   const isTablet = useMedia('lg')
-  const { idFund, isLayerOpen } = useSelector((state: any) => ({
+  const [filters, setFilters] = useState<string[]>([])
+  const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
+  const {
+    idFund,
+    isLayerOpen,
+    isAccountExtractOpen,
+    isFundExtractOpen,
+  } = useSelector((state: any) => ({
     idFund: state.investmentPosition.idFund,
     isLayerOpen: state.redeemData.isLayerOpen,
+    isAccountExtractOpen: state.bankExtract.isLayerOpen,
+    isFundExtractOpen: state.bankExtractFund.isLayerOpen,
   }))
 
   useFetchPosition()
@@ -82,6 +94,18 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
         isOpen={isLayerOpen}
         handleClose={() => dispatch(RedeemLayerToggleClose())}
         selectedFundId={idFund}
+      />
+      <AccountExtract
+        isOpen={isAccountExtractOpen}
+        handleClose={() => dispatch(CloseAccountExtractLayer())}
+      />
+      {/* <AmountsToBeSettledExtract
+        isOpen={isAccountExtractOpen}
+        handleClose={() => dispatch(CloseAccountExtractLayer())}
+      /> */}
+      <FundExtract
+        isOpen={isFundExtractOpen}
+        handleClose={() => dispatch(CloseBankExtractFundLayer())}
       />
     </>
   )

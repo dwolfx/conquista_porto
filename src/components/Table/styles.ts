@@ -11,6 +11,11 @@ interface IWrapper {
   isBold?: boolean
 }
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const WrapperContent = styled.div<IWrapper>`
   line-height: ${props => (props.lineHeight ? props.lineHeight : '36px')};
   padding: ${({ theme }) => `${theme.spacing(1)}px 0`};
@@ -211,7 +216,6 @@ export const TheadColumn = styled.div<ITheadColumn>`
 `
 
 export const Tbody = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.gray3};
   height: calc(100% - 56px);
   display: block;
 
@@ -334,6 +338,7 @@ export const Checkbox = styled(CheckboxComponent)`
   }
 
 `
+
 export const PaginationWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -377,7 +382,7 @@ export const Button = styled.button`
   }
 
   & + button {
-    border-left: 1px solid ${({ theme }) => theme.colors.gray3};
+    border-left: 1px solid ${({ theme }) => theme.colors.gray3}
   }
 
   svg {
@@ -385,3 +390,4 @@ export const Button = styled.button`
     display: block;
   }
 `
+

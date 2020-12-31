@@ -58,46 +58,4 @@ describe('LastTransactions', () => {
       ).toBeInTheDocument()
     })
   })
-  describe('Extract page', () => {
-    it('goes to extract page', () => {
-      const store = storeFactory()
-      let locationLocal: RouteProps['location']
-      const data: ITransaction[] = [
-        {
-          id_carteira: 51380129,
-          id_operacao: 10608373,
-          data_operacao: 1591758000000,
-          tipo_operacao: 'Aplicação',
-          data_liquidacao: 1591758000000,
-          valor_bruto: 111.11,
-        },
-        {
-          id_carteira: 51380129,
-          id_operacao: 10590482,
-          data_operacao: 1582686000000,
-          tipo_operacao: 'Aplicação',
-          data_liquidacao: 1582686000000,
-          valor_bruto: 45000.0,
-        },
-      ]
-
-      const { getByTestId } = renderWithReduxAndTheme(
-        <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <LastTransations />
-          <Route
-            path="*"
-            render={({ location }) => {
-              locationLocal = location
-              return null
-            }}
-          />
-        </MemoryRouter>,
-        { store }
-      )
-
-      store.dispatch(GetLastTransactionDataSuccess(data))
-      fireEvent.click(screen.getByText('ver extrato'))
-      expect(locationLocal!.pathname).toBe('/investimentos/extrato')
-    })
-  })
 })

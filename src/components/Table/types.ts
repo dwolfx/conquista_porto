@@ -73,9 +73,9 @@ export interface ITable {
   isFiltering?: boolean
   filteringEmptyMessage?: string
   isSticky?: boolean
-  hasPagination?: boolean
   customRef?: RefObject<HTMLDivElement>
   onRowClick?: (param: any) => void
+  hasPagination?: boolean
 }
 
 export interface ITableBody {

@@ -1,10 +1,9 @@
 import { Types } from './types'
 
-export function GetBankExtractRequest(payload: any, cpf: string) {
+export function GetBankExtractRequest(payload: any) {
   return {
     type: Types.GET_REQUEST,
     payload,
-    cpf,
   }
 }
 
@@ -24,5 +23,17 @@ export function GetBankExtractFailure() {
 export function ClearBankExtractData() {
   return {
     type: Types.CLEAR_DATA,
+  }
+}
+
+export function OpenAccountExtractLayer() {
+  return {
+    type: Types.OPEN_ACCOUNT_EXTRACT_LAYER
+  }
+}
+
+export function CloseAccountExtractLayer() {
+  return {
+    type: Types.CLOSE_ACCOUNT_EXTRACT_LAYER
   }
 }

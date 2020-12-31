@@ -1,0 +1,56 @@
+{
+  "UltimasOperacoes": {
+    "transacoes": {
+      "transacao": [
+        {
+          "tipo": "RESGATE",
+          "data": "2020-03-06T00:00:00-03:00",
+          "valor": "97.83"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2020-03-02T00:00:00-03:00",
+          "valor": "-1000"
+        },
+        {
+          "tipo": "TED",
+          "data": "2020-03-02T00:00:00-03:00",
+          "valor": "500"
+        },
+        {
+          "tipo": "TED",
+          "data": "2020-02-28T00:00:00-03:00",
+          "valor": "400"
+        },
+        {
+          "tipo": "TED",
+          "data": "2020-02-28T00:00:00-03:00",
+          "valor": "102.06"
+        }
+      ]
+    }
+  },
+  "DadosContaPortoSeguro": {
+    "id_conta": "193791",
+    "cheque_especial": {
+      "limite": "0",
+      "data_vencimento": "0001-01-03T00:00:00-03:00"
+    },
+    "conta": "47",
+    "nome_banco": "Banco Portopar",
+    "saldo_liquidar": "1003.40",
+    "agencia": "0001",
+    "codigo_banco": "306",
+    "saldo_disponivel": "1000000.0",
+    "cpf": "33244452809",
+    "encargos_acumulados": "0",
+    "valores_bloqueados": {
+      "judicial": "0",
+      "em_24horas": "0",
+      "indeterminado": "0",
+      "em_48horas": "0"
+    },
+    "digito_conta": "7",
+    "titular": "Rafael Rodrigues"
+  }
+}

@@ -71,9 +71,7 @@ const Drawer: React.FC<IProps> = ({
           )}
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
-        {footer && (
-          <DrawerFooter footerHeight={footerHeight}>{footer}</DrawerFooter>
-        )}
+        {footer && <DrawerFooter footerHeight={footerHeight}>{footer}</DrawerFooter>}
       </DrawerContent>
     </DrawerWrapper>,
     document.querySelector('#root') as HTMLDivElement

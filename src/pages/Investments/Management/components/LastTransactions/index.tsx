@@ -2,18 +2,15 @@ import React, { useEffect, useCallback } from 'react'
 import 'styled-components/macro'
 import { DefaultTheme } from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-
-import { GetLastTransactionDataRequest } from 'store/modules/Investment/LastTransaction/action'
-
-import useMedia from 'hooks/useMedia'
-
-import ErrorState from 'pages/Home/commons/ErrorState'
 
 import Accordion from 'components/AccordionNew'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button'
+import useMedia from 'hooks/useMedia'
+import ErrorState from 'pages/Home/commons/ErrorState'
+import { OpenBankExtractFundLayer } from 'store/modules/BankExtractFund/action'
+import { GetLastTransactionDataRequest } from 'store/modules/Investment/LastTransaction/action'
 
 import Table from './Table'
 import List from './List'
@@ -29,13 +26,11 @@ import Text from 'components/Text'
 
 const LastTransations = () => {
   const dispatch = useDispatch()
-  const history = useHistory()
   const isTabletVerticalOrSmaller = useMedia('sm')
-  const { lastTransaction, investmentPosition, idFund } = useSelector<any, any>(
-    state => ({
-      lastTransaction: state.lastTransaction,
-      investmentPosition: state.investmentPosition,
-      idFund: state.investmentPosition.idFund,
+  const { lastTransaction, idFund } = useSelector(
+    ({ lastTransaction, investmentPosition }: any) => ({
+      lastTransaction,
+      idFund: investmentPosition.idFund,
     })
   )
 
@@ -98,11 +93,7 @@ const LastTransations = () => {
             )}
             <Button
               outline
-              onClick={() => {
-                history.push(
-                  `/investimentos/extrato?idFundo=${investmentPosition.idFund}`
-                )
-              }}
+              onClick={() => dispatch(OpenBankExtractFundLayer())}
             >
               ver extrato
             </Button>
@@ -125,11 +116,7 @@ const LastTransations = () => {
               </TableContainer>
             )}
             <ButtonLink
-              onClick={() => {
-                history.push(
-                  `/investimentos/extrato?idFundo=${investmentPosition.idFund}`
-                )
-              }}
+              onClick={() => dispatch(OpenBankExtractFundLayer())}
               css={`
                 margin-top: ${({ theme }: { theme: DefaultTheme }) =>
                   theme.spacing(4)}px;

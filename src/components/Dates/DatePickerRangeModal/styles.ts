@@ -71,10 +71,10 @@ export const RowButtons = styled(Row)`
 export const CloseButton = styled.div`
   background-color: ${props => props.theme.colors.gray5};
   cursor: pointer;
-  height: ${props => props.theme.spacing(4)}px;
+  height: ${props => props.theme.spacing(3)}px;
   mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
-  width: ${props => props.theme.spacing(4)}px;
+  width: ${props => props.theme.spacing(3)}px;
 
   &:hover {
     background-color: ${props => props.theme.colors.blue4};

@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects'
 import { get } from 'services/api'
 
 import { getData } from './sagas'
+import mock from './mock.json'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
 
 describe('get bank extract', () => {
@@ -13,7 +14,7 @@ describe('get bank extract', () => {
     }
 
     const generator = getData({ payload })
-    const response = { data: { TipoCritica: 'CRITICA_NEGOCIO' } }
+    const response = { data: { ...mock } }
     expect(generator.next().value).toEqual(
       call(
         get,
@@ -29,10 +30,10 @@ describe('get bank extract', () => {
   })
 
   it('failure triggers failure action', () => {
-    //Mock JSON.parse toast err.message
-    JSON.parse = jest.fn().mockImplementationOnce(() => {
-      return { msg: `Cannot read property 'data' of undefined` }
-    })
+    // Mock JSON.parse toast err.message
+    JSON.parse = jest.fn().mockImplementationOnce(() => ({
+      msg: `Cannot read property 'data' of undefined`,
+    }))
 
     const payload = {
       tipoFiltro: 30,
@@ -48,14 +49,7 @@ describe('get bank extract', () => {
       )
     )
 
-    const toast = {
-      message: "Cannot read property 'data' of undefined",
-      type: 'error',
-    }
-
-    expect(generator.next().value).toEqual(
-      put({ ...GetBankExtractFailure(), toast })
-    )
+    expect(generator.next().value).toEqual(put(GetBankExtractFailure()))
 
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
