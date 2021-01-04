@@ -13,10 +13,12 @@ import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 
-import { Steps } from '../types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { Steps, IForm } from '../types'
 import * as s from './styles'
 
 const CoverageDate: StepComponent = () => {
+  const { updateForm, form } = useFormFluxManagement<IForm>()
   const [initialDate, setInitialDate] = useState<moment.Moment | null>(null)
   const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
   const [focusedInput, setFocusedInput] = useState(null)
@@ -27,6 +29,15 @@ const CoverageDate: StepComponent = () => {
 
   const onHandleRangeFocused = (focus: any) => {
     setFocusedInput(focus)
+  }
+
+  const onSubmitButton = () => {
+    updateForm({
+      ...form,
+      dataIda: initialDate?.format('DD/MM/YYYY'),
+      dataVolta: finalDate?.format('DD/MM/YYYY'),
+    })
+    instantiate(Steps.passengerStep)
   }
 
   return (
@@ -85,7 +96,7 @@ const CoverageDate: StepComponent = () => {
                 <s.NextButton
                   id="next-button"
                   disabled={!(initialDate && finalDate)}
-                  onClick={() => instantiate(Steps.passengerStep)}
+                  onClick={onSubmitButton}
                 >
                   PRÓXIMO
                 </s.NextButton>

@@ -30,7 +30,7 @@ const MotocicleQuestion: StepComponent = () => {
   const [isLoading] = useState<boolean>(false)
   // Olhar depois os SETTERS ==========================
 
-  const [isAnswerPositive, setIsAnswerPositive] = useState<string>()
+  const [isAnswerPositive, setIsAnswerPositive] = useState<string>('')
 
   const isMobile = useMedia('md')
 
@@ -40,10 +40,10 @@ const MotocicleQuestion: StepComponent = () => {
     setIsAnswerPositive(value)
   }
 
-  const submitButton = (isMotocicleta: boolean) => {
+  const submitButton = () => {
     updateForm({
       ...form,
-      isMotocicleta,
+      isMotocicleta: !!+isAnswerPositive,
     })
     instantiate(Steps.choosePlan)
   }
@@ -92,10 +92,10 @@ const MotocicleQuestion: StepComponent = () => {
                 onChange={e => handleChange(e.currentTarget.value)}
               />
               <s.SimulateButton
-                disabled={isAnswerPositive === undefined}
+                disabled={!isAnswerPositive}
                 loading={isLoading}
                 color="secondary"
-                onClick={() => submitButton(isAnswerPositive === '1')}
+                onClick={submitButton}
               >
                 Simular
               </s.SimulateButton>
