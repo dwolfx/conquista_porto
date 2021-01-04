@@ -134,12 +134,12 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   const [
     numberOfPassangersBelowSeventyYears,
     setNumberOfPassangersBelowSeventyYears,
-  ] = useState({ id: '0', name: '0', value: 0 })
+  ] = useState({ id: form.qtdPassagMenorSetentaAnos?.toString(), name: form.qtdPassagMenorSetentaAnos?.toString(), value: form.qtdPassagMenorSetentaAnos || 0 })
 
   const [
     numberOfPassangersAboveSeventyYears,
     setNumberOfPassangersAboveSeventyYears,
-  ] = useState({ id: '0', name: '0', value: 0 })
+  ] = useState({ id: form.qtdPassagMaiorSetentaAnos?.toString(), name: form.qtdPassagMaiorSetentaAnos?.toString(), value: form.qtdPassagMaiorSetentaAnos || 0 })
 
   const [selectedMotocicleOption, setSelectedMotocicleOption] = useState({
     id: 2,

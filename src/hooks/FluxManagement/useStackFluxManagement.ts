@@ -2,7 +2,7 @@ import { StepComponent } from './types'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { AddElementFluxManagementStack, PopElementFluxManagementStack} from 'store/modules/FluxManagement/actions'
+import { AddElementFluxManagementStack, PopElementFluxManagementStack, ResetFormFluxManagement } from 'store/modules/FluxManagement/actions'
 
 export interface IUseStackFluxManagement<T> {
   stack: React.ReactElement<T>[]
@@ -38,5 +38,9 @@ export default function useStackFluxManagement<T> () {
     dispatch(PopElementFluxManagementStack())
   }, [dispatch])
 
-  return { stack, instantiate, getLast, getLength, add, pop }
+  const reset = React.useCallback(() => {
+    dispatch((ResetFormFluxManagement()))
+  }, [dispatch])
+
+  return { stack, instantiate, getLast, getLength, add, pop, reset }
 }
