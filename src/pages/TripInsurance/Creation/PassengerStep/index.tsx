@@ -10,8 +10,9 @@ import StepBar from 'pages/TripInsurance/commons/StepBar'
 import useMedia from 'hooks/useMedia'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
-import { Steps } from '../types'
+import { Steps, IForm } from '../types'
 
 import * as S from './styles'
 
@@ -21,6 +22,7 @@ const PassengerStep: StepComponent = () => {
   const [counts, setCounts] = React.useState({ young: 0, old: 0, total: 0 })
   const isTabletVertical = useMedia('md')
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const { updateForm } = useFormFluxManagement<IForm>()
 
   React.useEffect(() => {
     setCounts(prevCounts => ({
@@ -30,6 +32,10 @@ const PassengerStep: StepComponent = () => {
   }, [counts.young, counts.old])
 
   const handleButtonClick = () => {
+    updateForm({
+      qtdPassagMenorSetentaAnos: counts.young,
+      qtdPassagMaiorSetentaAnos: counts.old,
+    })
     instantiate(Steps.adventureSports)
   }
 
