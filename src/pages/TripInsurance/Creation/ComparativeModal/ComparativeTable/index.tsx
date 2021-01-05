@@ -1,30 +1,32 @@
 import React from 'react'
 import { uuid } from 'uuidv4'
 
-import * as t from '../types'
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+
 import * as s from './styles'
 
 interface IComparativeTable {
-  travelPlans: t.ITravelPlans[]
+  travelPlans: IPlan[]
 }
 
 const ComparativeTable: React.FC<IComparativeTable> = ({
   travelPlans,
   ...rest
 }) => {
-  const renderTableRowContent = (travelPlans: t.ITravelPlans[]) => {
+  const renderTableRowContent = (travelPlans: IPlan[]) => {
     const tableRowsData: Array<string[]> = []
 
     travelPlans.forEach((plan, index) => {
-      index === 0
-        ? // adiciona o valor da coluna 'COBERTURA' e do primeiro plano
-          plan.viagemCobertura.forEach(item => {
-            tableRowsData.push([item.descricao, item.valor])
-          })
-        : // adiciona o valor dos demais planos na linha
-          plan.viagemCobertura.forEach((item, index) => {
-            tableRowsData[index] = [...tableRowsData[index], item.valor]
-          })
+      if (index === 0) {
+        // adiciona o valor da coluna 'COBERTURA' e do primeiro plano
+        plan.ViagemCobertura.coberturas.forEach(item => {
+          tableRowsData.push([item.descricao, item.valor])
+        })
+      }
+      // adiciona o valor dos demais planos na linha
+      plan.ViagemCobertura.coberturas.forEach((item, index) => {
+        tableRowsData[index] = [...tableRowsData[index], item.valor]
+      })
     })
 
     return tableRowsData.map(rowData => (

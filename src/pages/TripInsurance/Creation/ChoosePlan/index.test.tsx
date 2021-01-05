@@ -38,7 +38,7 @@ describe('Choose Plan tests', () => {
     const switchText = screen.getByText(
       'simular em até 12x sem juros com 5% de desconto no Cartão Porto Seguro'
     )
-    const planName = screen.getByText(/BRASIL TERRA/i)
+    const planName = screen.getAllByText(/BRASIL TERRA/i)
     const installmentsAmount = screen.getByText('6X SEM JUROS DE R$ 5.31')
     const upfrontAmount = screen.getByText('R$ 31.83 a vista')
     const firstCoverageAmount = screen.getAllByText('R$ 10.000,00')
@@ -47,7 +47,7 @@ describe('Choose Plan tests', () => {
     const editData = screen.getByText('alterar dados')
     expect(title).toBeInTheDocument()
     expect(switchText).toBeInTheDocument()
-    expect(planName).toBeInTheDocument()
+    expect(planName[0]).toBeInTheDocument()
     expect(installmentsAmount).toBeInTheDocument()
     expect(upfrontAmount).toBeInTheDocument()
     expect(firstCoverageAmount[0]).toBeInTheDocument()

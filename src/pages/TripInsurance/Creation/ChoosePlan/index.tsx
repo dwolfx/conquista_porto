@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Text from 'components/Text'
 import Switch from 'components/Inputs/Switch'
@@ -10,7 +10,6 @@ import { useToast } from 'hooks/toast'
 import ComparativeModal from '../ComparativeModal'
 import EditDrawer from '../EditDrawer'
 import { StepComponent } from 'hooks/FluxManagement/types'
-import { baseURLNamespaceInvestAws, post } from 'services/api'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { IForm } from '../types'
 import { PostInsuranceQuotationRequest } from 'store/modules/TripInsurance/InsuranceQuotation/action'
@@ -100,14 +99,19 @@ const ChoosePlan: StepComponent = () => {
         })
       )
     }
-  }, [tripInsuranceQuotations, dispatch])
-
-  console.log('isLOADING: ', isLoading)
+  }, [tripInsuranceQuotations, dispatch, addToast])
 
   return (
     <s.Container>
-      {/* <ComparativeModal isOpen={false} handleClose={setModalOpen} /> */}
-      {/* <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} /> */}
+      {tripInsuranceQuotations ? (
+        <ComparativeModal
+          isOpen={modalOpen}
+          handleClose={setModalOpen}
+          travelPlans={tripInsuranceQuotations}
+          isLoading={isLoading}
+        />
+      ) : null}
+      <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} />
       <s.BackgroundWrapper>
         <s.DarkBackground />
         <s.ContentContainer>

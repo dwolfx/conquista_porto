@@ -5,41 +5,11 @@ import userEvent from '@testing-library/user-event'
 
 import ComparativeTabs from './index'
 
-import * as t from '../types'
+import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
 
-const travelCoverage: t.ITravelCoverage[] = [
-  {
-    descricao: 'Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO',
-    valor: 'R$ 1.000.000.000,00',
-  },
-  {
-    descricao: 'Cancelamento de Viagem',
-    valor: 'Não',
-  },
-  {
-    descricao: 'Extravio de bagagem',
-    valor: 'R$ 1.500,00',
-  },
-  {
-    descricao: 'Hospedagem após Alta Hospitalar',
-    valor: 'R$ 100,00/Dia - Limite 5 Dias',
-  },
-]
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
-const travelPlans: t.ITravelPlans[] = [
-  {
-    nomePlano: 'Brasil Terra',
-    viagemCobertura: travelCoverage,
-  },
-  {
-    nomePlano: 'Brasil Prata',
-    viagemCobertura: travelCoverage,
-  },
-  {
-    nomePlano: 'Brasil Ouro',
-    viagemCobertura: travelCoverage,
-  },
-]
+const travelPlans: IPlan[] = tripInsuranceQuotationMock.ViagemPacote.pacotes
 
 const createRootContainer = () => {
   let container = document.getElementById('root')
@@ -56,7 +26,7 @@ const setup = () =>
     container: createRootContainer(),
   })
 
-describe('EditingCardData component', () => {
+describe('ComparativeTabs component', () => {
   it('should exists', () => {
     expect(ComparativeTabs).toBeDefined()
   })
@@ -70,8 +40,8 @@ describe('EditingCardData component', () => {
   it('should render first tab selected', () => {
     setup()
 
-    const firstTab = screen.getByText(/terra/i)
-    const secondTab = screen.getByText(/prata/i)
+    const firstTab = screen.getByText(/prata/i)
+    const secondTab = screen.getByText(/terra/i)
     const thirdTab = screen.getByText(/ouro/i)
 
     expect(firstTab.getAttribute('aria-selected')).toBe('true')
@@ -81,28 +51,34 @@ describe('EditingCardData component', () => {
   it('should be able to select second tab', () => {
     setup()
 
-    const firstTab = screen.getByText(/terra/i)
-    const secondTab = screen.getByText(/prata/i)
-    const thirdTab = screen.getByText(/ouro/i)
+    const secondTab = screen.getByText(/terra/i)
 
     userEvent.click(secondTab)
 
-    expect(firstTab.getAttribute('aria-selected')).toBe('false')
-    expect(secondTab.getAttribute('aria-selected')).toBe('true')
-    expect(thirdTab.getAttribute('aria-selected')).toBe('false')
+    expect(screen.getByText(/prata/i).getAttribute('aria-selected')).toBe(
+      'false'
+    )
+    expect(screen.getByText(/terra/i).getAttribute('aria-selected')).toBe(
+      'true'
+    )
+    expect(screen.getByText(/ouro/i).getAttribute('aria-selected')).toBe(
+      'false'
+    )
   })
   it('should be able to select third tab', () => {
     setup()
 
-    const firstTab = screen.getByText(/terra/i)
-    const secondTab = screen.getByText(/prata/i)
     const thirdTab = screen.getByText(/ouro/i)
 
     userEvent.click(thirdTab)
 
-    expect(firstTab.getAttribute('aria-selected')).toBe('false')
-    expect(secondTab.getAttribute('aria-selected')).toBe('false')
-    expect(thirdTab.getAttribute('aria-selected')).toBe('true')
+    expect(screen.getByText(/prata/i).getAttribute('aria-selected')).toBe(
+      'false'
+    )
+    expect(screen.getByText(/terra/i).getAttribute('aria-selected')).toBe(
+      'false'
+    )
+    expect(screen.getByText(/ouro/i).getAttribute('aria-selected')).toBe('true')
   })
   it('should be able to render tab content', () => {
     setup()
@@ -112,7 +88,7 @@ describe('EditingCardData component', () => {
         /despesas médicas, hospitalares e\/ou odontológicas - dmho/i
       )
     ).toBeTruthy()
-    expect(screen.getByText(/R\$ 1\.000\.000\.000,00/i)).toBeDefined()
+    expect(screen.getByText(/R\$ 10\.000,00/i)).toBeDefined()
   })
   it('should not be able to render tabs component', () => {
     const plan = []
