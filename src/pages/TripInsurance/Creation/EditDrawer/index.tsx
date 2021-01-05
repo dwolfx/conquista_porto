@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 
 import Drawer from 'components/Drawer'
 import Loading from 'components/Loading'
@@ -23,6 +24,7 @@ interface IEditDrawer {
 }
 const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   const dispatch = useDispatch()
+  const isMobile = useMedia('sm')
   const { form } = useFormFluxManagement<IForm>()
   // Olhar depois os SETTERS ==========================
   const [isLoading] = useState(false)
@@ -63,8 +65,8 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     selectedAdventureSportsOption,
     setSelectedAdventureSportsOption,
   ] = useState({
-    id: 2,
-    name: 'Não irei praticar',
+    id: form.isPraticaAventura ? 1 : 2,
+    name: form.isPraticaAventura ? 'Irei praticar' : 'Não irei praticar',
   })
   const [motocicleOptions] = useState([
     {
@@ -82,7 +84,6 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   ])
   // Olhar depois os SETTERS ==========================
 
-  const isMobile = useMedia('sm')
   const [selectedDestination, setSelectedDestination] = useState<{
     id: 1 | 2
     name: 'Nacional' | 'Internacional'
@@ -90,13 +91,16 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     id: 1,
     name: 'Nacional',
   })
-
   const [
     selectedDestinationCountries,
     setSelectedDestinationCountries,
   ] = useState<IOption[]>([])
-  const [initialDate, setInitialDate] = useState<moment.Moment | null>(null)
-  const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
+  const [initialDate, setInitialDate] = useState<moment.Moment | null>(
+    moment(form.dataIda, 'DD/MM/YYYY')
+  )
+  const [finalDate, setFinalDate] = useState<moment.Moment | null>(
+    moment(form.dataVolta, 'DD/MM/YYYY')
+  )
   const [focusedInput, setFocusedInput] = useState(null)
   const onHandleRangeFocused = (focus: any) => {
     setFocusedInput(focus)
@@ -105,7 +109,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     numberOfPassangersBelowSeventyYearsOptions,
     setNumberOfPassangersBelowSeventyYearsOptions,
   ] = useState(
-    [...Array(23)].map((_, i) => ({
+    [...Array(21)].map((_, i) => ({
       id: `${i}`,
       text: `${i}`,
       onClick: () =>
@@ -134,16 +138,23 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   const [
     numberOfPassangersBelowSeventyYears,
     setNumberOfPassangersBelowSeventyYears,
-  ] = useState({ id: form.qtdPassagMenorSetentaAnos?.toString(), name: form.qtdPassagMenorSetentaAnos?.toString(), value: form.qtdPassagMenorSetentaAnos || 0 })
-
+  ] = useState({
+    id: form.qtdPassagMenorSetentaAnos?.toString(),
+    name: form.qtdPassagMenorSetentaAnos?.toString(),
+    value: form.qtdPassagMenorSetentaAnos || 0,
+  })
   const [
     numberOfPassangersAboveSeventyYears,
     setNumberOfPassangersAboveSeventyYears,
-  ] = useState({ id: form.qtdPassagMaiorSetentaAnos?.toString(), name: form.qtdPassagMaiorSetentaAnos?.toString(), value: form.qtdPassagMaiorSetentaAnos || 0 })
+  ] = useState({
+    id: form.qtdPassagMaiorSetentaAnos?.toString(),
+    name: form.qtdPassagMaiorSetentaAnos?.toString(),
+    value: form.qtdPassagMaiorSetentaAnos || 0,
+  })
 
   const [selectedMotocicleOption, setSelectedMotocicleOption] = useState({
-    id: 2,
-    name: 'Não irei praticar',
+    id: form.isMotocicleta ? 1 : 2,
+    name: form.isMotocicleta ? 'Irei praticar' : 'Não irei praticar',
   })
 
   useEffect(() => {
