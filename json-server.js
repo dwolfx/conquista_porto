@@ -7,6 +7,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const destinationContriesMock = require('./src/mocks/destinationCountries.json')
+const tripInsuranceQuotationMock = require('./src/mocks/tripInsuranceQuotation.json')
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
@@ -182,9 +183,14 @@ router.render = (req, res) => {
     }
   }
 
-  if (req.originalUrl.endsWith('/investimento/aws/v1/viagem/paises/destino')) {
+  if (req.originalUrl.endsWith('/viagem/paises/destino')) {
     if (req.method === 'GET') {
       return res.status(200).jsonp({ ...destinationContriesMock })
+    }
+  }
+  if (req.originalUrl.endsWith('/viagem/cotacao/seguro')) {
+    if (req.method === 'POST') {
+      return res.status(200).jsonp({ ...tripInsuranceQuotationMock })
     }
   }
 

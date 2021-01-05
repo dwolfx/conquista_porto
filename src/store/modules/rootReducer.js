@@ -13,6 +13,7 @@ import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import customerProfile from './CustomerProfile/reducer'
 import destinationCountries from './TripInsurance/DestinationCountries/reducer'
+import tripInsuranceQuotation from './TripInsurance/InsuranceQuotation/reducer'
 import {
   financialApplicationGetData,
   financialApplicationPostData,
@@ -57,6 +58,7 @@ export default combineReducers({
   creditCardOffer,
   customerProfile,
   destinationCountries,
+  tripInsuranceQuotation,
   financialApplicationGetData,
   financialApplicationPostData,
   investmentsList,

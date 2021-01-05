@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Text from 'components/Text'
 import Switch from 'components/Inputs/Switch'
 import * as s from './styles'
 import PlanCard from './PlanCard'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
 import ComparativeModal from '../ComparativeModal'
 import EditDrawer from '../EditDrawer'
 import { StepComponent } from 'hooks/FluxManagement/types'
+import { baseURLNamespaceInvestAws, post } from 'services/api'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { IForm } from '../types'
+import { PostInsuranceQuotationRequest } from 'store/modules/TripInsurance/InsuranceQuotation/action'
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
 const planos = [
   {
@@ -43,18 +50,64 @@ const planos = [
 ]
 
 const ChoosePlan: StepComponent = () => {
+  const dispatch = useDispatch()
   const [isInstallmentPayment, setIsInstallmentPayment] = useState(false)
+  const { updateForm, form } = useFormFluxManagement<IForm>()
+  const { addToast } = useToast()
   const isMobile = useMedia('sm')
   const isTabletHorizontal = useMedia('mdUp')
   const isLgDown = useMedia('lg')
   const handleSwitch = () => setIsInstallmentPayment(!isInstallmentPayment)
   const [modalOpen, setModalOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [submitErrorCount, setSubmitErrorCount] = useState(0)
+
+  const {
+    tripInsuranceQuotations,
+    isLoading,
+    hasError,
+    idSimulation,
+  } = useSelector((state: any) => ({
+    tripInsuranceQuotations:
+      state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
+    isLoading: state.tripInsuranceQuotation.isLoading,
+    hasError: state.tripInsuranceQuotation.hasError,
+    idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+  }))
+
+  useEffect(() => {
+    if (!tripInsuranceQuotations) {
+      dispatch(
+        PostInsuranceQuotationRequest({
+          payload: {
+            dataIda: '23/01/2021',
+            dataVolta: '28/01/2021',
+            motivoViagem: 1,
+            isPraticaAventura: false,
+            isMotocicleta: false,
+            qtdPassagMenorSetentaAnos: 2,
+            qtdPassagMaiorSetentaAnos: 0,
+            codigoUfOrigem: 'SP',
+            codigoPaisDestino: '58',
+            passageiroPrincipal: {
+              numeroCpf: '332444528',
+              digitoCpf: '09',
+            },
+            codigoCanal: 1,
+          },
+          onErrorToast: addToast,
+          onSuccess: () => null,
+        })
+      )
+    }
+  }, [tripInsuranceQuotations, dispatch])
+
+  console.log('isLOADING: ', isLoading)
 
   return (
     <s.Container>
-      <ComparativeModal isOpen={modalOpen} handleClose={setModalOpen} />
-      <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} />
+      {/* <ComparativeModal isOpen={false} handleClose={setModalOpen} /> */}
+      {/* <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} /> */}
       <s.BackgroundWrapper>
         <s.DarkBackground />
         <s.ContentContainer>
@@ -153,20 +206,28 @@ const ChoosePlan: StepComponent = () => {
               </s.TitleWrapper>
             )}
             <s.CardsWrapper>
-              {planos.map(plano => (
-                <PlanCard
-                  planName={plano.planName}
-                  rating={plano.rating}
-                  installmentsAmount={plano.installmentsAmount}
-                  upfrontAmount={plano.upfrontAmount}
-                  firstCoverageAmount={plano.firstCoverageAmount}
-                  secondCoverageAmount={plano.secondCoverageAmount}
-                  thridCoverageAmount={plano.thridCoverageAmount}
-                  isLoading={plano.isLoading}
-                  key={plano.planName}
-                  onHireClick={() => {}}
-                />
-              ))}
+              {tripInsuranceQuotations && !isLoading
+                ? tripInsuranceQuotations.map((quotation: IPlan) => (
+                    <PlanCard
+                      planName={quotation.nomePlano}
+                      rating="1"
+                      installmentsAmount={`6X SEM JUROS DE R$ ${quotation.formasPagamento.listaParcelamentoCartao[5].valor}`}
+                      upfrontAmount={`R$ ${quotation.formasPagamento.listaParcelamentoCartao[0].valor} a vista`}
+                      firstCoverageAmount={
+                        quotation.ViagemCobertura.coberturas[0].valor
+                      }
+                      secondCoverageAmount={
+                        quotation.ViagemCobertura.coberturas[1].valor
+                      }
+                      thridCoverageAmount={
+                        quotation.ViagemCobertura.coberturas[2].valor
+                      }
+                      isLoading={isLoading}
+                      key={quotation.nomePlano}
+                      onHireClick={() => {}}
+                    />
+                  ))
+                : null}
             </s.CardsWrapper>
           </s.ContentWrapper>
           <s.DisclosureWrapper>
