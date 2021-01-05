@@ -31,15 +31,15 @@ export default function UserCard({
   retry = () => {},
   ...rest
 }: {
-  name: String
-  type: String
-  thumbnail?: Boolean
-  loading?: Boolean
-  error?: Boolean
+  name: string
+  type: string
+  thumbnail?: boolean
+  loading?: boolean
+  error?: boolean
   retry?: () => void
 }) {
-  function initials(name: String): String {
-    const [firstName, lastName] = name.split(' ').map(i => i.toUpperCase())
+  function initials(fullName: string): string {
+    const [firstName, lastName] = fullName.split(' ').map(i => i.toUpperCase())
 
     if (lastName) {
       return firstName.charAt(0) + lastName.charAt(0)
@@ -50,9 +50,9 @@ export default function UserCard({
     }
   }
 
-  if(loading) return <UserCardLoading />
+  if (loading) return <UserCardLoading />
 
-  if(error) return <UserCardError retry={retry}/>
+  if (error) return <UserCardError retry={retry} />
 
   return (
     <S.Card {...rest} data-testid="userCard">

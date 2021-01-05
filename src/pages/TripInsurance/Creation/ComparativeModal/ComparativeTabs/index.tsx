@@ -4,26 +4,30 @@ import { uuid } from 'uuidv4'
 import VerticalList from 'components/VerticalList'
 import { Tab } from 'components/Tab/NewTab'
 
-import * as t from '../types'
+import {
+  IPlan,
+  ICoverage,
+} from 'store/modules/TripInsurance/InsuranceQuotation/types'
+
 import * as s from './styles'
 
 interface IComparativeTabs {
-  travelPlans: t.ITravelPlans[]
+  travelPlans: IPlan[]
 }
 
 const ComparativeTabs: React.FC<IComparativeTabs> = ({
   travelPlans,
   ...rest
 }) => {
-  const [planContent, setPlanContent] = useState<t.ITravelCoverage[]>([])
+  const [planContent, setPlanContent] = useState<ICoverage[]>([])
 
   useEffect(() => {
     if (travelPlans.length > 0) {
-      setPlanContent(travelPlans[0].viagemCobertura)
+      setPlanContent(travelPlans[0].ViagemCobertura.coberturas)
     }
   }, [travelPlans])
 
-  const renderItems = (planContent: t.ITravelCoverage[]) =>
+  const renderItems = (planContent: ICoverage[]) =>
     planContent.map((item, index) => (
       <div key={uuid()}>
         <VerticalList
@@ -59,7 +63,7 @@ const ComparativeTabs: React.FC<IComparativeTabs> = ({
               <Tab
                 name={`tab-plano-${planName}`}
                 key={uuid()}
-                onClick={() => setPlanContent(plan.viagemCobertura)}
+                onClick={() => setPlanContent(plan.ViagemCobertura.coberturas)}
                 data-gtm-type="click"
                 data-gtm-clicktype="button"
                 data-gtm-subname={`Plano ${planName}`}
