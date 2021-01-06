@@ -19,7 +19,7 @@ describe('Trip Insurance Reducer', () => {
           hasError: false,
         },
         {
-          type: Types.GET_DESTINATION_CONTRIES_REQUEST,
+          type: Types.GET_DESTINATION_COUNTRIES_REQUEST,
         }
       )
     ).toEqual({
@@ -38,7 +38,7 @@ describe('Trip Insurance Reducer', () => {
           hasError: false,
         },
         {
-          type: Types.GET_DESTINATION_CONTRIES_SUCCESS,
+          type: Types.GET_DESTINATION_COUNTRIES_SUCCESS,
           payload: { ok: true },
         }
       )
@@ -58,7 +58,7 @@ describe('Trip Insurance Reducer', () => {
           isLoading: false,
         },
         {
-          type: Types.GET_DESTINATION_CONTRIES_FAILURE,
+          type: Types.GET_DESTINATION_COUNTRIES_FAILURE,
         }
       )
     ).toEqual({
