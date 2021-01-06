@@ -4,9 +4,8 @@ import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
 import userEvent from '@testing-library/user-event'
 
-import EditingCardData from './index'
-
 import { ICreditCardExpirationDays } from 'store/modules/CreditCard/ExpirationDays/types'
+import EditingCardData from './index'
 
 const formData = {
   bairro: 'Aldeia da Areia',

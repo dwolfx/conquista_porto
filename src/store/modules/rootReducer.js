@@ -45,6 +45,7 @@ import virtualKeyboard from './VirtualKeyboard/reducer'
 import token2fa from './2FAToken/reducer'
 import lastTransaction from './Investment/LastTransaction/reducer'
 import withdraw from './Withdraw/reducer'
+import zipCode from './ZipCode/reducer'
 
 export default combineReducers({
   alignmentTerms,
@@ -90,4 +91,5 @@ export default combineReducers({
   token2fa,
   lastTransaction,
   withdraw,
+  zipCode,
 })

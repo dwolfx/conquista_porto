@@ -25,5 +25,5 @@ export const brazilianStates = [
   'SC',
   'SP',
   'SE',
-  'TO'
+  'TO',
 ]

@@ -28,7 +28,7 @@ export function* getDataAndRedirect({
     suitabilityInfo = yield select(selectSuitabilityInfo)
   }
 
-  let isSuitabilityInfoValid = Boolean(
+  const isSuitabilityInfoValid = Boolean(
     suitabilityInfo.data?.status_data_vigencia_suitability &&
       suitabilityInfo.data?.status_possui_suitability
   )

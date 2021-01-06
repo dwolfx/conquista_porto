@@ -19,7 +19,7 @@ const CEPInitialState = () => (
   </s.LinkCEPWrapper>
 )
 
-const CEPStates = ({ CEPState, setCEPState }: ICEPStatesProps) => {
+const CEPStates = ({ CEPState }: ICEPStatesProps) => {
   switch (CEPState) {
     case ECEPStates.loading:
       return <CEPLoading />

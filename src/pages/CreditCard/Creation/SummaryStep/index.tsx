@@ -5,17 +5,21 @@ import Text from 'components/Text'
 import Checkbox from 'components/Inputs/Checkbox'
 import Button from 'components/Button'
 
+import { ISummaryStep } from 'pages/CreditCard/Creation/types'
 import PersonalData from './PersonalData'
 import CardData from './CardData'
 import DeliveryData from './DeliveryData'
-
-import { ISummaryStep } from 'pages/CreditCard/Creation/types'
 
 import { StyledCard } from './CardData/styles'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 
-const FifthStep = ({ formData, setFormData, onSubmit, retrySubmit }: ISummaryStep) => {
+const FifthStep = ({
+  formData,
+  setFormData,
+  onSubmit,
+  retrySubmit,
+}: ISummaryStep) => {
   const [isChecked, setChecked] = useState(false)
 
   return (
@@ -68,7 +72,7 @@ const FifthStep = ({ formData, setFormData, onSubmit, retrySubmit }: ISummarySte
           disabled={!isChecked}
           onClick={() => onSubmit()}
         >
-          {retrySubmit ? 'TENTAR NOVAMENTE' : 'SOLICITAR CARTÃO' }
+          {retrySubmit ? 'TENTAR NOVAMENTE' : 'SOLICITAR CARTÃO'}
         </Button>
       </S.Footer>
     </>

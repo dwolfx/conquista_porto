@@ -1,8 +1,8 @@
 import React from 'react'
-import * as s from '../styles'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import * as t from 'components/Inputs/Select/types'
+import * as s from '../styles'
 
 const statesOptions: t.TOptions[] = [
   {

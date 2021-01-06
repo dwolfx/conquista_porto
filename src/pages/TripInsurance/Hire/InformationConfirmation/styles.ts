@@ -142,6 +142,11 @@ export const TextInput = styled(NewInput)`
 
 export const PPENameInput = styled(NewInput)`
   margin: ${({ theme }) => `0 ${theme.spacing(2)}px `};
+  margin-bottom: ${({ error, theme }) => `${error && theme.spacing(5)}px`};
+`
+
+export const PPEDocumentInput = styled(TextInput)`
+  margin-bottom: ${({ error, theme }) => `${error && theme.spacing(5)}px`};
 `
 
 export const AddressText = styled(Text)`

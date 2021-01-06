@@ -413,7 +413,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
             onClick={() =>
               onNextStep({
                 ...formData,
-                cep: cep,
+                cep,
                 cidade: city,
                 logradouro: streetAddress,
                 bairro: neighbourhood,
