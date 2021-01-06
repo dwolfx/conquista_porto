@@ -26,8 +26,6 @@ import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
 import ConsortiumBuilding from 'pages/ConsortiumBuilding'
 import ManagementConsortiumBuilding from 'pages/ConsortiumBuilding/Management'
 import CartaoCredito from 'pages/CreditCard'
-import Creation from 'pages/TripInsurance/Creation'
-import CompanionStep from 'pages/TripInsurance/Hire/CompanionStep'
 // import CartaoCreditoPro from 'pages/CreditCard/PRO'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
@@ -242,18 +240,6 @@ export default function Routes({ ...props }) {
           pageTitle="Home - Cartão de Crédito - PRO"
         /> */}
         <Route
-          path="/seguro-viagem/contratar"
-          exact
-          component={CompanionStep}
-          pageTitle="Seguro Viagem - Simular"
-        />
-        <Route
-          path="/seguro-viagem/simular"
-          exact
-          component={Creation}
-          pageTitle="Simulação - Seguro Viagem"
-        />
-        <Route
           path="/seguro-viagem/simular/pro"
           exact
           component={TripInsuranceProposalCreation}
@@ -271,18 +257,6 @@ export default function Routes({ ...props }) {
           path="/seguro-viagem/visualizar"
           component={ManagementTripInsurance}
           pageTitle="Gestão - Seguro de Viagem"
-        />
-        <Route
-          path="/seguro-viagem/simular"
-          exact
-          component={Creation}
-          pageTitle="Simulação - Seguro Viagem"
-        />
-        <Route
-          path="/seguro-viagem/pro/proposta"
-          exact
-          component={TripInsuranceProposalCreation}
-          pageTitle="Seguro Viagem - Simular"
         />
         <DefaultRoute
           path="/financiamento-veiculo"

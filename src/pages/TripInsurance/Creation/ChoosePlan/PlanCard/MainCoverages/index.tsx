@@ -7,9 +7,9 @@ interface IMainCoveragesProps {
   isMobile: boolean
   isMdUp: boolean
   isLg: boolean
-  firstCoverageAmount: string
-  secondCoverageAmount: string
-  thridCoverageAmount: string
+  firstCoverageAmount?: string
+  secondCoverageAmount?: string
+  thridCoverageAmount?: string
 }
 
 export default function MainCoverages({
@@ -48,7 +48,7 @@ export default function MainCoverages({
         <s.CoverageVerticalList
           elements={[
             <s.CoverageText type="captionUppercase" bold color="gray5">
-              extravio de bagagem
+              Extravio de bagagem
             </s.CoverageText>,
             <Text bold truncate>
               {thridCoverageAmount}

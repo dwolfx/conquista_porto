@@ -12,6 +12,7 @@ import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
 
@@ -33,6 +34,8 @@ const OriginTripStep: StepComponent = () => {
   })
 
   const [countries, setCountries] = useState<IOption[]>([])
+
+  useFetchCustomerProfile()
 
   const {
     customerProfileData,
