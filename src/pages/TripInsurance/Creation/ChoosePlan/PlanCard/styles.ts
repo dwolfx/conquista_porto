@@ -75,3 +75,9 @@ export const Divider = styled(Divisor)`
 export const MainCoveragesTitle = styled(Text)`
   padding: ${({ theme }) => theme.spacing(2)}px 0px;
 `
+
+export const LoadingWrapper = styled.div``
+
+export const LoadingText = styled(Text)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`

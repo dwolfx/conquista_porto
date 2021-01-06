@@ -1,8 +1,10 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import PlanCard from '.'
+
+const mockedFunction = jest.fn()
 
 describe('Plan Card tests', () => {
   it('should exists', () => {
@@ -12,13 +14,13 @@ describe('Plan Card tests', () => {
     renderWithReduxAndTheme(
       <PlanCard
         planName="Brasil Terra"
-        rating="3"
-        installmentsAmount="3x sem juros de R$ 209,97"
-        upfrontAmount="R$ 659,82 à vista"
+        recommendedPaymentPlan="3x sem juros de R$ 209,97"
+        upfrontPayment="R$ 659,82 à vista"
         firstCoverageAmount="R$ 150.000,00"
         secondCoverageAmount="R$ 250.000,00"
         thridCoverageAmount="R$ 350.000,00"
         isLoading={true}
+        onHireClick={mockedFunction}
       />
     )
     const planName = screen.getByText('Brasil Terra')
@@ -35,37 +37,5 @@ describe('Plan Card tests', () => {
     expect(secondCoverageAmount).toBeInTheDocument()
     expect(thridCoverageAmount).toBeInTheDocument()
     expect(contractButton).toBeInTheDocument()
-  })
-  it('should have the button disabled', () => {
-    renderWithReduxAndTheme(
-      <PlanCard
-        planName="Brasil Terra"
-        rating="3"
-        installmentsAmount="3x sem juros de R$ 209,97"
-        upfrontAmount="R$ 659,82 à vista"
-        firstCoverageAmount="R$ 150.000,00"
-        secondCoverageAmount="R$ 250.000,00"
-        thridCoverageAmount="R$ 350.000,00"
-        isLoading={true}
-      />
-    )
-    const simulateButton = screen.getByRole('button')
-    expect(simulateButton).toBeDisabled()
-  })
-  it('should have the button enabled', () => {
-    renderWithReduxAndTheme(
-      <PlanCard
-        planName="Brasil Terra"
-        rating="3"
-        installmentsAmount="3x sem juros de R$ 209,97"
-        upfrontAmount="R$ 659,82 à vista"
-        firstCoverageAmount="R$ 150.000,00"
-        secondCoverageAmount="R$ 250.000,00"
-        thridCoverageAmount="R$ 350.000,00"
-        isLoading={false}
-      />
-    )
-    const simulateButton = screen.getByRole('button')
-    expect(simulateButton).not.toBeDisabled()
   })
 })

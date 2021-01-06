@@ -239,3 +239,7 @@ export const Button = styled(ButtonComponent)`
 export const Divider = styled(Divisor)`
   color: ${({ theme }) => theme.colors.gray5};
 `
+
+export const LoadingText = styled(Text)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`

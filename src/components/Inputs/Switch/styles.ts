@@ -16,7 +16,7 @@ export const CustomControl = styled.div`
   padding-left: 1.5rem;
 `
 
-export const SwitchLabel = styled.label`
+export const SwitchLabel = styled.label<{ isToggle: boolean }>`
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
   line-height: 19px;
@@ -36,10 +36,18 @@ export const SwitchLabel = styled.label`
     height: 1rem;
     pointer-events: none;
     content: '';
-    background-color: ${props => props.theme.colors.blue4};
-    box-shadow: 0 0 1px 0 ${props => props.theme.colors.blue4} inset,
-      0 0 1px 0 ${props => props.theme.colors.blue4};
-    border: ${props => props.theme.colors.blue4} solid 1px;
+
+    ${({ isToggle, theme }) =>
+      isToggle
+        ? `background-color: ${theme.colors.gray3};
+      box-shadow: 0 0 1px 0 ${theme.colors.gray3} inset,
+        0 0 1px 0 ${theme.colors.gray3};
+      border: ${theme.colors.gray3} solid 1px;`
+        : `background-color: ${theme.colors.blue4};
+      box-shadow: 0 0 1px 0 ${theme.colors.blue4} inset,
+        0 0 1px 0 ${theme.colors.blue4};
+      border: ${theme.colors.blue4} solid 1px;`}
+
     transition: background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
@@ -55,7 +63,7 @@ export const SwitchLabel = styled.label`
   }
 `
 
-export const SwitchContainer = styled.div`
+export const SwitchContainer = styled.div<{ isToggle: boolean }>`
   ${SwitchLabel} {
     &:before {
       content: '';
@@ -64,7 +72,10 @@ export const SwitchContainer = styled.div`
       width: 42px;
       height: 21px;
       pointer-events: all;
-      border-color: ${props => props.theme.colors.blue4};
+      ${({ isToggle, theme }) =>
+        isToggle
+          ? `border-color: ${theme.colors.gray3};`
+          : `border-color: ${theme.colors.blue4};`}
       border-radius: 21px;
     }
 
@@ -74,7 +85,7 @@ export const SwitchContainer = styled.div`
       left: -54px;
       width: 1rem;
       height: 1rem;
-      background-color: ${props => props.theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.white};
       border-radius: 0.5rem;
       transition: background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
@@ -88,7 +99,9 @@ export const SwitchContainer = styled.div`
     }
   }
 `
-export const SwitchInput = styled.input.attrs(() => ({ type: 'checkbox' }))`
+export const SwitchInput = styled.input.attrs(() => ({
+  type: 'checkbox',
+}))<{ isToggle: boolean }>`
   box-sizing: border-box;
   padding: 0;
   position: absolute;
@@ -97,8 +110,6 @@ export const SwitchInput = styled.input.attrs(() => ({ type: 'checkbox' }))`
   width: 1rem;
   height: 1.25rem;
   opacity: 0;
-  box-sizing: border-box;
-  padding: 0;
 
   &:disabled ~ ${SwitchLabel} {
     &::before {
