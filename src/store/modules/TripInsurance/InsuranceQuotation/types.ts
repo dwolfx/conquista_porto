@@ -1,3 +1,5 @@
+import { IToast } from 'hooks/toast'
+
 export const Types = {
   POST_INSURANCE_QUOTATION_REQUEST: 'POST_INSURANCE_QUOTATION_REQUEST',
   POST_INSURANCE_QUOTATION_SUCCESS: 'POST_INSURANCE_QUOTATION_SUCCESS',
@@ -79,4 +81,11 @@ export interface ITripInsuranceQuotation {
   data: IInsuranceQuotationResponse | null
   isLoading: boolean
   hasError: boolean
+}
+
+export interface IPayload {
+  type: keyof typeof Types
+  payload: IInsuranceQuotationRequest
+  onErrorToast: (toast: Omit<IToast, 'id'>) => void
+  onSuccess?: () => void
 }

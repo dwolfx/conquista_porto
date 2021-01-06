@@ -1,31 +1,19 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { post, baseURLNamespaceInvestAws } from 'services/api'
+import { Types, IPayload, IInsuranceQuotationResponse } from './types'
 import {
-  Types,
-  IInsuranceQuotationRequest,
-  IInsuranceQuotationResponse,
-} from './types'
-import {
-  PostInsuranceQuotationRequest,
   PostInsuranceQuotationSuccess,
   PostInsuranceQuotationFailure,
 } from './action'
-import { IToast } from 'hooks/toast'
 
 export function* postInsuranceQuotation({
-  type,
   payload,
   onErrorToast,
   onSuccess,
-}: {
-  type: keyof typeof Types
-  payload: IInsuranceQuotationRequest
-  onErrorToast: (toast: Omit<IToast, 'id'>) => void
-  onSuccess: () => void
-}) {
+}: IPayload) {
   try {
-    const { data } = yield call(
+    const { data }: { data: IInsuranceQuotationResponse } = yield call(
       post,
       `${baseURLNamespaceInvestAws}/viagem/cotacao/seguro`,
       payload
@@ -35,6 +23,11 @@ export function* postInsuranceQuotation({
     if (onSuccess) onSuccess()
   } catch (err) {
     yield put(PostInsuranceQuotationFailure())
+    onErrorToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: 'Erro ao enviar solicitação.',
+    })
   }
 }
 

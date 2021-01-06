@@ -7,6 +7,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const destinationContriesMock = require('./src/mocks/destinationCountries.json')
+const tripInsuranceCreditCardMock = require('./src/mocks/tripInsuranceCreditCard.json')
 const tripInsuranceQuotationMock = require('./src/mocks/tripInsuranceQuotation.json')
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
@@ -251,6 +252,13 @@ router.render = (req, res) => {
         tipoCritica: 'SUCESSO',
       },
     })
+  }
+
+  if (
+    req.originalUrl.endsWith('/cartoes?codigoCanal=1&integracao=1') &&
+    req.method === 'GET'
+  ) {
+    return res.status(200).jsonp(tripInsuranceCreditCardMock)
   }
 
   return res.jsonp(res.locals.data)

@@ -56,5 +56,5 @@ export function* getDestinationCountries() {
 }
 
 export default all([
-  takeLatest(Types.GET_DESTINATION_CONTRIES_REQUEST, getDestinationCountries),
+  takeLatest(Types.GET_DESTINATION_COUNTRIES_REQUEST, getDestinationCountries),
 ])

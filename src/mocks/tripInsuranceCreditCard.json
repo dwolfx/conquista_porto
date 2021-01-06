@@ -1,0 +1,15 @@
+[
+  {
+    "Tipo": "GOLD",
+    "Bandeira": "MASTERCARD",
+    "Fatura": {
+      "MelhorDataCompra": "8",
+      "Valor": "97.14",
+      "Vencimento": "8"
+    },
+    "UltimosDigitos": "6112",
+    "LimiteTitularCartao": {
+      "LimiteDisponivel": "15505.72"
+    }
+  }
+]
