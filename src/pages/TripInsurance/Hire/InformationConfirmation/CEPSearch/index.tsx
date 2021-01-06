@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import * as s from './styles'
 import CEPInput from 'components/Inputs/CEPInput'
+import * as s from './styles'
 import CEPStates from './CEPStates'
 import { ECEPStates } from './CEPStates/types'
 

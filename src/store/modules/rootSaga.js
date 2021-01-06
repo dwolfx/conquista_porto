@@ -45,6 +45,7 @@ import rewardsTypes from './Rewards/Types/sagas'
 import virtualKeyboard from './VirtualKeyboard/sagas'
 import token2fa from './2FAToken/sagas'
 import withdraw from './Withdraw/sagas'
+import zipCode from './ZipCode/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -90,5 +91,6 @@ export default function* rootSaga() {
     token2fa,
     lastTransaction,
     withdraw,
+    zipCode,
   ])
 }

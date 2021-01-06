@@ -1,10 +1,112 @@
 import React from 'react'
+import { storeFactory } from 'setupTests'
 
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import InformationConfirmation from '.'
 
+const createRootContainer = () => {
+  let container = document.getElementById('root')
+  if (!container) {
+    container = document.createElement('div')
+    container.setAttribute('id', 'root')
+    container.setAttribute('role', 'main')
+    document.body.appendChild(container)
+  }
+  return container
+}
+
 describe('InformationConfirmation component tests', () => {
+  const successStore = storeFactory({
+    fluxManagement: {
+      stack: [
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+      ],
+      form: {
+        passageiroPrincipal: {
+          nome: 'Rubao',
+          email: 'ricardo.eufrasio@portoseguro.com.br',
+          dataNascimento: '11/11/1981',
+          sexo: 'M',
+          celularDDD: '11',
+          celularNumero: '996229303',
+          numeroCpf: '362753128',
+          digitoCpf: '07',
+          contato: {
+            nome: 'Rubao',
+            celularDDD: '11',
+            celularNumero: '996229303',
+          },
+          isResidePais: true,
+          pessoaExposta: {
+            grauRelacionamento: 2,
+          },
+        },
+        codigoPaisDestino: 28,
+        paisesAdicionais: [],
+        motivoViagem: 1,
+        codigoCanal: 1,
+        nationalDestination: true,
+        codigoUfOrigem: 'SP',
+        hasLatinAmericaDestination: false,
+        dataIda: '15/01/2021',
+        dataVolta: '22/01/2021',
+        qtdPassagMenorSetentaAnos: 1,
+        qtdPassagMaiorSetentaAnos: 0,
+        isPraticaAventura: true,
+        isMotocicleta: true,
+        pacoteEscolhido: '1',
+      },
+    },
+  })
   it('should exists', () => {
     expect(InformationConfirmation).toBeDefined()
   })
@@ -32,32 +134,26 @@ describe('InformationConfirmation component tests', () => {
     suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
   })
   it('should render correctly "Dados cadastrais" card', () => {
-    renderWithReduxAndTheme(<InformationConfirmation />)
-    const textsToBeDefined = [
-      'dados cadastrais',
-      'Bruno Mizrahi',
-      '421.980.660-20',
-      '14/02/1987',
-      'Você reside no Brasil?',
-      'Este seguro só poderá ser contratado pelo segurado residente no Brasil.',
-    ]
-
-    const suiteTests = textsToBeDefined.map(word => ({
-      execution: screen.getByText(word),
-    }))
-
-    suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
+    renderWithReduxAndTheme(<InformationConfirmation />, {
+      container: createRootContainer(),
+      store: successStore,
+    })
 
     const updateProfileLink = screen.getAllByText('alterar no perfil')
-    const selectGender = screen.getByTestId('select-sexo')
     const brazilianResidentOption = screen.getByTestId(
       'radio-brazilian-resident'
     )
     const radioOptions = screen.getAllByRole('radio')
 
+    const texts = ['Rubao', '362.753.128-07', '11/11/1981', 'Masculino']
+
+    texts
+      .map(value => screen.getByText(value))
+      .forEach(value => expect(value).toBeInTheDocument())
+
     expect(updateProfileLink).toHaveLength(2)
     expect(radioOptions).toHaveLength(4)
-    expect([brazilianResidentOption, selectGender]).toBeDefined()
+    expect([brazilianResidentOption]).toBeDefined()
   })
   it('should render correctly "Dados para contato" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)
@@ -89,14 +185,9 @@ describe('InformationConfirmation component tests', () => {
 
     const PPEOption = screen.getByTestId('radio-ppe')
     const radioOptions = screen.getAllByRole('radio')
-    const whoIsThePPE = screen.getByTestId(
-      'select-quem é a pessoa políticamente exposta?'
-    )
-    const fullName = screen.getByDisplayValue('Maria Eduarda')
-    const cpf = screen.getByDisplayValue('000.000.000-00')
 
     expect(radioOptions).toHaveLength(4)
-    expect([PPEOption, whoIsThePPE, fullName, cpf]).toBeDefined()
+    expect([PPEOption]).toBeDefined()
   })
   it('should render correctly "Endereço" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)
@@ -114,10 +205,8 @@ describe('InformationConfirmation component tests', () => {
   it('should render correctly "Contato em caso de acidentes" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)
     const cardTitle = screen.getByText('contato em caso de acidentes')
-    const addressNumber = screen.getByDisplayValue('Maria')
-    const addressComplement = screen.getByDisplayValue('(11) 9 6458-5965')
 
-    expect([cardTitle, addressNumber, addressComplement]).toBeDefined()
+    expect([cardTitle]).toBeDefined()
   })
   it('should render correctly "Termos de contratação" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)

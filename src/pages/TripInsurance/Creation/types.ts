@@ -5,9 +5,10 @@ import CoverageDate from './CoverageDate'
 import MotocicleQuestion from './MotocicleQuestion'
 import ChoosePlan from './ChoosePlan'
 import Status from '../commons/RequestProposalStatus'
-import PaymentStep from '../Hire/PaymentStep'
-import CompanionStep from '../Hire/CompanionStep'
 import InformationConfirmation from '../Hire/InformationConfirmation'
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+import CompanionStep from '../Hire/CompanionStep'
+import PaymentStep from '../Hire/PaymentStep'
 
 export const Steps = {
   status: Status,
@@ -19,7 +20,7 @@ export const Steps = {
   choosePlan: ChoosePlan,
   companionStep: CompanionStep,
   paymentStep: PaymentStep,
-  informationConfirmation: InformationConfirmation,
+  informationConfirmationStep: InformationConfirmation,
 }
 
 export interface IAdditionalCountries {
@@ -28,30 +29,29 @@ export interface IAdditionalCountries {
 }
 
 export interface IPassengerContact {
-  nome: string
-  celularDDD: string
-  celularNumero: string
+  nome?: string
+  celularDDD?: string
+  celularNumero?: string
 }
 
 export interface IPassengerAddress {
-  tipo: string
-  logradouro: string
-  bairro: string
-  cidade: string
-  uf: string
-  complemento: string
-  numero: string
-  numeroCep: string
-  complementoCep: string
+  tipo?: string
+  logradouro?: string
+  bairro?: string
+  cidade?: string
+  uf?: string
+  complemento?: string
+  numero?: string
+  numeroCep?: string
+  complementoCep?: string
 }
 
 export interface IPoliticallyExposedPerson {
-  nome: string
-  numeroCpf: string
-  digitoCpf: string
-  // AGUARDANDO RESPOSTA DA PORTO PARA OS CAMPOS ABAIXO
-  grauRelacionamento: number
-  grauParentesco: number
+  nome?: string
+  numeroCpf?: string
+  digitoCpf?: string
+  grauRelacionamento?: number
+  grauParentesco?: number
 }
 
 export interface IMainPassenger {
@@ -112,4 +112,5 @@ export interface IForm {
   codigoCanal?: 1
   nationalDestination?: boolean
   hasLatinAmericaDestination?: boolean
+  plan?: IPlan
 }

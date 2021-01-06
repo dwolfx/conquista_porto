@@ -4,23 +4,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { PostInsuranceQuotationRequest } from 'store/modules/TripInsurance/InsuranceQuotation/action'
 import Text from 'components/Text'
 import Switch from 'components/Inputs/Switch'
-import LoadingState from 'pages/TripInsurance/Creation/ResponseStates/Loading'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import {
+  IPlan,
+  ITripInsuranceQuotation,
+} from 'store/modules/TripInsurance/InsuranceQuotation/types'
+
+import LoadingState from 'pages/Home/commons/LoadingState'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
-import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
-
+import EditDrawer from '../EditDrawer'
+import ComparativeModal from '../ComparativeModal'
+import PlanCard from './PlanCard'
+import * as s from './styles'
 import {
   getTheSixthInstallmentOrLessFormated,
   getUpfrontPaymentFormated,
 } from './helpers'
-import * as s from './styles'
-import PlanCard from './PlanCard'
-import ComparativeModal from '../ComparativeModal'
-import EditDrawer from '../EditDrawer'
 import { IForm, Steps } from '../types'
 
 const ChoosePlan: StepComponent = () => {
@@ -76,7 +78,100 @@ const ChoosePlan: StepComponent = () => {
       ...form,
       pacoteEscolhido: choosedPlan,
     })
-    instantiate(Steps.informationConfirmation)
+    instantiate(Steps.informationConfirmationStep)
+  }
+
+  const contentWrapper = () => {
+    if (
+      tripInsuranceQuotations &&
+      tripInsuranceQuotations.length === 2 &&
+      isTabletHorizontal &&
+      isLgDown
+    ) {
+      return (
+        <s.TitleWrapperColumn>
+          <s.Title color="white" type="heading3">
+            Escolha um plano disponível
+          </s.Title>
+          <s.SwitchWrapper>
+            <s.SwitchText
+              color="white"
+              type="subheading"
+              bold
+              textTransform="uppercase"
+            >
+              simular em até 12x sem juros com 5% de desconto no Cartão Porto
+              Seguro
+            </s.SwitchText>
+            <Switch
+              id="123"
+              value={isPortoSeguroCard}
+              onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
+              disabled={false}
+              leftLabel=""
+              rightLabel=""
+              isToggle
+            />
+          </s.SwitchWrapper>
+        </s.TitleWrapperColumn>
+      )
+    }
+
+    if (
+      tripInsuranceQuotations &&
+      tripInsuranceQuotations.length === 1 &&
+      isTabletHorizontal
+    ) {
+      return (
+        <s.TitleWrapperCentralized>
+          <s.SwitchWrapper>
+            <s.SwitchText
+              color="white"
+              type="subheading"
+              bold
+              textTransform="uppercase"
+            >
+              simular em até 12x sem juros com 5% de desconto no Cartão Porto
+              Seguro
+            </s.SwitchText>
+            <Switch
+              id="is-porto-seguro-card"
+              value={isPortoSeguroCard}
+              onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
+              isToggle
+            />
+          </s.SwitchWrapper>
+        </s.TitleWrapperCentralized>
+      )
+    }
+
+    return (
+      <s.TitleWrapper>
+        <s.Title color="white" type={isMobile ? 'heading4' : 'heading3'}>
+          Escolha um plano disponível
+        </s.Title>
+        <s.SwitchWrapper>
+          <s.SwitchText
+            color="white"
+            type="subheading"
+            bold
+            textTransform="uppercase"
+          >
+            simular em até 12x sem juros com 5% de desconto no Cartão Porto
+            Seguro
+          </s.SwitchText>
+          <Switch
+            id="123"
+            value={isPortoSeguroCard}
+            onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
+            disabled={false}
+            leftLabel=""
+            rightLabel=""
+            isToggle
+          />
+        </s.SwitchWrapper>
+      </s.TitleWrapper>
+    )
   }
 
   return (
@@ -113,93 +208,7 @@ const ChoosePlan: StepComponent = () => {
               )}
               <s.Divider />
               <s.ContentWrapper>
-                {tripInsuranceQuotations &&
-                tripInsuranceQuotations.length === 2 &&
-                isTabletHorizontal &&
-                isLgDown ? (
-                  <s.TitleWrapperColumn>
-                    <s.Title color="white" type="heading3">
-                      Escolha um plano disponível
-                    </s.Title>
-                    <s.SwitchWrapper>
-                      <s.SwitchText
-                        color="white"
-                        type="subheading"
-                        bold
-                        textTransform="uppercase"
-                      >
-                        simular em até 12x sem juros com 5% de desconto no
-                        Cartão Porto Seguro
-                      </s.SwitchText>
-                      <Switch
-                        id="123"
-                        value={isPortoSeguroCard}
-                        onChangeSwitch={() =>
-                          setIsPortoSeguroCard(!isPortoSeguroCard)
-                        }
-                        disabled={false}
-                        leftLabel=""
-                        rightLabel=""
-                        isToggle={true}
-                      />
-                    </s.SwitchWrapper>
-                  </s.TitleWrapperColumn>
-                ) : tripInsuranceQuotations &&
-                  tripInsuranceQuotations.length === 1 &&
-                  isTabletHorizontal ? (
-                  <s.TitleWrapperCentralized>
-                    <s.SwitchWrapper>
-                      <s.SwitchText
-                        color="white"
-                        type="subheading"
-                        bold
-                        textTransform="uppercase"
-                      >
-                        simular em até 12x sem juros com 5% de desconto no
-                        Cartão Porto Seguro
-                      </s.SwitchText>
-                      <Switch
-                        id="is-porto-seguro-card"
-                        value={isPortoSeguroCard}
-                        onChangeSwitch={() =>
-                          setIsPortoSeguroCard(!isPortoSeguroCard)
-                        }
-                        isToggle={true}
-                      />
-                    </s.SwitchWrapper>
-                  </s.TitleWrapperCentralized>
-                ) : (
-                  <s.TitleWrapper>
-                    <s.Title
-                      color="white"
-                      type={isMobile ? 'heading4' : 'heading3'}
-                    >
-                      Escolha um plano disponível
-                    </s.Title>
-                    <s.SwitchWrapper>
-                      <s.SwitchText
-                        color="white"
-                        type="subheading"
-                        bold
-                        textTransform="uppercase"
-                      >
-                        simular em até 12x sem juros com 5% de desconto no
-                        Cartão Porto Seguro
-                      </s.SwitchText>
-                      <Switch
-                        id="123"
-                        value={isPortoSeguroCard}
-                        onChangeSwitch={() =>
-                          setIsPortoSeguroCard(!isPortoSeguroCard)
-                        }
-                        disabled={false}
-                        leftLabel=""
-                        rightLabel=""
-                        isToggle={true}
-                      />
-                    </s.SwitchWrapper>
-                  </s.TitleWrapper>
-                )}
+                {contentWrapper()}
                 <s.CardsWrapper>
                   {tripInsuranceQuotations &&
                     tripInsuranceQuotations.map((quotation: IPlan) => {
