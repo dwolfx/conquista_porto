@@ -9,6 +9,7 @@ import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { StepComponent } from 'hooks/FluxManagement/types'
 import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
 import {
   getTheSixthInstallmentOrLessFormated,
@@ -29,13 +30,15 @@ const ChoosePlan: StepComponent = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isPortoSeguroCard, setIsPortoSeguroCard] = useState(false)
 
-  const { tripInsuranceQuotations, isLoading } = useSelector((state: any) => ({
-    tripInsuranceQuotations:
-      state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
-    isLoading: state.tripInsuranceQuotation.isLoading,
-    hasError: state.tripInsuranceQuotation.hasError,
-    idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
-  }))
+  const { tripInsuranceQuotations, isLoading } = useSelector(
+    (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
+      tripInsuranceQuotations:
+        state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
+      isLoading: state.tripInsuranceQuotation.isLoading,
+      hasError: state.tripInsuranceQuotation.hasError,
+      idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+    })
+  )
 
   useEffect(() => {
     if (!tripInsuranceQuotations) {

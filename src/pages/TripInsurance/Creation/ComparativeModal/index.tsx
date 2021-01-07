@@ -13,7 +13,7 @@ import * as s from './styles'
 interface IComparativeModal {
   isOpen: boolean
   handleClose: (isOpen: boolean) => void
-  travelPlans: IPlan[]
+  travelPlans?: IPlan[]
   isLoading?: boolean
 }
 

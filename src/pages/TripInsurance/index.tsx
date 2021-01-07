@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
 
 import Banner from 'assets/images/pages/solutions/tripInsurance/banner.jpg'
 import BulletImage from 'assets/images/pages/solutions/tripInsurance/selo-seguro-viagem.svg'
@@ -17,7 +16,6 @@ import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { Container } from './styles'
 
 export default function TripInsurance() {
-  const { state: locationState } = useLocation()
   const [isOpenCreationLayer, setOpenCreationLayer] = useState(false)
   const { reset } = useStackFluxManagement()
 

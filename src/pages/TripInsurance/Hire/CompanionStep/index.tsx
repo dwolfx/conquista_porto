@@ -1,25 +1,26 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { uuid } from 'uuidv4'
 import { Col } from 'styled-bootstrap-grid'
-import useMedia from 'hooks/useMedia'
 
 import Icon from 'components/IconExporter'
 import ButtonLink from 'components/Button/Link'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
 import CompanionEditDrawer from './EditDrawer'
+import { useToast } from 'hooks/toast'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+
+import useMedia from 'hooks/useMedia'
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+
+import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
+import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
+
+import { Steps } from 'pages/TripInsurance/Creation/types'
 
 import * as s from './styles'
 import { IFormDrawerCompanion } from './EditDrawer/types'
-
-interface ICompanionsData {
-  name: string
-  status: boolean
-}
-
-interface ICompanion {
-  companions: ICompanionsData[]
-}
 
 const renderTableCompanionDataMock: IFormDrawerCompanion[] = [
   {
@@ -64,10 +65,13 @@ const renderTableCompanionDataMock: IFormDrawerCompanion[] = [
   },
 ]
 
-const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
+const CompanionStep: StepComponent = () => {
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
   const isDesktop = useMedia('lgUp')
   const isTablet = useMedia('mdUp')
   const isMobile = useMedia('sm')
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [companionEditable, setCompanionEditable] = useState<
     IFormDrawerCompanion
@@ -81,6 +85,27 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
     hasPoliticallyExposedPerson: false,
     isSameContactForEmergencyData: true,
   })
+
+  const { creditCardData, isCreditCardLoading } = useSelector(
+    (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
+      creditCardData: state.tripInsuranceCreditCard.data,
+      isCreditCardLoading: state.tripInsuranceCreditCard.isLoading,
+    })
+  )
+
+  const handleClick = () => {
+    if (!creditCardData) {
+      dispatch(
+        GetTripInsuranceCreditCardRequest({
+          onSuccess: instantiate,
+          Step: Steps.paymentStep,
+          onErrorToast: addToast,
+        })
+      )
+    } else {
+      instantiate(Steps.paymentStep)
+    }
+  }
 
   const renderStatusBody = (companionStatus: boolean) => {
     return (
@@ -207,7 +232,13 @@ const CompanionStep: React.FC<ICompanion> = ({ companions }) => {
         </s.Row>
       </s.ContentWrapper>
       <s.FooterContainer>
-        <s.NextButton color="secondary">próximo</s.NextButton>
+        <s.NextButton
+          loading={isCreditCardLoading}
+          color="secondary"
+          onClick={() => handleClick()}
+        >
+          próximo
+        </s.NextButton>
       </s.FooterContainer>
     </>
   )
