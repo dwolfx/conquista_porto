@@ -61,7 +61,8 @@ export const StyledCard = styled(Card)`
     margin-top: ${({ theme }) => theme.spacing(2)}px;
   }
 
-  padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(7)}px ${theme.spacing(6)}px`};
+  padding: ${({ theme }) =>
+    `${theme.spacing(2)}px ${theme.spacing(7)}px ${theme.spacing(6)}px`};
 
   @media ${props => props.theme.mediaQueries.lg} {
     padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(7)}px`};
@@ -77,6 +78,7 @@ export const StyledCard = styled(Card)`
 `
 
 export const StyledDivisor = styled(DivisorDescription)`
+  max-width: 294px;
   margin-top: ${({ theme }) => theme.spacing(4)}px;
 
   @media ${props => props.theme.mediaQueries.lg} {
@@ -90,7 +92,6 @@ export const StyledDivisor = styled(DivisorDescription)`
   @media ${props => props.theme.mediaQueries.xs} {
     text-align: left;
   }
-
 `
 
 export const MarginTopStyledText = styled(Text)`
@@ -100,11 +101,13 @@ export const CreditCardWrapper = styled.div<{ cardIsSelected?: boolean }>`
   padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(4)}px`};
   display: flex;
   align-items: center;
-  border: 1px solid ${({ theme, cardIsSelected }) => cardIsSelected ? theme.colors.blue4 : theme.colors.gray3};
+  border: 1px solid
+    ${({ theme, cardIsSelected }) =>
+      cardIsSelected ? theme.colors.blue4 : theme.colors.gray3};
   border-radius: 8px;
   width: 410px;
   margin-top: ${({ theme }) => theme.spacing(2)}px;
-  transition: border-color ease .3s;
+  transition: border-color ease 0.3s;
 
   @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
@@ -166,14 +169,14 @@ export const OtherFlexWrapper = styled.div<{ hasMargin?: boolean }>`
 `
 
 export const StyledRadio = styled(RadioComponent)`
-  margin-right:${({ theme }) => theme.spacing(2)}px;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${props => props.theme.mediaQueries.xs} {
-    margin-right:${({ theme }) => theme.spacing(1)}px;
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
 `
 export const TextWrapper = styled.div`
-  margin-left:${({ theme }) => theme.spacing(3)}px;
+  margin-left: ${({ theme }) => theme.spacing(3)}px;
 
   @media ${props => props.theme.mediaQueries.xs} {
     h6 {
@@ -183,5 +186,13 @@ export const TextWrapper = styled.div`
 `
 
 export const StyledPopover = styled(Popover)`
-  margin-left:${({ theme }) => theme.spacing(1)}px;
+  margin-left: ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const PopoverText = styled(Text).attrs(() => ({
+  bold: true,
+  type: 'body',
+  color: 'gray5',
+}))`
+  max-width: 213px;
 `

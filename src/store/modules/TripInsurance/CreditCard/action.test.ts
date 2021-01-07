@@ -7,8 +7,18 @@ import {
 
 describe('Trip Insurance credit card Actions', () => {
   test('if GetTripInsuranceCreditCardRequest returns the correct object', () => {
-    expect(GetTripInsuranceCreditCardRequest()).toEqual({
+    const addToastError = jest.fn()
+    expect(
+      GetTripInsuranceCreditCardRequest({
+        onSuccess: undefined,
+        Step: undefined,
+        onErrorToast: addToastError,
+      })
+    ).toEqual({
       type: Types.GET_TRIP_INSURANCE_CREDIT_CARD_REQUEST,
+      onSuccess: undefined,
+      Step: undefined,
+      onErrorToast: addToastError,
     })
   })
 

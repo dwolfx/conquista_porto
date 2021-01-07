@@ -5,6 +5,8 @@ import CoverageDate from './CoverageDate'
 import MotocicleQuestion from './MotocicleQuestion'
 import ChoosePlan from './ChoosePlan'
 import Status from '../commons/RequestProposalStatus'
+import PaymentStep from '../Hire/PaymentStep'
+import CompanionStep from '../Hire/CompanionStep'
 
 export const Steps = {
   status: Status,
@@ -14,6 +16,8 @@ export const Steps = {
   adventureSports: AdventureSports,
   motocicleQuestion: MotocicleQuestion,
   choosePlan: ChoosePlan,
+  companionStep: CompanionStep,
+  paymentStep: PaymentStep,
 }
 
 export interface IAdditionalCountries {
@@ -66,13 +70,13 @@ export interface IMainPassenger {
 export interface IPayment {
   // AGUARDANDO RESPOSTA DA PORTO PARA CÓDIGO BANDEIRA
   codigoBandeira: number
-  primeiroNumero: number
+  primeiroNumero: string
   segundoNumero: string
   terceiroNumero: string
   quartoNumero: string
   codigoSeguranca: number
   mesValidade: string
-  anoValidade: number
+  anoValidade: string
   nomeTitular: string
   quantidadeParcelas: number
   isCartaoPorto: boolean

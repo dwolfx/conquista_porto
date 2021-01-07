@@ -1,13 +1,17 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvest } from 'services/api'
-import { Types, ICreditCard, IMessage } from './types'
+import { Types, ICreditCard, IMessage, IGetCreditCards } from './types'
 import {
   GetTripInsuranceCreditCardSuccess,
   GetTripInsuranceCreditCardFailure,
 } from './action'
 
-export function* getCreditCards() {
+export function* getCreditCards({
+  onSuccess,
+  Step,
+  onErrorToast,
+}: IGetCreditCards) {
   try {
     const {
       data,
@@ -29,11 +33,16 @@ export function* getCreditCards() {
           : { ...data, creditCards: [] }
       )
     )
+    if (onSuccess && Step) onSuccess(Step)
   } catch (err) {
     yield put(GetTripInsuranceCreditCardFailure())
+    onErrorToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: 'Erro ao enviar solicitação.',
+    })
   }
 }
-
 export default all([
   takeLatest(Types.GET_TRIP_INSURANCE_CREDIT_CARD_REQUEST, getCreditCards),
 ])

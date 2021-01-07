@@ -1,8 +1,15 @@
-import { Types, IPayload } from './types'
+import { Types, IPayload, IGetCreditCardsRequestPayload } from './types'
 
-export function GetTripInsuranceCreditCardRequest() {
+export function GetTripInsuranceCreditCardRequest({
+  onErrorToast,
+  onSuccess,
+  Step,
+}: IGetCreditCardsRequestPayload) {
   return {
     type: Types.GET_TRIP_INSURANCE_CREDIT_CARD_REQUEST,
+    onSuccess,
+    Step,
+    onErrorToast,
   }
 }
 

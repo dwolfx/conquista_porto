@@ -1,92 +1,109 @@
 import React from 'react'
 
 import 'jest-styled-components'
-import { ThemeProvider } from 'styled-components'
-import { render } from 'testUtils'
-import theme from 'styles/theme'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
+import { storeFactory } from 'setupTests'
+import userEvent from '@testing-library/user-event'
 
-import { fireEvent } from '@testing-library/dom'
+import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
+import tripInsuranceCreditCardMock from 'mocks/tripInsuranceCreditCard.json'
 import PaymentStep from '.'
+
+const defaultStore = {
+  tripInsuranceCreditCard: {
+    data: {
+      Message: {
+        TipoCritica: '',
+        Mensagem: '',
+      },
+      creditCards: tripInsuranceCreditCardMock,
+    },
+    isLoading: false,
+    hasError: false,
+  },
+  tripInsuranceQuotation: {
+    data: tripInsuranceQuotationMock,
+    isLoading: false,
+    hasError: false,
+  },
+  fluxManagement: {
+    stack: [{}],
+    form: {
+      pacoteEscolhido: '1',
+    },
+  },
+}
+
+const setup = (initialState: any) => {
+  const store = storeFactory(initialState)
+  return renderWithReduxAndTheme(<PaymentStep />, {
+    store,
+  })
+}
 
 describe('PaymentStep component', () => {
   it('should exists', () => {
-    const { getByTestId } = render(
-      <ThemeProvider theme={theme}>
-        <PaymentStep />
-      </ThemeProvider>
-    )
-    expect(getByTestId('payment-step')).toBeVisible()
+    setup(defaultStore)
+    expect(PaymentStep).toBeDefined()
   })
 
   it('should change the option when radio is clicked', () => {
-    const { getByTestId, getAllByRole } = render(
-      <ThemeProvider theme={theme}>
-        <PaymentStep />
-      </ThemeProvider>
-    )
-    const radioPorto = getByTestId('input-radio-cartao-porto')
-    const radioOutro = getByTestId('input-radio-cartao-outro')
+    setup(defaultStore)
+    const radioPorto = screen.getByRole('radio', { name: 'cartao-porto' })
+    const radioOutro = screen.getByRole('radio', { name: 'cartao-outro' })
 
-    fireEvent.click(radioOutro)
-    expect(
-      getAllByRole('img', { name: 'creditcard' })[1].getAttribute('fill')
-    ).toEqual('#00ADEF')
-    fireEvent.click(radioPorto)
-    expect(
-      getAllByRole('img', { name: 'creditcard' })[0].getAttribute('fill')
-    ).toEqual('#00ADEF')
+    userEvent.click(radioOutro)
+    expect(radioOutro).toBeChecked()
+
+    userEvent.click(radioPorto)
+    expect(radioPorto).toBeChecked()
   })
 
-  it('should show the rest of form when radio is clicked', () => {
-    const { getByTestId, getByText } = render(
-      <ThemeProvider theme={theme}>
-        <PaymentStep />
-      </ThemeProvider>
-    )
-    const radioOutro = getByTestId('input-radio-cartao-outro')
+  it('should show form inputs', () => {
+    setup(defaultStore)
 
-    fireEvent.click(radioOutro)
-    expect(getByText('Assim como está impresso no cartão')).toBeVisible()
+    expect(screen.getByTestId('select-option-input-parcelas')).toBeVisible()
+    expect(screen.getByTestId('número do cartão')).toBeVisible()
+    expect(screen.getByTestId('nome completo')).toBeVisible()
+    expect(screen.getByText('Assim como está impresso no cartão')).toBeVisible()
+    expect(screen.getByTestId('validade')).toBeVisible()
+    expect(screen.getByTestId('cvc')).toBeVisible()
   })
 
   it('Should open select when select is clicked', () => {
-    const { getByTestId, getByRole } = render(
-      <ThemeProvider theme={theme}>
-        <PaymentStep />
-      </ThemeProvider>
-    )
-    const select = getByTestId('select-option-input-parcelas')
+    setup(defaultStore)
+    const select = screen.getByTestId('select-option-input-parcelas')
 
-    fireEvent.click(select)
-    expect(getByRole('img', { name: 'arrowup' })).toBeVisible()
+    userEvent.click(select)
+    expect(screen.getByRole('img', { name: 'arrowup' })).toBeVisible()
+    expect(screen.getByText('1x de R$ 31,94 (À vista)')).toBeVisible()
   })
 
   it('button should be disabled until all is done', () => {
-    const { getByTestId, getByRole } = render(
-      <ThemeProvider theme={theme}>
-        <PaymentStep />
-      </ThemeProvider>
-    )
-    expect(getByRole('button', { name: 'Continuar' })).toBeDisabled()
+    setup(defaultStore)
+    expect(screen.getByRole('button', { name: 'Continuar' })).toBeDisabled()
 
-    const radioOutro = getByTestId('input-radio-cartao-outro')
+    const select = screen.getByTestId('select-option-input-parcelas')
 
-    fireEvent.click(radioOutro)
+    userEvent.click(select)
+    userEvent.click(screen.getByText('1x de R$ 31,94 (À vista)'))
 
-    const select = getByTestId('select-option-input-parcelas')
+    const cardNumberInput = screen.getByTestId('número do cartão')
+    userEvent.type(cardNumberInput, '9876987698769876')
+    expect(cardNumberInput).toHaveValue('9876987698769876')
 
-    fireEvent.click(select)
-    fireEvent.click(getByTestId('option-12x-de-R$310,00'))
+    const nameInput = screen.getByTestId('nome completo')
+    userEvent.type(nameInput, 'João Silva')
+    expect(nameInput).toHaveValue('João Silva')
 
-    fireEvent.change(getByTestId('número do cartão'), {
-      target: { value: '8888' },
-    })
-    fireEvent.change(getByTestId('nome completo'), {
-      target: { value: '8888' },
-    })
-    fireEvent.change(getByTestId('validade'), { target: { value: '8888' } })
-    fireEvent.change(getByTestId('cvc'), { target: { value: '8888' } })
+    const validityInput = screen.getByTestId('validade')
+    userEvent.type(validityInput, '22/2025')
+    expect(validityInput).toHaveValue('22/2025')
 
-    expect(getByRole('button', { name: 'Continuar' })).not.toBeDisabled()
+    const cvcInput = screen.getByTestId('cvc')
+    userEvent.type(cvcInput, '123')
+    expect(cvcInput).toHaveValue('123')
+
+    expect(screen.getByRole('button', { name: 'Continuar' })).not.toBeDisabled()
   })
 })

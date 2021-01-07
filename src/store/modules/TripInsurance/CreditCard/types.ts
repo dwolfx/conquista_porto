@@ -1,3 +1,6 @@
+import { StepComponentProps } from 'hooks/FluxManagement/types'
+import { IToast } from 'hooks/toast'
+
 export const Types = {
   GET_TRIP_INSURANCE_CREDIT_CARD_REQUEST:
     'GET_TRIP_INSURANCE_CREDIT_CARD_REQUEST',
@@ -34,4 +37,20 @@ export interface IMessage {
 export interface IPayload {
   Message?: IMessage
   creditCards?: ICreditCard[]
+}
+
+export interface ITripInsuranceCreditCard {
+  data: IPayload | null
+  isLoading: boolean
+  hasError: boolean
+}
+
+export interface IGetCreditCardsRequestPayload {
+  onErrorToast: (toast: Omit<IToast, 'id'>) => void
+  onSuccess?: (element: React.FC<StepComponentProps>) => void
+  Step?: React.FC<StepComponentProps>
+}
+
+export interface IGetCreditCards extends IGetCreditCardsRequestPayload {
+  type: keyof typeof Types
 }
