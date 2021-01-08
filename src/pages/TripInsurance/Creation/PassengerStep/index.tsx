@@ -8,9 +8,10 @@ import Popover from 'components/Popover'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
 import useMedia from 'hooks/useMedia'
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { truncateString } from 'helpers'
 
 import PassengersOverSeventyModal from './PassengersOverSeventyModal'
 import { Steps, IForm } from '../types'
@@ -34,9 +35,15 @@ const PassengerStep: StepComponent = () => {
   }, [counts.young, counts.old])
 
   const handleButtonClick = () => {
+    const newCompanions = [...new Array(counts.total)].map((_, index) => ({
+      id: index + 1,
+      nome: truncateString(`Acompanhante ${index + 1}`, 25),
+      status: false,
+    }))
     updateForm({
       qtdPassagMenorSetentaAnos: counts.young,
       qtdPassagMaiorSetentaAnos: counts.old,
+      acompanhantes: [...newCompanions],
     })
 
     return counts.old > 0

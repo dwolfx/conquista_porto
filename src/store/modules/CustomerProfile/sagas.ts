@@ -1,7 +1,8 @@
 import { get, baseURLNamespaceInvest } from 'services/api'
-import { GetDataSuccess, GetDataFailure } from './action'
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 import { loggerSucess, loggerError } from 'logger'
+
+import { GetDataSuccess, GetDataFailure } from './action'
 import { Types } from './types'
 
 export function* getData() {

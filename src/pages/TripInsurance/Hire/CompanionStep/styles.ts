@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { 
+import {
   Row as RowComponent,
   Col as ColComponent,
-  Container as ContainerComponent 
+  Container as ContainerComponent,
 } from 'styled-bootstrap-grid'
 
 import CardCmp from 'components/Card'
@@ -11,16 +11,15 @@ import TextCmp from 'components/Text'
 import Button from 'components/Button'
 
 export const Section = styled.div`
-  padding-bottom: 62px; 
+  padding-bottom: ${({ theme }) => theme.spacing(9)}px;
 `
 
 export const Row = styled(RowComponent)`
-	padding-top: ${({ theme }) => theme.spacing(3)}px;
-  padding-bottom: ${({ theme }) => theme.spacing(3)}px;
-  align-content: start;
+  margin: ${({ theme }) => theme.spacing(3)}px 0;
+  align-items: start;
   justify-content: center;
-  postion: relative;
-  z-index: 1;
+  position: relative;
+
   @media ${props => props.theme.mediaQueries.lgUp} {
     justify-content: start;
   }
@@ -35,26 +34,19 @@ export const Col = styled(ColComponent)`
     @media ${props => props.theme.mediaQueries.lgUp} {
       margin-left: ${({ theme }) => theme.spacing(3)}px;
       h4 {
-        margin-top: 14px;
+        margin-top: ${({ theme }) => theme.spacing(2)}px;
       }
     }
     @media ${props => props.theme.mediaQueries.smUp} {
       h4,
       h5 {
-        margin-left: 4px;
-      }
-    }
-    @media ${props => props.theme.mediaQueries.sm} {
-      h5 {
-        font-size: 15px;
-        line-heigth: 18px
-        background: red;
+        margin-left: ${({ theme }) => theme.spacing(1)}px;
       }
     }
   }
   &:last-child {
     @media ${props => props.theme.mediaQueries.lgUp} {
-      margin-left: 7px;
+      margin-left: ${({ theme }) => theme.spacing(1)}px;
     }
   }
 `
@@ -67,64 +59,87 @@ export const ContentWrapper = styled(ContainerComponent)`
 
   @media ${props => props.theme.mediaQueries.sm} {
     height: 100%;
-    padding: 0 21px;
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
   }
 `
 
-export const Card = styled(CardCmp)`
-	display: flex;
-	align-items: stretch;
-
-	${CardBody} {
-		@media ${props => props.theme.mediaQueries.mdUp}{
-			margin: 0 ${({ theme }) => theme.spacing(7)}px 0 ${({ theme }) => theme.spacing(7)}px;
-		}
-	}
-
-	@media ${props => props.theme.mediaQueries.lgUp} {
-		align-items: center;
-	}
+export const ContentInfo = styled.div`
+  padding: ${({ theme }) => theme.spacing(2)}px;
 `
-export const TitleText = styled(TextCmp)`
-	margin: ${({ theme }) => theme.spacing(3)}px 0 ${({ theme }) => theme.spacing(4)}px 0;
+export const ContentInfoText = styled.div`
+  padding: ${({ theme }) => theme.spacing(2)}px;
+`
 
-	@media ${props => props.theme.mediaQueries.lgUp} {
-		margin: ${({ theme }) => theme.spacing(5)}px 0 ${({ theme }) => theme.spacing(2)}px 0;
-	}
+export const Card = styled(CardCmp)`
+  display: flex;
+  align-items: stretch;
+  padding: ${({ theme }) => theme.spacing(5)}px;
+
+  ${CardBody} {
+    @media ${props => props.theme.mediaQueries.mdUp} {
+      margin: 0 ${({ theme }) => theme.spacing(7)}px 0
+        ${({ theme }) => theme.spacing(7)}px;
+    }
+  }
+
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    align-items: center;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0;
+  }
+`
+export const CardContentWrapper = styled.div`
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
+
+  &:first-child {
+    @media ${props => props.theme.mediaQueries.mdUp} {
+      margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+    }
+  }
+`
+
+export const TitleText = styled(TextCmp)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding-top: ${({ theme }) => theme.spacing(3)}px;
+  }
 `
 
 export const Table = styled.table`
   display: table;
-	border-collapse: separate;
+  border-collapse: separate;
   border-spacing: 0;
-  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
-  @media ${props => props.theme.mediaQueries.smUp}{
+  width: 751px;
+
+  @media ${props => props.theme.mediaQueries.lg} {
     margin-bottom: ${({ theme }) => theme.spacing(5)}px;
+    width: 100%;
   }
-	@media ${props => props.theme.mediaQueries.lgUp} {
-		width: 751px;
-	}
+
   tr td:first-child,
   th td:first-child {
     border-left: 1px solid ${props => props.theme.colors.gray3};
-    border-right: 0px
+    border-right: 0px;
   }
   tr td:last-child,
   th td:last-child {
-    border-left: 0px 
+    border-left: 0px;
   }
 `
 
 export const Thead = styled.thead`
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
-	max-height: 56px;
+  max-height: 56px;
 `
 export const THeadTr = styled.tr`
-	height: 56px;
-	border-bottom: 1px solid ${props => props.theme.colors.gray3};
+  height: 56px;
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
 `
 export const Tr = styled.tr`
-  height: 79px;	
+  height: 79px;
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
 
   //Last Row
@@ -132,10 +147,10 @@ export const Tr = styled.tr`
     border-bottom: none;
 
     td:first-child {
-      border-bottom-left-radius: 8px
+      border-bottom-left-radius: 8px;
     }
     td:last-child {
-      border-bottom-right-radius: 8px
+      border-bottom-right-radius: 8px;
     }
   }
 
@@ -158,61 +173,80 @@ export const Tr = styled.tr`
 
 export const Th = styled.th`
   text-align: start;
-  background-color: ${({theme}) => theme.colors.gray1};
-	width: auto;
-	padding-right: 0;
-	padding-left: 21px;
+  background-color: ${({ theme }) => theme.colors.gray1};
+  width: auto;
+  padding-right: 0;
+  padding-left: ${({ theme }) => theme.spacing(3)}px;
   border: 1px solid ${props => props.theme.colors.gray3};
 
-  &:first-child{
+  &:first-child {
     border-right: 0;
     border-top-left-radius: 8px;
   }
-	
-	&:last-child {
-    border-left: 0; 
-		padding-left: 0px;
+
+  &:last-child {
+    border-left: 0;
+    padding-left: 0px;
     border-top-right-radius: 8px;
-		@media ${props => props.theme.mediaQueries.sm}{
-			text-align: center;
-		}
-	}
-	
-	@media ${props => props.theme.mediaQueries.lgUp} {
-		width: 182px;
-		padding-right: 127px;	
-	}
+    @media ${props => props.theme.mediaQueries.sm} {
+      text-align: center;
+    }
+  }
+
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    width: 182px;
+    padding-right: ${({ theme }) => theme.spacing(18)}px;
+  }
 `
 
-export const Td = styled.td`
+export const Td = styled.td<{ center?: boolean }>`
   border-right: 1px solid ${props => props.theme.colors.gray3};
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
+
+  & > * {
+    margin: 0 0 ${({ theme }) => theme.spacing(1)}px
+      ${({ theme }) => theme.spacing(3)}px;
+
+    ${({ theme, center }) =>
+      center
+        ? `
+      @media ${theme.mediaQueries.xs} {
+        &:last-child {
+          margin: 0;
+        }
+      }
+    `
+        : ''}
+  }
 `
 
 export const Tbody = styled.tbody``
 
-export const Text = styled(TextCmp)`
-`
+export const Text = styled(TextCmp)``
 
 export const DescriptionText = styled(TextCmp)`
-	margin: 0 0 ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(3)}px;
+  margin: 0 0 ${({ theme }) => theme.spacing(3)}px
+    ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const NameText = styled(TextCmp)`
-	margin-left: ${({ theme }) => theme.spacing(3)}px;
-	display: grid;
+  display: grid;
 `
 
-export const StatusText = styled(TextCmp)`
-	margin-left: ${({ theme }) => theme.spacing(1)}px;
+export const StatusText = styled(TextCmp).attrs(() => ({
+  type: 'caption',
+  bold: true,
+}))`
+  margin-left: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const StatusWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	@media ${props => props.theme.mediaQueries.sm}{
-		justify-content: center;
-	}
+  display: flex;
+  align-items: center;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    justify-content: center;
+  }
 `
 
 export const FooterContainer = styled.div`

@@ -219,18 +219,17 @@ export const truncateString = (str: string, num: number) => {
 }
 
 export const formatPhoneNumber = (
-  areaCode: number | undefined,
-  phoneNumber: number | undefined
+  phoneNumber: number | string | undefined
 ) => {
-  if (!areaCode || !phoneNumber) {
+  if (!phoneNumber) {
     return ''
   } else {
-    return String(phoneNumber).length === 9
-      ? `${areaCode}${phoneNumber}`.replace(
+    return String(phoneNumber).length === 11
+      ? `${phoneNumber}`.replace(
           /(\d{2})(\d{1})(\d{4})(\d{4})/,
           '($1) $2 $3-$4'
         )
-      : `${areaCode}${phoneNumber}`.replace(
+      : `${phoneNumber}`.replace(
           /(\d{2})(\d{4})(\d{4})/,
           '($1) $2-$3'
         )
@@ -247,3 +246,5 @@ export const base64decode = (token: any) => {
   }
   return parsed
 }
+
+export * from 'cpf-cnpj-validator'

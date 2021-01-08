@@ -4,6 +4,7 @@ import { Col } from 'styled-bootstrap-grid'
 import ButtonCmp from 'components/Button'
 import InputCmp from 'components/NewInput'
 import SelectCmp from 'components/Inputs/Select'
+import DateInputCmp from 'components/Inputs/DateInput'
 import TextCmp from 'components/Text'
 import RadioButtonCmp from 'components/Inputs/Radio/New'
 import DivisorCmp from 'components/Divisor'
@@ -21,19 +22,27 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  margin-top: 28px;
+  margin-top: ${({ theme }) => theme.spacing(4)}px;
   width: 100%;
 `
-
+export const ContentWrapper = styled.div`
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
+`
 
 export const ButtonSubmit = styled(ButtonCmp)`
   width: 100%;
 `
 
 export const Input = styled(InputCmp)`
-  margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(5)}px`};
+  margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(10)}px`};
   width: 100%;
 `
+
+export const DateInput = styled(DateInputCmp)`
+  margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(10)}px`};
+  width: 100%;
+`
+
 export const ColInput = styled(Col as any)<{ error: boolean }>`
   padding: 0;
   margin-bottom: ${({ error, theme }) =>
@@ -65,8 +74,6 @@ export const WarningFlag = styled(WarningFlagCmp)`
 export const RadioOptionsWrapper = styled.div<{ flexDirection?: string }>`
   display: flex;
   flex-direction: ${props => props.flexDirection};
-  /* margin-top: ${({ theme }) => theme.spacing(4)}px; */
-  /* margin-bottom: ${({ theme }) => theme.spacing(4)}px; */
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     margin-top: ${({ theme }) => theme.spacing(2)}px;

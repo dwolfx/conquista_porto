@@ -10,8 +10,8 @@ import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 
 import Layer from 'components/Layer'
 
-import * as s from './styles'
 import { Steps } from './types'
+import * as s from './styles'
 
 export default function TripInsurenceCreation({
   isOpen = true,

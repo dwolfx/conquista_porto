@@ -1,90 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { uuid } from 'uuidv4'
 import { Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
 import ButtonLink from 'components/Button/Link'
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import { ICompanion, IForm, Steps } from 'pages/TripInsurance/Creation/types'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-import CompanionEditDrawer from './EditDrawer'
 import { useToast } from 'hooks/toast'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 
 import useMedia from 'hooks/useMedia'
-import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
 
 import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
 import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
 
-import { Steps } from 'pages/TripInsurance/Creation/types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import Divisor from 'components/Divisor'
+import Text from 'components/Text'
+import CompanionEditDrawer from './EditDrawer'
 
 import * as s from './styles'
-import { IFormDrawerCompanion } from './EditDrawer/types'
 
-const renderTableCompanionDataMock: IFormDrawerCompanion[] = [
-  {
-    name: 'Bruno Mizhari',
-    status: true,
-    documentNumber: '000.000.001-91',
-    birthdayDate: new Date(1995, 10, 8),
-    gender: { id: 1, name: 'Masculino' },
-    isBrazilianResident: false,
-    hasPoliticallyExposedPerson: false,
-    isSameContactForEmergencyData: true,
-  },
-  {
-    name: '',
-    status: false,
-    documentNumber: '000.000.001-92',
-    birthdayDate: new Date(1995, 12, 1),
-    gender: { id: 1, name: 'Feminino' },
-    isBrazilianResident: false,
-    hasPoliticallyExposedPerson: false,
-    isSameContactForEmergencyData: true,
-  },
-  {
-    name: '',
-    status: false,
-    documentNumber: '000.000.001-93',
-    birthdayDate: new Date(1999, 8, 11),
-    gender: { id: 1, name: 'Feminino' },
-    isBrazilianResident: false,
-    hasPoliticallyExposedPerson: false,
-    isSameContactForEmergencyData: true,
-  },
-  {
-    name: '',
-    status: false,
-    documentNumber: '000.000.001-92',
-    birthdayDate: new Date(1991, 3, 28),
-    gender: { id: 1, name: 'Masculino' },
-    isBrazilianResident: false,
-    hasPoliticallyExposedPerson: false,
-    isSameContactForEmergencyData: true,
-  },
-]
-
-const CompanionStep: StepComponent = () => {
-  const dispatch = useDispatch()
-  const { addToast } = useToast()
+const CompanionStep = () => {
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const { form } = useFormFluxManagement<IForm>()
   const isDesktop = useMedia('lgUp')
   const isTablet = useMedia('mdUp')
   const isMobile = useMedia('sm')
-  const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [companionEditable, setCompanionEditable] = useState<
-    IFormDrawerCompanion
-  >({
-    name: '',
-    status: false,
-    documentNumber: '',
-    birthdayDate: new Date(),
-    gender: { id: 0, name: '' },
-    isBrazilianResident: false,
-    hasPoliticallyExposedPerson: false,
-    isSameContactForEmergencyData: true,
-  })
+  const [companions, setCompanions] = useState<ICompanion[]>([])
+  const [selectedCompanion, setSelectedCompanion] = useState<number>(0)
+  const [greaterThanSeventy, setGreaterThanSeventy] = useState<number>(0)
+  const [lessThanSeventy, setLessThanSeventy] = useState<number>(0)
+
+  useEffect(() => {
+    setCompanions(form.acompanhantes || [])
+    setGreaterThanSeventy(form.qtdPassagMaiorSetentaAnos || 0)
+    setLessThanSeventy(form.qtdPassagMenorSetentaAnos || 0)
+  }, [form])
 
   const { creditCardData, isCreditCardLoading } = useSelector(
     (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
@@ -107,51 +65,56 @@ const CompanionStep: StepComponent = () => {
     }
   }
 
-  const renderStatusBody = (companionStatus: boolean) => {
-    return (
-      <s.StatusWrapper>
-        <Icon
-          width="21"
-          color={companionStatus ? 'green4' : 'magenta2'}
-          name={companionStatus ? 'check' : 'closerounded'}
-        />
-        {!isMobile && (
-          <s.StatusText
-            type="caption"
-            bold
-            color={companionStatus ? 'green4' : 'magenta2'}
-          >
-            {companionStatus ? 'Dados preenchidos' : 'Dados não inseridos'}
-          </s.StatusText>
-        )}
-      </s.StatusWrapper>
-    )
-  }
+  const renderStatusBody = (companionStatus: boolean) => (
+    <s.StatusWrapper>
+      <Icon
+        width="21"
+        name={companionStatus ? 'check' : 'closerounded'}
+        color={companionStatus ? 'green4' : 'magenta2'}
+      />
+      {!isMobile && (
+        <s.StatusText color={companionStatus ? 'green4' : 'magenta2'}>
+          {companionStatus ? 'Dados preenchidos' : 'Dados não inseridos'}
+        </s.StatusText>
+      )}
+    </s.StatusWrapper>
+  )
 
-  const renderTableBody = (companions: IFormDrawerCompanion[]) => {
-    return companions.map((companion: IFormDrawerCompanion, index) => (
+  const renderTableBody = (
+    companionsList: ICompanion[],
+    companionAgeQuantity: number,
+    companionAgeType: string
+  ) => {
+    if (companionAgeType === 'menorDe70') {
+      companionsList = companionsList.slice(0, companionAgeQuantity)
+    } else {
+      companionsList = companionsList.slice(
+        Math.max(companionsList.length - companionAgeQuantity)
+      )
+    }
+    return companionsList.map((companion: ICompanion, index) => (
       <s.Tr key={uuid()}>
         <s.Td>
           <s.NameText bold>
-            {companion.name || `Acompanhante ${index + 1}`}
-            <ButtonLink
-              data-gtm-type="click"
-              data-gtm-clicktype="link"
-              data-gtm-name={
-                companion.status ? 'Alterar Dados ' : 'Inserir Dados'
-              }
-              noIcon={true}
-              noIconPadding
-              onClick={() => {
-                setCompanionEditable(companion)
-                setIsDrawerOpen(true)
-              }}
-            >
-              INSERIR DADOS
-            </ButtonLink>
+            {companion?.nome || `Acompanhante ${index + 1}`}
           </s.NameText>
+          <ButtonLink
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            noIcon
+            noIconPadding
+            data-gtm-name={
+              companion?.status ? 'Alterar Dados ' : 'Inserir Dados'
+            }
+            onClick={() => {
+              setSelectedCompanion(companion?.id || 0)
+              setIsDrawerOpen(true)
+            }}
+          >
+            {companion?.status ? 'ALTERAR DADOS ' : 'INSERIR DADOS'}
+          </ButtonLink>
         </s.Td>
-        <s.Td>{renderStatusBody(companion.status)}</s.Td>
+        <s.Td center={true}>{renderStatusBody(!!companion?.status)}</s.Td>
       </s.Tr>
     ))
   }
@@ -161,21 +124,31 @@ const CompanionStep: StepComponent = () => {
       <CompanionEditDrawer
         isDrawerOpen={isDrawerOpen}
         handleClose={setIsDrawerOpen}
-        companion={companionEditable}
+        companions={companions}
+        selectedCompanion={selectedCompanion}
       />
       <StepBar actualStep={2} totalNumberOfSteps={5} />
       <s.ContentWrapper>
         <s.Row
-          alignItems="center"
+          alignItems="start"
           justifyContent={isDesktop ? 'start' : 'center'}
         >
-          <Col sm={12} md={12} lg={3}>
+          <Col md={12} sm={12} lg={3}>
             {isDesktop ? (
-              <DivisorDescription
-                title="Acompanhantes"
-                text="Aqui você vai inserir os dados
-                  das pessoas que irão viajar junto com você."
-              />
+              <s.ContentInfo>
+                <s.ContentInfoText>
+                  <Text type="heading4" bold color="gray6">
+                    Acompanhantes
+                  </Text>
+                </s.ContentInfoText>
+                <Divisor />
+                <s.ContentInfoText>
+                  <Text type="headline" color="gray6">
+                    Aqui você vai inserir os dados das pessoas que irão viajar
+                    junto com você.
+                  </Text>
+                </s.ContentInfoText>
+              </s.ContentInfo>
             ) : (
               <>
                 <s.DescriptionText
@@ -197,36 +170,74 @@ const CompanionStep: StepComponent = () => {
               </>
             )}
           </Col>
-          <Col offset={isDesktop ? 1 : 0} xs={12} sm={12} md={10} lg={8}>
+          <Col xs={12} sm={12} md={10} lg={8}>
             <s.Card>
-              <s.TitleText
-                type="subheading"
-                bold
-                textTransform="uppercase"
-                textAlign={isMobile ? 'center' : 'left'}
-                color="gray5"
-              >
-                Declaração de Acompanhante
-              </s.TitleText>
-              <s.Table>
-                <s.Thead>
-                  <s.THeadTr>
-                    <s.Th>
-                      <s.Text type="subheading" bold color="gray6">
-                        NOMES
-                      </s.Text>
-                    </s.Th>
-                    <s.Th>
-                      <s.Text type="subheading" bold color="gray6">
-                        STATUS
-                      </s.Text>
-                    </s.Th>
-                  </s.THeadTr>
-                </s.Thead>
-                <s.Tbody>
-                  {renderTableBody(renderTableCompanionDataMock)}
-                </s.Tbody>
-              </s.Table>
+              <s.CardContentWrapper>
+                <s.TitleText
+                  type="subheading"
+                  bold
+                  textTransform="uppercase"
+                  textAlign={isMobile ? 'center' : 'left'}
+                  color="gray5"
+                >
+                  acompanhantes com menos de 70 anos
+                </s.TitleText>
+                <s.Table>
+                  <s.Thead>
+                    <s.THeadTr>
+                      <s.Th>
+                        <s.Text type="subheading" bold color="gray6">
+                          NOMES
+                        </s.Text>
+                      </s.Th>
+                      <s.Th>
+                        <s.Text type="subheading" bold color="gray6">
+                          STATUS
+                        </s.Text>
+                      </s.Th>
+                    </s.THeadTr>
+                  </s.Thead>
+                  <s.Tbody>
+                    {renderTableBody(companions, lessThanSeventy, 'menorDe70')}
+                  </s.Tbody>
+                </s.Table>
+              </s.CardContentWrapper>
+              {greaterThanSeventy > 0 && (
+                <s.CardContentWrapper>
+                  <s.TitleText
+                    type="subheading"
+                    bold
+                    textTransform="uppercase"
+                    textAlign={isMobile ? 'center' : 'left'}
+                    color="gray5"
+                  >
+                    acompanhantes maiores de 70 anos
+                  </s.TitleText>
+                  <s.Table>
+                    <s.Thead>
+                      <s.THeadTr>
+                        <s.Th>
+                          <s.Text type="subheading" bold color="gray6">
+                            NOMES
+                          </s.Text>
+                        </s.Th>
+                        <s.Th>
+                          <s.Text type="subheading" bold color="gray6">
+                            STATUS
+                          </s.Text>
+                        </s.Th>
+                      </s.THeadTr>
+                    </s.Thead>
+                    <s.Tbody>
+                      {renderTableBody(
+                        companions,
+                        greaterThanSeventy,
+                        'maiorDe70'
+                      )}
+                    </s.Tbody>
+                  </s.Table>
+                </s.CardContentWrapper>
+              )}
             </s.Card>
           </Col>
         </s.Row>
