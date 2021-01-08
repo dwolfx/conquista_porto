@@ -1,6 +1,369 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TripInsurance renders correctly 1`] = `
+Array [
+  .c3 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c4 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c5 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c1 {
+  background-color: #FFFFFF;
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 35px;
+}
+
+.c2 svg {
+  margin-right: 15px;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 12;
+}
+
+.c10 {
+  overflow: auto;
+  padding: 0px;
+  position: relative;
+  height: 100%;
+  background-color: #F1F1F1;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c8 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c9 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  position: absolute;
+  right: 12px;
+}
+
+.c9:hover {
+  fill: #00ADEF;
+}
+
+.c7 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  position: absolute;
+}
+
+.c7:hover {
+  fill: #00ADEF;
+}
+
+@media (min-width:576px) {
+  .c3 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c3 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:992px) {
+  .c5 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:780px) {
+
+}
+
+@media (max-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:1100px) {
+
+}
+
+@media (max-width:1200px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+<div
+    className="c0"
+    data-testid="trip-insurance-layer"
+    id="layer-wrapper"
+  >
+    <div
+      className="c1"
+    >
+      <div
+        className="c2"
+      >
+        <div
+          className="c3"
+          data-name="container"
+        >
+          <div
+            className="c4"
+            data-name="row"
+          >
+            <div
+              className="c5"
+              data-name="col-lg-12"
+            >
+              <div
+                className="c6"
+              >
+                <svg
+                  aria-label="arrowleft"
+                  className="c7"
+                  data-gtm-clicktype="button"
+                  data-gtm-name="botao voltar step"
+                  data-gtm-subname="layer seguro viagem"
+                  data-gtm-type="click"
+                  fill="#BABABA"
+                  onClick={[Function]}
+                  role="img"
+                  width={21}
+                >
+                  arrow-left.svg
+                </svg>
+                <div
+                  className="c8"
+                >
+                  <img
+                    alt="Logo Conquista Beta"
+                    src="logoConquistaBeta.png"
+                  />
+                </div>
+                <svg
+                  aria-label="close"
+                  className="c9 layer-close-button"
+                  data-gtm-clicktype="button"
+                  data-gtm-name="botao fechar"
+                  data-gtm-subname="botao fechar layer"
+                  data-gtm-type="click"
+                  fill="#BABABA"
+                  onClick={[Function]}
+                  role="img"
+                  width={21}
+                >
+                  close.svg
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c10"
+        id="layer-children"
+      />
+    </div>
+  </div>,
+  .c37 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c38 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
 .c3 {
   background: linear-gradient( to left, #2F736B -35%, #46A166 );
   background-repeat: no-repeat;
@@ -388,28 +751,6 @@ exports[`TripInsurance renders correctly 1`] = `
   font-size: 18px;
 }
 
-.c37 {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.c38 {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
 .c39 {
   position: relative;
   width: 100%;
@@ -550,6 +891,34 @@ exports[`TripInsurance renders correctly 1`] = `
   margin: 1em 0 0;
 }
 
+@media (min-width:576px) {
+  .c37 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c37 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c37 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c37 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
 @media (min-width:1206px) {
   .c7 {
     width: 1200px;
@@ -680,30 +1049,6 @@ exports[`TripInsurance renders correctly 1`] = `
   }
 }
 
-@media (min-width:576px) {
-  .c37 {
-    max-width: 540px;
-  }
-}
-
-@media (min-width:768px) {
-  .c37 {
-    max-width: 720px;
-  }
-}
-
-@media (min-width:992px) {
-  .c37 {
-    max-width: 960px;
-  }
-}
-
-@media (min-width:1200px) {
-  .c37 {
-    max-width: 1140px;
-  }
-}
-
 @media (min-width:768px) {
   .c39 {
     -ms-flex: 0 0 50%;
@@ -731,420 +1076,173 @@ exports[`TripInsurance renders correctly 1`] = `
 }
 
 <div
-  className=""
->
-  <section
-    className="c0"
+    className=""
   >
-    <div
-      className="c1"
+    <section
+      className="c0"
     >
-      <h1
-        className="c2"
+      <div
+        className="c1"
       >
-        Seguro Viagem
-      </h1>
-      <p>
-        Viaje com tranquilidade e tenha assistência 24h da Porto Seguro em qualquer lugar do mundo. Faça uma simulação informando os detalhes da viagem e contrate em alguns cliques.
-      </p>
-      <br />
-      <button
-        className="c3 button-with-right-icon"
-        color="secondary"
-        data-gtm-clicktype="button"
-        data-gtm-name="SIMULAR E CONTRATAR"
-        data-gtm-subname="banner Seguro Viagem"
-        data-gtm-type="click"
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="c4"
+        <h1
+          className="c2"
         >
-          SIMULAR E CONTRATAR
+          Seguro Viagem
+        </h1>
+        <p>
+          Viaje com tranquilidade e tenha assistência 24h da Porto Seguro em qualquer lugar do mundo. Faça uma simulação informando os detalhes da viagem e contrate em alguns cliques.
+        </p>
+        <br />
+        <button
+          className="c3 button-with-right-icon"
+          color="secondary"
+          data-gtm-clicktype="button"
+          data-gtm-name="SIMULAR E CONTRATAR"
+          data-gtm-subname="banner Seguro Viagem"
+          data-gtm-type="click"
+          disabled={false}
+          onClick={[Function]}
+        >
           <span
-            className="icon"
+            className="c4"
+          >
+            SIMULAR E CONTRATAR
+            <span
+              className="icon"
+            />
+          </span>
+        </button>
+      </div>
+      <img
+        alt="Homem sentado no capô do carro"
+        className="c5"
+        src="banner.jpg"
+      />
+    </section>
+    <section
+      className="c6"
+    >
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+        >
+          <img
+            alt=""
+            src="selo-seguro-viagem.svg"
           />
-        </span>
-      </button>
-    </div>
-    <img
-      alt="Homem sentado no capô do carro"
-      className="c5"
-      src="banner.jpg"
-    />
-  </section>
-  <section
-    className="c6"
-  >
-    <div
-      className="c7"
-    >
-      <div
-        className="c8"
-      >
-        <img
-          alt=""
-          src="selo-seguro-viagem.svg"
-        />
-      </div>
-      <div
-        className="c9"
-      >
-        <div>
-          Por que contratar o Seguro Viagem?
         </div>
-        <ul>
-          <li>
-            O Seguro Viagem protege você e/ou sua família em viagens nacionais e internacionais, podendo ser acionado de qualquer lugar do mundo.
-          </li>
-          <li>
-            Com coberturas para períodos variados, incluindo intercâmbios, o seguro também inclui assistência 24h da Porto Seguro e orientação para diversas situações.
-          </li>
-          <li>
-            Especificamente para os países europeus inclusos no Tratado de Schengen, o Seguro Viagem é obrigatório. Então, contratá-lo é essencial para evitar impedimentos.
-          </li>
-        </ul>
-        <p
-          className="c10"
+        <div
+          className="c9"
         >
-          
-        </p>
+          <div>
+            Por que contratar o Seguro Viagem?
+          </div>
+          <ul>
+            <li>
+              O Seguro Viagem protege você e/ou sua família em viagens nacionais e internacionais, podendo ser acionado de qualquer lugar do mundo.
+            </li>
+            <li>
+              Com coberturas para períodos variados, incluindo intercâmbios, o seguro também inclui assistência 24h da Porto Seguro e orientação para diversas situações.
+            </li>
+            <li>
+              Especificamente para os países europeus inclusos no Tratado de Schengen, o Seguro Viagem é obrigatório. Então, contratá-lo é essencial para evitar impedimentos.
+            </li>
+          </ul>
+          <p
+            className="c10"
+          >
+            
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-  <section
-    className="c11"
-  >
-    <div
-      className="c12"
-    >
-      Quando faz sentido contratar um Seguro Viagem?
-    </div>
-    <div
-      className="c13"
+    </section>
+    <section
+      className="c11"
     >
       <div
-        className="c14"
+        className="c12"
+      >
+        Quando faz sentido contratar um Seguro Viagem?
+      </div>
+      <div
+        className="c13"
       >
         <div
-          className="c15"
+          className="c14"
         >
-          <svg
-            aria-label="plane"
-            fill="#BABABA"
-            role="img"
-            width={21}
+          <div
+            className="c15"
           >
-            plane.svg
-          </svg>
-           
+            <svg
+              aria-label="plane"
+              fill="#BABABA"
+              role="img"
+              width={21}
+            >
+              plane.svg
+            </svg>
+             
+          </div>
+          <p
+            className="c16"
+          >
+            Quando você for viajar para locais não incluídos na cobertura do seu plano de saúde.
+          </p>
         </div>
-        <p
-          className="c16"
-        >
-          Quando você for viajar para locais não incluídos na cobertura do seu plano de saúde.
-        </p>
-      </div>
-      <div
-        className="c14"
-      >
         <div
-          className="c15"
+          className="c14"
         >
-          <svg
-            aria-label="businesswoman"
-            fill="#BABABA"
-            role="img"
-            width={21}
+          <div
+            className="c15"
           >
-            business-woman.svg
-          </svg>
-           
+            <svg
+              aria-label="businesswoman"
+              fill="#BABABA"
+              role="img"
+              width={21}
+            >
+              business-woman.svg
+            </svg>
+             
+          </div>
+          <p
+            className="c16"
+          >
+            Quando você quiser ter auxílio com orientações em viagens nacionais ou internacionais.
+          </p>
         </div>
-        <p
-          className="c16"
-        >
-          Quando você quiser ter auxílio com orientações em viagens nacionais ou internacionais.
-        </p>
-      </div>
-      <div
-        className="c14"
-      >
         <div
-          className="c15"
-        >
-          <svg
-            aria-label="persongroup"
-            fill="#BABABA"
-            role="img"
-            width={21}
-          >
-            person-group.svg
-          </svg>
-           
-        </div>
-        <p
-          className="c16"
-        >
-          Quando você quiser proteger seus dependentes, caso aconteça algo com você na viagem.
-        </p>
-      </div>
-    </div>
-    <h2
-      className="c17"
-    >
-      VANTAGENS AO CONTRATAR AQUI:
-    </h2>
-    <div
-      className="slick-slider c18 c19 slick-initialized"
-    >
-      
-      <div
-        className="slick-list"
-      >
-        <div
-          className="slick-track"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "WebkitTransform": "translate3d(0px, 0px, 0px)",
-              "WebkitTransition": "",
-              "msTransform": "translateX(0px)",
-              "opacity": 1,
-              "transform": "translate3d(0px, 0px, 0px)",
-              "transition": "",
-            }
-          }
+          className="c14"
         >
           <div
-            aria-hidden={false}
-            className="slick-slide slick-active slick-current"
-            data-index={0}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
+            className="c15"
           >
-            <div>
-              <div
-                className="c20"
-              >
-                <svg
-                  aria-label="talkman"
-                  fill="#BABABA"
-                  role="img"
-                  width={21}
-                >
-                  talk-man.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c21"
-                  >
-                    Gerente de conta
-                  </h1>
-                  <p
-                    className="c22"
-                  >
-                    De acordo com seu saldo investido, conte com a possibilidade de ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e contratações.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <svg
+              aria-label="persongroup"
+              fill="#BABABA"
+              role="img"
+              width={21}
+            >
+              person-group.svg
+            </svg>
+             
           </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={1}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
+          <p
+            className="c16"
           >
-            <div>
-              <div
-                className="c20"
-              >
-                <svg
-                  aria-label="diamond"
-                  fill="#BABABA"
-                  role="img"
-                  width={21}
-                >
-                  diamond.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c21"
-                  >
-                    Programa de Relacionamento
-                  </h1>
-                  <p
-                    className="c22"
-                  >
-                    Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={2}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="c20"
-              >
-                <svg
-                  aria-label="callcenter"
-                  fill="#BABABA"
-                  role="img"
-                  width={21}
-                >
-                  call-center.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c21"
-                  >
-                    Chat inteligente
-                  </h1>
-                  <p
-                    className="c22"
-                  >
-                    Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={3}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="c20"
-              >
-                <svg
-                  aria-label="apps"
-                  fill="#BABABA"
-                  role="img"
-                  width={21}
-                >
-                  apps.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c21"
-                  >
-                    Facilidade
-                  </h1>
-                  <p
-                    className="c22"
-                  >
-                    Ferramentas que simplificam seu dia a dia, permitindo que você controle sua vida financeira e contrate soluções da Porto Seguro pelo computador ou smartphone.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+            Quando você quiser proteger seus dependentes, caso aconteça algo com você na viagem.
+          </p>
         </div>
       </div>
-      
-      
-    </div>
-  </section>
-  <section
-    className="c23"
-  >
-    <div
-      className="c24"
-    >
-      <h1
-        className="c25"
+      <h2
+        className="c17"
       >
-        Tranquilidade para viajar.
-      </h1>
-      <p
-        className="c26"
-      >
-        O Conquista acompanha você do planejamento da viagem à realização.
-        <br />
-        <br />
-        Informando detalhes como local e data, você pode simular coberturas e assistências nacionais e internacionais. Na sequência, basta escolher um plano e contratar.
-      </p>
-      <br />
-      <br />
-      <button
-        className="c3"
-        color="secondary"
-        data-gtm-clicktype="button"
-        data-gtm-name="SIMULAR E CONTRATAR"
-        data-gtm-subname="Tranquilidade para viajar."
-        data-gtm-type="click"
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="c4"
-        >
-          SIMULAR E CONTRATAR
-        </span>
-      </button>
-    </div>
-  </section>
-  <section
-    className="c27"
-  >
-    <div
-      className="c28"
-    >
-      <h1
-        className="c29"
-      >
-        SAIBA MAIS:
-      </h1>
+        VANTAGENS AO CONTRATAR AQUI:
+      </h2>
       <div
-        className="slick-slider c18 c30 slick-initialized"
+        className="slick-slider c18 c19 slick-initialized"
       >
         
         <div
@@ -1181,28 +1279,28 @@ exports[`TripInsurance renders correctly 1`] = `
             >
               <div>
                 <div
-                  className="c31"
+                  className="c20"
                 >
-                  <div
-                    className="c32"
+                  <svg
+                    aria-label="talkman"
+                    fill="#BABABA"
+                    role="img"
+                    width={21}
                   >
-                    <img
-                      className="c33"
-                      src={null}
-                    />
-                  </div>
+                    talk-man.svg
+                  </svg>
                   <div
-                    className="c34"
+                    className=""
                   >
-                    <p
-                      className="c35"
+                    <h1
+                      className="c21"
                     >
-                      Desconto em hotéis para pet
-                    </p>
+                      Gerente de conta
+                    </h1>
                     <p
-                      className="c36"
+                      className="c22"
                     >
-                      Com o Porto Seguro Viagem, você conta com vários estabelecimentos parceiros, que oferecem descontos e condições especiais para você hospedar seu pet com muita tranquilidade durante o período em que você estiver viajando. *Benefício válido apenas para a região de São Paulo.
+                      De acordo com seu saldo investido, conte com a possibilidade de ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e contratações.
                     </p>
                   </div>
                 </div>
@@ -1223,28 +1321,28 @@ exports[`TripInsurance renders correctly 1`] = `
             >
               <div>
                 <div
-                  className="c31"
+                  className="c20"
                 >
-                  <div
-                    className="c32"
+                  <svg
+                    aria-label="diamond"
+                    fill="#BABABA"
+                    role="img"
+                    width={21}
                   >
-                    <img
-                      className="c33"
-                      src={null}
-                    />
-                  </div>
+                    diamond.svg
+                  </svg>
                   <div
-                    className="c34"
+                    className=""
                   >
-                    <p
-                      className="c35"
+                    <h1
+                      className="c21"
                     >
-                      Extensão de vigência
-                    </p>
+                      Programa de Relacionamento
+                    </h1>
                     <p
-                      className="c36"
+                      className="c22"
                     >
-                      Caso você não possa retornar de sua viagem por razões médicas ou por acidente de algum evento coberto, o prazo de vigência das coberturas será estendido até que você consiga voltar para sua cidade ou para o local de início da viagem, respeitando os limites de valores contratados.
+                      Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.
                     </p>
                   </div>
                 </div>
@@ -1265,28 +1363,70 @@ exports[`TripInsurance renders correctly 1`] = `
             >
               <div>
                 <div
-                  className="c31"
+                  className="c20"
                 >
-                  <div
-                    className="c32"
+                  <svg
+                    aria-label="callcenter"
+                    fill="#BABABA"
+                    role="img"
+                    width={21}
                   >
-                    <img
-                      className="c33"
-                      src={null}
-                    />
-                  </div>
+                    call-center.svg
+                  </svg>
                   <div
-                    className="c34"
+                    className=""
                   >
-                    <p
-                      className="c35"
+                    <h1
+                      className="c21"
                     >
-                      Porto Seguro Viaje Bem
+                      Chat inteligente
+                    </h1>
+                    <p
+                      className="c22"
+                    >
+                      Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.
                     </p>
-                    <p
-                      className="c36"
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active"
+              data-index={3}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
+              }
+              tabIndex="-1"
+            >
+              <div>
+                <div
+                  className="c20"
+                >
+                  <svg
+                    aria-label="apps"
+                    fill="#BABABA"
+                    role="img"
+                    width={21}
+                  >
+                    apps.svg
+                  </svg>
+                  <div
+                    className=""
+                  >
+                    <h1
+                      className="c21"
                     >
-                      O Seguro Viagem é uma boa maneira de garantir sua tranquilidade. Com ele, você tem assistência 24h e, ainda, conta com reserva e compras de passagens aéreas, organização de pacotes de viagem, reservas de hotéis, dicas com roteiros culturais e de lazer e orientações para você viajar sem preocupação.
+                      Facilidade
+                    </h1>
+                    <p
+                      className="c22"
+                    >
+                      Ferramentas que simplificam seu dia a dia, permitindo que você controle sua vida financeira e contrate soluções da Porto Seguro pelo computador ou smartphone.
                     </p>
                   </div>
                 </div>
@@ -1297,62 +1437,268 @@ exports[`TripInsurance renders correctly 1`] = `
         
         
       </div>
-    </div>
-  </section>
-  <div
-    className="c37"
-    data-name="container"
-  >
-    <div
-      className="c38"
-      data-name="row"
+    </section>
+    <section
+      className="c23"
     >
       <div
-        className="sc-fzoxKX c39"
-        data-name="col-md-6 col-lg-12"
+        className="c24"
       >
-        <div>
-          <svg
-            aria-label="pdf"
-            className="c40"
-            fill="#272727"
-            height="24px"
-            role="img"
-            width={21}
+        <h1
+          className="c25"
+        >
+          Tranquilidade para viajar.
+        </h1>
+        <p
+          className="c26"
+        >
+          O Conquista acompanha você do planejamento da viagem à realização.
+          <br />
+          <br />
+          Informando detalhes como local e data, você pode simular coberturas e assistências nacionais e internacionais. Na sequência, basta escolher um plano e contratar.
+        </p>
+        <br />
+        <br />
+        <button
+          className="c3"
+          color="secondary"
+          data-gtm-clicktype="button"
+          data-gtm-name="SIMULAR E CONTRATAR"
+          data-gtm-subname="Tranquilidade para viajar."
+          data-gtm-type="click"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="c4"
           >
-            pdf.svg
-          </svg>
-        </div>
-        <div>
-          <p
-            className="c41"
+            SIMULAR E CONTRATAR
+          </span>
+        </button>
+      </div>
+    </section>
+    <section
+      className="c27"
+    >
+      <div
+        className="c28"
+      >
+        <h1
+          className="c29"
+        >
+          SAIBA MAIS:
+        </h1>
+        <div
+          className="slick-slider c18 c30 slick-initialized"
+        >
+          
+          <div
+            className="slick-list"
           >
-            CONDIÇÕES GERAIS
-          </p>
-          <p
-            className="c42"
-          >
-            Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro Viagem da Porto Seguro.
-          </p>
-          <a
-            data-gtm-clicktype="link"
-            data-gtm-name="Visualizar"
-            data-gtm-subname="CONDIÇÕES GERAIS"
-            data-gtm-type="click"
-            href="/redirect?to=https://www.portoseguro.com.br/seguro-viagem"
-            onClick={[Function]}
-            target="_blank"
-          >
-            <p
-              className="c43"
+            <div
+              className="slick-track"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              style={
+                Object {
+                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                  "WebkitTransition": "",
+                  "msTransform": "translateX(0px)",
+                  "opacity": 1,
+                  "transform": "translate3d(0px, 0px, 0px)",
+                  "transition": "",
+                }
+              }
             >
-              Visualizar
-               &gt; 
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active slick-current"
+                data-index={0}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c31"
+                  >
+                    <div
+                      className="c32"
+                    >
+                      <img
+                        className="c33"
+                        src={null}
+                      />
+                    </div>
+                    <div
+                      className="c34"
+                    >
+                      <p
+                        className="c35"
+                      >
+                        Desconto em hotéis para pet
+                      </p>
+                      <p
+                        className="c36"
+                      >
+                        Com o Porto Seguro Viagem, você conta com vários estabelecimentos parceiros, que oferecem descontos e condições especiais para você hospedar seu pet com muita tranquilidade durante o período em que você estiver viajando. *Benefício válido apenas para a região de São Paulo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active"
+                data-index={1}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c31"
+                  >
+                    <div
+                      className="c32"
+                    >
+                      <img
+                        className="c33"
+                        src={null}
+                      />
+                    </div>
+                    <div
+                      className="c34"
+                    >
+                      <p
+                        className="c35"
+                      >
+                        Extensão de vigência
+                      </p>
+                      <p
+                        className="c36"
+                      >
+                        Caso você não possa retornar de sua viagem por razões médicas ou por acidente de algum evento coberto, o prazo de vigência das coberturas será estendido até que você consiga voltar para sua cidade ou para o local de início da viagem, respeitando os limites de valores contratados.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active"
+                data-index={2}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c31"
+                  >
+                    <div
+                      className="c32"
+                    >
+                      <img
+                        className="c33"
+                        src={null}
+                      />
+                    </div>
+                    <div
+                      className="c34"
+                    >
+                      <p
+                        className="c35"
+                      >
+                        Porto Seguro Viaje Bem
+                      </p>
+                      <p
+                        className="c36"
+                      >
+                        O Seguro Viagem é uma boa maneira de garantir sua tranquilidade. Com ele, você tem assistência 24h e, ainda, conta com reserva e compras de passagens aéreas, organização de pacotes de viagem, reservas de hotéis, dicas com roteiros culturais e de lazer e orientações para você viajar sem preocupação.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </section>
+    <div
+      className="c37"
+      data-name="container"
+    >
+      <div
+        className="c38"
+        data-name="row"
+      >
+        <div
+          className="c39"
+          data-name="col-md-6 col-lg-12"
+        >
+          <div>
+            <svg
+              aria-label="pdf"
+              className="c40"
+              fill="#272727"
+              height="24px"
+              role="img"
+              width={21}
+            >
+              pdf.svg
+            </svg>
+          </div>
+          <div>
+            <p
+              className="c41"
+            >
+              CONDIÇÕES GERAIS
             </p>
-          </a>
+            <p
+              className="c42"
+            >
+              Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro Viagem da Porto Seguro.
+            </p>
+            <a
+              data-gtm-clicktype="link"
+              data-gtm-name="Visualizar"
+              data-gtm-subname="CONDIÇÕES GERAIS"
+              data-gtm-type="click"
+              href="/redirect?to=https://www.portoseguro.com.br/seguro-viagem"
+              onClick={[Function]}
+              target="_blank"
+            >
+              <p
+                className="c43"
+              >
+                Visualizar
+                 &gt; 
+              </p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
