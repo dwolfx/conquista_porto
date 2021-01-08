@@ -139,7 +139,7 @@ pipeline {
         }
 
         stage('Deployment - EVOLUCAO') {
-          when { expression { env.GIT_BRANCH?.startsWith("sprint/PCNE") } }
+          when { expression { env.GIT_BRANCH?.startsWith("sprint/PC") } }
           steps {
             withAWS (credentials:"${AWS_CREDENTIALS}") {
               sh '''
