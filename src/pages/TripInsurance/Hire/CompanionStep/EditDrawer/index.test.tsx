@@ -16,26 +16,33 @@ const createRootContainer = () => {
 
 describe('Edit Objective Drawer Component', () => {
   it('should render Edit Drawer title and inputs', async () => {
-    const companion = {
-      name: 'Nome Teste',
-      status: false,
-      documentNumber: '',
-      birthdayDate: new Date(),
-      gender: { id: 0, name: '' },
-      isBrazilianResident: false,
-      hasPoliticallyExposedPerson: false,
-      isSameContactForEmergencyData: true,
-    }
+    const companion = [
+      {
+        id: 1,
+        nome: 'Nome Teste',
+        status: true,
+        documentNumber: '',
+        birthdayDate: new Date(),
+        gender: { id: 0, name: '' },
+        isBrazilianResident: false,
+        hasPoliticallyExposedPerson: false,
+        isSameContactForEmergencyData: true,
+      },
+    ]
     const handleClose = jest.fn()
 
     renderWithReduxAndTheme(
       <HashRouter>
-        <EditDrawer handleClose={handleClose} companion={companion} />
+        <EditDrawer
+          handleClose={handleClose}
+          companions={companion}
+          isDrawerOpen={true}
+          selectedCompanion={1}
+        />
       </HashRouter>,
       { container: createRootContainer() }
     )
-
-    const menuElement = screen.getByText(companion.name)
+    expect(screen.getByText(companion[0].nome)).toBeVisible()
     const nameInput = screen.getByText('Nome Completo')
     const cpfInput = screen.getByText('CPF')
     const birthdayDateInput = screen.getByText('Data de nascimento')
@@ -45,7 +52,6 @@ describe('Edit Objective Drawer Component', () => {
       'Pessoa politicamente exposta'
     )
     const emergencyContactQuestion = screen.getByText('Dados para emergência')
-    expect(menuElement).toBeVisible()
     expect(nameInput).toBeVisible()
     expect(cpfInput).toBeVisible()
     expect(birthdayDateInput).toBeVisible()

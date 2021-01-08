@@ -1,8 +1,8 @@
 import React from 'react'
-
-import { renderWithReduxAndTheme, screen } from 'testUtils'
-
+import { screen } from '@testing-library/react'
+import { renderWithReduxAndTheme } from 'testUtils'
 import CompanionStep from '.'
+import { createStore } from 'redux'
 
 const createRootContainer = () => {
   let portalRoot = document.getElementById('root')
@@ -14,43 +14,47 @@ const createRootContainer = () => {
   return portalRoot
 }
 
+const renderTableCompanionDataMock = [
+  {
+    nome: 'Bruno Mizhari',
+    status: false,
+  },
+  {
+    nome: 'Acompanhante 2',
+    status: false,
+  },
+  {
+    nome: 'Acompanhante 3',
+    status: false,
+  },
+]
+
+const reducerMock: any = {
+  fluxManagement: {
+    stack: [],
+    form: {
+      qtdPassagMenorSetentaAnos: 1,
+      qtdPassagMaiorSetentaAnos: 2,
+      acompanhantes: renderTableCompanionDataMock,
+    },
+  },
+  tripInsuranceCreditCard: {
+    isLoading: false,
+    data: null,
+  },
+}
+
 describe('Companion Form tests', () => {
-  const renderTableCompanionDataMock = [
-    {
-      name: 'Bruno Mizhari',
-      status: false,
-    },
-    {
-      name: 'Acompanhante 2',
-      status: false,
-    },
-    {
-      name: 'Acompanhante 3',
-      status: false,
-    },
-    {
-      name: 'Acompanhante 4',
-      status: false,
-    },
-  ]
+  const storeMock = (state = reducerMock) => state
   it('should exists', () => {
     expect(CompanionStep).toBeDefined()
   })
+
   it('should render correctly', () => {
-    renderWithReduxAndTheme(
-      <CompanionStep companions={renderTableCompanionDataMock} />,
-      { container: createRootContainer() }
-    )
-    const names = renderTableCompanionDataMock.map(item => item.name)
-    const textsToBeDefined = [
-      'Acompanhantes',
-      'Aqui você vai inserir os dados das pessoas que irão viajar junto com você.',
-      'Declaração de Acompanhante',
-      ...names,
-    ]
-    const suiteTests = textsToBeDefined.map(word => ({
-      execution: screen.getByText(word),
-    }))
-    suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
+    renderWithReduxAndTheme(<CompanionStep />, {
+      store: createStore(storeMock),
+      container: createRootContainer(),
+    })
+    expect(screen.getByText('Bruno Mizhari')).toBeVisible()
   })
 })

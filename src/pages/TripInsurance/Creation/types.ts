@@ -71,7 +71,6 @@ export interface IMainPassenger {
 }
 
 export interface IPayment {
-  // AGUARDANDO RESPOSTA DA PORTO PARA CÓDIGO BANDEIRA
   codigoBandeira: number
   primeiroNumero: string
   segundoNumero: string
@@ -86,9 +85,11 @@ export interface IPayment {
 }
 
 export interface ICompanion extends IMainPassenger {
-  numeroCpfResponsavel: string
-  digitoCpfResponsavel: string
-  codigoPaisResidente: string
+  id?: number
+  status?: boolean
+  numeroCpfResponsavel?: string
+  digitoCpfResponsavel?: string
+  codigoPaisResidente?: string
 }
 
 export interface IForm {

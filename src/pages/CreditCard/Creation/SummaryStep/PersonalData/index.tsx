@@ -104,10 +104,7 @@ const PersonalData = ({
           <Divisor />
           <DataShower
             label="Celular"
-            value={formatPhoneNumber(
-              creditCardClient?.dddNumeroTelefone,
-              creditCardClient?.numeroTelefone
-            )}
+            value={formatPhoneNumber(`${creditCardClient?.dddNumeroTelefone}${creditCardClient?.numeroTelefone}`)}
           />
           <Divisor />
           <DataShower label="Estado onde reside" value={formData.cidade} />

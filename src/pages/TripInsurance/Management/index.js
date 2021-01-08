@@ -45,6 +45,7 @@ export default function ManagementTripInsurance() {
   useFetchTripInsurance()
 
   const [isOpenModal, setIsOpenModal] = useState(false)
+
   const [selectedTripInsurance, setSelectedTripInsurance] = useState(null)
   // const [isOpenCreationLayer, setOpenCreationLayer] = useState(false)
   const themeContext = useContext(ThemeContext)
