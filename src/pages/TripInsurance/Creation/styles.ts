@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-import Icon from 'components/IconExporter'
+import IconComponent from 'components/IconExporter'
+import ButtonComponent from 'components/Button'
+import TextComponent from 'components/Text'
 
 export const HeaderContent = styled.div`
   display: flex;
@@ -14,7 +16,7 @@ export const LogoWrapper = styled.div`
   justify-content: center;
 `
 
-export const CloseIcon = styled(Icon).attrs(() => ({
+export const CloseIcon = styled(IconComponent).attrs(() => ({
   name: 'close',
 }))`
   cursor: pointer;
@@ -27,7 +29,7 @@ export const CloseIcon = styled(Icon).attrs(() => ({
   }
 `
 
-export const PreviousIcon = styled(Icon).attrs(() => ({
+export const PreviousIcon = styled(IconComponent).attrs(() => ({
   name: 'arrowleft',
 }))`
   cursor: pointer;
@@ -39,9 +41,28 @@ export const PreviousIcon = styled(Icon).attrs(() => ({
   }
 `
 
-export const WhiteContent = styled.div`
+export const wrapper = styled.div`
   background: ${({ theme }) => theme.colors.white};
   min-height: calc(100% - 56px);
   display: flex;
   align-items: center;
+`
+
+export const Text = styled(TextComponent).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))`
+  max-width: 364px;
+  padding-bottom: ${({ theme }) => theme.spacing(5)}px;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const Button = styled(ButtonComponent)`
+  & + & {
+    margin-left: ${({ theme }) => theme.spacing(2)}px;
+  }
 `

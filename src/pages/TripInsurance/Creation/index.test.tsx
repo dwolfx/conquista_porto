@@ -8,7 +8,6 @@ import theme from 'styles/theme'
 
 import { fireEvent } from '@testing-library/dom'
 import TripInsuranceCreation from '.'
-import { WhiteContent } from './styles'
 
 const fn = jest.fn()
 
@@ -67,12 +66,7 @@ describe('Trip Insurance creation', () => {
     fireEvent.click(getByRole('img', { name: /arrowleft/i }))
     expect(storeA.getState().fluxManagement.stack).toHaveLength(1)
     fireEvent.click(getByRole('img', { name: /arrowleft/i }))
+    fireEvent.click(getByRole('button', { name: /sair/i }))
     expect(fn).toHaveBeenCalled()
-  })
-
-  it('should be able to render WhiteContent', () => {
-    renderWithReduxAndTheme(<WhiteContent />)
-    // eslint-disable-next-line no-unused-expressions
-    expect(WhiteContent).toBeVisible
   })
 })
