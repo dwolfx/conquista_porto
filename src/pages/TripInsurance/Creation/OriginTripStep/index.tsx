@@ -18,6 +18,8 @@ import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/Dest
 
 import { IOption } from 'components/MultiSelector/types'
 import { Steps, IForm } from '../types'
+import { hasLatinAmerica } from './helpers'
+import LatinAmericaModal from './LatinAmericaModal'
 
 import * as S from './styles'
 import * as T from './types'
@@ -27,6 +29,7 @@ const OriginTripStep: StepComponent = () => {
   const isTabletVertical = useMedia('md')
   const { updateForm } = useFormFluxManagement<IForm>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const [selectedOriginCountry, setOriginCountry] = useState<T.ISelected>({
     id: 1,
@@ -135,12 +138,26 @@ const OriginTripStep: StepComponent = () => {
       motivoViagem: 1,
       codigoCanal: 1,
       nationalDestination: selectedDestinationType.id === 1,
+      codigoUfOrigem: customerProfileData.customerState,
+      hasLatinAmericaDestination: hasLatinAmerica(selectedDestinationCountries),
     })
-    instantiate(Steps.coverageDate)
+    if (
+      hasLatinAmerica(selectedDestinationCountries) ||
+      selectedDestinationType.id === 1
+    ) {
+      setIsModalOpen(true)
+    } else {
+      instantiate(Steps.coverageDate)
+    }
   }
 
   return (
     <>
+      <LatinAmericaModal
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+        handleAccept={() => instantiate(Steps.coverageDate)}
+      />
       <StepBar actualStep={1} totalNumberOfSteps={5} />
       <S.Wrapper>
         <S.StyledContainer>
@@ -194,6 +211,9 @@ const OriginTripStep: StepComponent = () => {
                 />
               )}
               <S.StyledButton
+                data-gtm-name="proximo"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
                 loading={
                   selectedDestinationType.id === 1 &&
                   isLoadingDestinationCountries

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import renderer, { act } from 'react-test-renderer'
+import renderer from 'react-test-renderer'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import createStore from 'redux-mock-store'

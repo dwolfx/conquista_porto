@@ -6,6 +6,14 @@ import { renderWithReduxAndTheme } from 'testUtils'
 import { fireEvent } from '@testing-library/dom'
 import PassengerStep from '.'
 
+let portalRoot = document.getElementById('root')
+
+if (!portalRoot) {
+  portalRoot = document.createElement('div')
+  portalRoot.setAttribute('id', 'root')
+  document.body.appendChild(portalRoot)
+}
+
 describe('PassengerStep tests', () => {
   it('should exists', () => {
     const { getByTestId } = renderWithReduxAndTheme(<PassengerStep />)
@@ -18,7 +26,7 @@ describe('PassengerStep tests', () => {
       <PassengerStep />
     )
 
-    fireEvent.mouseOver(getByTestId('passenger-info'))
+    fireEvent.click(getByTestId('passenger-info'))
     expect(getByText('O seguro cobre até 20 passageiros')).toBeVisible()
   })
 

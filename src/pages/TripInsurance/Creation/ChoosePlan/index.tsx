@@ -8,6 +8,7 @@ import LoadingState from 'pages/TripInsurance/Creation/ResponseStates/Loading'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { StepComponent } from 'hooks/FluxManagement/types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
@@ -19,6 +20,7 @@ import * as s from './styles'
 import PlanCard from './PlanCard'
 import ComparativeModal from '../ComparativeModal'
 import EditDrawer from '../EditDrawer'
+import { IForm } from '../types'
 
 const ChoosePlan: StepComponent = () => {
   const dispatch = useDispatch()
@@ -29,6 +31,7 @@ const ChoosePlan: StepComponent = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isPortoSeguroCard, setIsPortoSeguroCard] = useState(false)
+  const { form } = useFormFluxManagement<IForm>()
 
   const { tripInsuranceQuotations, isLoading } = useSelector(
     (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
@@ -41,31 +44,30 @@ const ChoosePlan: StepComponent = () => {
   )
 
   useEffect(() => {
-    if (!tripInsuranceQuotations) {
-      dispatch(
-        PostInsuranceQuotationRequest({
-          payload: {
-            dataIda: '23/01/2021',
-            dataVolta: '28/01/2021',
-            motivoViagem: 1,
-            isPraticaAventura: false,
-            isMotocicleta: false,
-            qtdPassagMenorSetentaAnos: 2,
-            qtdPassagMaiorSetentaAnos: 0,
-            codigoUfOrigem: 'SP',
-            codigoPaisDestino: '58',
-            passageiroPrincipal: {
-              numeroCpf: '332444528',
-              digitoCpf: '09',
-            },
-            codigoCanal: 1,
+    dispatch(
+      PostInsuranceQuotationRequest({
+        payload: {
+          dataIda: form.dataIda,
+          dataVolta: form.dataVolta,
+          motivoViagem: 1,
+          isPraticaAventura: form.isPraticaAventura,
+          isMotocicleta: form.isMotocicleta,
+          qtdPassagMenorSetentaAnos: form.qtdPassagMenorSetentaAnos,
+          qtdPassagMaiorSetentaAnos: form.qtdPassagMaiorSetentaAnos,
+          codigoUfOrigem: form.codigoUfOrigem,
+          codigoPaisDestino: form.codigoPaisDestino,
+          paisesAdicionais: form.paisesAdicionais,
+          passageiroPrincipal: {
+            numeroCpf: form.passageiroPrincipal?.numeroCpf,
+            digitoCpf: form.passageiroPrincipal?.digitoCpf,
           },
-          onErrorToast: addToast,
-          onSuccess: () => null,
-        })
-      )
-    }
-  }, [tripInsuranceQuotations, dispatch, addToast])
+          codigoCanal: 1,
+        },
+        onErrorToast: addToast,
+        onSuccess: () => null,
+      })
+    )
+  }, [dispatch, addToast, form])
 
   return (
     <s.Container>
@@ -257,10 +259,22 @@ const ChoosePlan: StepComponent = () => {
           </s.BackgroundWrapper>
 
           <s.Footer>
-            <s.Button outline onClick={() => setModalOpen(true)}>
+            <s.Button
+              data-gtm-name="comparativo coberturas"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              outline
+              onClick={() => setModalOpen(true)}
+            >
               comparativo de coberturas
             </s.Button>
-            <s.Button outline onClick={() => setIsDrawerOpen(true)}>
+            <s.Button
+              data-gtm-name="alterar dados"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              outline
+              onClick={() => setIsDrawerOpen(true)}
+            >
               alterar dados
             </s.Button>
           </s.Footer>

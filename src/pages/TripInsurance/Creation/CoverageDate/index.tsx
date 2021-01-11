@@ -42,7 +42,10 @@ const CoverageDate: StepComponent = () => {
 
   return (
     <>
-      <StepBar actualStep={2} totalNumberOfSteps={5} />
+      <StepBar
+        actualStep={2}
+        totalNumberOfSteps={form.hasLatinAmericaDestination ? 4 : 5}
+      />
       <s.ContentWrapper>
         <Container>
           <Row
@@ -95,6 +98,9 @@ const CoverageDate: StepComponent = () => {
                 />
                 <s.NextButton
                   id="next-button"
+                  data-gtm-name="proximo"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
                   disabled={!(initialDate && finalDate)}
                   onClick={onSubmitButton}
                 >

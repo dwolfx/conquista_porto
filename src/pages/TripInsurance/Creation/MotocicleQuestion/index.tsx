@@ -26,9 +26,6 @@ const radioOptions = [
 
 const MotocicleQuestion: StepComponent = () => {
   const { updateForm, form } = useFormFluxManagement<IForm>()
-  // Olhar depois os SETTERS ==========================
-  const [isLoading] = useState<boolean>(false)
-  // Olhar depois os SETTERS ==========================
 
   const [isAnswerPositive, setIsAnswerPositive] = useState<string>('')
 
@@ -50,7 +47,10 @@ const MotocicleQuestion: StepComponent = () => {
 
   return (
     <s.ContentWrapper>
-      <StepBar actualStep={5} totalNumberOfSteps={5} />
+      <StepBar
+        actualStep={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
+        totalNumberOfSteps={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
+      />
       <s.ContentContainer>
         <s.ContentRow justifyContent={isMobile ? 'center' : 'start'}>
           <Col lg={3} md={3} hiddenMdDown>
@@ -93,9 +93,11 @@ const MotocicleQuestion: StepComponent = () => {
               />
               <s.SimulateButton
                 disabled={!isAnswerPositive}
-                loading={isLoading}
                 color="secondary"
                 onClick={submitButton}
+                data-gtm-name="simular"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
               >
                 Simular
               </s.SimulateButton>

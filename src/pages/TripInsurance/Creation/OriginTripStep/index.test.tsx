@@ -8,6 +8,14 @@ import OriginTripStep from 'pages/TripInsurance/Creation/OriginTripStep'
 
 import * as t from './types'
 
+let portalRoot = document.getElementById('root')
+
+if (!portalRoot) {
+  portalRoot = document.createElement('div')
+  portalRoot.setAttribute('id', 'root')
+  document.body.appendChild(portalRoot)
+}
+
 const defaultStore: t.IDefaultStore = {
   destinationCountries: {
     data: {
@@ -67,7 +75,7 @@ describe('OriginTripStep component', () => {
     const originCountryValue = getByDisplayValue('Brasil')
     const destinationCountryLabel = getByText('origem')
     const destinationCountryValue = getAllByPlaceholderText('Selecione')
-    const button = getByRole('button')
+    const button = getByText('Próximo')
 
     expect(stepDescription).toBeVisible()
     expect(introText).toBeVisible()
@@ -105,7 +113,7 @@ describe('OriginTripStep component', () => {
 
     userEvent.click(multiselector)
 
-    const optionBrasil = screen.getByText(/brasil/i)
+    const optionBrasil = screen.getByText('BRASIL')
 
     expect(optionBrasil).toBeVisible()
   })

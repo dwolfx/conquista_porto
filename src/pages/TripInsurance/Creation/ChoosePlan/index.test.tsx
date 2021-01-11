@@ -15,16 +15,17 @@ if (!portalRoot) {
   document.body.appendChild(portalRoot)
 }
 
-const successStore = storeFactory({
+const defaulState = {
   tripInsuranceQuotation: {
     data: responseMock,
     isLoading: false,
     hasError: false,
   },
-})
+}
 
-const setup = () => {
-  const store = successStore
+const setup = (initialState: any) => {
+  let store = storeFactory(initialState)
+  store = { ...store, dispatch: jest.fn() }
   return renderWithReduxAndTheme(<ChoosePlan />, { store })
 }
 
@@ -33,7 +34,8 @@ describe('Choose Plan tests', () => {
     expect(ChoosePlan).toBeDefined()
   })
   it('should render one card correctly', () => {
-    setup()
+    setup(defaulState)
+
     const title = screen.getByText('Escolha um plano disponível')
     const switchText = screen.getByText(
       'simular em até 12x sem juros com 5% de desconto no Cartão Porto Seguro'
