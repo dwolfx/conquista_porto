@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 
@@ -12,19 +12,21 @@ import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
+import PassengersOverSeventyModal from './PassengersOverSeventyModal'
 import { Steps, IForm } from '../types'
 
 import * as S from './styles'
 
 const PassengerStep: StepComponent = () => {
   const maximumPermittedPassengers = 20
-  const theme = React.useContext(ThemeContext)
-  const [counts, setCounts] = React.useState({ young: 0, old: 0, total: 0 })
+  const theme = useContext(ThemeContext)
+  const [counts, setCounts] = useState({ young: 0, old: 0, total: 0 })
   const isTabletVertical = useMedia('md')
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
-  const { updateForm } = useFormFluxManagement<IForm>()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCounts(prevCounts => ({
       ...prevCounts,
       total: prevCounts.young + prevCounts.old,
@@ -36,12 +38,44 @@ const PassengerStep: StepComponent = () => {
       qtdPassagMenorSetentaAnos: counts.young,
       qtdPassagMaiorSetentaAnos: counts.old,
     })
-    instantiate(Steps.adventureSports)
+
+    return counts.old > 0
+      ? setIsModalOpen(true)
+      : instantiate(Steps.adventureSports)
+  }
+
+  const handleModalAcceptButton = () => {
+    if (!!form.hasLatinAmericaDestination && counts.old > 0) {
+      updateForm({
+        isPraticaAventura: false,
+        isMotocicleta: false,
+      })
+      instantiate(Steps.choosePlan)
+    } else {
+      updateForm({
+        isPraticaAventura: false,
+      })
+      instantiate(Steps.motocicleQuestion)
+    }
   }
 
   return (
     <>
-      <StepBar actualStep={3} totalNumberOfSteps={5} />
+      <PassengersOverSeventyModal
+        isOpen={isModalOpen}
+        isLastStep={!!form.hasLatinAmericaDestination && counts.old > 0}
+        handleClose={() => setIsModalOpen(false)}
+        handleAccept={() => handleModalAcceptButton()}
+      />
+      <StepBar
+        actualStep={3}
+        totalNumberOfSteps={
+          form.hasLatinAmericaDestination ||
+          form.qtdPassagMaiorSetentaAnos !== 0
+            ? 4
+            : 5
+        }
+      />
       <S.Wrapper data-testid="passenger-step">
         <S.StyledContainer>
           <S.Row
@@ -59,7 +93,6 @@ const PassengerStep: StepComponent = () => {
                 <Text type="headline" color="gray6" textAlign="center">
                   Quantos passageiros haverá na viagem?
                   <Popover
-                    tooltip
                     content={() => (
                       <Text bold type="body" color="gray5">
                         O seguro cobre até 20 passageiros.
@@ -95,6 +128,9 @@ const PassengerStep: StepComponent = () => {
                 afterOnChange={value => setCounts({ ...counts, old: value })}
               />
               <S.StyledButton
+                data-gtm-name="proximo"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
                 onClick={handleButtonClick}
                 disabled={counts.total === 0}
               >

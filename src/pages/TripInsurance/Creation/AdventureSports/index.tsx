@@ -26,17 +26,28 @@ const radioOptions = [
 const AdventureSports: StepComponent = () => {
   const [hasAdventureSports, setHasAdventureSports] = useState<string>('')
 
-  const { updateForm } = useFormFluxManagement<IForm>()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const handleClick = () => {
-    updateForm({ isPraticaAventura: !!+hasAdventureSports })
-    instantiate(Steps.motocicleQuestion)
+    updateForm({
+      isPraticaAventura: !!+hasAdventureSports,
+      isMotocicleta: form.hasLatinAmericaDestination ? false : true,
+    })
+
+    if (form.hasLatinAmericaDestination) {
+      instantiate(Steps.choosePlan)
+    } else {
+      instantiate(Steps.motocicleQuestion)
+    }
   }
 
   return (
     <s.ContentWrapper>
-      <StepBar actualStep={4} totalNumberOfSteps={5} />
+      <StepBar
+        actualStep={4}
+        totalNumberOfSteps={form.hasLatinAmericaDestination ? 4 : 5}
+      />
       <s.ContentContainer>
         <s.RowContainer
           alignItems="center"
@@ -63,17 +74,30 @@ const AdventureSports: StepComponent = () => {
                 onChange={e => setHasAdventureSports(e.currentTarget.value)}
                 data-testid="radio-input-adventure-sports"
               />
-              <s.NextButton
-                disabled={hasAdventureSports === ''}
-                data-testid="button-adventure-sports"
-                data-gtm-subname="botao proximo step"
-                data-gtm-name="botao proximo"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                onClick={() => handleClick()}
-              >
-                PRÓXIMO
-              </s.NextButton>
+              {form.hasLatinAmericaDestination ? (
+                <s.NextButton
+                  disabled={hasAdventureSports === ''}
+                  data-testid="button-adventure-sports"
+                  data-gtm-name="simular"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={() => handleClick()}
+                  color="secondary"
+                >
+                  SIMULAR
+                </s.NextButton>
+              ) : (
+                <s.NextButton
+                  disabled={hasAdventureSports === ''}
+                  data-testid="button-adventure-sports"
+                  data-gtm-name="proximo"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={() => handleClick()}
+                >
+                  PRÓXIMO
+                </s.NextButton>
+              )}
             </s.ContentWrapper>
           </Col>
         </s.RowContainer>

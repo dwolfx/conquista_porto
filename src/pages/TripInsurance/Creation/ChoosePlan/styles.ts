@@ -184,6 +184,7 @@ export const CardsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
