@@ -76,13 +76,13 @@ pipeline {
 
         stage('Install Packages') {
           steps {
-            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:14.15.1 yarn install"
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:14.15.4 yarn install"
           }
         }
 
         stage('Build') {
           steps {
-            sh "docker run --user node -v \$(pwd):/app:rw -w /app -e BASE_URL=$BASE_URL node:14.15.1 yarn build extract"
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app -e BASE_URL=$BASE_URL node:14.15.4 yarn build extract"
           }
           post {
             failure {
@@ -96,7 +96,7 @@ pipeline {
           stages {
             stage('Test') {
               steps {
-                sh "docker run --user node -v \$(pwd):/app -w /app node:14.15.1 yarn run test:ci"
+                sh "docker run --user node -v \$(pwd):/app -w /app node:14.15.4 yarn run test:ci"
               }
               post {
                 always {
