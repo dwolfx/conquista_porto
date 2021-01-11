@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 import Banner from 'assets/images/pages/solutions/tripInsurance/banner.jpg'
 import BulletImage from 'assets/images/pages/solutions/tripInsurance/selo-seguro-viagem.svg'
 
-import TripInsuranceCreation from 'pages/TripInsurance/Creation'
 import TopBanner from 'components/Solutions/TopBanner'
 import BulletsSection from 'components/Solutions/BulletsSection'
 import MakeSenseSection from 'components/Solutions/MakeSenseSection'
@@ -11,29 +11,29 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { handleGiwRedirect } from 'helpers'
 
 import { Container } from './styles'
 
 export default function TripInsurance() {
-  const [isOpenCreationLayer, setOpenCreationLayer] = useState(false)
-  const { reset } = useStackFluxManagement()
+  const { state: locationState } = useLocation()
 
   return (
     <>
-      <TripInsuranceCreation
-        isOpen={isOpenCreationLayer}
-        closeHandler={() => {
-          reset()
-          setOpenCreationLayer(false)
-        }}
-      />
       <Container>
         <TopBanner
           title="Seguro Viagem"
           description="Viaje com tranquilidade e tenha assistência 24h da Porto Seguro em qualquer lugar do mundo. Faça uma simulação informando os detalhes da viagem e contrate em alguns cliques."
           buttonText="SIMULAR E CONTRATAR"
-          onClick={() => setOpenCreationLayer(true)}
+          onClick={() =>
+            handleGiwRedirect(
+              `portaldecliente/conquista/seguro-viagem/simular?r=true${
+                (locationState || {}).idGoal
+                  ? `&idObjetivo=${(locationState || {}).idGoal}`
+                  : ''
+              }`
+            )
+          }
           image={Banner}
           imageDescription="Homem sentado no capô do carro"
         />
@@ -98,7 +98,15 @@ export default function TripInsurance() {
           mainDescription="O Conquista acompanha você do planejamento da viagem à realização."
           subDescription="Informando detalhes como local e data, você pode simular coberturas e assistências nacionais e internacionais. Na sequência, basta escolher um plano e contratar."
           buttonText="SIMULAR E CONTRATAR"
-          onClick={() => setOpenCreationLayer(true)}
+          onClick={() =>
+            handleGiwRedirect(
+              `portaldecliente/conquista/seguro-viagem/simular?r=true${
+                (locationState || {}).idGoal
+                  ? `&idObjetivo=${(locationState || {}).idGoal}`
+                  : ''
+              }`
+            )
+          }
         />
         <MoreDetails
           title="SAIBA MAIS:"

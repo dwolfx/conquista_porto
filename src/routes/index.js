@@ -34,7 +34,8 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
 // import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
-import TripInsuranceProposalCreation from 'pages/TripInsurance/PRO/Creation'
+import TripInsuranceProposalPROCreation from 'pages/TripInsurance/PRO/Creation'
+import TripInsuranceProposalCreation from 'pages/TripInsurance/Creation'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -239,12 +240,27 @@ export default function Routes({ ...props }) {
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
         /> */}
-        <Route
-          path="/seguro-viagem/simular/pro"
-          exact
-          component={TripInsuranceProposalCreation}
-          pageTitle="Seguro Viagem - Simular"
-        />
+
+        {/* Disponibiliza as rotas dos fluxos de seguro viagem 
+        apenas nos nossos ambientes de desenvolvimento */}
+        {process.env.REACT_APP_ENV === 'development' ||
+        process.env.REACT_APP_ENV === 'local' ? (
+          <>
+            <Route
+              path="/seguro-viagem/simular/pro"
+              exact
+              component={TripInsuranceProposalPROCreation}
+              pageTitle="Seguro Viagem - Simular"
+            />
+            <Route
+              path="/seguro-viagem/simular"
+              exact
+              component={TripInsuranceProposalCreation}
+              pageTitle="Seguro Viagem - Simular"
+            />
+          </>
+        ) : null}
+
         <DefaultRoute
           path="/seguro-viagem"
           exact
