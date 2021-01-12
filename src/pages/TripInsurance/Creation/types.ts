@@ -7,6 +7,7 @@ import ChoosePlan from './ChoosePlan'
 import Status from '../commons/RequestProposalStatus'
 import PaymentStep from '../Hire/PaymentStep'
 import CompanionStep from '../Hire/CompanionStep'
+import InformationConfirmation from '../Hire/InformationConfirmation'
 
 export const Steps = {
   status: Status,
@@ -18,6 +19,7 @@ export const Steps = {
   choosePlan: ChoosePlan,
   companionStep: CompanionStep,
   paymentStep: PaymentStep,
+  informationConfirmation: InformationConfirmation,
 }
 
 export interface IAdditionalCountries {
