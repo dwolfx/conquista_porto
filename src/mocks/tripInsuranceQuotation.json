@@ -26,7 +26,7 @@
               "descricao": "Interrupção da viagem"
             },
             {
-              "valor": "R$  1.500,00",
+              "valor": "R$  1.000,00",
               "descricao": "Extravio de bagagem"
             },
             {
@@ -249,15 +249,15 @@
         "ViagemCobertura": {
           "coberturas": [
             {
-              "valor": "R$ 10.000,00",
+              "valor": "R$ 5.000,00",
               "descricao": "Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO"
             },
             {
-              "valor": "R$ 80.000,00",
+              "valor": "R$ 50.000,00",
               "descricao": "Morte acidental"
             },
             {
-              "valor": "R$ 80.000,00",
+              "valor": "R$ 50.000,00",
               "descricao": "Invalidez Permanente Total ou Parcial por Acidente"
             },
             {

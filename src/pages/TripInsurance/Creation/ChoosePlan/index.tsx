@@ -7,8 +7,9 @@ import Switch from 'components/Inputs/Switch'
 import LoadingState from 'pages/TripInsurance/Creation/ResponseStates/Loading'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { StepComponent } from 'hooks/FluxManagement/types'
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
@@ -20,7 +21,7 @@ import * as s from './styles'
 import PlanCard from './PlanCard'
 import ComparativeModal from '../ComparativeModal'
 import EditDrawer from '../EditDrawer'
-import { IForm } from '../types'
+import { IForm, Steps } from '../types'
 
 const ChoosePlan: StepComponent = () => {
   const dispatch = useDispatch()
@@ -31,7 +32,8 @@ const ChoosePlan: StepComponent = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isPortoSeguroCard, setIsPortoSeguroCard] = useState(false)
-  const { form } = useFormFluxManagement<IForm>()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const { tripInsuranceQuotations, isLoading } = useSelector(
     (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
@@ -68,6 +70,14 @@ const ChoosePlan: StepComponent = () => {
       })
     )
   }, [dispatch, addToast, form])
+
+  const handleClick = (choosedPlan: string) => {
+    updateForm({
+      ...form,
+      pacoteEscolhido: choosedPlan,
+    })
+    instantiate(Steps.informationConfirmation)
+  }
 
   return (
     <s.Container>
@@ -220,6 +230,7 @@ const ChoosePlan: StepComponent = () => {
                       return (
                         <PlanCard
                           planName={quotation.nomePlano}
+                          planId={quotation.codigoPlano}
                           recommendedPaymentPlan={installment}
                           upfrontPayment={upfronPayment}
                           firstCoverageAmount={firstCoverageAmount?.valor}
@@ -227,7 +238,7 @@ const ChoosePlan: StepComponent = () => {
                           thridCoverageAmount={thridCoverageAmount?.valor}
                           isLoading={isLoading}
                           key={quotation.nomePlano}
-                          onHireClick={() => {}}
+                          onHireClick={handleClick}
                         />
                       )
                     })}

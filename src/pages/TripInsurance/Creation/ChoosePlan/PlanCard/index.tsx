@@ -8,24 +8,26 @@ import useMedia from 'hooks/useMedia'
 
 interface IPlanCardProps {
   planName: string
+  planId: string
   recommendedPaymentPlan: string
   upfrontPayment: string
   firstCoverageAmount?: string
   secondCoverageAmount?: string
   thridCoverageAmount?: string
   isLoading: boolean
-  onHireClick: () => void
+  onHireClick: (choosedPlan: string) => void
 }
 
 const PlanCard = ({
   planName,
+  planId,
   recommendedPaymentPlan,
   upfrontPayment,
   firstCoverageAmount,
   secondCoverageAmount,
   thridCoverageAmount,
   isLoading,
-  onHireClick = () => {},
+  onHireClick,
 }: IPlanCardProps) => {
   const isMobile = useMedia('sm')
   const isMdUp = useMedia('mdUp')
@@ -50,7 +52,7 @@ const PlanCard = ({
         color="secondary"
         loading={isLoading}
         loadingColor="green3"
-        onClick={onHireClick}
+        onClick={() => onHireClick(planId)}
       >
         Contratar
       </s.ContractButton>

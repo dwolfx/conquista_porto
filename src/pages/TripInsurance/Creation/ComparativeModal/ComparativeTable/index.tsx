@@ -16,16 +16,18 @@ const ComparativeTable: React.FC<IComparativeTable> = ({
   const renderTableRowContent = (travelPlans: IPlan[]) => {
     const tableRowsData: Array<string[]> = []
 
-    travelPlans.forEach((plan, index) => {
-      if (index === 0) {
-        // adiciona o valor da coluna 'COBERTURA' e do primeiro plano
-        plan.ViagemCobertura.coberturas.forEach(item => {
-          tableRowsData.push([item.descricao, item.valor])
-        })
-      }
-      // adiciona o valor dos demais planos na linha
-      plan.ViagemCobertura.coberturas.forEach((item, index) => {
-        tableRowsData[index] = [...tableRowsData[index], item.valor]
+    travelPlans.forEach((plan, planIndex) => {
+      plan.ViagemCobertura.coberturas.forEach((coverage, coverageIndex) => {
+        if (planIndex === 0) {
+          // adiciona o valor da coluna 'COBERTURA' e do primeiro plano
+          tableRowsData.push([coverage.descricao, coverage.valor])
+        } else {
+          // adiciona o valor dos demais planos na linha
+          tableRowsData[coverageIndex] = [
+            ...tableRowsData[coverageIndex],
+            coverage.valor,
+          ]
+        }
       })
     })
 
