@@ -245,20 +245,21 @@ export default function Routes({ ...props }) {
         apenas nos nossos ambientes de desenvolvimento */}
         {process.env.REACT_APP_ENV === 'development' ||
         process.env.REACT_APP_ENV === 'local' ? (
-          <>
-            <Route
-              path="/seguro-viagem/simular/pro"
-              exact
-              component={TripInsuranceProposalPROCreation}
-              pageTitle="Seguro Viagem - Simular"
-            />
-            <Route
-              path="/seguro-viagem/simular"
-              exact
-              component={TripInsuranceProposalCreation}
-              pageTitle="Seguro Viagem - Simular"
-            />
-          </>
+          <Route
+            path="/seguro-viagem/simular/pro"
+            exact
+            component={TripInsuranceProposalPROCreation}
+            pageTitle="Seguro Viagem - Simular"
+          />
+        ) : null}
+        {process.env.REACT_APP_ENV === 'development' ||
+        process.env.REACT_APP_ENV === 'local' ? (
+          <Route
+            path="/seguro-viagem/simular"
+            exact
+            component={TripInsuranceProposalCreation}
+            pageTitle="Seguro Viagem - Simular"
+          />
         ) : null}
 
         <DefaultRoute
