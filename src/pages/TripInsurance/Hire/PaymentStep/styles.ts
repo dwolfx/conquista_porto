@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Card from 'components/Card'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
@@ -129,6 +129,10 @@ export const StyledSelect = styled(Select)`
   @media ${props => props.theme.mediaQueries.lg} {
     margin-top: ${({ theme }) => theme.spacing(5)}px;
   }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    width: 100%;
+  }
 `
 
 export const BigInput = styled(NewInput)`
@@ -136,12 +140,35 @@ export const BigInput = styled(NewInput)`
     margin-top: ${({ theme }) => theme.spacing(4)}px;
   }
   width: 631px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    width: 100%;
+  }
 `
+
 export const SmallText = styled(Text)`
   margin-top: ${({ theme }) => theme.spacing(1)}px;
   margin-left: ${({ theme }) => theme.spacing(2)}px;
 `
-export const SmallInput = styled(NewInput)`
+
+export const ValidityInput = styled(NewInput)`
+  width: 192px;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
+
+  ${({ error, theme }) =>
+    error &&
+    css`
+      margin-bottom: ${theme.spacing(5)}px;
+    `}
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    width: 100%;
+    margin-right: 0;
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+  }
+`
+
+export const CVCInput = styled(NewInput)`
   width: 192px;
   margin-right: ${({ theme }) => theme.spacing(2)}px;
 
@@ -155,7 +182,7 @@ export const SmallInput = styled(NewInput)`
 export const FlexWrapper = styled.div<{ hasMargin?: boolean }>`
   margin-top: ${({ theme, hasMargin }) => theme.spacing(hasMargin ? 4 : 0)}px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
@@ -175,6 +202,7 @@ export const StyledRadio = styled(RadioComponent)`
     margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
 `
+
 export const TextWrapper = styled.div`
   margin-left: ${({ theme }) => theme.spacing(3)}px;
 

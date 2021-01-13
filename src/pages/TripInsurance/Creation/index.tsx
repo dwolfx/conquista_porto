@@ -33,6 +33,10 @@ export default function TripInsurenceCreation({
   // 4 - adventureSports
   // 5 - motocicleQuestion
   // 6 - choosePlan
+  // 7 - informationConfirmationStep
+  // 8 - companionStep
+  // 9 - paymentStep
+  // 10 - sumaryStep
 
   React.useEffect(() => {
     if (isOpen && getLength() === 0) instantiate(Steps.originTrip)

@@ -1,10 +1,14 @@
-export interface ICreditCardForm {
-  parcelOption: {
-    id: number
-    name: string
-  }
-  cardNumber: string
+import { dict } from 'components/IconExporter'
+
+export interface IParcelOptionState {
+  id: number
   name: string
-  validity: string
-  cvc: string
+}
+
+export type TFlagName = '' | keyof typeof dict
+
+export interface IOption {
+  id: number
+  text: string
+  onClick: () => void
 }
