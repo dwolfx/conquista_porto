@@ -9,6 +9,7 @@ import InformationConfirmation from '../Hire/InformationConfirmation'
 import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import CompanionStep from '../Hire/CompanionStep'
 import PaymentStep from '../Hire/PaymentStep'
+import Sumary from '../Hire/Sumary'
 
 export const Steps = {
   status: Status,
@@ -18,9 +19,10 @@ export const Steps = {
   adventureSports: AdventureSports,
   motocicleQuestion: MotocicleQuestion,
   choosePlan: ChoosePlan,
+  informationConfirmationStep: InformationConfirmation,
   companionStep: CompanionStep,
   paymentStep: PaymentStep,
-  informationConfirmationStep: InformationConfirmation,
+  sumaryStep: Sumary,
 }
 
 export interface IAdditionalCountries {

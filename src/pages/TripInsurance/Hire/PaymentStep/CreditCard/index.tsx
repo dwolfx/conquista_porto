@@ -1,63 +1,53 @@
 import React, { useState, useEffect } from 'react'
+import moment from 'moment'
 import { useSelector } from 'react-redux'
 
 import Text from 'components/Text'
 
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import { formatMoney } from 'helpers'
 
-import {
-  ITripInsuranceQuotation,
-  ICreditCardInstallment,
-} from 'store/modules/TripInsurance/InsuranceQuotation/types'
+import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { IForm } from 'pages/TripInsurance/Creation/types'
 
-import { ICreditCardForm } from '../types'
+import CreditCardNumberInput from './CreditCardNumberInput'
+import { applyValidityMask, formatOption, validityError } from './utils'
+import { IParcelOptionState, TFlagName, IOption } from '../types'
+
 import * as S from '../styles'
-
-interface IOption {
-  id: number
-  text: string
-  onClick: () => void
-}
-
-const formatText = (installment: ICreditCardInstallment): string =>
-  installment.descricao.includes('x')
-    ? `${installment.descricao} de ${formatMoney(installment.valor)}`
-    : `1x de ${formatMoney(installment.valor)} (${installment.descricao})`
-
-const formatOption = (
-  installment: ICreditCardInstallment,
-  creditCardFormValue: ICreditCardForm,
-  setCreditCardFormValue: React.Dispatch<React.SetStateAction<ICreditCardForm>>
-): IOption => {
-  return {
-    id: +installment.id,
-    text: formatText(installment),
-    onClick: () =>
-      setCreditCardFormValue({
-        ...creditCardFormValue,
-        parcelOption: {
-          id: +installment.id,
-          name: formatText(installment),
-        },
-      }),
-  }
-}
 
 const CreditCard = ({
   portoCreditCardIsNotSelected,
-  creditCardForm,
+  selectedCreditCardIndex,
+  parcelOptionState,
+  cardNumberState,
+  isNumberValidState,
+  flagNameState,
+  setName,
+  validityDateState,
+  validityHasErrorState,
+  cvcState,
 }: {
   portoCreditCardIsNotSelected: boolean
-  creditCardForm: [
-    ICreditCardForm,
-    React.Dispatch<React.SetStateAction<ICreditCardForm>>
+  selectedCreditCardIndex: number
+  parcelOptionState: [
+    IParcelOptionState,
+    React.Dispatch<React.SetStateAction<IParcelOptionState>>
   ]
+  cardNumberState: [string, React.Dispatch<React.SetStateAction<string>>]
+  isNumberValidState: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
+  flagNameState: [TFlagName, React.Dispatch<React.SetStateAction<TFlagName>>]
+  setName: React.Dispatch<React.SetStateAction<string>>
+  validityDateState: [string, React.Dispatch<React.SetStateAction<string>>]
+  validityHasErrorState: [
+    boolean,
+    React.Dispatch<React.SetStateAction<boolean>>
+  ]
+  cvcState: [string, React.Dispatch<React.SetStateAction<string>>]
 }) => {
-  const [creditCardFormValue, setCreditCardFormValue] = creditCardForm
-  const [options, setOptions] = useState<IOption[]>([])
   const { form } = useFormFluxManagement<IForm>()
+  const [validityHasError, setValidityHasError] = validityHasErrorState
+  const [options, setOptions] = useState<IOption[]>([])
+  const [cvcHasError, setCvcHasError] = useState<boolean>(false)
 
   const { tripInsuranceQuotations } = useSelector(
     (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
@@ -75,21 +65,39 @@ const CreditCard = ({
       setOptions(
         portoCreditCardIsNotSelected
           ? choosenPlan[0]?.formasPagamento.listaParcelamentoCartao.map(item =>
-              formatOption(item, creditCardFormValue, setCreditCardFormValue)
+              formatOption(item, parcelOptionState[1])
             )
           : choosenPlan[0]?.formasPagamento.listaParcelamentoCartaoPorto.map(
-              item =>
-                formatOption(item, creditCardFormValue, setCreditCardFormValue)
+              item => formatOption(item, parcelOptionState[1])
             )
       )
     }
   }, [
-    creditCardFormValue,
     form.pacoteEscolhido,
     portoCreditCardIsNotSelected,
-    setCreditCardFormValue,
+    parcelOptionState,
     tripInsuranceQuotations,
   ])
+
+  // 'validity' input error
+  useEffect(() => {
+    if (validityDateState[0].length === 2) {
+      const month = validityDateState[0].slice(0, 2)
+      if (+month > 12) {
+        setValidityHasError(true)
+      }
+    } else if (
+      validityDateState[0].length >= 7 &&
+      !moment(validityDateState[0], 'MM/YYYY').isBetween(
+        moment().subtract(1, 'months'),
+        '2100-01-01'
+      )
+    ) {
+      setValidityHasError(true)
+    } else {
+      setValidityHasError(false)
+    }
+  }, [validityDateState, setValidityHasError])
 
   return (
     <>
@@ -102,57 +110,56 @@ const CreditCard = ({
         }
       >
         <S.StyledSelect
-          selected={creditCardFormValue.parcelOption}
+          selected={parcelOptionState[0]}
           label="Número de parcelas"
           options={options}
           optionBoxDirection="top"
           testId="parcelas"
         />
 
-        <S.BigInput
-          label="Número do cartão"
-          onChange={e =>
-            setCreditCardFormValue({
-              ...creditCardFormValue,
-              cardNumber: e.target.value,
-            })
-          }
-          value={creditCardFormValue.cardNumber}
+        <CreditCardNumberInput
+          cardNumberState={cardNumberState}
+          selectedCreditCardIndex={selectedCreditCardIndex}
+          isNumberValidState={isNumberValidState}
+          flagNameState={flagNameState}
         />
         <S.BigInput
           label="Nome completo"
-          onChange={e =>
-            setCreditCardFormValue({
-              ...creditCardFormValue,
-              name: e.target.value,
-            })
-          }
-          value={creditCardFormValue.name}
+          onChange={e => setName(e.target.value)}
         />
         <S.SmallText color="gray5" bold type="body">
           Assim como está impresso no cartão
         </S.SmallText>
-
         <S.FlexWrapper hasMargin>
-          <S.SmallInput
+          <S.ValidityInput
             label="Validade"
-            onChange={e =>
-              setCreditCardFormValue({
-                ...creditCardFormValue,
-                validity: e.target.value,
-              })
+            error={validityHasError && validityError}
+            onBlur={() =>
+              validityDateState[0].length >= 1 &&
+              validityDateState[0].length < 7 &&
+              setValidityHasError(true)
             }
-            value={creditCardFormValue.validity}
+            onChange={e => applyValidityMask(e, validityDateState[1])}
+            maxLength={7}
           />
-          <S.SmallInput
+          <S.CVCInput
             label="CVC"
-            onChange={e =>
-              setCreditCardFormValue({
-                ...creditCardFormValue,
-                cvc: e.target.value,
-              })
-            }
-            value={creditCardFormValue.cvc}
+            error={cvcHasError}
+            onChange={e => {
+              e.target.value = e.target.value.replace(/\D/g, '')
+              cvcState[1](e.target.value)
+              if (cvcState[0].length < 3) {
+                setCvcHasError(false)
+              }
+            }}
+            onBlur={() => {
+              if (cvcState[0].length < 3) {
+                setCvcHasError(true)
+              } else {
+                setCvcHasError(false)
+              }
+            }}
+            maxLength={3}
           />
         </S.FlexWrapper>
       </S.StyledCard>

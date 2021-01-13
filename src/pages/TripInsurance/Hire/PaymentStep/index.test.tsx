@@ -49,18 +49,18 @@ describe('PaymentStep component', () => {
 
   it('should change the option when radio is clicked', () => {
     setup(defaultStore)
-    const radioPorto = screen.getByRole('radio', { name: 'cartao-porto' })
+    const radioPorto = screen.getAllByRole('radio', { name: 'cartao-porto' })
     const radioOutro = screen.getByRole('radio', { name: 'cartao-outro' })
 
     userEvent.click(radioOutro)
     expect(radioOutro).toBeChecked()
 
-    userEvent.click(radioPorto)
-    expect(radioPorto).toBeChecked()
+    userEvent.click(radioPorto[1])
+    expect(radioPorto[1]).toBeChecked()
   })
 
   it('should show form inputs', () => {
-    setup(defaultStore)
+    renderWithReduxAndTheme(<PaymentStep />)
 
     expect(screen.getByTestId('select-option-input-parcelas')).toBeVisible()
     expect(screen.getByTestId('número do cartão')).toBeVisible()
@@ -83,27 +83,69 @@ describe('PaymentStep component', () => {
     setup(defaultStore)
     expect(screen.getByRole('button', { name: 'Continuar' })).toBeDisabled()
 
+    const radioOutro = screen.getByRole('radio', { name: 'cartao-outro' })
+
+    userEvent.click(radioOutro)
+    expect(radioOutro).toBeChecked()
+
     const select = screen.getByTestId('select-option-input-parcelas')
 
     userEvent.click(select)
-    userEvent.click(screen.getByText('1x de R$ 31,94 (À vista)'))
+    userEvent.click(screen.getByText('1x de R$ 33,63 (À vista)'))
 
     const cardNumberInput = screen.getByTestId('número do cartão')
-    userEvent.type(cardNumberInput, '9876987698769876')
-    expect(cardNumberInput).toHaveValue('9876987698769876')
+    userEvent.type(cardNumberInput, '5555666677778884')
+    expect(cardNumberInput).toHaveValue('5555 6666 7777 8884')
 
     const nameInput = screen.getByTestId('nome completo')
     userEvent.type(nameInput, 'João Silva')
     expect(nameInput).toHaveValue('João Silva')
 
     const validityInput = screen.getByTestId('validade')
-    userEvent.type(validityInput, '22/2025')
-    expect(validityInput).toHaveValue('22/2025')
+    userEvent.type(validityInput, '12/2025')
+    expect(validityInput).toHaveValue('12/2025')
 
     const cvcInput = screen.getByTestId('cvc')
     userEvent.type(cvcInput, '123')
+    cvcInput.blur()
     expect(cvcInput).toHaveValue('123')
 
-    expect(screen.getByRole('button', { name: 'Continuar' })).not.toBeDisabled()
+    const button = screen.getByRole('button', { name: 'Continuar' })
+    userEvent.click(button)
+    expect(button).not.toBeDisabled()
+  })
+
+  it('should be able to disable button if it has invalid data', () => {
+    setup(defaultStore)
+    expect(screen.getByRole('button', { name: 'Continuar' })).toBeDisabled()
+
+    const radioOutro = screen.getByRole('radio', { name: 'cartao-outro' })
+
+    userEvent.click(radioOutro)
+    expect(radioOutro).toBeChecked()
+
+    const select = screen.getByTestId('select-option-input-parcelas')
+
+    userEvent.click(select)
+    userEvent.click(screen.getByText('1x de R$ 33,63 (À vista)'))
+
+    const cardNumberInput = screen.getByTestId('número do cartão')
+    userEvent.type(cardNumberInput, '1111111111111111')
+    expect(cardNumberInput).toHaveValue('1111 1111 1111 1111')
+
+    const nameInput = screen.getByTestId('nome completo')
+    userEvent.type(nameInput, 'João Silva')
+    expect(nameInput).toHaveValue('João Silva')
+
+    const validityInput = screen.getByTestId('validade')
+    userEvent.type(validityInput, '13/2025')
+    expect(validityInput).toHaveValue('13/2025')
+
+    const cvcInput = screen.getByTestId('cvc')
+    userEvent.type(cvcInput, '12')
+    cvcInput.blur()
+    expect(cvcInput).toHaveValue('12')
+
+    expect(screen.getByRole('button', { name: 'Continuar' })).toBeDisabled()
   })
 })

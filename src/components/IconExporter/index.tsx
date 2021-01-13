@@ -39,6 +39,7 @@ import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
 import { ReactComponent as dollarsign } from 'assets/icons/dollar-sign.svg'
 import { ReactComponent as download } from 'assets/icons/download.svg'
 import { ReactComponent as drink } from 'assets/icons/drink.svg'
+import { ReactComponent as elo } from 'assets/icons/elo.svg'
 import { ReactComponent as eyeclosed } from 'assets/icons/eye-closed.svg'
 import { ReactComponent as eyeopen } from 'assets/icons/eye-open.svg'
 import { ReactComponent as filter } from 'assets/icons/filter.svg'
@@ -147,6 +148,7 @@ export const dict = {
   dollarsign,
   download,
   drink,
+  elo,
   eyeclosed,
   eyeopen,
   filter,

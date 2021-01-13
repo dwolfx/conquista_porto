@@ -1,44 +1,60 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import Button from 'components/Button'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
 import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
-import { IForm } from 'pages/TripInsurance/Creation/types'
+import { IForm, Steps } from 'pages/TripInsurance/Creation/types'
 import { StepComponent } from 'hooks/FluxManagement/types'
 
 import PaymentMethod from './PaymentMethod'
 import CreditCard from './CreditCard'
 
-import { ICreditCardForm } from './types'
+import { IParcelOptionState, TFlagName } from './types'
+import { getFlagCode } from './utils'
 import * as S from './styles'
 
 const PaymentStep: StepComponent = () => {
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
   const { updateForm } = useFormFluxManagement<IForm>()
-  const selectedCreditCardState = React.useState(0)
-  const creditCardFormState = React.useState<ICreditCardForm>({
-    parcelOption: { id: 0, name: '' },
-    cardNumber: '',
+  const [selectedCreditCard, setSelectedCreditCard] = useState(0)
+  const [parcelOption, setParcelOption] = useState<IParcelOptionState>({
+    id: 0,
     name: '',
-    validity: '',
-    cvc: '',
   })
-  const [selectedCreditCard, setSelectedCreditCard] = selectedCreditCardState
-  const [creditCardForm] = creditCardFormState
-  const allIsValid =
-    creditCardForm.parcelOption.id !== 0 &&
-    !!creditCardForm.cardNumber &&
-    !!creditCardForm.name &&
-    !!creditCardForm.validity &&
-    !!creditCardForm.cvc
+  const [cardNumber, setCardNumber] = useState<string>('')
+  const [isNumberValid, setIsNumberValid] = useState<boolean>(false)
+  const flagNameState = useState<TFlagName>('')
+  const [name, setName] = useState<string>('')
+  const validityDateState = useState<string>('')
+  const validityHasErrorState = useState(false)
+  const cvcState = useState<string>('')
 
   const { creditCardData } = useSelector(
     (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
       creditCardData: state.tripInsuranceCreditCard.data,
     })
   )
+
+  const allIsValid =
+    parcelOption.id !== 0 &&
+    cardNumber.length === 19 &&
+    !(
+      creditCardData?.creditCards &&
+      creditCardData?.creditCards.length > selectedCreditCard &&
+      creditCardData?.creditCards[selectedCreditCard].UltimosDigitos !==
+        cardNumber.slice(15, 19)
+    ) &&
+    isNumberValid &&
+    (flagNameState[0] === 'mastercard' || flagNameState[0] === 'visa') &&
+    !!name &&
+    validityDateState[0].length === 7 &&
+    !validityHasErrorState[0] &&
+    cvcState[0].length === 3
 
   // Seleciona o cartão Porto Seguro caso exista no serviço
   useEffect(() => {
@@ -62,18 +78,29 @@ const PaymentStep: StepComponent = () => {
 
             <Col lg={8}>
               <PaymentMethod
-                selectedCreditCardState={selectedCreditCardState}
+                selectedCreditCardState={[
+                  selectedCreditCard,
+                  setSelectedCreditCard,
+                ]}
                 creditCards={creditCardData?.creditCards}
-                setCreditCardFormValue={creditCardFormState[1]}
+                setParcelOption={setParcelOption}
               />
               <CreditCard
                 portoCreditCardIsNotSelected={
                   creditCardData?.creditCards &&
                   creditCardData.creditCards.length > 0
-                    ? selectedCreditCard > creditCardData?.creditCards?.length
+                    ? selectedCreditCard === creditCardData?.creditCards?.length
                     : true
                 }
-                creditCardForm={creditCardFormState}
+                selectedCreditCardIndex={selectedCreditCard}
+                parcelOptionState={[parcelOption, setParcelOption]}
+                cardNumberState={[cardNumber, setCardNumber]}
+                isNumberValidState={[isNumberValid, setIsNumberValid]}
+                flagNameState={flagNameState}
+                setName={setName}
+                validityDateState={validityDateState}
+                validityHasErrorState={validityHasErrorState}
+                cvcState={cvcState}
               />
             </Col>
           </Row>
@@ -81,28 +108,35 @@ const PaymentStep: StepComponent = () => {
 
         <S.BottomBar>
           <Button
+            disabled={!allIsValid}
             color="secondary"
-            onClick={() =>
+            onClick={() => {
               updateForm({
                 pagamento: {
-                  codigoBandeira: 5,
-                  primeiroNumero: creditCardForm.cardNumber.slice(0, 4),
-                  segundoNumero: creditCardForm.cardNumber.slice(4, 8),
-                  terceiroNumero: creditCardForm.cardNumber.slice(8, 12),
-                  quartoNumero: creditCardForm.cardNumber.slice(12, 16),
-                  codigoSeguranca: +creditCardForm.cvc,
-                  mesValidade: `${creditCardForm.validity.slice(0, 2)}`,
-                  anoValidade: `${creditCardForm.validity.slice(3, 7)}`,
-                  nomeTitular: creditCardForm.name,
-                  quantidadeParcelas: creditCardForm.parcelOption.id,
+                  codigoBandeira: getFlagCode(
+                    !(creditCardData?.creditCards &&
+                    creditCardData.creditCards.length > 0
+                      ? selectedCreditCard > creditCardData?.creditCards?.length
+                      : true),
+                    flagNameState[0]
+                  ),
+                  primeiroNumero: cardNumber.slice(0, 4),
+                  segundoNumero: cardNumber.slice(5, 9),
+                  terceiroNumero: cardNumber.slice(10, 14),
+                  quartoNumero: cardNumber.slice(15, 19),
+                  codigoSeguranca: +cvcState[0],
+                  mesValidade: `${validityDateState[0].slice(0, 2)}`,
+                  anoValidade: `${validityDateState[0].slice(3, 7)}`,
+                  nomeTitular: name,
+                  quantidadeParcelas: parcelOption.id,
                   isCartaoPorto: !(creditCardData?.creditCards &&
                   creditCardData.creditCards.length > 0
                     ? selectedCreditCard > creditCardData?.creditCards?.length
                     : true),
                 },
               })
-            }
-            disabled={!allIsValid}
+              instantiate(Steps.sumaryStep)
+            }}
           >
             Continuar
           </Button>

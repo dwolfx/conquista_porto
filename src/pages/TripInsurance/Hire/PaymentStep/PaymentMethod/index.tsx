@@ -7,33 +7,27 @@ import Text from 'components/Text'
 
 import { ICreditCard } from 'store/modules/TripInsurance/CreditCard/types'
 
-import { ICreditCardForm } from '../types'
+import { IParcelOptionState } from '../types'
 import * as S from '../styles'
 
 const PaymentMethod = ({
   selectedCreditCardState,
-  setCreditCardFormValue,
+  setParcelOption,
   creditCards,
 }: {
   selectedCreditCardState: [
     number,
     React.Dispatch<React.SetStateAction<number>>
   ]
-  setCreditCardFormValue: React.Dispatch<React.SetStateAction<ICreditCardForm>>
+  setParcelOption: React.Dispatch<React.SetStateAction<IParcelOptionState>>
   creditCards?: ICreditCard[]
 }) => {
   const theme = React.useContext(ThemeContext)
   const [selectedCreditCard, setSelectedCreditCard] = selectedCreditCardState
 
-  const creditCardFormInitialValue = {
-    parcelOption: {
-      id: 0,
-      name: '',
-    },
-    cardNumber: '',
+  const parcelOptionInitialValue: IParcelOptionState = {
+    id: 0,
     name: '',
-    validity: '',
-    cvc: '',
   }
 
   const capitalizeString = (string: string) =>
@@ -69,7 +63,7 @@ const PaymentMethod = ({
                   checked={index === selectedCreditCard}
                   handleChange={() => {
                     setSelectedCreditCard(index)
-                    setCreditCardFormValue(creditCardFormInitialValue)
+                    setParcelOption(parcelOptionInitialValue)
                   }}
                 />
                 <IconExporter
@@ -83,9 +77,9 @@ const PaymentMethod = ({
                 />
                 <S.TextWrapper>
                   <Text type="title" bold color="gray6">
-                    {`Porto Seguro ${capitalizeString(creditCard.Tipo)} **** ${
-                      creditCard.UltimosDigitos
-                    }
+                    {`Porto Seguro ${capitalizeString(
+                      creditCard.Bandeira
+                    )} **** ${creditCard.UltimosDigitos}
               `}
                   </Text>
                   <S.OtherFlexWrapper>
@@ -127,8 +121,8 @@ const PaymentMethod = ({
               value=""
               checked={selectedCreditCard + 1 > creditCards.length}
               handleChange={() => {
-                setSelectedCreditCard(creditCards ? creditCards.length + 1 : 0)
-                setCreditCardFormValue(creditCardFormInitialValue)
+                setSelectedCreditCard(creditCards.length)
+                setParcelOption(parcelOptionInitialValue)
               }}
             />
             <IconExporter
