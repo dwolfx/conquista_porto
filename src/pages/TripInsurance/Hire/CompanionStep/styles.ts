@@ -1,26 +1,74 @@
 import styled from 'styled-components'
-import { Row as RowComponent, Container as ContainerComponent } from 'styled-bootstrap-grid'
+import { 
+  Row as RowComponent,
+  Col as ColComponent,
+  Container as ContainerComponent 
+} from 'styled-bootstrap-grid'
 
 import CardCmp from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 import TextCmp from 'components/Text'
 import Button from 'components/Button'
 
+export const Section = styled.div`
+  padding-bottom: 62px; 
+`
+
 export const Row = styled(RowComponent)`
 	padding-top: ${({ theme }) => theme.spacing(3)}px;
   padding-bottom: ${({ theme }) => theme.spacing(3)}px;
+  align-content: start;
+  justify-content: center;
+  postion: relative;
+  z-index: 1;
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    justify-content: start;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    justify-content: center;
+  }
+`
+
+export const Col = styled(ColComponent)`
+  &:first-child {
+    @media ${props => props.theme.mediaQueries.lgUp} {
+      margin-left: ${({ theme }) => theme.spacing(3)}px;
+      h4 {
+        margin-top: 14px;
+      }
+    }
+    @media ${props => props.theme.mediaQueries.smUp} {
+      h4,
+      h5 {
+        margin-left: 4px;
+      }
+    }
+    @media ${props => props.theme.mediaQueries.sm} {
+      h5 {
+        font-size: 15px;
+        line-heigth: 18px
+        background: red;
+      }
+    }
+  }
+  &:last-child {
+    @media ${props => props.theme.mediaQueries.lgUp} {
+      margin-left: 7px;
+    }
+  }
 `
 
 export const ContentWrapper = styled(ContainerComponent)`
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  height: calc(100vh - 91px);
+  flex-direction: row;
+  margin: 0 auto;
 
-  @media ${props => props.theme.mediaQueries.smUp}{
-    height: calc(100vh - 119px);
-		margin: 0 ${({ theme }) => theme.spacing(7)}px 0 ${({ theme }) => theme.spacing(7)}px;
-	}  
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 100%;
+    padding: 0 21px;
+  }
 `
 
 export const Card = styled(CardCmp)`
@@ -173,6 +221,9 @@ export const FooterContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.spacing(2)}px;
   justify-content: flex-end;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 `
 
 export const NextButton = styled(Button)`

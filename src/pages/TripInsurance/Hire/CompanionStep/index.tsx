@@ -157,7 +157,7 @@ const CompanionStep: StepComponent = () => {
   }
 
   return (
-    <>
+    <s.Section>
       <CompanionEditDrawer
         isDrawerOpen={isDrawerOpen}
         handleClose={setIsDrawerOpen}
@@ -240,7 +240,7 @@ const CompanionStep: StepComponent = () => {
           próximo
         </s.NextButton>
       </s.FooterContainer>
-    </>
+    </s.Section>
   )
 }
 
