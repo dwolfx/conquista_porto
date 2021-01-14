@@ -1,10 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import {
-  get,
-  baseURLNamespaceAtlas,
-  baseURLNamespaceInvest,
-} from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 
 import { loggerSucess, loggerError } from 'logger'
 import { Types } from './types'
@@ -16,12 +12,8 @@ import {
 export function* getData() {
   const getConsolidatedPositionURL = `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
   try {
-    // const response = yield call(get, getConsolidatedPositionURL)
-    const response = yield call(
-      get,
-      `${baseURLNamespaceAtlas}/cotista/posicao/consolidado`
-      // `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
-    )
+    const response = yield call(get, getConsolidatedPositionURL)
+
     /*
       Esta alteração "remendo" que estamos fazendo na release 3.1.1, é para ajustar
       um problema que ocorreu no dia 23/09/2020. Ao subir a release 3.1.1 em
