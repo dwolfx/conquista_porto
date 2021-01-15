@@ -112,11 +112,8 @@ export interface IAdditional {
 
 export type ICreditProduct = {
   name: string
-  values: {
-    name: string
-    value: number
-    checked: boolean
-  }
+  value: number
+  checked: boolean
 } | null
 
 export interface ISuggestion {
