@@ -34,7 +34,9 @@ describe('get Rewards - recommendations', () => {
       ],
     }
 
-    expect(generator.next().value).toEqual(call(get, '/recommendations'))
+    expect(generator.next().value).toEqual(
+      call(get, '/recommendations/products')
+    )
 
     expect(generator.next(response).value).toEqual(
       put(GetRewardRecommendationsSuccess(response.data))
@@ -45,7 +47,9 @@ describe('get Rewards - recommendations', () => {
   it('failure triggers failure action', () => {
     const generator = getData()
     const response = undefined
-    expect(generator.next().value).toEqual(call(get, '/recommendations'))
+    expect(generator.next().value).toEqual(
+      call(get, '/recommendations/products')
+    )
     expect(generator.next(response).value).toEqual(
       put(GetRewardRecommendationsFailure())
     )
