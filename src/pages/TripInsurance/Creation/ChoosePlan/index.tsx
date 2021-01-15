@@ -28,9 +28,8 @@ import { IForm, Steps } from '../types'
 const ChoosePlan: StepComponent = () => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
-  const isMobile = useMedia('sm')
-  const isTabletHorizontal = useMedia('mdUp')
-  const isLgDown = useMedia('lg')
+  const isMobile = useMedia('xs')
+
   const [modalOpen, setModalOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isPortoSeguroCard, setIsPortoSeguroCard] = useState(false)
@@ -46,6 +45,14 @@ const ChoosePlan: StepComponent = () => {
       idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
     })
   )
+
+  const handleClick = (choosedPlan: string) => {
+    updateForm({
+      ...form,
+      pacoteEscolhido: choosedPlan,
+    })
+    instantiate(Steps.informationConfirmationStep)
+  }
 
   useEffect(() => {
     dispatch(
@@ -73,83 +80,28 @@ const ChoosePlan: StepComponent = () => {
     )
   }, [dispatch, addToast, form])
 
-  const handleClick = (choosedPlan: string) => {
-    updateForm({
-      ...form,
-      pacoteEscolhido: choosedPlan,
-    })
-    instantiate(Steps.informationConfirmationStep)
-  }
+  const renderHeader = (isMobile: boolean): JSX.Element => (
+    <s.ContextWrapper>
+      {!isMobile ? (
+        <s.SimulationText color="gray4" type="headline">
+          Simulação
+        </s.SimulationText>
+      ) : null}
+      <Text color="white" type="headline">
+        Seguro Viagem
+      </Text>
+    </s.ContextWrapper>
+  )
 
-  const contentWrapper = () => {
-    if (
-      tripInsuranceQuotations &&
-      tripInsuranceQuotations.length === 2 &&
-      isTabletHorizontal &&
-      isLgDown
-    ) {
-      return (
-        <s.TitleWrapperColumn>
-          <s.Title color="white" type="heading3">
+  const renderTitle = (isMobile: boolean, cardsQuantity: number) => {
+    return (
+      <s.TitleWrapper cardsQuantity={cardsQuantity}>
+        {cardsQuantity > 1 ? (
+          <s.Title color="white" type={isMobile ? 'heading4' : 'heading3'}>
             Escolha um plano disponível
           </s.Title>
-          <s.SwitchWrapper>
-            <s.SwitchText
-              color="white"
-              type="subheading"
-              bold
-              textTransform="uppercase"
-            >
-              simular em até 12x sem juros com 5% de desconto no Cartão Porto
-              Seguro
-            </s.SwitchText>
-            <Switch
-              id="123"
-              value={isPortoSeguroCard}
-              onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
-              disabled={false}
-              leftLabel=""
-              rightLabel=""
-              isToggle
-            />
-          </s.SwitchWrapper>
-        </s.TitleWrapperColumn>
-      )
-    }
+        ) : null}
 
-    if (
-      tripInsuranceQuotations &&
-      tripInsuranceQuotations.length === 1 &&
-      isTabletHorizontal
-    ) {
-      return (
-        <s.TitleWrapperCentralized>
-          <s.SwitchWrapper>
-            <s.SwitchText
-              color="white"
-              type="subheading"
-              bold
-              textTransform="uppercase"
-            >
-              simular em até 12x sem juros com 5% de desconto no Cartão Porto
-              Seguro
-            </s.SwitchText>
-            <Switch
-              id="is-porto-seguro-card"
-              value={isPortoSeguroCard}
-              onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
-              isToggle
-            />
-          </s.SwitchWrapper>
-        </s.TitleWrapperCentralized>
-      )
-    }
-
-    return (
-      <s.TitleWrapper>
-        <s.Title color="white" type={isMobile ? 'heading4' : 'heading3'}>
-          Escolha um plano disponível
-        </s.Title>
         <s.SwitchWrapper>
           <s.SwitchText
             color="white"
@@ -190,26 +142,14 @@ const ChoosePlan: StepComponent = () => {
           <s.BackgroundWrapper>
             <s.DarkBackground />
             <s.ContentContainer>
-              {isMobile ? (
-                <s.ContextWrapper>
-                  <Text color="white" type="heading4">
-                    Seguro Viagem
-                  </Text>
-                </s.ContextWrapper>
-              ) : (
-                <s.ContextWrapper>
-                  <s.SimulationText color="gray4" type="headline">
-                    Simulacao
-                  </s.SimulationText>
-                  <Text color="white" type="headline">
-                    Seguro Viagem
-                  </Text>
-                </s.ContextWrapper>
-              )}
+              {renderHeader(isMobile)}
               <s.Divider />
               <s.ContentWrapper>
-                {contentWrapper()}
-                <s.CardsWrapper>
+                {tripInsuranceQuotations &&
+                  renderTitle(isMobile, tripInsuranceQuotations.length)}
+                <s.CardsWrapper
+                  cardsQuantity={tripInsuranceQuotations?.length || 1}
+                >
                   {tripInsuranceQuotations &&
                     tripInsuranceQuotations.map((quotation: IPlan) => {
                       const firstCoverageAmount = quotation.ViagemCobertura.coberturas.find(

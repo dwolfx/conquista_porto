@@ -7,20 +7,42 @@ import Button from 'components/Button'
 export const CardComponent = styled(Card)`
   margin-right: 14px;
 
+  &:nth-child(3) {
+    margin-right: 0px;
+  }
+
+  &:nth-child(4) {
+    @media ${({ theme }) => theme.mediaQueries.lgUp} {
+      margin-right: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+
   &:last-of-type {
     margin-right: 0px;
   }
   padding: ${({ theme }) => theme.spacing(3)}px
     ${({ theme }) => theme.spacing(2)}px ${({ theme }) => theme.spacing(2)}px;
-  width: 418px;
+  width: 417px;
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
-    width: 319px;
+    width: 317px;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.mdUp} {
+    &:nth-child(4) {
+      margin-top: ${({ theme }) => theme.spacing(2)}px;
+    }
+
+    &:nth-child(5) {
+      margin-top: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+
   @media ${({ theme }) => theme.mediaQueries.md} {
     width: 607px;
     margin-right: 0px;
-    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+    margin-top: 0;
 
     &:last-of-type {
       margin-bottom: 0px;

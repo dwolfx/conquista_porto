@@ -5,6 +5,8 @@ import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
+import { Container as ContainerCmp } from 'styled-bootstrap-grid'
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -59,8 +61,9 @@ export const StepBarWrapper = styled.div`
   align-items: center;
 `
 
-export const ContentContainer = styled.div`
-  max-width: 1282px;
+export const ContentContainer = styled(ContainerCmp)`
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -68,6 +71,10 @@ export const ContentContainer = styled.div`
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
     padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding: 0 ${({ theme }) => theme.spacing(2)}px;
   }
 `
 
@@ -107,11 +114,27 @@ export const ContentWrapper = styled.div`
   margin: 0 auto;
 `
 
-export const TitleWrapper = styled.div`
+interface ITitleWrapper {
+  cardsQuantity: number
+}
+
+export const TitleWrapper = styled.div<ITitleWrapper>`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+
+
+  ${({ cardsQuantity, theme }) =>
+    cardsQuantity < 3
+      ? `
+    @media ${theme.mediaQueries.lg} {
+      flex-direction: column;
+      align-items: flex-start;
+    }`
+      : `flex-direction: row;
+        align-items: center;`}
+
+  justify-content: ${({ cardsQuantity }) =>
+    cardsQuantity === 1 ? `center` : `space-between`};
+
   width: 100%;
   padding: ${({ theme }) => theme.spacing(2)}px 0px;
 
@@ -136,6 +159,12 @@ export const TitleWrapperColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    flex-direction: row;
+    align-items: unset;
+    justify-content: space-between;
+  }
+
   width: 100%;
   padding: ${({ theme }) => theme.spacing(2)}px 0px;
   margin-bottom: ${({ theme }) => theme.spacing(1)}px;
@@ -145,7 +174,9 @@ export const TitleWrapperCentralized = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
   justify-content: center;
+
   width: 100%;
   padding: ${({ theme }) => theme.spacing(2)}px 0px;
 
@@ -172,19 +203,31 @@ export const SwitchWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  @media ${({ theme }) => theme.mediaQueries.lg} {
-    margin-top: ${({ theme }) => theme.spacing(3)}px;
-  }
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const SwitchText = styled(Text)`
-  max-width: 285px;
+  max-width: 236px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    max-width: 298px;
+  }
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    max-width: 285px;
+  }
 `
-export const CardsWrapper = styled.div`
+
+interface ICardsWrapper {
+  cardsQuantity: number
+}
+
+export const CardsWrapper = styled.div<ICardsWrapper>`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+
+  ${({ cardsQuantity }) =>
+    cardsQuantity > 3
+      ? `flex-wrap: wrap; align-content: flex-start;`
+      : `justify-content: center;`}
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
@@ -197,8 +240,12 @@ export const DisclosureWrapper = styled.div`
   flex-direction: column;
   margin: ${({ theme }) => theme.spacing(5)}px 0px;
 
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    margin: ${({ theme }) => `${theme.spacing(7)}px 0px ${theme.spacing(5)}px`};
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin: ${({ theme }) => theme.spacing(3)}px 0px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: ${({ theme }) => `${theme.spacing(3)}px 0px`};
   }
 `
 
