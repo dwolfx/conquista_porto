@@ -57,6 +57,10 @@ export const InfoContainer = styled.div`
   & > p {
     margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
+
+  & > span {
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
+  }
 `
 
 interface IPopover {
@@ -73,7 +77,9 @@ export const Popover = styled(PopoverComp)<IPopover>`
 
 export const InlineContentText = styled(Text)`
   display: inline-flex;
-`
+  & > span {
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
+  }`
 
 export const TextUnderlined = styled(Text)`
   text-decoration: underline;
