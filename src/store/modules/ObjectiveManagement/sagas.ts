@@ -329,7 +329,6 @@ function* extractFund({
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.GET_REQUEST, getData),
-  takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.DELETE_REQUEST, deleteObjective),
   takeLatest(Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST, updateObjectiveNickname),
   takeLatest(Types.PUT_FUNDS_MOVEMENT_REQUEST, putObjectiveFundsMovement),
