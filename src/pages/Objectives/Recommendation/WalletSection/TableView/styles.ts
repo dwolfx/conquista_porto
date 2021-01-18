@@ -21,6 +21,10 @@ export const ContainerFunds = styled.div`
   }
 `
 
+export const CenterTable = styled.div`
+  width: 100%;
+`
+
 export const Table = styled(TableComp)`
   .table {
     max-height: 353px;

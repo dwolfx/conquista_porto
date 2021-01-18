@@ -38,30 +38,29 @@ const TableView = ({
   return (
     <FullHeightCard headerIcon="financial" headerTitle={<CardHeader />}>
       <CardInfos />
-
       <s.ContainerFunds>
-        <s.Table
-          columns={columnsToRender}
-          onRowClick={(rowDetails: IFunds) => {
-            handleOpenDetails(rowDetails)
-          }}
-          data={funds}
-          isSticky={isTabletVertical}
-        />
+        <s.CenterTable>
+          <s.Table
+            columns={columnsToRender}
+            onRowClick={(rowDetails: IFunds) => {
+              handleOpenDetails(rowDetails)
+            }}
+            data={funds}
+            isSticky={isTabletVertical}
+          />
 
-        {isTabletVertical ? (
-          <>
+          {isTabletVertical ? (
             <s.TotalValuesRow>
               <Col sm={3}>
                 <s.TotalLine alignItems="center">
                   <Text type="captionUppercase" color="gray5">
                     Total Inv. Inicial
-                  </Text>
+                    </Text>
                 </s.TotalLine>
                 <s.TotalLine alignItems="center">
                   <Text type="captionUppercase" color="gray5">
                     Total Inv. Mensal
-                  </Text>
+                    </Text>
                 </s.TotalLine>
               </Col>
               <Col smAuto>
@@ -77,30 +76,30 @@ const TableView = ({
                 </s.TotalLine>
               </Col>
             </s.TotalValuesRow>
-          </>
-        ) : (
-          <s.TotalValuesRow alignItems="center">
-            <Col md={7}>
-              <Text type="captionUppercase" color="gray5">
-                Total
-              </Text>
-            </Col>
-            <Col auto>
-              <Text color="gray6" bold textAlign="center">
-                {formatMoney(totalInitialInvestment)}
-              </Text>
-            </Col>
-            <Col auto>
-              <Text color="gray6" bold textAlign="center">
-                {formatMoney(totalMontlyInvestment)}
-              </Text>
-            </Col>
-          </s.TotalValuesRow>
-        )}
+          ) : (
+              <s.TotalValuesRow alignItems="center">
+                <Col md={7}>
+                  <Text type="captionUppercase" color="gray5">
+                    Total
+                  </Text>
+                </Col>
+                <Col auto>
+                  <Text color="gray6" bold textAlign="center">
+                    {formatMoney(totalInitialInvestment)}
+                  </Text>
+                </Col>
+                <Col auto>
+                  <Text color="gray6" bold textAlign="center">
+                    {formatMoney(totalMontlyInvestment)}
+                  </Text>
+                </Col>
+              </s.TotalValuesRow>
+            )}
 
-        <s.EditButton outline onClick={() => setEditingWallet(true)}>
-          Editar composição
-        </s.EditButton>
+          <s.EditButton outline onClick={() => setEditingWallet(true)}>
+            Editar composição
+          </s.EditButton>
+        </s.CenterTable>
       </s.ContainerFunds>
     </FullHeightCard>
   )
