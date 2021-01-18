@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get, baseURLNamespaceRewards } from 'services/api'
+import { get, baseURLNamespaceRecommendation } from 'services/api'
 
 import { Types } from './types'
 import {
@@ -12,7 +12,7 @@ export function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceRewards}/recommendations`
+      `${baseURLNamespaceRecommendation}/recommendations/products`
     )
     yield put(GetRewardRecommendationsSuccess(response.data))
   } catch (err) {

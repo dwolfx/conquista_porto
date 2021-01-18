@@ -69,7 +69,7 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
           {currentProduct.message}
         </Text>
         <s.InfoRow justifyContent="between">
-          {creditProduct?.values && singleInfo([creditProduct.values])}
+          {creditProduct && singleInfo([creditProduct])}
           {singleInfo(currentProduct.items)}
         </s.InfoRow>
       </s.CardContainer>

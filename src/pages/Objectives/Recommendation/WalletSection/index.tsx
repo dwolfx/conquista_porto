@@ -52,13 +52,13 @@ const WalletSection = ({
   const cardHeader = () => (
     <s.InfoContainer>
       <Text type="headline" color="gray6" bold>
-        Composição da Carteira
+        Composição da Carteira 
       </Text>
       <s.Popover
         content="Carteira é o nome que se dá ao conjunto de produtos de investimento que uma pessoa tem."
         placement="top"
       >
-        <Icon name="information" color="gray4" width={21} />
+        <Icon name="information" color="gray4" width={21} padding-left={7}/>
       </s.Popover>
     </s.InfoContainer>
   )
@@ -109,15 +109,15 @@ const WalletSection = ({
             handleClose={() => handleCloseDetails()}
           />
         ) : (
-          <Detail
-            fundDetails={fundDetails}
-            isOpen={isModalOpen}
-            handleClose={() => handleCloseDetails()}
-          />
-        )
+            <Detail
+              fundDetails={fundDetails}
+              isOpen={isModalOpen}
+              handleClose={() => handleCloseDetails()}
+            />
+          )
       ) : null}
 
-      <Col
+      <Col 
         lg={creditProduct ? 8 : 12}
         css={`
           margin-bottom: ${isVerticalTablet ? '14px' : '0px'};
@@ -134,16 +134,16 @@ const WalletSection = ({
             setEditingWallet={setEditingWallet}
           />
         ) : (
-          <TableView
-            cardHeader={cardHeader}
-            cardInfos={cardInfos}
-            funds={funds}
-            handleOpenDetails={handleOpenDetails}
-            totalInitialInvestment={totalInitialInvestment}
-            totalMontlyInvestment={totalMontlyInvestment}
-            setEditingWallet={setEditingWallet}
-          />
-        )}
+            <TableView
+              cardHeader={cardHeader}
+              cardInfos={cardInfos}
+              funds={funds}
+              handleOpenDetails={handleOpenDetails}
+              totalInitialInvestment={totalInitialInvestment}
+              totalMontlyInvestment={totalMontlyInvestment}
+              setEditingWallet={setEditingWallet}
+            />
+          )}
       </Col>
 
       {creditProduct && (
