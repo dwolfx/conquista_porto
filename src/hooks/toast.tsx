@@ -12,6 +12,7 @@ export interface IToast {
 interface ToastContextData {
   addToast(toast: Omit<IToast, 'id'>): void
   removeToast(id: string): void
+  toasts?: IToast[]
 }
 
 const ToastContext = createContext<ToastContextData>({} as ToastContextData)
@@ -35,7 +36,7 @@ const ToastProvider: React.FC = ({ children }) => {
     setToasts(prevState => prevState.filter(toast => toast.id !== id))
   }, [])
   return (
-    <ToastContext.Provider value={{ addToast, removeToast }}>
+    <ToastContext.Provider value={{ addToast, removeToast, toasts }}>
       {children}
       <NewToastContainer toasts={toasts} />
     </ToastContext.Provider>
