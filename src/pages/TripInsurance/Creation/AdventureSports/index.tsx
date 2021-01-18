@@ -35,7 +35,7 @@ const AdventureSports: StepComponent = () => {
       isMotocicleta: form.hasLatinAmericaDestination ? false : true,
     })
 
-    if (form.hasLatinAmericaDestination) {
+    if (form.hasLatinAmericaDestination || form.nationalDestination) {
       instantiate(Steps.choosePlan)
     } else {
       instantiate(Steps.motocicleQuestion)
@@ -74,7 +74,7 @@ const AdventureSports: StepComponent = () => {
                 onChange={e => setHasAdventureSports(e.currentTarget.value)}
                 data-testid="radio-input-adventure-sports"
               />
-              {form.hasLatinAmericaDestination ? (
+              {form.hasLatinAmericaDestination || form.nationalDestination ? (
                 <s.NextButton
                   disabled={hasAdventureSports === ''}
                   data-testid="button-adventure-sports"
