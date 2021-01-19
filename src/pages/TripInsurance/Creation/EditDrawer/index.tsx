@@ -26,8 +26,8 @@ interface IEditDrawer {
 const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
-  const { form } = useFormFluxManagement<IForm>()
-  // Olhar depois os SETTERS ==========================
+  const { form, updateForm } = useFormFluxManagement<IForm>()
+
   const [isLoading] = useState(false)
   const [originOptions] = useState<TOptions[]>([{ text: 'Brasil', id: 1 }])
   const [countryOptions, setCountryOptions] = useState<IOption[]>([])
@@ -47,7 +47,6 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
       onClick: () => setSelectedDestination({ id: 2, name: 'Internacional' }),
     },
   ])
-
   const [adventureSportsOptions] = useState([
     {
       id: 1,
@@ -83,8 +82,6 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
         setSelectedMotocicleOption({ id: 2, name: 'Não irei praticar' }),
     },
   ])
-  // Olhar depois os SETTERS ==========================
-
   const [selectedDestination, setSelectedDestination] = useState<{
     id: 1 | 2
     name: 'Nacional' | 'Internacional'
@@ -152,15 +149,29 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     name: form.qtdPassagMaiorSetentaAnos?.toString(),
     value: form.qtdPassagMaiorSetentaAnos || 0,
   })
-
   const [selectedMotocicleOption, setSelectedMotocicleOption] = useState({
     id: form.isMotocicleta ? 1 : 2,
     name: form.isMotocicleta ? 'Irei praticar' : 'Não irei praticar',
   })
+  const [isAdventureSportsDisabled, setIsAdventureSportsDisabled] = useState(
+    false
+  )
   const [isMotocicleInputDisabled, setIsMotocicleInputDisabled] = useState(
     false
   )
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
+  const {
+    destinationCountriesData,
+    isLoadingDestinationCountries,
+    hasErrorDestinationCountries,
+  } = useSelector((state: any) => ({
+    destinationCountriesData: state.destinationCountries.data,
+    isLoadingDestinationCountries: state.destinationCountries.isLoading,
+    hasErrorDestinationCountries: state.destinationCountries.hasError,
+  }))
+
+  // Atualiza o número de passageiros
   useEffect(() => {
     setNumberOfPassangersAboveSeventyYearsOptions(
       [...Array(21 - numberOfPassangersBelowSeventyYears.value)].map(
@@ -192,30 +203,33 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     )
   }, [numberOfPassangersAboveSeventyYears, numberOfPassangersBelowSeventyYears])
 
-  const footerDrawer = () => (
-    <s.ButtonSubmit
-      data-gtm-subname="drawer editar seguro viagem"
-      data-gtm-name="atualizar simulação"
-      disabled={
-        numberOfPassangersAboveSeventyYears.value +
-          numberOfPassangersBelowSeventyYears.value ===
-          0 || isLoading
-      }
-      loading={isLoading}
-    >
-      Confirmar
-    </s.ButtonSubmit>
-  )
-
-  const {
-    destinationCountriesData,
-    isLoadingDestinationCountries,
-    hasErrorDestinationCountries,
-  } = useSelector((state: any) => ({
-    destinationCountriesData: state.destinationCountries.data,
-    isLoadingDestinationCountries: state.destinationCountries.isLoading,
-    hasErrorDestinationCountries: state.destinationCountries.hasError,
-  }))
+  // Atualiza o estado de desabilitado botão 'confirmar'
+  useEffect(() => {
+    switch (true) {
+      // Caso seja internacional e não possua países selecionados
+      case selectedDestination.id === 2 &&
+        selectedDestinationCountries.length <= 0:
+        setIsButtonDisabled(true)
+        break
+      // Caso não possua nenhuma quantidade de passageiros
+      case numberOfPassangersAboveSeventyYears.value +
+        numberOfPassangersBelowSeventyYears.value ===
+        0 || isLoading:
+        setIsButtonDisabled(true)
+        break
+      default:
+        setIsButtonDisabled(false)
+        break
+    }
+  }, [
+    selectedDestination.id,
+    selectedDestinationCountries.length,
+    initialDate,
+    finalDate,
+    numberOfPassangersAboveSeventyYears.value,
+    numberOfPassangersBelowSeventyYears.value,
+    isLoading,
+  ])
 
   // Adiciona as opções do multiSelector e retira a opção Brasil
   useEffect(() => {
@@ -257,6 +271,13 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     countryOptions,
   ])
 
+  // Retira os países destinos do state caso a opção 'nacional' seja selecionada
+  useEffect(() => {
+    if (selectedDestination.id === 1) {
+      setSelectedDestinationCountries([])
+    }
+  }, [selectedDestination.id])
+
   // Atualiza o input de motocicleta de acordo com o form
   useEffect(() => {
     if (selectedDestinationCountries.length > 0) {
@@ -279,6 +300,59 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
       setIsMotocicleInputDisabled(false)
     }
   }, [selectedDestinationCountries, selectedDestination.id])
+
+  // Atualiza o input de esportes radicais de acordo com o número de passageiros acima de 70 anos
+  useEffect(() => {
+    if (numberOfPassangersAboveSeventyYears.value > 0) {
+      setIsAdventureSportsDisabled(true)
+      setSelectedAdventureSportsOption({
+        id: 2,
+        name: 'Não irei praticar',
+      })
+    } else {
+      setIsAdventureSportsDisabled(false)
+    }
+  }, [numberOfPassangersAboveSeventyYears.value])
+
+  // O 'form' está sendo observado por um useEffect no componente 'ChoosePlan' (pai deste componente), portanto,
+  // ao atualizar o 'form' o dispatch com a action 'PostInsuranceQuotationRequest' será realizado.
+  const handleClick = () => {
+    updateForm({
+      ...form,
+      nationalDestination: selectedDestination.id === 1,
+      codigoPaisDestino:
+        selectedDestination.id === 1
+          ? destinationCountriesData?.ViagemPais?.destinos.filter(
+              (c: IOption) => c.value === 'brasil'
+            )[0].id
+          : `${selectedDestinationCountries[0].id}`,
+      paisesAdicionais: selectedDestinationCountries
+        .slice(1)
+        .map((selectedCountry: IOption) => ({
+          codigo: `${selectedCountry.id}`,
+          descricao: selectedCountry.text,
+        })),
+      dataIda: initialDate?.format('DD/MM/YYYY'),
+      dataVolta: finalDate?.format('DD/MM/YYYY'),
+      qtdPassagMenorSetentaAnos: numberOfPassangersBelowSeventyYears.value,
+      qtdPassagMaiorSetentaAnos: numberOfPassangersAboveSeventyYears.value,
+      isPraticaAventura: selectedAdventureSportsOption.id === 1,
+      isMotocicleta: selectedMotocicleOption.id === 1,
+    })
+    handleClose(false)
+  }
+
+  const footerDrawer = () => (
+    <s.ButtonSubmit
+      data-gtm-subname="drawer editar seguro viagem"
+      data-gtm-name="atualizar simulação"
+      disabled={isButtonDisabled}
+      loading={isLoading}
+      onClick={() => handleClick()}
+    >
+      Confirmar
+    </s.ButtonSubmit>
+  )
 
   const loadingContent = () => (
     <Loading
@@ -368,8 +442,8 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
             options={adventureSportsOptions}
             selected={selectedAdventureSportsOption}
             label="Esportes de aventura"
-            hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
-            disabled={numberOfPassangersAboveSeventyYears.value > 0}
+            hasLockIcon={isAdventureSportsDisabled}
+            disabled={isAdventureSportsDisabled}
           />
         </s.Popover>
         <s.Select

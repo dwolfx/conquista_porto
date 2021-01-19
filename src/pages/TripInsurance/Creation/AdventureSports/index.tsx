@@ -32,10 +32,10 @@ const AdventureSports: StepComponent = () => {
   const handleClick = () => {
     updateForm({
       isPraticaAventura: !!+hasAdventureSports,
-      isMotocicleta: form.hasLatinAmericaDestination ? false : true,
+      isMotocicleta: form.hasOnlyLatinAmericaDestination ? false : true,
     })
 
-    if (form.hasLatinAmericaDestination || form.nationalDestination) {
+    if (form.hasOnlyLatinAmericaDestination) {
       instantiate(Steps.choosePlan)
     } else {
       instantiate(Steps.motocicleQuestion)
@@ -46,7 +46,7 @@ const AdventureSports: StepComponent = () => {
     <s.ContentWrapper>
       <StepBar
         actualStep={4}
-        totalNumberOfSteps={form.hasLatinAmericaDestination ? 4 : 5}
+        totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />
       <s.ContentContainer>
         <s.RowContainer
@@ -74,7 +74,7 @@ const AdventureSports: StepComponent = () => {
                 onChange={e => setHasAdventureSports(e.currentTarget.value)}
                 data-testid="radio-input-adventure-sports"
               />
-              {form.hasLatinAmericaDestination || form.nationalDestination ? (
+              {form.hasOnlyLatinAmericaDestination ? (
                 <s.NextButton
                   disabled={hasAdventureSports === ''}
                   data-testid="button-adventure-sports"

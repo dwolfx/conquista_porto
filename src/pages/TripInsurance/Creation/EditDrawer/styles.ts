@@ -42,6 +42,8 @@ export const Select = styled(SelectCmp)`
 export const DatePickerRange = styled(DatePickerRangeCmp)`
   align-self: center;
   width: max-content;
+  z-index: 3;
+
   .DateRangePickerInput_arrow {
     width: 7px;
 

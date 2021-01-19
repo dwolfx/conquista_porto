@@ -45,7 +45,7 @@ const PassengerStep: StepComponent = () => {
   }
 
   const handleModalAcceptButton = () => {
-    if (!!form.hasLatinAmericaDestination && counts.old > 0) {
+    if (!!form.hasOnlyLatinAmericaDestination && counts.old > 0) {
       updateForm({
         isPraticaAventura: false,
         isMotocicleta: false,
@@ -63,14 +63,14 @@ const PassengerStep: StepComponent = () => {
     <>
       <PassengersOverSeventyModal
         isOpen={isModalOpen}
-        isLastStep={!!form.hasLatinAmericaDestination && counts.old > 0}
+        isLastStep={!!form.hasOnlyLatinAmericaDestination && counts.old > 0}
         handleClose={() => setIsModalOpen(false)}
         handleAccept={() => handleModalAcceptButton()}
       />
       <StepBar
         actualStep={3}
         totalNumberOfSteps={
-          form.hasLatinAmericaDestination ||
+          form.hasOnlyLatinAmericaDestination ||
           form.qtdPassagMaiorSetentaAnos !== 0
             ? 4
             : 5
