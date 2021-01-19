@@ -44,7 +44,7 @@ const CoverageDate: StepComponent = () => {
     <>
       <StepBar
         actualStep={2}
-        totalNumberOfSteps={form.hasLatinAmericaDestination ? 4 : 5}
+        totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />
       <s.ContentWrapper>
         <Container>

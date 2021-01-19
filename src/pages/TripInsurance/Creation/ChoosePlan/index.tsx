@@ -12,7 +12,6 @@ import {
   ITripInsuranceQuotation,
 } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
-import LoadingState from 'pages/Home/commons/LoadingState'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import EditDrawer from '../EditDrawer'
@@ -136,7 +135,7 @@ const ChoosePlan: StepComponent = () => {
       />
       <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} />
       {isLoading ? (
-        <LoadingState />
+        <s.LoadingState />
       ) : (
         <>
           <s.BackgroundWrapper>

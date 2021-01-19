@@ -112,5 +112,5 @@ export interface IForm {
   idSimulacao?: number
   codigoCanal?: 1
   nationalDestination?: boolean
-  hasLatinAmericaDestination?: boolean
+  hasOnlyLatinAmericaDestination?: boolean
 }

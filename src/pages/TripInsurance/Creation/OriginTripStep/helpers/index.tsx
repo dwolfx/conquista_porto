@@ -39,3 +39,36 @@ export const hasOnlyLatinAmerica = (
     selectedDestinationCountries.length === count
   )
 }
+
+// recebe parâmetros do formulário 'destinationCountryCode, additionalCountries'
+export const hasOnlyLatinAmericaDestination = (
+  destinationCountryCode: string | undefined,
+  additionalCountries:
+    | {
+        codigo: string
+        descricao: string
+      }[]
+    | undefined
+) => {
+  const formattedCountries: IOption[] = []
+
+  if (destinationCountryCode) {
+    formattedCountries.push({
+      id: +destinationCountryCode,
+      text: '',
+      value: '',
+    })
+  }
+
+  if (additionalCountries) {
+    additionalCountries.forEach(country =>
+      formattedCountries.push({
+        id: +country.codigo,
+        text: country.descricao,
+        value: country.descricao,
+      })
+    )
+  }
+
+  return hasOnlyLatinAmerica(formattedCountries)
+}

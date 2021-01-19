@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import ButtonComponent from 'components/Button'
 
 import Icon from 'components/IconExporter'
+import LoadingStateComponent from 'pages/Home/commons/LoadingState'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
@@ -80,6 +81,15 @@ export const ContentContainer = styled(ContainerCmp)`
 
 export const SimulationText = styled(Text)`
   margin-right: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const LoadingState = styled(LoadingStateComponent)`
+  width: 428px;
+  align-self: center;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 304px;
+  }
 `
 
 export const DarkBackground = styled.div`
@@ -259,7 +269,7 @@ export const Footer = styled.div`
   margin-top: auto;
   border-top: 1px solid ${({ theme }) => theme.colors.gray3};
   background-color: ${({ theme }) => theme.colors.white};
-  padding: ${({ theme }) => theme.spacing(2)}px};
+  padding: ${({ theme }) => theme.spacing(2)}px;
 
   display: flex;
   justify-content: flex-end;
@@ -272,7 +282,7 @@ export const Footer = styled.div`
       width: 100%;
 
       &:first-of-type {
-        margin-bottom: ${({ theme }) => theme.spacing(2)}px};
+        margin-bottom: ${({ theme }) => theme.spacing(2)}px;
       }
     }
   }
