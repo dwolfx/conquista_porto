@@ -79,8 +79,7 @@ const PaymentMethod = ({
                   <Text type="title" bold color="gray6">
                     {`Porto Seguro ${capitalizeString(
                       creditCard.Bandeira
-                    )} **** ${creditCard.UltimosDigitos}
-              `}
+                    )} **** ${creditCard.UltimosDigitos}`}
                   </Text>
                   <S.OtherFlexWrapper>
                     <Text type="caption" bold color="gray5">
