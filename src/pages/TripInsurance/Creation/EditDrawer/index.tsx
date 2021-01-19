@@ -15,6 +15,7 @@ import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 import { IOption } from 'components/MultiSelector/types'
 import { IForm } from 'pages/TripInsurance/Creation/types'
+import { hasOnlyLatinAmerica } from 'pages/TripInsurance/Creation/OriginTripStep/helpers'
 
 import * as s from './styles'
 
@@ -156,6 +157,9 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     id: form.isMotocicleta ? 1 : 2,
     name: form.isMotocicleta ? 'Irei praticar' : 'Não irei praticar',
   })
+  const [isMotocicleInputDisabled, setIsMotocicleInputDisabled] = useState(
+    false
+  )
 
   useEffect(() => {
     setNumberOfPassangersAboveSeventyYearsOptions(
@@ -252,6 +256,29 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
     form.paisesAdicionais,
     countryOptions,
   ])
+
+  // Atualiza o input de motocicleta de acordo com o form
+  useEffect(() => {
+    if (selectedDestinationCountries.length > 0) {
+      if (hasOnlyLatinAmerica(selectedDestinationCountries)) {
+        setIsMotocicleInputDisabled(true)
+        setSelectedMotocicleOption({
+          id: 2,
+          name: 'Não irei praticar',
+        })
+      } else {
+        setIsMotocicleInputDisabled(false)
+      }
+    } else if (selectedDestination.id === 1) {
+      setIsMotocicleInputDisabled(true)
+      setSelectedMotocicleOption({
+        id: 2,
+        name: 'Não irei praticar',
+      })
+    } else {
+      setIsMotocicleInputDisabled(false)
+    }
+  }, [selectedDestinationCountries, selectedDestination.id])
 
   const loadingContent = () => (
     <Loading
@@ -350,6 +377,8 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
           selected={selectedMotocicleOption}
           label="Motocicleta"
           optionBoxDirection="top"
+          hasLockIcon={isMotocicleInputDisabled}
+          disabled={isMotocicleInputDisabled}
         />
       </s.Container>
     </>
