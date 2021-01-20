@@ -163,7 +163,7 @@ export default function ObjectiveManager() {
         item => item.pendency === 'INITIAL_VALUE_PENDING'
       )
       const notPending = objectiveData?.fund_list.filter(
-        item => item.pendency !== 'INITIAL_VALUE_PENDING' && item.invested > 0
+        item => item.pendency !== 'INITIAL_VALUE_PENDING'
       )
 
       setPendingFunds(pending || [])
@@ -250,22 +250,21 @@ export default function ObjectiveManager() {
   // component created to prevent duplicated code and to center the content of this component here
   const PendingFundsTable = ({
     showInfoCardOnMobile = true,
-  }: t.IFundsCardsMobile) => {
-    return (
-      <FundsTable
-        funds={pendingFunds}
-        icon="financial"
-        title="Fundos com investimento inicial pendente"
-        type="initial"
-        showInfoCardOnMobile={showInfoCardOnMobile}
-        isAccordion
-        footer={renderCardFooterTotalInitalInvested(pendingFunds)}
-        css={`
-          margin-bottom: ${theme.spacing(2)}px;
-        `}
-      />
-    )
-  }
+  }: t.IFundsCardsMobile) => (
+    <FundsTable
+      funds={pendingFunds}
+      icon="financial"
+      title="Fundos com investimento inicial pendente"
+      type="initial"
+      showInfoCardOnMobile={showInfoCardOnMobile}
+      isAccordion
+      isPendingFund
+      footer={renderCardFooterTotalInitalInvested(pendingFunds)}
+      css={`
+        margin-bottom: ${theme.spacing(2)}px;
+      `}
+    />
+  )
 
   // component that build the all funds table/cards that are already linked to the objective
   // component created to prevent duplicated code and to center the content of this component here
@@ -277,6 +276,7 @@ export default function ObjectiveManager() {
       icon="financial"
       title="Fundos do objetivo"
       type="monthly"
+      isPendingFund={false}
       showInfoCardOnMobile={showInfoCardOnMobile}
       isAccordion
       footer={
