@@ -399,6 +399,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
         <s.Label>Periodo da Viagem</s.Label>
         <s.DatePickerRange
           idDatePickerRange="id-coverage-date-range-drawer"
+          keepOpenOnDateSelect={false}
           numberOfMonths={1}
           rangeDates={{
             dateBegin: initialDate,

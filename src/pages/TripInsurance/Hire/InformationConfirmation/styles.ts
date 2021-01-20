@@ -6,7 +6,7 @@ import { CardHeader } from 'components/Card/styles'
 import CardComponent from 'components/Card'
 import SelectComponent from 'components/Inputs/Select'
 import DataShower from 'pages/CreditCard/Creation/SummaryStep/DataShower'
-import RadioComponent from 'components/Inputs/Radio/New'
+import RadioComponent from 'components/Inputs/Radio'
 import NewInput from 'components/NewInput'
 import IconExporter from 'components/IconExporter'
 import CEPInput from 'components/Inputs/CEPInput'
@@ -99,16 +99,18 @@ export const RadioOptionsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: ${({ theme }) => theme.spacing(4)}px;
+  height: 30px;
+
+  & > div {
+    width: 100%;
+    display: flex;
+    flex-direction: initial;
+    align-items: center;
+    justify-content: flex-start;
+  }
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     margin-top: ${({ theme }) => theme.spacing(2)}px;
-  }
-`
-
-export const Radio = styled(RadioComponent)`
-  margin-right: ${({ theme }) => theme.spacing(4)}px;
-  &:first-of-type {
-    margin-right: ${({ theme }) => theme.spacing(4)}px;
   }
 `
 
@@ -261,3 +263,5 @@ export const TextInputContainer = styled.div`
 `
 
 export const WarningFlag = styled(WarningFlagCmp)``
+
+export const Radio = styled(RadioComponent)``
