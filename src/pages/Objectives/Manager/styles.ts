@@ -108,16 +108,23 @@ export const ColProgress = styled(Col)<IColProgress>`
 export const TotalInitialInvestedFooterContainer = styled.div`
   align-items: center;
   display: flex;
+  justify-content: space-between;
   margin-top: ${({ theme }) => theme.spacing(2)}px;
-
+  span {
+    padding-left: ${({ theme }) => theme.spacing(3)}px;
+    width: 55%;
+  }
   p {
-    &:first-of-type {
-      padding-left: ${({ theme }) => theme.spacing(3)}px;
-      width: 65%;
+    text-align: left;
+    width: ${({ theme }) => `calc(23% - ${theme.spacing(1.5)}px)`};
+    @media ${({ theme }) => theme.mediaQueries.lg} {
+      width: ${({ theme }) => `calc(26% - ${theme.spacing(1.5)}px)`};
     }
-    &:last-of-type {
-      text-align: right;
-      width: ${({ theme }) => `calc(20% - ${theme.spacing(1.5)}px)`};
+  }
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    justify-content: start;
+    span, p { 
+      width: 30%;
     }
   }
 `
