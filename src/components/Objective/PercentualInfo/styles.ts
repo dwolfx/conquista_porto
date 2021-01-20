@@ -12,7 +12,9 @@ export const PercentualInfosContainer = styled(Row)`
 `
 
 export const PercentualText = styled(Text)`
-  &:nth-child(2n) {
+  &:nth-child(2n), 
+  &:nth-child(3n), 
+  &:nth-child(4n) {
     border-left: 1px solid ${({ theme }) => theme.colors.gray6};
     padding-left: ${({ theme }) => theme.spacing(2)}px;
     margin-left: ${({ theme }) => theme.spacing(2)}px;
