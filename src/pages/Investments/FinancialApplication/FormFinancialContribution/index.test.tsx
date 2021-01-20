@@ -1,21 +1,20 @@
 import React from 'react'
-import { render, RenderResult, fireEvent } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 
-import FormFinancialContribution from '.'
 import { Provider } from 'react-redux'
 import { storeFactory } from 'setupTests'
+import FormFinancialContribution from '.'
 
 const store = storeFactory()
 
-const setup = (children: React.ReactElement) => {
-  return render(
+const setup = (children: React.ReactElement) =>
+  render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </Provider>
   )
-}
 
 describe('FormFinancialContribution', () => {
   describe('rendering with no errors', () => {

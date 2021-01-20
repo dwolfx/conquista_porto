@@ -29,7 +29,7 @@ describe('Private Welfare Section - Home', () => {
       expect(screen.getByRole('button').textContent).toBe('Simular')
     })
     it('should redirect to previdencia.html', () => {
-      //@ts-expect-error
+      // @ts-expect-error
       delete window.location
       window.location = {
         ...window.location,

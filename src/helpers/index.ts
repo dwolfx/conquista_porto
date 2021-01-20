@@ -36,7 +36,9 @@ export const formatMoneyDecimal = (value: number | string = 0) => {
 
 export const capitalize = (stringValue: string) => {
   if (typeof stringValue !== 'string') return ''
-  return stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
+  return (
+    stringValue.charAt(0).toUpperCase() + stringValue.slice(1).toLowerCase()
+  )
 }
 
 export const formatMoneyWithoutCurrencyFlag = (value: string) => {

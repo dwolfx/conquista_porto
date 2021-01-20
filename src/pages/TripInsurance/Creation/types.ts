@@ -6,7 +6,6 @@ import MotocicleQuestion from './MotocicleQuestion'
 import ChoosePlan from './ChoosePlan'
 import Status from '../commons/RequestProposalStatus'
 import InformationConfirmation from '../Hire/InformationConfirmation'
-import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import CompanionStep from '../Hire/CompanionStep'
 import PaymentStep from '../Hire/PaymentStep'
 import Sumary from '../Hire/Sumary'
@@ -114,5 +113,4 @@ export interface IForm {
   codigoCanal?: 1
   nationalDestination?: boolean
   hasLatinAmericaDestination?: boolean
-  plan?: IPlan
 }
