@@ -230,11 +230,15 @@ export const FooterContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.spacing(2)}px;
   justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 `
 
 export const EmergencyContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: ${({ theme }) => theme.spacing(7)}px;
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     width: 630px;

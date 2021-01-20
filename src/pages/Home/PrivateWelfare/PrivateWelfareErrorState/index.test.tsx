@@ -10,8 +10,12 @@ describe('PrivateWelfareError tests', () => {
     expect(PrivateWelfareErrorState).toBeDefined()
   })
   it('text should render correctly', () => {
-    renderWithReduxAndTheme(<PrivateWelfareErrorState isLoading={false} cpf="13150747619"/>)
-    const errorTextElement = screen.getByText('Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente.')
+    renderWithReduxAndTheme(
+      <PrivateWelfareErrorState isLoading={false} cpf="13150747619" />
+    )
+    const errorTextElement = screen.getByText(
+      'Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente.'
+    )
     expect(errorTextElement).toBeDefined()
     expect(errorTextElement).toHaveStyleRule('color', '#E72176')
   })

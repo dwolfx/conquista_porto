@@ -1,7 +1,7 @@
 import React from 'react'
 import 'jest-styled-components'
 import { ThemeProvider } from 'styled-components'
-import { render, RenderResult } from 'testUtils'
+import { render } from 'testUtils'
 import theme from 'styles/theme'
 
 import BottomNavigationContent from '.'

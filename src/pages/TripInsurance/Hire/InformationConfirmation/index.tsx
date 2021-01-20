@@ -17,8 +17,14 @@ import InputMask from 'react-input-mask'
 import * as s from './styles'
 
 import AddressForm from './AddressForm'
-import { validtionGeneric } from 'pages/CreditCard/Creation/CreditCardStep/validators'
+import {
+  errorObject,
+  validtionGeneric,
+} from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { cpf } from 'cpf-cnpj-validator'
+import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+import { useSelector } from 'react-redux'
 
 const radioOptions = [
   {
@@ -55,17 +61,22 @@ const InformationConfirmation: StepComponent = () => {
   const isSmUp = useMedia('smUp')
   const isLgUp = useMedia('lgUp')
   const { form, updateForm } = useFormFluxManagement<IForm>()
-  const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const { instantiate, reset } = useStackFluxManagement<StepComponentProps>()
+
+  const { tripInsuranceQuotations } = useSelector(
+    (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
+      tripInsuranceQuotations: state.tripInsuranceQuotation.data,
+      isLoading: state.tripInsuranceQuotation.isLoading,
+      hasError: state.tripInsuranceQuotation.hasError,
+      idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+    })
+  )
 
   const [activeSelectGender, setActiveSelectGender] = React.useState<boolean>(
     true
   )
   const [documentPpe, setDocumentPpe] = React.useState<string>()
-  const [emergencyContactPhone, setEmergencyContactPhone] = React.useState<
-    string
-  >()
   const [isNotification, setIsNotification] = React.useState<boolean>(false)
-
   const [validForm, setValidForm] = React.useState<
     IFormInformationConfirmation
   >({
@@ -140,67 +151,37 @@ const InformationConfirmation: StepComponent = () => {
     {
       id: 7,
       text: 'Eu',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 7, name: 'Eu' })
-        updateForm({
-          ...form,
-          passageiroPrincipal: {
-            ...form.passageiroPrincipal,
-            pessoaExposta: {
-              ...form.passageiroPrincipal?.pessoaExposta,
-              grauRelacionamento: 1,
-            },
-          },
-        })
-      },
+      onClick: () => setPpeOptionsSelect({ id: 7, name: 'Eu' }),
     },
     {
       id: 5,
       text: 'Pai ou mãe',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 5, name: 'Pai ou mãe' })
-        setCloseRelationship(5)
-      },
+      onClick: () => setPpeOptionsSelect({ id: 5, name: 'Pai ou mãe' }),
     },
     {
       id: 2,
       text: 'Cônjuge',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 2, name: 'Cônjuge' })
-        setCloseRelationship(2)
-      },
+      onClick: () => setPpeOptionsSelect({ id: 2, name: 'Cônjuge' }),
     },
     {
       id: 1,
       text: 'Companheiro(a)',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 1, name: 'Companheiro(a)' })
-        setCloseRelationship(1)
-      },
+      onClick: () => setPpeOptionsSelect({ id: 1, name: 'Companheiro(a)' }),
     },
     {
       id: 4,
       text: 'Filho(a)',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 4, name: 'Filho(a)' })
-        setCloseRelationship(4)
-      },
+      onClick: () => setPpeOptionsSelect({ id: 4, name: 'Filho(a)' }),
     },
     {
       id: 3,
-      text: 'Tio',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 3, name: 'Enteado(a)' })
-        setCloseRelationship(3)
-      },
+      text: 'Enteado(a)',
+      onClick: () => setPpeOptionsSelect({ id: 3, name: 'Enteado(a)' }),
     },
     {
       id: 6,
       text: 'Outros',
-      onClick: () => {
-        setPpeOptionsSelect({ id: 6, name: 'Outros' })
-        setCloseRelationship(6)
-      },
+      onClick: () => setPpeOptionsSelect({ id: 6, name: 'Outros' }),
     },
   ])
 
@@ -210,9 +191,6 @@ const InformationConfirmation: StepComponent = () => {
   })
 
   React.useEffect(() => {
-    setEmergencyContactPhone(
-      `${form.passageiroPrincipal?.contato?.celularDDD}${form.passageiroPrincipal?.contato?.celularNumero}`
-    )
     updateForm({
       ...form,
       passageiroPrincipal: {
@@ -252,13 +230,20 @@ const InformationConfirmation: StepComponent = () => {
 
   const isPpeValid = (): boolean => {
     if (form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento) {
+      if (form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento === 1) {
+        return ppeOptionsSelect.id === 7
+      }
+
       if (form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento === 3) {
         return (
           !!form.passageiroPrincipal?.pessoaExposta?.nome &&
           !!form.passageiroPrincipal?.pessoaExposta?.numeroCpf &&
           form.passageiroPrincipal?.pessoaExposta?.numeroCpf.length === 9 &&
           !!form.passageiroPrincipal?.pessoaExposta?.digitoCpf &&
-          form.passageiroPrincipal?.pessoaExposta?.digitoCpf.length === 2
+          form.passageiroPrincipal?.pessoaExposta?.digitoCpf.length === 2 &&
+          cpf.isValid(
+            `${form.passageiroPrincipal.pessoaExposta.numeroCpf}${form.passageiroPrincipal.pessoaExposta.digitoCpf}`
+          )
         )
       }
 
@@ -280,7 +265,83 @@ const InformationConfirmation: StepComponent = () => {
     !!form.passageiroPrincipal?.endereco?.numeroCep &&
     !!form.isAceiteTermos &&
     !!form.isCienteMoto &&
+    !!form.passageiroPrincipal?.contato?.nome &&
+    !!form.passageiroPrincipal?.contato?.celularDDD &&
+    !!form.passageiroPrincipal?.contato?.celularNumero &&
+    form.passageiroPrincipal?.contato?.celularDDD.length === 2 &&
+    [8, 9].includes(form.passageiroPrincipal?.contato?.celularNumero.length) &&
     isPpeValid()
+
+  React.useEffect(() => {
+    if (ppeOptionsSelect.id === 7) {
+      updateForm({
+        ...form,
+        passageiroPrincipal: {
+          ...form.passageiroPrincipal,
+          pessoaExposta: {
+            ...form.passageiroPrincipal?.pessoaExposta,
+            grauRelacionamento: 1,
+          },
+        },
+      })
+    }
+
+    if (![0, 7].includes(ppeOptionsSelect.id)) {
+      setCloseRelationship(ppeOptionsSelect.id)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ppeOptionsSelect])
+
+  const handlerClick = () => {
+    handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+    reset()
+  }
+
+  const validationDocumentPpe = (): errorObject | boolean => {
+    if (
+      form.passageiroPrincipal?.pessoaExposta?.numeroCpf &&
+      form.passageiroPrincipal?.pessoaExposta?.numeroCpf.length === 9 &&
+      form.passageiroPrincipal?.pessoaExposta?.digitoCpf &&
+      form.passageiroPrincipal?.pessoaExposta?.digitoCpf.length === 2
+    ) {
+      if (
+        !cpf.isValid(
+          `${form.passageiroPrincipal.pessoaExposta.numeroCpf}${form.passageiroPrincipal.pessoaExposta.digitoCpf}`
+        )
+      ) {
+        return {
+          icon: 'information',
+          message: 'CPF Inválido',
+        }
+      }
+    }
+
+    return validtionGeneric(documentPpe, validForm.isDocumentPpe)
+  }
+
+  const validationPhone = (): errorObject | boolean => {
+    if (
+      form.passageiroPrincipal?.contato?.celularDDD &&
+      form.passageiroPrincipal?.contato?.celularNumero
+    ) {
+      if (
+        form.passageiroPrincipal?.contato?.celularDDD.length !== 2 ||
+        ![8, 9].includes(
+          form.passageiroPrincipal?.contato?.celularNumero.length
+        )
+      ) {
+        return {
+          icon: 'information',
+          message: 'Telefone Inválido',
+        }
+      }
+    }
+
+    return validtionGeneric(
+      `${form.passageiroPrincipal?.contato?.celularDDD}${form.passageiroPrincipal?.contato?.celularNumero}`,
+      validForm.isContactPhone
+    )
+  }
 
   return (
     <>
@@ -308,11 +369,7 @@ const InformationConfirmation: StepComponent = () => {
               >
                 dados cadastrais
               </s.CardTitleText>
-              <ButtonLink
-                onClick={() => {
-                  handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
-                }}
-              >
+              <ButtonLink onClick={handlerClick}>
                 <Text
                   bold
                   type="button"
@@ -395,11 +452,7 @@ const InformationConfirmation: StepComponent = () => {
               >
                 dados para contato
               </s.CardTitleText>
-              <ButtonLink
-                onClick={() => {
-                  handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
-                }}
-              >
+              <ButtonLink onClick={handlerClick}>
                 <Text
                   bold
                   type="button"
@@ -514,10 +567,7 @@ const InformationConfirmation: StepComponent = () => {
                           <s.PPEDocumentInput
                             label="cpf"
                             placeholder="000.000.000-00"
-                            error={validtionGeneric(
-                              documentPpe,
-                              validForm.isDocumentPpe
-                            )}
+                            error={validationDocumentPpe()}
                           />
                         </InputMask>
                       </>
@@ -586,35 +636,37 @@ const InformationConfirmation: StepComponent = () => {
                 }
               />
               <InputMask
-                value={emergencyContactPhone}
+                value={
+                  `${form.passageiroPrincipal?.contato?.celularDDD}${form.passageiroPrincipal?.contato?.celularNumero}` ||
+                  ''
+                }
                 maskPlaceholder={null}
-                mask="(99) 99999-9999"
+                mask={
+                  form.passageiroPrincipal?.contato?.celularNumero &&
+                  form.passageiroPrincipal?.contato?.celularNumero.length === 9
+                    ? '(99) 9 9999-9999'
+                    : '(99) 9999-99999'
+                }
                 onBlur={() => checkForm('isContactPhone')}
                 onChange={(e: React.FormEvent<HTMLInputElement>) => {
                   const value = e.currentTarget.value.replace(/\D/g, '')
-                  setEmergencyContactPhone(value)
-                  if (value.length === 11 || value.length === 12) {
-                    updateForm({
-                      ...form,
-                      passageiroPrincipal: {
-                        ...form.passageiroPrincipal,
-                        contato: {
-                          ...form.passageiroPrincipal?.contato,
-                          celularDDD: value.slice(0, 2),
-                          celularNumero: value.slice(2, value.length),
-                        },
+                  updateForm({
+                    ...form,
+                    passageiroPrincipal: {
+                      ...form.passageiroPrincipal,
+                      contato: {
+                        ...form.passageiroPrincipal?.contato,
+                        celularDDD: value.slice(0, 2),
+                        celularNumero: value.slice(2),
                       },
-                    })
-                  }
+                    },
+                  })
                 }}
               >
                 <s.EmergencyContactTextInput
                   label="telefone"
-                  placeholder="(00) 00000-0000"
-                  error={validtionGeneric(
-                    form.passageiroPrincipal?.contato?.nome,
-                    validForm.isContactPhone
-                  )}
+                  placeholder="(00) 0 0000-0000"
+                  error={validationPhone()}
                 />
               </InputMask>
             </s.EmergencyContactWrapper>
@@ -640,7 +692,11 @@ const InformationConfirmation: StepComponent = () => {
             <s.WrapperHiringTerms>
               <s.IconWrapper>
                 <s.Icon name="pdf" color="blue4" />
-                <ButtonLink noIcon>
+                <ButtonLink
+                  noIcon
+                  href={tripInsuranceQuotations?.urlCondicoesGerais || ''}
+                  target="_blank"
+                >
                   <Text
                     bold
                     type="button"
@@ -653,7 +709,11 @@ const InformationConfirmation: StepComponent = () => {
               </s.IconWrapper>
               <s.IconWrapper>
                 <s.Icon name="pdf" color="blue4" />
-                <ButtonLink noIcon>
+                <ButtonLink
+                  noIcon
+                  href={tripInsuranceQuotations?.urlManuais || ''}
+                  target="_blank"
+                >
                   <Text
                     bold
                     type="button"

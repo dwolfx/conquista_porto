@@ -198,13 +198,19 @@ describe('CreditCard FirstStep tests', () => {
             estado: 'LK',
           },
           isClientDataLoading: false,
-        }
+        },
       }
 
       const store = storeFactory(mockStore)
-      renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />, { store })
+      renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />, {
+        store,
+      })
       const confirmButton = screen.getByRole('button', { name: /confirmar/i })
-      expect(screen.getByTestId('select-option-input-data-test-id-estados').getAttribute('placeholder')).toEqual('Selecione')
+      expect(
+        screen
+          .getByTestId('select-option-input-data-test-id-estados')
+          .getAttribute('placeholder')
+      ).toEqual('Selecione')
       expect(confirmButton).not.toBeEnabled()
     })
   })
