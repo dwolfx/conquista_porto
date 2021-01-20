@@ -49,6 +49,7 @@ interface IDatePickerRange {
   ) => void
   startDateText?: string
   endDateText?: string
+  keepOpenOnDateSelect?: boolean
 }
 
 const DatePickerRange: React.FC<IDatePickerRange> = ({
@@ -64,6 +65,7 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
   blockPastDays = false,
   startDateText = 'Data inicial',
   endDateText = 'Data final',
+  keepOpenOnDateSelect = true,
   ...rest
 }) => {
   moment.locale('pt-BR')
@@ -74,7 +76,7 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
         /* Usar esta prop para tirar a borda dos inputs */
         noBorder
         /* Usar esta prop para manter o calendário de seleção aberto */
-        keepOpenOnDateSelect
+        keepOpenOnDateSelect={keepOpenOnDateSelect}
         /* Usar esta prop para fomatar a exibição dos dias da semana */
         weekDayFormat="ddd"
         /* Usar esta função para bloquear uma lista de datas: */

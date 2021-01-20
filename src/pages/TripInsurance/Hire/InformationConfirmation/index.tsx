@@ -28,12 +28,12 @@ import { useSelector } from 'react-redux'
 
 const radioOptions = [
   {
-    value: '1',
-    name: 'Sim',
-  },
-  {
     value: '0',
     name: 'Não',
+  },
+  {
+    value: '1',
+    name: 'Sim',
   },
 ]
 
@@ -421,7 +421,7 @@ const InformationConfirmation: StepComponent = () => {
                 Você reside no Brasil?
               </Text>
               <s.RadioOptionsWrapper data-testid="radio-brazilian-resident">
-                <Radio
+                <s.Radio
                   options={radioOptions}
                   checkedItem={
                     form.passageiroPrincipal?.isResidePais ? '1' : '0'

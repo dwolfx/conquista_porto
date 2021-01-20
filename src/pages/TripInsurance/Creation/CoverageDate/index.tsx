@@ -78,6 +78,7 @@ const CoverageDate: StepComponent = () => {
                 </s.QuestionText>
                 <s.DatePickerRange
                   idDatePickerRange="id-coverage-date-range"
+                  keepOpenOnDateSelect={false}
                   numberOfMonths={1}
                   rangeDates={{
                     dateBegin: initialDate,

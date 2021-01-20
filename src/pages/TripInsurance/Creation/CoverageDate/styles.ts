@@ -26,7 +26,7 @@ export const QuestionText = styled(Text)`
   margin-bottom: ${({ theme }) => theme.spacing(4)}px;
 
   @media ${props => props.theme.mediaQueries.sm} {
-    width: 65%;
+    width: 75%;
     align-self: center;
   }
 `
@@ -60,10 +60,10 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
 `
 
 export const InfoIcon = styled(IconExporter)`
-  margin-left: ${({ theme }) => theme.spacing(1.5)}px;
-  margin-bottom: -${({ theme }) => theme.spacing(0.5)}px;
+  margin-left: ${({ theme }) => theme.spacing(2)}px;
+  vertical-align: middle;
 `
 
 export const TooltipText = styled(Text)`
   width: 213px;
-` 
+`
