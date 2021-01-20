@@ -15,6 +15,7 @@ export interface IProps {
   showInfoCardOnMobile?: boolean
   textInfo?: React.ReactNode
   title: string
+  isPendingFund?: boolean
   type: 'initial' | 'monthly'
 }
 

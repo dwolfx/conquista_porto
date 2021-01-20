@@ -30,6 +30,7 @@ export default function FundsTable({
   textInfo,
   title,
   type,
+  isPendingFund,
   ...rest
 }: t.IProps) {
   const dispatch = useDispatch()
@@ -70,8 +71,8 @@ export default function FundsTable({
   }
 
   const columnsToRender = useMemo(
-    () => columns(menuActions, isTabletVertical),
-    [menuActions, isTabletVertical]
+    () => columns(menuActions, isTabletVertical, isPendingFund),
+    [menuActions, isTabletVertical, isPendingFund]
   )
 
   const renderActions = () => (

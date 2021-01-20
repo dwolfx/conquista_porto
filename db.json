@@ -1887,7 +1887,7 @@
             "resgate_financeiro": "1",
             "id_carteira": 51380040,
             "apelido": "BR Plural Créd. Corp. II FIC RF CP LP",
-            "nome_carteira": "Brasil Plural Crédito Corporativo II FIC Renda Fixa Crédito Privado LP",
+            "nome_carteira": "Brasil Plural Crédito Corporativo II FIC Renda Fixa Crédito Privado LA",
             "nome_empresa": "Brasil Capital",
             "taxa_administracao": 0.5,
             "minimo_inicial": 3000,
@@ -6340,8 +6340,8 @@
   "goal_management": {
     "fund_list": [
       {
-        "fund_id": 5071,
-        "value": 0
+        "fund_id": "5071",
+        "value": 4000
       }
     ]
   },
