@@ -1,3 +1,4 @@
+import api from 'axios'
 import { IToast } from 'hooks/toast'
 import {
   ICreditCardProposalResponse,
@@ -5,7 +6,7 @@ import {
   IOrderResponse,
   ICreditCardCreationPayload,
 } from 'pages/CreditCard/Creation/types'
-import { axiosInstance, baseURLNamespaceInvestAws, post } from 'services/api'
+import { baseURLNamespaceInvestAws, post } from 'services/api'
 
 export const getParams = (encodedQueryParams: string) => {
   return JSON.parse(
@@ -32,7 +33,8 @@ export const populateData = (
   lockerProposalData: ICreditCardProposalRequest,
   setProposalData: React.Dispatch<
     React.SetStateAction<ICreditCardProposalResponse>
-  >
+  >,
+  proposalData: ICreditCardProposalResponse
 ) => {
   setProposalData({
     bairro: lockerProposalData.bairroResidencial,
@@ -40,24 +42,20 @@ export const populateData = (
     cidade: lockerProposalData.cidadeResidencial,
     codigoBandeira: lockerProposalData.bandeira,
     codigoCanal: '14',
-    codigoEstadoCivil: lockerProposalData.estadoCivil,
-    codigoProfissao: lockerProposalData.ocupacao,
     complemento: lockerProposalData.complementoResidencial,
-    dataEmissaoDocumento: lockerProposalData.dataExpedicao,
-    dataNascimento: lockerProposalData.nascimento,
-    dddTelefone: lockerProposalData?.celular?.slice(0, 2),
     diaVencimento: lockerProposalData.diaVencimento,
-    email: lockerProposalData.email,
-    idSimulacao: lockerProposalData.idSimulacao,
     logradouro: lockerProposalData.enderecoResidencial,
-    nomeMae: lockerProposalData.nomeMae,
-    numeroDocumentoIdentificacao: lockerProposalData.numeroDocumento,
     numeroLogradouro: lockerProposalData.numeroResidencial,
-    numeroTelefone: lockerProposalData?.celular?.slice(2, 11),
-    orgaoExpedidor: lockerProposalData.orgaoEmissor,
-    sexo: lockerProposalData.sexo,
-    tipoDocumento: lockerProposalData.tipoDocumento,
-    uf: lockerProposalData.uf,
+    uf: lockerProposalData.estadoResidencial,
+    codigoEstadoCivil: '',
+    codigoProfissao: '',
+    dataEmissaoDocumento: '',
+    nomeMae: '',
+    numeroDocumentoIdentificacao: '',
+    orgaoExpedidor: '',
+    sexo: '',
+    tipoDocumento: '',
+    ...proposalData
   })
 }
 
@@ -72,15 +70,19 @@ export const getSummaryProposal = async (
   setIsLoading(true)
   setHasError(false)
   try {
-    const response = await axiosInstance.get(
-      `/investimento/seguranca/v1/conquista/locker`,
-      {
-        params: {
-          token: token,
-        },
-      }
-    )
-    setLockerProposalData(getParams(response.data.data.params))
+    const { data } = await api.get(`http://localhost:3000/api/cartao-pro/proposta/${token}`)
+    const payload: ICreditCardProposalRequest = {
+      bandeira: data.bandeira,
+      diaVencimento: data.dataVencimento,
+      bairroResidencial: data.enderecoRecebimento.bairro,
+      cepResidencial: data.enderecoRecebimento.cep,
+      cidadeResidencial: data.enderecoRecebimento.cidade,
+      complementoResidencial: data.enderecoRecebimento.complemento,
+      enderecoResidencial: data.enderecoRecebimento.endereco,
+      estadoResidencial: data.enderecoRecebimento.estado,
+      numeroResidencial: data.enderecoRecebimento.numero
+    }
+    setLockerProposalData(payload)
   } catch (e) {
     setHasError(true)
   } finally {

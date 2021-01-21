@@ -8,6 +8,8 @@ import { useToast } from 'hooks/toast'
 import { base64decode } from 'helpers'
 import { axiosInstance, baseURLNamespaceInvestAws, post } from 'services/api'
 import { baseURL } from 'services/apiConfig'
+import api from 'axios'
+import { MD5 } from 'crypto-js'
 
 import {
   GetCreditCardExpirationDaysRequest,
@@ -140,6 +142,30 @@ const CreditCardPro = () => {
     }
   }
 
+  const handleSaveRedis = async () => {
+    if(customer?.cpfCliente) {
+      const md5CPF = MD5(customer.cpfCliente.toString()).toString()
+      const payload = {
+        chave: md5CPF,
+        valor: {
+          bandeira: selectedFlag,
+          dataVencimento: selectedDay.name,
+          enderecoRecebimento: {
+            cep,
+            endereco: streetAddress,
+            numero: number,
+            complemento: additionalInfo,
+            bairro: neighbourhood,
+            cidade: city,
+            estado: stateOption.name,
+          },
+        },
+      }
+      await api.post('http://localhost:3000/api/cartao-pro/proposta', payload)
+    }
+
+  }
+
   const handleFormSubmit = async () => {
     setIsLoading(true)
 
@@ -174,6 +200,7 @@ const CreditCardPro = () => {
     }
 
     try {
+      await handleSaveRedis()
       const { data } = await post(`${baseURLNamespaceInvestAws}/cartoes/sugestao`, payload)
 
       if (data.Message.tipoCritica === 'SUCESSO') {
@@ -186,7 +213,6 @@ const CreditCardPro = () => {
       addToast({
         type: 'error',
         title: 'Desculpe, ocorreu uma falha ao enviar a solicitação',
-        description: JSON.parse(error.message)?.msg,
       })
 
       if (submitErrorCount + 1 === 3) {
@@ -452,7 +478,7 @@ const CreditCardPro = () => {
         </Row>
       </Container>
       <S.Footer>
-        <SendButton onClick={handleFormSubmit} loading={isLoading}>
+        <SendButton onClick={handleFormSubmit} loading={isLoading} disabled={!cep || !selectedFlag || !selectedDay.name || !number}>
           ENVIAR PROPOSTA
         </SendButton>
       </S.Footer>
