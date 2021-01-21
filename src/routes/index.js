@@ -26,14 +26,14 @@ import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
 import ConsortiumBuilding from 'pages/ConsortiumBuilding'
 import ManagementConsortiumBuilding from 'pages/ConsortiumBuilding/Management'
 import CartaoCredito from 'pages/CreditCard'
-// import CartaoCreditoPro from 'pages/CreditCard/PRO'
+import CartaoCreditoPro from 'pages/CreditCard/PRO'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
-// import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
+import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
 import TripInsuranceProposalPROCreation from 'pages/TripInsurance/PRO/Creation'
 import TripInsuranceProposalCreation from 'pages/TripInsurance/Creation'
 
@@ -235,13 +235,13 @@ export default function Routes({ ...props }) {
           hook={useFetchCreditCard}
           pageTitle="Home - Cartão de Crédito"
         />
-        {/* <DefaultRoute
+        <DefaultRoute
           path="/cartao-credito/pro/:hash"
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
-        /> */}
+        />
 
-        {/* Disponibiliza as rotas dos fluxos de seguro viagem 
+        {/* Disponibiliza as rotas dos fluxos de seguro viagem
         apenas nos nossos ambientes de desenvolvimento */}
         {process.env.REACT_APP_ENV === 'development' ||
         process.env.REACT_APP_ENV === 'local' ? (
@@ -321,12 +321,12 @@ export default function Routes({ ...props }) {
           component={ManagementCreditCard}
           pageTitle="Gestão - Cartão de Crédito"
         />
-        {/* <Route
-          path="/cartao-credito/proposta/:tokenLocker"
+        <Route
+          path="/cartao-credito/proposta/:tokenRedis"
           exact
           component={SummaryProposal}
           pageTitle="Proposta - Cartão de Crédito"
-        /> */}
+        />
         <DefaultRoute
           path="/financiamento-veiculo/visualizar"
           exact

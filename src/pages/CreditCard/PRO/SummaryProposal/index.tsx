@@ -41,7 +41,7 @@ import SummaryProposalError from './Error'
 import { useToast } from 'hooks/toast'
 import SummaryProposalResponse from './Response'
 interface IRouteParams {
-  tokenLocker: string
+  tokenRedis: string
 }
 
 const SummaryProposal = () => {
@@ -61,7 +61,7 @@ const SummaryProposal = () => {
     ICreditCardProposalRequest | undefined
   >()
 
-  const { tokenLocker } = useParams<IRouteParams>()
+  const { tokenRedis } = useParams<IRouteParams>()
   const {
     isClientDataLoading,
     hasClientDataError,
@@ -88,20 +88,21 @@ const SummaryProposal = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (!hasError && !lockerProposalData && tokenLocker) {
+    if (!hasError && !lockerProposalData && tokenRedis) {
       getSummaryProposal(
-        tokenLocker,
+        tokenRedis,
         setIsLoading,
         setHasError,
         setLockerProposalData
       )
     }
-  }, [lockerProposalData, hasError, tokenLocker])
+  }, [lockerProposalData, hasError, tokenRedis])
 
   useEffect(() => {
     if (lockerProposalData && !isLoading) {
-      populateData(lockerProposalData, setProposalData)
+      populateData(lockerProposalData, setProposalData, proposalData)
     }
+    // eslint-disable-next-line
   }, [lockerProposalData, isLoading])
 
   const getContent = () => {
@@ -115,7 +116,7 @@ const SummaryProposal = () => {
         <SummaryProposalError
           hasError={hasError}
           setHasError={setHasError}
-          tokenLocker={tokenLocker}
+          tokenLocker={tokenRedis}
           setIsLoading={setIsLoading}
           setLockerProposalData={setLockerProposalData}
         />
