@@ -46,7 +46,14 @@ describe('Trip Insurance quotation Sagas', () => {
       ...requestData,
       onSuccess: onSuccessMock,
     })
-    const response = tripInsuranceQuotationMock
+    const response = {
+      ...tripInsuranceQuotationMock,
+      ViagemPacote: {
+        pacotes: [tripInsuranceQuotationMock.ViagemPacote.pacotes].flatMap(
+          pacote => pacote
+        ),
+      },
+    }
 
     expect(generator.next().value).toEqual(
       call(
@@ -68,7 +75,14 @@ describe('Trip Insurance quotation Sagas', () => {
       ...requestData,
       onSuccess: null,
     })
-    const response = tripInsuranceQuotationMock
+    const response = {
+      ...tripInsuranceQuotationMock,
+      ViagemPacote: {
+        pacotes: [tripInsuranceQuotationMock.ViagemPacote.pacotes].flatMap(
+          pacote => pacote
+        ),
+      },
+    }
 
     expect(generator.next().value).toEqual(
       call(
