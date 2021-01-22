@@ -43,40 +43,42 @@ const ComparativeTabs: React.FC<IComparativeTabs> = ({
   const renderTabs = () => (
     <s.StyledTabs
       name="tab-planos"
-      initialValue={`tab-plano-${travelPlans[0].nomePlano
-        .replace(' ', '')
-        .replace('Brasil', '')}`}
+      initialValue={`tab-plano-${travelPlans[0].nomePlano}`}
       initialReset
       {...rest}
     >
-      <s.StickyContent>
-        <s.StyledTabList
-          ariaLabel="Detalhes do fundo"
-          data-testid="drawer-tabs"
-        >
-          {travelPlans.map(plan => {
-            const planName = plan.nomePlano
-              .replace(' ', '')
-              .replace('Brasil', '')
+      <s.OverflowWrapper travelPlansLength={travelPlans.length}>
+        <s.StickyContent travelPlansLength={travelPlans.length}>
+          <s.StyledTabList
+            ariaLabel="Detalhes do fundo"
+            data-testid="drawer-tabs"
+          >
+            {travelPlans.map(plan => {
+              const planName = plan.nomePlano
 
-            return (
-              <Tab
-                name={`tab-plano-${planName}`}
-                key={uuid()}
-                onClick={() => setPlanContent(plan.ViagemCobertura.coberturas)}
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                data-gtm-subname={`Plano ${planName}`}
-                data-gtm-name="Modal Comparativo"
-              >
-                {planName}
-              </Tab>
-            )
-          })}
-        </s.StyledTabList>
-      </s.StickyContent>
+              return (
+                <Tab
+                  name={`tab-plano-${planName}`}
+                  key={uuid()}
+                  onClick={() =>
+                    setPlanContent(plan.ViagemCobertura.coberturas)
+                  }
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  data-gtm-subname={`Plano ${planName}`}
+                  data-gtm-name="Modal Comparativo"
+                >
+                  {planName}
+                </Tab>
+              )
+            })}
+          </s.StyledTabList>
+        </s.StickyContent>
+      </s.OverflowWrapper>
 
-      <s.PlansData>{renderItems(planContent)}</s.PlansData>
+      <s.PlansData travelPlansLength={travelPlans.length}>
+        {renderItems(planContent)}
+      </s.PlansData>
     </s.StyledTabs>
   )
 

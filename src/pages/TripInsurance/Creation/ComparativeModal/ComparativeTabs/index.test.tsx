@@ -49,7 +49,12 @@ describe('ComparativeTabs component', () => {
     expect(thirdTab.getAttribute('aria-selected')).toBe('false')
   })
   it('should be able to select second tab', () => {
-    setup()
+    renderWithReduxAndTheme(
+      <ComparativeTabs travelPlans={[travelPlans[0], travelPlans[1]]} />,
+      {
+        container: createRootContainer(),
+      }
+    )
 
     const secondTab = screen.getByText(/terra/i)
 
@@ -60,9 +65,6 @@ describe('ComparativeTabs component', () => {
     )
     expect(screen.getByText(/terra/i).getAttribute('aria-selected')).toBe(
       'true'
-    )
-    expect(screen.getByText(/ouro/i).getAttribute('aria-selected')).toBe(
-      'false'
     )
   })
   it('should be able to select third tab', () => {
