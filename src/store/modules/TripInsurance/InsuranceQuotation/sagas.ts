@@ -19,7 +19,18 @@ export function* postInsuranceQuotation({
       payload
     )
 
-    yield put(PostInsuranceQuotationSuccess(data))
+    let newData: IInsuranceQuotationResponse = data
+
+    if (data?.ViagemPacote?.pacotes) {
+      newData = {
+        ...data,
+        ViagemPacote: {
+          pacotes: [data.ViagemPacote.pacotes].flatMap(pacote => pacote),
+        },
+      }
+    }
+
+    yield put(PostInsuranceQuotationSuccess(newData))
     if (onSuccess) onSuccess()
   } catch (err) {
     yield put(PostInsuranceQuotationFailure())
