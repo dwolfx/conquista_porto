@@ -37,16 +37,16 @@ const PaymentMethod = ({
     <>
       <S.StyledCard
         headerTitle={
-          <Text bold type="subheading" color="gray5">
+          <S.HeaderInfo bold type="subheading" color="gray5">
             FORMA DE PAGAMENTO
-          </Text>
+          </S.HeaderInfo>
         }
       >
-        <Text type="headline" bold color="black">
+        <S.HeaderInfo type="headline" bold color="black">
           Escolha como deseja fazer o pagamento do Seguro Viagem
-        </Text>
+        </S.HeaderInfo>
 
-        <S.MarginTopStyledText type="headline" bold color="gray4">
+        <S.MarginTopStyledText type="headline" bold color="gray5">
           5% de desconto no Cartão Porto Seguro
         </S.MarginTopStyledText>
 

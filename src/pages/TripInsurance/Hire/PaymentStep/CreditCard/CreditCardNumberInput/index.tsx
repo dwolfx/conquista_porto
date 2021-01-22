@@ -58,6 +58,7 @@ const CreditCardNumberInput = ({
     <s.CreditCardInput
       label="Número do cartão"
       error={hasError()}
+      placeholder="Digite"
       onChange={e => {
         applyCreditCardMask(e, cardNumberState[1], flagNameState)
         if (e.target.value.length >= 19) {

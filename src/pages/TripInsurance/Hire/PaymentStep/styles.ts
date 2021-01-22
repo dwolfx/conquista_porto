@@ -24,6 +24,12 @@ export const Wrapper = styled.div`
   }
 `
 
+export const InputsWrapper = styled.div`
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+  }
+`
+
 export const BottomBar = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
@@ -73,29 +79,43 @@ export const StyledCard = styled(Card)`
   }
 
   @media ${props => props.theme.mediaQueries.xs} {
-    padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(3)}px`};
+    padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(2)}px`};
   }
 `
 
 export const StyledDivisor = styled(DivisorDescription)`
-  max-width: 294px;
+  max-width: 254px;
   margin-top: ${({ theme }) => theme.spacing(4)}px;
 
   @media ${props => props.theme.mediaQueries.lg} {
     ${Divisor} {
       border-color: transparent;
+      margin: ${({ theme }) => theme.spacing(2)}px 0;
     }
-    text-align: center;
+    text-align: start;
     margin-bottom: ${({ theme }) => theme.spacing(6)}px;
+    max-width: 100%;
   }
 
   @media ${props => props.theme.mediaQueries.xs} {
     text-align: left;
+    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+  }
+`
+
+export const HeaderInfo = styled(Text)`
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin-left: ${({ theme }) => theme.spacing(2)}px;
+    margin-right: ${({ theme }) => theme.spacing(2)}px;
   }
 `
 
 export const MarginTopStyledText = styled(Text)`
   margin-top: ${({ theme }) => theme.spacing(4)}px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px 0`};
+  }
 `
 export const CreditCardWrapper = styled.div<{ cardIsSelected?: boolean }>`
   padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(4)}px`};
@@ -223,4 +243,5 @@ export const PopoverText = styled(Text).attrs(() => ({
   color: 'gray5',
 }))`
   max-width: 213px;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 `
