@@ -224,6 +224,7 @@ export const FooterContainer = styled.div`
   position: fixed;
   width: 100%;
   bottom: 0;
+  z-index: 2;
 `
 
 export const NextButton = styled(Button)`
