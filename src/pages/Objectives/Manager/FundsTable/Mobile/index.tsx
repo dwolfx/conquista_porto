@@ -153,7 +153,7 @@ export default function({
 
       {renderCards()}
 
-      {footer ? footer : null}
+      {footer || null}
 
       <s.Backdrop
         isOpen={backdropIsOpen}
