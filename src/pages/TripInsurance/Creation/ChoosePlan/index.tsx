@@ -92,38 +92,35 @@ const ChoosePlan: StepComponent = () => {
     </s.ContextWrapper>
   )
 
-  const renderTitle = (isMobile: boolean, cardsQuantity: number) => {
-    return (
-      <s.TitleWrapper cardsQuantity={cardsQuantity}>
-        {cardsQuantity > 1 ? (
-          <s.Title color="white" type={isMobile ? 'heading4' : 'heading3'}>
-            Escolha um plano disponível
-          </s.Title>
-        ) : null}
+  const renderTitle = (isMobile: boolean, cardsQuantity: number) => (
+    <s.TitleWrapper cardsQuantity={cardsQuantity}>
+      {cardsQuantity > 1 ? (
+        <s.Title color="white" type={isMobile ? 'heading4' : 'heading3'}>
+          Escolha um plano disponível
+        </s.Title>
+      ) : null}
 
-        <s.SwitchWrapper>
-          <s.SwitchText
-            color="white"
-            type="subheading"
-            bold
-            textTransform="uppercase"
-          >
-            simular em até 12x sem juros com 5% de desconto no Cartão Porto
-            Seguro
-          </s.SwitchText>
-          <Switch
-            id="123"
-            value={isPortoSeguroCard}
-            onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
-            disabled={false}
-            leftLabel=""
-            rightLabel=""
-            isToggle
-          />
-        </s.SwitchWrapper>
-      </s.TitleWrapper>
-    )
-  }
+      <s.SwitchWrapper>
+        <s.SwitchText
+          color="white"
+          type="subheading"
+          bold
+          textTransform="uppercase"
+        >
+          simular em até 12x sem juros com 5% de desconto no Cartão Porto Seguro
+        </s.SwitchText>
+        <Switch
+          id="123"
+          value={isPortoSeguroCard}
+          onChangeSwitch={() => setIsPortoSeguroCard(!isPortoSeguroCard)}
+          disabled={false}
+          leftLabel=""
+          rightLabel=""
+          isToggle
+        />
+      </s.SwitchWrapper>
+    </s.TitleWrapper>
+  )
 
   return (
     <s.Container>

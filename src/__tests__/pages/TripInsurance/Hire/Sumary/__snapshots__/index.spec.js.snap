@@ -2,6 +2,664 @@
 
 exports[`Sumary renders correctly 1`] = `
 Array [
+  .c4 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c21 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c21:hover:active {
+  pointer-events: auto;
+}
+
+.c21:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c21:hover:before {
+  width: 100%;
+}
+
+.c21:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c21:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c23 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c6 {
+  fill: #BABABA;
+  cursor: pointer;
+  height: 28px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 28px;
+}
+
+.c6:hover {
+  fill: #00ADEF;
+}
+
+.c7 {
+  overflow-y: auto;
+  height: 100%;
+  padding: 28px 14px;
+}
+
+.c20 {
+  border-top: 1px solid #DDDDDD;
+  height: 63px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 14px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.c3 {
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 14px 14px;
+}
+
+.c5 {
+  color: #272727;
+}
+
+.c2 {
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  max-width: 658px;
+  top: 0;
+  right: calc(-100% - 7px);
+}
+
+.c0 {
+  width: 100%;
+  height: 100%;
+  z-index: 13;
+}
+
+.c1 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c14 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c17 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c17 #prefix {
+  padding-left: 7px;
+}
+
+.c17 #suffix {
+  padding-right: 7px;
+}
+
+.c17:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c17:focus-within #prefix,
+.c17:focus-within #suffix {
+  color: #272727;
+}
+
+.c15 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c19 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c18 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c18:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c18::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c13 {
+  position: relative;
+  height: 70px;
+}
+
+.c13 .c16 {
+  height: calc(100% - 24px);
+}
+
+.c10 {
+  position: relative;
+}
+
+.c12 {
+  position: relative;
+}
+
+.c12:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c12 input {
+  text-transform: capitalize;
+}
+
+.c9 {
+  width: 100%;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c11 {
+  margin: 0 0 28px;
+}
+
+.c22 {
+  width: 100%;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+  .c7 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c20 {
+    padding: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c20 {
+    padding: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c3 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c2 {
+    max-width: 484px;
+    margin: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    min-width: 100vw;
+    padding: 0;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+      onClick={[Function]}
+    />
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        <h5
+          className="c4 c5"
+          color="unset"
+          type="headline"
+        >
+          Alterar dados
+        </h5>
+        <svg
+          aria-label="close"
+          className="c6"
+          data-gtm-clicktype="button"
+          data-gtm-name="botao fechar"
+          data-gtm-subname="menu Alterar dados"
+          data-gtm-type="click"
+          fill="#BABABA"
+          onClick={[Function]}
+          role="img"
+          width={21}
+        >
+          close.svg
+        </svg>
+      </div>
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+        >
+          <div
+            className="c9"
+          >
+            <div
+              className="c10 c11"
+            >
+              <div
+                className="c12"
+                data-testid="select-Forma de Pagamento"
+                onClick={[Function]}
+              >
+                <div
+                  className="c13"
+                  disabled={false}
+                >
+                  <div
+                    className="c14"
+                  >
+                    <label
+                      className="c15"
+                    >
+                      Forma de Pagamento
+                    </label>
+                    <div
+                      className="c16 c17"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c18"
+                        data-testid="select-option-input-undefined"
+                        disabled={false}
+                        placeholder="Selecione"
+                        readOnly={true}
+                      />
+                      <div
+                        className="c19"
+                        id="suffix"
+                      >
+                        <svg
+                          aria-label="arrowdown"
+                          fill="#272727"
+                          height={21}
+                          role="img"
+                          width={21}
+                        >
+                          arrow-down.svg
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="c9"
+          >
+            <div
+              className="c10 c11"
+            >
+              <div
+                className="c12"
+                data-testid="select-Número de Parcelas"
+                onClick={[Function]}
+              >
+                <div
+                  className="c13"
+                  disabled={false}
+                >
+                  <div
+                    className="c14"
+                  >
+                    <label
+                      className="c15"
+                    >
+                      Número de Parcelas
+                    </label>
+                    <div
+                      className="c16 c17"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c18"
+                        data-testid="select-option-input-undefined"
+                        disabled={false}
+                        placeholder="Selecione"
+                        readOnly={true}
+                      />
+                      <div
+                        className="c19"
+                        id="suffix"
+                      >
+                        <svg
+                          aria-label="arrowdown"
+                          fill="#272727"
+                          height={21}
+                          role="img"
+                          width={21}
+                        >
+                          arrow-down.svg
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c20"
+      >
+        <button
+          className="c21 c22"
+          color="primary"
+          data-gtm-clicktype="button"
+          data-gtm-name="salvar alterações"
+          data-gtm-type="click"
+          disabled={false}
+        >
+          <span
+            className="c23"
+          >
+            SALVAR ALTERAÇÕES
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
   .c5 {
   color: #272727;
   text-align: unset;
@@ -96,7 +754,7 @@ Array [
   padding-left: 15px;
 }
 
-.c23 {
+.c22 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -117,15 +775,15 @@ Array [
   line-height: 15px;
 }
 
-.c23 svg {
+.c22 svg {
   height: 21px;
 }
 
-.c23 svg path {
+.c22 svg path {
   fill: currentColor;
 }
 
-.c22 {
+.c23 {
   border-bottom: 1px solid #DDDDDD;
   height: 0%;
   width: 100%;
@@ -179,6 +837,29 @@ Array [
 
 .c20.c20 > *:not(:first-child) {
   margin-left: 14px;
+}
+
+.c15 {
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin: 14px 0;
+}
+
+.c15 .c16 {
+  width: 161px;
+  margin-right: 14px;
+}
+
+.c15 .c19 {
+  width: auto;
 }
 
 .c8 {
@@ -290,29 +971,6 @@ Array [
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-.c15 {
-  width: auto;
-  height: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin: 14px 0;
-}
-
-.c15 .c16 {
-  width: 161px;
-  margin-right: 14px;
-}
-
-.c15 .c19 {
-  width: auto;
 }
 
 @media (min-width:768px) {
@@ -484,6 +1142,30 @@ Array [
 
 }
 
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
 <div
     className="sc-AxirZ c0"
     data-name="container"
@@ -601,803 +1283,6 @@ Array [
                   COBERTURA
                 </p>
               </div>
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Despesas Médicas, Hospitalares e/ou Odontológicas - DMO
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      30.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Morte Acidental
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      R$ 200.000,00
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Invalidez Permanente Total ou Parcial por Acidente
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      R$ 200.000,00
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Cancelamento de Viagem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      R$ 200.000,00
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Interrupção da Viagem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      R$ 3.000,00
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Extravio de Bagagem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      R$ 3.000,00
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Danos de Bagagem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      R$ 3.000,00
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Translado de Corpo
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      20.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Translado Médico
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      20.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Tregresso Sanitário
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      20.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Assistência Funeral
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Hospedagem após alta hospitalar
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      100,00 €/Dia - Limite 5 Dias
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Remarcação de Passagem para Regresso
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Remarcação de Passagem para Regresso de membros da família
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Acompanhante em caso de hospitalização prolongada
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Hospedagem para acompanhante em caso de hospitalização prolongada
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Acompanhante de menor
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Despesas farmacêuticas
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Despesas Jurídicas
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Pagamento de fiança
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Extensão de vigência por razões médicas
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      5.000,00 €
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Porto Viage Bem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      Sim
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Localização e Encaminhamento de bagagem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      Sim (se transporte aéreo ou marítimo)
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Localização e Encaminhamento de bagagem
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      Sim
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c22"
-              />
-              <div>
-                <div
-                  className="c14 c15"
-                  size="default"
-                >
-                  <div
-                    className="c16 c17"
-                  >
-                    <span
-                      className="c18"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Transmissão de mensagens urgentes
-                    </span>
-                  </div>
-                  <div
-                    className="c19 c20"
-                  >
-                    <h6
-                      className="c21"
-                      color="gray6"
-                      type="title"
-                    >
-                      Sim
-                    </h6>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1422,8 +1307,9 @@ Array [
                   FORMA DE PAGAMENTO
                 </p>
                 <a
-                  className="c23"
+                  className="c22"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <svg
@@ -1460,13 +1346,13 @@ Array [
                       color="gray6"
                       type="title"
                     >
-                      Cartão Porto Seguro Black
+                      
                     </h6>
                   </div>
                 </div>
               </div>
               <div
-                className="c22"
+                className="c23"
               />
               <div>
                 <div
@@ -1492,13 +1378,13 @@ Array [
                       color="gray6"
                       type="title"
                     >
-                      **** **** **** 9988
+                      
                     </h6>
                   </div>
                 </div>
               </div>
               <div
-                className="c22"
+                className="c23"
               />
               <div>
                 <div
@@ -1524,13 +1410,13 @@ Array [
                       color="gray6"
                       type="title"
                     >
-                      08/28
+                      
                     </h6>
                   </div>
                 </div>
               </div>
               <div
-                className="c22"
+                className="c23"
               />
               <div>
                 <div
@@ -1556,7 +1442,7 @@ Array [
                       color="gray6"
                       type="title"
                     >
-                      12x de R$ 310,00
+                      
                     </h6>
                   </div>
                 </div>
@@ -1768,6 +1654,30 @@ Array [
     width: 100%;
     margin: 14px;
   }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
 }
 
 <div
