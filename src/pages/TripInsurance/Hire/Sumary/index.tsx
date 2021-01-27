@@ -8,13 +8,121 @@ import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import useMedia from 'hooks/useMedia'
 
-import * as S from './styles'
+import { IForm } from 'pages/TripInsurance/Creation/types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import {
+  IPlan,
+  ITripInsuranceQuotation,
+} from 'store/modules/TripInsurance/InsuranceQuotation/types'
+import { useSelector } from 'react-redux'
+import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
 import DataRow from '../../commons/DataRow'
+import * as S from './styles'
+import { capitalize, formatMoney } from 'helpers'
+import { getFlagName } from '../PaymentStep/utils'
+import DrawerChangePayment from '../DrawerChangePayment'
+
+interface IFormPayment {
+  modelCard: string
+  numberCard: string
+  due: string
+  installment: string
+}
 
 const Sumary = () => {
   const isMobile = useMedia('xs')
+  const [choosePlanSelect, setChoosePlanSelect] = React.useState<IPlan>()
+  const [drawerChangePayment, setDrawerChangePayment] = React.useState<boolean>(
+    false
+  )
+  const [formPayment, setFormPayment] = React.useState<IFormPayment>({
+    modelCard: '',
+    numberCard: '',
+    due: '',
+    installment: '',
+  })
+  const { form } = useFormFluxManagement<IForm>()
+
+  const { tripInsuranceQuotations } = useSelector(
+    (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
+      tripInsuranceQuotations:
+        state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
+      isLoading: state.tripInsuranceQuotation.isLoading,
+      hasError: state.tripInsuranceQuotation.hasError,
+      idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+    })
+  )
+
+  const { creditCardData } = useSelector(
+    (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
+      creditCardData: state.tripInsuranceCreditCard.data,
+    })
+  )
+
+  React.useEffect(() => {
+    if (tripInsuranceQuotations && tripInsuranceQuotations.length) {
+      setChoosePlanSelect(
+        tripInsuranceQuotations?.find(
+          value => value.codigoPlano === form.pacoteEscolhido
+        )
+      )
+    }
+  }, [tripInsuranceQuotations, form.pacoteEscolhido])
+
+  React.useEffect(() => {
+    if (
+      creditCardData &&
+      creditCardData.creditCards &&
+      choosePlanSelect &&
+      form &&
+      form.pagamento &&
+      form.pagamento.quartoNumero
+    ) {
+      const arrayInstallments = form.pagamento.isCartaoPorto
+        ? choosePlanSelect?.formasPagamento.listaParcelamentoCartaoPorto
+        : choosePlanSelect?.formasPagamento.listaParcelamentoCartao
+
+      const installment = arrayInstallments.find(
+        value => Number(value.id) === form.pagamento?.quantidadeParcelas
+      )
+
+      const dataCard = creditCardData.creditCards.find(
+        value => value.UltimosDigitos === form.pagamento?.quartoNumero
+      )
+
+      if (installment?.descricao && installment?.valor) {
+        const cardInfo = {
+          due: `${form.pagamento.mesValidade}/${form.pagamento.anoValidade}`,
+          numberCard: `**** **** **** ${form.pagamento.quartoNumero}`,
+          installment: `${installment?.descricao} de ${formatMoney(
+            installment?.valor
+          )}`,
+        }
+
+        if (dataCard) {
+          setFormPayment({
+            ...cardInfo,
+            modelCard: `Cartão Porto Seguro ${capitalize(dataCard.Tipo)}`,
+          })
+        } else {
+          setFormPayment({
+            ...cardInfo,
+            modelCard: `Cartão ${capitalize(
+              getFlagName(false, form.pagamento.codigoBandeira)
+            )}`,
+          })
+        }
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [creditCardData, choosePlanSelect, form.pagamento])
+
   return (
     <>
+      <DrawerChangePayment
+        isOpen={drawerChangePayment}
+        handleClose={() => setDrawerChangePayment(false)}
+      />
       <S.Container>
         <Row>
           <S.HeaderCol lg={3} md={12}>
@@ -39,7 +147,12 @@ const Sumary = () => {
                     RESUMO
                   </Text>
                 </S.CardTitleWrapper>
-                <DataRow label="Tipo de Seguro" value="Internacional" />
+                <DataRow
+                  label="Tipo de Seguro"
+                  value={
+                    form.nationalDestination ? 'Nacional' : 'Internacional'
+                  }
+                />
               </S.CardContentWrapper>
             </S.Card>
             <S.Card>
@@ -49,88 +162,18 @@ const Sumary = () => {
                     COBERTURA
                   </Text>
                 </S.CardTitleWrapper>
-                <DataRow
-                  label="Despesas Médicas, Hospitalares e/ou Odontológicas - DMO"
-                  value="30.000,00 €"
-                />
-                <Divisor />
-                <DataRow label="Morte Acidental" value="R$ 200.000,00" />
-                <Divisor />
-                <DataRow
-                  label="Invalidez Permanente Total ou Parcial por Acidente"
-                  value="R$ 200.000,00"
-                />
-                <Divisor />
-                <DataRow label="Cancelamento de Viagem" value="R$ 200.000,00" />
-                <Divisor />
-                <DataRow label="Interrupção da Viagem" value="R$ 3.000,00" />
-                <Divisor />
-                <DataRow label="Extravio de Bagagem" value="R$ 3.000,00" />
-                <Divisor />
-                <DataRow label="Danos de Bagagem" value="R$ 3.000,00" />
-                <Divisor />
-                <DataRow label="Translado de Corpo" value="20.000,00 €" />
-                <Divisor />
-                <DataRow label="Translado Médico" value="20.000,00 €" />
-                <Divisor />
-                <DataRow label="Tregresso Sanitário" value="20.000,00 €" />
-                <Divisor />
-                <DataRow label="Assistência Funeral" value="5.000,00 €" />
-                <Divisor />
-                <DataRow
-                  label="Hospedagem após alta hospitalar"
-                  value="100,00 €/Dia - Limite 5 Dias"
-                />
-                <Divisor />
-                <DataRow
-                  label="Remarcação de Passagem para Regresso"
-                  value="5.000,00 €"
-                />
-                <Divisor />
-                <DataRow
-                  label="Remarcação de Passagem para Regresso de membros da família"
-                  value="5.000,00 €"
-                />
-                <Divisor />
-                <DataRow
-                  label="Acompanhante em caso de hospitalização prolongada"
-                  value="5.000,00 €"
-                />
-                <Divisor />
-                <DataRow
-                  label="Hospedagem para acompanhante em caso de hospitalização prolongada"
-                  value="5.000,00 €"
-                />
-                <Divisor />
-                <DataRow label="Acompanhante de menor" value="5.000,00 €" />
-                <Divisor />
-                <DataRow label="Despesas farmacêuticas" value="5.000,00 €" />
-                <Divisor />
-                <DataRow label="Despesas Jurídicas" value="5.000,00 €" />
-                <Divisor />
-                <DataRow label="Pagamento de fiança" value="5.000,00 €" />
-                <Divisor />
-                <DataRow
-                  label="Extensão de vigência por razões médicas"
-                  value="5.000,00 €"
-                />
-                <Divisor />
-                <DataRow label="Porto Viage Bem" value="Sim" />
-                <Divisor />
-                <DataRow
-                  label="Localização e Encaminhamento de bagagem"
-                  value="Sim (se transporte aéreo ou marítimo)"
-                />
-                <Divisor />
-                <DataRow
-                  label="Localização e Encaminhamento de bagagem"
-                  value="Sim"
-                />
-                <Divisor />
-                <DataRow
-                  label="Transmissão de mensagens urgentes"
-                  value="Sim"
-                />
+                {choosePlanSelect?.ViagemCobertura?.coberturas &&
+                  choosePlanSelect.ViagemCobertura.coberturas.length &&
+                  choosePlanSelect.ViagemCobertura.coberturas.map(
+                    (value, index) => (
+                      <div key={index.toString()}>
+                        <DataRow label={value.descricao} value={value.valor} />
+                        {index !==
+                          choosePlanSelect.ViagemCobertura.coberturas.length -
+                            1 && <Divisor />}
+                      </div>
+                    )
+                  )}
               </S.CardContentWrapper>
             </S.Card>
             <S.Card>
@@ -139,15 +182,20 @@ const Sumary = () => {
                   <Text type="subheading" bold color="gray5">
                     FORMA DE PAGAMENTO
                   </Text>
-                  <ButtonLink>ALTERAR</ButtonLink>
+                  <ButtonLink onClick={() => setDrawerChangePayment(true)}>
+                    ALTERAR
+                  </ButtonLink>
                 </S.CardTitleWrapper>
-                <DataRow label="Modelo" value="Cartão Porto Seguro Black" />
+                <DataRow label="Modelo" value={formPayment.modelCard} />
                 <Divisor />
-                <DataRow label="Número" value="**** **** **** 9988" />
+                <DataRow label="Número" value={formPayment.numberCard} />
                 <Divisor />
-                <DataRow label="Vencimento" value="08/28" />
+                <DataRow label="Vencimento" value={formPayment.due} />
                 <Divisor />
-                <DataRow label="Número de Parcelas" value="12x de R$ 310,00" />
+                <DataRow
+                  label="Número de Parcelas"
+                  value={formPayment.installment}
+                />
               </S.CardContentWrapper>
             </S.Card>
           </Col>

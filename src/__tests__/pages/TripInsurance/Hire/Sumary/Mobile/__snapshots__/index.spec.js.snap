@@ -2,6 +2,655 @@
 
 exports[`Sumary renders correctly 1`] = `
 Array [
+  .c6 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c22 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c22:hover:active {
+  pointer-events: auto;
+}
+
+.c22:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c22:hover:before {
+  width: 100%;
+}
+
+.c22:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c22:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c24 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c15 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c18 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c18 #prefix {
+  padding-left: 7px;
+}
+
+.c18 #suffix {
+  padding-right: 7px;
+}
+
+.c18:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c18:focus-within #prefix,
+.c18:focus-within #suffix {
+  color: #272727;
+}
+
+.c16 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c20 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c19 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c19:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c19::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c14 {
+  position: relative;
+  height: 70px;
+}
+
+.c14 .c17 {
+  height: calc(100% - 24px);
+}
+
+.c11 {
+  position: relative;
+}
+
+.c13 {
+  position: relative;
+}
+
+.c13:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c13 input {
+  text-transform: capitalize;
+}
+
+.c1 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c8 {
+  overflow: auto;
+  padding: 21px 14px;
+}
+
+.c7 {
+  margin: 0 auto;
+}
+
+.c2 {
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  border-radius: 8px;
+  position: fixed;
+  margin: 28px 0;
+  max-height: calc(100vh - (28px * 2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  top: 0;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px;
+}
+
+.c3 svg {
+  margin-right: 15px;
+}
+
+.c4 {
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  color: #272727;
+  font-weight: normal;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c5 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.c5:hover {
+  fill: #00ADEF;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 13;
+}
+
+.c21 {
+  margin-top: 14px;
+}
+
+.c10 {
+  width: 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c12 {
+  margin: 0 0 28px;
+}
+
+.c23 {
+  width: 100%;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+  .c8 {
+    padding: 21px 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    min-width: unset;
+    width: calc(100vw - 28px);
+    top: auto;
+    margin: 0;
+    max-height: calc(100vh - (14px * 2));
+  }
+}
+
+<div
+    className="c0 "
+  >
+    <div
+      className="c1"
+      onClick={[Function]}
+    />
+    <div
+      className="c2"
+    >
+      <header
+        className="c3"
+      >
+        <h3
+          className="c4"
+        >
+          Alterar dados
+        </h3>
+        <svg
+          aria-label="close"
+          className="c5"
+          data-gtm-clicktype="button"
+          data-gtm-name="botao fechar"
+          data-gtm-subname="modal Alterar dados"
+          data-gtm-type="click"
+          fill="#BABABA"
+          height={28}
+          onClick={[Function]}
+          role="img"
+          width={28}
+        >
+          close.svg
+        </svg>
+      </header>
+      <div
+        className="c6 c7"
+      />
+      <div
+        className="c8"
+      >
+        <div
+          className="c9"
+        >
+          <div
+            className="c10"
+          >
+            <div
+              className="c11 c12"
+            >
+              <div
+                className="c13"
+                data-testid="select-Forma de Pagamento"
+                onClick={[Function]}
+              >
+                <div
+                  className="c14"
+                  disabled={false}
+                >
+                  <div
+                    className="c15"
+                  >
+                    <label
+                      className="c16"
+                    >
+                      Forma de Pagamento
+                    </label>
+                    <div
+                      className="c17 c18"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c19"
+                        data-testid="select-option-input-undefined"
+                        disabled={false}
+                        placeholder="Selecione"
+                        readOnly={true}
+                      />
+                      <div
+                        className="c20"
+                        id="suffix"
+                      >
+                        <svg
+                          aria-label="arrowdown"
+                          fill="#272727"
+                          height={21}
+                          role="img"
+                          width={21}
+                        >
+                          arrow-down.svg
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="c10"
+          >
+            <div
+              className="c11 c12"
+            >
+              <div
+                className="c13"
+                data-testid="select-Número de Parcelas"
+                onClick={[Function]}
+              >
+                <div
+                  className="c14"
+                  disabled={false}
+                >
+                  <div
+                    className="c15"
+                  >
+                    <label
+                      className="c16"
+                    >
+                      Número de Parcelas
+                    </label>
+                    <div
+                      className="c17 c18"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c19"
+                        data-testid="select-option-input-undefined"
+                        disabled={false}
+                        placeholder="Selecione"
+                        readOnly={true}
+                      />
+                      <div
+                        className="c20"
+                        id="suffix"
+                      >
+                        <svg
+                          aria-label="arrowdown"
+                          fill="#272727"
+                          height={21}
+                          role="img"
+                          width={21}
+                        >
+                          arrow-down.svg
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c6 c7"
+      />
+      <footer
+        className="c21"
+      >
+        <button
+          className="c22 c23"
+          color="primary"
+          data-gtm-clicktype="button"
+          data-gtm-name="salvar alterações"
+          data-gtm-type="click"
+          disabled={false}
+        >
+          <span
+            className="c24"
+          >
+            SALVAR ALTERAÇÕES
+          </span>
+        </button>
+      </footer>
+    </div>
+  </div>,
   .c5 {
   color: #272727;
   text-align: unset;
@@ -97,7 +746,7 @@ Array [
   padding-left: 15px;
 }
 
-.c20 {
+.c19 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -118,46 +767,18 @@ Array [
   line-height: 15px;
 }
 
-.c20 svg {
+.c19 svg {
   height: 21px;
 }
 
-.c20 svg path {
+.c19 svg path {
   fill: currentColor;
 }
 
-.c19 {
+.c20 {
   border-bottom: 1px solid #DDDDDD;
   height: 0%;
   width: 100%;
-}
-
-.c8 {
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
-  border-radius: 8px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 10px 14px 10px;
-}
-
-.c10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
 }
 
 .c14 {
@@ -198,6 +819,39 @@ Array [
 
 .c16.c16 :last-child {
   margin-bottom: 0px;
+}
+
+.c15 {
+  margin: 14px;
+  width: auto;
+}
+
+.c8 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .c2 {
@@ -281,11 +935,6 @@ Array [
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-.c15 {
-  margin: 14px;
-  width: auto;
 }
 
 @media (min-width:768px) {
@@ -457,6 +1106,14 @@ Array [
 
 }
 
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
 <div
     className="sc-AxirZ c0"
     data-name="container"
@@ -567,628 +1224,6 @@ Array [
                   COBERTURA
                 </p>
               </div>
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Despesas Médicas, Hospitalares e/ou Odontológicas - DMO
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    30.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Morte Acidental
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    R$ 200.000,00
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Invalidez Permanente Total ou Parcial por Acidente
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    R$ 200.000,00
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Cancelamento de Viagem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    R$ 200.000,00
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Interrupção da Viagem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    R$ 3.000,00
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Extravio de Bagagem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    R$ 3.000,00
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Danos de Bagagem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    R$ 3.000,00
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Translado de Corpo
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    20.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Translado Médico
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    20.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Tregresso Sanitário
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    20.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Assistência Funeral
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Hospedagem após alta hospitalar
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    100,00 €/Dia - Limite 5 Dias
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Remarcação de Passagem para Regresso
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Remarcação de Passagem para Regresso de membros da família
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Acompanhante em caso de hospitalização prolongada
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Hospedagem para acompanhante em caso de hospitalização prolongada
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Acompanhante de menor
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Despesas farmacêuticas
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Despesas Jurídicas
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Pagamento de fiança
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Extensão de vigência por razões médicas
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    5.000,00 €
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Porto Viage Bem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    Sim
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Localização e Encaminhamento de bagagem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    Sim (se transporte aéreo ou marítimo)
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Localização e Encaminhamento de bagagem
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    Sim
-                  </h5>
-                </div>
-              </div>
-              <div
-                className="c19"
-              />
-              <div
-                className="c14 c15"
-              >
-                <div
-                  className="c16"
-                >
-                  <span
-                    className="c17"
-                    color="gray5"
-                    type="captionUppercase"
-                  >
-                    Transmissão de mensagens urgentes
-                  </span>
-                  <h5
-                    className="c18"
-                    color="gray6"
-                    type="headline"
-                  >
-                    Sim
-                  </h5>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1213,8 +1248,9 @@ Array [
                   FORMA DE PAGAMENTO
                 </p>
                 <a
-                  className="c20"
+                  className="c19"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <svg
@@ -1245,12 +1281,12 @@ Array [
                     color="gray6"
                     type="headline"
                   >
-                    Cartão Porto Seguro Black
+                    
                   </h5>
                 </div>
               </div>
               <div
-                className="c19"
+                className="c20"
               />
               <div
                 className="c14 c15"
@@ -1270,12 +1306,12 @@ Array [
                     color="gray6"
                     type="headline"
                   >
-                    **** **** **** 9988
+                    
                   </h5>
                 </div>
               </div>
               <div
-                className="c19"
+                className="c20"
               />
               <div
                 className="c14 c15"
@@ -1295,12 +1331,12 @@ Array [
                     color="gray6"
                     type="headline"
                   >
-                    08/28
+                    
                   </h5>
                 </div>
               </div>
               <div
-                className="c19"
+                className="c20"
               />
               <div
                 className="c14 c15"
@@ -1320,7 +1356,7 @@ Array [
                     color="gray6"
                     type="headline"
                   >
-                    12x de R$ 310,00
+                    
                   </h5>
                 </div>
               </div>
@@ -1531,6 +1567,14 @@ Array [
     width: 100%;
     margin: 14px;
   }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
 }
 
 <div
