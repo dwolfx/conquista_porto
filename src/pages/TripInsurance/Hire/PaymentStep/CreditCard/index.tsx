@@ -44,6 +44,7 @@ const CreditCard = ({
 }) => {
   const { form } = useFormFluxManagement<IForm>()
   const [validityHasError, setValidityHasError] = validityHasErrorState
+  const [isOnBlurValidity, setIsOnBlurValidity] = useState<boolean>(false)
   const [options, setOptions] = useState<IOption[]>([])
   const [cvcHasError, setCvcHasError] = useState<boolean>(false)
 
@@ -79,12 +80,15 @@ const CreditCard = ({
 
   // 'validity' input error
   useEffect(() => {
-    if (validityDateState[0].length === 2) {
-      const month = validityDateState[0].slice(0, 2)
-      if (+month > 12) {
-        setValidityHasError(true)
-      }
-    } else if (
+    if (
+      validityDateState[0].length >= 2 &&
+      +validityDateState[0].slice(0, 2) > 12
+    ) {
+      setValidityHasError(true)
+      return
+    }
+
+    if (
       validityDateState[0].length >= 7 &&
       !moment(validityDateState[0], 'MM/YYYY').isBetween(
         moment().subtract(1, 'months'),
@@ -92,10 +96,21 @@ const CreditCard = ({
       )
     ) {
       setValidityHasError(true)
-    } else {
-      setValidityHasError(false)
+      return
     }
-  }, [validityDateState, setValidityHasError])
+
+    if (
+      isOnBlurValidity &&
+      validityDateState[0].length >= 1 &&
+      validityDateState[0].length < 7
+    ) {
+      setValidityHasError(true)
+      return
+    }
+
+    setIsOnBlurValidity(false)
+    setValidityHasError(false)
+  }, [validityDateState, setValidityHasError, isOnBlurValidity])
 
   return (
     <>
@@ -135,11 +150,7 @@ const CreditCard = ({
               label="Validade"
               placeholder="Digite"
               error={validityHasError && validityError}
-              onBlur={() =>
-                validityDateState[0].length >= 1 &&
-                validityDateState[0].length < 7 &&
-                setValidityHasError(true)
-              }
+              onBlur={() => setIsOnBlurValidity(true)}
               onChange={e => applyValidityMask(e, validityDateState[1])}
               maxLength={7}
             />

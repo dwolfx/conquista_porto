@@ -11,7 +11,7 @@ export const CreditCardInput = styled(NewInput)`
   ${({ error, theme }) =>
     error &&
     css`
-      margin-bottom: ${theme.spacing(3)}px;
+      margin-bottom: ${theme.spacing(7)}px;
     `}
 
   @media ${props => props.theme.mediaQueries.xs} {
