@@ -96,6 +96,118 @@ Array [
   line-height: 15px;
 }
 
+.c1 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c8 {
+  overflow: auto;
+  padding: 21px 14px;
+}
+
+.c7 {
+  margin: 0 auto;
+}
+
+.c2 {
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  border-radius: 8px;
+  position: fixed;
+  margin: 28px 0;
+  max-height: calc(100vh - (28px * 2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  top: 0;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px;
+}
+
+.c3 svg {
+  margin-right: 15px;
+}
+
+.c4 {
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  color: #272727;
+  font-weight: normal;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c5 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.c5:hover {
+  fill: #00ADEF;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 13;
+}
+
+.c21 {
+  margin-top: 14px;
+}
+
 .c15 {
   background-color: #F1F1F1;
   border-radius: 8px 8px 0px 0px;
@@ -228,118 +340,6 @@ Array [
   text-transform: capitalize;
 }
 
-.c1 {
-  background-color: rgba(39,39,39,0.63);
-  height: 100%;
-  position: fixed;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  width: 100%;
-  visibility: hidden;
-  opacity: 0;
-  left: 0;
-  top: 0;
-}
-
-.c8 {
-  overflow: auto;
-  padding: 21px 14px;
-}
-
-.c7 {
-  margin: 0 auto;
-}
-
-.c2 {
-  padding: 10px 14px;
-  background-color: #FFFFFF;
-  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
-  border-radius: 8px;
-  position: fixed;
-  margin: 28px 0;
-  max-height: calc(100vh - (28px * 2));
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  top: 0;
-}
-
-.c3 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 14px;
-}
-
-.c3 svg {
-  margin-right: 15px;
-}
-
-.c4 {
-  font-family: Open Sans;
-  font-size: 22px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 30px;
-  color: #272727;
-  font-weight: normal;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c5 {
-  cursor: pointer;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-}
-
-.c5:hover {
-  fill: #00ADEF;
-}
-
-.c0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 0;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  left: 0;
-  opacity: 0;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  visibility: hidden;
-  width: 100vw;
-  z-index: 13;
-}
-
-.c21 {
-  margin-top: 14px;
-}
-
 .c10 {
   width: 100%;
 }
@@ -385,6 +385,22 @@ Array [
 
 @media (min-width:992px) {
 
+}
+
+@media (max-width:736px) {
+  .c8 {
+    padding: 21px 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    min-width: unset;
+    width: calc(100vw - 28px);
+    top: auto;
+    margin: 0;
+    max-height: calc(100vh - (14px * 2));
+  }
 }
 
 @media (min-width:768px) {
@@ -457,22 +473,6 @@ Array [
 
 @media (max-width:480px) {
 
-}
-
-@media (max-width:736px) {
-  .c8 {
-    padding: 21px 14px;
-  }
-}
-
-@media (max-width:480px) {
-  .c2 {
-    min-width: unset;
-    width: calc(100vw - 28px);
-    top: auto;
-    margin: 0;
-    max-height: calc(100vh - (14px * 2));
-  }
 }
 
 <div
@@ -821,11 +821,6 @@ Array [
   margin-bottom: 0px;
 }
 
-.c15 {
-  margin: 14px;
-  width: auto;
-}
-
 .c8 {
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
@@ -852,6 +847,11 @@ Array [
   -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
+}
+
+.c15 {
+  margin: 14px;
+  width: auto;
 }
 
 .c2 {
@@ -967,6 +967,14 @@ Array [
   .c7 {
     margin-left: 0;
   }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
 }
 
 @media (min-width:768px) {
@@ -1099,14 +1107,6 @@ Array [
 }
 
 @media (max-width:480px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
-@media (max-width:736px) {
 
 }
 
@@ -1476,6 +1476,10 @@ Array [
   height: 63px;
 }
 
+.c2 {
+  width: 134px;
+}
+
 @media (min-width:768px) {
 
 }
@@ -1489,6 +1493,14 @@ Array [
 }
 
 @media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 
@@ -1569,14 +1581,6 @@ Array [
   }
 }
 
-@media (max-width:736px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
 <div
     className="c0"
   >
@@ -1584,11 +1588,12 @@ Array [
       className="c1 c2"
       color="secondary"
       disabled={false}
+      onClick={[Function]}
     >
       <span
         className="c3"
       >
-        continuar
+        CONTRATAR
       </span>
     </button>
   </div>,

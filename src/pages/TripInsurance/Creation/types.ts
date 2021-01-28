@@ -4,14 +4,14 @@ import OriginTrip from './OriginTripStep'
 import CoverageDate from './CoverageDate'
 import MotocicleQuestion from './MotocicleQuestion'
 import ChoosePlan from './ChoosePlan'
-import Status from '../commons/RequestProposalStatus'
 import InformationConfirmation from '../Hire/InformationConfirmation'
 import CompanionStep from '../Hire/CompanionStep'
 import PaymentStep from '../Hire/PaymentStep'
 import Sumary from '../Hire/Sumary'
+import Success from '../Hire/RequestProposalStatus/Success'
+import ErrorState from '../Hire/RequestProposalStatus/Error'
 
 export const Steps = {
-  status: Status,
   originTrip: OriginTrip,
   coverageDate: CoverageDate,
   passengerStep: PassengerStep,
@@ -22,6 +22,8 @@ export const Steps = {
   companionStep: CompanionStep,
   paymentStep: PaymentStep,
   sumaryStep: Sumary,
+  successStep: Success,
+  errorStep: ErrorState,
 }
 
 export interface IAdditionalCountries {

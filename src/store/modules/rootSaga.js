@@ -29,6 +29,7 @@ import points from './Points/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
 import tripInsurance from './TripInsurance/sagas'
 import tripInsuranceCreditCard from './TripInsurance/CreditCard/sagas'
+import tripInsuranceProposal from './TripInsurance/Proposal/sagas'
 import tripInsuranceQuotation from './TripInsurance/InsuranceQuotation/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import notifications from './Notifications/sagas'
@@ -74,6 +75,7 @@ export default function* rootSaga() {
     privateWelfare,
     tripInsurance,
     tripInsuranceCreditCard,
+    tripInsuranceProposal,
     tripInsuranceQuotation,
     vehicleFinancing,
     notifications,
