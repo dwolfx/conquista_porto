@@ -20,6 +20,8 @@ import IconExporter from 'components/IconExporter'
 /**
  * @author: Rodrigo Condurú <rodrigo.conduru@sciensa.com>
  * @author: Hugo Cicarelli <hugo.cicarelli@sciensa.com>
+ * @author: André Tanaka <andre.tanaka@sciensa.com>
+ * @author: Matheus Lopes <matheus.lopes@sciensa.com>
  */
 
 const Table = ({
@@ -33,41 +35,55 @@ const Table = ({
   filteringEmptyMessage,
   isLoading = false,
   isSticky = false,
-  hasPagination = false,
+  disableSort = false,
   onRowClick,
   customRef,
   onError = () => {},
   ...rest
 }: ITable) => {
+  const formatColumnsMemo = useMemo(
+    () => formatColumns(columnsProps, onRowClick),
+    [columnsProps, onRowClick]
+  )
+
   const {
     getTableProps,
     columns,
     getTableBodyProps,
     prepareRow,
+    state: { pageIndex },
     rows,
-    page,
     canPreviousPage,
     canNextPage,
     nextPage,
     previousPage,
-    state: { pageIndex },
     gotoPage,
     pageCount,
-  } = useTable(
-    {
-      // to edit how each column should render see formatColumns function
-      columns: useMemo(() => formatColumns(columnsProps, onRowClick), [
-        columnsProps,
-        onRowClick,
-      ]),
-      data,
-      autoResetPage: true,
-      manualPagination: false,
-      initialState: { pageIndex: 0, pageSize: 12 },
-    },
-    useSortBy,
-    usePagination,
-    useSticky
+  } = useTable.apply(
+    undefined,
+    disableSort
+      ? [
+          {
+            // to edit how each column should render see formatColumns function
+            columns: formatColumnsMemo,
+            data,
+            defaultCanSort: false,
+            disableMultiSort: false,
+          },
+          useSticky,
+        ]
+      : [
+          {
+            // to edit how each column should render see formatColumns function
+            columns: formatColumnsMemo,
+            data,
+            defaultCanSort: false,
+            disableMultiSort: false,
+          },
+          useSticky,
+          usePagination,
+          useSortBy,
+        ]
   )
 
   const ref = useRef() as React.RefObject<HTMLDivElement>
@@ -121,18 +137,22 @@ const Table = ({
     }
     return `calc(${percentageValue}% + ${pixelValue}px)`
   }
+
   const hasStickyElementRight = columns.filter(
     (column: any) => column.sticky === 'right'
   )
+
   const hasStickyElementLeft = columns.filter(
     (column: any) => column.sticky === 'left'
   )
+
   const stickyElementRight =
     hasStickyElementRight.length > 0 &&
     hasStickyElementRight.reduce(
       (acc, cur) => calculateStickWidth(acc, cur),
-      'calc(0% + 0px)'
+      'calc(0% + 7px)'
     )
+
   const stickyElementLeft =
     hasStickyElementLeft.length > 0 &&
     hasStickyElementLeft.reduce(

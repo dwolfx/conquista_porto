@@ -141,7 +141,9 @@ export const TheadTh = styled.div<ITheadTh>`
         margin-left: 0;
         padding-right: 0;
         padding-left: ${theme.spacing(2)}px;
-
+        position: sticky;
+        z-index: 3;
+        left: 0px;
       `
       : ''}
 `
