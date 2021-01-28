@@ -6,7 +6,6 @@ import {
 } from 'styled-bootstrap-grid'
 
 import CardCmp from 'components/Card'
-import { CardBody } from 'components/Card/styles'
 import TextCmp from 'components/Text'
 import Button from 'components/Button'
 
@@ -75,13 +74,6 @@ export const Card = styled(CardCmp)`
   align-items: stretch;
   padding: ${({ theme }) => theme.spacing(5)}px;
 
-  ${CardBody} {
-    @media ${props => props.theme.mediaQueries.mdUp} {
-      margin: 0 ${({ theme }) => theme.spacing(7)}px 0
-        ${({ theme }) => theme.spacing(7)}px;
-    }
-  }
-
   @media ${props => props.theme.mediaQueries.lgUp} {
     align-items: center;
   }
@@ -91,7 +83,9 @@ export const Card = styled(CardCmp)`
   }
 `
 export const CardContentWrapper = styled.div`
-  padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  }
 
   &:first-child {
     @media ${props => props.theme.mediaQueries.mdUp} {
@@ -104,7 +98,12 @@ export const TitleText = styled(TextCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${props => props.theme.mediaQueries.xs} {
-    padding-top: ${({ theme }) => theme.spacing(3)}px;
+    &:first-child {
+      padding-top: ${({ theme }) => theme.spacing(3)}px;
+    }
+    &:last-child {
+      padding-top: ${({ theme }) => theme.spacing(1)}px;
+    }
   }
 `
 
@@ -115,7 +114,7 @@ export const Table = styled.table`
   width: 751px;
 
   @media ${props => props.theme.mediaQueries.lg} {
-    margin-bottom: ${({ theme }) => theme.spacing(5)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(3)}px;
     width: 100%;
   }
 
@@ -243,6 +242,7 @@ export const StatusText = styled(TextCmp).attrs(() => ({
 export const StatusWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 0;
 
   @media ${props => props.theme.mediaQueries.sm} {
     justify-content: center;

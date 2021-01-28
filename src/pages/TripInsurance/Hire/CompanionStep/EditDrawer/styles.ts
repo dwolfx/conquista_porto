@@ -31,6 +31,13 @@ export const ContentWrapper = styled.div`
 
 export const ButtonSubmit = styled(ButtonCmp)`
   width: 100%;
+  margin: ${({ theme }) => theme.spacing(1)}px 0;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `
 
 export const Input = styled(InputCmp)`
@@ -39,7 +46,7 @@ export const Input = styled(InputCmp)`
 `
 
 export const DateInput = styled(DateInputCmp)`
-  margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(10)}px`};
+  margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(14)}px`};
   width: 100%;
 `
 

@@ -37,11 +37,17 @@ const CompanionStep = () => {
   const [selectedCompanion, setSelectedCompanion] = useState<number>(0)
   const [greaterThanSeventy, setGreaterThanSeventy] = useState<number>(0)
   const [lessThanSeventy, setLessThanSeventy] = useState<number>(0)
+  const [isCompanionsFilled, setIsCompanionsFilled] = useState(false)
+  const [companionAge, setCompanionAge] = useState<number>(0)
 
   useEffect(() => {
     setCompanions(form.acompanhantes || [])
     setGreaterThanSeventy(form.qtdPassagMaiorSetentaAnos || 0)
     setLessThanSeventy(form.qtdPassagMenorSetentaAnos || 0)
+    const checkAllStatusTrue = form.acompanhantes?.every(
+      companion => companion.status === true
+    )
+    checkAllStatusTrue && setIsCompanionsFilled(true)
   }, [form])
 
   const { creditCardData, isCreditCardLoading } = useSelector(
@@ -83,9 +89,9 @@ const CompanionStep = () => {
   const renderTableBody = (
     companionsList: ICompanion[],
     companionAgeQuantity: number,
-    companionAgeType: string
+    companionAgeType: number
   ) => {
-    if (companionAgeType === 'menorDe70') {
+    if (companionAgeType === 70) {
       companionsList = companionsList.slice(0, companionAgeQuantity)
     } else {
       companionsList = companionsList.slice(
@@ -107,6 +113,7 @@ const CompanionStep = () => {
               companion?.status ? 'Alterar Dados ' : 'Inserir Dados'
             }
             onClick={() => {
+              setCompanionAge(companionAgeType)
               setSelectedCompanion(companion?.id || 0)
               setIsDrawerOpen(true)
             }}
@@ -126,8 +133,9 @@ const CompanionStep = () => {
         handleClose={setIsDrawerOpen}
         companions={companions}
         selectedCompanion={selectedCompanion}
+        companionAge={companionAge}
       />
-      <StepBar actualStep={2} totalNumberOfSteps={5} />
+      <StepBar actualStep={2} totalNumberOfSteps={4} />
       <s.ContentWrapper>
         <s.Row
           alignItems="start"
@@ -180,7 +188,7 @@ const CompanionStep = () => {
                   textAlign={isMobile ? 'center' : 'left'}
                   color="gray5"
                 >
-                  acompanhantes com menos de 70 anos
+                  acompanhantes até 70 anos
                 </s.TitleText>
                 <s.Table>
                   <s.Thead>
@@ -198,7 +206,7 @@ const CompanionStep = () => {
                     </s.THeadTr>
                   </s.Thead>
                   <s.Tbody>
-                    {renderTableBody(companions, lessThanSeventy, 'menorDe70')}
+                    {renderTableBody(companions, lessThanSeventy, 70)}
                   </s.Tbody>
                 </s.Table>
               </s.CardContentWrapper>
@@ -211,7 +219,7 @@ const CompanionStep = () => {
                     textAlign={isMobile ? 'center' : 'left'}
                     color="gray5"
                   >
-                    acompanhantes maiores de 70 anos
+                    acompanhantes de 71 até 90 anos
                   </s.TitleText>
                   <s.Table>
                     <s.Thead>
@@ -229,11 +237,7 @@ const CompanionStep = () => {
                       </s.THeadTr>
                     </s.Thead>
                     <s.Tbody>
-                      {renderTableBody(
-                        companions,
-                        greaterThanSeventy,
-                        'maiorDe70'
-                      )}
+                      {renderTableBody(companions, greaterThanSeventy, 71)}
                     </s.Tbody>
                   </s.Table>
                 </s.CardContentWrapper>
@@ -244,11 +248,12 @@ const CompanionStep = () => {
       </s.ContentWrapper>
       <s.FooterContainer>
         <s.NextButton
+          disabled={!isCompanionsFilled}
           loading={isCreditCardLoading}
           color="secondary"
           onClick={() => handleClick()}
         >
-          próximo
+          continuar
         </s.NextButton>
       </s.FooterContainer>
     </s.Section>

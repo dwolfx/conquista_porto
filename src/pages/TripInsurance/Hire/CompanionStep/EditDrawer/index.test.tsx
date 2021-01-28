@@ -38,6 +38,7 @@ describe('Edit Objective Drawer Component', () => {
           companions={companion}
           isDrawerOpen={true}
           selectedCompanion={1}
+          companionAge={70}
         />
       </HashRouter>,
       { container: createRootContainer() }
