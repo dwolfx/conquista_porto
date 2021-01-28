@@ -117,11 +117,6 @@ const OriginTripStep: StepComponent = () => {
         celularNumero: customerProfileData.customerPhoneNumber,
         numeroCpf: customerProfileData.cpfCnpj.slice(0, 9),
         digitoCpf: customerProfileData.cpfCnpj.slice(9),
-        contato: {
-          nome: customerProfileData.customerName,
-          celularDDD: customerProfileData.customerAreaCode,
-          celularNumero: customerProfileData.customerPhoneNumber,
-        },
       },
       codigoPaisDestino:
         selectedDestinationType.id === 1

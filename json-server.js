@@ -9,6 +9,7 @@ const middlewares = jsonServer.defaults()
 const destinationContriesMock = require('./src/mocks/destinationCountries.json')
 const tripInsuranceCreditCardMock = require('./src/mocks/tripInsuranceCreditCard.json')
 const tripInsuranceQuotationMock = require('./src/mocks/tripInsuranceQuotation.json')
+const tripInsuranceProposalMock = require('./src/mocks/tripInsuranceProposal.json')
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
@@ -184,11 +185,18 @@ router.render = (req, res) => {
     }
   }
 
+  if (req.originalUrl.endsWith('/viagem/proposta')) {
+    if (req.method === 'POST') {
+      return res.status(200).jsonp({ ...tripInsuranceProposalMock })
+    }
+  }
+
   if (req.originalUrl.endsWith('/viagem/paises/destino')) {
     if (req.method === 'GET') {
       return res.status(200).jsonp({ ...destinationContriesMock })
     }
   }
+
   if (req.originalUrl.endsWith('/viagem/cotacao/seguro')) {
     if (req.method === 'POST') {
       return res.status(200).jsonp({ ...tripInsuranceQuotationMock })

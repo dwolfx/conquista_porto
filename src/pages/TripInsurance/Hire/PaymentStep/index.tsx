@@ -87,10 +87,11 @@ const PaymentStep: StepComponent = () => {
               />
               <CreditCard
                 portoCreditCardIsNotSelected={
-                  creditCardData?.creditCards &&
+                  !(creditCardData?.creditCards &&
                   creditCardData.creditCards.length > 0
-                    ? selectedCreditCard === creditCardData?.creditCards?.length
-                    : true
+                    ? selectedCreditCard <=
+                      creditCardData.creditCards?.length - 1
+                    : false)
                 }
                 selectedCreditCardIndex={selectedCreditCard}
                 parcelOptionState={[parcelOption, setParcelOption]}
@@ -114,10 +115,11 @@ const PaymentStep: StepComponent = () => {
               updateForm({
                 pagamento: {
                   codigoBandeira: getFlagCode(
-                    !(creditCardData?.creditCards &&
-                    creditCardData.creditCards.length > 0
-                      ? selectedCreditCard > creditCardData?.creditCards?.length
-                      : true),
+                    creditCardData?.creditCards &&
+                      creditCardData.creditCards.length > 0
+                      ? selectedCreditCard <=
+                          creditCardData.creditCards?.length - 1
+                      : false,
                     flagNameState[0]
                   ),
                   primeiroNumero: cardNumber.slice(0, 4),
@@ -129,10 +131,12 @@ const PaymentStep: StepComponent = () => {
                   anoValidade: `${validityDateState[0].slice(3, 7)}`,
                   nomeTitular: name,
                   quantidadeParcelas: parcelOption.id,
-                  isCartaoPorto: !(creditCardData?.creditCards &&
-                  creditCardData.creditCards.length > 0
-                    ? selectedCreditCard > creditCardData?.creditCards?.length
-                    : true),
+                  isCartaoPorto:
+                    creditCardData?.creditCards &&
+                    creditCardData.creditCards.length > 0
+                      ? selectedCreditCard <=
+                        creditCardData.creditCards?.length - 1
+                      : false,
                 },
               })
               instantiate(Steps.sumaryStep)

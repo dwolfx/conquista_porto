@@ -128,7 +128,9 @@ export const FixedFooter = styled.div`
 
 export const Button = styled(ButtonComp).attrs(() => ({
   color: 'secondary',
-}))`
+}))<{ tryAgain: boolean }>`
+  width: ${({ tryAgain }) => (tryAgain ? '192' : '134')}px;
+
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
     margin: ${({ theme }) => theme.spacing(2)}px;

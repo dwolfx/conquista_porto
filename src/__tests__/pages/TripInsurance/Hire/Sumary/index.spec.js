@@ -10,6 +10,7 @@ import theme from 'styles/theme'
 import Sumary from 'pages/TripInsurance/Hire/Sumary'
 import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
 import tripInsuranceCreditCardMock from 'mocks/tripInsuranceCreditCard.json'
+import tripInsuranceProposalMock from 'mocks/tripInsuranceProposal.json'
 
 const INITIAL_STATE = {
   tripInsuranceQuotation: {
@@ -19,6 +20,11 @@ const INITIAL_STATE = {
   },
   tripInsuranceCreditCard: {
     data: tripInsuranceCreditCardMock,
+    isLoading: false,
+    hasError: false,
+  },
+  tripInsuranceProposal: {
+    data: tripInsuranceProposalMock,
     isLoading: false,
     hasError: false,
   },

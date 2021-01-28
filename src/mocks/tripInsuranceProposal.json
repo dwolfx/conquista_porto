@@ -1,0 +1,20 @@
+{
+  "Message": {
+    "TipoCritica": "SUCESSO",
+    "Mensagem": "SUCESSO"
+  },
+  "proposta": {
+    "origemProposta": "7",
+    "numeroProposta": "39747",
+    "listaPassageirosProcessados": {
+      "listaPassageirosProcessados": {
+        "origemProposta": "7",
+        "nomePassageiro": "JOAO SILVA",
+        "isEmissao": true,
+        "urlCartaGarantia": "http://washmlvidanova/seguroapviagem/emitirvoucher.ns?param=MTEvMDUvMjAyMV8xOC8wNi8yMDIxO0pPQU8gU0lMVkE7QnJhc2lsIFRlcnJhOzdfMzk3NDc7Mzk7NDsyODsxLDIsMyw0O0pvYW87MTEtOTg5ODE4MTk4fA==",
+        "descricaoSituacaoProposta": "Seguro emitido com sucesso",
+        "numeroProposta": "39747"
+      }
+    }
+  }
+}

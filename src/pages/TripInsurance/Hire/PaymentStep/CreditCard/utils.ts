@@ -7,7 +7,7 @@ import { formatMoney } from 'helpers'
 import { ICreditCardInstallment } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { IParcelOptionState, IOption } from '../types'
 
-const formatText = (installment: ICreditCardInstallment): string =>
+export const formatText = (installment: ICreditCardInstallment): string =>
   installment.descricao.includes('x')
     ? `${installment.descricao} de ${formatMoney(installment.valor)}`
     : `1x de ${formatMoney(installment.valor)} (${installment.descricao})`

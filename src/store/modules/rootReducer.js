@@ -26,6 +26,7 @@ import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
 import tripInsuranceCreditCard from './TripInsurance/CreditCard/reducer'
+import tripInsuranceProposal from './TripInsurance/Proposal/reducer'
 import tripInsuranceQuotation from './TripInsurance/InsuranceQuotation/reducer'
 import fluxManagement from './FluxManagement/reducer'
 import points from './Points/reducer'
@@ -73,6 +74,7 @@ export default combineReducers({
   vehicleFinancing,
   tripInsurance,
   tripInsuranceCreditCard,
+  tripInsuranceProposal,
   tripInsuranceQuotation,
   notifications,
   points,
