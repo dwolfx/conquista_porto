@@ -2,6 +2,7 @@ import Drawer from 'components/Drawer'
 import React, { useState, useEffect, useCallback } from 'react'
 import 'styled-components/macro'
 import { uuid } from 'uuidv4'
+import moment from 'moment'
 
 import { dict } from 'components/IconExporter'
 import useMedia from 'hooks/useMedia'
@@ -14,12 +15,14 @@ interface IProps {
   companions: ICompanion[]
   isDrawerOpen: boolean
   selectedCompanion: number
+  companionAge: number
   handleClose: (isDrawerOpen: boolean) => void
 }
 const CompanionEditDrawer: React.FC<IProps> = ({
   companions,
   isDrawerOpen,
   selectedCompanion,
+  companionAge,
   handleClose,
 }) => {
   const isMobileOrTablet = useMedia('sm')
@@ -269,25 +272,82 @@ const CompanionEditDrawer: React.FC<IProps> = ({
         icon: 'alertrounded' as keyof typeof dict,
         message: 'Insira seu CPF.',
       }
-    } else if (
-      !cpf.isValid(strippedCpfValue) &&
-      strippedCpfValue.length === 11
-    ) {
+    } else if (!cpf.isValid(strippedCpfValue)) {
       return {
         icon: 'alertrounded' as keyof typeof dict,
-        message: 'CPF inválido.',
+        message: 'CPF inválido. Por favor, verifique o número.',
       }
     }
     return false
   }
 
+  const validateContactTelephone = (telephone: string) => {
+    if (telephone.length > 0 && telephone.length < 10) {
+      return {
+        icon: 'alertrounded' as keyof typeof dict,
+        message: 'Telefone inválido. Por favor, verifique o número',
+      }
+    }
+    return false
+  }
+
+  const validateDate = (date: string) => {
+    let icon = 'alertrounded' as keyof typeof dict
+    const dateYear = date.slice(6)
+    const interval = moment()
+      .subtract(companionAge, 'year')
+      .format('YYYY')
+    const check = moment(dateYear).isAfter(interval)
+    const checkCurrentYear = moment(dateYear).isAfter(moment().format('YYYY'))
+    const valid = moment(date, 'DD/MM/YYYY').isValid()
+
+    if (date.length === 0) return false
+
+    if (valid && !checkCurrentYear) {
+      if (
+        companionAge > 70 &&
+        check &&
+        date.length === 10 &&
+        moment().diff(dateYear, 'year') < 90
+      ) {
+        return {
+          icon,
+          message:
+            'Você definiu esse acompanhante como maior de 70 anos na etapa de simulação.',
+        }
+      } else if (
+        companionAge > 70 &&
+        !check &&
+        date.length === 10 &&
+        moment().diff(dateYear, 'year') > 90
+      ) {
+        return {
+          icon,
+          message:
+            'Você definiu esse acompanhante com até 90 anos na etapa de simulação.',
+        }
+      } else if (companionAge === 70 && !check && date.length === 10) {
+        return {
+          icon,
+          message:
+            'Você definiu esse acompanhante como menor de 70 anos na etapa de simulação.',
+        }
+      }
+    } else {
+      return {
+        icon,
+        message: 'Data de nascimento inválida.',
+      }
+    }
+  }
+
   const getPoliticalExposedKinship = (value: number) => {
     const kinshipList = [
-      { value: 1, name: 'Pai ou Mãe' },
+      { value: 1, name: 'Companheiro(a)' },
       { value: 2, name: 'Cônjuge' },
-      { value: 3, name: 'Companheiro(a)' },
+      { value: 3, name: 'Enteado(a)' },
       { value: 4, name: 'Filho(a)' },
-      { value: 5, name: 'Enteado(a)' },
+      { value: 5, name: 'Pai ou Mãe' },
       { value: 6, name: 'Outros' },
     ]
     const positionKinship = kinshipList.filter(
@@ -313,7 +373,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
           data-gtm-name="nome"
           name="name"
           label="Nome Completo"
-          placeholder="Carlos Almeida dos Santos"
+          placeholder="Digite aqui"
           maxLength={40}
           value={fullName.value}
           onChange={(e: any) => {
@@ -359,11 +419,12 @@ const CompanionEditDrawer: React.FC<IProps> = ({
           placeholder="01/01/2000"
           value={birthday.value}
           error={
-            birthday.touched &&
-            birthday.value === '' && {
-              icon: 'alertrounded',
-              message: 'Insira sua data de nascimento.',
-            }
+            birthday.touched && birthday.value === ''
+              ? {
+                  icon: 'alertrounded',
+                  message: 'Insira a data de nascimento.',
+                }
+              : validateDate(birthday.value)
           }
           onChange={(e: any) => {
             setBirthday({
@@ -458,10 +519,10 @@ const CompanionEditDrawer: React.FC<IProps> = ({
               options={[
                 {
                   id: 1,
-                  text: 'Pai ou mãe',
+                  text: 'Companheiro(a)',
                   onClick: () =>
                     setSelectedPoliticalyExposedKinship({
-                      name: 'Pai ou mãe',
+                      name: 'Companheiro(a)',
                       value: 1,
                     }),
                 },
@@ -476,10 +537,10 @@ const CompanionEditDrawer: React.FC<IProps> = ({
                 },
                 {
                   id: 3,
-                  text: 'Companheiro(a)',
+                  text: 'Enteado(a)',
                   onClick: () =>
                     setSelectedPoliticalyExposedKinship({
-                      name: 'Companheiro(a)',
+                      name: 'Enteado(a)',
                       value: 3,
                     }),
                 },
@@ -494,10 +555,10 @@ const CompanionEditDrawer: React.FC<IProps> = ({
                 },
                 {
                   id: 5,
-                  text: 'Enteado(a)',
+                  text: 'Pai ou mãe',
                   onClick: () =>
                     setSelectedPoliticalyExposedKinship({
-                      name: 'Enteado(a)',
+                      name: 'Pai ou mãe',
                       value: 5,
                     }),
                 },
@@ -523,7 +584,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
               name="politicallyExposedPersonName"
               maxLength={20}
               label="Nome completo"
-              placeholder="Gabriela Aragão Silva"
+              placeholder="Digite aqui"
               value={politicalyExposedPersonName.value}
               error={
                 politicalyExposedPersonName.touched &&
@@ -602,7 +663,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
               name="EmergencyContactName"
               maxLength={40}
               label="Pessoa a ser contatada"
-              placeholder="Maria Helena Alves"
+              placeholder="Digite aqui"
               error={
                 emergencyContactName.touched &&
                 emergencyContactName.value === '' && {
@@ -630,10 +691,13 @@ const CompanionEditDrawer: React.FC<IProps> = ({
               value={formatPhoneNumber(emergencyContactPhone.value)}
               error={
                 emergencyContactPhone.touched &&
-                emergencyContactPhone.value === '' && {
-                  icon: 'alertrounded',
-                  message: 'Insira o nº de telefone do contato de emergência.',
-                }
+                emergencyContactPhone.value === ''
+                  ? {
+                      icon: 'alertrounded',
+                      message:
+                        'Insira o nº de telefone do contato de emergência.',
+                    }
+                  : validateContactTelephone(emergencyContactPhone.value)
               }
               onChange={(e: any) => {
                 setEmergencyContactPhone({
@@ -649,64 +713,76 @@ const CompanionEditDrawer: React.FC<IProps> = ({
   )
 
   const footerDrawer = () => (
-    <s.ButtonSubmit
-      data-gtm-subname={`drawer editar acompanhante`}
-      data-gtm-name="confirmar"
-      onClick={() => {
-        let updatedCompanion: ICompanion = {
-          id: selectedCompanion,
-          status: true,
-          nome: fullName.value,
-          dataNascimento: birthday.value,
-          sexo: selectedGender.value,
-          numeroCpfResponsavel: '432198188',
-          digitoCpfResponsavel: '38',
-          numeroCpf: documentNumber.value.slice(0, 9),
-          digitoCpf: documentNumber.value.slice(9),
-          isResidePais: isBrazilianResident,
-          codigoPaisResidente: '',
-          contato: {
-            nome: isSameContactForEmergencyData
-              ? form.passageiroPrincipal?.nome
-              : emergencyContactName.value,
-            celularDDD: isSameContactForEmergencyData
-              ? form.passageiroPrincipal?.celularDDD
-              : emergencyContactPhone.value.slice(0, 2),
-            celularNumero: isSameContactForEmergencyData
-              ? form.passageiroPrincipal?.celularNumero
-              : emergencyContactPhone.value.slice(2),
-          },
-        }
-
-        if (hasPoliticallyExposedPerson) {
-          updatedCompanion = {
-            ...updatedCompanion,
-            pessoaExposta: {
-              grauParentesco: selectedPoliticalyExposedKinship.value,
-              grauRelacionamento: 1,
-              nome: politicalyExposedPersonName.value,
-              numeroCpf: politicalyExposedPersonDocument.value.slice(0, 9),
-              digitoCpf: politicalyExposedPersonDocument.value.slice(9),
+    <s.ButtonWrapper>
+      <s.ButtonSubmit
+        data-gtm-subname={`drawer editar acompanhante`}
+        data-gtm-name="limpar dados"
+        outline
+        onClick={() => {
+          setDataHooks('clear')
+        }}
+      >
+        Limpar Dados
+      </s.ButtonSubmit>
+      <s.ButtonSubmit
+        data-gtm-subname={`drawer editar acompanhante`}
+        data-gtm-name="confirmar"
+        onClick={() => {
+          let updatedCompanion: ICompanion = {
+            id: selectedCompanion,
+            status: true,
+            nome: fullName.value,
+            dataNascimento: birthday.value,
+            sexo: selectedGender.value,
+            numeroCpfResponsavel: form.passageiroPrincipal?.numeroCpf,
+            digitoCpfResponsavel: form.passageiroPrincipal?.digitoCpf,
+            numeroCpf: documentNumber.value.slice(0, 9),
+            digitoCpf: documentNumber.value.slice(9),
+            isResidePais: isBrazilianResident,
+            codigoPaisResidente: '',
+            contato: {
+              nome: isSameContactForEmergencyData
+                ? form.passageiroPrincipal?.nome
+                : emergencyContactName.value,
+              celularDDD: isSameContactForEmergencyData
+                ? form.passageiroPrincipal?.celularDDD
+                : emergencyContactPhone.value.slice(0, 2),
+              celularNumero: isSameContactForEmergencyData
+                ? form.passageiroPrincipal?.celularNumero
+                : emergencyContactPhone.value.slice(2),
             },
           }
-        }
-        const oldCompanions = [...companions]
-        const oldCompanionIndex = oldCompanions.findIndex(
-          oldCompanion => oldCompanion.id === selectedCompanion
-        )
-        oldCompanions.splice(oldCompanionIndex, 1, updatedCompanion)
-        const updatedCompanions = [...oldCompanions]
 
-        updateForm({
-          acompanhantes: [...updatedCompanions],
-        })
-        setDataHooks('clear')
-        handleClose(false)
-      }}
-      disabled={!isValid}
-    >
-      Confirmar
-    </s.ButtonSubmit>
+          if (hasPoliticallyExposedPerson) {
+            updatedCompanion = {
+              ...updatedCompanion,
+              pessoaExposta: {
+                grauParentesco: selectedPoliticalyExposedKinship.value,
+                grauRelacionamento:
+                  form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento,
+                nome: politicalyExposedPersonName.value,
+                numeroCpf: politicalyExposedPersonDocument.value.slice(0, 9),
+                digitoCpf: politicalyExposedPersonDocument.value.slice(9),
+              },
+            }
+          }
+          const oldCompanions = [...companions]
+          const oldCompanionIndex = oldCompanions.findIndex(
+            oldCompanion => oldCompanion.id === selectedCompanion
+          )
+          oldCompanions.splice(oldCompanionIndex, 1, updatedCompanion)
+          const updatedCompanions = [...oldCompanions]
+          updateForm({
+            acompanhantes: [...updatedCompanions],
+          })
+          setDataHooks('clear')
+          handleClose(false)
+        }}
+        disabled={!isValid}
+      >
+        Confirmar
+      </s.ButtonSubmit>
+    </s.ButtonWrapper>
   )
 
   if (isMobileOrTablet) {
