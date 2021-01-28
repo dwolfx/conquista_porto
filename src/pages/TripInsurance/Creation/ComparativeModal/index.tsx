@@ -9,6 +9,7 @@ import useMedia from 'hooks/useMedia'
 import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
 import * as s from './styles'
+import { ITableTitles } from './ComparativeTable/types'
 
 interface IComparativeModal {
   isOpen: boolean
@@ -24,7 +25,7 @@ const ComparativeModal: React.FC<IComparativeModal> = ({
   isLoading = false,
   ...rest
 }) => {
-  const isNotMobile = useMedia('mdUp')
+  const isNotMobile = useMedia('smUp')
 
   const loadingContent = () => (
     <Loading
@@ -34,10 +35,32 @@ const ComparativeModal: React.FC<IComparativeModal> = ({
     />
   )
 
+  const columnTitles: ITableTitles[] = []
+  const rowData: any[] = []
+  if (travelPlans) {
+    travelPlans.map(plan =>
+      columnTitles.push({
+        planId: plan.codigoPlano,
+        planName: plan.nomePlano,
+      })
+    )
+    travelPlans.forEach((plan, planIndex) => {
+      plan.ViagemCobertura.coberturas.forEach((coverage, coverageIndex) => {
+        if (planIndex === 0) {
+          // adiciona o valor da coluna 'COBERTURA' e do primeiro plano
+          rowData.push([coverage.descricao, coverage.valor])
+        } else {
+          // adiciona o valor dos demais planos na linha
+          rowData[coverageIndex] = [...rowData[coverageIndex], coverage.valor]
+        }
+      })
+    })
+  }
+
   const content = () =>
     travelPlans ? (
       isNotMobile ? (
-        <ComparativeTable travelPlans={travelPlans} />
+        <ComparativeTable rowData={rowData} columnTitles={columnTitles} />
       ) : (
         <ComparativeTabs travelPlans={travelPlans} />
       )

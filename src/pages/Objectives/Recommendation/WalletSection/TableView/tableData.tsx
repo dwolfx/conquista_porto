@@ -126,10 +126,10 @@ export const columnsSticky = [
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '24%',
+      width: 228,
       minWidth: 228,
       header: {
-        width: '22%',
+        width: 205,
         minWidth: 205,
       },
     },

@@ -36,7 +36,9 @@ export const SimpleHeader = ({ header }: any) => {
       minWidth={styles.minWidth}
       canSort={header.canSort}
       isSticky={!!header.sticky}
-      {...header.getHeaderProps(header.getSortByToggleProps())}
+      {...(header.canSort && {
+        ...header.getHeaderProps(header.getSortByToggleProps()),
+      })}
     >
       <s.TheadContent
         justifyHeader={header.justifyHeader}

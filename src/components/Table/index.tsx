@@ -20,6 +20,8 @@ import IconExporter from 'components/IconExporter'
 /**
  * @author: Rodrigo Condurú <rodrigo.conduru@sciensa.com>
  * @author: Hugo Cicarelli <hugo.cicarelli@sciensa.com>
+ * @author: André Tanaka <andre.tanaka@sciensa.com>
+ * @author: Matheus Lopes <matheus.lopes@sciensa.com>
  */
 
 const Table = ({
@@ -33,41 +35,55 @@ const Table = ({
   filteringEmptyMessage,
   isLoading = false,
   isSticky = false,
-  hasPagination = false,
+  disableSort = false,
   onRowClick,
   customRef,
   onError = () => {},
   ...rest
 }: ITable) => {
+  const formatColumnsMemo = useMemo(
+    () => formatColumns(columnsProps, onRowClick),
+    [columnsProps, onRowClick]
+  )
+
   const {
     getTableProps,
     columns,
     getTableBodyProps,
     prepareRow,
+    state: { pageIndex },
     rows,
-    page,
     canPreviousPage,
     canNextPage,
     nextPage,
     previousPage,
-    state: { pageIndex },
     gotoPage,
-    pageCount
-  } = useTable(
-    {
-      // to edit how each column should render see formatColumns function
-      columns: useMemo(() => formatColumns(columnsProps, onRowClick), [
-        columnsProps,
-        onRowClick,
-      ]),
-      data,
-      autoResetPage: true,
-      manualPagination: false,
-      initialState: { pageIndex: 0, pageSize: 12 },
-    },
-    useSortBy,
-    usePagination,
-    useSticky,
+    pageCount,
+  } = useTable.apply(
+    undefined,
+    disableSort
+      ? [
+          {
+            // to edit how each column should render see formatColumns function
+            columns: formatColumnsMemo,
+            data,
+            defaultCanSort: false,
+            disableMultiSort: false,
+          },
+          useSticky,
+        ]
+      : [
+          {
+            // to edit how each column should render see formatColumns function
+            columns: formatColumnsMemo,
+            data,
+            defaultCanSort: false,
+            disableMultiSort: false,
+          },
+          useSticky,
+          usePagination,
+          useSortBy,
+        ]
   )
 
   const ref = useRef() as React.RefObject<HTMLDivElement>
@@ -88,7 +104,7 @@ const Table = ({
   }, [inputRef, data, gotoPage, setIndexPage])
 
   useEffect(() => {
-    if (tableRef?.current?.onscroll) {
+    if (tableRef?.current) {
       tableRef.current.onscroll = ({ srcElement }: any) => {
         const { scrollLeft, clientWidth, scrollWidth } = srcElement
         const posX = scrollLeft / (scrollWidth - clientWidth)
@@ -112,7 +128,7 @@ const Table = ({
     let percentageValue = acc.split('+')[0].replace(/\D/g, '')
 
     if (typeof cur.styles.width === 'string') {
-      if (cur.styles.width.indexOf('%')) {
+      if (cur.styles.width.indexOf('%') > -1) {
         percentageValue += +cur.styles.width.replace('%', '')
       } else {
         pixelValue += +cur.styles.width.replace('px', '')
@@ -124,12 +140,27 @@ const Table = ({
     return `calc(${percentageValue}% + ${pixelValue}px)`
   }
 
-  const stickyElementRight = columns
-    .filter((column: any) => column.sticky === 'right')
-    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 7px)')
-  const stickyElementLeft = columns
-    .filter((column: any) => column.sticky === 'left')
-    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 0px)')
+  const hasStickyElementRight = columns.filter(
+    (column: any) => column.sticky === 'right'
+  )
+
+  const hasStickyElementLeft = columns.filter(
+    (column: any) => column.sticky === 'left'
+  )
+
+  const stickyElementRight =
+    hasStickyElementRight.length > 0 &&
+    hasStickyElementRight.reduce(
+      (acc, cur) => calculateStickWidth(acc, cur),
+      'calc(0% + 7px)'
+    )
+
+  const stickyElementLeft =
+    hasStickyElementLeft.length > 0 &&
+    hasStickyElementLeft.reduce(
+      (acc, cur) => calculateStickWidth(acc, cur),
+      'calc(0% + 0px)'
+    )
 
   return (
     <s.Wrapper>
