@@ -15,6 +15,7 @@ export interface IProps {
   selectedOptions: IOption[]
   setSelectedOptions: React.Dispatch<React.SetStateAction<IOption[]>>
   optionsContainerHeight?: number
+  showLockIconIfDisable?: boolean
 }
 
 //styled

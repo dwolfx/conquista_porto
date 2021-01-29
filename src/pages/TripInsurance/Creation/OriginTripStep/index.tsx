@@ -4,6 +4,7 @@ import moment from 'moment'
 import { Col } from 'styled-bootstrap-grid'
 
 import Text from 'components/Text'
+import Popover from 'components/Popover'
 
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
@@ -162,26 +163,61 @@ const OriginTripStep: StepComponent = () => {
             alignItems="center"
             justifyContent={isTabletVertical ? 'center' : 'start'}
           >
-            <Col hiddenMdDown md={3} auto>
+            <Col hiddenMdDown md={3} lg={3}>
               <DivisorDescription
                 data-testid="sideText"
                 title="Destino"
                 text="Aqui você não precisa informar as escalas do seu trajeto, apenas o destino final. Se sua viagem tiver mais de um destino, adicione ao mesmo campo para incluí-los."
               />
             </Col>
-            <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
+            <S.Col
+              offset={isTabletVertical ? 0 : 1}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={4}
+            >
               <S.FlexContainer>
                 <Text type="headline" color="gray6" textAlign="center">
                   Confirme a origem e o destino da sua viagem
+                  {isTabletVertical ? (
+                    <Popover
+                      content={() => (
+                        <S.TooltipText type="body" color="gray5">
+                          Aqui você não precisa informar as escalas do seu
+                          trajeto, apenas o destino final. Se sua viagem tiver
+                          mais de um destino, adicione ao mesmo campo para
+                          incluí-los.
+                        </S.TooltipText>
+                      )}
+                      placement="top"
+                      showArrow={!isTabletVertical}
+                    >
+                      <S.InfoIcon name="information" color="blue4" />
+                    </Popover>
+                  ) : null}
                 </Text>
               </S.FlexContainer>
-              <S.StyledCountryOriginSelect
-                data-testid="originCountrySelect"
-                options={originOptions}
-                selected={selectedOriginCountry}
-                disabled
-                label="origem"
-              />
+              <S.PopoverContainer>
+                <S.Popover
+                  content={() => (
+                    <S.TooltipText bold color="gray5">
+                      A origem da sua viagem precisa ser o Brasil para ter
+                      cobertura do Seguro Viagem Porto Seguro.
+                    </S.TooltipText>
+                  )}
+                  placement="top"
+                  zIndex={15}
+                >
+                  <S.StyledCountryOriginSelect
+                    data-testid="originCountrySelect"
+                    options={originOptions}
+                    selected={selectedOriginCountry}
+                    disabled
+                    label="origem"
+                  />
+                </S.Popover>
+              </S.PopoverContainer>
               <S.Select
                 options={destinationTypes}
                 selected={selectedDestinationType}
@@ -205,6 +241,7 @@ const OriginTripStep: StepComponent = () => {
                   }}
                   selectedOptions={selectedDestinationCountries}
                   setSelectedOptions={setSelectedDestinationCountries}
+                  showLockIconIfDisable={false}
                 />
               )}
               <S.StyledButton
@@ -218,13 +255,14 @@ const OriginTripStep: StepComponent = () => {
                 disabled={
                   selectedDestinationType.id === 0 ||
                   (selectedDestinationType.id === 2 &&
-                    !selectedDestinationCountries.length)
+                    !selectedDestinationCountries.length) ||
+                  !destinationCountriesData
                 }
                 onClick={() => handleClick()}
               >
                 Próximo
               </S.StyledButton>
-            </Col>
+            </S.Col>
           </S.StyledRow>
         </S.StyledContainer>
       </S.Wrapper>

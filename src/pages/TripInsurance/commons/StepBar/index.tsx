@@ -23,9 +23,11 @@ export default function StepBar({
             <HorizontalList
               size="small"
               startItems={[
-                <Text color="gray4" type="headline">
-                  {!isMobile && 'Simulação'}
-                </Text>,
+                !isMobile ? (
+                  <Text color="gray4" type="headline">
+                    Simulação
+                  </Text>
+                ) : null,
                 <Text color="white" type="headline">
                   Seguro Viagem
                 </Text>,

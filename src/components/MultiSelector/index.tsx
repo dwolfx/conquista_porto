@@ -56,6 +56,7 @@ const MultiSelector: React.FC<IProps> = ({
   selectedOptions,
   setSelectedOptions,
   optionsContainerHeight = 350,
+  showLockIconIfDisable = true,
   ...rest
 }) => {
   const [inputValue, setInputValue] = useState('')
@@ -118,7 +119,7 @@ const MultiSelector: React.FC<IProps> = ({
     if (selectOptionsDropdown && !disabled) {
       setSelectIcon('arrowup')
     }
-    if (disabled) {
+    if (showLockIconIfDisable && disabled) {
       setSelectIcon('lock')
     }
   }, [disabled, selectOptionsDropdown])
