@@ -97,12 +97,12 @@ export const validateCreditCardNumber = (creditCardNumber: string): boolean => {
 
 export const creditCardError = {
   icon: 'information' as keyof typeof dict,
-  message: 'Por favor, insira um número de cartão válido de 0-16 dígitos.',
+  message: 'Por favor, insira um número de cartão válido de 16 dígitos',
 }
 
 export const isNotPortoCreditCardError = {
   icon: 'information' as keyof typeof dict,
-  message: 'Por favor, insira o seu cartão Porto Seguro selecionado acima.',
+  message: 'Por favor, insira o seu cartão Porto Seguro selecionado acima',
 }
 
 export const isRequestInputCreditCardError = {

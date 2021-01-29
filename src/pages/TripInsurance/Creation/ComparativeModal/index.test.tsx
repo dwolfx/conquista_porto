@@ -66,7 +66,7 @@ describe('ComparativeModal component', () => {
       window.resizeTo(400, 600)
     })
 
-    expect(screen.getByText(/planos brasil/i)).toBeDefined()
+    expect(screen.getByText(/coberturas/i)).toBeDefined()
   })
   it('should render loading state', () => {
     setup()

@@ -33,6 +33,7 @@ export const InputsWrapper = styled.div`
 export const BottomBar = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
   justify-content: flex-end;
   padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(6)}px`};
@@ -68,7 +69,7 @@ export const StyledCard = styled(Card)`
   }
 
   padding: ${({ theme }) =>
-    `${theme.spacing(2)}px ${theme.spacing(7)}px ${theme.spacing(6)}px`};
+    `${theme.spacing(2)}px ${theme.spacing(7)}px ${theme.spacing(7)}px`};
 
   @media ${props => props.theme.mediaQueries.lg} {
     padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(7)}px`};
@@ -126,11 +127,13 @@ export const CreditCardWrapper = styled.div<{ cardIsSelected?: boolean }>`
       cardIsSelected ? theme.colors.blue4 : theme.colors.gray3};
   border-radius: 8px;
   width: 410px;
+  height: 70px;
   margin-top: ${({ theme }) => theme.spacing(2)}px;
   transition: border-color ease 0.3s;
 
   @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
+    height: 105px;
     padding: ${({ theme }) => theme.spacing(2)}px;
   }
 `
@@ -155,7 +158,13 @@ export const StyledSelect = styled(Select)`
   }
 `
 
-export const BigInput = styled(NewInput)`
+export const NameInput = styled(NewInput)`
+  ${({ error, theme }) =>
+    error &&
+    css`
+      margin-bottom: ${theme.spacing(7)}px;
+    `}
+
   & + div {
     margin-top: ${({ theme }) => theme.spacing(4)}px;
   }
@@ -164,11 +173,6 @@ export const BigInput = styled(NewInput)`
   @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
   }
-`
-
-export const SmallText = styled(Text)`
-  margin-top: ${({ theme }) => theme.spacing(1)}px;
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const ValidityInput = styled(NewInput)`
@@ -191,6 +195,12 @@ export const ValidityInput = styled(NewInput)`
 export const CVCInput = styled(NewInput)`
   width: 192px;
   margin-right: ${({ theme }) => theme.spacing(2)}px;
+
+  ${({ error, theme }) =>
+    error &&
+    css`
+      margin-bottom: ${theme.spacing(5)}px;
+    `}
 
   @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;

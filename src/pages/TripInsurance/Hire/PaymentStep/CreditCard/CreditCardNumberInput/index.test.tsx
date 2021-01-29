@@ -73,7 +73,7 @@ describe('CreditCardNumberInput component', () => {
 
     expect(
       screen.getByText(
-        /Por favor, insira um número de cartão válido de 0-16 dígitos./i
+        /Por favor, insira um número de cartão válido de 16 dígitos/i
       )
     ).toBeVisible()
   })

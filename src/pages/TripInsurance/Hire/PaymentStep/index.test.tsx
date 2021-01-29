@@ -64,8 +64,7 @@ describe('PaymentStep component', () => {
 
     expect(screen.getByTestId('select-option-input-parcelas')).toBeVisible()
     expect(screen.getByTestId('número do cartão')).toBeVisible()
-    expect(screen.getByTestId('nome completo')).toBeVisible()
-    expect(screen.getByText('Assim como está impresso no cartão')).toBeVisible()
+    expect(screen.getByTestId('nome impresso no cartão')).toBeVisible()
     expect(screen.getByTestId('validade')).toBeVisible()
     expect(screen.getByTestId('cvc')).toBeVisible()
   })
@@ -97,7 +96,7 @@ describe('PaymentStep component', () => {
     userEvent.type(cardNumberInput, '5555666677778884')
     expect(cardNumberInput).toHaveValue('5555 6666 7777 8884')
 
-    const nameInput = screen.getByTestId('nome completo')
+    const nameInput = screen.getByTestId('nome impresso no cartão')
     userEvent.type(nameInput, 'João Silva')
     expect(nameInput).toHaveValue('João Silva')
 
@@ -130,10 +129,10 @@ describe('PaymentStep component', () => {
     userEvent.click(screen.getByText('1x de R$ 33,63 (À vista)'))
 
     const cardNumberInput = screen.getByTestId('número do cartão')
-    userEvent.type(cardNumberInput, '1111111111111111')
-    expect(cardNumberInput).toHaveValue('1111 1111 1111 1111')
+    userEvent.type(cardNumberInput, '5555666677778884')
+    expect(cardNumberInput).toHaveValue('5555 6666 7777 8884')
 
-    const nameInput = screen.getByTestId('nome completo')
+    const nameInput = screen.getByTestId('nome impresso no cartão')
     userEvent.type(nameInput, 'João Silva')
     expect(nameInput).toHaveValue('João Silva')
 

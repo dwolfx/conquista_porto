@@ -37,6 +37,7 @@ export default function TripInsurenceCreation({
   // 8 - companionStep
   // 9 - paymentStep
   // 10 - sumaryStep
+  // 11 - succesStep/errorStep
 
   React.useEffect(() => {
     if (isOpen && getLength() === 0) instantiate(Steps.originTrip)

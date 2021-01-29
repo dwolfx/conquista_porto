@@ -8,9 +8,9 @@ import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQu
 import { IForm } from 'pages/TripInsurance/Creation/types'
 
 import CreditCardNumberInput from './CreditCardNumberInput'
-import { applyValidityMask, formatOption, validityError } from './utils'
 import { IParcelOptionState, TFlagName, IOption } from '../types'
 
+import * as u from './utils'
 import * as S from '../styles'
 
 const CreditCard = ({
@@ -20,7 +20,7 @@ const CreditCard = ({
   cardNumberState,
   isNumberValidState,
   flagNameState,
-  setName,
+  nameState,
   validityDateState,
   validityHasErrorState,
   cvcState,
@@ -34,7 +34,7 @@ const CreditCard = ({
   cardNumberState: [string, React.Dispatch<React.SetStateAction<string>>]
   isNumberValidState: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
   flagNameState: [TFlagName, React.Dispatch<React.SetStateAction<TFlagName>>]
-  setName: React.Dispatch<React.SetStateAction<string>>
+  nameState: [string, React.Dispatch<React.SetStateAction<string>>]
   validityDateState: [string, React.Dispatch<React.SetStateAction<string>>]
   validityHasErrorState: [
     boolean,
@@ -43,6 +43,7 @@ const CreditCard = ({
   cvcState: [string, React.Dispatch<React.SetStateAction<string>>]
 }) => {
   const { form } = useFormFluxManagement<IForm>()
+  const [nameHasError, setNameHasError] = useState<boolean>(false)
   const [validityHasError, setValidityHasError] = validityHasErrorState
   const [isOnBlurValidity, setIsOnBlurValidity] = useState<boolean>(false)
   const [options, setOptions] = useState<IOption[]>([])
@@ -64,10 +65,10 @@ const CreditCard = ({
       setOptions(
         portoCreditCardIsNotSelected
           ? choosenPlan[0]?.formasPagamento.listaParcelamentoCartao.map(item =>
-              formatOption(item, parcelOptionState[1])
+              u.formatOption(item, parcelOptionState[1])
             )
           : choosenPlan[0]?.formasPagamento.listaParcelamentoCartaoPorto.map(
-              item => formatOption(item, parcelOptionState[1])
+              item => u.formatOption(item, parcelOptionState[1])
             )
       )
     }
@@ -108,6 +109,11 @@ const CreditCard = ({
       return
     }
 
+    if (isOnBlurValidity && validityDateState[0].length === 0) {
+      setValidityHasError(true)
+      return
+    }
+
     setIsOnBlurValidity(false)
     setValidityHasError(false)
   }, [validityDateState, setValidityHasError, isOnBlurValidity])
@@ -137,27 +143,41 @@ const CreditCard = ({
             isNumberValidState={isNumberValidState}
             flagNameState={flagNameState}
           />
-          <S.BigInput
-            label="Nome completo"
+          <S.NameInput
+            label="nome impresso no cartão"
             placeholder="Digite"
-            onChange={e => setName(e.target.value)}
+            error={nameHasError && u.nameError}
+            onChange={e => {
+              nameState[1](e.target.value.trim())
+              if (e.target.value.replace(/\s+/g, '') !== '') {
+                setNameHasError(false)
+              }
+              return e.target.value
+            }}
+            onBlur={() => {
+              if (nameState[0].replace(/\s+/g, '') === '') {
+                setNameHasError(true)
+              } else {
+                setNameHasError(false)
+              }
+            }}
           />
-          <S.SmallText color="gray5" bold type="body">
-            Assim como está impresso no cartão
-          </S.SmallText>
           <S.FlexWrapper hasMargin>
             <S.ValidityInput
               label="Validade"
               placeholder="Digite"
-              error={validityHasError && validityError}
+              error={validityHasError && u.validityError}
               onBlur={() => setIsOnBlurValidity(true)}
-              onChange={e => applyValidityMask(e, validityDateState[1])}
+              onChange={e => {
+                u.applyValidityMask(e, validityDateState[1])
+                setIsOnBlurValidity(false)
+              }}
               maxLength={7}
             />
             <S.CVCInput
               label="CVC"
               placeholder="Digite"
-              error={cvcHasError}
+              error={cvcHasError && u.CVCError}
               onChange={e => {
                 e.target.value = e.target.value.replace(/\D/g, '')
                 cvcState[1](e.target.value)
