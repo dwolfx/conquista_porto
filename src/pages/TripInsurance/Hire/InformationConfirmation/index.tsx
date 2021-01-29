@@ -711,7 +711,7 @@ const InformationConfirmation: StepComponent = () => {
                 <s.Icon name="pdf" color="blue4" />
                 <ButtonLink
                   noIcon
-                  href={tripInsuranceQuotations?.urlManuais || ''}
+                  href="https://www.portoseguro.com.br/politica-de-privacidade"
                   target="_blank"
                 >
                   <Text
