@@ -16,6 +16,9 @@ export const GridContainer = styled(Container)`
 export const GridRowStepBar = styled(Row)`
   margin: 0;
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0px;
+  }
 `
 
 export const ColStepBar = styled(Col)`

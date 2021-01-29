@@ -3,20 +3,6 @@
 exports[`Sumary renders correctly 1`] = `
 Array [
   .c6 {
-  color: #BABABA;
-  text-align: unset;
-  text-transform: none;
-  font-weight: 300;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-.c7 {
   color: #FFFFFF;
   text-align: unset;
   text-transform: none;
@@ -30,7 +16,7 @@ Array [
   line-height: 25px;
 }
 
-.c9 {
+.c8 {
   color: #BABABA;
   text-align: unset;
   text-transform: none;
@@ -78,7 +64,7 @@ Array [
   margin-right: 14px;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -90,7 +76,7 @@ Array [
   margin-left: 7px;
 }
 
-.c8.c8 > *:not(:first-child) {
+.c7.c7 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -189,6 +175,12 @@ Array [
 
 @media (min-width:980px) {
   .c1 {
+    padding: 0px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
     padding: 0px;
   }
 }
@@ -307,11 +299,6 @@ Array [
             >
               <h5
                 className="c6"
-                color="gray4"
-                type="headline"
-              />
-              <h5
-                className="c7"
                 color="white"
                 type="headline"
               >
@@ -319,10 +306,10 @@ Array [
               </h5>
             </div>
             <div
-              className="c8"
+              className="c7"
             >
               <h6
-                className="c9"
+                className="c8"
                 color="gray4"
                 type="title"
               >
@@ -1032,6 +1019,10 @@ Array [
 }
 
 @media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 
@@ -1770,6 +1761,10 @@ Array [
 }
 
 @media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 
