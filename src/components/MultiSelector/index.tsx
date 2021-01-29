@@ -122,7 +122,7 @@ const MultiSelector: React.FC<IProps> = ({
     if (showLockIconIfDisable && disabled) {
       setSelectIcon('lock')
     }
-  }, [disabled, selectOptionsDropdown])
+  }, [disabled, selectOptionsDropdown, showLockIconIfDisable])
 
   //get selectedOptions array
   useEffect(() => {

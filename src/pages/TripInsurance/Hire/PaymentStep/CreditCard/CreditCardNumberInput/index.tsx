@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import IconExporter from 'components/IconExporter'
@@ -25,6 +25,7 @@ const CreditCardNumberInput = ({
   isNumberValidState: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
   flagNameState: [TFlagName, React.Dispatch<React.SetStateAction<TFlagName>>]
 }) => {
+  const [isOnBlurSizeError, setIsOnBlurSizeError] = useState<boolean>(false)
   const { creditCardData } = useSelector(
     (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
       creditCardData: state.tripInsuranceCreditCard.data,
@@ -40,6 +41,11 @@ const CreditCardNumberInput = ({
     ) {
       return creditCardError
     }
+
+    if (isOnBlurSizeError) {
+      return creditCardError
+    }
+
     // Verifica se os últimos números do cartão são iguais aos últimos números do cartão porto selecionado
     if (
       creditCardData?.creditCards &&
@@ -59,12 +65,20 @@ const CreditCardNumberInput = ({
       label="Número do cartão"
       error={hasError()}
       placeholder="Digite"
+      onBlur={() => {
+        if (cardNumberState[0].length < 19) {
+          setIsOnBlurSizeError(true)
+        } else {
+          setIsOnBlurSizeError(false)
+        }
+      }}
       onChange={e => {
         applyCreditCardMask(e, cardNumberState[1], flagNameState)
         if (e.target.value.length >= 19) {
           cardNumberState[1](e.target.value)
           isNumberValidState[1](validateCreditCardNumber(e.target.value))
         }
+        setIsOnBlurSizeError(false)
       }}
       suffix={flagNameState[0] && <IconExporter name={flagNameState[0]} />}
       maxLength={19}

@@ -105,10 +105,6 @@ Array [
   padding: 14px;
 }
 
-.c3 svg {
-  margin-right: 15px;
-}
-
 .c4 {
   font-family: Open Sans;
   font-size: 22px;

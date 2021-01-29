@@ -4,6 +4,7 @@ import { ThemeContext } from 'styled-components'
 
 import IconExporter from 'components/IconExporter'
 import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
 
 import { ICreditCard } from 'store/modules/TripInsurance/CreditCard/types'
 
@@ -22,6 +23,7 @@ const PaymentMethod = ({
   setParcelOption: React.Dispatch<React.SetStateAction<IParcelOptionState>>
   creditCards?: ICreditCard[]
 }) => {
+  const isMobile = useMedia('sm')
   const theme = React.useContext(ThemeContext)
   const [selectedCreditCard, setSelectedCreditCard] = selectedCreditCardState
 
@@ -86,6 +88,7 @@ const PaymentMethod = ({
                       Não utiliza limite do cartão
                     </Text>
                     <S.StyledPopover
+                      showArrow={!isMobile}
                       content={
                         <S.PopoverText>
                           Ao utilizar o cartão Porto, você não compromete o seu
@@ -136,6 +139,9 @@ const PaymentMethod = ({
             <S.TextWrapper>
               <Text type="title" bold color="gray6">
                 Outro cartão
+              </Text>
+              <Text type="caption" bold color="gray5">
+                Visa ou Mastercard
               </Text>
             </S.TextWrapper>
           </S.CreditCardWrapper>

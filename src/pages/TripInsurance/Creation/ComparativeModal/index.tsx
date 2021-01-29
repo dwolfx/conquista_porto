@@ -68,7 +68,7 @@ const ComparativeModal: React.FC<IComparativeModal> = ({
 
   return (
     <s.Modal
-      modalTitle={isNotMobile ? 'Comparativo de coberturas' : 'Planos Brasil'}
+      modalTitle={isNotMobile ? 'Comparativo de coberturas' : 'Coberturas'}
       isOpen={isOpen}
       handleClose={() => handleClose(false)}
       {...rest}

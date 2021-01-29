@@ -28,7 +28,7 @@ const PaymentStep: StepComponent = () => {
   const [cardNumber, setCardNumber] = useState<string>('')
   const [isNumberValid, setIsNumberValid] = useState<boolean>(false)
   const flagNameState = useState<TFlagName>('')
-  const [name, setName] = useState<string>('')
+  const nameState = useState<string>('')
   const validityDateState = useState<string>('')
   const validityHasErrorState = useState(false)
   const cvcState = useState<string>('')
@@ -50,7 +50,7 @@ const PaymentStep: StepComponent = () => {
     ) &&
     isNumberValid &&
     (flagNameState[0] === 'mastercard' || flagNameState[0] === 'visa') &&
-    !!name &&
+    nameState[0].replace(/\s+/g, '') !== '' &&
     validityDateState[0].length === 7 &&
     !validityHasErrorState[0] &&
     cvcState[0].length === 3
@@ -97,7 +97,7 @@ const PaymentStep: StepComponent = () => {
                 cardNumberState={[cardNumber, setCardNumber]}
                 isNumberValidState={[isNumberValid, setIsNumberValid]}
                 flagNameState={flagNameState}
-                setName={setName}
+                nameState={nameState}
                 validityDateState={validityDateState}
                 validityHasErrorState={validityHasErrorState}
                 cvcState={cvcState}
@@ -128,7 +128,7 @@ const PaymentStep: StepComponent = () => {
                   codigoSeguranca: +cvcState[0],
                   mesValidade: `${validityDateState[0].slice(0, 2)}`,
                   anoValidade: `${validityDateState[0].slice(3, 7)}`,
-                  nomeTitular: name,
+                  nomeTitular: nameState[0].trim(),
                   quantidadeParcelas: parcelOption.id,
                   isCartaoPorto:
                     creditCardData?.creditCards &&

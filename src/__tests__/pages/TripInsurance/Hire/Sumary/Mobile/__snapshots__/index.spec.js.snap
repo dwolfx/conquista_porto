@@ -592,10 +592,6 @@ Array [
   padding: 14px;
 }
 
-.c4 svg {
-  margin-right: 15px;
-}
-
 .c5 {
   font-family: Open Sans;
   font-size: 22px;

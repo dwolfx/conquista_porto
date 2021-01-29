@@ -42,9 +42,19 @@ export const applyValidityMask = (
   setValidityDate(event.target.value)
 }
 
+export const nameError = {
+  icon: 'information' as keyof typeof dict,
+  message: 'Insira o nome que está impresso neste cartão',
+}
+
 export const validityError = {
   icon: 'information' as keyof typeof dict,
-  message: 'Digite uma data válida.',
+  message: 'Data inválida',
+}
+
+export const CVCError = {
+  icon: 'information' as keyof typeof dict,
+  message: 'CVC inválido',
 }
 
 export const validityErrorCvc = {
