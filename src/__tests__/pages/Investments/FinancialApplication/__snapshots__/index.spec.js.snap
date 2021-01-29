@@ -720,11 +720,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 35px;
-}
-
-.c3 svg {
-  margin-right: 15px;
+  padding: 10px 21px;
 }
 
 .c0 {
@@ -1318,6 +1314,12 @@ Object {
   .c77 {
     width: 100%;
     height: auto;
+  }
+}
+
+@media (min-width:736px) {
+  .c3 {
+    padding: 10px 49px;
   }
 }
 
@@ -2290,7 +2292,7 @@ Object {
         class="sc-fzoWqW eFrYuG"
       >
         <div
-          class="sc-fzplgP pGJde"
+          class="sc-fzplgP iVJmLw"
         >
           <div
             class="sc-fzplWN sc-fzpdbB kuEyUr"
