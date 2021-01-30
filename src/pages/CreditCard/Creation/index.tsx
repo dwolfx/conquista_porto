@@ -207,6 +207,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
         </GridContainer>
       </StepBar>
       {getContent()}
+      
     </Layer>
   )
 }

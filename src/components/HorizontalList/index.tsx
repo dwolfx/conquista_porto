@@ -5,7 +5,7 @@ import { Container, StartBlock, EndBlock } from './styles'
 interface IProps {
   startItems?: React.ReactNode[]
   endItems?: React.ReactNode[] | null
-  size?: 'large' | 'medium' | 'small' | 'default'
+  size?: 'large' | 'medium' | 'medium-large' | 'small' | 'default'
   noPadding?: boolean
   marginBetweenElements?: string
 }

@@ -11,7 +11,18 @@ import { Container as ContainerCmp } from 'styled-bootstrap-grid'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
+  padding-bottom: ${({ theme }) => theme.spacing(9)}px;
+  justify-content: center;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    min-height: 0;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding-bottom: ${({ theme }) => theme.spacing(18)}px;
+  }
 `
 
 export const HeaderContent = styled.div`
@@ -85,6 +96,7 @@ export const SimulationText = styled(Text)`
 
 export const LoadingState = styled(LoadingStateComponent)`
   width: 428px;
+  min-height: calc(100vh - 136px);
   align-self: center;
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
@@ -146,14 +158,14 @@ export const TitleWrapper = styled.div<ITitleWrapper>`
     cardsQuantity === 1 ? `center` : `space-between`};
 
   width: 100%;
-  padding: ${({ theme }) => theme.spacing(2)}px 0px;
+  padding: ${({ theme }) => `${theme.spacing(4)}px 0px ${theme.spacing(3)}px`};
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
     margin: 0 auto;
     align-items: flex-start;
     width: 607px;
-    padding: ${({ theme }) => theme.spacing(4)}px 0px
+    padding: ${({ theme }) => theme.spacing(3)}px 0px
       ${({ theme }) => theme.spacing(3)}px;
   }
 
@@ -207,13 +219,25 @@ export const TitleWrapperCentralized = styled.div`
   }
 `
 
-export const Title = styled(Text)``
+export const Title = styled(Text)`
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
 
 export const SwitchWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: ${({ theme }) => theme.spacing(3)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    margin: 0;
+  }
 `
 
 export const SwitchText = styled(Text)`
@@ -251,11 +275,15 @@ export const DisclosureWrapper = styled.div`
   margin: ${({ theme }) => theme.spacing(5)}px 0px;
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
-    margin: ${({ theme }) => theme.spacing(3)}px 0px;
+    margin: ${({ theme }) => theme.spacing(3)}px auto;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    max-width: 607px;
   }
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    margin: ${({ theme }) => `${theme.spacing(3)}px 0px`};
+    margin: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(1)}px`};
   }
 `
 
@@ -264,6 +292,8 @@ export const Link = styled.a`
 `
 
 export const Footer = styled.div`
+  position: fixed;
+  z-index: 1;
   width: 100%;
   bottom: 0;
   margin-top: auto;
@@ -295,7 +325,7 @@ export const Button = styled(ButtonComponent)`
 `
 
 export const Divider = styled(Divisor)`
-  color: ${({ theme }) => theme.colors.gray5};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
 `
 
 export const LoadingText = styled(Text)`

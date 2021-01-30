@@ -35,13 +35,21 @@ const ChoosePlan: StepComponent = () => {
   const { updateForm, form } = useFormFluxManagement<IForm>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
-  const { tripInsuranceQuotations, isLoading } = useSelector(
+  const {
+    tripInsuranceQuotations,
+    isLoading,
+    urlGeneralConditions,
+    urlManual,
+  } = useSelector(
     (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
       tripInsuranceQuotations:
         state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
       isLoading: state.tripInsuranceQuotation.isLoading,
       hasError: state.tripInsuranceQuotation.hasError,
       idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+      urlGeneralConditions:
+        state.tripInsuranceQuotation.data?.urlCondicoesGerais,
+      urlManual: state.tripInsuranceQuotation.data?.urlManuais,
     })
   )
 
@@ -79,7 +87,7 @@ const ChoosePlan: StepComponent = () => {
     )
   }, [dispatch, addToast, form])
 
-  const renderHeader = (isMobile: boolean): JSX.Element => (
+  const renderHeader = () => (
     <s.ContextWrapper>
       {!isMobile ? (
         <s.SimulationText color="gray4" type="headline">
@@ -92,7 +100,7 @@ const ChoosePlan: StepComponent = () => {
     </s.ContextWrapper>
   )
 
-  const renderTitle = (isMobile: boolean, cardsQuantity: number) => (
+  const renderTitle = (cardsQuantity: number) => (
     <s.TitleWrapper cardsQuantity={cardsQuantity}>
       {cardsQuantity > 1 ? (
         <s.Title color="white" type={isMobile ? 'heading4' : 'heading3'}>
@@ -138,11 +146,11 @@ const ChoosePlan: StepComponent = () => {
           <s.BackgroundWrapper>
             <s.DarkBackground />
             <s.ContentContainer>
-              {renderHeader(isMobile)}
+              {renderHeader()}
               <s.Divider />
               <s.ContentWrapper>
                 {tripInsuranceQuotations &&
-                  renderTitle(isMobile, tripInsuranceQuotations.length)}
+                  renderTitle(tripInsuranceQuotations.length)}
                 <s.CardsWrapper
                   cardsQuantity={tripInsuranceQuotations?.length || 1}
                 >
@@ -197,8 +205,19 @@ const ChoosePlan: StepComponent = () => {
                 </Text>
                 <Text color="gray5" bold>
                   Consulte as{' '}
-                  <s.Link href="www.google.com.br">Condições Gerais</s.Link> e{' '}
-                  <s.Link href="www.google.com.br">
+                  <s.Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={urlGeneralConditions}
+                  >
+                    Condições Gerais
+                  </s.Link>{' '}
+                  e{' '}
+                  <s.Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={urlManual}
+                  >
                     Manual de Assistência Emergencial
                   </s.Link>{' '}
                   do plano escolhido.

@@ -61,6 +61,8 @@ export default function MainCoverages({
   return (
     <s.CoverageWrapper>
       <HorizontalList
+        noPadding
+        size="medium-large"
         startItems={[
           <s.CoverageText type="captionUppercase" bold color="gray5">
             Despesas médicas, hospitalares e/ou odontológicas - dmho
@@ -71,9 +73,10 @@ export default function MainCoverages({
             {firstCoverageAmount}
           </Text>,
         ]}
-        noPadding
       />
       <HorizontalList
+        noPadding
+        size="medium"
         startItems={[
           <s.CoverageText type="captionUppercase" bold color="gray5">
             Morte acidental
@@ -84,9 +87,10 @@ export default function MainCoverages({
             {secondCoverageAmount}
           </Text>,
         ]}
-        noPadding
       />
       <HorizontalList
+        noPadding
+        size="medium"
         startItems={[
           <s.CoverageText type="captionUppercase" bold color="gray5">
             extravio de bagagem
@@ -97,7 +101,6 @@ export default function MainCoverages({
             {thridCoverageAmount}
           </Text>,
         ]}
-        noPadding
       />
     </s.CoverageWrapper>
   )

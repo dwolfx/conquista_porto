@@ -20,8 +20,8 @@ export const CardComponent = styled(Card)`
   &:last-of-type {
     margin-right: 0px;
   }
-  padding: ${({ theme }) => theme.spacing(3)}px
-    ${({ theme }) => theme.spacing(2)}px ${({ theme }) => theme.spacing(2)}px;
+  padding: ${({ theme }) =>
+    `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
   width: 417px;
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
