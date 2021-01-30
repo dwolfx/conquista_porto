@@ -19,7 +19,11 @@ import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/Dest
 
 import { IOption } from 'components/MultiSelector/types'
 import { Steps, IForm } from '../types'
-import { hasLatinAmerica, hasOnlyLatinAmerica } from './helpers'
+import {
+  hasLatinAmerica,
+  hasLatinAmericaCountryAndOtherCountry,
+  hasOnlyLatinAmerica,
+} from './helpers'
 import LatinAmericaModal from './LatinAmericaModal'
 
 import * as S from './styles'
@@ -138,6 +142,9 @@ const OriginTripStep: StepComponent = () => {
       hasOnlyLatinAmericaDestination:
         selectedDestinationType.id === 1 ||
         hasOnlyLatinAmerica(selectedDestinationCountries),
+      hasLatinAmericaCountryAndOtherCountry:
+        selectedDestinationType.id !== 1 &&
+        hasLatinAmericaCountryAndOtherCountry(selectedDestinationCountries),
     })
     if (
       hasLatinAmerica(selectedDestinationCountries) ||

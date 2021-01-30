@@ -55,28 +55,35 @@ const MotocicleQuestion: StepComponent = () => {
       <s.ContentContainer>
         <s.ContentRow justifyContent={isMobile ? 'center' : 'start'}>
           <Col lg={3} md={3} hiddenMdDown>
-            <s.ContentWrapper>
-              <s.TitleInfo type="heading4" bold>
-                Cobertura
-              </s.TitleInfo>
-              <s.DivisorInfo />
-              <Text type="headline">
-                Eventos decorrentes de acidentes com motocicletas na América
-                Latina não tem cobertura.
-              </Text>
-            </s.ContentWrapper>
+            {form.hasLatinAmericaCountryAndOtherCountry ? null : (
+              <s.ContentWrapper>
+                <s.TitleInfo type="heading4" bold>
+                  Cobertura
+                </s.TitleInfo>
+                <s.DivisorInfo />
+                <Text type="headline">
+                  Cobertura para eventos decorrentes de viagens de motocicleta.
+                </Text>
+              </s.ContentWrapper>
+            )}
           </Col>
           <Col lg={1} md={1} hiddenMdDown />
           <Col lg={4} md={4} sm={6}>
             <s.ContentWrapper>
-              <s.QuestionText textAlign="center" type="headline">
+              <s.QuestionText
+                textAlign="center"
+                type="headline"
+                hasLatinAmericaCountryAndOtherCountry={
+                  !!form.hasLatinAmericaCountryAndOtherCountry
+                }
+              >
                 Pretende usar motocicleta durante a viagem?
                 {isMobile ? (
                   <Popover
                     content={() => (
                       <s.TooltipText type="body" color="gray5">
-                        Eventos decorrentes de acidentes com motocicletas na
-                        América Latina não tem cobertura.
+                        Cobertura para eventos decorrentes de viagens de
+                        motocicleta.
                       </s.TooltipText>
                     )}
                     placement="top"
@@ -85,6 +92,17 @@ const MotocicleQuestion: StepComponent = () => {
                   </Popover>
                 ) : null}
               </s.QuestionText>
+              {form.hasLatinAmericaCountryAndOtherCountry ? (
+                <s.LatinAmericaWarningText
+                  bold
+                  type="caption"
+                  color="gray5"
+                  textAlign="center"
+                >
+                  Não haverá cobertura para eventos decorrentes de viagens de
+                  motocicleta nos países selecionados da América Latina.
+                </s.LatinAmericaWarningText>
+              ) : null}
               <Radio
                 options={radioOptions}
                 itemsDirection="column"

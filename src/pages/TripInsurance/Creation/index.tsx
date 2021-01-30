@@ -36,7 +36,7 @@ export default function TripInsurenceCreation({
   // 7 - informationConfirmationStep
   // 8 - companionStep
   // 9 - paymentStep
-  // 10 - sumaryStep
+  // 10 - summaryStep
   // 11 - succesStep/errorStep
 
   React.useEffect(() => {

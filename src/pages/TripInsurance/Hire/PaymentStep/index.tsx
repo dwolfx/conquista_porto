@@ -138,7 +138,7 @@ const PaymentStep: StepComponent = () => {
                       : false,
                 },
               })
-              instantiate(Steps.sumaryStep)
+              instantiate(Steps.summaryStep)
             }}
           >
             Continuar
