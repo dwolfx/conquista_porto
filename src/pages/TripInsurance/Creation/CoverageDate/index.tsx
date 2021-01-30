@@ -24,10 +24,12 @@ const CoverageDate: StepComponent = () => {
   const [focusedInput, setFocusedInput] = useState(null)
   const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
+  const [openDate, setOpenDate] = useState<string | null>(null)
 
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const onHandleRangeFocused = (focus: any) => {
+    setOpenDate(focus)
     setFocusedInput(focus)
   }
 
@@ -46,7 +48,7 @@ const CoverageDate: StepComponent = () => {
         actualStep={2}
         totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />
-      <s.ContentWrapper>
+      <s.ContentWrapper focus={openDate}>
         <Container>
           <Row
             alignItems="center"
@@ -59,10 +61,10 @@ const CoverageDate: StepComponent = () => {
               />
             </Col>
             <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={8} md={4}>
-              <s.ContentWrapper>
+              <s.Content>
                 <s.QuestionText textAlign="center" type="headline">
                   Quais as datas de partida e de chegada da sua viagem?
-                  {isMobile ? (
+                  {isMobile || isTabletVertical ? (
                     <Popover
                       content={() => (
                         <s.TooltipText type="body" color="gray5">
@@ -71,6 +73,7 @@ const CoverageDate: StepComponent = () => {
                         </s.TooltipText>
                       )}
                       placement="top"
+                      showArrow={!isMobile}
                     >
                       <s.InfoIcon name="information" color="blue4" />
                     </Popover>
@@ -107,7 +110,7 @@ const CoverageDate: StepComponent = () => {
                 >
                   PRÓXIMO
                 </s.NextButton>
-              </s.ContentWrapper>
+              </s.Content>
             </Col>
           </Row>
         </Container>

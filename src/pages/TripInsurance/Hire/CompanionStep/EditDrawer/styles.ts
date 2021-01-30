@@ -11,6 +11,7 @@ import DivisorCmp from 'components/Divisor'
 import ModalCmp from 'components/Modal/ModalNew'
 import WarningFlagCmp from '../../../commons/WarningFlag'
 import { WarningText } from '../../../commons/WarningFlag/styles'
+import { ErrorMessage, ErrorIcon } from 'components/NewInput/styles'
 
 export const Container = styled.div`
   display: flex;
@@ -48,6 +49,13 @@ export const Input = styled(InputCmp)`
 export const DateInput = styled(DateInputCmp)`
   margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(14)}px`};
   width: 100%;
+
+  ${ErrorMessage} {
+    ${ErrorIcon} {
+      width: ${({ theme }) => theme.spacing(5)}px;
+      height: 16px;
+    }
+  }
 `
 
 export const ColInput = styled(Col as any)<{ error: boolean }>`
