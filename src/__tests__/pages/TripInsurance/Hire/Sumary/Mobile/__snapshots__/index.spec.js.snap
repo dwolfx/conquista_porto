@@ -133,6 +133,22 @@ Array [
   text-overflow: ellipsis;
 }
 
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
 @media (min-width:768px) {
 
 }
@@ -142,6 +158,14 @@ Array [
 }
 
 @media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
 
 }
 
@@ -275,11 +299,27 @@ Array [
 
 }
 
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
 <div
     className="c0"
   >
     <div
-      className="sc-AxirZ c1"
+      className="c1"
       data-name="container"
     >
       <div
@@ -904,7 +944,7 @@ Array [
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin: 35px auto 91px auto;
+  margin: 35px auto 63px auto;
 }
 
 .c34 {
@@ -962,6 +1002,22 @@ Array [
   justify-content: space-between;
 }
 
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
 @media (min-width:768px) {
   .c32 {
     -ms-flex: 0 0 83.333333%;
@@ -992,6 +1048,14 @@ Array [
   .c32 {
     margin-left: 0;
   }
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
 }
 
 @media (min-width:576px) {
@@ -1175,8 +1239,24 @@ Array [
 
 }
 
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
 <div
-    className="sc-AxirZ c0"
+    className="c0"
     data-name="container"
   >
     <div
@@ -1607,6 +1687,36 @@ Array [
     </div>
   </div>,
   .c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c5 {
   background: linear-gradient( to left, #2F736B -35%, #46A166 );
   background-repeat: no-repeat;
   border: none;
@@ -1624,11 +1734,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c1:hover:active {
+.c5:hover:active {
   pointer-events: auto;
 }
 
-.c1:hover:active:after {
+.c5:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -1636,11 +1746,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c1:hover:before {
+.c5:hover:before {
   width: 100%;
 }
 
-.c1:hover:after {
+.c5:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -1655,7 +1765,7 @@ Array [
   width: 100%;
 }
 
-.c1:before {
+.c5:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -1667,7 +1777,7 @@ Array [
   width: 0;
 }
 
-.c3 {
+.c7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1711,15 +1821,55 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-right: 105px;
   width: 100vw;
   height: 63px;
+  border: 1px solid #DDDDDD;
 }
 
-.c2 {
+.c6 {
   width: 134px;
 }
 
+.c4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
 @media (min-width:768px) {
 
 }
@@ -1734,6 +1884,26 @@ Array [
 
 @media (min-width:992px) {
 
+}
+
+@media (min-width:768px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 }
 
 @media (min-width:576px) {
@@ -1843,27 +2013,78 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c2 {
+  .c6 {
     width: 100%;
     margin: 14px;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    -ms-flex: 0 0 83.333333%;
+    -webkit-flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    margin-left: 8.333333%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    margin-left: 0;
   }
 }
 
 <div
     className="c0"
   >
-    <button
-      className="c1 c2"
-      color="secondary"
-      disabled={false}
-      onClick={[Function]}
+    <div
+      className="c1"
+      data-name="container"
     >
-      <span
-        className="c3"
+      <div
+        className="c2"
+        data-name="row"
       >
-        CONTRATAR
-      </span>
-    </button>
+        <div
+          className="c3"
+          data-name="col-md-12 col-lg-3"
+        />
+        <div
+          className="c4"
+          data-name="col-md-10 offset-md-1 col-lg-8 offset-lg-0"
+        >
+          <button
+            className="c5 c6"
+            color="secondary"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="c7"
+            >
+              CONTRATAR
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>,
 ]
 `;
