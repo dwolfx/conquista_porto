@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
+import moment from 'moment'
 
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
@@ -35,14 +36,29 @@ const PassengerStep: StepComponent = () => {
   }, [counts.young, counts.old])
 
   const handleButtonClick = () => {
-    const newCompanions = [...new Array(counts.total)].map((_, index) => ({
+    const mainPassenger = moment().diff(
+      form.passageiroPrincipal?.dataNascimento,
+      'year'
+    )
+    let young = counts.young
+    let old = counts.old
+    if (mainPassenger <= 70) {
+      if (counts.young >= 1) {
+        young = counts.young - 1
+      }
+    } else {
+      if (counts.old >= 1) {
+        old = counts.old - 1
+      }
+    }
+    const newCompanions = [...new Array(counts.total - 1)].map((_, index) => ({
       id: index + 1,
       nome: truncateString(`Acompanhante ${index + 1}`, 25),
       status: false,
     }))
     updateForm({
-      qtdPassagMenorSetentaAnos: counts.young,
-      qtdPassagMaiorSetentaAnos: counts.old,
+      qtdPassagMenorSetentaAnos: young,
+      qtdPassagMaiorSetentaAnos: old,
       acompanhantes: [...newCompanions],
     })
 

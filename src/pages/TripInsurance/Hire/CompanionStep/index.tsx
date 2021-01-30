@@ -180,38 +180,40 @@ const CompanionStep = () => {
               </>
             )}
           </Col>
-          <Col xs={12} sm={12} md={10} lg={8}>
+          <Col xs={12} sm={12} md={12} lg={9}>
             <s.Card>
-              <s.CardContentWrapper>
-                <s.TitleText
-                  type="subheading"
-                  bold
-                  textTransform="uppercase"
-                  textAlign={isMobile ? 'center' : 'left'}
-                  color="gray5"
-                >
-                  acompanhantes até 70 anos
-                </s.TitleText>
-                <s.Table>
-                  <s.Thead>
-                    <s.THeadTr>
-                      <s.Th>
-                        <s.Text type="subheading" bold color="gray6">
-                          NOMES
-                        </s.Text>
-                      </s.Th>
-                      <s.Th>
-                        <s.Text type="subheading" bold color="gray6">
-                          STATUS
-                        </s.Text>
-                      </s.Th>
-                    </s.THeadTr>
-                  </s.Thead>
-                  <s.Tbody>
-                    {renderTableBody(companions, lessThanSeventy, 70)}
-                  </s.Tbody>
-                </s.Table>
-              </s.CardContentWrapper>
+              {lessThanSeventy > 0 && (
+                <s.CardContentWrapper>
+                  <s.TitleText
+                    type="subheading"
+                    bold
+                    textTransform="uppercase"
+                    textAlign={isMobile ? 'center' : 'left'}
+                    color="gray5"
+                  >
+                    acompanhantes até 70 anos
+                  </s.TitleText>
+                  <s.Table>
+                    <s.Thead>
+                      <s.THeadTr>
+                        <s.Th>
+                          <s.Text type="subheading" bold color="gray6">
+                            NOMES
+                          </s.Text>
+                        </s.Th>
+                        <s.Th>
+                          <s.Text type="subheading" bold color="gray6">
+                            STATUS
+                          </s.Text>
+                        </s.Th>
+                      </s.THeadTr>
+                    </s.Thead>
+                    <s.Tbody>
+                      {renderTableBody(companions, lessThanSeventy, 70)}
+                    </s.Tbody>
+                  </s.Table>
+                </s.CardContentWrapper>
+              )}
               {greaterThanSeventy > 0 && (
                 <s.CardContentWrapper>
                   <s.TitleText
@@ -249,14 +251,16 @@ const CompanionStep = () => {
         </s.Row>
       </s.ContentWrapper>
       <s.FooterContainer>
-        <s.NextButton
-          disabled={!isCompanionsFilled}
-          loading={isCreditCardLoading}
-          color="secondary"
-          onClick={() => handleClick()}
-        >
-          continuar
-        </s.NextButton>
+        <s.ContentWrapperFooter>
+          <s.NextButton
+            disabled={!isCompanionsFilled}
+            loading={isCreditCardLoading}
+            color="secondary"
+            onClick={() => handleClick()}
+          >
+            continuar
+          </s.NextButton>
+        </s.ContentWrapperFooter>
       </s.FooterContainer>
     </s.Section>
   )

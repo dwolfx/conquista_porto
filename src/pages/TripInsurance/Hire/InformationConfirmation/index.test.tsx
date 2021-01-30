@@ -117,7 +117,7 @@ describe('InformationConfirmation component tests', () => {
       screen.getByRole('heading', { name: 'Contratação' })
     ).toBeInTheDocument()
     expect(screen.getByText(/Seguro Viagem/i)).toBeInTheDocument()
-    expect(screen.getByText(/ETAPA 1 de 4/i)).toBeInTheDocument()
+    expect(screen.getByText(/ETAPA 1 de 3/i)).toBeInTheDocument()
   })
   it('should render correctly the information card on the left side', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)

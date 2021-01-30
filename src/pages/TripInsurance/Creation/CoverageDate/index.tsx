@@ -21,16 +21,16 @@ const CoverageDate: StepComponent = () => {
   const { updateForm, form } = useFormFluxManagement<IForm>()
   const [initialDate, setInitialDate] = useState<moment.Moment | null>(null)
   const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
-  const [focusedInput, setFocusedInput] = useState(null)
+  const [focusedInput, setFocusedInput] = useState<
+    'startDate' | 'endDate' | null
+  >(null)
   const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
-  const [openDate, setOpenDate] = useState<string | null>(null)
 
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
-  const onHandleRangeFocused = (focus: any) => {
-    setOpenDate(focus)
-    setFocusedInput(focus)
+  const onHandleRangeFocused = (focused: 'startDate' | 'endDate' | null) => {
+    setFocusedInput(focused)
   }
 
   const onSubmitButton = () => {
@@ -49,7 +49,7 @@ const CoverageDate: StepComponent = () => {
         actualStep={2}
         totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />
-      <s.ContentWrapper focus={openDate}>
+      <s.ContentWrapper focus={focusedInput}>
         <Container>
           <Row
             alignItems="center"
