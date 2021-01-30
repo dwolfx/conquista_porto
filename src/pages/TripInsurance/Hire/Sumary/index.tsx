@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
-import { Row, Col } from 'styled-bootstrap-grid'
+import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
@@ -255,14 +255,21 @@ const Sumary = () => {
         </Row>
       </S.Container>
       <S.FixedFooter>
-        <S.Button
-          color="secondary"
-          tryAgain={retries < 3}
-          loading={proposalIsLoading}
-          onClick={() => handleClick()}
-        >
-          {retries < 3 ? `TENTAR NOVAMENTE` : `CONTRATAR`}
-        </S.Button>
+        <Container>
+          <Row>
+            <Col lg={3} md={12} />
+            <S.ButtonCol lg={8} lgOffset={0} md={10} mdOffset={1}>
+              <S.Button
+                color="secondary"
+                tryAgain={retries < 3}
+                loading={proposalIsLoading}
+                onClick={() => handleClick()}
+              >
+                {retries < 3 ? `TENTAR NOVAMENTE` : `CONTRATAR`}
+              </S.Button>
+            </S.ButtonCol>
+          </Row>
+        </Container>
       </S.FixedFooter>
     </>
   )

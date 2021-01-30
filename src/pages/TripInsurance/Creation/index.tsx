@@ -89,26 +89,32 @@ export default function TripInsurenceCreation({
             <Row>
               <Col lg={12}>
                 <s.HeaderContent>
-                  <s.PreviousIcon
-                    data-gtm-subname="layer seguro viagem"
-                    data-gtm-name="botao voltar step"
-                    data-gtm-type="click"
-                    data-gtm-clicktype="button"
-                    onClick={() =>
-                      getLength() === 1 ? setIsModalOpen(true) : pop()
-                    }
-                  />
+                  {getLast()?.type !== Steps.errorStep &&
+                  getLast()?.type !== Steps.successStep ? (
+                    <s.PreviousIcon
+                      data-gtm-subname="layer seguro viagem"
+                      data-gtm-name="botao voltar step"
+                      data-gtm-type="click"
+                      data-gtm-clicktype="button"
+                      onClick={() =>
+                        getLength() === 1 ? setIsModalOpen(true) : pop()
+                      }
+                    />
+                  ) : null}
                   <s.LogoWrapper>
                     <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
                   </s.LogoWrapper>
-                  <s.CloseIcon
-                    className="layer-close-button"
-                    data-gtm-subname="botao fechar layer"
-                    data-gtm-name="botao fechar"
-                    data-gtm-type="click"
-                    data-gtm-clicktype="button"
-                    onClick={() => setIsModalOpen(true)}
-                  />
+                  {getLast()?.type !== Steps.errorStep &&
+                  getLast()?.type !== Steps.successStep ? (
+                    <s.CloseIcon
+                      className="layer-close-button"
+                      data-gtm-subname="botao fechar layer"
+                      data-gtm-name="botao fechar"
+                      data-gtm-type="click"
+                      data-gtm-clicktype="button"
+                      onClick={() => setIsModalOpen(true)}
+                    />
+                  ) : null}
                 </s.HeaderContent>
               </Col>
             </Row>

@@ -41,7 +41,7 @@ export const HeaderCol = styled(Col)`
 
 export const Container = styled(ContainerComp)`
   margin: ${({ theme }) =>
-    `${theme.spacing(5)}px auto ${theme.spacing(13)}px auto`};
+    `${theme.spacing(5)}px auto ${theme.spacing(9)}px auto`};
 `
 
 export const Card = styled(CardComponent)`
@@ -117,9 +117,9 @@ export const FixedFooter = styled.div`
   background-color: white;
   justify-content: flex-end;
   align-items: center;
-  padding-right: ${({ theme }) => theme.spacing(15)}px;
   width: 100vw;
   height: 63px;
+  border: 1px solid ${({ theme }) => theme.colors.gray3};
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     padding: 0;
@@ -135,4 +135,9 @@ export const Button = styled(ButtonComp).attrs(() => ({
     width: 100%;
     margin: ${({ theme }) => theme.spacing(2)}px;
   }
+`
+
+export const ButtonCol = styled(Col)`
+  display: flex;
+  justify-content: flex-end;
 `
