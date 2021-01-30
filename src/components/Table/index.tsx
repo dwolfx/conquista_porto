@@ -52,7 +52,7 @@ const Table = ({
     previousPage,
     state: { pageIndex },
     gotoPage,
-    pageCount
+    pageCount,
   } = useTable(
     {
       // to edit how each column should render see formatColumns function
@@ -67,13 +67,13 @@ const Table = ({
     },
     useSortBy,
     usePagination,
-    useSticky,
+    useSticky
   )
 
   const ref = useRef() as React.RefObject<HTMLDivElement>
   const tableRef = customRef || ref
   const [showLeftShadow, setShowLeftShadow] = useState(false)
-  const [showRightShadow, setShowRightShadow] = useState(true)
+  const [showRightShadow, setShowRightShadow] = useState(false)
   const [indexPage, setIndexPage] = useState(pageIndex + 1)
   const inputRef = useRef<HTMLInputElement>() as MutableRefObject<
     HTMLInputElement
@@ -88,7 +88,7 @@ const Table = ({
   }, [inputRef, data, gotoPage, setIndexPage])
 
   useEffect(() => {
-    if (tableRef?.current?.onscroll) {
+    if (tableRef?.current) {
       tableRef.current.onscroll = ({ srcElement }: any) => {
         const { scrollLeft, clientWidth, scrollWidth } = srcElement
         const posX = scrollLeft / (scrollWidth - clientWidth)
@@ -110,9 +110,8 @@ const Table = ({
   const calculateStickWidth = (acc: string, cur: any) => {
     let pixelValue = acc.split('+')[1].replace(/\D/g, '')
     let percentageValue = acc.split('+')[0].replace(/\D/g, '')
-
     if (typeof cur.styles.width === 'string') {
-      if (cur.styles.width.indexOf('%')) {
+      if (cur.styles.width.indexOf('%') > -1) {
         percentageValue += +cur.styles.width.replace('%', '')
       } else {
         pixelValue += +cur.styles.width.replace('px', '')
@@ -120,16 +119,26 @@ const Table = ({
     } else {
       pixelValue += cur.styles.width
     }
-
     return `calc(${percentageValue}% + ${pixelValue}px)`
   }
-
-  const stickyElementRight = columns
-    .filter((column: any) => column.sticky === 'right')
-    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 7px)')
-  const stickyElementLeft = columns
-    .filter((column: any) => column.sticky === 'left')
-    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 0px)')
+  const hasStickyElementRight = columns.filter(
+    (column: any) => column.sticky === 'right'
+  )
+  const hasStickyElementLeft = columns.filter(
+    (column: any) => column.sticky === 'left'
+  )
+  const stickyElementRight =
+    hasStickyElementRight.length > 0 &&
+    hasStickyElementRight.reduce(
+      (acc, cur) => calculateStickWidth(acc, cur),
+      'calc(0% + 0px)'
+    )
+  const stickyElementLeft =
+    hasStickyElementLeft.length > 0 &&
+    hasStickyElementLeft.reduce(
+      (acc, cur) => calculateStickWidth(acc, cur),
+      'calc(0% + 0px)'
+    )
 
   return (
     <s.Wrapper>
@@ -174,25 +183,29 @@ const Table = ({
           </s.Tbody>
         </s.Table>
       </s.TableWrapper>
-      {hasPagination &&
-      <s.PaginationWrapper>
-        <s.Pagination>
-          <Text type="body" bold color="gray5">Página</Text>
+      {hasPagination && (
+        <s.PaginationWrapper>
+          <s.Pagination>
+            <Text type="body" bold color="gray5">
+              Página
+            </Text>
             <s.Input
               ref={inputRef}
               type="text"
               defaultValue={pageIndex + 1}
-              onFocus={() => inputRef.current.value = ''}
-              onBlur={() => inputRef.current.value = (pageIndex + 1).toString()}
+              onFocus={() => (inputRef.current.value = '')}
+              onBlur={() =>
+                (inputRef.current.value = (pageIndex + 1).toString())
+              }
               onChange={e => {
                 const page = e.target.value ? Number(e.target.value) - 1 : 0
                 if (page < 0 || page === 0) {
                   gotoPage(0)
                   setIndexPage(1)
                   inputRef.current.value = ''
-                } else if(page > pageCount -1) {
-                  gotoPage(pageCount -1)
-                  setIndexPage(pageCount -1)
+                } else if (page > pageCount - 1) {
+                  gotoPage(pageCount - 1)
+                  setIndexPage(pageCount - 1)
                   inputRef.current.value = (pageCount - 1).toString()
                 } else {
                   setIndexPage(page)
@@ -200,26 +213,34 @@ const Table = ({
                 }
               }}
             />
-          <Text type="body" bold color="gray5">de {hasError ? 0 : pageCount}</Text>
-          <s.PageButtons>
-            <s.Button onClick={() => {
-              previousPage()
-              setIndexPage(indexPage - 1)
-              inputRef.current.value = (indexPage - 1).toString()
-            }} disabled={!canPreviousPage}>
-              <IconExporter name="arrowleft" color="blue4" />
-            </s.Button>
-            <s.Button onClick={() => {
-              nextPage()
-              setIndexPage(indexPage + 1)
-              inputRef.current.value = (indexPage + 1).toString()
-            }} disabled={!canNextPage}>
-              <IconExporter name="arrowright" color="blue4"/>
-            </s.Button>
-          </s.PageButtons>
-        </s.Pagination>
-      </s.PaginationWrapper>
-      }
+            <Text type="body" bold color="gray5">
+              de {hasError ? 0 : pageCount}
+            </Text>
+            <s.PageButtons>
+              <s.Button
+                onClick={() => {
+                  previousPage()
+                  setIndexPage(indexPage - 1)
+                  inputRef.current.value = (indexPage - 1).toString()
+                }}
+                disabled={!canPreviousPage}
+              >
+                <IconExporter name="arrowleft" color="blue4" />
+              </s.Button>
+              <s.Button
+                onClick={() => {
+                  nextPage()
+                  setIndexPage(indexPage + 1)
+                  inputRef.current.value = (indexPage + 1).toString()
+                }}
+                disabled={!canNextPage}
+              >
+                <IconExporter name="arrowright" color="blue4" />
+              </s.Button>
+            </s.PageButtons>
+          </s.Pagination>
+        </s.PaginationWrapper>
+      )}
     </s.Wrapper>
   )
 }

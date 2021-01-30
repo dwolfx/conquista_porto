@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import PercentualInfosCmp from 'components/Objective/PercentualInfo'
+import { PercentualText } from 'components/Objective/PercentualInfo/styles'
 import Text from 'components/Text'
 
 export const FundoWrapper = styled.div`
@@ -32,4 +33,17 @@ export const CardBody = styled.div`
 
 export const PercentualInfos = styled(PercentualInfosCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: row;
+  }
+
+  ${PercentualText} {
+    &:nth-child(2n),
+    &:nth-child(3n),
+    &:nth-child(4n) {
+      border-left: 1px solid ${({ theme }) => theme.colors.gray6};
+      padding-left: ${({ theme }) => theme.spacing(2)}px;
+      margin-left: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
 `

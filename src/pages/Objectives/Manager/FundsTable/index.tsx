@@ -167,7 +167,11 @@ export default function FundsTable({
 
           <s.PercentualInfos funds={funds} />
 
-          <Table columns={columnsToRender} data={funds} />
+          <Table
+            columns={columnsToRender}
+            data={funds}
+            isSticky={isTabletVertical}
+          />
 
           {footer}
         </s.CardBody>
