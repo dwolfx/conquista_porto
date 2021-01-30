@@ -62,6 +62,18 @@ export const ContentWrapper = styled(ContainerComponent)`
   }
 `
 
+export const ContentWrapperFooter = styled(ContainerComponent)`
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  margin: 0 auto;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 100%;
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
 export const ContentInfo = styled.div`
   padding: ${({ theme }) => theme.spacing(2)}px;
 `
@@ -111,10 +123,10 @@ export const Table = styled.table`
   display: table;
   border-collapse: separate;
   border-spacing: 0;
-  width: 751px;
+  width: 840px;
 
   @media ${props => props.theme.mediaQueries.lg} {
-    margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(7)}px;
     width: 100%;
   }
 

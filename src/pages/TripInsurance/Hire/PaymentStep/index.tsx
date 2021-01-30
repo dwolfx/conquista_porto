@@ -19,7 +19,7 @@ import * as S from './styles'
 
 const PaymentStep: StepComponent = () => {
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
-  const { updateForm } = useFormFluxManagement<IForm>()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
   const [selectedCreditCard, setSelectedCreditCard] = useState(0)
   const [parcelOption, setParcelOption] = useState<IParcelOptionState>({
     id: 0,
@@ -64,7 +64,11 @@ const PaymentStep: StepComponent = () => {
 
   return (
     <>
-      <StepBar title="Contratação" actualStep={3} totalNumberOfSteps={4} />
+      <StepBar
+        title="Contratação"
+        actualStep={(form.acompanhantes || []).length > 0 ? 3 : 2}
+        totalNumberOfSteps={(form.acompanhantes || []).length > 0 ? 4 : 3}
+      />
       <S.Wrapper data-testid="payment-step">
         <Container>
           <Row>

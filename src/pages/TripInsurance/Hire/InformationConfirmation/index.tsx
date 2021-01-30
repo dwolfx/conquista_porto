@@ -206,7 +206,11 @@ const InformationConfirmation: StepComponent = () => {
   }, [])
 
   const onSubmit = () => {
-    instantiate(Steps.companionStep)
+    instantiate(
+      (form.acompanhantes || []).length > 0
+        ? Steps.companionStep
+        : Steps.paymentStep
+    )
   }
 
   const handlerDocumentPpe = (e: React.FormEvent<HTMLInputElement>) => {
@@ -345,7 +349,11 @@ const InformationConfirmation: StepComponent = () => {
 
   return (
     <>
-      <StepBar title="Contratação" actualStep={1} totalNumberOfSteps={4} />
+      <StepBar
+        title="Contratação"
+        actualStep={1}
+        totalNumberOfSteps={(form.acompanhantes || []).length > 0 ? 4 : 3}
+      />
       <s.ContentContainer>
         <s.Col lg={3}>
           <s.TitleWrapper>

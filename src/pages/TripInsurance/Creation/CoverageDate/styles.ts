@@ -16,6 +16,15 @@ export const ContentWrapper = styled.div<IContentProps>`
   flex-direction: column;
   height: ${props =>
     typeof props.focus === 'string' ? '100vh' : 'calc(100vh - 128px)'};
+
+  ${({ theme }) =>
+    `@media ${theme.mediaQueries.smUp} and ${theme.mediaQueries.md}`} {
+    height: calc(100vh - 128px);
+  }
+
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    height: calc(100vh - 128px);
+  }
 `
 
 export const Content = styled.div`
