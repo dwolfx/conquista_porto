@@ -7,7 +7,7 @@ import ChoosePlan from './ChoosePlan'
 import InformationConfirmation from '../Hire/InformationConfirmation'
 import CompanionStep from '../Hire/CompanionStep'
 import PaymentStep from '../Hire/PaymentStep'
-import Sumary from '../Hire/Sumary'
+import Summary from '../Hire/Sumary'
 import Success from '../Hire/RequestProposalStatus/Success'
 import ErrorState from '../Hire/RequestProposalStatus/Error'
 
@@ -21,7 +21,7 @@ export const Steps = {
   informationConfirmationStep: InformationConfirmation,
   companionStep: CompanionStep,
   paymentStep: PaymentStep,
-  sumaryStep: Sumary,
+  summaryStep: Summary,
   successStep: Success,
   errorStep: ErrorState,
 }
@@ -116,4 +116,5 @@ export interface IForm {
   codigoCanal?: 1
   nationalDestination?: boolean
   hasOnlyLatinAmericaDestination?: boolean
+  hasLatinAmericaCountryAndOtherCountry?: boolean
 }

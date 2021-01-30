@@ -16,6 +16,21 @@ export const hasLatinAmerica = (selectedDestinationCountries: IOption[]) => {
   return foundLatinAmericaCountry
 }
 
+export const hasLatinAmericaCountryAndOtherCountry = (
+  selectedDestinationCountries: IOption[]
+) => {
+  let latinAmericaCountry = 0
+  selectedDestinationCountries.forEach(selectedCountry => {
+    latinAmericaCountry += LatinAmericaCountries.filter(
+      latinAmericaCountry => +latinAmericaCountry.codigo === selectedCountry.id
+    ).length
+  })
+  return (
+    latinAmericaCountry > 0 &&
+    selectedDestinationCountries.length !== latinAmericaCountry
+  )
+}
+
 export const hasOnlyLatinAmerica = (
   selectedDestinationCountries: IOption[]
 ) => {

@@ -31,9 +31,20 @@ export const SimulateButton = styled(Button)`
     margin-right: auto;
   }
 `
-export const QuestionText = styled(Text)`
-  margin: 0 ${({ theme }) => theme.spacing(2)}px
-    ${({ theme }) => theme.spacing(4)}px ${({ theme }) => theme.spacing(2)}px;
+
+interface ITextProps {
+  hasLatinAmericaCountryAndOtherCountry: boolean
+}
+
+export const QuestionText = styled(Text)<ITextProps>`
+  ${({ hasLatinAmericaCountryAndOtherCountry, theme }) =>
+    hasLatinAmericaCountryAndOtherCountry
+      ? `margin-bottom: ${theme.spacing(1)}px;`
+      : `margin-bottom: ${theme.spacing(5)}px;`}
+`
+
+export const LatinAmericaWarningText = styled(Text)`
+  margin-bottom: ${({ theme }) => theme.spacing(5)}px;
 `
 
 export const TitleInfo = styled(Text)`
