@@ -112,13 +112,12 @@ describe('InformationConfirmation component tests', () => {
   })
   it('should render correctly the step bar', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)
-    const textsToBeDefined = ['Simulação', 'Seguro Viagem', 'ETAPA 1 de 4']
 
-    const suiteTests = textsToBeDefined.map(word => ({
-      execution: screen.getByText(word),
-    }))
-
-    suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
+    expect(
+      screen.getByRole('heading', { name: 'Contratação' })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Seguro Viagem/i)).toBeInTheDocument()
+    expect(screen.getByText(/ETAPA 1 de 4/i)).toBeInTheDocument()
   })
   it('should render correctly the information card on the left side', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)

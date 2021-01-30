@@ -64,7 +64,7 @@ const PaymentStep: StepComponent = () => {
 
   return (
     <>
-      <StepBar actualStep={3} totalNumberOfSteps={4} />
+      <StepBar title="Contratação" actualStep={3} totalNumberOfSteps={4} />
       <S.Wrapper data-testid="payment-step">
         <Container>
           <Row>

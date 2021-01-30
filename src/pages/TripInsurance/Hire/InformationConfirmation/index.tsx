@@ -345,7 +345,7 @@ const InformationConfirmation: StepComponent = () => {
 
   return (
     <>
-      <StepBar actualStep={1} totalNumberOfSteps={4} />
+      <StepBar title="Contratação" actualStep={1} totalNumberOfSteps={4} />
       <s.ContentContainer>
         <s.Col lg={3}>
           <s.TitleWrapper>

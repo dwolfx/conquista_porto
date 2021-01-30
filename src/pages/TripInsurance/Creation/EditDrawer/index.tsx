@@ -364,11 +364,22 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   const renderContent = () => (
     <>
       <s.Container>
-        <s.CountryOriginSelect
-          options={originOptions}
-          selected={selectedCountry}
-          label="Origem"
-        />
+        <s.Popover
+          content={() => (
+            <s.TooltipText bold color="gray5">
+              A origem da sua viagem precisa ser o Brasil para ter cobertura do
+              Seguro Viagem Porto Seguro.
+            </s.TooltipText>
+          )}
+          placement="bottom"
+          zIndex={15}
+        >
+          <s.CountryOriginSelect
+            options={originOptions}
+            selected={selectedCountry}
+            label="Origem"
+          />
+        </s.Popover>
         <s.Select
           options={destinations}
           selected={selectedDestination}
@@ -427,6 +438,7 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
           selected={numberOfPassangersAboveSeventyYears}
           label="Passageiros de 71 até 90 anos"
           optionBoxSize={200}
+          marginBottom
         />
         <s.Popover
           content={() => (
@@ -447,14 +459,26 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
             disabled={isAdventureSportsDisabled}
           />
         </s.Popover>
-        <s.Select
-          options={motocicleOptions}
-          selected={selectedMotocicleOption}
-          label="Motocicleta"
-          optionBoxDirection="top"
-          hasLockIcon={isMotocicleInputDisabled}
-          disabled={isMotocicleInputDisabled}
-        />
+        <s.Popover
+          content={() => (
+            <s.TooltipText bold type="body" color="gray5">
+              Eventos decorrentes de acidentes com motocicletas na América
+              Latina não tem cobertura.
+            </s.TooltipText>
+          )}
+          placement="top"
+          turnOff={!isMotocicleInputDisabled}
+          zIndex={14}
+        >
+          <s.Select
+            options={motocicleOptions}
+            selected={selectedMotocicleOption}
+            label="Motocicleta"
+            optionBoxDirection="top"
+            hasLockIcon={isMotocicleInputDisabled}
+            disabled={isMotocicleInputDisabled}
+          />
+        </s.Popover>
       </s.Container>
     </>
   )

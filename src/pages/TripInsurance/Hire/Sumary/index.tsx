@@ -171,7 +171,7 @@ const Sumary = () => {
 
   return (
     <>
-      <StepBar actualStep={4} totalNumberOfSteps={4} />
+      <StepBar title="Contratação" actualStep={4} totalNumberOfSteps={4} />
       <S.Container>
         <DrawerChangePayment
           isOpen={drawerChangePayment}

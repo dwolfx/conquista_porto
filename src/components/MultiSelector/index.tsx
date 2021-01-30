@@ -59,6 +59,8 @@ const MultiSelector: React.FC<IProps> = ({
   showLockIconIfDisable = true,
   ...rest
 }) => {
+  const optionsContainerRef = React.createRef<HTMLDivElement>()
+  const inputTextRef = React.createRef<HTMLInputElement>()
   const [inputValue, setInputValue] = useState('')
   const [filteredOptions, setFilteredOptions] = useState<IOption[]>([])
   const [selectOptionsDropdown, setSelectOptionsDropdown] = useState(false)
@@ -160,6 +162,36 @@ const MultiSelector: React.FC<IProps> = ({
     }
   }
 
+  const handleClickOutsideTextInputAndOptionsContainer = useCallback(
+    (event: MouseEvent): void => {
+      if (
+        optionsContainerRef &&
+        !optionsContainerRef.current?.contains(event.target as Node) &&
+        inputTextRef &&
+        !inputTextRef.current?.contains(event.target as Node)
+      ) {
+        setSelectOptionsDropdown(false)
+      }
+    },
+    [optionsContainerRef, inputTextRef]
+  )
+
+  //handle with outside click
+  useEffect(() => {
+    if (selectOptionsDropdown) {
+      document.addEventListener(
+        'mousedown',
+        handleClickOutsideTextInputAndOptionsContainer
+      )
+      return () => {
+        document.removeEventListener(
+          'mousedown',
+          handleClickOutsideTextInputAndOptionsContainer
+        )
+      }
+    }
+  }, [selectOptionsDropdown, handleClickOutsideTextInputAndOptionsContainer])
+
   return (
     <s.SelectContainer
       ref={selectContainerElement}
@@ -168,6 +200,7 @@ const MultiSelector: React.FC<IProps> = ({
     >
       <s.SelectWrapper>
         <InputText
+          ref={inputTextRef}
           error={
             error
               ? {
@@ -199,6 +232,7 @@ const MultiSelector: React.FC<IProps> = ({
           }
         />
         <s.OptionsContainer
+          ref={optionsContainerRef}
           optionsContainerHeight={optionsContainerHeight}
           $hasOptions={selectOptionsDropdown}
           optionBoxDirection="top"

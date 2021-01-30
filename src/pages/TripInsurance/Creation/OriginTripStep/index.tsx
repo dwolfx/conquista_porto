@@ -156,7 +156,7 @@ const OriginTripStep: StepComponent = () => {
         handleClose={() => setIsModalOpen(false)}
         handleAccept={() => instantiate(Steps.coverageDate)}
       />
-      <StepBar actualStep={1} totalNumberOfSteps={5} />
+      <StepBar title="Simulação" actualStep={1} totalNumberOfSteps={5} />
       <S.Wrapper>
         <S.StyledContainer>
           <S.StyledRow

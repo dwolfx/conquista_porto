@@ -12,6 +12,7 @@ export default function StepBar({
   actualStep = null,
   totalNumberOfSteps = null,
   showSteps = true,
+  title,
 }: IProps) {
   const isMobile = useMedia('xs')
 
@@ -25,7 +26,7 @@ export default function StepBar({
               startItems={[
                 !isMobile ? (
                   <Text color="gray4" type="headline">
-                    Simulação
+                    {title}
                   </Text>
                 ) : null,
                 <Text color="white" type="headline">

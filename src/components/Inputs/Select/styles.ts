@@ -19,10 +19,6 @@ export const InputContainer = styled.div`
     top: 0;
     width: 100%;
   }
-
-  input {
-    text-transform: capitalize;
-  }
 `
 
 export const OptionsWrapper = styled.div<{

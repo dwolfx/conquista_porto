@@ -341,7 +341,7 @@ Array [
                 color="gray4"
                 type="headline"
               >
-                Simulação
+                Contratação
               </h5>
               <h5
                 className="c8"
@@ -774,10 +774,6 @@ Array [
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-.c13 input {
-  text-transform: capitalize;
 }
 
 .c7 {

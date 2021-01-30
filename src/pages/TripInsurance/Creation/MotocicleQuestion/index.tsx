@@ -48,6 +48,7 @@ const MotocicleQuestion: StepComponent = () => {
   return (
     <s.ContentWrapper>
       <StepBar
+        title="Simulação"
         actualStep={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
         totalNumberOfSteps={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
       />
