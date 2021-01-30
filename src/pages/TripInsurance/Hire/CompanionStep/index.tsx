@@ -137,7 +137,7 @@ const CompanionStep = () => {
         selectedCompanion={selectedCompanion}
         companionAge={companionAge}
       />
-      <StepBar actualStep={2} totalNumberOfSteps={4} />
+      <StepBar title="Contratação" actualStep={2} totalNumberOfSteps={4} />
       <s.ContentWrapper>
         <s.Row
           alignItems="start"

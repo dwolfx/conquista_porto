@@ -75,6 +75,7 @@ const PassengerStep: StepComponent = () => {
         handleAccept={() => handleModalAcceptButton()}
       />
       <StepBar
+        title="Simulação"
         actualStep={3}
         totalNumberOfSteps={
           form.hasOnlyLatinAmericaDestination ||

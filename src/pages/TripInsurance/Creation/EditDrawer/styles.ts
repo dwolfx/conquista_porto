@@ -35,8 +35,13 @@ export const Divisor = styled(DivisorCmp)`
   margin: ${({ theme }) => theme.spacing(3)}px 0;
 `
 
-export const Select = styled(SelectCmp)`
+export const Select = styled(SelectCmp)<{ marginBottom?: boolean }>`
   width: 100%;
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+    `}
 `
 
 export const DatePickerRange = styled(DatePickerRangeCmp)`
@@ -70,9 +75,9 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
     }
 
     @media ${props => props.theme.mediaQueries.xs} {
-      width: 150px;
+      width: 133px;
       input {
-        width: 150px;
+        width: 133px;
       }
     }
   }
@@ -91,13 +96,12 @@ export const ButtonSubmit = styled(ButtonCmp)`
 `
 
 export const TooltipText = styled(Text)`
-  width: 213px;
+  width: 185px;
 `
 
 export const Popover = styled(PopoverCmp)`
   width: 100%;
-  margin: ${({ theme }) => theme.spacing(4)}px 0
-    ${({ theme }) => theme.spacing(4)}px 0;
+  margin-bottom: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const InfoIcon = styled(IconExporter)`

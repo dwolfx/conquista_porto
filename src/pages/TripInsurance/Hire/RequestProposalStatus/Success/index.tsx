@@ -18,7 +18,7 @@ const SuccessState: StepComponent = () => {
 
   return (
     <>
-      <StepBar showSteps={false} />
+      <StepBar title="Contratação" showSteps={false} />
       <S.Container>
         <Row>
           <Col lg={3} md={4} sm={12}>

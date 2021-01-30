@@ -4,4 +4,5 @@ export interface IProps {
   actualStep?: step
   totalNumberOfSteps?: step
   showSteps?: boolean
+  title: string
 }

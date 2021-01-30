@@ -45,6 +45,7 @@ const AdventureSports: StepComponent = () => {
   return (
     <s.ContentWrapper>
       <StepBar
+        title="Simulação"
         actualStep={4}
         totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />
