@@ -36,7 +36,7 @@ export const errorCEP = (
   return false
 }
 
-export const validtionGeneric = (
+export const validationInputError = (
   value: string | number | undefined,
   touch: boolean,
   extra: boolean = true,

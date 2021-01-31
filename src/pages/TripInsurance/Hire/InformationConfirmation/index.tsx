@@ -1,52 +1,41 @@
-import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
 import React from 'react'
+import { Container, Row } from 'styled-bootstrap-grid'
 import { uuid } from 'uuidv4'
-import useMedia from 'hooks/useMedia'
+import { cpf } from 'cpf-cnpj-validator'
+import InputMask from 'react-input-mask'
+import { useSelector } from 'react-redux'
 
+import StepBar from 'pages/TripInsurance/commons/StepBar'
+import useMedia from 'hooks/useMedia'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
-
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import Divisor from 'components/Divisor'
-
 import { formatCpf, handleGiwRedirect } from 'helpers'
-import { IForm, Steps } from 'pages/TripInsurance/Creation/types'
+import {
+  IForm,
+  IPassengerAddress,
+  IPoliticallyExposedPerson,
+  Steps,
+} from 'pages/TripInsurance/Creation/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import Radio from 'components/Inputs/Radio'
-import InputMask from 'react-input-mask'
-import * as s from './styles'
-
 import AddressForm from './AddressForm'
 import {
   errorObject,
-  validtionGeneric,
+  validationInputError,
 } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import { cpf } from 'cpf-cnpj-validator'
 import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
-import { useSelector } from 'react-redux'
+import { TOptions, TSelected } from 'components/Inputs/Select/types'
+import {
+  radioOptions,
+  radioPpeOptions,
+  selectPpeOptions,
+  genderOptions,
+} from './form'
 
-const radioOptions = [
-  {
-    value: '0',
-    name: 'Não',
-  },
-  {
-    value: '1',
-    name: 'Sim',
-  },
-]
-
-const radioPpeOptions = [
-  {
-    value: '2',
-    name: 'Não',
-  },
-  {
-    value: '1',
-    name: 'Sim',
-  },
-]
+import * as s from './styles'
 
 interface IFormInformationConfirmation {
   isContactPhone: boolean
@@ -58,10 +47,18 @@ interface IFormInformationConfirmation {
 }
 
 const InformationConfirmation: StepComponent = () => {
+  /**
+   * HOOKS
+   */
+
   const isSmUp = useMedia('smUp')
   const isLgUp = useMedia('lgUp')
   const { form, updateForm } = useFormFluxManagement<IForm>()
   const { instantiate, reset } = useStackFluxManagement<StepComponentProps>()
+
+  /**
+   * USESELECT
+   */
 
   const { tripInsuranceQuotations } = useSelector(
     (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
@@ -72,11 +69,19 @@ const InformationConfirmation: StepComponent = () => {
     })
   )
 
+  /**
+   * USESTATE
+   */
+
+  /**
+   * USESTATE - VALIDATION
+   */
+
   const [activeSelectGender, setActiveSelectGender] = React.useState<boolean>(
     true
   )
-  const [documentPpe, setDocumentPpe] = React.useState<string>()
   const [isNotification, setIsNotification] = React.useState<boolean>(false)
+
   const [validForm, setValidForm] = React.useState<
     IFormInformationConfirmation
   >({
@@ -88,124 +93,108 @@ const InformationConfirmation: StepComponent = () => {
     isDocumentPpe: false,
   })
 
-  const checkForm = (key: string) => {
-    setValidForm((check: IFormInformationConfirmation) => ({
-      ...check,
-      [key]: true,
-    }))
-  }
-
-  const [genders] = React.useState([
-    {
-      id: 1,
-      text: 'Masculino',
-      onClick: () => {
-        setGenderSelect({ id: 1, name: 'Masculino' })
-        setActiveSelectGender(false)
-        updateForm({
-          ...form,
-          passageiroPrincipal: {
-            ...form.passageiroPrincipal,
-            sexo: 'M',
-          },
-        })
-      },
-    },
-    {
-      id: 2,
-      text: 'Feminino',
-      onClick: () => {
-        setGenderSelect({ id: 2, name: 'Feminino' })
-        setActiveSelectGender(false)
-        updateForm({
-          ...form,
-          passageiroPrincipal: {
-            ...form.passageiroPrincipal,
-            sexo: 'F',
-          },
-        })
-      },
-    },
-  ])
-
-  const [genderSelect, setGenderSelect] = React.useState({
+  const [genderSelect, setGenderSelect] = React.useState<TSelected>({
     id: 0,
     name: 'Selecione',
   })
 
-  const setCloseRelationship = (grauParentesco: number) => {
-    updateForm({
-      ...form,
-      passageiroPrincipal: {
-        ...form.passageiroPrincipal,
-        pessoaExposta: {
-          ...form.passageiroPrincipal?.pessoaExposta,
-          grauRelacionamento: 3,
-          grauParentesco,
-        },
-      },
-    })
-  }
+  const [genders] = React.useState<TOptions[]>(
+    genderOptions(setGenderSelect, setActiveSelectGender)
+  )
 
-  const [ppeOptions] = React.useState([
-    {
-      id: 7,
-      text: 'Eu',
-      onClick: () => setPpeOptionsSelect({ id: 7, name: 'Eu' }),
-    },
-    {
-      id: 5,
-      text: 'Pai ou mãe',
-      onClick: () => setPpeOptionsSelect({ id: 5, name: 'Pai ou mãe' }),
-    },
-    {
-      id: 2,
-      text: 'Cônjuge',
-      onClick: () => setPpeOptionsSelect({ id: 2, name: 'Cônjuge' }),
-    },
-    {
-      id: 1,
-      text: 'Companheiro(a)',
-      onClick: () => setPpeOptionsSelect({ id: 1, name: 'Companheiro(a)' }),
-    },
-    {
-      id: 4,
-      text: 'Filho(a)',
-      onClick: () => setPpeOptionsSelect({ id: 4, name: 'Filho(a)' }),
-    },
-    {
-      id: 3,
-      text: 'Enteado(a)',
-      onClick: () => setPpeOptionsSelect({ id: 3, name: 'Enteado(a)' }),
-    },
-    {
-      id: 6,
-      text: 'Outros',
-      onClick: () => setPpeOptionsSelect({ id: 6, name: 'Outros' }),
-    },
-  ])
-
-  const [ppeOptionsSelect, setPpeOptionsSelect] = React.useState({
+  const [ppeOptionsSelect, setPpeOptionsSelect] = React.useState<TSelected>({
     id: 0,
     name: 'Selecione',
   })
+
+  const [ppeOptions] = React.useState<TOptions[]>(
+    selectPpeOptions(setPpeOptionsSelect)
+  )
+
+  /**
+   * USESTATE - FORM
+   */
+
+  const [documentPpe, setDocumentPpe] = React.useState<string>()
+  const [documentNumberPpe, setDocumentNumberPpe] = React.useState<string>()
+  const [documentDigitPpe, setDocumentDigitPpe] = React.useState<string>()
+  const [namePpe, setNamePpe] = React.useState<string>()
+  const [isReside, setIsReside] = React.useState<boolean>(
+    form.passageiroPrincipal?.isResidePais ?? true
+  )
+  const [degreeRelationship, setDegreeRelationship] = React.useState<number>(
+    form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento || 2
+  )
+
+  const [address, setAddress] = React.useState<IPassengerAddress>({
+    tipo: 'Rua',
+    logradouro: '',
+    bairro: '',
+    cidade: '',
+    uf: '',
+    complemento: '',
+    numero: '',
+    numeroCep: '',
+    complementoCep: '',
+  })
+
+  /**
+   * USEEFFECT
+   */
 
   React.useEffect(() => {
+    if (ppeOptionsSelect && ppeOptionsSelect.id) {
+      setDegreeRelationship(ppeOptionsSelect.id === 7 ? 1 : 3)
+    }
+  }, [ppeOptionsSelect])
+
+  React.useEffect(() => {
+    if (degreeRelationship === 2) {
+      setPpeOptionsSelect({
+        id: 0,
+        name: 'Selecione',
+      })
+      setNamePpe('')
+      setDocumentPpe('')
+      setDocumentNumberPpe('')
+      setDocumentDigitPpe('')
+    }
+  }, [degreeRelationship])
+
+  const onSubmit = () => {
+    const gender =
+      form && form.passageiroPrincipal && form.passageiroPrincipal.sexo
+        ? form.passageiroPrincipal.sexo
+        : genderSelect && genderSelect.name === 'Masculino'
+        ? 'M'
+        : 'F'
+
+    const ppe: IPoliticallyExposedPerson =
+      degreeRelationship === 2 ||
+      (degreeRelationship === 1 && ppeOptionsSelect.id === 7)
+        ? {
+            grauRelacionamento: degreeRelationship,
+          }
+        : {
+            grauRelacionamento: 3,
+            grauParentesco: Number(ppeOptionsSelect.id),
+            nome: namePpe,
+            numeroCpf: documentNumberPpe,
+            digitoCpf: documentDigitPpe,
+          }
+
     updateForm({
       ...form,
       passageiroPrincipal: {
         ...form.passageiroPrincipal,
-        isResidePais: true,
-        pessoaExposta: {
-          ...form.passageiroPrincipal?.pessoaExposta,
-          grauRelacionamento: 2,
+        sexo: gender,
+        pessoaExposta: ppe,
+        endereco: {
+          ...address,
+          tipo: address.tipo || 'Rua',
         },
       },
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const onSubmit = () => {
     instantiate(
       (form.acompanhantes || []).length > 0
         ? Steps.companionStep
@@ -216,38 +205,29 @@ const InformationConfirmation: StepComponent = () => {
   const handlerDocumentPpe = (e: React.FormEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value.replace(/\D/g, '')
     setDocumentPpe(value)
-
     if (value.length === 11) {
-      updateForm({
-        ...form,
-        passageiroPrincipal: {
-          ...form.passageiroPrincipal,
-          pessoaExposta: {
-            ...form.passageiroPrincipal?.pessoaExposta,
-            numeroCpf: value.slice(0, 9),
-            digitoCpf: value.slice(-2),
-          },
-        },
-      })
+      setDocumentNumberPpe(value.slice(0, 9))
+      setDocumentDigitPpe(value.slice(-2))
+    } else {
+      setDocumentNumberPpe('')
+      setDocumentDigitPpe('')
     }
   }
 
   const isPpeValid = (): boolean => {
-    if (form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento) {
-      if (form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento === 1) {
+    if (degreeRelationship) {
+      if (degreeRelationship === 1) {
         return ppeOptionsSelect.id === 7
       }
 
-      if (form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento === 3) {
+      if (degreeRelationship === 3) {
         return (
-          !!form.passageiroPrincipal?.pessoaExposta?.nome &&
-          !!form.passageiroPrincipal?.pessoaExposta?.numeroCpf &&
-          form.passageiroPrincipal?.pessoaExposta?.numeroCpf.length === 9 &&
-          !!form.passageiroPrincipal?.pessoaExposta?.digitoCpf &&
-          form.passageiroPrincipal?.pessoaExposta?.digitoCpf.length === 2 &&
-          cpf.isValid(
-            `${form.passageiroPrincipal.pessoaExposta.numeroCpf}${form.passageiroPrincipal.pessoaExposta.digitoCpf}`
-          )
+          !!documentPpe &&
+          !!documentNumberPpe &&
+          documentNumberPpe.length === 9 &&
+          !!documentDigitPpe &&
+          documentDigitPpe.length === 2 &&
+          cpf.isValid(`${documentNumberPpe}${documentDigitPpe}`)
         )
       }
 
@@ -258,15 +238,15 @@ const InformationConfirmation: StepComponent = () => {
   }
 
   const isDisabledButton: boolean =
-    !!form.passageiroPrincipal?.sexo &&
+    !!(form.passageiroPrincipal?.sexo ?? genderSelect.id) &&
     !!form.passageiroPrincipal?.isResidePais &&
-    !!form.passageiroPrincipal?.endereco?.tipo &&
-    !!form.passageiroPrincipal?.endereco?.bairro &&
-    !!form.passageiroPrincipal?.endereco?.cidade &&
-    !!form.passageiroPrincipal?.endereco?.uf &&
-    !!form.passageiroPrincipal?.endereco?.logradouro &&
-    !!form.passageiroPrincipal?.endereco?.numero &&
-    !!form.passageiroPrincipal?.endereco?.numeroCep &&
+    !!address.bairro &&
+    !!address.cidade &&
+    !!address.uf &&
+    !!address.logradouro &&
+    !!address.numero &&
+    !!address.numeroCep &&
+    !!address.complementoCep &&
     !!form.isAceiteTermos &&
     !!form.isCienteMoto &&
     !!form.passageiroPrincipal?.contato?.nome &&
@@ -276,29 +256,20 @@ const InformationConfirmation: StepComponent = () => {
     [8, 9].includes(form.passageiroPrincipal?.contato?.celularNumero.length) &&
     isPpeValid()
 
-  React.useEffect(() => {
-    if (ppeOptionsSelect.id === 7) {
-      updateForm({
-        ...form,
-        passageiroPrincipal: {
-          ...form.passageiroPrincipal,
-          pessoaExposta: {
-            ...form.passageiroPrincipal?.pessoaExposta,
-            grauRelacionamento: 1,
-          },
-        },
-      })
-    }
-
-    if (![0, 7].includes(ppeOptionsSelect.id)) {
-      setCloseRelationship(ppeOptionsSelect.id)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ppeOptionsSelect])
+  /**
+   * Methods
+   */
 
   const handlerClick = () => {
     handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
     reset()
+  }
+
+  const checkForm = (key: string) => {
+    setValidForm((check: IFormInformationConfirmation) => ({
+      ...check,
+      [key]: true,
+    }))
   }
 
   const validationDocumentPpe = (): errorObject | boolean => {
@@ -320,13 +291,14 @@ const InformationConfirmation: StepComponent = () => {
       }
     }
 
-    return validtionGeneric(documentPpe, validForm.isDocumentPpe)
+    return validationInputError(documentPpe, validForm.isDocumentPpe)
   }
 
   const validationPhone = (): errorObject | boolean => {
     if (
       form.passageiroPrincipal?.contato?.celularDDD &&
-      form.passageiroPrincipal?.contato?.celularNumero
+      form.passageiroPrincipal?.contato?.celularNumero &&
+      validForm.isContactPhone
     ) {
       if (
         form.passageiroPrincipal?.contato?.celularDDD.length !== 2 ||
@@ -341,11 +313,18 @@ const InformationConfirmation: StepComponent = () => {
       }
     }
 
-    return validtionGeneric(
+    return validationInputError(
       `${form.passageiroPrincipal?.contato?.celularDDD}${form.passageiroPrincipal?.contato?.celularNumero}`,
       validForm.isContactPhone
     )
   }
+
+  const errorEmergencyInputs: boolean =
+    !!validationPhone() ||
+    !!validationInputError(
+      form.passageiroPrincipal?.contato?.nome,
+      validForm.isContactName
+    )
 
   return (
     <>
@@ -431,21 +410,13 @@ const InformationConfirmation: StepComponent = () => {
               <s.RadioOptionsWrapper data-testid="radio-brazilian-resident">
                 <s.Radio
                   options={radioOptions}
-                  checkedItem={
-                    form.passageiroPrincipal?.isResidePais ? '1' : '0'
+                  checkedItem={isReside ? '1' : '0'}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                    setIsReside(!!+e.currentTarget.value)
                   }
-                  onChange={e => {
-                    updateForm({
-                      ...form,
-                      passageiroPrincipal: {
-                        ...form.passageiroPrincipal,
-                        isResidePais: !!+e.currentTarget.value,
-                      },
-                    })
-                  }}
                 />
               </s.RadioOptionsWrapper>
-              {form.passageiroPrincipal?.isResidePais === false && (
+              {!isReside && (
                 <s.WarningFlag title="Este seguro só poderá ser contratado pelo segurado residente no Brasil." />
               )}
             </s.RadioContainer>
@@ -500,88 +471,57 @@ const InformationConfirmation: StepComponent = () => {
               <s.RadioOptionsWrapper data-testid="radio-ppe">
                 <Radio
                   options={radioPpeOptions}
-                  checkedItem={
-                    form.passageiroPrincipal?.pessoaExposta
-                      ?.grauRelacionamento === 2
-                      ? '2'
-                      : '1'
+                  checkedItem={degreeRelationship === 2 ? '2' : '1'}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                    setDegreeRelationship(+e.currentTarget.value)
                   }
-                  onChange={e => {
-                    updateForm({
-                      ...form,
-                      passageiroPrincipal: {
-                        ...form.passageiroPrincipal,
-                        pessoaExposta: {
-                          ...form.passageiroPrincipal?.pessoaExposta,
-                          grauRelacionamento: +e.currentTarget.value,
-                        },
-                      },
-                    })
-                  }}
                 />
               </s.RadioOptionsWrapper>
             </s.RadioContainerPPE>
-            {form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento &&
-              [1, 3].includes(
-                form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento
-              ) && (
-                <s.DelimiterWrapper>
-                  <s.Select
-                    label={
-                      isSmUp
-                        ? 'quem é a pessoa políticamente exposta?'
-                        : 'quem é a PPE?'
-                    }
-                    options={ppeOptions}
-                    selected={ppeOptionsSelect}
-                    optionBoxDirection="bottom"
-                  />
-                  {form.passageiroPrincipal?.pessoaExposta
-                    ?.grauRelacionamento &&
-                    form.passageiroPrincipal?.pessoaExposta
-                      ?.grauRelacionamento === 3 && (
-                      <>
-                        <s.PPENameInput
-                          label="nome completo"
-                          value={
-                            form.passageiroPrincipal?.pessoaExposta?.nome || ''
-                          }
-                          error={validtionGeneric(
-                            form.passageiroPrincipal?.pessoaExposta?.nome,
-                            validForm.isFullNamePpe
-                          )}
-                          onBlur={() => checkForm('isFullNamePpe')}
-                          placeholder="Digite aqui"
-                          onChange={e => {
-                            updateForm({
-                              ...form,
-                              passageiroPrincipal: {
-                                ...form.passageiroPrincipal,
-                                pessoaExposta: {
-                                  ...form.passageiroPrincipal?.pessoaExposta,
-                                  nome: e.currentTarget.value,
-                                },
-                              },
-                            })
-                          }}
-                        />
-                        <InputMask
-                          mask="999.999.999-99"
-                          value={documentPpe}
-                          maskPlaceholder={null}
-                          onChange={handlerDocumentPpe}
-                          onBlur={() => checkForm('isDocumentPpe')}
-                        >
-                          <s.PPEDocumentInput
-                            label="cpf"
-                            placeholder="000.000.000-00"
-                            error={validationDocumentPpe()}
-                          />
-                        </InputMask>
-                      </>
-                    )}
-                </s.DelimiterWrapper>
-              )}
+            {[1, 3].includes(degreeRelationship) && (
+              <s.DelimiterWrapper>
+                <s.Select
+                  label={
+                    isSmUp
+                      ? 'quem é a pessoa políticamente exposta?'
+                      : 'quem é a PPE?'
+                  }
+                  options={ppeOptions}
+                  selected={ppeOptionsSelect}
+                  optionBoxDirection="bottom"
+                />
+                {degreeRelationship === 3 && (
+                  <>
+                    <s.PPENameInput
+                      label="nome completo"
+                      value={namePpe}
+                      error={validationInputError(
+                        namePpe,
+                        validForm.isFullNamePpe
+                      )}
+                      onBlur={() => checkForm('isFullNamePpe')}
+                      placeholder="Digite aqui"
+                      onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                        setNamePpe(e.currentTarget.value)
+                      }
+                    />
+                    <InputMask
+                      mask="999.999.999-99"
+                      value={documentPpe}
+                      maskPlaceholder={null}
+                      onChange={handlerDocumentPpe}
+                      onBlur={() => checkForm('isDocumentPpe')}
+                    >
+                      <s.PPEDocumentInput
+                        label="cpf"
+                        placeholder="000.000.000-00"
+                        error={validationDocumentPpe()}
+                      />
+                    </InputMask>
+                  </>
+                )}
+              </s.DelimiterWrapper>
+            )}
           </s.Card>
           <s.Card overflow="visible">
             <s.CardTitleText
@@ -608,7 +548,7 @@ const InformationConfirmation: StepComponent = () => {
               </s.AddressText>
             )}
             <s.TextInputContainer>
-              <AddressForm />
+              <AddressForm addressData={[address, setAddress]} />
             </s.TextInputContainer>
           </s.Card>
           <s.Card>
@@ -620,12 +560,12 @@ const InformationConfirmation: StepComponent = () => {
             >
               contato em caso de acidentes
             </s.CardTitleText>
-            <s.EmergencyContactWrapper>
+            <s.EmergencyContactWrapper error={errorEmergencyInputs}>
               <s.EmergencyContactTextInput
                 label="nome"
                 value={form.passageiroPrincipal?.contato?.nome || ''}
                 placeholder="Digite aqui"
-                error={validtionGeneric(
+                error={validationInputError(
                   form.passageiroPrincipal?.contato?.nome,
                   validForm.isContactName
                 )}
@@ -679,7 +619,7 @@ const InformationConfirmation: StepComponent = () => {
               </InputMask>
             </s.EmergencyContactWrapper>
           </s.Card>
-          <s.Card>
+          <s.CardLast>
             <s.CardTitleText
               type="subheading"
               bold
@@ -699,7 +639,7 @@ const InformationConfirmation: StepComponent = () => {
             </s.WrapperHiringTerms>
             <s.WrapperHiringTerms>
               <s.IconWrapper>
-                <s.Icon name="pdf" color="blue4" />
+                <s.Icon name="pdf" color="gray6" />
                 <ButtonLink
                   noIcon
                   href={tripInsuranceQuotations?.urlCondicoesGerais || ''}
@@ -716,7 +656,7 @@ const InformationConfirmation: StepComponent = () => {
                 </ButtonLink>
               </s.IconWrapper>
               <s.IconWrapper>
-                <s.Icon name="pdf" color="blue4" />
+                <s.Icon name="pdf" color="gray6" />
                 <ButtonLink
                   noIcon
                   href="https://www.portoseguro.com.br/politica-de-privacidade"
@@ -764,6 +704,7 @@ const InformationConfirmation: StepComponent = () => {
                 <s.Checkbox
                   id={uuid()}
                   checked={isNotification}
+                  disabled={true}
                   onChange={() => setIsNotification(!isNotification)}
                   label="Aceito receber informações
                 e novidades da Porto Seguro
@@ -771,17 +712,26 @@ const InformationConfirmation: StepComponent = () => {
                 />
               </s.WrapperHiringTerms>
             </s.TextInputContainer>
-          </s.Card>
+          </s.CardLast>
         </s.Col>
       </s.ContentContainer>
       <s.FooterContainer>
-        <s.NextButton
-          color="secondary"
-          disabled={!isDisabledButton}
-          onClick={onSubmit}
-        >
-          próximo
-        </s.NextButton>
+        <Container>
+          <Row>
+            <s.Col lg={3} />
+            <s.Col lg={8} md={11}>
+              <s.ButtonAlign>
+                <s.NextButton
+                  color="secondary"
+                  disabled={!isDisabledButton}
+                  onClick={onSubmit}
+                >
+                  continuar
+                </s.NextButton>
+              </s.ButtonAlign>
+            </s.Col>
+          </Row>
+        </Container>
       </s.FooterContainer>
     </>
   )

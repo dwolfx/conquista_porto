@@ -57,6 +57,14 @@ const ChoosePlan: StepComponent = () => {
     updateForm({
       ...form,
       pacoteEscolhido: choosedPlan,
+      passageiroPrincipal: {
+        ...form.passageiroPrincipal,
+        isResidePais: form.passageiroPrincipal?.isResidePais ?? true,
+        pessoaExposta: {
+          ...form.passageiroPrincipal?.pessoaExposta,
+          grauRelacionamento: 2,
+        },
+      },
     })
     instantiate(Steps.informationConfirmationStep)
   }

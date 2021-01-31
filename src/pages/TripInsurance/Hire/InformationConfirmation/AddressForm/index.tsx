@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useZipCodeFetch from 'hooks/ZipCode/useZipCodeFetch'
 import { brazilianStates } from 'pages/CreditCard/Creation/CreditCardStep/Selects/BrazilianStates/types'
 import * as s from './styles'
 import {
   errorCEP,
   isInvalidCEP,
+  validationInputError,
 } from 'pages/CreditCard/Creation/CreditCardStep/validators'
-import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import { IForm } from 'pages/TripInsurance/Creation/types'
+import { IPassengerAddress } from 'pages/TripInsurance/Creation/types'
+import { dict } from 'components/IconExporter'
 
 interface IFormAddres {
   cep: boolean
@@ -17,6 +18,13 @@ interface IFormAddres {
   neighbourhood: boolean
   city: boolean
   stateOption: boolean
+}
+
+interface IAddressForm {
+  addressData: [
+    IPassengerAddress,
+    React.Dispatch<React.SetStateAction<IPassengerAddress>>
+  ]
 }
 
 type EAddressForm =
@@ -30,14 +38,23 @@ type EAddressForm =
   | 'numeroCep'
   | 'complementoCep'
 
-const AddressForm: React.FC = () => {
-  const { form, updateForm } = useFormFluxManagement<IForm>()
-  const [hasError, setHasError] = useState(false)
-  const { data: zipCode, searchZipCode, isLoading } = useZipCodeFetch()
-  const [cep, setCep] = useState('')
-  const [streetAddress, setStreetAddress] = useState<string>()
-  const [stateSelect, setStateSelect] = useState({ id: 0, name: 'Selecione' })
-  const [touched, setTouched] = useState<IFormAddres>({
+const AddressForm: React.FC<IAddressForm> = ({
+  addressData: [addressData, setAddressData],
+}: IAddressForm) => {
+  const {
+    data: zipCode,
+    searchZipCode,
+    isLoading,
+    hasError,
+  } = useZipCodeFetch()
+
+  const [cep, setCep] = React.useState<string>('')
+  const [stateSelect, setStateSelect] = React.useState({
+    id: 0,
+    name: 'Selecione',
+  })
+
+  const [touched, setTouched] = React.useState<IFormAddres>({
     cep: false,
     streetAddress: false,
     number: false,
@@ -46,6 +63,7 @@ const AddressForm: React.FC = () => {
     city: false,
     stateOption: false,
   })
+
   const touch = (key: string) => {
     setTouched((touched: IFormAddres) => ({
       ...touched,
@@ -54,8 +72,6 @@ const AddressForm: React.FC = () => {
   }
 
   React.useEffect(() => {
-    setHasError(zipCode.hasError)
-
     if (!zipCode.hasError && zipCode.data) {
       const {
         bairro,
@@ -67,39 +83,52 @@ const AddressForm: React.FC = () => {
         complementoCep,
       } = zipCode.data
 
-      setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
       setStateSelect({ id: 99, name: uf })
-
-      updateForm({
-        ...form,
-        passageiroPrincipal: {
-          ...form.passageiroPrincipal,
-          endereco: {
-            tipo: tipoLogradouro,
-            bairro,
-            cidade,
-            uf,
-            logradouro,
-            numeroCep: cep,
-            complementoCep: complementoCep,
-          },
-        },
+      setAddressData({
+        tipo: tipoLogradouro,
+        bairro,
+        cidade,
+        uf,
+        logradouro: `${tipoLogradouro}. ${logradouro}`,
+        numeroCep: cep,
+        complementoCep: complementoCep,
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [zipCode])
+  }, [zipCode, setAddressData])
+
+  React.useEffect(() => {
+    if (cep && cep.length === 9) {
+      if (isLoading || hasError) {
+        setAddressData({
+          numeroCep: cep.slice(0, 5),
+          complementoCep: cep.slice(-3),
+          bairro: '',
+          cidade: '',
+          uf: '',
+          logradouro: '',
+          numero: '',
+        })
+        setStateSelect({
+          id: 0,
+          name: 'Selecione',
+        })
+        setTouched({
+          cep: false,
+          streetAddress: false,
+          number: false,
+          additionalInfo: false,
+          neighbourhood: false,
+          city: false,
+          stateOption: false,
+        })
+      }
+    }
+  }, [isLoading, hasError, setAddressData, cep])
 
   const setFormAddress = (value: string, key: EAddressForm) => {
-    updateForm({
-      ...form,
-      passageiroPrincipal: {
-        ...form.passageiroPrincipal,
-        endereco: {
-          ...form.passageiroPrincipal?.endereco,
-          tipo: 'Rua',
-          [key]: value,
-        },
-      },
+    setAddressData({
+      ...addressData,
+      [key]: value,
     })
   }
 
@@ -114,20 +143,40 @@ const AddressForm: React.FC = () => {
     }))
 
   const handlerOnChangeZipCode = (e: React.FormEvent<HTMLInputElement>) => {
-    setCep(e.currentTarget.value)
+    setCep(e.currentTarget.value || '')
     searchZipCode(e.currentTarget.value)
+    if (e.currentTarget.value && e.currentTarget.value.length === 9) {
+      setFormAddress(e.currentTarget.value.slice(0, 5), 'numeroCep')
+      setFormAddress(e.currentTarget.value.slice(-3), 'complementoCep')
+    } else {
+      setFormAddress('', 'numeroCep')
+      setFormAddress('', 'complementoCep')
+    }
   }
 
-  const handlerStreetAddress = (e: React.FormEvent<HTMLInputElement>) => {
-    setStreetAddress(e.currentTarget.value)
-    setFormAddress(e.currentTarget.value, 'logradouro')
+  const errorResponseCep = () => {
+    if (isInvalidCEP(cep, touched.cep)) {
+      return errorCEP(cep)
+    }
+
+    if (hasError) {
+      return {
+        icon: 'information' as keyof typeof dict,
+        message:
+          'CEP não localizado. Por favor, preencha o endereço manualmente.',
+      }
+    }
+
+    return undefined
   }
+
+  const isFormAddress: boolean = !!zipCode.data || hasError
 
   return (
     <>
       <s.CEPInput
         label="CEP"
-        error={isInvalidCEP(cep, touched.cep) && errorCEP(cep)}
+        error={errorResponseCep()}
         onBlur={() => touch('cep')}
         suffix={
           isLoading ? (
@@ -139,37 +188,42 @@ const AddressForm: React.FC = () => {
           )
         }
         value={cep}
+        disabled={isLoading}
         onChange={handlerOnChangeZipCode}
         placeholder="Busca por CEP"
       />
-      <s.StatusWrapper>
-        {hasError && (
-          <>
-            <s.ErrorIcon name="alertrounded" color="magenta2" />
-            <s.Text bold color="magenta2">
-              CEP não localizado. Por favor, preencha o endereço manualmente.
-            </s.Text>
-          </>
-        )}
-      </s.StatusWrapper>
-      {zipCode?.data && (
+      {isFormAddress && (
         <>
           <s.TextInput
             label="Endereço"
-            value={streetAddress}
-            onChange={handlerStreetAddress}
+            value={addressData.logradouro}
+            disabled={isLoading}
+            onBlur={() => touch('streetAddress')}
+            error={validationInputError(
+              addressData.logradouro,
+              touched.streetAddress
+            )}
+            onChange={(e: React.FormEvent<HTMLInputElement>) =>
+              setFormAddress(e.currentTarget.value, 'logradouro')
+            }
             placeholder="Digite aqui"
           />
           <s.InputWrapper>
             <s.TextInput
               label="Número"
-              value={form.passageiroPrincipal?.endereco?.numero}
-              onChange={e => setFormAddress(e.currentTarget.value, 'numero')}
+              value={addressData.numero}
+              disabled={isLoading}
+              onBlur={() => touch('number')}
+              error={validationInputError(addressData.numero, touched.number)}
+              onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                setFormAddress(e.currentTarget.value, 'numero')
+              }
               placeholder="Digite aqui"
             />
             <s.ComplementTextInput
               label="Complemento (opcional)"
-              value={form.passageiroPrincipal?.endereco?.complemento}
+              value={addressData.complemento}
+              disabled={isLoading}
               placeholder="Digite aqui"
               onChange={e =>
                 setFormAddress(e.currentTarget.value, 'complemento')
@@ -178,20 +232,34 @@ const AddressForm: React.FC = () => {
           </s.InputWrapper>
           <s.TextInput
             label="Bairro"
-            value={form.passageiroPrincipal?.endereco?.bairro}
-            onChange={e => setFormAddress(e.currentTarget.value, 'bairro')}
+            value={addressData.bairro}
+            disabled={isLoading}
+            onBlur={() => touch('neighbourhood')}
+            error={validationInputError(
+              addressData.bairro,
+              touched.neighbourhood
+            )}
+            onChange={(e: React.FormEvent<HTMLInputElement>) =>
+              setFormAddress(e.currentTarget.value, 'bairro')
+            }
             placeholder="Digite aqui"
           />
           <s.InputWrapper>
             <s.Select
               label="Estado"
+              disabled={isLoading}
               options={statusOption()}
               selected={stateSelect}
             />
             <s.CityTextInput
               label="Cidade"
-              value={form.passageiroPrincipal?.endereco?.cidade}
-              onChange={e => setFormAddress(e.currentTarget.value, 'cidade')}
+              value={addressData.cidade}
+              onBlur={() => touch('city')}
+              disabled={isLoading}
+              error={validationInputError(addressData.cidade, touched.city)}
+              onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                setFormAddress(e.currentTarget.value, 'cidade')
+              }
               placeholder="Digite aqui"
             />
           </s.InputWrapper>

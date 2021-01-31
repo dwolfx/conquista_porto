@@ -6,8 +6,16 @@ import {
 } from 'store/modules/ZipCode/action'
 import { ZipCodeState } from 'store/modules/ZipCode/types'
 
-export default function useZipCodeFetch() {
+interface IUseZipCodeFetch {
+  data: ZipCodeState
+  isLoading: boolean
+  hasError: boolean
+  searchZipCode: (zipcode: string) => void
+}
+
+export default function useZipCodeFetch(): IUseZipCodeFetch {
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [hasError, setHasError] = useState<boolean>(false)
   const [data, setData] = useState<ZipCodeState>({
     data: null,
     isLoading: false,
@@ -33,12 +41,13 @@ export default function useZipCodeFetch() {
   ])
 
   useEffect(() => {
+    setHasError(zipcodeData.hasError)
     if (zipcodeData && zipcodeData.data) {
       setData(zipcodeData)
       cleanZip()
-      setIsLoading(false)
     }
+    setIsLoading(zipcodeData.isLoading)
   }, [cleanZip, zipcodeData])
 
-  return { data, searchZipCode, isLoading }
+  return { data, searchZipCode, isLoading, hasError }
 }

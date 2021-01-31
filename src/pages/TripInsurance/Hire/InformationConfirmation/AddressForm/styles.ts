@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import NewInput from 'components/NewInput'
 import SelectCmp from 'components/Inputs/Select'
 import IconExporter from 'components/IconExporter'
@@ -6,12 +6,20 @@ import CEPInputCmp from 'components/Inputs/CEPInput'
 import LoadingCmp from 'components/Loading'
 import TextCmp from 'components/Text'
 
+const spaceError = css`
+  margin-bottom: ${({ theme }) => theme.spacing(8)}px;
+`
+
 export const CEPInput = styled(CEPInputCmp)`
-  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+
+  ${({ error }) => error && spaceError}
 `
 
 export const TextInput = styled(NewInput)`
   margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+
+  ${({ error }) => error && spaceError}
 `
 
 export const ComplementTextInput = styled(NewInput)`
