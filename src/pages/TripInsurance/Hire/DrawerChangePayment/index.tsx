@@ -13,7 +13,7 @@ import { IForm } from 'pages/TripInsurance/Creation/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { capitalize, formatMoney } from 'helpers'
 import IconExporter from 'components/IconExporter'
-import { validtionGeneric } from 'pages/CreditCard/Creation/CreditCardStep/validators'
+import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import { TFlagName } from '../PaymentStep/types'
 import { getFlagCode } from '../PaymentStep/utils'
 import {
@@ -571,7 +571,10 @@ const DrawerChangePayment: React.FC<t.IDrawerChangePayment> = ({
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setHolderName(e.target.value)
             }
-            error={validtionGeneric(holderName, touchInputValid.isHolderName)}
+            error={validationInputError(
+              holderName,
+              touchInputValid.isHolderName
+            )}
             onBlur={() => {
               setTouchInputValid({
                 ...touchInputValid,

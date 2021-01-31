@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Container, Col as ColComponent } from 'styled-bootstrap-grid'
 import Text from 'components/Text'
 import Button from 'components/Button'
@@ -13,10 +13,21 @@ import CEPInput from 'components/Inputs/CEPInput'
 import CheckboxComponent from 'components/Inputs/Checkbox'
 import WarningFlagCmp from '../../commons/WarningFlag'
 
+const spacePlusError = css`
+  padding-bottom: ${({ theme }) => theme.spacing(7)}px;
+`
+
+const disabledColorTextCheckBox = css`
+  label {
+    color: ${({ theme }) => theme.colors.gray5};
+  }
+`
+
 export const ContentContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(3)}`}px;
+  padding: ${({ theme }) =>
+    `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(11)}`}px;
   align-items: center;
   @media ${({ theme }) => theme.mediaQueries.lgUp} {
     flex-direction: row;
@@ -109,6 +120,10 @@ export const RadioOptionsWrapper = styled.div`
     justify-content: flex-start;
   }
 
+  & label {
+    margin-right: ${({ theme }) => theme.spacing(4)}px;
+  }
+
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     margin-top: ${({ theme }) => theme.spacing(2)}px;
   }
@@ -184,7 +199,13 @@ export const TextHiringTerms = styled(Text)`
 export const WrapperHiringTerms = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => theme.spacing(2)}px;
+  padding-top: ${({ theme }) => theme.spacing(2)}px;
+
+  label {
+    font-size: 14px;
+    line-height: 19px;
+    color: ${({ theme }) => theme.colors.gray6};
+  }
 `
 
 export const IconWrapper = styled.div`
@@ -203,6 +224,9 @@ export const CheckboxInputWrapper = styled.div`
 
 export const Checkbox = styled(CheckboxComponent)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  margin-left: -${({ theme }) => theme.spacing(2)}px;
+
+  ${({ disabled }) => disabled && disabledColorTextCheckBox}
 `
 
 export const CheckboxWrapper = styled.div`
@@ -235,17 +259,35 @@ export const FooterContainer = styled.div`
   position: fixed;
   bottom: 0;
   width: 100vw;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray3};
 `
 
-export const EmergencyContactWrapper = styled.div`
+export const ButtonAlign = styled.div`
+  min-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: ${({ theme }) => theme.spacing(3)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    padding-right: ${({ theme }) => theme.spacing(2)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    padding-right: 0;
+  }
+`
+
+export const EmergencyContactWrapper = styled.div<{ error: boolean }>`
   display: flex;
   flex-direction: column;
-  padding-bottom: ${({ theme }) => theme.spacing(7)}px;
+  padding-bottom: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     width: 630px;
     flex-direction: row;
   }
+
+  ${({ error }) => error && spacePlusError}
 `
 
 export const EmergencyContactTextInput = styled(NewInput)`
@@ -265,3 +307,30 @@ export const TextInputContainer = styled.div`
 export const WarningFlag = styled(WarningFlagCmp)``
 
 export const Radio = styled(RadioComponent)``
+
+export const CardLast = styled(CardComponent)`
+  padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(7)}`}px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+
+  ${CardHeader} {
+    border-bottom: 0;
+    padding: 0px ${({ theme }) => theme.spacing(2)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(4)}`}px;
+  }
+
+  p {
+    margin-left: 0;
+    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+
+    @media ${({ theme }) => theme.mediaQueries.sm} {
+      margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+    }
+
+    & + div {
+      margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+    }
+  }
+`

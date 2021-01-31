@@ -12,7 +12,6 @@ import * as t from 'components/Inputs/Select/types'
 import * as s from './styles'
 import { uuid } from 'uuidv4'
 import VerticalList from 'components/VerticalList'
-import AddressForm from 'pages/TripInsurance/Hire/InformationConfirmation/AddressForm'
 
 interface ICompanionsData {
   name: string
@@ -275,9 +274,6 @@ const SummaryProposal: StepComponent = () => {
             <s.CardTitle bold type="subheading" color="gray5">
               ENDEREÇO
             </s.CardTitle>
-            <s.ContentWrapper>
-              <AddressForm />
-            </s.ContentWrapper>
           </s.Card>
           <s.Card>
             <s.CardTitle bold type="subheading" color="gray5">
