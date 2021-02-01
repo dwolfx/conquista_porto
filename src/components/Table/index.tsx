@@ -35,6 +35,7 @@ const Table = ({
   filteringEmptyMessage,
   isLoading = false,
   isSticky = false,
+  hasPagination = false,
   disableSort = false,
   onRowClick,
   customRef,
@@ -59,6 +60,7 @@ const Table = ({
     previousPage,
     gotoPage,
     pageCount,
+    page,
   } = useTable.apply(
     undefined,
     disableSort
@@ -71,6 +73,7 @@ const Table = ({
             disableMultiSort: false,
           },
           useSticky,
+          usePagination,
         ]
       : [
           {
