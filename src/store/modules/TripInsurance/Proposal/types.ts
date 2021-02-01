@@ -27,13 +27,6 @@ interface IMainPassenger {
     celularDDD?: string
     celularNumero?: string
   }
-  pessoaExposta?: {
-    grauRelacionamento?: number
-    nome?: string
-    numeroCpf?: string
-    digitoCpf?: string
-    grauParentesco?: number
-  }
   endereco?: {
     tipo?: string
     logradouro?: string
@@ -51,6 +44,13 @@ interface ICompanion extends IMainPassenger {
   numeroCpfResponsavel?: string
   digitoCpfResponsavel?: string
   codigoPaisResidente?: string
+  pessoaExposta?: {
+    grauRelacionamento?: number
+    nome?: string
+    numeroCpf?: string
+    digitoCpf?: string
+    grauParentesco?: number
+  }
 }
 
 interface IPayment {
@@ -85,6 +85,13 @@ export interface ITripInsuranceProposalRequest {
   isAceiteTermos?: boolean
   isCienteMoto?: boolean
   idSimulacao?: string
+  pessoaExposta?: {
+    grauRelacionamento?: number
+    nome?: string
+    numeroCpf?: string
+    digitoCpf?: string
+    grauParentesco?: number
+  }
 }
 
 export interface ITripInsuranceProposalResponse {

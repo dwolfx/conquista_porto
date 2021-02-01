@@ -176,4 +176,29 @@ describe('Trip Insurance quotation Sagas', () => {
     )
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
+  it(`should trigger failure action if 'TipoCritica' = 'CRITICA_NEGOCIO'`, () => {
+    const generator = postTripInsuranceProposal({
+      ...requestData,
+    })
+    const response = {
+      Message: {
+        Mensagem: 'Erro ao validar os campos',
+        TipoCritica: 'CRITICA_NEGOCIO',
+      },
+    }
+
+    expect(generator.next().value).toEqual(
+      call(
+        post,
+        `${baseURLNamespaceInvestAws}/viagem/proposta`,
+        requestData.payload
+      )
+    )
+
+    expect(generator.next({ data: response }).value).toEqual(
+      put(PostTripInsuranceProposalFailure())
+    )
+
+    expect(generator.next()).toEqual({ done: true, value: undefined })
+  })
 })

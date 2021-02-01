@@ -21,6 +21,11 @@ export function* postTripInsuranceProposal({
       payload
     )
 
+    if (data?.Message?.TipoCritica === 'CRITICA_NEGOCIO') {
+      console.error(data)
+      throw new Error(`Erro ao efetuar chamada '/viagem/proposta'`)
+    }
+
     yield put(PostTripInsuranceProposalSuccess(data))
     if (onSuccess && Step) onSuccess(Step)
   } catch (err) {

@@ -8,6 +8,7 @@ import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponentProps, StepComponent } from 'hooks/FluxManagement/types'
 import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
+import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { IForm, Steps } from 'pages/TripInsurance/Creation/types'
 
 import PaymentMethod from './PaymentMethod'
@@ -33,9 +34,14 @@ const PaymentStep: StepComponent = () => {
   const validityHasErrorState = useState(false)
   const cvcState = useState<string>('')
 
-  const { creditCardData } = useSelector(
-    (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
+  const { creditCardData, tripInsuranceQuotations } = useSelector(
+    (state: {
+      tripInsuranceCreditCard: ITripInsuranceCreditCard
+      tripInsuranceQuotation: ITripInsuranceQuotation
+    }) => ({
       creditCardData: state.tripInsuranceCreditCard.data,
+      tripInsuranceQuotations:
+        state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
     })
   )
 
@@ -54,6 +60,20 @@ const PaymentStep: StepComponent = () => {
     validityDateState[0].length === 7 &&
     !validityHasErrorState[0] &&
     cvcState[0].length === 3
+
+  const getTotalValue = (): number => {
+    const isPorto =
+      creditCardData?.creditCards && creditCardData.creditCards.length > 0
+        ? selectedCreditCard <= creditCardData.creditCards?.length - 1
+        : false
+    const choosedPlan = tripInsuranceQuotations?.find(
+      quotation => quotation.codigoPlano === form.pacoteEscolhido
+    )
+
+    return isPorto
+      ? Number(choosedPlan?.valorCartaoPortoSeguro)
+      : Number(choosedPlan?.valorSeguroBruto)
+  }
 
   // Seleciona o cartão Porto Seguro caso exista no serviço
   useEffect(() => {
@@ -143,6 +163,7 @@ const PaymentStep: StepComponent = () => {
                                 creditCardData.creditCards?.length - 1
                               : false,
                         },
+                        valorSeguro: getTotalValue(),
                       })
                       instantiate(Steps.summaryStep)
                     }}

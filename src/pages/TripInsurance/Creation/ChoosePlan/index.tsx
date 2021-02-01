@@ -55,20 +55,19 @@ const ChoosePlan: StepComponent = () => {
     })
   )
 
-  const handleClick = (choosedPlan: string, totalValue: number) => {
+  const handleClick = (choosedPlan: string) => {
     updateForm({
       ...form,
       pacoteEscolhido: choosedPlan,
       passageiroPrincipal: {
         ...form.passageiroPrincipal,
         isResidePais: form.passageiroPrincipal?.isResidePais ?? true,
-        pessoaExposta: {
-          ...form.passageiroPrincipal?.pessoaExposta,
-          grauRelacionamento: 2,
-        },
       },
       idSimulacao: simulationID ?? '',
-      valorSeguro: totalValue,
+      pessoaExposta: {
+        ...form?.pessoaExposta,
+        grauRelacionamento: 2,
+      },
     })
     instantiate(Steps.informationConfirmationStep)
   }
@@ -210,7 +209,6 @@ const ChoosePlan: StepComponent = () => {
                       <PlanCard
                         planName={quotation.nomePlano}
                         planId={quotation.codigoPlano}
-                        totalValue={quotation.valorTotal}
                         recommendedPaymentPlan={installment}
                         upfrontPayment={upfronPayment}
                         firstCoverageAmount={firstCoverageAmount?.valor}
