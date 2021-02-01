@@ -303,13 +303,8 @@ const CompanionEditDrawer: React.FC<IProps> = ({
 
     if (date.length === 0) return false
 
-    if (valid && !checkCurrentYear) {
-      if (
-        companionAge > 70 &&
-        check &&
-        date.length === 10 &&
-        moment().diff(dateYear, 'year') < 90
-      ) {
+    if (valid && !checkCurrentYear && date.length === 10) {
+      if (companionAge > 70 && check && moment().diff(dateYear, 'year') < 90) {
         return {
           icon,
           message:
@@ -318,7 +313,6 @@ const CompanionEditDrawer: React.FC<IProps> = ({
       } else if (
         companionAge > 70 &&
         !check &&
-        date.length === 10 &&
         moment().diff(dateYear, 'year') > 90
       ) {
         return {
@@ -326,7 +320,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
           message:
             'Você definiu esse acompanhante com até 90 anos na etapa de simulação.',
         }
-      } else if (companionAge === 70 && !check && date.length === 10) {
+      } else if (companionAge === 70 && !check) {
         return {
           icon,
           message:

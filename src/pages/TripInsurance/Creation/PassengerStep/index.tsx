@@ -42,16 +42,23 @@ const PassengerStep: StepComponent = () => {
     )
     let young = counts.young
     let old = counts.old
+    let total = counts.total
     if (mainPassenger <= 70) {
-      if (counts.young >= 1) {
-        young = counts.young - 1
+      if (counts.young === 1) {
+        total--
+      } else if (counts.young > 1) {
+        young--
+        total--
       }
     } else {
-      if (counts.old >= 1) {
-        old = counts.old - 1
+      if (counts.old === 1) {
+        total--
+      } else if (counts.old > 1) {
+        old--
+        total--
       }
     }
-    const newCompanions = [...new Array(counts.total - 1)].map((_, index) => ({
+    const newCompanions = [...new Array(total)].map((_, index) => ({
       id: index + 1,
       nome: truncateString(`Acompanhante ${index + 1}`, 25),
       status: false,
