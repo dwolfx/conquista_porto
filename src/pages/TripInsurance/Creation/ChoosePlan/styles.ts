@@ -104,6 +104,21 @@ export const LoadingState = styled(LoadingStateComponent)`
   }
 `
 
+export const ErrorState = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 434px;
+  min-height: calc(100vh - 136px);
+  align-self: center;
+  text-align: center;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 304px;
+  }
+`
+
 export const DarkBackground = styled.div`
   position: absolute;
   top: 0;
@@ -322,6 +337,11 @@ export const Button = styled(ButtonComponent)`
   &:first-of-type {
     margin-right: ${({ theme }) => `${theme.spacing(2)}px`};
   }
+`
+
+export const TryAgainButton = styled(ButtonComponent)`
+  width: 192px;
+  margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
 `
 
 export const Divider = styled(Divisor)`

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { PostInsuranceQuotationRequest } from 'store/modules/TripInsurance/InsuranceQuotation/action'
@@ -38,6 +38,7 @@ const ChoosePlan: StepComponent = () => {
   const {
     tripInsuranceQuotations,
     isLoading,
+    hasError,
     urlGeneralConditions,
     urlManual,
   } = useSelector(
@@ -69,7 +70,7 @@ const ChoosePlan: StepComponent = () => {
     instantiate(Steps.informationConfirmationStep)
   }
 
-  useEffect(() => {
+  const quotationDispatch = useCallback(() => {
     dispatch(
       PostInsuranceQuotationRequest({
         payload: {
@@ -94,6 +95,10 @@ const ChoosePlan: StepComponent = () => {
       })
     )
   }, [dispatch, addToast, form])
+
+  useEffect(() => {
+    quotationDispatch()
+  }, [quotationDispatch])
 
   const renderHeader = () => (
     <s.ContextWrapper>
@@ -138,6 +143,143 @@ const ChoosePlan: StepComponent = () => {
     </s.TitleWrapper>
   )
 
+  const renderContent = () => {
+    if (hasError) {
+      return (
+        <s.ErrorState>
+          <Text type="headline" color="magenta2">
+            Desculpe, não foi possível carregar suas informações. Aguarde alguns
+            instantes e tente novamente.
+          </Text>
+          <s.TryAgainButton
+            loading={isLoading}
+            onClick={() => quotationDispatch()}
+          >
+            TENTAR NOVAMENTE
+          </s.TryAgainButton>
+        </s.ErrorState>
+      )
+    }
+    if (isLoading) {
+      return <s.LoadingState />
+    }
+
+    return (
+      <>
+        <s.BackgroundWrapper>
+          <s.DarkBackground />
+          <s.ContentContainer>
+            {renderHeader()}
+            <s.Divider />
+            <s.ContentWrapper>
+              {tripInsuranceQuotations &&
+                renderTitle(tripInsuranceQuotations.length)}
+              <s.CardsWrapper
+                cardsQuantity={tripInsuranceQuotations?.length || 1}
+              >
+                {tripInsuranceQuotations &&
+                  tripInsuranceQuotations.map((quotation: IPlan) => {
+                    const firstCoverageAmount = quotation.ViagemCobertura.coberturas.find(
+                      coverage =>
+                        coverage.descricao.toLowerCase() ===
+                        'despesas médicas, hospitalares e/ou odontológicas - dmho'
+                    )
+                    const secondCoverageAmount = quotation.ViagemCobertura.coberturas.find(
+                      coverage =>
+                        coverage.descricao.toLowerCase() === 'morte acidental'
+                    )
+                    const thridCoverageAmount = quotation.ViagemCobertura.coberturas.find(
+                      coverage =>
+                        coverage.descricao.toLowerCase() ===
+                        'extravio de bagagem'
+                    )
+                    const installment = getTheSixthInstallmentOrLessFormated(
+                      quotation.formasPagamento.listaParcelamentoCartao,
+                      quotation.formasPagamento.listaParcelamentoCartaoPorto,
+                      isPortoSeguroCard
+                    )
+                    const upfronPayment = getUpfrontPaymentFormated(
+                      quotation.formasPagamento.listaParcelamentoCartao,
+                      quotation.formasPagamento.listaParcelamentoCartaoPorto,
+                      isPortoSeguroCard
+                    )
+                    return (
+                      <PlanCard
+                        planName={quotation.nomePlano}
+                        planId={quotation.codigoPlano}
+                        recommendedPaymentPlan={installment}
+                        upfrontPayment={upfronPayment}
+                        firstCoverageAmount={firstCoverageAmount?.valor}
+                        secondCoverageAmount={secondCoverageAmount?.valor}
+                        thridCoverageAmount={thridCoverageAmount?.valor}
+                        isLoading={isLoading}
+                        key={quotation.nomePlano}
+                        onHireClick={handleClick}
+                      />
+                    )
+                  })}
+              </s.CardsWrapper>
+            </s.ContentWrapper>
+            <s.DisclosureWrapper>
+              <Text color="gray5" bold>
+                Importante: As coberturas de seguro e serviços de assistência
+                possuem restrições para indenização e/ou prestação de serviços,
+                com riscos excluídos.
+              </Text>
+              <Text color="gray5" bold>
+                Consulte as{' '}
+                <s.Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={urlGeneralConditions}
+                >
+                  Condições Gerais
+                </s.Link>{' '}
+                e{' '}
+                <s.Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={urlManual}
+                >
+                  Manual de Assistência Emergencial
+                </s.Link>{' '}
+                do plano escolhido.
+              </Text>
+              <Text color="gray5" bold>
+                Valores calculados em reais, considerando o câmbio do dia da
+                cotação.
+              </Text>
+              <Text color="gray5" bold>
+                Orçamento válido somente para a data da cotação.
+              </Text>
+            </s.DisclosureWrapper>
+          </s.ContentContainer>
+        </s.BackgroundWrapper>
+
+        <s.Footer>
+          <s.Button
+            data-gtm-name="comparativo coberturas"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            outline
+            onClick={() => setModalOpen(true)}
+          >
+            comparativo de coberturas
+          </s.Button>
+          <s.Button
+            data-gtm-name="alterar dados"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            outline
+            onClick={() => setIsDrawerOpen(true)}
+          >
+            alterar dados
+          </s.Button>
+        </s.Footer>
+      </>
+    )
+  }
+
   return (
     <s.Container>
       <ComparativeModal
@@ -147,122 +289,7 @@ const ChoosePlan: StepComponent = () => {
         isLoading={isLoading}
       />
       <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} />
-      {isLoading ? (
-        <s.LoadingState />
-      ) : (
-        <>
-          <s.BackgroundWrapper>
-            <s.DarkBackground />
-            <s.ContentContainer>
-              {renderHeader()}
-              <s.Divider />
-              <s.ContentWrapper>
-                {tripInsuranceQuotations &&
-                  renderTitle(tripInsuranceQuotations.length)}
-                <s.CardsWrapper
-                  cardsQuantity={tripInsuranceQuotations?.length || 1}
-                >
-                  {tripInsuranceQuotations &&
-                    tripInsuranceQuotations.map((quotation: IPlan) => {
-                      const firstCoverageAmount = quotation.ViagemCobertura.coberturas.find(
-                        coverage =>
-                          coverage.descricao.toLowerCase() ===
-                          'despesas médicas, hospitalares e/ou odontológicas - dmho'
-                      )
-                      const secondCoverageAmount = quotation.ViagemCobertura.coberturas.find(
-                        coverage =>
-                          coverage.descricao.toLowerCase() === 'morte acidental'
-                      )
-                      const thridCoverageAmount = quotation.ViagemCobertura.coberturas.find(
-                        coverage =>
-                          coverage.descricao.toLowerCase() ===
-                          'extravio de bagagem'
-                      )
-                      const installment = getTheSixthInstallmentOrLessFormated(
-                        quotation.formasPagamento.listaParcelamentoCartao,
-                        quotation.formasPagamento.listaParcelamentoCartaoPorto,
-                        isPortoSeguroCard
-                      )
-                      const upfronPayment = getUpfrontPaymentFormated(
-                        quotation.formasPagamento.listaParcelamentoCartao,
-                        quotation.formasPagamento.listaParcelamentoCartaoPorto,
-                        isPortoSeguroCard
-                      )
-                      return (
-                        <PlanCard
-                          planName={quotation.nomePlano}
-                          planId={quotation.codigoPlano}
-                          recommendedPaymentPlan={installment}
-                          upfrontPayment={upfronPayment}
-                          firstCoverageAmount={firstCoverageAmount?.valor}
-                          secondCoverageAmount={secondCoverageAmount?.valor}
-                          thridCoverageAmount={thridCoverageAmount?.valor}
-                          isLoading={isLoading}
-                          key={quotation.nomePlano}
-                          onHireClick={handleClick}
-                        />
-                      )
-                    })}
-                </s.CardsWrapper>
-              </s.ContentWrapper>
-              <s.DisclosureWrapper>
-                <Text color="gray5" bold>
-                  Importante: As coberturas de seguro e serviços de assistência
-                  possuem restrições para indenização e/ou prestação de
-                  serviços, com riscos excluídos.
-                </Text>
-                <Text color="gray5" bold>
-                  Consulte as{' '}
-                  <s.Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={urlGeneralConditions}
-                  >
-                    Condições Gerais
-                  </s.Link>{' '}
-                  e{' '}
-                  <s.Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={urlManual}
-                  >
-                    Manual de Assistência Emergencial
-                  </s.Link>{' '}
-                  do plano escolhido.
-                </Text>
-                <Text color="gray5" bold>
-                  Valores calculados em reais, considerando o câmbio do dia da
-                  cotação.
-                </Text>
-                <Text color="gray5" bold>
-                  Orçamento válido somente para a data da cotação.
-                </Text>
-              </s.DisclosureWrapper>
-            </s.ContentContainer>
-          </s.BackgroundWrapper>
-
-          <s.Footer>
-            <s.Button
-              data-gtm-name="comparativo coberturas"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              outline
-              onClick={() => setModalOpen(true)}
-            >
-              comparativo de coberturas
-            </s.Button>
-            <s.Button
-              data-gtm-name="alterar dados"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              outline
-              onClick={() => setIsDrawerOpen(true)}
-            >
-              alterar dados
-            </s.Button>
-          </s.Footer>
-        </>
-      )}
+      {renderContent()}
     </s.Container>
   )
 }
