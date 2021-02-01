@@ -1,33 +1,41 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Container, Row } from 'styled-bootstrap-grid'
 import { uuid } from 'uuidv4'
 import { cpf } from 'cpf-cnpj-validator'
 import InputMask from 'react-input-mask'
-import { useSelector } from 'react-redux'
 
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-import useMedia from 'hooks/useMedia'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
-import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import Divisor from 'components/Divisor'
+import Radio from 'components/Inputs/Radio'
+import AddressForm from './AddressForm'
+
+import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+
+import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
+
 import { formatCpf, handleGiwRedirect } from 'helpers'
+import {
+  errorObject,
+  validationInputError,
+} from 'pages/CreditCard/Creation/CreditCardStep/validators'
+
+import { TOptions, TSelected } from 'components/Inputs/Select/types'
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import {
   IForm,
   IPassengerAddress,
   IPoliticallyExposedPerson,
   Steps,
 } from 'pages/TripInsurance/Creation/types'
-import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import Radio from 'components/Inputs/Radio'
-import AddressForm from './AddressForm'
-import {
-  errorObject,
-  validationInputError,
-} from 'pages/CreditCard/Creation/CreditCardStep/validators'
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
-import { TOptions, TSelected } from 'components/Inputs/Select/types'
+import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
+
 import {
   radioOptions,
   radioPpeOptions,
@@ -53,6 +61,8 @@ const InformationConfirmation: StepComponent = () => {
 
   const isSmUp = useMedia('smUp')
   const isLgUp = useMedia('lgUp')
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
   const { form, updateForm } = useFormFluxManagement<IForm>()
   const { instantiate, reset } = useStackFluxManagement<StepComponentProps>()
 
@@ -60,12 +70,18 @@ const InformationConfirmation: StepComponent = () => {
    * USESELECT
    */
 
-  const { tripInsuranceQuotations } = useSelector(
-    (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
+  const {
+    tripInsuranceQuotations,
+    creditCardData,
+    isCreditCardLoading,
+  } = useSelector(
+    (state: {
+      tripInsuranceQuotation: ITripInsuranceQuotation
+      tripInsuranceCreditCard: ITripInsuranceCreditCard
+    }) => ({
       tripInsuranceQuotations: state.tripInsuranceQuotation.data,
-      isLoading: state.tripInsuranceQuotation.isLoading,
-      hasError: state.tripInsuranceQuotation.hasError,
-      idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+      creditCardData: state.tripInsuranceCreditCard.data,
+      isCreditCardLoading: state.tripInsuranceCreditCard.isLoading,
     })
   )
 
@@ -161,6 +177,20 @@ const InformationConfirmation: StepComponent = () => {
     }
   }, [degreeRelationship])
 
+  const handlePaymentStep = () => {
+    if (!creditCardData) {
+      dispatch(
+        GetTripInsuranceCreditCardRequest({
+          onSuccess: instantiate,
+          Step: Steps.paymentStep,
+          onErrorToast: addToast,
+        })
+      )
+    } else {
+      instantiate(Steps.paymentStep)
+    }
+  }
+
   const onSubmit = () => {
     const gender =
       form && form.passageiroPrincipal && form.passageiroPrincipal.sexo
@@ -195,11 +225,12 @@ const InformationConfirmation: StepComponent = () => {
         },
       },
     })
-    instantiate(
-      (form.acompanhantes || []).length > 0
-        ? Steps.companionStep
-        : Steps.paymentStep
-    )
+
+    if ((form.acompanhantes || []).length > 0) {
+      instantiate(Steps.companionStep)
+    } else {
+      handlePaymentStep()
+    }
   }
 
   const handlerDocumentPpe = (e: React.FormEvent<HTMLInputElement>) => {
@@ -722,6 +753,7 @@ const InformationConfirmation: StepComponent = () => {
             <s.Col lg={8} md={11}>
               <s.ButtonAlign>
                 <s.NextButton
+                  loading={isCreditCardLoading}
                   color="secondary"
                   disabled={!isDisabledButton}
                   onClick={onSubmit}

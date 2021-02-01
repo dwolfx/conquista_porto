@@ -7,6 +7,7 @@ import Text from 'components/Text'
 import NewInput from 'components/NewInput'
 import RadioComponent from 'components/Inputs/Radio/New'
 import Popover from 'components/Popover'
+import { Col as ColCmp } from 'styled-bootstrap-grid'
 import { StyledDivisor as Divisor } from '../../commons/DivisorDescription/styles'
 
 export const Wrapper = styled.div`
@@ -254,4 +255,9 @@ export const PopoverText = styled(Text).attrs(() => ({
 }))`
   max-width: 213px;
   padding: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const ButtonCol = styled(ColCmp)`
+  display: flex;
+  justify-content: flex-end;
 `
