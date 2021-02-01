@@ -21,6 +21,10 @@ export function* postInsuranceQuotation({
 
     let newData: IInsuranceQuotationResponse = data
 
+    if (data?.Message?.TipoCritica === 'CRITICA_NEGOCIO') {
+      throw new Error(`Erro ao efetuar chamada 'viagem/cotacao/seguro'`)
+    }
+
     if (data?.ViagemPacote?.pacotes) {
       newData = {
         ...data,

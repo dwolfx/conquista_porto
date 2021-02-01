@@ -6,6 +6,7 @@ import { renderWithReduxAndTheme, screen } from 'testUtils'
 import responseMock from 'mocks/tripInsuranceQuotation.json'
 
 import ChoosePlan from '.'
+import userEvent from '@testing-library/user-event'
 
 let portalRoot = document.getElementById('root')
 
@@ -56,5 +57,38 @@ describe('Choose Plan tests', () => {
     expect(secondCoverageAmount[0]).toBeInTheDocument()
     expect(openModal).toBeInTheDocument()
     expect(editData).toBeInTheDocument()
+  })
+  it('should render loading state', () => {
+    setup({
+      tripInsuranceQuotation: {
+        data: responseMock,
+        isLoading: true,
+        hasError: false,
+      },
+    })
+
+    const title = screen.getAllByRole('heading', {
+      name: 'Aguarde, estamos buscando suas informações...',
+    })
+
+    expect(title[0]).toBeInTheDocument()
+  })
+  it('should render error state', () => {
+    setup({
+      tripInsuranceQuotation: {
+        data: responseMock,
+        isLoading: false,
+        hasError: true,
+      },
+    })
+
+    const title = screen.getByText(
+      /Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente./i
+    )
+    const tryAgainButton = screen.getByText(/tentar novamente/i)
+    userEvent.click(tryAgainButton)
+
+    expect(title).toBeInTheDocument()
+    expect(tryAgainButton).toBeInTheDocument()
   })
 })
