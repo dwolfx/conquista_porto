@@ -752,8 +752,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
               ...updatedCompanion,
               pessoaExposta: {
                 grauParentesco: selectedPoliticalyExposedKinship.value,
-                grauRelacionamento:
-                  form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento,
+                grauRelacionamento: form?.pessoaExposta?.grauRelacionamento,
                 nome: politicalyExposedPersonName.value,
                 numeroCpf: politicalyExposedPersonDocument.value.slice(0, 9),
                 digitoCpf: politicalyExposedPersonDocument.value.slice(9),

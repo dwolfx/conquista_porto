@@ -68,7 +68,6 @@ export interface IMainPassenger {
   celularDDD?: string
   celularNumero?: string
   contato?: IPassengerContact
-  pessoaExposta?: IPoliticallyExposedPerson
   endereco?: IPassengerAddress
 }
 
@@ -92,6 +91,7 @@ export interface ICompanion extends IMainPassenger {
   numeroCpfResponsavel?: string
   digitoCpfResponsavel?: string
   codigoPaisResidente?: string
+  pessoaExposta?: IPoliticallyExposedPerson
 }
 
 export interface IForm {
@@ -117,4 +117,5 @@ export interface IForm {
   nationalDestination?: boolean
   hasOnlyLatinAmericaDestination?: boolean
   hasLatinAmericaCountryAndOtherCountry?: boolean
+  pessoaExposta?: IPoliticallyExposedPerson
 }

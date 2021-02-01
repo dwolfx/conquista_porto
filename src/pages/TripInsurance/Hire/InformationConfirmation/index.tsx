@@ -139,7 +139,7 @@ const InformationConfirmation: StepComponent = () => {
     form.passageiroPrincipal?.isResidePais ?? true
   )
   const [degreeRelationship, setDegreeRelationship] = React.useState<number>(
-    form.passageiroPrincipal?.pessoaExposta?.grauRelacionamento || 2
+    form?.pessoaExposta?.grauRelacionamento || 2
   )
 
   const [address, setAddress] = React.useState<IPassengerAddress>({
@@ -218,12 +218,13 @@ const InformationConfirmation: StepComponent = () => {
       passageiroPrincipal: {
         ...form.passageiroPrincipal,
         sexo: gender,
-        pessoaExposta: ppe,
         endereco: {
           ...address,
+          complemento: address.complemento ?? '',
           tipo: address.tipo || 'Rua',
         },
       },
+      pessoaExposta: ppe,
     })
 
     if ((form.acompanhantes || []).length > 0) {
@@ -305,14 +306,14 @@ const InformationConfirmation: StepComponent = () => {
 
   const validationDocumentPpe = (): errorObject | boolean => {
     if (
-      form.passageiroPrincipal?.pessoaExposta?.numeroCpf &&
-      form.passageiroPrincipal?.pessoaExposta?.numeroCpf.length === 9 &&
-      form.passageiroPrincipal?.pessoaExposta?.digitoCpf &&
-      form.passageiroPrincipal?.pessoaExposta?.digitoCpf.length === 2
+      form?.pessoaExposta?.numeroCpf &&
+      form?.pessoaExposta?.numeroCpf.length === 9 &&
+      form?.pessoaExposta?.digitoCpf &&
+      form?.pessoaExposta?.digitoCpf.length === 2
     ) {
       if (
         !cpf.isValid(
-          `${form.passageiroPrincipal.pessoaExposta.numeroCpf}${form.passageiroPrincipal.pessoaExposta.digitoCpf}`
+          `${form.pessoaExposta.numeroCpf}${form.pessoaExposta.digitoCpf}`
         )
       ) {
         return {
