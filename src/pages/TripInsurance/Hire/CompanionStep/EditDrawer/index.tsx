@@ -797,6 +797,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
   return (
     <Drawer
       isOpen={isDrawerOpen}
+      footerHeight="149px"
       drawerTitle={fullName.value || 'Acompanhante'}
       handleClose={() => {
         setDataHooks('clear')
