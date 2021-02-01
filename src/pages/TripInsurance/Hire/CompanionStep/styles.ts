@@ -265,6 +265,7 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${({ theme }) => theme.colors.white};
+  border-top: 1px solid ${({ theme }) => theme.colors.gray3};
   padding: ${({ theme }) => theme.spacing(2)}px;
   justify-content: flex-end;
   position: fixed;
