@@ -9,18 +9,20 @@ import useMedia from 'hooks/useMedia'
 interface IPlanCardProps {
   planName: string
   planId: string
+  totalValue: number
   recommendedPaymentPlan: string
   upfrontPayment: string
   firstCoverageAmount?: string
   secondCoverageAmount?: string
   thridCoverageAmount?: string
   isLoading: boolean
-  onHireClick: (choosedPlan: string) => void
+  onHireClick: (choosedPlan: string, totalValue: number) => void
 }
 
 const PlanCard = ({
   planName,
   planId,
+  totalValue,
   recommendedPaymentPlan,
   upfrontPayment,
   firstCoverageAmount,
@@ -52,7 +54,7 @@ const PlanCard = ({
         color="secondary"
         loading={isLoading}
         loadingColor="green3"
-        onClick={() => onHireClick(planId)}
+        onClick={() => onHireClick(planId, totalValue)}
       >
         Contratar
       </s.ContractButton>

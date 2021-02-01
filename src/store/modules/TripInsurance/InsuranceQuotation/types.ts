@@ -57,7 +57,7 @@ export interface IPlan {
     listaParcelamentoCartao: ICreditCardInstallment[]
     listaParcelamentoCartaoPorto: ICreditCardInstallment[]
   }
-  valorTotal: string
+  valorTotal: number
   codigoPlano: string
   nomePlano: string
   urlManualPlano: string

@@ -108,46 +108,52 @@ const PaymentStep: StepComponent = () => {
               />
             </Col>
           </Row>
+          <S.BottomBar>
+            <Container>
+              <Row>
+                <S.ButtonCol lg={3} />
+                <S.ButtonCol lg={8}>
+                  <Button
+                    disabled={!allIsValid}
+                    color="secondary"
+                    onClick={() => {
+                      updateForm({
+                        pagamento: {
+                          codigoBandeira: getFlagCode(
+                            creditCardData?.creditCards &&
+                              creditCardData.creditCards.length > 0
+                              ? selectedCreditCard <=
+                                  creditCardData.creditCards?.length - 1
+                              : false,
+                            flagNameState[0]
+                          ),
+                          primeiroNumero: cardNumber.slice(0, 4),
+                          segundoNumero: cardNumber.slice(5, 9),
+                          terceiroNumero: cardNumber.slice(10, 14),
+                          quartoNumero: cardNumber.slice(15, 19),
+                          codigoSeguranca: +cvcState[0],
+                          mesValidade: `${validityDateState[0].slice(0, 2)}`,
+                          anoValidade: `${validityDateState[0].slice(3, 7)}`,
+                          nomeTitular: nameState[0].trim(),
+                          quantidadeParcelas: parcelOption.id,
+                          isCartaoPorto:
+                            creditCardData?.creditCards &&
+                            creditCardData.creditCards.length > 0
+                              ? selectedCreditCard <=
+                                creditCardData.creditCards?.length - 1
+                              : false,
+                        },
+                      })
+                      instantiate(Steps.summaryStep)
+                    }}
+                  >
+                    Continuar
+                  </Button>
+                </S.ButtonCol>
+              </Row>
+            </Container>
+          </S.BottomBar>
         </Container>
-
-        <S.BottomBar>
-          <Button
-            disabled={!allIsValid}
-            color="secondary"
-            onClick={() => {
-              updateForm({
-                pagamento: {
-                  codigoBandeira: getFlagCode(
-                    creditCardData?.creditCards &&
-                      creditCardData.creditCards.length > 0
-                      ? selectedCreditCard <=
-                          creditCardData.creditCards?.length - 1
-                      : false,
-                    flagNameState[0]
-                  ),
-                  primeiroNumero: cardNumber.slice(0, 4),
-                  segundoNumero: cardNumber.slice(5, 9),
-                  terceiroNumero: cardNumber.slice(10, 14),
-                  quartoNumero: cardNumber.slice(15, 19),
-                  codigoSeguranca: +cvcState[0],
-                  mesValidade: `${validityDateState[0].slice(0, 2)}`,
-                  anoValidade: `${validityDateState[0].slice(3, 7)}`,
-                  nomeTitular: nameState[0].trim(),
-                  quantidadeParcelas: parcelOption.id,
-                  isCartaoPorto:
-                    creditCardData?.creditCards &&
-                    creditCardData.creditCards.length > 0
-                      ? selectedCreditCard <=
-                        creditCardData.creditCards?.length - 1
-                      : false,
-                },
-              })
-              instantiate(Steps.summaryStep)
-            }}
-          >
-            Continuar
-          </Button>
-        </S.BottomBar>
       </S.Wrapper>
     </>
   )

@@ -112,7 +112,7 @@ export interface IForm {
   pagamento?: IPayment
   isAceiteTermos?: boolean
   isCienteMoto?: boolean
-  idSimulacao?: number
+  idSimulacao?: string
   codigoCanal?: 1
   nationalDestination?: boolean
   hasOnlyLatinAmericaDestination?: boolean

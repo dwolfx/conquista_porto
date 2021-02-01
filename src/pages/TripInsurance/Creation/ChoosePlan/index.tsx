@@ -41,20 +41,21 @@ const ChoosePlan: StepComponent = () => {
     hasError,
     urlGeneralConditions,
     urlManual,
+    simulationID,
   } = useSelector(
     (state: { tripInsuranceQuotation: ITripInsuranceQuotation }) => ({
       tripInsuranceQuotations:
         state.tripInsuranceQuotation.data?.ViagemPacote.pacotes,
       isLoading: state.tripInsuranceQuotation.isLoading,
       hasError: state.tripInsuranceQuotation.hasError,
-      idSimulation: state.tripInsuranceQuotation.data?.idSimulacao,
+      simulationID: state.tripInsuranceQuotation.data?.idSimulacao,
       urlGeneralConditions:
         state.tripInsuranceQuotation.data?.urlCondicoesGerais,
       urlManual: state.tripInsuranceQuotation.data?.urlManuais,
     })
   )
 
-  const handleClick = (choosedPlan: string) => {
+  const handleClick = (choosedPlan: string, totalValue: number) => {
     updateForm({
       ...form,
       pacoteEscolhido: choosedPlan,
@@ -66,6 +67,8 @@ const ChoosePlan: StepComponent = () => {
           grauRelacionamento: 2,
         },
       },
+      idSimulacao: simulationID ?? '',
+      valorSeguro: totalValue,
     })
     instantiate(Steps.informationConfirmationStep)
   }
@@ -207,6 +210,7 @@ const ChoosePlan: StepComponent = () => {
                       <PlanCard
                         planName={quotation.nomePlano}
                         planId={quotation.codigoPlano}
+                        totalValue={quotation.valorTotal}
                         recommendedPaymentPlan={installment}
                         upfrontPayment={upfronPayment}
                         firstCoverageAmount={firstCoverageAmount?.valor}

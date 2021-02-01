@@ -84,7 +84,7 @@ export interface ITripInsuranceProposalRequest {
   pagamento?: IPayment
   isAceiteTermos?: boolean
   isCienteMoto?: boolean
-  idSimulacao?: number
+  idSimulacao?: string
 }
 
 export interface ITripInsuranceProposalResponse {

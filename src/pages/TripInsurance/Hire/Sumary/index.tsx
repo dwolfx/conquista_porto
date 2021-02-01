@@ -153,7 +153,7 @@ const Sumary = () => {
           codigoUfOrigem: form.codigoUfOrigem,
           codigoPaisDestino: form.codigoPaisDestino,
           pacoteEscolhido: form.pacoteEscolhido,
-          valorSeguro: form.valorSeguro,
+          valorSeguro: Number(form.valorSeguro),
           passageiroPrincipal: form.passageiroPrincipal,
           acompanhantes: form.acompanhantes,
           pagamento: form.pagamento,

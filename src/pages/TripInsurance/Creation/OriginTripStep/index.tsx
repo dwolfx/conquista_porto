@@ -125,9 +125,11 @@ const OriginTripStep: StepComponent = () => {
       },
       codigoPaisDestino:
         selectedDestinationType.id === 1
-          ? destinationCountriesData?.ViagemPais?.destinos.filter(
-              (c: IOption) => c.value === 'brasil'
-            )[0].id
+          ? `${
+              destinationCountriesData?.ViagemPais?.destinos.filter(
+                (c: IOption) => c.value === 'brasil'
+              )[0].id
+            }`
           : `${selectedDestinationCountries[0].id}`,
       paisesAdicionais: selectedDestinationCountries
         .slice(1)
