@@ -12,7 +12,7 @@ import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import { truncateString } from 'helpers'
+import { truncateString, calculateAge } from 'helpers'
 
 import PassengersOverSeventyModal from './PassengersOverSeventyModal'
 import { Steps, IForm } from '../types'
@@ -36,27 +36,24 @@ const PassengerStep: StepComponent = () => {
   }, [counts.young, counts.old])
 
   const handleButtonClick = () => {
-    const mainPassenger = moment().diff(
+    let { old, young, total } = counts
+    const mainPassenger = moment(
       form.passageiroPrincipal?.dataNascimento,
-      'year'
+      'DD/MM/YYYY'
     )
-    let young = counts.young
-    let old = counts.old
-    let total = counts.total
-    if (mainPassenger <= 70) {
+    const mainPassengerAge = calculateAge(mainPassenger.format('DD/MM/YYYY'))
+    if (mainPassengerAge <= 70) {
       if (counts.young === 1) {
-        total--
+        total -= 1
       } else if (counts.young > 1) {
-        young--
-        total--
+        young -= 1
+        total -= 1
       }
-    } else {
-      if (counts.old === 1) {
-        total--
-      } else if (counts.old > 1) {
-        old--
-        total--
-      }
+    } else if (counts.old === 1) {
+      total -= 1
+    } else if (counts.old > 1) {
+      old -= 1
+      total -= 1
     }
     const newCompanions = [...new Array(total)].map((_, index) => ({
       id: index + 1,
@@ -68,7 +65,6 @@ const PassengerStep: StepComponent = () => {
       qtdPassagMaiorSetentaAnos: old,
       acompanhantes: [...newCompanions],
     })
-
     return counts.old > 0
       ? setIsModalOpen(true)
       : instantiate(Steps.adventureSports)
@@ -116,7 +112,7 @@ const PassengerStep: StepComponent = () => {
             <Col hiddenMdDown md={3} auto>
               <DivisorDescription
                 title="Passageiros"
-                text="O seguro cobre até 20 passageiros"
+                text="O seguro cobre até 20 passageiros, incluindo você."
               />
             </Col>
             <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
@@ -124,10 +120,11 @@ const PassengerStep: StepComponent = () => {
                 <Text type="headline" color="gray6" textAlign="center">
                   Quantos passageiros haverá na viagem?
                   <Popover
+                    showArrow={false}
                     content={() => (
-                      <Text bold type="body" color="gray5">
-                        O seguro cobre até 20 passageiros.
-                      </Text>
+                      <S.PopoverText bold type="body" color="gray5">
+                        O seguro cobre até 20 passageiros, incluindo você.
+                      </S.PopoverText>
                     )}
                   >
                     <Icon
@@ -141,6 +138,15 @@ const PassengerStep: StepComponent = () => {
                     />
                   </Popover>
                 </Text>
+                <S.SubTitle
+                  type="caption"
+                  bold
+                  color="gray5"
+                  textAlign="center"
+                >
+                  Indique o número de passageiros, incluindo você. Considere a
+                  idade atual de todos com base na data de hoje.
+                </S.SubTitle>
               </S.FlexContainer>
 
               <S.StyledCounter
