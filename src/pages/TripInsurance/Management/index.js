@@ -17,7 +17,6 @@ import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 import TopicsIconContent from 'components/TopicsIconContent'
 import Icon from 'components/IconExporter'
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
@@ -49,7 +48,6 @@ export default function ManagementTripInsurance() {
   const [selectedTripInsurance, setSelectedTripInsurance] = useState(null)
   // const [isOpenCreationLayer, setOpenCreationLayer] = useState(false)
   const themeContext = useContext(ThemeContext)
-  const { reset } = useStackFluxManagement()
   const { state: locationState } = useLocation()
 
   const tripInsurance = useSelector(state => state.tripInsurance)

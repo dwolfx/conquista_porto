@@ -84,8 +84,8 @@ const Table = ({
             disableMultiSort: false,
           },
           useSticky,
-          usePagination,
           useSortBy,
+          usePagination,
         ]
   )
 

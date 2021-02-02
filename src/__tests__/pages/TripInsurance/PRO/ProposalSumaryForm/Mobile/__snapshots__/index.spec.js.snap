@@ -5,6 +5,12 @@ Array [
   .c6 {
   border-bottom: 1px solid #DDDDDD;
   height: 0%;
+  width: calc(100% - 14px);
+}
+
+.c13 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
   width: 100%;
 }
 
@@ -38,7 +44,7 @@ Array [
   line-height: 25px;
 }
 
-.c26 {
+.c27 {
   color: unset;
   text-align: unset;
   text-transform: none;
@@ -156,7 +162,7 @@ Array [
   z-index: 13;
 }
 
-.c28 {
+.c29 {
   margin-top: 14px;
 }
 
@@ -200,7 +206,7 @@ Array [
   margin-bottom: 0px;
 }
 
-.c24 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -219,17 +225,17 @@ Array [
   transform: rotate(0.25deg);
 }
 
-.c27 {
+.c28 {
   max-width: 199px;
 }
 
-.c25 {
+.c26 {
   margin-right: 14px;
   height: 21px;
   width: 37px;
 }
 
-.c14 {
+.c15 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -247,11 +253,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c14:hover:active {
+.c15:hover:active {
   pointer-events: auto;
 }
 
-.c14:hover:active:after {
+.c15:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -259,11 +265,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c14:hover:before {
+.c15:hover:before {
   width: 100%;
 }
 
-.c14:hover:after {
+.c15:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -278,7 +284,7 @@ Array [
   width: 100%;
 }
 
-.c14:before {
+.c15:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -290,7 +296,7 @@ Array [
   width: 0;
 }
 
-.c29 {
+.c30 {
   background: linear-gradient( to left, #018CB7 20%, #00ADEF );
   background-repeat: no-repeat;
   border: none;
@@ -308,11 +314,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c29:hover:active {
+.c30:hover:active {
   pointer-events: auto;
 }
 
-.c29:hover:active:after {
+.c30:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -320,11 +326,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c29:hover:before {
+.c30:hover:before {
   width: 100%;
 }
 
-.c29:hover:after {
+.c30:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -339,7 +345,7 @@ Array [
   width: 100%;
 }
 
-.c29:before {
+.c30:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -351,7 +357,7 @@ Array [
   width: 0;
 }
 
-.c16 {
+.c17 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -378,14 +384,14 @@ Array [
   line-height: 15px;
 }
 
-.c22 {
+.c23 {
   height: 20px;
   margin-right: 10px;
   position: relative;
   min-width: 20px;
 }
 
-.c22:before {
+.c23:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -398,7 +404,7 @@ Array [
   border: 1px solid #BABABA;
 }
 
-.c22:after {
+.c23:after {
   content: '';
   width: 10px;
   height: 10px;
@@ -410,11 +416,11 @@ Array [
   background-color: transparent;
 }
 
-.c22:checked:after {
+.c23:checked:after {
   background-color: #00ADEF;
 }
 
-.c23 {
+.c24 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -430,11 +436,11 @@ Array [
   pointer-events: all;
 }
 
-.c23:last-of-type {
+.c24:last-of-type {
   margin-right: 0;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -445,33 +451,33 @@ Array [
   align-items: center;
 }
 
-.c13 {
+.c14 {
   margin: 7px 0;
 }
 
-.c15 {
+.c16 {
   width: 100%;
   margin: 21px 0;
 }
 
-.c30 {
+.c31 {
   width: 100%;
 }
 
-.c20 .c21 {
+.c21 .c22 {
   margin-right: 14px;
 }
 
-.c20:first-child {
+.c21:first-child {
   margin-right: 14px;
 }
 
-.c17 {
+.c18 {
   padding-top: 7px;
   margin-left: 14px;
 }
 
-.c18 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -512,20 +518,20 @@ Array [
 }
 
 @media (min-width:736px) {
-  .c24 {
+  .c25 {
     margin-top: 14px;
     max-width: 410px;
   }
 }
 
 @media (min-width:736px) {
-  .c27 {
+  .c28 {
     max-width: 347px;
   }
 }
 
 @media (min-width:736px) {
-  .c18 {
+  .c19 {
     margin-top: 14px;
   }
 }
@@ -677,7 +683,7 @@ Array [
           </div>
         </div>
         <div
-          className="c6 c13"
+          className="c13 c14"
         />
         <div
           className="c9"
@@ -702,7 +708,7 @@ Array [
           </div>
         </div>
         <div
-          className="c6 c13"
+          className="c13 c14"
         />
         <div
           className="c9"
@@ -727,7 +733,7 @@ Array [
           </div>
         </div>
         <div
-          className="c6 c13"
+          className="c13 c14"
         />
         <div
           className="c9"
@@ -752,7 +758,7 @@ Array [
           </div>
         </div>
         <button
-          className="c14 c15"
+          className="c15 c16"
           color="primary"
           data-gtm-clicktype="button"
           data-gtm-name="alterar no perfil"
@@ -762,33 +768,33 @@ Array [
           onClick={[Function]}
         >
           <span
-            className="c16"
+            className="c17"
           >
             ALTERAR NO PERFIL
           </span>
         </button>
         <div
-          className="c6 c13"
+          className="c13 c14"
         />
         <h5
-          className="c12 c17"
+          className="c12 c18"
           color="gray6"
           type="headline"
         >
           Você reside no Brasil?
         </h5>
         <div
-          className="c18"
+          className="c19"
           data-testid="radio-brazil-resident"
         >
           <div
-            className="c19 c20"
+            className="c20 c21"
           >
             <input
               aria-checked={false}
               aria-label="Sim"
               checked={false}
-              className="c21 c22"
+              className="c22 c23"
               data-testid="input-radio-sim"
               disabled={false}
               id="input-radio-sim"
@@ -799,7 +805,7 @@ Array [
               value={false}
             />
             <label
-              className="c23"
+              className="c24"
               disabled={false}
               htmlFor="input-radio-sim"
             >
@@ -807,13 +813,13 @@ Array [
             </label>
           </div>
           <div
-            className="c19 c20"
+            className="c20 c21"
           >
             <input
               aria-checked={true}
               aria-label="Não"
               checked={true}
-              className="c21 c22"
+              className="c22 c23"
               data-testid="input-radio-nao"
               disabled={false}
               id="input-radio-nao"
@@ -824,7 +830,7 @@ Array [
               value={true}
             />
             <label
-              className="c23"
+              className="c24"
               disabled={false}
               htmlFor="input-radio-nao"
             >
@@ -833,11 +839,11 @@ Array [
           </div>
         </div>
         <div
-          className="c24"
+          className="c25"
         >
           <svg
             aria-label="alertrounded"
-            className="c25"
+            className="c26"
             fill="#E72176"
             role="img"
             width={21}
@@ -845,7 +851,7 @@ Array [
             alert-rounded.svg
           </svg>
           <h6
-            className="c26 c27"
+            className="c27 c28"
             color="unset"
             type="title"
           >
@@ -854,13 +860,13 @@ Array [
         </div>
       </div>
       <div
-        className="c6 c7"
+        className="c13 c7"
       />
       <footer
-        className="c28"
+        className="c29"
       >
         <button
-          className="c29 c30"
+          className="c30 c31"
           color="primary"
           data-gtm-clicktype="button"
           data-gtm-name="salvar alterações"
@@ -869,7 +875,7 @@ Array [
           disabled={false}
         >
           <span
-            className="c16"
+            className="c17"
           >
             SALVAR ALTERAÇÕES
           </span>
@@ -1440,6 +1446,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div
@@ -1601,6 +1608,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div
@@ -1711,6 +1719,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div
@@ -1771,6 +1780,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div
@@ -1856,6 +1866,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div
@@ -1941,6 +1952,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div
@@ -2079,6 +2091,7 @@ Array [
         >
           <div
             className="c10"
+            data-testid="card-body"
             overflow="hidden"
           >
             <div

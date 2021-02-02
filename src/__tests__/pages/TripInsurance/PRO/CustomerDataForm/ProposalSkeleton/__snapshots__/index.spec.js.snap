@@ -55,6 +55,7 @@ exports[`ComissionDetailsModal renders correctly 1`] = `
 >
   <div
     className="c2"
+    data-testid="card-body"
     overflow="hidden"
   >
     <div

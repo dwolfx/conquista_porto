@@ -787,9 +787,8 @@ Object {
       class="sc-fzqBZW HXgqz sc-fzoNJl kzOFyM"
     >
       <div
-        class="sc-fzpjYC ikWzWA"
-        data-testid="card-body"
         class="sc-fzpjYC fUicIH"
+        data-testid="card-body"
         overflow="hidden"
       >
         <div

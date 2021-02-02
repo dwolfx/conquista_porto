@@ -604,8 +604,8 @@ Object {
       class="sc-fzoNJl fuJQuW sc-fzplgP dGyDRe"
     >
       <div
-        data-testid="card-body"
         class="sc-fznWOq bXeOpI"
+        data-testid="card-body"
         overflow="hidden"
       >
         <div
