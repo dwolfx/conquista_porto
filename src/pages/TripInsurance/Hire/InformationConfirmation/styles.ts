@@ -162,7 +162,8 @@ export const PPENameInput = styled(NewInput)`
   margin-bottom: ${({ error, theme }) => `${error && theme.spacing(5)}px`};
 `
 
-export const PPEDocumentInput = styled(TextInput)`
+export const PPEDocumentInput = styled(NewInput)`
+  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px 0`};
   margin-bottom: ${({ error, theme }) => `${error && theme.spacing(5)}px`};
 `
 

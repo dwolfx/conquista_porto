@@ -63,6 +63,7 @@ const InformationConfirmation: StepComponent = () => {
   const isLgUp = useMedia('lgUp')
   const dispatch = useDispatch()
   const { addToast } = useToast()
+
   const { form, updateForm } = useFormFluxManagement<IForm>()
   const { instantiate, reset } = useStackFluxManagement<StepComponentProps>()
 
@@ -305,20 +306,11 @@ const InformationConfirmation: StepComponent = () => {
   }
 
   const validationDocumentPpe = (): errorObject | boolean => {
-    if (
-      form?.pessoaExposta?.numeroCpf &&
-      form?.pessoaExposta?.numeroCpf.length === 9 &&
-      form?.pessoaExposta?.digitoCpf &&
-      form?.pessoaExposta?.digitoCpf.length === 2
-    ) {
-      if (
-        !cpf.isValid(
-          `${form.pessoaExposta.numeroCpf}${form.pessoaExposta.digitoCpf}`
-        )
-      ) {
+    if (documentPpe && documentPpe.length === 11) {
+      if (!cpf.isValid(documentPpe)) {
         return {
           icon: 'information',
-          message: 'CPF Inválido',
+          message: 'CPF inválido. Por favor, verifique o número',
         }
       }
     }
@@ -534,7 +526,7 @@ const InformationConfirmation: StepComponent = () => {
                       onBlur={() => checkForm('isFullNamePpe')}
                       placeholder="Digite aqui"
                       onChange={(e: React.FormEvent<HTMLInputElement>) =>
-                        setNamePpe(e.currentTarget.value)
+                        setNamePpe(e.currentTarget.value.replace(/[0-9]/g, ''))
                       }
                     />
                     <InputMask
