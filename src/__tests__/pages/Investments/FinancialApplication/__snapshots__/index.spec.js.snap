@@ -2433,18 +2433,18 @@ Object {
                       class="sc-fznLxA dRhPYK sc-pRTZB bGtRXb"
                     >
                       <div
-                        data-testid="card-body"
                         class="sc-fzoxnE hqwfX"
+                        data-testid="card-body"
                         overflow="hidden"
                       >
                         <div
                           class="sc-oTmZL bSpqfV"
                         >
                           <div
-                            class="sc-qQmou iWsdOD sc-qapaw kIBbVT"
+                            class="sc-pAZqv ispdrs sc-pbIaG dOeYGc"
                           >
                             <div
-                              class="sc-pJurq dWXwp"
+                              class="sc-pJurq ibKfHq"
                             >
                               <span
                                 class="sc-AxhUy ldvITA"
@@ -2470,10 +2470,10 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-qQmou iWsdOD sc-qapaw kIBbVT"
+                            class="sc-pAZqv ispdrs sc-pbIaG dOeYGc"
                           >
                             <div
-                              class="sc-qYiqT cePowK"
+                              class="sc-pJurq ibKfHq"
                             >
                               <span
                                 class="sc-AxhUy ldvITA"
@@ -2846,7 +2846,7 @@ Object {
               class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fzoLag jCCsch"
+                class="sc-fznMAR gbmMMc"
               >
                 <h3
                   class="sc-fzolEj kXgqsQ"
@@ -2918,7 +2918,7 @@ Object {
               class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fzoLag jCCsch"
+                class="sc-fznMAR gbmMMc"
               >
                 <h3
                   class="sc-fzolEj kXgqsQ"

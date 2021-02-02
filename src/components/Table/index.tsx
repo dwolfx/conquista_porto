@@ -84,8 +84,8 @@ const Table = ({
             disableMultiSort: false,
           },
           useSticky,
-          usePagination,
           useSortBy,
+          usePagination,
         ]
   )
 
@@ -208,25 +208,29 @@ const Table = ({
           </s.Tbody>
         </s.Table>
       </s.TableWrapper>
-      {hasPagination &&
-      <s.PaginationWrapper>
-        <s.Pagination>
-          <Text type="body" bold color="gray5">Página</Text>
+      {hasPagination && (
+        <s.PaginationWrapper>
+          <s.Pagination>
+            <Text type="body" bold color="gray5">
+              Página
+            </Text>
             <s.Input
               ref={inputRef}
               type="text"
               defaultValue={pageIndex + 1}
-              onFocus={() => inputRef.current.value = ''}
-              onBlur={() => inputRef.current.value = (pageIndex + 1).toString()}
+              onFocus={() => (inputRef.current.value = '')}
+              onBlur={() =>
+                (inputRef.current.value = (pageIndex + 1).toString())
+              }
               onChange={e => {
                 const page = e.target.value ? Number(e.target.value) - 1 : 0
                 if (page < 0 || page === 0) {
                   gotoPage(0)
                   setIndexPage(1)
                   inputRef.current.value = ''
-                } else if(page > pageCount -1) {
-                  gotoPage(pageCount -1)
-                  setIndexPage(pageCount -1)
+                } else if (page > pageCount - 1) {
+                  gotoPage(pageCount - 1)
+                  setIndexPage(pageCount - 1)
                   inputRef.current.value = (pageCount - 1).toString()
                 } else {
                   setIndexPage(page)
@@ -234,26 +238,34 @@ const Table = ({
                 }
               }}
             />
-          <Text type="body" bold color="gray5">de {hasError ? 0 : pageCount}</Text>
-          <s.PageButtons>
-            <s.Button onClick={() => {
-              previousPage()
-              setIndexPage(indexPage - 1)
-              inputRef.current.value = (indexPage - 1).toString()
-            }} disabled={!canPreviousPage}>
-              <IconExporter name="arrowleft" color="blue4" />
-            </s.Button>
-            <s.Button onClick={() => {
-              nextPage()
-              setIndexPage(indexPage + 1)
-              inputRef.current.value = (indexPage + 1).toString()
-            }} disabled={!canNextPage}>
-              <IconExporter name="arrowright" color="blue4"/>
-            </s.Button>
-          </s.PageButtons>
-        </s.Pagination>
-      </s.PaginationWrapper>
-      }
+            <Text type="body" bold color="gray5">
+              de {hasError ? 0 : pageCount}
+            </Text>
+            <s.PageButtons>
+              <s.Button
+                onClick={() => {
+                  previousPage()
+                  setIndexPage(indexPage - 1)
+                  inputRef.current.value = (indexPage - 1).toString()
+                }}
+                disabled={!canPreviousPage}
+              >
+                <IconExporter name="arrowleft" color="blue4" />
+              </s.Button>
+              <s.Button
+                onClick={() => {
+                  nextPage()
+                  setIndexPage(indexPage + 1)
+                  inputRef.current.value = (indexPage + 1).toString()
+                }}
+                disabled={!canNextPage}
+              >
+                <IconExporter name="arrowright" color="blue4" />
+              </s.Button>
+            </s.PageButtons>
+          </s.Pagination>
+        </s.PaginationWrapper>
+      )}
     </s.Wrapper>
   )
 }
