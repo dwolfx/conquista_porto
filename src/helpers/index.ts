@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import moment from 'moment'
 
 type IFormatMoneyOptions = {
   currency?: string
@@ -218,9 +219,7 @@ export const truncateString = (str: string, num: number) => {
   return str.slice(0, num) + '...'
 }
 
-export const formatPhoneNumber = (
-  phoneNumber: number | string | undefined
-) => {
+export const formatPhoneNumber = (phoneNumber: number | string | undefined) => {
   if (!phoneNumber) {
     return ''
   } else {
@@ -229,10 +228,7 @@ export const formatPhoneNumber = (
           /(\d{2})(\d{1})(\d{4})(\d{4})/,
           '($1) $2 $3-$4'
         )
-      : `${phoneNumber}`.replace(
-          /(\d{2})(\d{4})(\d{4})/,
-          '($1) $2-$3'
-        )
+      : `${phoneNumber}`.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3')
   }
 }
 
@@ -245,6 +241,20 @@ export const base64decode = (token: any) => {
     console.error(error)
   }
   return parsed
+}
+
+export const calculateAge = (birthDateString: string) => {
+  const today = moment()
+  const birthDate = moment(birthDateString, 'DD/MM/YYYY')
+  let age = moment(today).get('year') - moment(birthDate).get('year')
+  const month = moment(today).get('month') - moment(birthDate).get('month')
+  if (
+    month < 0 ||
+    (month === 0 && moment(today).get('day') < moment(birthDate).get('day'))
+  ) {
+    age -= 1
+  }
+  return age
 }
 
 export * from 'cpf-cnpj-validator'

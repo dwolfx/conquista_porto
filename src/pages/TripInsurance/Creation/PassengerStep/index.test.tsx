@@ -27,7 +27,9 @@ describe('PassengerStep tests', () => {
     )
 
     fireEvent.click(getByTestId('passenger-info'))
-    expect(getByText('O seguro cobre até 20 passageiros')).toBeVisible()
+    expect(
+      getByText(/O seguro cobre até 20 passageiros, incluindo você\./i)
+    ).toBeVisible()
   })
 
   it('should increment state on afterOnChange', () => {
