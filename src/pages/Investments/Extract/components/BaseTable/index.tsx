@@ -1,7 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 
-import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 import useMedia from 'hooks/useMedia'
 
 import ExtractTableTabletVertical from './Tablet'
@@ -13,17 +11,12 @@ interface IProps {
   extracts: ITransaction[]
   isFundTransaction?: boolean
   isLoading: boolean,
+  onErrorHandler: () => void
   hasError: boolean
-  request: {
-    tipoFiltro: number
-    dataInicial: string | null
-    dataFinal: string | null
-  }
 }
 const BaseTable = (props: IProps) => {
-  const { extracts, isLoading, hasError, request, isFundTransaction = false } = props
+  const { extracts, isLoading, hasError, onErrorHandler, isFundTransaction = false } = props
   const columnsToRender = columns(isFundTransaction)
-  const dispatch = useDispatch()
   const isTabletVertical = useMedia('md')
 
   if(isTabletVertical) {
@@ -39,7 +32,7 @@ const BaseTable = (props: IProps) => {
         errorMessage="Não foi possível carregar as movimentações da conta de investimento. Por favor, tente novamente."
         loadingMessage="Buscando movimentações da conta de investimento..."
         hasPagination
-        onError={() => dispatch(GetBankExtractRequest(request))}
+        onError={onErrorHandler}
       />
   )
 }

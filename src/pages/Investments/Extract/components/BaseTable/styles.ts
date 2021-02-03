@@ -62,14 +62,14 @@ export const StyledErrorOrLoadingCard = styled(Card)`
     flex: unset;
   }
 
-  p {
+  h5 {
     width: 75%;
     margin: ${({ theme }) => `0 auto ${theme.spacing(1)}px`};
   }
 
   button {
     width: 70%;
-    margin: 0 auto;
+    margin: ${({ theme }) => `${theme.spacing(1)}px auto 0`};
   }
 `
 
