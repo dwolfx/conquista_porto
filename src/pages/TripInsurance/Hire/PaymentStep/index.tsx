@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import Button from 'components/Button'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponentProps, StepComponent } from 'hooks/FluxManagement/types'
@@ -86,6 +86,7 @@ const PaymentStep: StepComponent = () => {
     <>
       <StepBar
         title="Contratação"
+        type="Seguro Viagem"
         actualStep={(form.acompanhantes || []).length > 0 ? 3 : 2}
         totalNumberOfSteps={(form.acompanhantes || []).length > 0 ? 4 : 3}
       />

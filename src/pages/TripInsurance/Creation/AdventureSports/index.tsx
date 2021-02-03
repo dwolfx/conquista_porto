@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 
 import Radio from 'components/Inputs/Radio'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
@@ -32,7 +32,7 @@ const AdventureSports: StepComponent = () => {
   const handleClick = () => {
     updateForm({
       isPraticaAventura: !!+hasAdventureSports,
-      isMotocicleta: form.hasOnlyLatinAmericaDestination ? false : true,
+      isMotocicleta: !form.hasOnlyLatinAmericaDestination,
     })
 
     if (form.hasOnlyLatinAmericaDestination) {
@@ -46,6 +46,7 @@ const AdventureSports: StepComponent = () => {
     <s.ContentWrapper>
       <StepBar
         title="Simulação"
+        type="Seguro Viagem"
         actualStep={4}
         totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />

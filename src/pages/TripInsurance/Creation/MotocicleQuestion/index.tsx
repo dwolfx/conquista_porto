@@ -5,7 +5,7 @@ import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 import Popover from 'components/Popover'
 
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 
@@ -49,6 +49,7 @@ const MotocicleQuestion: StepComponent = () => {
     <s.ContentWrapper>
       <StepBar
         title="Simulação"
+        type="Seguro Viagem"
         actualStep={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
         totalNumberOfSteps={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
       />

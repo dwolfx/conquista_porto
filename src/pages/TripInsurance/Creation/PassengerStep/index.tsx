@@ -7,7 +7,7 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
@@ -95,6 +95,7 @@ const PassengerStep: StepComponent = () => {
       />
       <StepBar
         title="Simulação"
+        type="Seguro Viagem"
         actualStep={3}
         totalNumberOfSteps={
           form.hasOnlyLatinAmericaDestination ||

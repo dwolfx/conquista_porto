@@ -10,7 +10,7 @@ import Divisor from 'components/Divisor'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { capitalize, formatMoney } from 'helpers'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
@@ -173,6 +173,7 @@ const Sumary = () => {
     <>
       <StepBar
         title="Contratação"
+        type="Seguro Viagem"
         actualStep={(form.acompanhantes || []).length > 0 ? 4 : 3}
         totalNumberOfSteps={(form.acompanhantes || []).length > 0 ? 4 : 3}
       />

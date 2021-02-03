@@ -5,7 +5,7 @@ import { uuid } from 'uuidv4'
 import { cpf } from 'cpf-cnpj-validator'
 import InputMask from 'react-input-mask'
 
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
@@ -354,6 +354,7 @@ const InformationConfirmation: StepComponent = () => {
     <>
       <StepBar
         title="Contratação"
+        type="Seguro Viagem"
         actualStep={1}
         totalNumberOfSteps={(form.acompanhantes || []).length > 0 ? 4 : 3}
       />

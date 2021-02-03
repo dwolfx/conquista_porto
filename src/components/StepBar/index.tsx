@@ -13,6 +13,7 @@ export default function StepBar({
   totalNumberOfSteps = null,
   showSteps = true,
   title,
+  type,
 }: IProps) {
   const isMobile = useMedia('xs')
 
@@ -30,7 +31,7 @@ export default function StepBar({
                   </Text>
                 ) : null,
                 <Text color="white" type="headline">
-                  Seguro Viagem
+                  {type}
                 </Text>,
               ]}
               endItems={
