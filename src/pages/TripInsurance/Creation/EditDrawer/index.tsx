@@ -3,22 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 
 import Drawer from 'components/Drawer'
-import Loading from 'components/Loading'
-import Modal from 'components/Modal/ModalNew'
-
-import useMedia from 'hooks/useMedia'
-import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-
-import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
-
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 import { IOption } from 'components/MultiSelector/types'
+import Loading from 'components/Loading'
+import Modal from 'components/Modal/ModalNew'
 import { IForm } from 'pages/TripInsurance/Creation/types'
 import { hasOnlyLatinAmerica } from 'pages/TripInsurance/Creation/OriginTripStep/helpers'
+import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
+import useMedia from 'hooks/useMedia'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
 import * as s from './styles'
-
 interface IEditDrawer {
   isDrawerOpen: boolean
   handleClose: (isDrawerOpen: boolean) => void

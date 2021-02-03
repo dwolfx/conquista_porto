@@ -5,36 +5,33 @@ import { uuid } from 'uuidv4'
 import { cpf } from 'cpf-cnpj-validator'
 import InputMask from 'react-input-mask'
 
-import StepBar from 'pages/TripInsurance/commons/StepBar'
 import Text from 'components/Text'
+import { TOptions, TSelected } from 'components/Inputs/Select/types'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Radio from 'components/Inputs/Radio'
-import AddressForm from './AddressForm'
-
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-
 import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
-
-import { formatCpf, handleGiwRedirect } from 'helpers'
+import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 import {
   errorObject,
   validationInputError,
 } from 'pages/CreditCard/Creation/CreditCardStep/validators'
-
-import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import {
   IForm,
   IPassengerAddress,
   IPoliticallyExposedPerson,
   Steps,
 } from 'pages/TripInsurance/Creation/types'
-import { ITripInsuranceQuotation } from 'store/modules/TripInsurance/InsuranceQuotation/types'
-import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
+import { formatCpf, formatPhoneNumber, handleGiwRedirect } from 'helpers'
+
+import AddressForm from './AddressForm'
 
 import {
   radioOptions,
@@ -136,6 +133,8 @@ const InformationConfirmation: StepComponent = () => {
   const [documentNumberPpe, setDocumentNumberPpe] = React.useState<string>()
   const [documentDigitPpe, setDocumentDigitPpe] = React.useState<string>()
   const [namePpe, setNamePpe] = React.useState<string>()
+  const [numero, setNumero] = React.useState({ value: '', touched: false })
+  const [complemento, setComplemento] = React.useState({ value: '', touched: false })
   const [isReside, setIsReside] = React.useState<boolean>(
     form.passageiroPrincipal?.isResidePais ?? true
   )
@@ -149,8 +148,6 @@ const InformationConfirmation: StepComponent = () => {
     bairro: '',
     cidade: '',
     uf: '',
-    complemento: '',
-    numero: '',
     numeroCep: '',
     complementoCep: '',
   })
@@ -221,7 +218,8 @@ const InformationConfirmation: StepComponent = () => {
         sexo: gender,
         endereco: {
           ...address,
-          complemento: address.complemento ?? '',
+          numero: numero.value ?? '',
+          complemento: complemento.value ?? '',
           tipo: address.tipo || 'Rua',
         },
       },
@@ -277,7 +275,7 @@ const InformationConfirmation: StepComponent = () => {
     !!address.cidade &&
     !!address.uf &&
     !!address.logradouro &&
-    !!address.numero &&
+    !!numero.value &&
     !!address.numeroCep &&
     !!address.complementoCep &&
     !!form.isAceiteTermos &&
@@ -572,7 +570,11 @@ const InformationConfirmation: StepComponent = () => {
               </s.AddressText>
             )}
             <s.TextInputContainer>
-              <AddressForm addressData={[address, setAddress]} />
+              <AddressForm 
+                addressData={[address, setAddress]}
+                numero={[numero, setNumero]}
+                complemento={[complemento, setComplemento]}
+              />
             </s.TextInputContainer>
           </s.Card>
           <s.Card>
@@ -587,7 +589,7 @@ const InformationConfirmation: StepComponent = () => {
             <s.EmergencyContactWrapper error={errorEmergencyInputs}>
               <s.EmergencyContactTextInput
                 label="nome"
-                value={form.passageiroPrincipal?.contato?.nome || ''}
+                value={form.passageiroPrincipal?.contato?.nome ?? ''}
                 placeholder="Digite aqui"
                 error={validationInputError(
                   form.passageiroPrincipal?.contato?.nome,
@@ -607,40 +609,28 @@ const InformationConfirmation: StepComponent = () => {
                   })
                 }
               />
-              <InputMask
-                value={
-                  `${form.passageiroPrincipal?.contato?.celularDDD}${form.passageiroPrincipal?.contato?.celularNumero}` ||
-                  ''
-                }
-                maskPlaceholder={null}
-                mask={
-                  form.passageiroPrincipal?.contato?.celularNumero &&
-                  form.passageiroPrincipal?.contato?.celularNumero.length === 9
-                    ? '(99) 9 9999-9999'
-                    : '(99) 9999-99999'
-                }
-                onBlur={() => checkForm('isContactPhone')}
-                onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                  const value = e.currentTarget.value.replace(/\D/g, '')
-                  updateForm({
-                    ...form,
-                    passageiroPrincipal: {
-                      ...form.passageiroPrincipal,
-                      contato: {
-                        ...form.passageiroPrincipal?.contato,
-                        celularDDD: value.slice(0, 2),
-                        celularNumero: value.slice(2),
-                      },
-                    },
-                  })
-                }}
-              >
                 <s.EmergencyContactTextInput
                   label="telefone"
-                  placeholder="(00) 0 0000-0000"
+                  placeholder="Digite somente números"
+                  onBlur={() => checkForm('isContactPhone')}
                   error={validationPhone()}
+                  maxLength={16}
+                  value={formatPhoneNumber(`${form.passageiroPrincipal?.contato?.celularDDD ?? ''}${form.passageiroPrincipal?.contato?.celularNumero ?? ''}` )}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                    const value = e.currentTarget.value.replace(/\D/g, '')
+                    updateForm({
+                      ...form,
+                      passageiroPrincipal: {
+                        ...form.passageiroPrincipal,
+                        contato: {
+                          ...form.passageiroPrincipal?.contato,
+                          celularDDD: value.slice(0, 2),
+                          celularNumero: value.slice(2),
+                        },
+                      },
+                    })
+                  }}
                 />
-              </InputMask>
             </s.EmergencyContactWrapper>
           </s.Card>
           <s.CardLast>

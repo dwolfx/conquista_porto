@@ -5,46 +5,40 @@ import { Col } from 'styled-bootstrap-grid'
 
 import Text from 'components/Text'
 import Popover from 'components/Popover'
-
+import { IOption } from 'components/MultiSelector/types'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
-
 import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
-
-import { IOption } from 'components/MultiSelector/types'
-import { Steps, IForm } from '../types'
 import {
   hasLatinAmerica,
   hasLatinAmericaCountryAndOtherCountry,
   hasOnlyLatinAmerica,
 } from './helpers'
+
 import LatinAmericaModal from './LatinAmericaModal'
+import { Steps, IForm } from '../types'
 
 import * as S from './styles'
 import * as T from './types'
 
 const OriginTripStep: StepComponent = () => {
+  useFetchCustomerProfile()
   const dispatch = useDispatch()
   const isTabletVertical = useMedia('md')
   const { updateForm } = useFormFluxManagement<IForm>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [countries, setCountries] = useState<IOption[]>([])
 
   const [selectedOriginCountry, setOriginCountry] = useState<T.ISelected>({
     id: 1,
     name: 'Brasil',
   })
-
-  const [countries, setCountries] = useState<IOption[]>([])
-
-  useFetchCustomerProfile()
-
   const {
     customerProfileData,
     destinationCountriesData,
@@ -267,7 +261,7 @@ const OriginTripStep: StepComponent = () => {
                     !selectedDestinationCountries.length) ||
                   !destinationCountriesData
                 }
-                onClick={() => handleClick()}
+                onClick={handleClick}
               >
                 Próximo
               </S.StyledButton>

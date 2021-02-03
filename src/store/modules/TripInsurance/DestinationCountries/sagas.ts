@@ -6,6 +6,7 @@ import {
   IDestinationCountry,
   IFilteredDestinationCountry,
 } from './types'
+
 import {
   GetDestinationCountriesSuccess,
   GetDestinationCountriesFailure,
@@ -18,15 +19,18 @@ export function* getDestinationCountries() {
       `${baseURLNamespaceInvestAws}/viagem/paises/destino`
     )
 
+    if (data?.Message?.TipoCritica === 'CRITICA_NEGOCIO') {
+      throw new Error(`Erro ao efetuar chamada 'viagem/paises/destino'`)
+    }
+
     const { destinos } = data.ViagemPais
 
     const filteredDestinationCountries = destinos
       .filter(
-        (
-          country: IDestinationCountry,
-          index: number,
-          destinos: IDestinationCountry[]
-        ) => destinos.findIndex(t => t.codigo === country.codigo) === index
+        (country: IDestinationCountry, index: number) =>
+          destinos.findIndex(
+            (destino: IDestinationCountry) => destino.codigo === country.codigo
+          ) === index
       )
       .map((country: IDestinationCountry) => ({
         text:
@@ -51,6 +55,7 @@ export function* getDestinationCountries() {
       })
     )
   } catch (err) {
+    console.error(err)
     yield put(GetDestinationCountriesFailure())
   }
 }

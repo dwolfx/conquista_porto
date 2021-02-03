@@ -13,14 +13,16 @@ import { dict } from 'components/IconExporter'
 interface IFormAddres {
   cep: boolean
   streetAddress: boolean
-  number: boolean
-  additionalInfo: boolean
   neighbourhood: boolean
   city: boolean
   stateOption: boolean
 }
 
+type TInputForm = { value: string, touched: boolean }
+
 interface IAddressForm {
+  numero: [TInputForm, React.Dispatch<React.SetStateAction<TInputForm>>]
+  complemento: [TInputForm, React.Dispatch<React.SetStateAction<TInputForm>>]
   addressData: [
     IPassengerAddress,
     React.Dispatch<React.SetStateAction<IPassengerAddress>>
@@ -39,6 +41,8 @@ type EAddressForm =
   | 'complementoCep'
 
 const AddressForm: React.FC<IAddressForm> = ({
+  numero: [numero, setNumero],
+  complemento: [complemento, setComplemento],
   addressData: [addressData, setAddressData],
 }: IAddressForm) => {
   const {
@@ -57,8 +61,6 @@ const AddressForm: React.FC<IAddressForm> = ({
   const [touched, setTouched] = React.useState<IFormAddres>({
     cep: false,
     streetAddress: false,
-    number: false,
-    additionalInfo: false,
     neighbourhood: false,
     city: false,
     stateOption: false,
@@ -99,6 +101,8 @@ const AddressForm: React.FC<IAddressForm> = ({
   React.useEffect(() => {
     if (cep && cep.length === 9) {
       if (isLoading || hasError) {
+        setNumero({ value: '', touched: false })
+        setComplemento({ value: '', touched: false })
         setAddressData({
           numeroCep: cep.slice(0, 5),
           complementoCep: cep.slice(-3),
@@ -106,7 +110,6 @@ const AddressForm: React.FC<IAddressForm> = ({
           cidade: '',
           uf: '',
           logradouro: '',
-          numero: '',
         })
         setStateSelect({
           id: 0,
@@ -115,15 +118,13 @@ const AddressForm: React.FC<IAddressForm> = ({
         setTouched({
           cep: false,
           streetAddress: false,
-          number: false,
-          additionalInfo: false,
           neighbourhood: false,
           city: false,
           stateOption: false,
         })
       }
     }
-  }, [isLoading, hasError, setAddressData, cep])
+  }, [isLoading, hasError, setAddressData, cep, setComplemento, setNumero])
 
   const setFormAddress = (value: string, key: EAddressForm) => {
     setAddressData({
@@ -211,14 +212,17 @@ const AddressForm: React.FC<IAddressForm> = ({
           <s.InputWrapper>
             <s.TextInput
               label="Número"
+              placeholder="Digite aqui"
               value={addressData.numero}
               disabled={isLoading}
               onBlur={() => touch('number')}
-              error={validationInputError(addressData.numero, touched.number)}
+              error={validationInputError(numero.value, numero.touched)}
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
-                setFormAddress(e.currentTarget.value, 'numero')
+                setNumero({ 
+                  ...numero,
+                  value: e.currentTarget.value
+                })
               }
-              placeholder="Digite aqui"
             />
             <s.ComplementTextInput
               label="Complemento (opcional)"
@@ -226,7 +230,7 @@ const AddressForm: React.FC<IAddressForm> = ({
               disabled={isLoading}
               placeholder="Digite aqui"
               onChange={e =>
-                setFormAddress(e.currentTarget.value, 'complemento')
+                setComplemento({ value: e.target.value, touched: true })
               }
             />
           </s.InputWrapper>
