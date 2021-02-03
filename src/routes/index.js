@@ -36,7 +36,6 @@ import Withdraw from 'pages/Withdraw'
 import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
 import TripInsuranceProposalPROCreation from 'pages/TripInsurance/PRO/Creation'
 import TripInsuranceProposalCreation from 'pages/TripInsurance/Creation'
-
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
 
