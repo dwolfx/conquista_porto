@@ -310,7 +310,7 @@ export const StickyDivisor = styled.div<IStickyDivisor>`
   opacity: 0.14;
   position: absolute;
   width: 2px;
-  z-index: 2;
+  z-index: 5;
   ${props =>
     props.side === 'left'
       ? `left: ${props.position}`
