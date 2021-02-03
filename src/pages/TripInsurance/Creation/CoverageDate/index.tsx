@@ -4,7 +4,7 @@ import { Container, Col, Row } from 'styled-bootstrap-grid'
 
 import Popover from 'components/Popover'
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 
 import useMedia from 'hooks/useMedia'
 
@@ -46,6 +46,7 @@ const CoverageDate: StepComponent = () => {
     <>
       <StepBar
         title="Simulação"
+        type="Seguro Viagem"
         actualStep={2}
         totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
       />

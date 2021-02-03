@@ -36,6 +36,10 @@ import Withdraw from 'pages/Withdraw'
 import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
 import TripInsuranceProposalPROCreation from 'pages/TripInsurance/PRO/Creation'
 import TripInsuranceProposalCreation from 'pages/TripInsurance/Creation'
+
+import ConsortiumBuildingCreation from 'pages/ConsortiumBuilding/PRO/Creation'
+import ConsortiumBuildingPROCreation from 'pages/ConsortiumBuilding/Creation'
+
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
 
@@ -249,6 +253,24 @@ export default function Routes({ ...props }) {
             exact
             component={TripInsuranceProposalPROCreation}
             pageTitle="Seguro Viagem - Simular"
+          />
+        ) : null}
+        {process.env.REACT_APP_ENV === 'development' ||
+        process.env.REACT_APP_ENV === 'local' ? (
+          <Route
+            path="/consorcio-imovel/simular/pro"
+            exact
+            component={ConsortiumBuildingCreation} // adicionar layer do Simular-PRO
+            pageTitle="Consórcio Imóvel - Simular - PRO"
+          />
+        ) : null}
+        {process.env.REACT_APP_ENV === 'development' ||
+        process.env.REACT_APP_ENV === 'local' ? (
+          <Route
+            path="/consorcio-imovel/simular"
+            exact
+            component={ConsortiumBuildingPROCreation} // adicionar layer do Simular-cliente
+            pageTitle="Consórcio Imóvel - Simular"
           />
         ) : null}
         {process.env.REACT_APP_ENV === 'development' ||

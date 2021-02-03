@@ -4,12 +4,11 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import { StepComponentProps } from 'hooks/FluxManagement/types'
+import { StepComponentProps, StepComponent } from 'hooks/FluxManagement/types'
 
+import StepBar from 'components/StepBar'
 import InsuranceSumary from '../InsuranceSumary'
-import StepBar from '../../../commons/StepBar'
 
-import { StepComponent } from 'hooks/FluxManagement/types'
 import * as S from '../styles'
 
 const SuccessState: StepComponent = () => {
@@ -18,7 +17,7 @@ const SuccessState: StepComponent = () => {
 
   return (
     <>
-      <StepBar title="Contratação" showSteps={false} />
+      <StepBar title="Contratação" type="Seguro Viagem" showSteps={false} />
       <S.Container>
         <Row>
           <Col lg={3} md={4} sm={12}>

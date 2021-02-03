@@ -7,7 +7,7 @@ import Text from 'components/Text'
 import Popover from 'components/Popover'
 
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
@@ -165,7 +165,12 @@ const OriginTripStep: StepComponent = () => {
         handleClose={() => setIsModalOpen(false)}
         handleAccept={() => instantiate(Steps.coverageDate)}
       />
-      <StepBar title="Simulação" actualStep={1} totalNumberOfSteps={5} />
+      <StepBar
+        title="Simulação"
+        type="Seguro Viagem"
+        actualStep={1}
+        totalNumberOfSteps={5}
+      />
       <S.Wrapper>
         <S.StyledContainer>
           <S.StyledRow

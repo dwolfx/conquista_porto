@@ -7,7 +7,7 @@ import 'styled-components/macro'
 import Icon from 'components/IconExporter'
 import ButtonLink from 'components/Button/Link'
 import { ICompanion, IForm, Steps } from 'pages/TripInsurance/Creation/types'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import StepBar from 'components/StepBar'
 import { useToast } from 'hooks/toast'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 
@@ -137,7 +137,12 @@ const CompanionStep = () => {
         selectedCompanion={selectedCompanion}
         companionAge={companionAge}
       />
-      <StepBar title="Contratação" actualStep={2} totalNumberOfSteps={4} />
+      <StepBar
+        title="Contratação"
+        type="Seguro Viagem"
+        actualStep={2}
+        totalNumberOfSteps={4}
+      />
       <s.ContentWrapper>
         <s.Row
           alignItems="start"
