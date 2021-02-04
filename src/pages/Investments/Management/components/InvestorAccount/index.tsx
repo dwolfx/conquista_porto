@@ -148,24 +148,23 @@ const InvestorAccount = () => {
             )}
             <WithdrawButton
               gtmSubname="investimentos gerenciar"
-              css={`width: 100%;`}
+              css="width: 100%;"
             />
           </ButtonsWrapper>
-          {!isTablet && 
+          {!isTablet && (
             <ButtonLink
               noIcon
-              data-testid={`link-investor-extract`}
+              data-testid="link-investor-extract"
               data-gtm-subname="conta de investimentos"
               data-gtm-name="ver extrato"
               data-gtm-type="click"
               data-gtm-clicktype="link"
-              css={`margin-top: 14px;`}
+              css="margin-top: 14px;"
               onClick={() => dispatch(OpenAccountExtractLayer())}
             >
               ver extrato &gt;
             </ButtonLink>
-          }              
-
+          )}
         </InfoContainer>
         <Divisor />
         <InfoContainer>

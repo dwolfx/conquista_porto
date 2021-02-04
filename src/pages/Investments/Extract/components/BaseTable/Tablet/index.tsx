@@ -6,23 +6,19 @@ import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 import Button from 'components/Button'
 import Loading from 'components/Loading'
+import { formatMoney } from 'helpers'
 
 import * as S from '../styles'
-import { formatMoney } from 'helpers'
-import { useDispatch } from 'react-redux'
-import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 import { IBankExtract } from '../types'
-
 interface IProps {
   extracts: IBankExtract[]
   isLoading: boolean
   isFundTransaction?: boolean
   hasError: boolean
-  request: any
+  onErrorHandler: () => void
 }
-const ExtractTableTablet = ({ extracts, isLoading, hasError, request, isFundTransaction = false }: IProps) => {
+const ExtractTableTablet = ({ extracts, isLoading, hasError, onErrorHandler, isFundTransaction = false }: IProps) => {
   const [listSize, setListSize] = useState(8)
-  const dispatch = useDispatch()
 
   if (isLoading) {
     return (
@@ -38,7 +34,7 @@ const ExtractTableTablet = ({ extracts, isLoading, hasError, request, isFundTran
         <Text type="headline" color="magenta2" textAlign="center">
           Não foi possível carregar a lista de fundos. Por favor, tente novamente.
         </Text>
-        <Button onClick={() => dispatch(GetBankExtractRequest(request))}>Tentar novamente</Button>
+        <Button onClick={onErrorHandler}>Tentar novamente</Button>
       </S.StyledErrorOrLoadingCard>
     )
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -50,13 +50,17 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
     hasError: state.bankExtract.hasError,
   }))
 
-  useEffect(() => {
+  const accountExtractRequest = useCallback(() => {
     dispatch(GetBankExtractRequest({
       tipoFiltro: 0,
       dataInicial: interval.startDate,
       dataFinal: interval.endDate
     }))
   }, [interval, dispatch])
+
+  useEffect(() => {
+    accountExtractRequest()
+  }, [accountExtractRequest])
 
   useEffect(() => {
     if (transactions) {
@@ -134,12 +138,8 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
                   <BaseTable
                     isLoading={isLoading}
                     hasError={hasError}
+                    onErrorHandler={accountExtractRequest}
                     extracts={filteredExtracts}
-                    request={{
-                      tipoFiltro: 0,
-                      dataInicial: interval.startDate,
-                      dataFinal: interval.endDate
-                    }}
                   />
                 </TableWrapper>
             </ContentCard>
