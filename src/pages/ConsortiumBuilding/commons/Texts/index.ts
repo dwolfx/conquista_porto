@@ -23,6 +23,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
     tryAgain: 'Tentar novamente',
     updateSimulation: 'Atualizar simulação',
     changeData: 'Alterar dados',
+    saveChanges: 'Salvar alterações',
   },
   creation: {
     title: 'Simulação',
@@ -150,6 +151,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
       payment: {
         actualStep: 2,
         title: 'Pagamentos',
+        drawerTitle: 'Alterar Pagamento',
         subtitleFirst:
           'Por favor, preencha seus dados para débito automático em conta corrente.',
         subtitleSecond:
@@ -178,12 +180,11 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
         },
         containerThird: {
           title: 'Dados de pagamento',
-          subtitle:
-            'Informe a conta da qual será debitado o valor mensal de R$ 1.345,29*',
+          subtitle: 'Informe a conta da qual será debitado o valor mensal de',
           caption:
             '*Valor da parcela apenas, sem considerar a taxa de administração.',
           messageImportant: {
-            title: 'IMPORTANTE: ',
+            title: 'IMPORTANTE:',
             article: {
               textFirst:
                 'Enviaremos ao seu banco uma solicitação de débito automático.',
@@ -193,7 +194,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
           },
           rate: {
             title:
-              'Informe como deseja pagar a taxa de administração antecipada',
+              'Informe como deseja pagar a taxa de administração antecipada:',
             subtitle:
               'Corresponde a 2% do valor total, podendo ser dividida segundo as opções abaixo:',
             label: 'Taxa de administração antecipada',
