@@ -35,7 +35,11 @@ const CompanionEditDrawer: React.FC<IProps> = ({
     value: '',
     touched: false,
   })
-  const [birthday, setBirthday] = useState({ value: '', touched: false })
+  const [birthday, setBirthday] = useState({
+    value: '',
+    touched: false,
+    error: '',
+  })
   const [emergencyContactName, setEmergencyContactName] = useState({
     value: '',
     touched: false,
@@ -74,6 +78,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
     if (hasPoliticallyExposedPerson) {
       return (
         politicalyExposedPersonName.value !== '' &&
+        politicalyExposedPersonDocument.value !== documentNumber.value &&
         cpf.isValid(cpf.strip(politicalyExposedPersonDocument.value))
       )
     }
@@ -82,6 +87,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
     hasPoliticallyExposedPerson,
     politicalyExposedPersonName,
     politicalyExposedPersonDocument,
+    documentNumber,
   ])
 
   const validateEmergencyContactData = useCallback(() => {
@@ -121,8 +127,9 @@ const CompanionEditDrawer: React.FC<IProps> = ({
         ? {
             touched: false,
             value: `${data.dataNascimento}`,
+            error: '',
           }
-        : { touched: false, value: '' }
+        : { touched: false, value: '', error: '' }
     )
     setIsBrazilianResident(
       type === 'update' ? data.isResidePais || false : true
@@ -211,6 +218,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
       fullName.value !== '' &&
       cpf.isValid(documentNumber.value) &&
       birthday.value !== '' &&
+      birthday.error === '' &&
       selectedGender.value !== ''
     ) {
       setIsValid(true)
@@ -220,7 +228,8 @@ const CompanionEditDrawer: React.FC<IProps> = ({
       if (
         fullName.value === '' ||
         !cpf.isValid(documentNumber.value) ||
-        birthday.value === ''
+        birthday.value === '' ||
+        birthday.error !== ''
       ) {
         setIsValid(false)
       } else {
@@ -265,7 +274,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
     }
   }, [isDrawerOpen, companions, setDataHooks, selectedCompanion])
 
-  const validateCPF = (cpfValue: string) => {
+  const validateCPF = (cpfValue: string, type: string = 'acompanhante') => {
     const strippedCpfValue = cpf.strip(cpfValue)
     if (!strippedCpfValue) {
       return {
@@ -276,6 +285,14 @@ const CompanionEditDrawer: React.FC<IProps> = ({
       return {
         icon: 'alertrounded' as keyof typeof dict,
         message: 'CPF inválido. Por favor, verifique o número.',
+      }
+    } else if (
+      type === 'ppe' &&
+      politicalyExposedPersonDocument.value === documentNumber.value
+    ) {
+      return {
+        icon: 'alertrounded' as keyof typeof dict,
+        message: 'CPF igual ao do acompanhante.',
       }
     }
     return false
@@ -291,49 +308,43 @@ const CompanionEditDrawer: React.FC<IProps> = ({
     return false
   }
 
-  const validateDate = (date: string) => {
-    let icon = 'alertrounded' as keyof typeof dict
-    const dateYear = date.slice(6)
-    const interval = moment()
-      .subtract(companionAge, 'year')
-      .format('YYYY')
-    const check = moment(dateYear).isAfter(interval)
-    const checkCurrentYear = moment(dateYear).isAfter(moment().format('YYYY'))
-    const valid = moment(date, 'DD/MM/YYYY').isValid()
+  const validateDate = useCallback(
+    (date: string) => {
+      const dateYear = date.slice(6)
+      const interval = moment()
+        .subtract(companionAge, 'year')
+        .format('YYYY')
+      const check = moment(dateYear).isAfter(interval)
+      const checkCurrentYear = moment(dateYear).isAfter(moment().format('YYYY'))
+      const valid = moment(date, 'DD/MM/YYYY').isValid()
+      let message = ''
 
-    if (date.length === 0) return false
-
-    if (valid && !checkCurrentYear && date.length === 10) {
-      if (companionAge > 70 && check && moment().diff(dateYear, 'year') < 90) {
-        return {
-          icon,
-          message:
-            'Você definiu esse acompanhante como maior de 70 anos na etapa de simulação.',
+      if (valid && !checkCurrentYear && date.length === 10) {
+        if (
+          companionAge > 70 &&
+          check &&
+          moment().diff(dateYear, 'year') < 90
+        ) {
+          message =
+            'Você definiu esse acompanhante como maior de 70 anos na etapa de simulação.'
+        } else if (
+          companionAge > 70 &&
+          !check &&
+          moment().diff(dateYear, 'year') > 90
+        ) {
+          message =
+            'Você definiu esse acompanhante com até 90 anos na etapa de simulação.'
+        } else if (companionAge === 70 && !check) {
+          message =
+            'Você definiu esse acompanhante como menor de 70 anos na etapa de simulação.'
         }
-      } else if (
-        companionAge > 70 &&
-        !check &&
-        moment().diff(dateYear, 'year') > 90
-      ) {
-        return {
-          icon,
-          message:
-            'Você definiu esse acompanhante com até 90 anos na etapa de simulação.',
-        }
-      } else if (companionAge === 70 && !check) {
-        return {
-          icon,
-          message:
-            'Você definiu esse acompanhante como menor de 70 anos na etapa de simulação.',
-        }
+      } else {
+        message = 'Data de nascimento inválida'
       }
-    } else {
-      return {
-        icon,
-        message: 'Data de nascimento inválida.',
-      }
-    }
-  }
+      setBirthday({ touched: true, value: date, error: message })
+    },
+    [companionAge]
+  )
 
   const getPoliticalExposedKinship = (value: number) => {
     const kinshipList = [
@@ -413,18 +424,14 @@ const CompanionEditDrawer: React.FC<IProps> = ({
           placeholder="01/01/2000"
           value={birthday.value}
           error={
-            birthday.touched && birthday.value === ''
-              ? {
-                  icon: 'alertrounded',
-                  message: 'Insira a data de nascimento.',
-                }
-              : validateDate(birthday.value)
+            birthday.touched &&
+            birthday.error !== '' && {
+              icon: 'alertrounded' as keyof typeof dict,
+              message: birthday.error,
+            }
           }
-          onChange={(e: any) => {
-            setBirthday({
-              touched: true,
-              value: e.target.value,
-            })
+          onChange={(e: React.FormEvent<HTMLInputElement>) => {
+            validateDate(e.currentTarget.value)
           }}
         />
       </s.ColInput>
@@ -587,7 +594,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
                   message: 'Insira o nome do acompanhante.',
                 }
               }
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setPoliticalyExposedPersonName({
                   touched: true,
                   value: e.target.value,
@@ -606,9 +613,9 @@ const CompanionEditDrawer: React.FC<IProps> = ({
               value={formatCpf(politicalyExposedPersonDocument.value)}
               error={
                 politicalyExposedPersonDocument.touched &&
-                validateCPF(politicalyExposedPersonDocument.value)
+                validateCPF(politicalyExposedPersonDocument.value, 'ppe')
               }
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setPoliticalyExposedDocument({
                   touched: true,
                   value: e.target.value,
@@ -666,7 +673,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
                 }
               }
               value={emergencyContactName.value}
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setEmergencyContactName({
                   touched: true,
                   value: e.target.value,
@@ -693,7 +700,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
                     }
                   : validateContactTelephone(emergencyContactPhone.value)
               }
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setEmergencyContactPhone({
                   touched: true,
                   value: e.target.value.replace(/[\D]/g, ''),
