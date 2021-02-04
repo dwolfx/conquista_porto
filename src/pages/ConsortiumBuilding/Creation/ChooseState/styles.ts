@@ -6,7 +6,7 @@ import Button from 'components/Button'
 
 export const Wrapper = styled.div`
   width: 100%;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 139px);
   height: auto;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
