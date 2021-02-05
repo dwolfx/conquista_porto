@@ -11,6 +11,7 @@ import creditCardOccupation from './CreditCard/Occupation/sagas'
 import creditCardOffers from './CreditCard/Offers/sagas'
 import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
+import consortiumBuildingStates from './ConsortiumBuilding/States/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import customerProfile from './CustomerProfile/sagas'
 import destinationCountries from './TripInsurance/DestinationCountries/sagas'
@@ -60,6 +61,7 @@ export default function* rootSaga() {
     creditCardOffers,
     consolidatedPosition,
     consortiumBuilding,
+    consortiumBuildingStates,
     consortiumVehicle,
     customerProfile,
     destinationCountries,

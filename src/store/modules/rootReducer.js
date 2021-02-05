@@ -10,6 +10,7 @@ import creditCardOccupation from './CreditCard/Occupation/reducer'
 import creditCardOffer from './CreditCard/Offers/reducer'
 import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
+import consortiumBuildingStates from './ConsortiumBuilding/States/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import customerProfile from './CustomerProfile/reducer'
 import destinationCountries from './TripInsurance/DestinationCountries/reducer'
@@ -54,6 +55,7 @@ export default combineReducers({
   bankExtract,
   bankExtractFund,
   consortiumBuilding,
+  consortiumBuildingStates,
   consortiumVehicle,
   creditCard,
   creditCardExpirationDays,
