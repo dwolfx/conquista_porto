@@ -1,0 +1,7 @@
+{
+  "codigo_produto": 1,
+  "valor_minimo_parcela": 300,
+  "valor_maximo_parcela": 3200,
+  "valor_minimo_credito": 50000,
+  "valor_maximo_credito": 500000
+}

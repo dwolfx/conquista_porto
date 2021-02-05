@@ -48,6 +48,7 @@ import token2fa from './2FAToken/reducer'
 import lastTransaction from './Investment/LastTransaction/reducer'
 import withdraw from './Withdraw/reducer'
 import zipCode from './ZipCode/reducer'
+import contemplated from './ConsortiumBuilding/Contemplated/reducer'
 
 export default combineReducers({
   alignmentTerms,
@@ -96,4 +97,5 @@ export default combineReducers({
   lastTransaction,
   withdraw,
   zipCode,
+  contemplated,
 })
