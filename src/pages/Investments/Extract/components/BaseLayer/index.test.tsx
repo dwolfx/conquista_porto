@@ -1,7 +1,8 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
 import BaseLayer from '.'
-import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
 const createRootContainer = () => {
   let container = document.getElementById('root')
@@ -17,24 +18,28 @@ const createRootContainer = () => {
 describe('BaseLayer tests', () => {
   it('should be a layer component', () => {
     renderWithReduxAndTheme(
-      <BaseLayer
-        isOpen
-        handleClose={() => {}}
-        id="extrato-conta"
-        title="Conta de investimento"
-      />,
+      <BrowserRouter>
+        <BaseLayer
+          isOpen
+          handleClose={() => {}}
+          id="extrato-conta"
+          title="Conta de investimento"
+        />
+      </BrowserRouter>,
       { container: createRootContainer() }
     )
     expect(screen.getByTestId('layer-extrato-conta')).toBeInTheDocument()
   })
   it('should render correclty the header', () => {
     renderWithReduxAndTheme(
-      <BaseLayer
-        isOpen
-        handleClose={() => {}}
-        id="extrato-conta"
-        title="Conta de investimento"
-      />,
+      <BrowserRouter>
+        <BaseLayer
+          isOpen
+          handleClose={() => {}}
+          id="extrato-conta"
+          title="Conta de investimento"
+        />
+      </BrowserRouter>,
       { container: createRootContainer() }
     )
     expect(screen.getByRole('img', { name: 'close' })).toBeInTheDocument()
@@ -45,12 +50,14 @@ describe('BaseLayer tests', () => {
   it('should call handleClose function when click on close button', () => {
     const handleCloseMock = jest.fn()
     renderWithReduxAndTheme(
-      <BaseLayer
-        isOpen
-        handleClose={handleCloseMock}
-        id="extrato-conta"
-        title="Conta de investimento"
-      />,
+      <BrowserRouter>
+        <BaseLayer
+          isOpen
+          handleClose={handleCloseMock}
+          id="extrato-conta"
+          title="Conta de investimento"
+        />
+      </BrowserRouter>,
       { container: createRootContainer() }
     )
     const closeButton = screen.getByRole('img', { name: 'close' })
@@ -59,12 +66,14 @@ describe('BaseLayer tests', () => {
   })
   it('should render an information subheader with the page title', () => {
     renderWithReduxAndTheme(
-      <BaseLayer
-        isOpen
-        handleClose={() => {}}
-        id="extrato-conta"
-        title="Conta de investimento"
-      />,
+      <BrowserRouter>
+        <BaseLayer
+          isOpen
+          handleClose={() => {}}
+          id="extrato-conta"
+          title="Conta de investimento"
+        />
+      </BrowserRouter>,
       { container: createRootContainer() }
     )
     const subheader = screen.getByTestId('subheader')
@@ -76,12 +85,14 @@ describe('BaseLayer tests', () => {
   })
   it('should contain ambima component', () => {
     renderWithReduxAndTheme(
-      <BaseLayer
-        isOpen
-        handleClose={() => {}}
-        id="extrato-conta"
-        title="Conta de investimento"
-      />,
+      <BrowserRouter>
+        <BaseLayer
+          isOpen
+          handleClose={() => {}}
+          id="extrato-conta"
+          title="Conta de investimento"
+        />
+      </BrowserRouter>,
       { container: createRootContainer() }
     )
     expect(screen.getByTestId('ambima')).toBeInTheDocument()
