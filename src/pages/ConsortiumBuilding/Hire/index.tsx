@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { Container } from './styles';
+import { Container } from './styles'
 
-const Hire: React.FC = () => {
-  return (
-    <Container>
-      <h1>Hire</h1>
-    </Container>
-  );
-};
+const Hire: React.FC = () => (
+  <Container>
+    <h1>Hire</h1>
+  </Container>
+)
 
-export default Hire;
+export default Hire

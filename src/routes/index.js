@@ -243,9 +243,6 @@ export default function Routes({ ...props }) {
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
         />
-
-        {/* Disponibiliza as rotas dos fluxos de seguro viagem
-        apenas nos nossos ambientes de desenvolvimento */}
         {process.env.REACT_APP_ENV === 'development' ||
         process.env.REACT_APP_ENV === 'local' ? (
           <Route
@@ -260,7 +257,7 @@ export default function Routes({ ...props }) {
           <Route
             path="/consorcio-imovel/simular/pro"
             exact
-            component={ConsortiumBuildingCreation} // adicionar layer do Simular-PRO
+            component={ConsortiumBuildingCreation}
             pageTitle="Consórcio Imóvel - Simular - PRO"
           />
         ) : null}
@@ -269,7 +266,7 @@ export default function Routes({ ...props }) {
           <Route
             path="/consorcio-imovel/simular"
             exact
-            component={ConsortiumBuildingPROCreation} // adicionar layer do Simular-cliente
+            component={ConsortiumBuildingPROCreation}
             pageTitle="Consórcio Imóvel - Simular"
           />
         ) : null}
