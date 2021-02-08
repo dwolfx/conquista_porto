@@ -10,13 +10,14 @@ export interface IModalTexts {
 }
 
 export interface IButtomTexts {
+  start: string
   next: string
   simulate: string
   hire: string
   tryAgain: string
   updateSimulation: string
   changeData: string
-  start: string
+  saveChanges: string
 }
 
 export interface IStateStepCreationFlux {
@@ -122,18 +123,23 @@ export interface IContainerInformationConfirmationStepHireFlux {
   link?: string
   messageRNE?: string
   text?: ILabelContainerFifthInformationConfirmationStepHireFlux
-  label?: string | ILabelContainerFirstInformationConfirmationStepHireFlux | ILabelContainerSecondInformationConfirmationStepHireFlux | ILabelContainerThirdInformationConfirmationStepHireFlux | ILabelContainerFourthInformationConfirmationStepHireFlux
+  label?:
+    | string
+    | ILabelContainerFirstInformationConfirmationStepHireFlux
+    | ILabelContainerSecondInformationConfirmationStepHireFlux
+    | ILabelContainerThirdInformationConfirmationStepHireFlux
+    | ILabelContainerFourthInformationConfirmationStepHireFlux
 }
 
 export interface IInformationConfirmationStepHireFlux {
   actualStep: 1 | 2 | 3 | 4 | 5 | null
   title: string
   subtitle: string
-  containerFirst: IContainerInformationConfirmationStepHireFlux,
-  containerSecond: IContainerInformationConfirmationStepHireFlux,
+  containerFirst: IContainerInformationConfirmationStepHireFlux
+  containerSecond: IContainerInformationConfirmationStepHireFlux
   containerThird: IContainerInformationConfirmationStepHireFlux
   containerFourth: IContainerInformationConfirmationStepHireFlux
-  containerFifth: IContainerInformationConfirmationStepHireFlux,
+  containerFifth: IContainerInformationConfirmationStepHireFlux
   containerSixth: ILabelContainerSixthInformationConfirmationStepHireFlux
 }
 
@@ -194,6 +200,7 @@ export interface IContainerThirdPaymentStepHireFlux {
 export interface IPaymentStepHireFlux {
   actualStep: 1 | 2 | 3 | 4 | 5 | null
   title: string
+  drawerTitle: string
   subtitleFirst: string
   subtitleSecond: string
   containerFirst: IContainerFirstPaymentStepHireFlux
@@ -226,9 +233,9 @@ export interface IContainerLifeInsuranceStepHireFlux {
 }
 
 export interface ILifeInsuranceStepHireFlux {
-  title: string,
-  actualStep: 1 | 2 | 3 | 4 | 5 | null,
-  content: string,
+  title: string
+  actualStep: 1 | 2 | 3 | 4 | 5 | null
+  content: string
   containerFirst: IContainerLifeInsuranceStepHireFlux
   containerSecond: IContainerLifeInsuranceStepHireFlux
   containerThird: IContainerLifeInsuranceStepHireFlux
@@ -245,9 +252,9 @@ export interface ITextsContainerInsuranceLenderStepHireFlux {
 }
 
 export interface IInsuranceLenderStepHireFlux {
-  title: string,
-  actualStep: 1 | 2 | 3 | 4 | 5 | null,
-  subtitle: string,
+  title: string
+  actualStep: 1 | 2 | 3 | 4 | 5 | null
+  subtitle: string
   containerMain: ITextsContainerInsuranceLenderStepHireFlux
 }
 
@@ -279,13 +286,17 @@ export interface IContentContainerThirdSummaryStepHireFlux {
 
 export interface IContainerSummaryStepHireFlux {
   title: string
-  label: { link: string } | IContentContainerFirstSummaryStepHireFlux | ILabelContainerFirstPaymentStepHireFlux | IContentContainerThirdSummaryStepHireFlux
+  label:
+    | { link: string }
+    | IContentContainerFirstSummaryStepHireFlux
+    | ILabelContainerFirstPaymentStepHireFlux
+    | IContentContainerThirdSummaryStepHireFlux
 }
 
 export interface ISummaryStepHireFlux {
-  title: string,
-  actualStep: 1 | 2 | 3 | 4 | 5 | null,
-  subtitle: string,
+  title: string
+  actualStep: 1 | 2 | 3 | 4 | 5 | null
+  subtitle: string
   modalBackSimulation: IModalBackSimulationSummaryStepHireFlux
   containerFirst: IContainerSummaryStepHireFlux
   containerSecond: IContainerSummaryStepHireFlux
@@ -305,7 +316,10 @@ export interface IContentResultHireStepHireFlux {
 
 export interface ISummaryResultHireStepHireFlux {
   title: string
-  label: IContentContainerFirstSummaryStepHireFlux | IContentContainerThirdSummaryStepHireFlux | ILabelContainerFirstPaymentStepHireFlux
+  label:
+    | IContentContainerFirstSummaryStepHireFlux
+    | IContentContainerThirdSummaryStepHireFlux
+    | ILabelContainerFirstPaymentStepHireFlux
 }
 
 export interface IResultHireStepHireFlux {
