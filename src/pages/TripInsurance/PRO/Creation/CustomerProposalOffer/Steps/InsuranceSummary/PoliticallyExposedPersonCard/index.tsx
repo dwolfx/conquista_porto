@@ -1,0 +1,57 @@
+import React from 'react'
+
+import ButtonLink from 'components/Button/Link'
+import DataRow from 'pages/TripInsurance/commons/DataRow'
+import Text from 'components/Text'
+
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+
+import { IForm } from 'pages/TripInsurance/PRO/types'
+import { IPoliticallyExposedPerson } from 'pages/TripInsurance/Creation/types'
+
+import * as s from '../styles'
+
+const PoliticallyExposedPersonCard: React.FC = () => {
+  const { form } = useFormFluxManagement<IForm>()
+
+  const checkEmptyExposedPersonFields = (
+    exposedPerson: IPoliticallyExposedPerson
+  ): boolean => {
+    return exposedPerson.grauRelacionamento
+      ? exposedPerson.grauRelacionamento !== 2
+        ? !exposedPerson.nome ||
+          !exposedPerson.numeroCpf ||
+          !exposedPerson.digitoCpf ||
+          !exposedPerson.grauParentesco ||
+          exposedPerson.grauParentesco < 1 ||
+          exposedPerson.grauParentesco > 6
+        : false
+      : true
+  }
+
+  return (
+    <s.Card>
+      <s.CardContentWrapper>
+        <s.CardTitleWrapper>
+          <Text type="subheading" bold color="gray5">
+            PESSOA POLITICAMENTE EXPOSTA
+          </Text>
+          <ButtonLink
+            hasNotification={checkEmptyExposedPersonFields(
+              form.pessoaExposta ?? {}
+            )}
+          >
+            ALTERAR
+          </ButtonLink>
+        </s.CardTitleWrapper>
+        <DataRow
+          label="Declarar"
+          value={form.pessoaExposta?.grauRelacionamento !== 2 ? 'Sim' : 'Não'}
+          error={checkEmptyExposedPersonFields(form.pessoaExposta ?? {})}
+        />
+      </s.CardContentWrapper>
+    </s.Card>
+  )
+}
+
+export default PoliticallyExposedPersonCard

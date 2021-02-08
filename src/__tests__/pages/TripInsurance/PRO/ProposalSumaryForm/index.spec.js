@@ -25,6 +25,7 @@ const INITIAL_STATE = {
     },
     isLoading: false,
   },
+  fluxManagement: { stack: [], form: {} },
 }
 
 const mockStore = createStore([])

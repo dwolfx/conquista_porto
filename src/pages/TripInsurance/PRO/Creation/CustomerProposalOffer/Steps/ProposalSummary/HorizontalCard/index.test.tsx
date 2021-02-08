@@ -3,24 +3,18 @@ import React from 'react'
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 
 import HorizontalCard from '.'
-import * as t from '../types'
 
-const plano: t.IPlan = {
-  planName: 'Brasil Terra',
-  installmentsAmount: '3x sem juros de R$ 209,97',
-  upfrontAmount: 'R$ 659,82 à vista',
-  firstCoverageAmount: 'R$ 150.000,00',
-  secondCoverageAmount: 'R$ 250.000,00',
-  thridCoverageAmount: 'R$ 350.000,00',
-  preSelected: true,
-}
+import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
+
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+
+const plano: IPlan = tripInsuranceQuotationMock.ViagemPacote.pacotes[0]
 
 const setup = () =>
   renderWithReduxAndTheme(
     <HorizontalCard
+      comparativeModalSetState={() => {}}
       planInformation={plano}
-      selectedCard="Brasil Terra"
-      setSelectedCard={jest.fn()}
     />
   )
 
@@ -32,12 +26,10 @@ describe('HorizontalCard component tests', () => {
     setup()
     const textsToBeDefined = [
       'Pré-selecionado pelo seu parceiro',
-      'Brasil Terra',
-      '3x sem juros de R$ 209,97',
-      'R$ 659,82 à vista',
-      'R$ 150.000,00',
-      'R$ 250.000,00',
-      'R$ 350.000,00',
+      'Brasil Prata',
+      '6x SEM JUROS DE R$ 5,32',
+      'R$ 31,94 à vista',
+      'R$ 10.000,00',
     ]
 
     const suiteTests = textsToBeDefined.map(word => ({
@@ -45,38 +37,5 @@ describe('HorizontalCard component tests', () => {
     }))
 
     suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
-
-    const radioOption = screen.getByRole('radio')
-
-    expect(radioOption).toBeChecked()
-  })
-  it('should render the unselected card correctly', () => {
-    plano.preSelected = false
-    renderWithReduxAndTheme(
-      <HorizontalCard
-        planInformation={plano}
-        selectedCard="Brasil Prata"
-        setSelectedCard={jest.fn()}
-      />
-    )
-
-    const textsToBeDefined = [
-      'Brasil Terra',
-      '3x sem juros de R$ 209,97',
-      'R$ 659,82 à vista',
-      'R$ 150.000,00',
-      'R$ 250.000,00',
-      'R$ 350.000,00',
-    ]
-
-    const suiteTests = textsToBeDefined.map(word => ({
-      execution: screen.getByText(word),
-    }))
-
-    const radioOption = screen.getByRole('radio')
-
-    suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
-
-    expect(radioOption).not.toBeChecked()
   })
 })

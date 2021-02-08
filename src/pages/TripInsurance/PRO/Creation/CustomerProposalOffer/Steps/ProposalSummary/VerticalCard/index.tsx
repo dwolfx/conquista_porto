@@ -1,45 +1,41 @@
 import React from 'react'
-import { uuid } from 'uuidv4'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
+
+import { formatMoney } from 'helpers'
+
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
 import * as s from './styles'
 
 const VerticalCard = ({
   planInformation,
-  selectedCard,
-  setSelectedCard,
+  comparativeModalSetState,
 }: {
-  planInformation: any
-  selectedCard: string
-  setSelectedCard: React.Dispatch<React.SetStateAction<string>>
+  planInformation: IPlan
+  comparativeModalSetState: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   return (
-    <s.Card isCardSelected={planInformation.planName === selectedCard}>
-      <s.RadioWrapper>
-        <s.RadioOption
-          id={uuid()}
-          name="card-plan"
-          value=""
-          checked={planInformation.planName === selectedCard}
-          handleChange={() => setSelectedCard(planInformation.planName)}
-        />
-        {planInformation.preSelected ? (
-          <Text bold type="caption" color="blue4">
-            Pré-selecionado pelo seu parceiro
-          </Text>
-        ) : null}
-      </s.RadioWrapper>
+    <s.Card>
       <s.TitleWrapper>
+        <s.TitleText bold type="caption" color="blue4">
+          Pré-selecionado pelo seu parceiro
+        </s.TitleText>
         <s.TitleText bold type="heading4">
-          {planInformation.planName}
+          {planInformation.nomePlano}
         </s.TitleText>
         <s.TitleText bold type="captionUppercase" color="gray5">
-          {planInformation.installmentsAmount}
+          {`${
+            planInformation.formasPagamento.listaParcelamentoCartaoPorto[5]
+              .descricao
+          } SEM JUROS DE ${formatMoney(
+            planInformation.formasPagamento.listaParcelamentoCartaoPorto[5]
+              .valor
+          )}`}
         </s.TitleText>
         <Text bold type="heading4">
-          {planInformation.upfrontAmount}
+          {formatMoney(planInformation.valorCartaoPortoSeguro)} à vista
         </Text>
       </s.TitleWrapper>
       <Divisor />
@@ -54,7 +50,7 @@ const VerticalCard = ({
             Despesas médicas, hospitalares e/ou odontológicas - dmho
           </Text>
           <s.CoverageItemText bold type="headline">
-            {planInformation.firstCoverageAmount}
+            {planInformation.ViagemCobertura.coberturas[0].valor}
           </s.CoverageItemText>
         </s.ItemWrapper>
         <Divisor />
@@ -63,7 +59,7 @@ const VerticalCard = ({
             Despesas médicas, hospitalares e/ou odontológicas - dmho
           </Text>
           <s.CoverageItemText bold type="headline">
-            {planInformation.secondCoverageAmount}
+            {planInformation.ViagemCobertura.coberturas[1].valor}
           </s.CoverageItemText>
         </s.ItemWrapper>
         <Divisor />
@@ -72,11 +68,11 @@ const VerticalCard = ({
             Despesas médicas, hospitalares e/ou odontológicas - dmho
           </Text>
           <s.CoverageItemText bold type="headline">
-            {planInformation.thridCoverageAmount}
+            {planInformation.ViagemCobertura.coberturas[2].valor}
           </s.CoverageItemText>
         </s.ItemWrapper>
       </s.CoverageItemsWrapper>
-      <s.ButtonLink noIcon>
+      <s.ButtonLink noIcon onClick={() => comparativeModalSetState(true)}>
         <Text bold type="button" color="blue4">
           LISTA COMPLETA
         </Text>

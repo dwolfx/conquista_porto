@@ -7,7 +7,7 @@ import * as S from './styles'
 
 interface IProps {
   label: string
-  value: string | undefined
+  value: string | React.ReactNode | undefined
 }
 
 const DataShower = ({ label, value, ...rest }: IProps) => {
@@ -26,9 +26,13 @@ const DataShower = ({ label, value, ...rest }: IProps) => {
       </S.KeyWrapper>
       <S.ValueWrapper>
         {value ? (
-          <Text bold type={valueTextType} color="gray6">
-            {value}
-          </Text>
+          typeof value === 'string' ? (
+            <Text bold type={valueTextType} color="gray6">
+              {value}
+            </Text>
+          ) : (
+            value
+          )
         ) : (
           <Text type="caption" color="magenta2">
             Não preenchido

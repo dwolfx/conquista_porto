@@ -1,44 +1,55 @@
-import { IAdditionalCountries, ICompanion, IPayment, IMainPassenger } from "../Creation/types";
+import {
+  IAdditionalCountries,
+  ICompanion,
+  IPayment,
+  IPoliticallyExposedPerson,
+  IMainPassenger,
+} from 'pages/TripInsurance/Creation/types'
 
-import TravelDetailsForm from "./Creation/PartnerOffer/Steps/TravelDetailsForm";
-import CustomerTravelDetailsForm from "./Creation/PartnerOffer/Steps/CustomerTravelDetailsForm";
+import CustomerTravelDetailsForm from './Creation/PartnerOffer/Steps/CustomerTravelDetailsForm'
+import TravelDetailsForm from './Creation/PartnerOffer/Steps/TravelDetailsForm'
 
-import ProposalSummary from './Creation/CustomerProposalOffer/Steps/ProposalSummary'
 import InsuranceSummary from './Creation/CustomerProposalOffer/Steps/InsuranceSummary'
+import ProposalSummary from './Creation/CustomerProposalOffer/Steps/ProposalSummary'
 
 export const ParnerSteps = {
+  CustomerTravelDetailsForm: CustomerTravelDetailsForm,
   TravelDetailsForm: TravelDetailsForm,
-  CustomerTravelDetailsForm: CustomerTravelDetailsForm, 
 }
 
 export const CustomerSteps = {
   InsuranceSummary: InsuranceSummary,
-  ProposalSummary: ProposalSummary
+  ProposalSummary: ProposalSummary,
 }
 
 export interface IForm {
-  idParceiro: number
+  acompanhantes?: ICompanion[]
+  codigoCanal?: number
+  codigoOperacao?: string
+  codigoPaisDestino?: string
+  codigoUfOrigem?: string
   dataIda?: string
   dataVolta?: string
-  motivoViagem?: number
-  isPraticaAventura?: boolean
-  isMotocicleta?: boolean
-  qtdPassagMenorSetentaAnos?: number
-  qtdPassagMaiorSetentaAnos?: number
-  codigoUfOrigem?: string
-  codigoPaisDestino?: string
-  paisesAdicionais?: IAdditionalCountries[]
-  pacoteEscolhido?: string
-  valorSeguro?: number
-  passageiroPrincipal?: IMainPassenger
-  acompanhantes?: ICompanion[]
-  pagamento?: IPayment
+  hasLatinAmericaCountryAndOtherCountry?: boolean
+  hasOnlyLatinAmericaDestination?: boolean
+  idParceiro?: number
+  idSimulacao?: string
   isAceiteTermos?: boolean
   isCienteMoto?: boolean
-  codigoOperacao?: string
-  susep?: string
+  isMotocicleta?: boolean
+  isPraticaAventura?: boolean
+  motivoViagem?: number
+  nationalDestination?: boolean
   nomeDoPlano?: string
-  valorComDesconto: number
+  pacoteEscolhido?: string
+  paisesAdicionais?: IAdditionalCountries[]
+  pagamento?: IPayment
+  passageiroPrincipal?: IMainPassenger
+  pessoaExposta?: IPoliticallyExposedPerson
+  qtdPassagMaiorSetentaAnos?: number
+  qtdPassagMenorSetentaAnos?: number
+  susep?: string
+  valorComDesconto?: number
+  valorSeguro?: number
   valorSemDesconto: number
-  codigoCanal?: number
 }

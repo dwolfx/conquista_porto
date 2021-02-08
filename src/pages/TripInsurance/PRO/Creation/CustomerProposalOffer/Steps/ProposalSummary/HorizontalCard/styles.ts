@@ -1,19 +1,14 @@
 import styled from 'styled-components'
+
+import ButtonLinkCmp from 'components/Button/Link'
 import CardCmp from 'components/Card'
-import RadioCmp from 'components/Inputs/Radio/New'
+import DivisorCmp from 'components/Divisor'
 import TextCmp from 'components/Text'
 
-interface ICard {
-  isCardSelected?: boolean
-}
-
-export const Card = styled(CardCmp)<ICard>`
+export const Card = styled(CardCmp)`
   padding: ${({ theme }) =>
     `${theme.spacing(3)}px ${theme.spacing(2)}px
-    ${theme.spacing(3)}px ${theme.spacing(3)}px`};
-  border: 1px solid
-    ${({ theme, isCardSelected }) =>
-      isCardSelected ? theme.colors.blue4 : theme.colors.gray3};
+    ${theme.spacing(3)}px ${theme.spacing(4)}px`};
   border-radius: 8px;
   transition: border-color ease 0.3s;
 
@@ -33,10 +28,6 @@ export const CardContent = styled.div`
   align-items: stretch;
 `
 
-export const RadioOption = styled(RadioCmp)`
-  margin-right: ${({ theme }) => theme.spacing(1)}px;
-`
-
 export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,11 +44,6 @@ export const TitleText = styled(TextCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const CoveragesTitleWrapper = styled.div`
-  padding: ${({ theme }) => theme.spacing(2)}px;
-  margin-top: ${({ theme }) => theme.spacing(1)}px;
-`
-
 export const CoverageItemsWrapper = styled.div`
   margin-left: ${({ theme }) => theme.spacing(4)}px;
   display: flex;
@@ -69,23 +55,18 @@ export const CoverageItemsWrapper = styled.div`
   }
 `
 
-export const ItemWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}px`};
-  margin: ${({ theme }) => theme.spacing(1)}px 0;
-  &:first-of-type {
-    margin-top: 0;
-  }
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-`
-
 export const CoverageItemDescription = styled(TextCmp)`
   width: 220px;
 `
 
 export const TextWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const ButtonLink = styled(ButtonLinkCmp)`
+  padding: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const Divisor = styled(DivisorCmp)`
+  height: auto;
 `

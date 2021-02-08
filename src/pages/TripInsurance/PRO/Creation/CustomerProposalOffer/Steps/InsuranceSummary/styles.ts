@@ -16,12 +16,10 @@ export const HeaderCol = styled(Col)`
 `
 
 export const Container = styled(ContainerComp)`
-  margin: ${({ theme }) =>
-    `${theme.spacing(5)}px auto ${theme.spacing(13)}px auto`};
+  margin: ${({ theme }) => `${theme.spacing(5)}px auto 0`};
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    margin: ${({ theme }) =>
-      `${theme.spacing(5)}px auto ${theme.spacing(18)}px auto`};
+    margin: ${({ theme }) => `${theme.spacing(5)}px auto 0`};
   }
 `
 
@@ -100,34 +98,41 @@ export const Popover = styled(PopoverComp)`
   }
 `
 
-export const FixedFooter = styled.div`
-  display: flex;
+export const FooterContainer = styled.div`
   position: fixed;
   bottom: 0;
-  left: 0;
-  border: 1px solid ${({ theme }) => theme.colors.gray3};
+  width: 100%;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray3};
   background-color: ${({ theme }) => theme.colors.white};
+  padding: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const FooterCol = styled(Col)`
+  display: flex;
+  flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
-  padding-right: ${({ theme }) => theme.spacing(5)}px;
-  width: 100vw;
-  height: 63px;
+  padding: 0;
+
+  & > :first-child {
+    margin-right: ${({ theme }) => theme.spacing(2)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    flex-direction: row;
+  }
+
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(2)}px 0`};
-    height: auto;
-    flex-direction: column;
+    & > :first-child {
+      margin: ${({ theme }) => `0 0 ${theme.spacing(2)}px 0`};
+    }
   }
 `
 
 export const Button = styled(ButtonComp)`
-  &:first-child {
-    margin-left: ${({ theme }) => theme.spacing(2)}px;
-  }
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
-    &:first-child {
-      margin: ${({ theme }) => `0 0 ${theme.spacing(2)}px 0`};
-    }
+    margin-right: 0;
   }
 `

@@ -2,47 +2,61 @@
 
 exports[`ProposalSumaryForm renders correctly 1`] = `
 Array [
-  .c12 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
+  .c4 {
   width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
 }
 
-.c4 {
-  color: unset;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c6.c6 > *:not(:last-child) {
+  margin-right: 14px;
 }
 
 .c10 {
-  color: #898989;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 12px;
-  -webkit-letter-spacing: 0.5px;
-  -moz-letter-spacing: 0.5px;
-  -ms-letter-spacing: 0.5px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
 }
 
-.c11 {
-  color: #272727;
+.c10.c10 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c7 {
+  color: #BABABA;
   text-align: unset;
   text-transform: none;
-  font-weight: normal;
+  font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
   -webkit-letter-spacing: 0;
@@ -52,11 +66,25 @@ Array [
   line-height: 25px;
 }
 
-.c26 {
-  color: unset;
+.c8 {
+  color: #FFFFFF;
   text-align: unset;
   text-transform: none;
-  font-weight: normal;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c11 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
   font-size: 14px;
   -webkit-letter-spacing: 0.25px;
   -moz-letter-spacing: 0.25px;
@@ -66,385 +94,43 @@ Array [
   line-height: 19px;
 }
 
-.c6 {
-  fill: #BABABA;
-  cursor: pointer;
-  height: 28px;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  width: 28px;
-}
-
-.c6:hover {
-  fill: #00ADEF;
-}
-
-.c7 {
-  overflow-y: auto;
-  height: 100%;
-  padding: 28px 14px;
-}
-
-.c28 {
-  border-top: 1px solid #DDDDDD;
-  height: 63px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding: 0 14px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: auto;
-}
-
-.c3 {
-  border-bottom: 1px solid #DDDDDD;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px 14px 14px;
-}
-
-.c5 {
-  color: #272727;
-}
-
-.c2 {
-  background-color: #FFFFFF;
-  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px 14px 0 14px;
-  position: fixed;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  max-width: 392px;
-  top: 0;
-  right: calc(-100% - 7px);
-}
-
 .c0 {
-  width: 100%;
-  height: 100%;
-  z-index: 13;
+  background-color: #555861;
+  height: 56px;
+  position: relative;
 }
 
 .c1 {
-  background-color: rgba(39,39,39,0.63);
-  height: 100%;
-  position: fixed;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
   width: 100%;
-  visibility: hidden;
-  opacity: 0;
-  left: 0;
-  top: 0;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.c8 {
-  width: 100%;
-  height: auto;
+.c2 {
+  display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 7px 14px;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0;
+  padding: 0 14px;
 }
 
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-}
-
-.c9.c9 > * {
-  margin-bottom: 7px;
-}
-
-.c9.c9 :last-child {
-  margin-bottom: 0px;
-}
-
-.c24 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 14px 0px 14px 14px;
-  margin-top: 28px;
-  border: 1px solid #E72176;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 8px 0px 4px 8px rgba(231,33,118,0.14);
-  border-radius: 8px;
-  -webkit-transform: rotate(0.25deg);
-  -ms-transform: rotate(0.25deg);
-  transform: rotate(0.25deg);
-}
-
-.c27 {
-  max-width: 199px;
-}
-
-.c25 {
-  margin-right: 14px;
-  height: 21px;
-  width: 37px;
-}
-
-.c14 {
-  background: #FFFFFF;
-  background-repeat: no-repeat;
-  border: 1px solid #00ADEF;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #00ADEF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c14:hover:active {
-  pointer-events: auto;
-}
-
-.c14:hover:active:after {
-  background-color: #EFFBFF;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c14:hover:before {
-  width: 100%;
-}
-
-.c14:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c14:before {
-  background-color: #EFFBFF;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c29 {
-  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #FFFFFF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c29:hover:active {
-  pointer-events: auto;
-}
-
-.c29:hover:active:after {
-  background-color: #018CB7;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c29:hover:before {
-  width: 100%;
-}
-
-.c29:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c29:before {
-  background-color: #018CB7;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c16 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 25px;
+.c3 {
   position: relative;
   width: 100%;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c22 {
-  height: 20px;
-  margin-right: 10px;
-  position: relative;
-  min-width: 20px;
-}
-
-.c22:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: block;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  border: 1px solid #BABABA;
-}
-
-.c22:after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  display: block;
-  position: absolute;
-  top: calc(50% - 5px);
-  left: calc(50% - 5px);
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.c22:checked:after {
-  background-color: #00ADEF;
-}
-
-.c22:disabled {
-  cursor: not-allowed;
-}
-
-.c22:disabled:checked:after {
-  background-color: #BABABA;
-}
-
-.c23 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 14px;
-  margin: 8px 16px 8px 0;
-  color: #000;
-  pointer-events: all;
-}
-
-.c23:last-of-type {
-  margin-right: 0;
-}
-
-.c19 {
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 56px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -453,44 +139,21 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  padding: 0;
 }
 
-.c13 {
-  margin: 7px 0;
+.c3 p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.c15 {
-  width: 100%;
-  margin: 21px 0;
-}
-
-.c30 {
-  width: 100%;
-}
-
-.c20 .c21 {
+.c12 .c5 {
+  width: 161px;
   margin-right: 14px;
 }
 
-.c20:first-child {
-  margin-right: 14px;
-}
-
-.c17 {
-  padding-top: 7px;
-  margin-left: 14px;
-}
-
-.c18 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  margin-top: 28px;
-  margin-left: 14px;
+.c12 .c9 {
+  width: auto;
 }
 
 @media (min-width:576px) {
@@ -505,60 +168,77 @@ Array [
 
 }
 
-@media (max-width:736px) {
-  .c7 {
-    padding: 0;
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
   }
 }
 
-@media (max-width:1280px) {
-  .c28 {
-    padding: 14px;
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
   }
 }
 
-@media (max-width:736px) {
-  .c28 {
-    padding: 0;
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:980px) {
+  .c1 {
+    padding: 0px;
   }
 }
 
 @media (max-width:480px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media (min-width:992px) {
   .c3 {
-    padding: 0;
-  }
-}
-
-@media (max-width:1280px) {
-  .c2 {
-    max-width: 484px;
-    margin: 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c2 {
-    min-width: 100vw;
-    padding: 0;
-  }
-}
-
-@media (min-width:736px) {
-  .c24 {
-    margin-top: 14px;
-    max-width: 410px;
-  }
-}
-
-@media (min-width:736px) {
-  .c27 {
-    max-width: 347px;
-  }
-}
-
-@media (min-width:736px) {
-  .c18 {
-    margin-top: 14px;
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
@@ -638,11 +318,63 @@ Array [
 
 }
 
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
 @media (max-width:480px) {
 
 }
 
 @media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
 
 }
 
@@ -651,257 +383,51 @@ Array [
   >
     <div
       className="c1"
-      onClick={[Function]}
-    />
-    <div
-      className="c2"
-      size="sm"
+      data-name="container"
     >
       <div
-        className="c3"
-      >
-        <h5
-          className="c4 c5"
-          color="unset"
-          type="headline"
-        >
-          Alterar dados do contratante
-        </h5>
-        <svg
-          aria-label="close"
-          className="c6"
-          data-gtm-clicktype="button"
-          data-gtm-name="botao fechar"
-          data-gtm-subname="menu Alterar dados do contratante"
-          data-gtm-type="click"
-          fill="#BABABA"
-          onClick={[Function]}
-          role="img"
-          width={21}
-        >
-          close.svg
-        </svg>
-      </div>
-      <div
-        className="c7"
+        className="c2"
+        data-name="row"
       >
         <div
-          className="c8"
+          className="c3"
+          data-name="col-lg-12"
         >
           <div
-            className="c9"
+            className="c4"
+            size="small"
           >
-            <span
-              className="c10"
-              color="gray5"
-              type="captionUppercase"
+            <div
+              className="c5 c6"
             >
-              NOME
-            </span>
-            <h5
-              className="c11"
-              color="gray6"
-              type="headline"
+              <h5
+                className="c7"
+                color="gray4"
+                type="headline"
+              >
+                Contratação
+              </h5>
+              <h5
+                className="c8"
+                color="white"
+                type="headline"
+              >
+                Seguro Viagem
+              </h5>
+            </div>
+            <div
+              className="c9 c10"
             >
-              Rubao
-            </h5>
+              <h6
+                className="c11"
+                color="gray4"
+                type="title"
+              >
+                ETAPA 2 de 2
+              </h6>
+            </div>
           </div>
         </div>
-        <div
-          className="c12 c13"
-        />
-        <div
-          className="c8"
-        >
-          <div
-            className="c9"
-          >
-            <span
-              className="c10"
-              color="gray5"
-              type="captionUppercase"
-            >
-              CPF
-            </span>
-            <h5
-              className="c11"
-              color="gray6"
-              type="headline"
-            >
-              362.753.128-07
-            </h5>
-          </div>
-        </div>
-        <div
-          className="c12 c13"
-        />
-        <div
-          className="c8"
-        >
-          <div
-            className="c9"
-          >
-            <span
-              className="c10"
-              color="gray5"
-              type="captionUppercase"
-            >
-              DATA DE NASCIMENTO
-            </span>
-            <h5
-              className="c11"
-              color="gray6"
-              type="headline"
-            >
-              11/11/1981
-            </h5>
-          </div>
-        </div>
-        <div
-          className="c12 c13"
-        />
-        <div
-          className="c8"
-        >
-          <div
-            className="c9"
-          >
-            <span
-              className="c10"
-              color="gray5"
-              type="captionUppercase"
-            >
-              SEXO
-            </span>
-            <h5
-              className="c11"
-              color="gray6"
-              type="headline"
-            >
-              Masculino
-            </h5>
-          </div>
-        </div>
-        <button
-          className="c14 c15"
-          color="primary"
-          data-gtm-clicktype="button"
-          data-gtm-name="alterar no perfil"
-          data-gtm-subname="alterar dados do contratante - seguro viagem"
-          data-gtm-type="click"
-          disabled={false}
-          onClick={[Function]}
-        >
-          <span
-            className="c16"
-          >
-            ALTERAR NO PERFIL
-          </span>
-        </button>
-        <div
-          className="c12 c13"
-        />
-        <h5
-          className="c11 c17"
-          color="gray6"
-          type="headline"
-        >
-          Você reside no Brasil?
-        </h5>
-        <div
-          className="c18"
-          data-testid="radio-brazil-resident"
-        >
-          <div
-            className="c19 c20"
-          >
-            <input
-              aria-checked={false}
-              aria-label="Sim"
-              checked={false}
-              className="c21 c22"
-              data-testid="input-radio-sim"
-              disabled={false}
-              id="input-radio-sim"
-              name="radio-brazil-resident"
-              onChange={[Function]}
-              tabIndex={0}
-              type="radio"
-              value={false}
-            />
-            <label
-              className="c23"
-              disabled={false}
-              htmlFor="input-radio-sim"
-            >
-              Sim
-            </label>
-          </div>
-          <div
-            className="c19 c20"
-          >
-            <input
-              aria-checked={true}
-              aria-label="Não"
-              checked={true}
-              className="c21 c22"
-              data-testid="input-radio-nao"
-              disabled={false}
-              id="input-radio-nao"
-              name="radio-brazil-resident"
-              onChange={[Function]}
-              tabIndex={0}
-              type="radio"
-              value={true}
-            />
-            <label
-              className="c23"
-              disabled={false}
-              htmlFor="input-radio-nao"
-            >
-              Não
-            </label>
-          </div>
-        </div>
-        <div
-          className="c24"
-        >
-          <svg
-            aria-label="alertrounded"
-            className="c25"
-            fill="#E72176"
-            role="img"
-            width={21}
-          >
-            alert-rounded.svg
-          </svg>
-          <h6
-            className="c26 c27"
-            color="unset"
-            type="title"
-          >
-            Este seguro só poderá ser contratado pelo segurado residente no Brasil.
-          </h6>
-        </div>
-      </div>
-      <div
-        className="c28"
-      >
-        <button
-          className="c29 c30"
-          color="primary"
-          data-gtm-clicktype="button"
-          data-gtm-name="salvar alterações"
-          data-gtm-subname="alterar dados do contratante - seguro viagem"
-          data-gtm-type="click"
-          disabled={false}
-        >
-          <span
-            className="c16"
-          >
-            SALVAR ALTERAÇÕES
-          </span>
-        </button>
       </div>
     </div>
   </div>,
@@ -927,47 +453,54 @@ Array [
   padding-left: 15px;
 }
 
-.c14 {
+.c47 {
+  width: 100%;
+  height: 49px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #00ADEF;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
 }
 
-.c14 svg {
-  height: 21px;
+.c50 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
 }
 
-.c14 svg path {
-  fill: currentColor;
+.c50.c50 > *:not(:last-child) {
+  margin-right: 14px;
 }
 
-.c25 {
-  padding: 4px;
-  border-radius: 50%;
-  background-color: #E72176;
-  margin-left: 3px;
-  margin-bottom: 6px;
+.c53 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
 }
 
-.c23 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: 100%;
+.c53.c53 > *:not(:first-child) {
+  margin-left: 14px;
 }
 
 .c5 {
@@ -998,7 +531,65 @@ Array [
   line-height: 25px;
 }
 
-.c13 {
+.c12 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c18 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c19 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c34 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c44 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -1013,7 +604,7 @@ Array [
   line-height: 15px;
 }
 
-.c19 {
+.c51 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -1028,21 +619,7 @@ Array [
   line-height: 16px;
 }
 
-.c22 {
-  color: #272727;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-size: 14px;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  font-weight: 600;
-  line-height: 19px;
-}
-
-.c24 {
+.c54 {
   color: #E72176;
   text-align: unset;
   text-transform: none;
@@ -1057,57 +634,98 @@ Array [
   line-height: 16px;
 }
 
-.c15 {
-  width: 100%;
-  height: 49px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c55 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c45 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c45 svg {
+  height: 21px;
+}
+
+.c45 svg path {
+  fill: currentColor;
+}
+
+.c46 {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #E72176;
+  margin-left: 3px;
+  margin-bottom: 6px;
+}
+
+.c16 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: 7px 14px;
 }
 
-.c18 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-right: 7px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
 }
 
-.c18.c18 > *:not(:last-child) {
-  margin-right: 14px;
+.c17.c17 > * {
+  margin-bottom: 7px;
 }
 
-.c21 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: 7px;
+.c17.c17 :last-child {
+  margin-bottom: 0px;
 }
 
-.c21.c21 > *:not(:first-child) {
-  margin-left: 14px;
-}
-
-.c16 {
+.c48 {
   width: auto;
   height: auto;
   display: -webkit-box;
@@ -1121,16 +739,171 @@ Array [
   margin: 14px 0;
 }
 
-.c16 .c17 {
+.c48 .c49 {
   width: 161px;
   margin-right: 14px;
 }
 
-.c16 .c20 {
+.c48 .c52 {
   width: auto;
 }
 
-.c8 {
+.c20 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c22 {
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  border: 1px solid #00ADEF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #00ADEF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c22:hover:active {
+  pointer-events: auto;
+}
+
+.c22:hover:active:after {
+  background-color: #EFFBFF;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c22:hover:before {
+  width: 100%;
+}
+
+.c22:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c22:before {
+  background-color: #EFFBFF;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c37 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c37:hover:active {
+  pointer-events: auto;
+}
+
+.c37:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c37:hover:before {
+  width: 100%;
+}
+
+.c37:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c37:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c24 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c39 {
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
   border-radius: 8px;
@@ -1144,7 +917,7 @@ Array [
   padding: 10px 14px 10px;
 }
 
-.c10 {
+.c41 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1183,10 +956,10 @@ Array [
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin: 35px auto 91px auto;
+  margin: 35px auto 0;
 }
 
-.c9 {
+.c40 {
   margin-bottom: 14px;
 }
 
@@ -1221,11 +994,11 @@ Array [
   padding: 14px;
 }
 
-.c11 {
+.c42 {
   padding: 21px;
 }
 
-.c12 {
+.c43 {
   margin: 0 0 28px 14px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1239,6 +1012,260 @@ Array [
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.c14 {
+  fill: #BABABA;
+  cursor: pointer;
+  height: 28px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 28px;
+}
+
+.c14:hover {
+  fill: #00ADEF;
+}
+
+.c15 {
+  overflow-y: auto;
+  height: 100%;
+  padding: 28px 14px;
+}
+
+.c36 {
+  border-top: 1px solid #DDDDDD;
+  height: 63px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 14px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.c11 {
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 14px 14px;
+}
+
+.c13 {
+  color: #272727;
+}
+
+.c10 {
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  max-width: 392px;
+  top: 0;
+  right: calc(-100% - 7px);
+}
+
+.c8 {
+  width: 100%;
+  height: 100%;
+  z-index: 13;
+}
+
+.c9 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c32 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 14px 0px 14px 14px;
+  margin-top: 28px;
+  border: 1px solid #E72176;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px 0px 4px 8px rgba(231,33,118,0.14);
+  border-radius: 8px;
+  -webkit-transform: rotate(0.25deg);
+  -ms-transform: rotate(0.25deg);
+  transform: rotate(0.25deg);
+}
+
+.c35 {
+  max-width: 199px;
+}
+
+.c33 {
+  margin-right: 14px;
+  height: 21px;
+  width: 37px;
+}
+
+.c30 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  min-width: 20px;
+}
+
+.c30:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #BABABA;
+}
+
+.c30:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c30:checked:after {
+  background-color: #00ADEF;
+}
+
+.c30:disabled {
+  cursor: not-allowed;
+}
+
+.c30:disabled:checked:after {
+  background-color: #BABABA;
+}
+
+.c31 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin: 8px 16px 8px 0;
+  color: #000;
+  pointer-events: all;
+}
+
+.c31:last-of-type {
+  margin-right: 0;
+}
+
+.c27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c21 {
+  margin: 7px 0;
+}
+
+.c23 {
+  width: 100%;
+  margin: 21px 0;
+}
+
+.c38 {
+  width: 100%;
+}
+
+.c28 .c29 {
+  margin-right: 14px;
+}
+
+.c28:first-child {
+  margin-right: 14px;
+}
+
+.c25 {
+  padding-top: 7px;
+  margin-left: 14px;
+}
+
+.c26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 28px;
+  margin-left: 14px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
 }
 
 @media (min-width:576px) {
@@ -1271,15 +1298,35 @@ Array [
   }
 }
 
-@media (max-width:736px) {
+@media (min-width:576px) {
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:768px) {
 
 }
 
-@media (max-width:736px) {
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
 
 }
 
@@ -1287,23 +1334,7 @@ Array [
 
 }
 
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
+@media (min-width:992px) {
 
 }
 
@@ -1372,12 +1403,12 @@ Array [
 
 @media (max-width:480px) {
   .c0 {
-    margin: 35px auto 126px auto;
+    margin: 35px auto 0;
   }
 }
 
 @media (max-width:480px) {
-  .c9 {
+  .c40 {
     margin: 0 7px 14px;
   }
 }
@@ -1429,25 +1460,25 @@ Array [
 }
 
 @media (max-width:980px) {
-  .c11 {
+  .c42 {
     padding: 14px;
   }
 }
 
 @media (max-width:480px) {
-  .c11 {
+  .c42 {
     padding: 14px 0;
   }
 }
 
 @media (max-width:736px) {
-  .c12 {
+  .c43 {
     margin: 0 0 28px;
   }
 }
 
 @media (max-width:480px) {
-  .c12 {
+  .c43 {
     margin: 0 14px 28px;
   }
 }
@@ -1456,16 +1487,89 @@ Array [
 
 }
 
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
 @media (max-width:480px) {
 
 }
 
 @media (max-width:480px) {
 
+}
+
+@media (max-width:736px) {
+  .c15 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c36 {
+    padding: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c36 {
+    padding: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c11 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c10 {
+    max-width: 484px;
+    margin: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c10 {
+    min-width: 100vw;
+    padding: 0;
+  }
+}
+
+@media (min-width:736px) {
+  .c32 {
+    margin-top: 14px;
+    max-width: 410px;
+  }
+}
+
+@media (min-width:736px) {
+  .c35 {
+    max-width: 347px;
+  }
+}
+
+@media (min-width:736px) {
+  .c26 {
+    margin-top: 14px;
+  }
 }
 
 <div
-    className="sc-AxjAm c0"
+    className="c0"
     data-name="container"
   >
     <div
@@ -1508,32 +1612,294 @@ Array [
         data-name="col-sm-12 col-md-9 col-lg-8"
       >
         <div
-          className="c8 c9"
+          className="c8"
         >
           <div
+            className="c9"
+            onClick={[Function]}
+          />
+          <div
             className="c10"
-            data-testid="card-body"
-            overflow="hidden"
+            size="sm"
           >
             <div
               className="c11"
             >
+              <h5
+                className="c12 c13"
+                color="unset"
+                type="headline"
+              >
+                Alterar dados do contratante
+              </h5>
+              <svg
+                aria-label="close"
+                className="c14"
+                data-gtm-clicktype="button"
+                data-gtm-name="botao fechar"
+                data-gtm-subname="menu Alterar dados do contratante"
+                data-gtm-type="click"
+                fill="#BABABA"
+                onClick={[Function]}
+                role="img"
+                width={21}
+              >
+                close.svg
+              </svg>
+            </div>
+            <div
+              className="c15"
+            >
               <div
-                className="c12"
+                className="c16"
+              >
+                <div
+                  className="c17"
+                >
+                  <span
+                    className="c18"
+                    color="gray5"
+                    type="captionUppercase"
+                  >
+                    NOME
+                  </span>
+                  <h5
+                    className="c19"
+                    color="gray6"
+                    type="headline"
+                  >
+                    Rubao
+                  </h5>
+                </div>
+              </div>
+              <div
+                className="c20 c21"
+              />
+              <div
+                className="c16"
+              >
+                <div
+                  className="c17"
+                >
+                  <span
+                    className="c18"
+                    color="gray5"
+                    type="captionUppercase"
+                  >
+                    CPF
+                  </span>
+                  <h5
+                    className="c19"
+                    color="gray6"
+                    type="headline"
+                  >
+                    362.753.128-07
+                  </h5>
+                </div>
+              </div>
+              <div
+                className="c20 c21"
+              />
+              <div
+                className="c16"
+              >
+                <div
+                  className="c17"
+                >
+                  <span
+                    className="c18"
+                    color="gray5"
+                    type="captionUppercase"
+                  >
+                    DATA DE NASCIMENTO
+                  </span>
+                  <h5
+                    className="c19"
+                    color="gray6"
+                    type="headline"
+                  >
+                    11/11/1981
+                  </h5>
+                </div>
+              </div>
+              <div
+                className="c20 c21"
+              />
+              <div
+                className="c16"
+              >
+                <div
+                  className="c17"
+                >
+                  <span
+                    className="c18"
+                    color="gray5"
+                    type="captionUppercase"
+                  >
+                    SEXO
+                  </span>
+                  <h5
+                    className="c19"
+                    color="gray6"
+                    type="headline"
+                  >
+                    Masculino
+                  </h5>
+                </div>
+              </div>
+              <button
+                className="c22 c23"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="alterar no perfil"
+                data-gtm-subname="alterar dados do contratante - seguro viagem"
+                data-gtm-type="click"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  className="c24"
+                >
+                  ALTERAR NO PERFIL
+                </span>
+              </button>
+              <div
+                className="c20 c21"
+              />
+              <h5
+                className="c19 c25"
+                color="gray6"
+                type="headline"
+              >
+                Você reside no Brasil?
+              </h5>
+              <div
+                className="c26"
+                data-testid="radio-brazil-resident"
+              >
+                <div
+                  className="c27 c28"
+                >
+                  <input
+                    aria-checked={false}
+                    aria-label="Sim"
+                    checked={false}
+                    className="c29 c30"
+                    data-testid="input-radio-sim"
+                    disabled={false}
+                    id="input-radio-sim"
+                    name="radio-brazil-resident"
+                    onChange={[Function]}
+                    tabIndex={0}
+                    type="radio"
+                    value={false}
+                  />
+                  <label
+                    className="c31"
+                    disabled={false}
+                    htmlFor="input-radio-sim"
+                  >
+                    Sim
+                  </label>
+                </div>
+                <div
+                  className="c27 c28"
+                >
+                  <input
+                    aria-checked={true}
+                    aria-label="Não"
+                    checked={true}
+                    className="c29 c30"
+                    data-testid="input-radio-nao"
+                    disabled={false}
+                    id="input-radio-nao"
+                    name="radio-brazil-resident"
+                    onChange={[Function]}
+                    tabIndex={0}
+                    type="radio"
+                    value={true}
+                  />
+                  <label
+                    className="c31"
+                    disabled={false}
+                    htmlFor="input-radio-nao"
+                  >
+                    Não
+                  </label>
+                </div>
+              </div>
+              <div
+                className="c32"
+              >
+                <svg
+                  aria-label="alertrounded"
+                  className="c33"
+                  fill="#E72176"
+                  role="img"
+                  width={21}
+                >
+                  alert-rounded.svg
+                </svg>
+                <h6
+                  className="c34 c35"
+                  color="unset"
+                  type="title"
+                >
+                  Este seguro só poderá ser contratado pelo segurado residente no Brasil.
+                </h6>
+              </div>
+            </div>
+            <div
+              className="c36"
+            >
+              <button
+                className="c37 c38"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="salvar alterações"
+                data-gtm-subname="alterar dados do contratante - seguro viagem"
+                data-gtm-type="click"
+                disabled={false}
+              >
+                <span
+                  className="c24"
+                >
+                  SALVAR ALTERAÇÕES
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="c39 c40"
+        >
+          <div
+            className="c41"
+            data-testid="card-body"
+            overflow="hidden"
+          >
+            <div
+              className="c42"
+            >
+              <div
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
                   DADOS DO CONTRATANTE
                 </p>
                 <a
-                  className="c14"
+                  className="c45"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR
+                  <span
+                    className="c46"
+                  />
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -1546,14 +1912,14 @@ Array [
               </div>
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1561,31 +1927,31 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
-                      Bruno Mizrahi
-                    </h6>
+                      Não preenchido
+                    </span>
                   </div>
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1593,31 +1959,31 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
-                      123.456.789-00
-                    </h6>
+                      Não preenchido
+                    </span>
                   </div>
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1625,31 +1991,31 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
-                      123.456.789-00
-                    </h6>
+                      Não preenchido
+                    </span>
                   </div>
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1657,31 +2023,31 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
-                      Masculino
-                    </h6>
+                      Não preenchido
+                    </span>
                   </div>
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1689,10 +2055,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -1705,31 +2071,34 @@ Array [
           </div>
         </div>
         <div
-          className="c8 c9"
+          className="c39 c40"
         >
           <div
-            className="c10"
+            className="c41"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c11"
+              className="c42"
             >
               <div
-                className="c12"
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
                   DADOS PARA CONTATO
                 </p>
                 <a
-                  className="c14"
+                  className="c45"
                   disabled={false}
                 >
                   ALTERAR
+                  <span
+                    className="c46"
+                  />
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -1742,14 +2111,14 @@ Array [
               </div>
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1757,31 +2126,31 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
-                      (13)-99371-2839
-                    </h6>
+                      Não preenchido
+                    </span>
                   </div>
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1789,10 +2158,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <h6
-                      className="c22"
+                      className="c55"
                       color="gray6"
                       type="title"
                     >
@@ -1802,18 +2171,18 @@ Array [
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1821,15 +2190,15 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
-                      conquista@portoseguro.com.br
-                    </h6>
+                      Não preenchido
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1837,31 +2206,34 @@ Array [
           </div>
         </div>
         <div
-          className="c8 c9"
+          className="c39 c40"
         >
           <div
-            className="c10"
+            className="c41"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c11"
+              className="c42"
             >
               <div
-                className="c12"
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
                   PESSOA POLITICAMENTE EXPOSTA
                 </p>
                 <a
-                  className="c14"
+                  className="c45"
                   disabled={false}
                 >
                   ALTERAR
+                  <span
+                    className="c46"
+                  />
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -1874,14 +2246,14 @@ Array [
               </div>
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1889,15 +2261,15 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
                       Não preenchido
-                    </h6>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1905,31 +2277,34 @@ Array [
           </div>
         </div>
         <div
-          className="c8 c9"
+          className="c39 c40"
         >
           <div
-            className="c10"
+            className="c41"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c11"
+              className="c42"
             >
               <div
-                className="c12"
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
                   ENDEREÇO
                 </p>
                 <a
-                  className="c14"
+                  className="c45"
                   disabled={false}
                 >
                   ALTERAR
+                  <span
+                    className="c46"
+                  />
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -1942,14 +2317,14 @@ Array [
               </div>
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1957,31 +2332,31 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
                       Não preenchido
-                    </h6>
+                    </span>
                   </div>
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -1989,15 +2364,15 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
-                    <h6
-                      className="c22"
-                      color="gray6"
-                      type="title"
+                    <span
+                      className="c54"
+                      color="magenta2"
+                      type="caption"
                     >
                       Não preenchido
-                    </h6>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2005,31 +2380,34 @@ Array [
           </div>
         </div>
         <div
-          className="c8 c9"
+          className="c39 c40"
         >
           <div
-            className="c10"
+            className="c41"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c11"
+              className="c42"
             >
               <div
-                className="c12"
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
                   CONTATO EM CASO DE ACIDENTES
                 </p>
                 <a
-                  className="c14"
+                  className="c45"
                   disabled={false}
                 >
                   ALTERAR
+                  <span
+                    className="c46"
+                  />
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -2042,14 +2420,14 @@ Array [
               </div>
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -2057,10 +2435,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -2070,18 +2448,18 @@ Array [
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -2089,10 +2467,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -2105,200 +2483,58 @@ Array [
           </div>
         </div>
         <div
-          className="c8 c9"
+          className="c39 c40"
         >
           <div
-            className="c10"
+            className="c41"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c11"
+              className="c42"
             >
               <div
-                className="c12"
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
-                  DECLARAÇÃO DE ACIDENTES
+                  DECLARAÇÃO DE ACOMPANHANTES
                 </p>
-                <a
-                  className="c14"
-                  disabled={false}
-                >
-                  ALTERAR
-                  <span
-                    className="c25"
-                  />
-                  <svg
-                    aria-label="arrowright"
-                    fill="#BABABA"
-                    role="img"
-                    width={21}
-                  >
-                    arrow-right.svg
-                  </svg>
-                </a>
-              </div>
-              <div>
-                <div
-                  className="c15 c16"
-                  size="default"
-                >
-                  <div
-                    className="c17 c18"
-                  >
-                    <span
-                      className="c19"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Acompanhante 1
-                    </span>
-                  </div>
-                  <div
-                    className="c20 c21"
-                  >
-                    <span
-                      className="c24"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c23"
-              />
-              <div>
-                <div
-                  className="c15 c16"
-                  size="default"
-                >
-                  <div
-                    className="c17 c18"
-                  >
-                    <span
-                      className="c19"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Acompanhante 2
-                    </span>
-                  </div>
-                  <div
-                    className="c20 c21"
-                  >
-                    <span
-                      className="c24"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c23"
-              />
-              <div>
-                <div
-                  className="c15 c16"
-                  size="default"
-                >
-                  <div
-                    className="c17 c18"
-                  >
-                    <span
-                      className="c19"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Acompanhante 3
-                    </span>
-                  </div>
-                  <div
-                    className="c20 c21"
-                  >
-                    <span
-                      className="c24"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="c23"
-              />
-              <div>
-                <div
-                  className="c15 c16"
-                  size="default"
-                >
-                  <div
-                    className="c17 c18"
-                  >
-                    <span
-                      className="c19"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Acompanhante 4
-                    </span>
-                  </div>
-                  <div
-                    className="c20 c21"
-                  >
-                    <span
-                      className="c24"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="c8 c9"
+          className="c39 c40"
         >
           <div
-            className="c10"
+            className="c41"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c11"
+              className="c42"
             >
               <div
-                className="c12"
+                className="c43"
               >
                 <p
-                  className="c13"
+                  className="c44"
                   color="gray5"
                   type="subheading"
                 >
                   FORMA DE PAGAMENTO
                 </p>
                 <a
-                  className="c14"
+                  className="c45"
                   disabled={false}
                 >
                   ALTERAR
                   <span
-                    className="c25"
+                    className="c46"
                   />
                   <svg
                     aria-label="arrowright"
@@ -2312,14 +2548,14 @@ Array [
               </div>
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -2327,10 +2563,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -2340,18 +2576,18 @@ Array [
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -2359,10 +2595,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -2372,18 +2608,18 @@ Array [
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -2391,10 +2627,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -2404,18 +2640,18 @@ Array [
                 </div>
               </div>
               <div
-                className="c23"
+                className="c20"
               />
               <div>
                 <div
-                  className="c15 c16"
+                  className="c47 c48"
                   size="default"
                 >
                   <div
-                    className="c17 c18"
+                    className="c49 c50"
                   >
                     <span
-                      className="c19"
+                      className="c51"
                       color="gray5"
                       type="caption"
                     >
@@ -2423,10 +2659,10 @@ Array [
                     </span>
                   </div>
                   <div
-                    className="c20 c21"
+                    className="c52 c53"
                   >
                     <span
-                      className="c24"
+                      className="c54"
                       color="magenta2"
                       type="caption"
                     >
@@ -2442,6 +2678,36 @@ Array [
     </div>
   </div>,
   .c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c5 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -2459,11 +2725,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c1:hover:active {
+.c5:hover:active {
   pointer-events: auto;
 }
 
-.c1:hover:active:after {
+.c5:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -2471,11 +2737,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c1:hover:before {
+.c5:hover:before {
   width: 100%;
 }
 
-.c1:hover:after {
+.c5:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -2490,7 +2756,7 @@ Array [
   width: 100%;
 }
 
-.c1:before {
+.c5:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -2502,7 +2768,7 @@ Array [
   width: 0;
 }
 
-.c6 {
+.c10 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -2520,11 +2786,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c6:hover:active {
+.c10:hover:active {
   pointer-events: none;
 }
 
-.c6:hover:active:after {
+.c10:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -2532,7 +2798,7 @@ Array [
   transition: all ease 0s;
 }
 
-.c6:before {
+.c10:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -2544,7 +2810,7 @@ Array [
   width: 0;
 }
 
-.c3 {
+.c7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -2571,35 +2837,69 @@ Array [
   line-height: 15px;
 }
 
-.c4 {
+.c8 {
   cursor: pointer;
 }
 
 .c0 {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  padding: 14px;
+}
+
+.c4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  border: 1px solid #DDDDDD;
-  background-color: #FFFFFF;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-right: 35px;
-  width: 100vw;
-  height: 63px;
+  padding: 0;
 }
 
-.c2:first-child {
-  margin-left: 14px;
+.c4 > :first-child {
+  margin-right: 14px;
+}
+
+.c6 {
+  margin-right: 7px;
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
 }
 
 @media (min-width:576px) {
@@ -2614,15 +2914,53 @@ Array [
 
 }
 
-@media (max-width:736px) {
+@media (min-width:576px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:576px) {
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:768px) {
 
 }
 
-@media (max-width:736px) {
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
 
 }
 
@@ -2630,23 +2968,7 @@ Array [
 
 }
 
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
+@media (min-width:992px) {
 
 }
 
@@ -2723,62 +3045,148 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c5 {
+  .c9 {
     width: 100%;
   }
 }
 
-@media (max-width:480px) {
-  .c0 {
-    padding: 14px 14px 0;
-    height: auto;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+@media (min-width:576px) {
+  .c4 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    -ms-flex: 0 0 75%;
+    -webkit-flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:736px) {
+  .c4 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 }
 
 @media (max-width:480px) {
-  .c2 {
-    width: 100%;
-  }
-
-  .c2:first-child {
+  .c4 > :first-child {
     margin: 0 0 14px 0;
   }
+}
+
+@media (max-width:480px) {
+  .c6 {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
 }
 
 <div
     className="c0"
   >
-    <button
-      className="c1 c2"
-      color="primary"
-      disabled={false}
+    <div
+      className="c1"
+      data-name="container"
     >
-      <span
-        className="c3"
+      <div
+        className="c2"
+        data-name="row"
       >
-        rejeitar proposta
-      </span>
-    </button>
-    <span
-      className="c4 c5"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <button
-        className="c6 c2"
-        color="secondary"
-        disabled={true}
-      >
-        <span
+        <div
           className="c3"
+          data-name="col-sm-12 col-md-3 col-lg-3"
+        />
+        <div
+          className="c4"
+          data-name="col-sm-12 col-md-9 col-lg-8"
         >
-          concluir contratação
-        </span>
-      </button>
-    </span>
+          <button
+            className="c5 c6"
+            color="primary"
+            disabled={false}
+          >
+            <span
+              className="c7"
+            >
+              rejeitar proposta
+            </span>
+          </button>
+          <span
+            className="c8 c9"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <button
+              className="c10 c6"
+              color="secondary"
+              disabled={true}
+            >
+              <span
+                className="c7"
+              >
+                concluir contratação
+              </span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>,
 ]
 `;

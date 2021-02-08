@@ -715,7 +715,7 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 1px solid #BABABA;
+  border-bottom: 1px solid #DDDDDD;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2290,7 +2290,7 @@ Object {
         class="sc-fzoWqW eFrYuG"
       >
         <div
-          class="sc-fzplgP iVJmLw"
+          class="sc-fzplgP iwfkPf"
         >
           <div
             class="sc-fzplWN sc-fzpdbB kuEyUr"
