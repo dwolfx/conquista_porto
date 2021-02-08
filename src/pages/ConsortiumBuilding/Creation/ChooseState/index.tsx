@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import { useDispatch, useSelector } from 'react-redux'
+
+import { GetStatesRequest } from 'store/modules/ConsortiumBuilding/States/action'
 
 import { TOptions } from 'components/Inputs/Select/types'
 
@@ -8,16 +12,36 @@ import * as s from './styles'
 import * as t from './types'
 
 const ChooseState: React.FC = () => {
-  const [selectedState] = useState<t.ISelected>({
+  const dispatch = useDispatch()
+  const [selectedState, setSelectedState] = useState<t.ISelected>({
     id: 0,
     name: 'Selecione',
   })
 
   const { creation, page, buttons } = texts()
 
-  const [states] = useState<TOptions[]>([])
+  const [states, setStates] = useState<TOptions[]>([])
 
   const handleClick = () => {}
+
+  const { consortiumBuildingStatesData } = useSelector((state: any) => ({
+    consortiumBuildingStatesData: state.consortiumBuildingStates.data,
+  }))
+
+  useEffect(() => {
+    if (!consortiumBuildingStatesData) {
+      dispatch(GetStatesRequest())
+    } else {
+      const statesOptions = consortiumBuildingStatesData.uf.map(
+        (state: any, index: number) => ({
+          id: index + 1,
+          text: state.nome,
+          onClick: () => setSelectedState({ id: index + 1, name: state.nome }),
+        })
+      )
+      setStates(statesOptions)
+    }
+  }, [consortiumBuildingStatesData, dispatch])
 
   return (
     <>
@@ -39,7 +63,8 @@ const ChooseState: React.FC = () => {
               <s.Select
                 options={states}
                 selected={selectedState}
-                label="Destino"
+                label=""
+                optionBoxSize={300}
               />
               <s.StyledButton
                 data-gtm-name="proximo"

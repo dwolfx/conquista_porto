@@ -10,6 +10,7 @@ const destinationContriesMock = require('./src/mocks/destinationCountries.json')
 const tripInsuranceCreditCardMock = require('./src/mocks/tripInsuranceCreditCard.json')
 const tripInsuranceQuotationMock = require('./src/mocks/tripInsuranceQuotation.json')
 const tripInsuranceProposalMock = require('./src/mocks/tripInsuranceProposal.json')
+const consortiumBuildingStatesMock = require('./src/mocks/consortiumBuildingStates.json')
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
@@ -209,6 +210,12 @@ router.render = (req, res) => {
 
       // test error toast with response message and NotFoundException at 2FAToken>validateToken
       // return res.status(404).jsonp({ msg: 'Token inválido' })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/produtos/comercializacao/uf')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingStatesMock })
     }
   }
 

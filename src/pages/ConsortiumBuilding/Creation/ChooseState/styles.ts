@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Container, Row, Col as ColCmp } from 'styled-bootstrap-grid'
 import TextCmp from 'components/Text'
 import InputSelect from 'components/Inputs/Select'
+import { OptionsWrapper } from 'components/Inputs/Select/styles'
 import Button from 'components/Button'
 
 export const Wrapper = styled.div`
@@ -44,6 +45,10 @@ export const StyledRow = styled(Row)`
 
 export const Select = styled(InputSelect)`
   margin-bottom: ${({ theme }) => theme.spacing(5)}px;
+
+  ${OptionsWrapper} {
+    top: ${({ theme }) => theme.spacing(8)}px;
+  }
 `
 
 export const Text = styled(TextCmp)`

@@ -14,6 +14,8 @@ const baseURLNamespaceInvestAws =
   process.env.REACT_APP_BASE_URL_INVEST_AWS || ''
 const baseURLNamespaceInvestPortovida =
   process.env.REACT_APP_BASE_URL_INVEST_PORTOVIDA || ''
+const baseURLNamespaceConsortiumBuilding =
+  process.env.REACT_APP_BASE_URL_CONSORTIUM_BUILDING || ''
 const baseURLNamespaceInvestPrevidencia =
   process.env.REACT_APP_BASE_URL_PREVIDENCIA || ''
 const baseURLNamespaceGoal = process.env.REACT_APP_BASE_URL_GOAL || ''
@@ -92,6 +94,7 @@ export {
   baseURL,
   baseURLNamespaceInvest,
   baseURLNamespaceInvestAws,
+  baseURLNamespaceConsortiumBuilding,
   baseURLNamespaceInvestPortovida,
   baseURLNamespaceGoal,
   baseURLNamespacePortopar,
