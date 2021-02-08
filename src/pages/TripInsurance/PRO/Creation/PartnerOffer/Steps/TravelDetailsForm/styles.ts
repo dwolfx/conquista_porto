@@ -10,7 +10,6 @@ import SelectComp from 'components/Inputs/Select'
 import InputNumberComp from 'components/Inputs/Number'
 import Text from 'components/Text'
 import { InputNumberContainer } from 'components/Inputs/Number/styles'
-import IconCmp from 'components/IconExporter'
 
 export const QuestionWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(6)}px;
@@ -18,11 +17,6 @@ export const QuestionWrapper = styled.div`
   &:last-child {
     margin: 0;
   }
-`
-
-export const PageWrapper = styled.div`
-  height: 100vh;
-  overflow: auto;
 `
 
 export const Container = styled(ContainerComp)`
@@ -81,31 +75,6 @@ export const LastSectionCard = styled(Card)`
   border-radius: 0px 0px 7px 7px;
 `
 
-export const BadgeNotification = styled.span`
-  padding: 4px;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.magenta2};
-  margin-left: 3px;
-  margin-bottom: 6px;
-`
-
-export const NavWrapper = styled.div`
-  padding: ${({ theme }) =>
-    `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
-  width: 100%;
-  position: sticky;
-  top: 0;
-`
-
-export const NavTitleWrapper = styled.div`
-  padding: ${({ theme }) => `${theme.spacing(1)}px 0`};
-  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
-`
-
-export const TagsWrapper = styled.div`
-  width: 60%;
-`
-
 export const Divisor = styled(DivisorComp)<{ vertical?: boolean }>`
   margin: ${({ theme }) => `${theme.spacing(1)}px 0`};
   ${({ theme, vertical }) => {
@@ -113,33 +82,6 @@ export const Divisor = styled(DivisorComp)<{ vertical?: boolean }>`
       return `margin: 11px ${theme.spacing(10)}px;`
     }
   }}
-`
-
-export const Tag = styled.div<{ active: boolean }>`
-  display: flex;
-  height: 22px;
-  align-items: center;
-  margin: ${({ theme }) => `${theme.spacing(1)}px 0`};
-  padding-left: ${({ theme }) => theme.spacing(3)}px;
-
-  ${({ active, theme }) =>
-    active
-      ? `
-    border-left: 2px solid ${theme.colors.blue4};
-  `
-      : ''}
-
-  &:hover {
-    background-color: #ebebeb;
-  }
-`
-
-export const TagText = styled(Text).attrs(() => ({
-  type: 'caption',
-  color: 'gray6',
-  bold: true,
-}))`
-  cursor: pointer;
 `
 
 export const SectionTitleWrapper = styled.div`

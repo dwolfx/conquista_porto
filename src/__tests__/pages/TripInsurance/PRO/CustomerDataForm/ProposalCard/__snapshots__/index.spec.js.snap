@@ -146,33 +146,32 @@ exports[`ProposalCard renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c19 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #00ADEF;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
+.c0 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
 }
 
-.c19 svg {
-  height: 21px;
-}
-
-.c19 svg path {
-  fill: currentColor;
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .c8 {
@@ -263,32 +262,33 @@ exports[`ProposalCard renders correctly 1`] = `
   line-height: 15px;
 }
 
-.c0 {
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
-  border-radius: 8px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 10px 14px 10px;
+.c19 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
 }
 
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
+.c19 svg {
+  height: 21px;
+}
+
+.c19 svg path {
+  fill: currentColor;
 }
 
 .c15 {

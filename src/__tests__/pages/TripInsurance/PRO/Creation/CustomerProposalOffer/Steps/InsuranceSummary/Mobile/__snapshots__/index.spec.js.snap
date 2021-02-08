@@ -20,7 +20,7 @@ Array [
   padding: 0 14px;
 }
 
-.c6 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32,11 +32,11 @@ Array [
   margin-right: 7px;
 }
 
-.c6.c6 > *:not(:last-child) {
+.c5.c5 > *:not(:last-child) {
   margin-right: 14px;
 }
 
-.c10 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -48,25 +48,11 @@ Array [
   margin-left: 7px;
 }
 
-.c10.c10 > *:not(:first-child) {
+.c7.c7 > *:not(:first-child) {
   margin-left: 14px;
 }
 
-.c7 {
-  color: #BABABA;
-  text-align: unset;
-  text-transform: none;
-  font-weight: 300;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-.c8 {
+.c6 {
   color: #FFFFFF;
   text-align: unset;
   text-transform: none;
@@ -80,7 +66,7 @@ Array [
   line-height: 25px;
 }
 
-.c11 {
+.c8 {
   color: #BABABA;
   text-align: unset;
   text-transform: none;
@@ -145,15 +131,6 @@ Array [
 .c3 p {
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.c12 .c5 {
-  width: 161px;
-  margin-right: 14px;
-}
-
-.c12 .c9 {
-  width: auto;
 }
 
 @media (min-width:576px) {
@@ -242,31 +219,19 @@ Array [
   }
 }
 
-@media (max-width:736px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:736px) {
-
-}
-
 @media (max-width:480px) {
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
 
 }
 
-@media (max-width:480px) {
+@media (min-width:736px) {
 
 }
 
-@media (max-width:1280px) {
+@media (max-width:736px) {
 
 }
 
@@ -382,18 +347,6 @@ Array [
 
 }
 
-@media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
 @media (max-width:480px) {
 
 }
@@ -422,17 +375,10 @@ Array [
             size="small"
           >
             <div
-              className="c5 c6"
+              className="c5"
             >
               <h5
-                className="c7"
-                color="gray4"
-                type="headline"
-              >
-                Contratação
-              </h5>
-              <h5
-                className="c8"
+                className="c6"
                 color="white"
                 type="headline"
               >
@@ -440,10 +386,10 @@ Array [
               </h5>
             </div>
             <div
-              className="c9 c10"
+              className="c7"
             >
               <h6
-                className="c11"
+                className="c8"
                 color="gray4"
                 type="title"
               >
@@ -477,56 +423,6 @@ Array [
   padding-left: 15px;
 }
 
-.c47 {
-  width: 100%;
-  height: 49px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0 14px;
-}
-
-.c50 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-right: 7px;
-}
-
-.c50.c50 > *:not(:last-child) {
-  margin-right: 14px;
-}
-
-.c53 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: 7px;
-}
-
-.c53.c53 > *:not(:first-child) {
-  margin-left: 14px;
-}
-
 .c5 {
   color: #272727;
   text-align: unset;
@@ -547,29 +443,15 @@ Array [
   text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
-  font-size: 18px;
+  font-size: 14px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 25px;
+  line-height: 19px;
 }
 
-.c12 {
-  color: unset;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-.c18 {
+.c19 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -585,7 +467,7 @@ Array [
   line-height: 16px;
 }
 
-.c19 {
+.c20 {
   color: #272727;
   text-align: unset;
   text-transform: none;
@@ -599,7 +481,7 @@ Array [
   line-height: 25px;
 }
 
-.c44 {
+.c45 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -614,51 +496,21 @@ Array [
   line-height: 15px;
 }
 
-.c51 {
-  color: #898989;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 12px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  font-weight: 400;
-  line-height: 16px;
-}
-
-.c54 {
+.c50 {
   color: #E72176;
   text-align: unset;
   text-transform: none;
-  font-weight: 300;
+  font-weight: normal;
   font-family: Open Sans;
-  font-size: 12px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  font-weight: 400;
-  line-height: 16px;
+  line-height: 25px;
 }
 
-.c56 {
-  color: #272727;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-size: 14px;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  font-weight: 600;
-  line-height: 19px;
-}
-
-.c57 {
+.c52 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -672,7 +524,7 @@ Array [
   line-height: 19px;
 }
 
-.c34 {
+.c35 {
   color: unset;
   text-align: unset;
   text-transform: none;
@@ -686,50 +538,35 @@ Array [
   line-height: 19px;
 }
 
-.c45 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #00ADEF;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
+.c40 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
 }
 
-.c45 svg {
-  height: 21px;
+.c42 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.c45 svg path {
-  fill: currentColor;
-}
-
-.c46 {
-  padding: 4px;
-  border-radius: 50%;
-  background-color: #E72176;
-  margin-left: 3px;
-  margin-bottom: 6px;
-}
-
-.c20 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: 100%;
-}
-
-.c16 {
+.c17 {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -750,7 +587,28 @@ Array [
   padding: 7px 14px;
 }
 
-.c17 {
+.c48 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -761,38 +619,141 @@ Array [
   width: 100%;
 }
 
-.c17.c17 > * {
+.c18.c18 > * {
   margin-bottom: 7px;
 }
 
-.c17.c17 :last-child {
+.c18.c18 :last-child {
   margin-bottom: 0px;
 }
 
-.c48 {
+.c49 {
+  margin: 14px;
   width: auto;
-  height: auto;
+}
+
+.c58 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  width: 20px;
+}
+
+.c58:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #BABABA;
+}
+
+.c58:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c58:checked:after {
+  background-color: #00ADEF;
+}
+
+.c57 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin: 14px 0;
+  font-size: 14px;
+  font-style: normal;
+  margin: 8px 16px 8px 0;
+  pointer-events: all;
 }
 
-.c48 .c49 {
-  width: 161px;
-  margin-right: 14px;
+.c57:last-of-type {
+  margin-right: 0;
 }
 
-.c48 .c52 {
+.c56 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   width: auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.c22 {
+.c33 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 14px 0px 14px 14px;
+  margin-top: 28px;
+  border: 1px solid #E72176;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px 0px 4px 8px rgba(231,33,118,0.14);
+  border-radius: 8px;
+  -webkit-transform: rotate(0.25deg);
+  -ms-transform: rotate(0.25deg);
+  transform: rotate(0.25deg);
+}
+
+.c36 {
+  max-width: 199px;
+}
+
+.c34 {
+  margin-right: 14px;
+  height: 21px;
+  width: 37px;
+}
+
+.c14 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: calc(100% - 14px);
+}
+
+.c21 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c23 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -810,11 +771,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c22:hover:active {
+.c23:hover:active {
   pointer-events: auto;
 }
 
-.c22:hover:active:after {
+.c23:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -822,11 +783,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c22:hover:before {
+.c23:hover:before {
   width: 100%;
 }
 
-.c22:hover:after {
+.c23:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -841,7 +802,7 @@ Array [
   width: 100%;
 }
 
-.c22:before {
+.c23:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -853,7 +814,7 @@ Array [
   width: 0;
 }
 
-.c90 {
+.c84 {
   background: linear-gradient( to left, #018CB7 20%, #00ADEF );
   background-repeat: no-repeat;
   border: none;
@@ -871,11 +832,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c90:hover:active {
+.c84:hover:active {
   pointer-events: auto;
 }
 
-.c90:hover:active:after {
+.c84:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -883,11 +844,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c90:hover:before {
+.c84:hover:before {
   width: 100%;
 }
 
-.c90:hover:after {
+.c84:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -902,7 +863,7 @@ Array [
   width: 100%;
 }
 
-.c90:before {
+.c84:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -914,7 +875,7 @@ Array [
   width: 0;
 }
 
-.c37 {
+.c38 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -932,11 +893,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c37:hover:active {
+.c38:hover:active {
   pointer-events: none;
 }
 
-.c37:hover:active:after {
+.c38:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -944,7 +905,7 @@ Array [
   transition: all ease 0s;
 }
 
-.c37:before {
+.c38:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -956,7 +917,7 @@ Array [
   width: 0;
 }
 
-.c24 {
+.c25 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -983,10 +944,37 @@ Array [
   line-height: 15px;
 }
 
-.c39 {
+.c9 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c16 {
+  overflow: auto;
+  padding: 21px 14px;
+}
+
+.c15 {
+  margin: 0 auto;
+}
+
+.c10 {
+  padding: 10px 14px;
   background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
   border-radius: 8px;
+  position: fixed;
+  margin: 28px 0;
+  max-height: calc(100vh - (28px * 2));
+  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -994,24 +982,77 @@ Array [
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 10px 14px 10px;
+  top: 0;
 }
 
-.c41 {
+.c11 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding: 14px;
+}
+
+.c12 {
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  color: #272727;
+  font-weight: normal;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
 }
 
-.c70 {
+.c13 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.c13:hover {
+  fill: #00ADEF;
+}
+
+.c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 13;
+}
+
+.c37 {
+  margin-top: 14px;
+}
+
+.c65 {
   background-color: #F1F1F1;
   border-radius: 8px 8px 0px 0px;
   height: 100%;
@@ -1024,7 +1065,7 @@ Array [
   line-height: 25px;
 }
 
-.c73 {
+.c68 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1039,24 +1080,24 @@ Array [
   position: relative;
 }
 
-.c73 #prefix {
+.c68 #prefix {
   padding-left: 7px;
 }
 
-.c73 #suffix {
+.c68 #suffix {
   padding-right: 7px;
 }
 
-.c73:focus-within {
+.c68:focus-within {
   border-bottom: 2px solid #00ADEF;
 }
 
-.c73:focus-within #prefix,
-.c73:focus-within #suffix {
+.c68:focus-within #prefix,
+.c68:focus-within #suffix {
   color: #272727;
 }
 
-.c71 {
+.c66 {
   color: #898989;
   padding-left: 14px;
   padding-top: 7px;
@@ -1071,7 +1112,7 @@ Array [
   line-height: 16px;
 }
 
-.c75 {
+.c70 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1085,7 +1126,7 @@ Array [
   height: 100%;
 }
 
-.c74 {
+.c69 {
   background-color: inherit;
   border: none;
   color: #272727;
@@ -1095,12 +1136,12 @@ Array [
   width: 100%;
 }
 
-.c74:-webkit-autofill {
+.c69:-webkit-autofill {
   box-shadow: none;
   -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
 }
 
-.c74::-webkit-input-placeholder {
+.c69::-webkit-input-placeholder {
   color: #BABABA;
   font-weight: normal;
   font-family: Open Sans;
@@ -1112,24 +1153,24 @@ Array [
   line-height: 25px;
 }
 
-.c69 {
+.c64 {
   position: relative;
   height: 70px;
 }
 
-.c69 .c72 {
+.c64 .c67 {
   height: calc(100% - 24px);
 }
 
-.c65 {
+.c60 {
   position: relative;
 }
 
-.c67 {
+.c62 {
   position: relative;
 }
 
-.c67:after {
+.c62:after {
   content: '';
   cursor: pointer;
   height: 100%;
@@ -1139,14 +1180,14 @@ Array [
   width: 100%;
 }
 
-.c30 {
+.c31 {
   height: 20px;
   margin-right: 10px;
   position: relative;
   min-width: 20px;
 }
 
-.c30:before {
+.c31:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -1159,7 +1200,7 @@ Array [
   border: 1px solid #BABABA;
 }
 
-.c30:after {
+.c31:after {
   content: '';
   width: 10px;
   height: 10px;
@@ -1171,19 +1212,19 @@ Array [
   background-color: transparent;
 }
 
-.c30:checked:after {
+.c31:checked:after {
   background-color: #00ADEF;
 }
 
-.c30:disabled {
+.c31:disabled {
   cursor: not-allowed;
 }
 
-.c30:disabled:checked:after {
+.c31:disabled:checked:after {
   background-color: #BABABA;
 }
 
-.c31 {
+.c32 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1199,11 +1240,11 @@ Array [
   pointer-events: all;
 }
 
-.c31:last-of-type {
+.c32:last-of-type {
   margin-right: 0;
 }
 
-.c27 {
+.c28 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1214,146 +1255,65 @@ Array [
   align-items: center;
 }
 
-.c14 {
-  fill: #BABABA;
+.c46 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
   cursor: pointer;
-  height: 28px;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  width: 28px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
 }
 
-.c14:hover {
-  fill: #00ADEF;
+.c46 svg {
+  height: 21px;
 }
 
-.c15 {
-  overflow-y: auto;
-  height: 100%;
-  padding: 28px 14px;
+.c46 svg path {
+  fill: currentColor;
 }
 
-.c36 {
-  border-top: 1px solid #DDDDDD;
-  height: 63px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding: 0 14px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: auto;
-}
-
-.c11 {
-  border-bottom: 1px solid #DDDDDD;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px 14px 14px;
-}
-
-.c13 {
-  color: #272727;
-}
-
-.c10 {
-  background-color: #FFFFFF;
-  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px 14px 0 14px;
-  position: fixed;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  max-width: 392px;
-  top: 0;
-  right: calc(-100% - 7px);
-}
-
-.c86 {
-  background-color: #FFFFFF;
-  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px 14px 0 14px;
-  position: fixed;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  max-width: 658px;
-  top: 0;
-  right: calc(-100% - 7px);
-}
-
-.c8 {
-  width: 100%;
-  height: 100%;
-  z-index: 13;
-}
-
-.c9 {
-  background-color: rgba(39,39,39,0.63);
-  height: 100%;
-  position: fixed;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  width: 100%;
-  visibility: hidden;
-  opacity: 0;
-  left: 0;
-  top: 0;
-}
-
-.c82 {
-  width: 100%;
+.c47 {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #E72176;
+  margin-left: 3px;
+  margin-bottom: 6px;
 }
 
 .c77 {
+  width: 100%;
+}
+
+.c72 {
   margin-top: 28px;
   margin-bottom: 28px;
 }
 
-.c78 {
+.c73 {
   margin-bottom: 28px;
 }
 
-.c80 {
+.c75 {
   margin-bottom: 28px;
 }
 
-.c79 {
+.c74 {
   margin-bottom: 21px;
 }
 
-.c81 {
+.c76 {
   margin-top: 28px;
 }
 
@@ -1385,7 +1345,7 @@ Array [
   margin: 35px auto 0;
 }
 
-.c40 {
+.c41 {
   margin-bottom: 14px;
 }
 
@@ -1420,11 +1380,11 @@ Array [
   padding: 14px;
 }
 
-.c42 {
+.c43 {
   padding: 21px;
 }
 
-.c43 {
+.c44 {
   margin: 0 0 28px 14px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1440,66 +1400,37 @@ Array [
   justify-content: space-between;
 }
 
-.c55 {
+.c51 {
   text-align: end;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 14px 0px 14px 14px;
-  margin-top: 28px;
-  border: 1px solid #E72176;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 8px 0px 4px 8px rgba(231,33,118,0.14);
-  border-radius: 8px;
-  -webkit-transform: rotate(0.25deg);
-  -ms-transform: rotate(0.25deg);
-  transform: rotate(0.25deg);
-}
-
-.c35 {
-  max-width: 199px;
-}
-
-.c33 {
-  margin-right: 14px;
-  height: 21px;
-  width: 37px;
-}
-
-.c21 {
+.c22 {
   margin: 7px 0;
 }
 
-.c23 {
+.c24 {
   width: 100%;
   margin: 21px 0;
 }
 
-.c38 {
+.c39 {
   width: 100%;
 }
 
-.c28 .c29 {
+.c29 .c30 {
   margin-right: 14px;
 }
 
-.c28:first-child {
+.c29:first-child {
   margin-right: 14px;
 }
 
-.c25 {
+.c26 {
   padding-top: 7px;
   margin-left: 14px;
 }
 
-.c26 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1511,19 +1442,19 @@ Array [
   margin-left: 14px;
 }
 
-.c85 {
+.c80 {
   width: 100%;
 }
 
-.c84 + .c83 {
+.c79 + .c78 {
   margin-top: 28px;
 }
 
-.c88 {
+.c82 {
   width: 100%;
 }
 
-.c87 {
+.c81 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1542,107 +1473,27 @@ Array [
   padding: 0;
 }
 
-.c89 {
+.c83 {
   margin: 0 0 28px;
 }
 
-.c91 {
+.c85 {
   width: 100%;
 }
 
-.c63 {
-  height: 20px;
-  margin-right: 10px;
-  position: relative;
-  width: 20px;
-}
-
-.c63:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: block;
-  top: 0;
-  left: 0;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  border: 1px solid #BABABA;
-}
-
-.c63:after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  display: block;
-  position: absolute;
-  top: calc(50% - 5px);
-  left: calc(50% - 5px);
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.c63:checked:after {
-  background-color: #00ADEF;
-}
-
-.c62 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #000;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 14px;
-  font-style: normal;
-  margin: 8px 16px 8px 0;
-  pointer-events: all;
-}
-
-.c62:last-of-type {
-  margin-right: 0;
-}
-
-.c61 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: auto;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c76 {
+.c71 {
   width: 100%;
 }
 
-.c58 {
+.c53 {
   margin-top: 14px;
 }
 
-.c64:first-child {
+.c59:first-child {
   margin-right: 14px;
 }
 
-.c59 {
+.c54 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1653,11 +1504,11 @@ Array [
   margin-top: 28px;
 }
 
-.c59 label {
+.c54 label {
   margin-right: 28px;
 }
 
-.c66 {
+.c61 {
   margin-top: 28px;
 }
 
@@ -1747,60 +1598,46 @@ Array [
 
 }
 
-@media (max-width:736px) {
-  .c15 {
-    padding: 0;
-  }
-}
-
-@media (max-width:1280px) {
-  .c36 {
-    padding: 14px;
-  }
-}
-
-@media (max-width:736px) {
-  .c36 {
-    padding: 0;
-  }
-}
-
 @media (max-width:480px) {
-  .c11 {
-    padding: 0;
-  }
-}
-
-@media (max-width:1280px) {
-  .c10 {
-    max-width: 484px;
-    margin: 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c10 {
-    min-width: 100vw;
-    padding: 0;
-  }
-}
-
-@media (max-width:1280px) {
-  .c86 {
-    max-width: 484px;
-    margin: 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c86 {
-    min-width: 100vw;
-    padding: 0;
+  .c56 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 15px 0;
   }
 }
 
 @media (min-width:736px) {
-  .c80 {
+  .c33 {
+    margin-top: 14px;
+    max-width: 410px;
+  }
+}
+
+@media (min-width:736px) {
+  .c36 {
+    max-width: 347px;
+  }
+}
+
+@media (max-width:736px) {
+  .c16 {
+    padding: 21px 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c10 {
+    min-width: unset;
+    width: calc(100vw - 28px);
+    top: auto;
+    margin: 0;
+    max-height: calc(100vh - (14px * 2));
+  }
+}
+
+@media (min-width:736px) {
+  .c75 {
     margin-bottom: 0px;
   }
 }
@@ -1875,7 +1712,7 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c40 {
+  .c41 {
     margin: 0 7px 14px;
   }
 }
@@ -1927,25 +1764,25 @@ Array [
 }
 
 @media (max-width:980px) {
-  .c42 {
+  .c43 {
     padding: 14px;
   }
 }
 
 @media (max-width:480px) {
-  .c42 {
+  .c43 {
     padding: 14px 0;
   }
 }
 
 @media (max-width:736px) {
-  .c43 {
+  .c44 {
     margin: 0 0 28px;
   }
 }
 
 @media (max-width:480px) {
-  .c43 {
+  .c44 {
     margin: 0 14px 28px;
   }
 }
@@ -1979,35 +1816,13 @@ Array [
 }
 
 @media (min-width:736px) {
-  .c32 {
-    margin-top: 14px;
-    max-width: 410px;
-  }
-}
-
-@media (min-width:736px) {
-  .c35 {
-    max-width: 347px;
-  }
-}
-
-@media (min-width:736px) {
-  .c26 {
+  .c27 {
     margin-top: 14px;
   }
 }
 
 @media (max-width:480px) {
-  .c61 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin: 15px 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c59 .c60 {
+  .c54 .c55 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -2015,19 +1830,19 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c66 .c68 {
+  .c61 .c63 {
     height: 86px;
   }
 
-  .c66 .c72 {
+  .c61 .c67 {
     height: calc(100% - 38px);
   }
 
-  .c66 label {
+  .c61 label {
     display: block;
   }
 
-  .c66 .sc-fzoJMP {
+  .c61 .sc-fzpdyU {
     top: 86px;
   }
 }
@@ -2061,13 +1876,13 @@ Array [
           <div
             className="c4"
           >
-            <h5
+            <p
               className="c6"
               color="gray6"
-              type="headline"
+              type="body"
             >
               Se precisar tirar dúvidas fale com seu parceiro.
-            </h5>
+            </p>
           </div>
         </div>
       </div>
@@ -2084,51 +1899,52 @@ Array [
           />
           <div
             className="c10"
-            size="sm"
           >
-            <div
+            <header
               className="c11"
             >
-              <h5
-                className="c12 c13"
-                color="unset"
-                type="headline"
+              <h3
+                className="c12"
               >
                 Alterar dados do contratante
-              </h5>
+              </h3>
               <svg
                 aria-label="close"
-                className="c14"
+                className="c13"
                 data-gtm-clicktype="button"
                 data-gtm-name="botao fechar"
-                data-gtm-subname="menu Alterar dados do contratante"
+                data-gtm-subname="modal Alterar dados do contratante"
                 data-gtm-type="click"
                 fill="#BABABA"
+                height={28}
                 onClick={[Function]}
                 role="img"
-                width={21}
+                width={28}
               >
                 close.svg
               </svg>
-            </div>
+            </header>
             <div
-              className="c15"
+              className="c14 c15"
+            />
+            <div
+              className="c16"
             >
               <div
-                className="c16"
+                className="c17"
               >
                 <div
-                  className="c17"
+                  className="c18"
                 >
                   <span
-                    className="c18"
+                    className="c19"
                     color="gray5"
                     type="captionUppercase"
                   >
                     NOME
                   </span>
                   <h5
-                    className="c19"
+                    className="c20"
                     color="gray6"
                     type="headline"
                   >
@@ -2137,23 +1953,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c20 c21"
+                className="c21 c22"
               />
               <div
-                className="c16"
+                className="c17"
               >
                 <div
-                  className="c17"
+                  className="c18"
                 >
                   <span
-                    className="c18"
+                    className="c19"
                     color="gray5"
                     type="captionUppercase"
                   >
                     CPF
                   </span>
                   <h5
-                    className="c19"
+                    className="c20"
                     color="gray6"
                     type="headline"
                   >
@@ -2162,23 +1978,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c20 c21"
+                className="c21 c22"
               />
               <div
-                className="c16"
+                className="c17"
               >
                 <div
-                  className="c17"
+                  className="c18"
                 >
                   <span
-                    className="c18"
+                    className="c19"
                     color="gray5"
                     type="captionUppercase"
                   >
                     DATA DE NASCIMENTO
                   </span>
                   <h5
-                    className="c19"
+                    className="c20"
                     color="gray6"
                     type="headline"
                   >
@@ -2187,23 +2003,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c20 c21"
+                className="c21 c22"
               />
               <div
-                className="c16"
+                className="c17"
               >
                 <div
-                  className="c17"
+                  className="c18"
                 >
                   <span
-                    className="c18"
+                    className="c19"
                     color="gray5"
                     type="captionUppercase"
                   >
                     SEXO
                   </span>
                   <h5
-                    className="c19"
+                    className="c20"
                     color="gray6"
                     type="headline"
                   >
@@ -2212,7 +2028,7 @@ Array [
                 </div>
               </div>
               <button
-                className="c22 c23"
+                className="c23 c24"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="alterar no perfil"
@@ -2222,33 +2038,33 @@ Array [
                 onClick={[Function]}
               >
                 <span
-                  className="c24"
+                  className="c25"
                 >
                   ALTERAR NO PERFIL
                 </span>
               </button>
               <div
-                className="c20 c21"
+                className="c21 c22"
               />
               <h5
-                className="c19 c25"
+                className="c20 c26"
                 color="gray6"
                 type="headline"
               >
                 Você reside no Brasil?
               </h5>
               <div
-                className="c26"
+                className="c27"
                 data-testid="radio-brazil-resident"
               >
                 <div
-                  className="c27 c28"
+                  className="c28 c29"
                 >
                   <input
                     aria-checked={false}
                     aria-label="Sim"
                     checked={false}
-                    className="c29 c30"
+                    className="c30 c31"
                     data-testid="input-radio-sim"
                     disabled={false}
                     id="input-radio-sim"
@@ -2259,7 +2075,7 @@ Array [
                     value={false}
                   />
                   <label
-                    className="c31"
+                    className="c32"
                     disabled={false}
                     htmlFor="input-radio-sim"
                   >
@@ -2267,13 +2083,13 @@ Array [
                   </label>
                 </div>
                 <div
-                  className="c27 c28"
+                  className="c28 c29"
                 >
                   <input
                     aria-checked={true}
                     aria-label="Não"
                     checked={true}
-                    className="c29 c30"
+                    className="c30 c31"
                     data-testid="input-radio-nao"
                     disabled={false}
                     id="input-radio-nao"
@@ -2284,7 +2100,7 @@ Array [
                     value={true}
                   />
                   <label
-                    className="c31"
+                    className="c32"
                     disabled={false}
                     htmlFor="input-radio-nao"
                   >
@@ -2293,11 +2109,11 @@ Array [
                 </div>
               </div>
               <div
-                className="c32"
+                className="c33"
               >
                 <svg
                   aria-label="alertrounded"
-                  className="c33"
+                  className="c34"
                   fill="#E72176"
                   role="img"
                   width={21}
@@ -2305,7 +2121,7 @@ Array [
                   alert-rounded.svg
                 </svg>
                 <h6
-                  className="c34 c35"
+                  className="c35 c36"
                   color="unset"
                   type="title"
                 >
@@ -2314,10 +2130,13 @@ Array [
               </div>
             </div>
             <div
-              className="c36"
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
             >
               <button
-                className="c37 c38"
+                className="c38 c39"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -2327,43 +2146,43 @@ Array [
                 onClick={[Function]}
               >
                 <span
-                  className="c24"
+                  className="c25"
                 >
                   SALVAR ALTERAÇÕES
                 </span>
               </button>
-            </div>
+            </footer>
           </div>
         </div>
         <div
-          className="c39 c40"
+          className="c40 c41"
         >
           <div
-            className="c41"
+            className="c42"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c42"
+              className="c43"
             >
               <div
-                className="c43"
+                className="c44"
               >
                 <p
-                  className="c44"
+                  className="c45"
                   color="gray5"
                   type="subheading"
                 >
                   DADOS DO CONTRATANTE
                 </p>
                 <a
-                  className="c45"
+                  className="c46"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR
                   <span
-                    className="c46"
+                    className="c47"
                   />
                   <svg
                     aria-label="arrowright"
@@ -2375,195 +2194,160 @@ Array [
                   </svg>
                 </a>
               </div>
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Nome
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Nome
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      CPF
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    CPF
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Data de nascimento
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Data de nascimento
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Sexo
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Sexo
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      País de residência
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    País de residência
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="c39 c40"
+          className="c40 c41"
         >
           <div
-            className="c41"
+            className="c42"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c42"
+              className="c43"
             >
               <div
-                className="c43"
+                className="c44"
               >
                 <p
-                  className="c44"
+                  className="c45"
                   color="gray5"
                   type="subheading"
                 >
                   DADOS PARA CONTATO
                 </p>
                 <a
-                  className="c45 c55"
+                  className="c46 c51"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR NO PERFIL
                   <span
-                    className="c46"
+                    className="c47"
                   />
                   <svg
                     aria-label="arrowright"
@@ -2575,97 +2359,76 @@ Array [
                   </svg>
                 </a>
               </div>
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Telefone
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Telefone
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Tipo de telefone
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Tipo de telefone
+                  </span>
+                  <h5
+                    className="c20"
+                    color="gray6"
+                    type="headline"
                   >
-                    <h6
-                      className="c56"
-                      color="gray6"
-                      type="title"
-                    >
-                      Celular
-                    </h6>
-                  </div>
+                    Celular
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      E-mail
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    E-mail
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
             </div>
@@ -2680,64 +2443,65 @@ Array [
           />
           <div
             className="c10"
-            size="sm"
           >
-            <div
+            <header
               className="c11"
             >
-              <h5
-                className="c12 c13"
-                color="unset"
-                type="headline"
+              <h3
+                className="c12"
               >
                 Alterar pessoa politicamente exposta
-              </h5>
+              </h3>
               <svg
                 aria-label="close"
-                className="c14"
+                className="c13"
                 data-gtm-clicktype="button"
                 data-gtm-name="botao fechar"
-                data-gtm-subname="menu Alterar pessoa politicamente exposta"
+                data-gtm-subname="modal Alterar pessoa politicamente exposta"
                 data-gtm-type="click"
                 fill="#BABABA"
+                height={28}
                 onClick={[Function]}
                 role="img"
-                width={21}
+                width={28}
               >
                 close.svg
               </svg>
-            </div>
+            </header>
             <div
-              className="c15"
+              className="c14 c15"
+            />
+            <div
+              className="c16"
             >
               <h5
-                className="c19 "
+                className="c20 "
                 color="gray6"
                 type="headline"
               >
                 Você é ou possui parentesco com uma pessoa politicamente exposta?
               </h5>
               <p
-                className="c57 c58"
+                className="c52 c53"
                 color="gray5"
                 type="body"
               >
                 Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos anteriores, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos de alto nível, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
               </p>
               <div
-                className="c59"
+                className="c54"
                 data-testid="radio-exposed-person"
               >
                 <div
-                  className="c60 c61"
+                  className="c55 c56"
                   width="auto"
                 >
                   <label
-                    className="c62"
+                    className="c57"
                   >
                     <input
                       checked={true}
-                      className="c63 c64"
+                      className="c58 c59"
                       data-gtm-form="input"
                       data-gtm-name="Sim"
                       onChange={[Function]}
@@ -2747,11 +2511,11 @@ Array [
                     Sim
                   </label>
                   <label
-                    className="c62"
+                    className="c57"
                   >
                     <input
                       checked={false}
-                      className="c63 c64"
+                      className="c58 c59"
                       data-gtm-form="input"
                       data-gtm-name="Não"
                       onChange={[Function]}
@@ -2763,31 +2527,31 @@ Array [
                 </div>
               </div>
               <div
-                className="c65 c66"
+                className="c60 c61"
               >
                 <div
-                  className="c67"
+                  className="c62"
                   data-testid="select-Quem é a pessoa políticamente exposta?"
                   onClick={[Function]}
                 >
                   <div
-                    className="c68 c69"
+                    className="c63 c64"
                     disabled={false}
                   >
                     <div
-                      className="c70"
+                      className="c65"
                     >
                       <label
-                        className="c71"
+                        className="c66"
                       >
                         Quem é a pessoa políticamente exposta?
                       </label>
                       <div
-                        className="c72 c73"
+                        className="c67 c68"
                         onClick={[Function]}
                       >
                         <input
-                          className="c74"
+                          className="c69"
                           data-testid="select-option-input-undefined"
                           disabled={false}
                           placeholder="Selecione"
@@ -2795,7 +2559,7 @@ Array [
                           value=""
                         />
                         <div
-                          className="c75"
+                          className="c70"
                           id="suffix"
                         >
                           <svg
@@ -2815,10 +2579,13 @@ Array [
               </div>
             </div>
             <div
-              className="c36"
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
             >
               <button
-                className="c37 c76"
+                className="c38 c71"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -2828,43 +2595,43 @@ Array [
                 onClick={[Function]}
               >
                 <span
-                  className="c24"
+                  className="c25"
                 >
                   SALVAR ALTERAÇÕES
                 </span>
               </button>
-            </div>
+            </footer>
           </div>
         </div>
         <div
-          className="c39 c40"
+          className="c40 c41"
         >
           <div
-            className="c41"
+            className="c42"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c42"
+              className="c43"
             >
               <div
-                className="c43"
+                className="c44"
               >
                 <p
-                  className="c44"
+                  className="c45"
                   color="gray5"
                   type="subheading"
                 >
                   PESSOA POLITICAMENTE EXPOSTA
                 </p>
                 <a
-                  className="c45"
+                  className="c46"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR
                   <span
-                    className="c46"
+                    className="c47"
                   />
                   <svg
                     aria-label="arrowright"
@@ -2876,33 +2643,26 @@ Array [
                   </svg>
                 </a>
               </div>
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Declarar
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Declarar
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
             </div>
@@ -2917,61 +2677,62 @@ Array [
           />
           <div
             className="c10"
-            size="sm"
           >
-            <div
+            <header
               className="c11"
             >
-              <h5
-                className="c12 c13"
-                color="unset"
-                type="headline"
+              <h3
+                className="c12"
               >
                 Alterar endereço
-              </h5>
+              </h3>
               <svg
                 aria-label="close"
-                className="c14"
+                className="c13"
                 data-gtm-clicktype="button"
                 data-gtm-name="botao fechar"
-                data-gtm-subname="menu Alterar endereço"
+                data-gtm-subname="modal Alterar endereço"
                 data-gtm-type="click"
                 fill="#BABABA"
+                height={28}
                 onClick={[Function]}
                 role="img"
-                width={21}
+                width={28}
               >
                 close.svg
               </svg>
-            </div>
+            </header>
             <div
-              className="c15"
+              className="c14 c15"
+            />
+            <div
+              className="c16"
             >
               <p
-                className="c57 "
+                className="c52 "
                 color="gray5"
                 type="body"
               >
                 Por favor, inclua somente CEPs de endereços no Brasil. Endereços no exterior não são válidos.
               </p>
               <div
-                className="c68 c69 c77"
+                className="c63 c64 c72"
                 disabled={false}
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     CEP
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-testid="cep"
                       disabled={false}
                       maxLength={9}
@@ -2981,7 +2742,7 @@ Array [
                       value=""
                     />
                     <div
-                      className="c75"
+                      className="c70"
                       id="suffix"
                     >
                       <svg
@@ -2998,23 +2759,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c68 c69 c78"
+                className="c63 c64 c73"
                 disabled={false}
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     Endereço (Rua/Avenida)
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-testid="endereço (rua/avenida)"
                       disabled={false}
                       onBlur={[Function]}
@@ -3025,23 +2786,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c68 c69 c78"
+                className="c63 c64 c73"
                 disabled={false}
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     Número
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-testid="número"
                       disabled={false}
                       onBlur={[Function]}
@@ -3052,23 +2813,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c68 c69 c79"
+                className="c63 c64 c74"
                 disabled={false}
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     Complemento (opcional)
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-testid="complemento (opcional)"
                       disabled={false}
                       onChange={[Function]}
@@ -3078,23 +2839,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c68 c69 c78"
+                className="c63 c64 c73"
                 disabled={false}
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     Bairro
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-testid="bairro"
                       disabled={false}
                       onBlur={[Function]}
@@ -3105,31 +2866,31 @@ Array [
                 </div>
               </div>
               <div
-                className="c65 c80"
+                className="c60 c75"
               >
                 <div
-                  className="c67"
+                  className="c62"
                   data-testid="select-Estado"
                   onClick={[Function]}
                 >
                   <div
-                    className="c68 c69"
+                    className="c63 c64"
                     disabled={false}
                   >
                     <div
-                      className="c70"
+                      className="c65"
                     >
                       <label
-                        className="c71"
+                        className="c66"
                       >
                         Estado
                       </label>
                       <div
-                        className="c72 c73"
+                        className="c67 c68"
                         onClick={[Function]}
                       >
                         <input
-                          className="c74"
+                          className="c69"
                           data-testid="select-option-input-undefined"
                           disabled={false}
                           placeholder="Selecione"
@@ -3137,7 +2898,7 @@ Array [
                           value="Selecione"
                         />
                         <div
-                          className="c75"
+                          className="c70"
                           id="suffix"
                         >
                           <svg
@@ -3156,23 +2917,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c68 c69 c81"
+                className="c63 c64 c76"
                 disabled={false}
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     Cidade
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-testid="cidade"
                       disabled={false}
                       onBlur={[Function]}
@@ -3184,10 +2945,13 @@ Array [
               </div>
             </div>
             <div
-              className="c36"
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
             >
               <button
-                className="c37 c82"
+                className="c38 c77"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3197,43 +2961,43 @@ Array [
                 onClick={[Function]}
               >
                 <span
-                  className="c24"
+                  className="c25"
                 >
                   SALVAR ALTERAÇÕES
                 </span>
               </button>
-            </div>
+            </footer>
           </div>
         </div>
         <div
-          className="c39 c40"
+          className="c40 c41"
         >
           <div
-            className="c41"
+            className="c42"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c42"
+              className="c43"
             >
               <div
-                className="c43"
+                className="c44"
               >
                 <p
-                  className="c44"
+                  className="c45"
                   color="gray5"
                   type="subheading"
                 >
                   ENDEREÇO
                 </p>
                 <a
-                  className="c45"
+                  className="c46"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR
                   <span
-                    className="c46"
+                    className="c47"
                   />
                   <svg
                     aria-label="arrowright"
@@ -3245,65 +3009,51 @@ Array [
                   </svg>
                 </a>
               </div>
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      CEP
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    CEP
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Endereço
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Endereço
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
             </div>
@@ -3318,53 +3068,54 @@ Array [
           />
           <div
             className="c10"
-            size="sm"
           >
-            <div
+            <header
               className="c11"
             >
-              <h5
-                className="c12 c13"
-                color="unset"
-                type="headline"
+              <h3
+                className="c12"
               >
                 Alterar contato em caso de acidente
-              </h5>
+              </h3>
               <svg
                 aria-label="close"
-                className="c14"
+                className="c13"
                 data-gtm-clicktype="button"
                 data-gtm-name="botao fechar"
-                data-gtm-subname="menu Alterar contato em caso de acidente"
+                data-gtm-subname="modal Alterar contato em caso de acidente"
                 data-gtm-type="click"
                 fill="#BABABA"
+                height={28}
                 onClick={[Function]}
                 role="img"
-                width={21}
+                width={28}
               >
                 close.svg
               </svg>
-            </div>
+            </header>
             <div
-              className="c15"
+              className="c14 c15"
+            />
+            <div
+              className="c16"
             >
               <div
-                className="c68 c69 c83 c84"
+                className="c63 c64 c78 c79"
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     Nome
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-gtm-form="input"
                       data-gtm-name="contato-caso-acidente-nome"
                       data-testid="nome"
@@ -3376,22 +3127,22 @@ Array [
                 </div>
               </div>
               <div
-                className="c68 c69 c83 c84"
+                className="c63 c64 c78 c79"
               >
                 <div
-                  className="c70"
+                  className="c65"
                 >
                   <label
-                    className="c71"
+                    className="c66"
                   >
                     telefone
                   </label>
                   <div
-                    className="c72 c73"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c74"
+                      className="c69"
                       data-gtm-form="input"
                       data-gtm-name="contato-caso-acidente-telefone"
                       data-testid="telefone"
@@ -3406,10 +3157,13 @@ Array [
               </div>
             </div>
             <div
-              className="c36"
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
             >
               <button
-                className="c37 c85"
+                className="c38 c80"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3419,43 +3173,43 @@ Array [
                 onClick={[Function]}
               >
                 <span
-                  className="c24"
+                  className="c25"
                 >
                   SALVAR ALTERAÇÕES
                 </span>
               </button>
-            </div>
+            </footer>
           </div>
         </div>
         <div
-          className="c39 c40"
+          className="c40 c41"
         >
           <div
-            className="c41"
+            className="c42"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c42"
+              className="c43"
             >
               <div
-                className="c43"
+                className="c44"
               >
                 <p
-                  className="c44"
+                  className="c45"
                   color="gray5"
                   type="subheading"
                 >
                   CONTATO EM CASO DE ACIDENTES
                 </p>
                 <a
-                  className="c45"
+                  className="c46"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR
                   <span
-                    className="c46"
+                    className="c47"
                   />
                   <svg
                     aria-label="arrowright"
@@ -3467,140 +3221,128 @@ Array [
                   </svg>
                 </a>
               </div>
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Nome
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Nome
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Telefone
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Telefone
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="c8"
+          className="c8 "
         >
           <div
             className="c9"
             onClick={[Function]}
           />
           <div
-            className="c86"
+            className="c10"
           >
-            <div
+            <header
               className="c11"
             >
-              <h5
-                className="c12 c13"
-                color="unset"
-                type="headline"
+              <h3
+                className="c12"
               >
                 Alterar dados
-              </h5>
+              </h3>
               <svg
                 aria-label="close"
-                className="c14"
+                className="c13"
                 data-gtm-clicktype="button"
                 data-gtm-name="botao fechar"
-                data-gtm-subname="menu Alterar dados"
+                data-gtm-subname="modal Alterar dados"
                 data-gtm-type="click"
                 fill="#BABABA"
+                height={28}
                 onClick={[Function]}
                 role="img"
-                width={21}
+                width={28}
               >
                 close.svg
               </svg>
-            </div>
+            </header>
             <div
-              className="c15"
+              className="c14 c15"
+            />
+            <div
+              className="c16"
             >
               <form
-                className="c87"
+                className="c81"
               >
                 <div
-                  className="c88"
+                  className="c82"
                 >
                   <div
-                    className="c65 c89"
+                    className="c60 c83"
                   >
                     <div
-                      className="c67"
+                      className="c62"
                       data-testid="select-Forma de Pagamento"
                       onClick={[Function]}
                     >
                       <div
-                        className="c68 c69"
+                        className="c63 c64"
                         disabled={false}
                       >
                         <div
-                          className="c70"
+                          className="c65"
                         >
                           <label
-                            className="c71"
+                            className="c66"
                           >
                             Forma de Pagamento
                           </label>
                           <div
-                            className="c72 c73"
+                            className="c67 c68"
                             onClick={[Function]}
                           >
                             <input
-                              className="c74"
+                              className="c69"
                               data-testid="select-option-input-undefined"
                               disabled={false}
                               placeholder="Selecione"
@@ -3608,7 +3350,7 @@ Array [
                               value=""
                             />
                             <div
-                              className="c75"
+                              className="c70"
                               id="suffix"
                             >
                               <svg
@@ -3628,34 +3370,34 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="c88"
+                  className="c82"
                 >
                   <div
-                    className="c65 c89"
+                    className="c60 c83"
                   >
                     <div
-                      className="c67"
+                      className="c62"
                       data-testid="select-Número de Parcelas"
                       onClick={[Function]}
                     >
                       <div
-                        className="c68 c69"
+                        className="c63 c64"
                         disabled={false}
                       >
                         <div
-                          className="c70"
+                          className="c65"
                         >
                           <label
-                            className="c71"
+                            className="c66"
                           >
                             Número de Parcelas
                           </label>
                           <div
-                            className="c72 c73"
+                            className="c67 c68"
                             onClick={[Function]}
                           >
                             <input
-                              className="c74"
+                              className="c69"
                               data-testid="select-option-input-undefined"
                               disabled={false}
                               placeholder="Selecione"
@@ -3663,7 +3405,7 @@ Array [
                               value=""
                             />
                             <div
-                              className="c75"
+                              className="c70"
                               id="suffix"
                             >
                               <svg
@@ -3685,10 +3427,13 @@ Array [
               </form>
             </div>
             <div
-              className="c36"
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
             >
               <button
-                className="c90 c91"
+                className="c84 c85"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3697,43 +3442,43 @@ Array [
                 onClick={[Function]}
               >
                 <span
-                  className="c24"
+                  className="c25"
                 >
                   SALVAR ALTERAÇÕES
                 </span>
               </button>
-            </div>
+            </footer>
           </div>
         </div>
         <div
-          className="c39 c40"
+          className="c40 c41"
         >
           <div
-            className="c41"
+            className="c42"
             data-testid="card-body"
             overflow="hidden"
           >
             <div
-              className="c42"
+              className="c43"
             >
               <div
-                className="c43"
+                className="c44"
               >
                 <p
-                  className="c44"
+                  className="c45"
                   color="gray5"
                   type="subheading"
                 >
                   FORMA DE PAGAMENTO
                 </p>
                 <a
-                  className="c45"
+                  className="c46"
                   disabled={false}
                   onClick={[Function]}
                 >
                   ALTERAR
                   <span
-                    className="c46"
+                    className="c47"
                   />
                   <svg
                     aria-label="arrowright"
@@ -3745,129 +3490,101 @@ Array [
                   </svg>
                 </a>
               </div>
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Modelo
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Modelo
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Número
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Número
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Vencimento
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Vencimento
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
               <div
-                className="c20"
+                className="c21"
               />
-              <div>
+              <div
+                className="c48 c49"
+              >
                 <div
-                  className="c47 c48"
-                  size="default"
+                  className="c18"
                 >
-                  <div
-                    className="c49 c50"
+                  <span
+                    className="c19"
+                    color="gray5"
+                    type="captionUppercase"
                   >
-                    <span
-                      className="c51"
-                      color="gray5"
-                      type="caption"
-                    >
-                      Número de parcelas
-                    </span>
-                  </div>
-                  <div
-                    className="c52 c53"
+                    Número de parcelas
+                  </span>
+                  <h5
+                    className="c50"
+                    color="magenta2"
+                    type="headline"
                   >
-                    <span
-                      className="c54"
-                      color="magenta2"
-                      type="caption"
-                    >
-                      Não preenchido
-                    </span>
-                  </div>
+                    Não preenchido
+                  </h5>
                 </div>
               </div>
             </div>
@@ -3904,6 +3621,10 @@ Array [
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.c5 {
+  cursor: pointer;
 }
 
 .c7 {
@@ -3973,10 +3694,6 @@ Array [
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 15px;
-}
-
-.c5 {
-  cursor: pointer;
 }
 
 .c0 {
@@ -4111,31 +3828,19 @@ Array [
 
 }
 
-@media (max-width:736px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:736px) {
-
-}
-
 @media (max-width:480px) {
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
 
 }
 
-@media (max-width:480px) {
+@media (min-width:736px) {
 
 }
 
-@media (max-width:1280px) {
+@media (max-width:736px) {
 
 }
 
@@ -4277,18 +3982,6 @@ Array [
 }
 
 @media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (min-width:736px) {
-
-}
-
-@media (max-width:480px) {
 
 }
 

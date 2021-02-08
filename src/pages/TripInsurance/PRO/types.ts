@@ -18,7 +18,7 @@ import ProposalSummary from './Creation/CustomerProposalOffer/Steps/ProposalSumm
 import SuccessState from './Creation/CustomerProposalOffer/Steps/RequestProposalStatus/Success'
 import ErrorState from './Creation/CustomerProposalOffer/Steps/RequestProposalStatus/Error'
 
-export const ParnerSteps = {
+export const PartnerSteps = {
   CustomerTravelDetailsForm: CustomerTravelDetailsForm,
   TravelDetailsForm: TravelDetailsForm,
 }

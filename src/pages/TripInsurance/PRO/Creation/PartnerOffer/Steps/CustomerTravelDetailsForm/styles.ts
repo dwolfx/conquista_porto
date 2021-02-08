@@ -6,11 +6,10 @@ import SelectCmp from 'components/Inputs/Select'
 import RadioCmp from 'components/Inputs/Radio/New'
 import TextCmp from 'components/Text'
 import NewInput from 'components/NewInput'
+import { IHasError } from './types'
 
 export const Container = styled(ContainerCmp)`
-  display: flex;
-  flex-direction: row;
-  padding: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(7)}px`};
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const Col = styled(ColCmp)`
@@ -48,13 +47,11 @@ export const NavigationItem = styled.div`
 `
 
 export const BadgeNotification = styled.span`
-  // padding: 4px;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.magenta2};
   margin-left: ${({ theme }) => theme.spacing(1)}px;
-  // margin-bottom: 6px;
 `
 
 export const Table = styled.table`
@@ -163,6 +160,10 @@ export const SelectGender = styled(SelectCmp)`
 
 export const SelectTelephoneType = styled(SelectCmp)``
 
+export const RadioTitle = styled(TextCmp)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
 export const RadioContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -181,16 +182,18 @@ export const Radio = styled(RadioCmp)`
   margin-right: ${({ theme }) => theme.spacing(4)}px;
 `
 
-export const TextInput = styled(NewInput)`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
-
 export const Text = styled(TextCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const TextInputMedium = styled(NewInput)`
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
+export const TextInput = styled(NewInput)<IHasError>`
+  margin-bottom: ${({ theme, error }) =>
+    error ? theme.spacing(5) : theme.spacing(2)}px;
+`
+
+export const TextInputMedium = styled(NewInput)<IHasError>`
+  margin-right: ${({ theme, error }) =>
+    error ? theme.spacing(5) : theme.spacing(2)}px;
   width: 410px;
 `
 

@@ -3,8 +3,9 @@ import React from 'react'
 import VerticalList from 'components/VerticalList'
 import Divisor from 'components/Divisor'
 import Text from 'components/Text'
-import { IForm } from 'pages/TripInsurance/PRO/types'
+import { IForm, PartnerSteps } from 'pages/TripInsurance/PRO/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { formatMoney } from 'helpers'
 
@@ -18,6 +19,7 @@ interface IProps {
   horizontal?: boolean 
 }
 const ProposalCard = ({ proposal, handleOpenDetailsModal, horizontal = false }: IProps) => {
+  const { instantiate } = useStackFluxManagement()
   const { form, updateForm } = useFormFluxManagement<IForm>()
   const getRecommendedPaymentWay = () => {
     const recommendedWay = proposal.formasPagamento.listaParcelamentoCartao.find(parcela => parcela.id === "6")
@@ -25,6 +27,7 @@ const ProposalCard = ({ proposal, handleOpenDetailsModal, horizontal = false }: 
   }
 
   const handleChoosePlan = () => {
+    instantiate(PartnerSteps.CustomerTravelDetailsForm)
     updateForm({
       ...form,
       nomeDoPlano: proposal.nomePlano,

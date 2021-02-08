@@ -29,7 +29,17 @@ import { base64decode } from 'helpers'
 import ComissionDetailsModal from './ComissionDetailsModal'
 import ProposalCard from './ProposalCard'
 import ProposalSkeleton from './ProposalSkeleton'
-import { IBase64DecodedResponse } from './types'
+import { IBase64DecodedResponse } from '../../types'
+import {
+  NavWrapper,
+  NavTitleWrapper,
+  Tag,
+  TagText,
+  TagsWrapper,
+  Divisor,
+  BadgeNotification,
+  SectionTitleWrapper,
+} from '../../styles'
 
 import * as S from './styles'
 
@@ -376,69 +386,69 @@ const TravelDetailsForm: StepComponent = () => {
       <S.Container id="wrapper-scroll">
         <Row>
           <Col lg={3}>
-            <S.NavWrapper>
-              <S.NavTitleWrapper>
+            <NavWrapper>
+              <NavTitleWrapper>
                 <Text type="subheading" bold color="gray6">
                   DADOS DA SIMULAÇÃO
                 </Text>
-              </S.NavTitleWrapper>
-              <S.TagsWrapper>
-                <S.Tag
+              </NavTitleWrapper>
+              <TagsWrapper>
+                <Tag
                   active={activeMenuItem === 'section-1'}
                   onClick={() => {
                     scrollToSection(sectionOne)
                   }}
                 >
-                  <S.TagText>Origem e destino</S.TagText>
-                  {!isSectionOneValid && <S.BadgeNotification />}
-                </S.Tag>
-                <S.Tag
+                  <TagText>Origem e destino</TagText>
+                  {!isSectionOneValid && <BadgeNotification />}
+                </Tag>
+                <Tag
                   active={activeMenuItem === 'section-2'}
                   onClick={() => {
                     scrollToSection(sectionTwo)
                   }}
                 >
-                  <S.TagText>Período da viagem</S.TagText>
-                  {!isSectionTwoValid && <S.BadgeNotification />}
-                </S.Tag>
-                <S.Tag
+                  <TagText>Período da viagem</TagText>
+                  {!isSectionTwoValid && <BadgeNotification />}
+                </Tag>
+                <Tag
                   active={activeMenuItem === 'section-3'}
                   onClick={() => {
                     scrollToSection(sectionThree)
                   }}
                 >
-                  <S.TagText>Passageiros</S.TagText>
-                  {!isSectionThreeValid && <S.BadgeNotification />}
-                </S.Tag>
-                <S.Tag
+                  <TagText>Passageiros</TagText>
+                  {!isSectionThreeValid && <BadgeNotification />}
+                </Tag>
+                <Tag
                   active={activeMenuItem === 'section-4'}
                   onClick={() => {
                     scrollToSection(sectionFour)
                   }}
                 >
-                  <S.TagText>Coberturas adicionais</S.TagText>
-                </S.Tag>
-                <S.Tag
+                  <TagText>Coberturas adicionais</TagText>
+                </Tag>
+                <Tag
                   active={activeMenuItem === 'section-5'}
                   onClick={() => {
                     scrollToSection(sectionFive)
                   }}
                 >
-                  <S.TagText>Comissões</S.TagText>
-                  {!isSectionFiveValid && <S.BadgeNotification />}
-                </S.Tag>
-              </S.TagsWrapper>
-              <S.Divisor />
-              <S.NavTitleWrapper>
+                  <TagText>Comissões</TagText>
+                  {!isSectionFiveValid && <BadgeNotification />}
+                </Tag>
+              </TagsWrapper>
+              <Divisor />
+              <NavTitleWrapper>
                 <Text type="subheading" color="gray5" bold>
                   ENVIAR PROPOSTA PARA:
                 </Text>
-              </S.NavTitleWrapper>
+              </NavTitleWrapper>
               <UserCard
                 name={customer?.nomeCliente || 'Cliente'}
                 type="cliente"
               />
-            </S.NavWrapper>
+            </NavWrapper>
           </Col>
           <Col lg={8}>
             <section id="section-1" ref={sectionOne}>
@@ -478,9 +488,9 @@ const TravelDetailsForm: StepComponent = () => {
 
             <section id="section-2" ref={sectionTwo}>
               <S.SectionCard overflow="visible" id="section-2">
-                <S.SectionTitleWrapper>
+                <SectionTitleWrapper>
                   <S.SectionTitle>PERÍODO DA VIAGEM</S.SectionTitle>
-                </S.SectionTitleWrapper>
+                </SectionTitleWrapper>
                 <S.SectionContentWrapper>
                   <DatePickerRange
                     idDatePickerRange="id-coverage-date-range-drawer"
@@ -520,9 +530,9 @@ const TravelDetailsForm: StepComponent = () => {
 
             <section id="section-3" ref={sectionThree}>
               <S.SectionCard>
-                <S.SectionTitleWrapper>
+                <SectionTitleWrapper>
                   <S.SectionTitle>PASSAGEIROS</S.SectionTitle>
-                </S.SectionTitleWrapper>
+                </SectionTitleWrapper>
                 <S.SectionContentWrapper>
                   <S.InputNumber
                     maxValue={20 - counts.old}
@@ -559,9 +569,9 @@ const TravelDetailsForm: StepComponent = () => {
                   padding: 35px 7px 35px 35px;
                 `}
               >
-                <S.SectionTitleWrapper>
+                <SectionTitleWrapper>
                   <S.SectionTitle>COBERTURAS ADICIONAIS</S.SectionTitle>
-                </S.SectionTitleWrapper>
+                </SectionTitleWrapper>
                 <S.SectionContentWrapper flexDirection="column">
                   <S.QuestionWrapper>
                     <S.InputWrapper>
@@ -652,9 +662,9 @@ const TravelDetailsForm: StepComponent = () => {
 
             <section id="section-5" ref={sectionFive}>
               <S.SectionCard overflow="visible" id="section-5">
-                <S.SectionTitleWrapper>
+                <SectionTitleWrapper>
                   <S.SectionTitle>COMISSÕES</S.SectionTitle>
-                </S.SectionTitleWrapper>
+                </SectionTitleWrapper>
                 <S.SectionContentWrapper flexDirection="column">
                   <S.ComissionSelect
                     label="código de operações"

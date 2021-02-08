@@ -1,333 +1,657 @@
 import React from 'react'
+import { Row, Col } from 'styled-bootstrap-grid'
+import { useParams } from 'react-router-dom'
 
-import ButtonLink from 'components/Button/Link'
-import Divisor from 'components/Divisor'
-import Icon from 'components/IconExporter'
-import * as t from 'components/Inputs/Select/types'
 import Text from 'components/Text'
-import VerticalList from 'components/VerticalList'
-import DataRow from 'pages/TripInsurance/commons/DataRow'
-import { StepComponent } from 'hooks/FluxManagement/types'
+import UserCard from 'components/Card/UserCard'
 
-import { uuid } from 'uuidv4'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
+import { base64decode, truncateString } from 'helpers'
+
+import { IForm } from 'pages/TripInsurance/PRO/types'
+
+import SectionOne from './SectionOne'
+import SectionTwo from './SectionTwo'
+import SectionThree from './SectionThree'
+import SectionFour from './SectionFour'
+import SectionFive from './SectionFive'
+import SectionSix from './SectionSix'
+import useHandleScroll from './useHandleScroll'
+
+import {
+  NavWrapper,
+  NavTitleWrapper,
+  Tag,
+  TagText,
+  // TagsWrapper,
+  Divisor,
+  BadgeNotification,
+  PageWrapper,
+} from '../../styles'
 import * as s from './styles'
+import * as t from './types'
 
-interface ICompanionsData {
-  name: string
-  status: boolean
-}
+const CustomerTravelDetailsForm: t.StepComponent = () => {
+  // const dispatch = useDispatch()
+  const { updateForm } = useFormFluxManagement<IForm>()
+  const { hash } = useParams<t.IHash>()
+  const [
+    customer,
+    setCustomer,
+  ] = React.useState<t.IBase64DecodedResponse | null>(null)
 
-interface ICompanion {
-  companions: ICompanionsData[]
-}
+  const handleScroll = useHandleScroll()
 
-const renderTableCompanionDataMock = [
-  {
-    name: 'Bruno Mizhari',
-    status: false,
-  },
-  {
-    name: 'Valesca',
-    status: false,
-  },
-  {
-    name: 'Anitta',
-    status: false,
-  },
-  {
-    name: 'Pablo Vittar',
-    status: false,
-  },
-]
+  //section-1
+  const [isBrazilianResident, setIsBrazilianResident] = React.useState<string>(
+    ''
+  )
+  const [isSectionOneValid, setIsSectionOneValid] = React.useState(false)
 
-const genders: t.TOptions[] = [
-  {
-    id: 1,
-    text: 'Masculino',
-  },
-  {
-    id: 2,
-    text: 'Feminino',
-  },
-]
+  //section-2
+  const [email, setEmail] = React.useState<t.IInputState>({
+    value: '',
+    touched: false,
+  })
+  const [phone, setPhone] = React.useState<t.IInputState>({
+    value: '',
+    touched: false,
+  })
+  const [selectedPhoneType, setSelectedPhoneType] = React.useState<t.TSelected>(
+    {
+      id: 0,
+      name: '',
+    }
+  )
+  const [isSectionTwoValid, setIsSectionTwoValid] = React.useState(false)
 
-const telephoneType: t.TOptions[] = [
-  {
-    id: 1,
-    text: 'Celular',
-  },
-  {
-    id: 2,
-    text: 'Fixo',
-  },
-]
+  //section-3
+  const [isSectionThreeValid, setIsSectionThreeValid] = React.useState(false)
 
-const selected: t.TSelected = {
-  id: 0,
-}
+  //section-4
+  const [isSectionFourValid, setIsSectionFourValid] = React.useState(false)
 
-const CustomerTravelDetailsForm: StepComponent = () => {
+  //section-5
+  const [isSectionFiveValid, setIsSectionFiveValid] = React.useState(false)
 
-  const renderStatusBody = (companionStatus: boolean) => {
-    return (
-      <s.StatusWrapper>
-        <Icon
-          width="21"
-          color={companionStatus ? 'green4' : 'magenta2'}
-          name={companionStatus ? 'check' : 'closerounded'}
-        />
-        <s.StatusText
-          type="caption"
-          bold
-          color={companionStatus ? 'green4' : 'magenta2'}
-        >
-          {companionStatus ? 'Dados preenchidos' : 'Dados não inseridos'}
-        </s.StatusText>
-      </s.StatusWrapper>
-    )
-  }
+  //section-6
+  const [isSectionSixValid, setIsSectionSixValid] = React.useState(false)
 
-  const renderTableBody = (companions: ICompanionsData[]) => {
-    return companions.map((companion: ICompanionsData, index) => (
-      <s.Tr key={uuid()}>
-        <s.Td>
-          <s.NameText bold>
-            {companion.name || `Acompanhante ${index + 1}`}
-            <ButtonLink
-              data-gtm-type="click"
-              data-gtm-clicktype="link"
-              data-gtm-name="Inserir Dados"
-              noIcon={true}
-              noIconPadding
-              onClick={() => {}}
-            >
-              INSERIR DADOS
-            </ButtonLink>
-          </s.NameText>
-        </s.Td>
-        <s.Td>{renderStatusBody(companion.status)}</s.Td>
-      </s.Tr>
-    ))
-  }
+  // Form status
+  // const [isFormPristine, setIsFormPristine] = React.useState(true)
+
+  // Set customer
+  React.useEffect(() => {
+    if (hash) {
+      const dataDecoded: t.IBase64DecodedResponse = base64decode(hash)
+      if (dataDecoded) {
+        setCustomer(dataDecoded)
+      }
+    }
+  }, [hash])
+
+  // mock temporário
+  React.useEffect(() => {
+    updateForm({
+      acompanhantes: [
+        {
+          nome: '',
+          email: 'email@acompanhante1.com',
+          dataNascimento: '06/06/1944',
+          sexo: 'F',
+          numeroCpf: '454717840',
+          digitoCpf: '22',
+          isResidePais: true,
+          celularDDD: '11',
+          celularNumero: '987985465',
+          contato: {
+            nome: 'Contato Do Passageiro Principal',
+            celularDDD: '11',
+            celularNumero: '932216554',
+          },
+          endereco: {
+            tipo: 'Rua',
+            logradouro: 'Rua Augusta',
+            bairro: 'Penha',
+            cidade: 'São Paulo',
+            uf: 'SP',
+            complemento: '',
+            numero: '123A',
+            numeroCep: '01419',
+            complementoCep: '001',
+          },
+          id: 1,
+          status: true,
+          numeroCpfResponsavel: '111111111',
+          digitoCpfResponsavel: '22',
+          codigoPaisResidente: '28',
+          pessoaExposta: {
+            nome: 'Nome Pessoa Exposta',
+            numeroCpf: '000000001',
+            digitoCpf: '91',
+            grauRelacionamento: 1,
+            grauParentesco: 1,
+          },
+        },
+        {
+          nome: 'Nome Acompanhante 2 <= 70',
+          email: 'email@acompanhante2.com',
+          dataNascimento: '31/05/2000',
+          sexo: 'M',
+          numeroCpf: '375975140',
+          digitoCpf: '77',
+          isResidePais: true,
+          celularDDD: '11',
+          celularNumero: '987985465',
+          contato: {
+            nome: 'Contato Do Passageiro Principal',
+            celularDDD: '11',
+            celularNumero: '932216554',
+          },
+          endereco: {
+            tipo: 'Rua',
+            logradouro: 'Rua Augusta',
+            bairro: 'Penha',
+            cidade: 'São Paulo',
+            uf: 'SP',
+            complemento: '',
+            numero: '123A',
+            numeroCep: '01419',
+            complementoCep: '001',
+          },
+          id: 2,
+          status: true,
+          numeroCpfResponsavel: '111111111',
+          digitoCpfResponsavel: '22',
+          codigoPaisResidente: '28',
+          pessoaExposta: {
+            nome: 'Nome Pessoa Exposta',
+            numeroCpf: '000000001',
+            digitoCpf: '91',
+            grauRelacionamento: 1,
+            grauParentesco: 1,
+          },
+        },
+        {
+          nome: 'Nome Acompanhante 3 > 70',
+          email: 'email@acompanhante1.com',
+          dataNascimento: '24/10/1929',
+          sexo: 'F',
+          numeroCpf: '049832460',
+          digitoCpf: '53',
+          isResidePais: true,
+          celularDDD: '11',
+          celularNumero: '987985465',
+          contato: {
+            nome: 'Contato Do Passageiro Principal',
+            celularDDD: '11',
+            celularNumero: '932216554',
+          },
+          endereco: {
+            tipo: 'Rua',
+            logradouro: 'Rua Augusta',
+            bairro: 'Penha',
+            cidade: 'São Paulo',
+            uf: 'SP',
+            complemento: '',
+            numero: '123A',
+            numeroCep: '01419',
+            complementoCep: '001',
+          },
+          id: 3,
+          status: true,
+          numeroCpfResponsavel: '111111111',
+          digitoCpfResponsavel: '22',
+          codigoPaisResidente: '28',
+          pessoaExposta: {
+            nome: 'Nome Pessoa Exposta',
+            numeroCpf: '000000001',
+            digitoCpf: '91',
+            grauRelacionamento: 1,
+            grauParentesco: 1,
+          },
+        },
+      ],
+      codigoPaisDestino: '28',
+      codigoUfOrigem: 'AC',
+      dataIda: '20/12/2025',
+      dataVolta: '30/12/2025',
+      idSimulacao: '1234',
+      isAceiteTermos: true,
+      isCienteMoto: true,
+      isMotocicleta: true,
+      isPraticaAventura: false,
+      motivoViagem: 1,
+      nationalDestination: false,
+      nomeDoPlano: 'Brasil Terra',
+      pacoteEscolhido: '2',
+      paisesAdicionais: [
+        {
+          codigo: '10',
+          descricao: 'Japão',
+        },
+      ],
+      pagamento: {
+        codigoBandeira: 7,
+        primeiroNumero: '5555',
+        segundoNumero: '6666',
+        terceiroNumero: '7777',
+        quartoNumero: '8884',
+        codigoSeguranca: 123,
+        mesValidade: '12',
+        anoValidade: '25',
+        nomeTitular: 'Nome No Cartão',
+        quantidadeParcelas: 2,
+        isCartaoPorto: false,
+      },
+      passageiroPrincipal: {
+        nome: customer?.nomeCliente ?? '',
+        email: 'email@principal.com',
+        dataNascimento: '20/12/1980',
+        sexo: 'M',
+        numeroCpf: customer?.cpfCliente
+          ? `${customer?.cpfCliente}`.slice(0, 9)
+          : '',
+        digitoCpf: customer?.cpfCliente
+          ? `${customer?.cpfCliente}`.slice(9)
+          : '',
+        isResidePais: true,
+        celularDDD: '11',
+        celularNumero: '965543221',
+        contato: {
+          nome: 'Contato Do Passageiro Principal',
+          celularDDD: '11',
+          celularNumero: '932216554',
+        },
+        endereco: {
+          tipo: 'Rua',
+          logradouro: 'Rua Augusta',
+          bairro: 'Penha',
+          cidade: 'São Paulo',
+          uf: 'SP',
+          complemento: '',
+          numero: '123A',
+          numeroCep: '01419',
+          complementoCep: '001',
+        },
+      },
+      pessoaExposta: {
+        nome: 'Nome Pessoa Exposta',
+        numeroCpf: '000000001',
+        digitoCpf: '91',
+        grauRelacionamento: 1,
+        grauParentesco: 4,
+      },
+      qtdPassagMaiorSetentaAnos: 2,
+      qtdPassagMenorSetentaAnos: 2,
+      susep: '',
+      valorComDesconto: 1001.02,
+      valorSemDesconto: 1100.5,
+      formasPagamento: {
+        listaParcelamentoCartao: [
+          {
+            valor: '33.63',
+            id: '1',
+            descricao: 'À vista',
+          },
+          {
+            valor: '16.82',
+            id: '2',
+            descricao: '2x',
+          },
+          {
+            valor: '11.21',
+            id: '3',
+            descricao: '3x',
+          },
+          {
+            valor: '8.41',
+            id: '4',
+            descricao: '4x',
+          },
+          {
+            valor: '6.73',
+            id: '5',
+            descricao: '5x',
+          },
+          {
+            valor: '5.61',
+            id: '6',
+            descricao: '6x',
+          },
+          {
+            valor: '4.8',
+            id: '7',
+            descricao: '7x',
+          },
+          {
+            valor: '4.2',
+            id: '8',
+            descricao: '8x',
+          },
+          {
+            valor: '3.74',
+            id: '9',
+            descricao: '9x',
+          },
+          {
+            valor: '3.36',
+            id: '10',
+            descricao: '10x',
+          },
+          {
+            valor: '3.06',
+            id: '11',
+            descricao: '11x',
+          },
+          {
+            valor: '2.8',
+            id: '12',
+            descricao: '12x',
+          },
+        ],
+        listaParcelamentoCartaoPorto: [
+          {
+            valor: '31.94',
+            id: '1',
+            descricao: 'À vista',
+          },
+          {
+            valor: '15.97',
+            id: '2',
+            descricao: '2x',
+          },
+          {
+            valor: '10.65',
+            id: '3',
+            descricao: '3x',
+          },
+          {
+            valor: '7.99',
+            id: '4',
+            descricao: '4x',
+          },
+          {
+            valor: '6.39',
+            id: '5',
+            descricao: '5x',
+          },
+          {
+            valor: '5.32',
+            id: '6',
+            descricao: '6x',
+          },
+          {
+            valor: '4.56',
+            id: '7',
+            descricao: '7x',
+          },
+          {
+            valor: '3.99',
+            id: '8',
+            descricao: '8x',
+          },
+          {
+            valor: '3.55',
+            id: '9',
+            descricao: '9x',
+          },
+          {
+            valor: '3.19',
+            id: '10',
+            descricao: '10x',
+          },
+          {
+            valor: '2.9',
+            id: '11',
+            descricao: '11x',
+          },
+          {
+            valor: '2.66',
+            id: '12',
+            descricao: '12x',
+          },
+        ],
+      },
+      coberturas: [
+        {
+          valor: 'R$ 10.000,00',
+          descricao: 'Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO',
+        },
+        {
+          valor: 'R$ 80.000,00',
+          descricao: 'Morte acidental',
+        },
+        {
+          valor: 'R$ 80.000,00',
+          descricao: 'Invalidez Permanente Total ou Parcial por Acidente',
+        },
+        {
+          valor: 'Não',
+          descricao: 'Cancelamento de Viagem',
+        },
+        {
+          valor: 'Não',
+          descricao: 'Interrupção da viagem',
+        },
+        {
+          valor: 'R$  1.000,00',
+          descricao: 'Extravio de bagagem',
+        },
+        {
+          valor: 'R$ 300,00',
+          descricao: 'Danos de Bagagem',
+        },
+        {
+          valor: 'R$ 20.000,00',
+          descricao: 'Traslado de Corpo',
+        },
+        {
+          valor: 'R$ 20.000,00',
+          descricao: 'Traslado Médico',
+        },
+        {
+          valor: 'R$ 20.000,00',
+          descricao: 'Regresso Sanitário',
+        },
+        {
+          valor: 'R$ 5.000,00',
+          descricao: 'Assistência Funeral',
+        },
+        {
+          valor: 'R$100,00/Dia  Limite 5 Dias',
+          descricao: 'Hospedagem após Alta Hospitalar',
+        },
+        {
+          valor: 'R$ 3.000,00',
+          descricao: 'Remarcação de Passagem para Regresso',
+        },
+        {
+          valor: 'R$ 3.000,00',
+          descricao:
+            'Remarcação de passagem para regresso de membros da família.',
+        },
+        {
+          valor: 'R$ 3.000,00',
+          descricao: 'Acompanhante em caso de Hospitalização Prolongada',
+        },
+        {
+          valor: 'R$ 100,00 / dia - Limite 5 dias',
+          descricao:
+            'Hospedagem para Acompanhante em caso de Hospitalização Prolongada',
+        },
+        {
+          valor: 'R$ 3.000,00',
+          descricao: 'Acompanhamento de menor',
+        },
+        {
+          valor: 'Não',
+          descricao: 'Fisioterapia',
+        },
+        {
+          valor: 'Não',
+          descricao: 'Despesas Farmacêuticas',
+        },
+        {
+          valor: 'Não',
+          descricao: 'Despesas Jurídicas',
+        },
+        {
+          valor: 'Não',
+          descricao: 'Pagamento de Fiança',
+        },
+        {
+          valor: 'Sim',
+          descricao: 'Extensão de Vigência por Razões Médicas',
+        },
+        {
+          valor: 'Sim',
+          descricao: 'Porto Viaje Bem',
+        },
+        {
+          valor: 'Sim (se transporte aéreo ou marítimo)',
+          descricao: 'Localização e Encaminhamento de bagagem',
+        },
+        {
+          valor: 'Sim',
+          descricao: 'Orientação e envio em caso de perda de documentos',
+        },
+        {
+          valor: 'Sim',
+          descricao: 'Transmissão de Mensagens Urgentes',
+        },
+      ],
+    })
+  }, [updateForm, customer])
+
   return (
-    <>
+    <PageWrapper id="wrapper-scroll">
       <s.Container>
-        <s.Col lg={3}>
-          <s.InformationWrapper>
-            <s.TitleText bold type="subheading">
-              DADOS DA CONTRATAÇÃO
-            </s.TitleText>
-            <VerticalList
-              noSpacing
-              elements={[
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Planos
-                  </Text>
-                </s.NavigationItem>,
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Dados do Cliente
-                  </Text>
-                  <s.BadgeNotification />
-                </s.NavigationItem>,
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Dados para Contato
-                  </Text>
-                  <s.BadgeNotification />
-                </s.NavigationItem>,
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Pessoa Politicamente Exposta (PPE)
-                  </Text>
-                  <s.BadgeNotification />
-                </s.NavigationItem>,
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Endereço
-                  </Text>
-                  <s.BadgeNotification />
-                </s.NavigationItem>,
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Contato em casos de acidente
-                  </Text>
-                  <s.BadgeNotification />
-                </s.NavigationItem>,
-                <s.NavigationItem>
-                  <Text bold type="caption">
-                    Declaração de Acompanhantes
-                  </Text>
-                  <s.BadgeNotification />
-                </s.NavigationItem>,
-              ]}
-            />
-          </s.InformationWrapper>
-        </s.Col>
-        <s.Col lg={8}>
-          <s.Card>
-            <s.CardTitle bold type="subheading" color="gray5">
-              DADOS DO CLIENTE
-            </s.CardTitle>
-            <DataRow label="Nome" value="Bruno Mizrahi" />
-            <Divisor />
-            <DataRow label="CPF" value="421.980.660-20" />
-            <Divisor />
-            <DataRow label="Data de nascimento" value="14/02/1987" />
-            <Divisor />
-            <s.SelectGender
-              label="sexo"
-              options={genders}
-              selected={selected}
-            />
-            <Divisor />
-            <s.RadioContainer>
-              <Text type="headline" bold>
-                O cliente reside no Brasil?
-              </Text>
-              <s.RadioOptionsWrapper>
-                <s.Radio
-                  id={uuid()}
-                  name="is-brazilian-resident"
-                  label="Sim"
-                  value={1}
-                  checked={false}
-                  handleChange={() => null}
-                  disabled
-                />
-                <s.Radio
-                  id={uuid()}
-                  name="is-brazilian-resident"
-                  label="Não"
-                  value={0}
-                  checked
-                  handleChange={() => null}
-                />
-              </s.RadioOptionsWrapper>
-            </s.RadioContainer>
-          </s.Card>
-          <s.Card overflow="visible">
-            <s.CardTitle bold type="subheading" color="gray5">
-              DADOS PARA CONTATO
-            </s.CardTitle>
-            <s.ContentWrapper>
-              <s.TextInput
-                label="E-MAIL"
-                value=""
-                placeholder="Digite aqui..."
+        <Row>
+          <Col lg={3}>
+            <NavWrapper>
+              <NavTitleWrapper>
+                <Text type="subheading" bold color="gray6">
+                  DADOS DA CONTRATAÇÃO
+                </Text>
+              </NavTitleWrapper>
+              <div>
+                <Tag
+                  active={handleScroll.activeMenuItem === 'section-1'}
+                  onClick={() => {
+                    handleScroll.scrollToSection(handleScroll.sectionOne)
+                  }}
+                >
+                  <TagText>Dados do Cliente</TagText>
+                  {!isSectionOneValid && <BadgeNotification />}
+                </Tag>
+                <Tag
+                  active={handleScroll.activeMenuItem === 'section-2'}
+                  onClick={() => {
+                    handleScroll.scrollToSection(handleScroll.sectionTwo)
+                  }}
+                >
+                  <TagText>Dados para Contato</TagText>
+                  {!isSectionTwoValid && <BadgeNotification />}
+                </Tag>
+                <Tag
+                  active={handleScroll.activeMenuItem === 'section-3'}
+                  onClick={() => {
+                    handleScroll.scrollToSection(handleScroll.sectionThree)
+                  }}
+                >
+                  <TagText>Pessoa Politicamente Exposta (PPE)</TagText>
+                  {!isSectionThreeValid && <BadgeNotification />}
+                </Tag>
+                <Tag
+                  active={handleScroll.activeMenuItem === 'section-4'}
+                  onClick={() => {
+                    handleScroll.scrollToSection(handleScroll.sectionFour)
+                  }}
+                >
+                  <TagText>Endereço</TagText>
+                  {!isSectionFourValid && <BadgeNotification />}
+                </Tag>
+                <Tag
+                  active={handleScroll.activeMenuItem === 'section-5'}
+                  onClick={() => {
+                    handleScroll.scrollToSection(handleScroll.sectionFive)
+                  }}
+                >
+                  <TagText>Contato em casos de acidente</TagText>
+                  {!isSectionFiveValid && <BadgeNotification />}
+                </Tag>
+                <Tag
+                  active={handleScroll.activeMenuItem === 'section-6'}
+                  onClick={() => {
+                    handleScroll.scrollToSection(handleScroll.sectionSix)
+                  }}
+                >
+                  <TagText>Declaração de Acompanhantes</TagText>
+                  {!isSectionSixValid && <BadgeNotification />}
+                </Tag>
+              </div>
+              <Divisor />
+              <NavTitleWrapper>
+                <Text type="subheading" color="gray5" bold>
+                  ENVIAR PROPOSTA PARA:
+                </Text>
+              </NavTitleWrapper>
+              <UserCard
+                name={
+                  (customer?.nomeCliente &&
+                    truncateString(customer?.nomeCliente, 20)) ||
+                  'Cliente'
+                }
+                type="cliente"
               />
-              <s.InputsWrapper>
-                <s.TextInputMedium
-                  label="TELEFONE"
-                  value=""
-                  placeholder="Ex: (12) 34567890"
-                />
-                <s.SelectTelephoneType
-                  label="TIPO DE TELEFONE"
-                  options={telephoneType}
-                  selected={selected}
-                />
-              </s.InputsWrapper>
-            </s.ContentWrapper>
-          </s.Card>
-          <s.Card>
-            <s.CardTitle bold type="subheading" color="gray5">
-              PESSOA POLITICAMENTE EXPOSTA (PPE)
-            </s.CardTitle>
-            <s.ContentWrapper>
-              <s.Text bold type="headline">
-                Segurado é ou possui parentesco com uma pessoa politicamente
-                exposta?
-              </s.Text>
-              <s.Text bold color="gray5">
-                Pessoa Exposta Politicamente é aquela que desempenha ou
-                desempenhou nos últimos cinco anos, cargos, empregos ou funções
-                públicas relevantes como chefes de estado e de governo,
-                políticos, altos servidores dos poderes públicos, magistrados ou
-                militares de alto nível, dirigentes de empresas públicas ou
-                dirigentes de partidos políticos.
-              </s.Text>
-              <s.RadioOptionsWrapper>
-                <s.Radio
-                  id={uuid()}
-                  name="is-ppe"
-                  label="Sim"
-                  value={1}
-                  checked={false}
-                  handleChange={() => null}
-                  disabled
-                />
-                <s.Radio
-                  id={uuid()}
-                  name="is-ppe"
-                  label="Não"
-                  value={0}
-                  checked
-                  handleChange={() => null}
-                />
-              </s.RadioOptionsWrapper>
-            </s.ContentWrapper>
-          </s.Card>
-          <s.Card>
-            <s.CardTitle bold type="subheading" color="gray5">
-              ENDEREÇO
-            </s.CardTitle>
-          </s.Card>
-          <s.Card>
-            <s.CardTitle bold type="subheading" color="gray5">
-              CONTATO EM CASO DE ACIDENTES
-            </s.CardTitle>
-            <s.ContentWrapper>
-              <s.InputsWrapper>
-                <s.TextInputMedium
-                  label="NOME"
-                  value=""
-                  placeholder="Digite aqui... "
-                />
-                <s.TextInput
-                  label="TELEFONE"
-                  value=""
-                  placeholder="Ex: (12) 34567890"
-                />
-              </s.InputsWrapper>
-            </s.ContentWrapper>
-          </s.Card>
-          <s.Card>
-            <s.CardTitle bold type="subheading" color="gray5">
-              DECLARAÇÃO DE ACOMPANHANTES
-            </s.CardTitle>
-            <s.ContentWrapper>
-              <s.Table>
-                <s.Thead>
-                  <s.THeadTr>
-                    <s.Th>
-                      <s.ThText type="subheading" bold color="gray6">
-                        NOMES
-                      </s.ThText>
-                    </s.Th>
-                    <s.Th>
-                      <s.ThText type="subheading" bold color="gray6">
-                        STATUS
-                      </s.ThText>
-                    </s.Th>
-                  </s.THeadTr>
-                </s.Thead>
-                <s.Tbody>
-                  {renderTableBody(renderTableCompanionDataMock)}
-                </s.Tbody>
-              </s.Table>
-            </s.ContentWrapper>
-          </s.Card>
-        </s.Col>
+            </NavWrapper>
+          </Col>
+          <Col lg={8}>
+            <SectionOne
+              setIsSectionValid={setIsSectionOneValid}
+              brazilianResidentState={[
+                isBrazilianResident,
+                setIsBrazilianResident,
+              ]}
+              sectionOneRef={handleScroll.sectionOne}
+            />
+            <SectionTwo
+              setIsSectionValid={setIsSectionTwoValid}
+              emailState={[email, setEmail]}
+              phoneState={[phone, setPhone]}
+              selectedPhoneTypeState={[selectedPhoneType, setSelectedPhoneType]}
+              sectionTwoRef={handleScroll.sectionTwo}
+            />
+            <SectionThree
+              setIsSectionValid={setIsSectionThreeValid}
+              sectionThreeRef={handleScroll.sectionThree}
+            />
+
+            <SectionFour
+              setIsSectionValid={setIsSectionFourValid}
+              sectionFourRef={handleScroll.sectionFour}
+            />
+
+            <SectionFive
+              setIsSectionValid={setIsSectionFiveValid}
+              sectionFiveRef={handleScroll.sectionFive}
+            />
+
+            <SectionSix
+              setIsSectionValid={setIsSectionSixValid}
+              sectionSixRef={handleScroll.sectionSix}
+            />
+          </Col>
+        </Row>
       </s.Container>
       <s.FooterContainer>
         <s.FooterCol lg={11}>
           <s.Button color="secondary">ENVIAR PROPOSTA</s.Button>
         </s.FooterCol>
       </s.FooterContainer>
-    </>
+    </PageWrapper>
   )
 }
 

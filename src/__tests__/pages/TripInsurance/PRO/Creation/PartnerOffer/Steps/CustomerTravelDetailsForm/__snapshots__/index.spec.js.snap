@@ -1,0 +1,2002 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerTravelDetailsForm renders correctly 1`] = `
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c24 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c6 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c8 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c14 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c20 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c22 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c23 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c31 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c34 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c55 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c71 {
+  color: #E72176;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c27 {
+  width: 100%;
+  height: 49px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c30.c30 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c33 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c33.c33 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c15 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c40 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.c16 .c17 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c19 {
+  background: #CFE8D2;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c21 {
+  padding-left: 14px;
+}
+
+.c28 {
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin: 14px 0;
+}
+
+.c28 .c29 {
+  width: 161px;
+  margin-right: 14px;
+}
+
+.c28 .c32 {
+  width: auto;
+}
+
+.c39 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  width: 20px;
+}
+
+.c39:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #BABABA;
+}
+
+.c39:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c39:checked:after {
+  background-color: #00ADEF;
+}
+
+.c38 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  margin: 8px 16px 8px 0;
+  pointer-events: all;
+}
+
+.c38:last-of-type {
+  margin-right: 0;
+}
+
+.c37 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: auto;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c12 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c75 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c75:hover:active {
+  pointer-events: auto;
+}
+
+.c75:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c75:hover:before {
+  width: 100%;
+}
+
+.c75:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c75:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c77 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  height: 100vh;
+  overflow: auto;
+}
+
+.c4 {
+  padding: 21px 14px 14px;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.c5 {
+  padding: 7px 0;
+  margin-bottom: 7px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 22px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 7px 0;
+  padding-left: 21px;
+  border-left: 2px solid #00ADEF;
+}
+
+.c7:hover {
+  background-color: #ebebeb;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 22px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 7px 0;
+  padding-left: 21px;
+}
+
+.c11:hover {
+  background-color: #ebebeb;
+}
+
+.c9 {
+  cursor: pointer;
+}
+
+.c13 {
+  margin: 7px 0;
+}
+
+.c10 {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #E72176;
+  margin-left: 3px;
+  margin-bottom: 6px;
+}
+
+.c44 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c47 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c47 #prefix {
+  padding-left: 7px;
+}
+
+.c47 #suffix {
+  padding-right: 7px;
+}
+
+.c47:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c47:focus-within #prefix,
+.c47:focus-within #suffix {
+  color: #272727;
+}
+
+.c45 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c53 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c48 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c48:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c48::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c42 {
+  position: relative;
+  height: 70px;
+}
+
+.c42 .c46 {
+  height: calc(100% - 24px);
+}
+
+.c51 {
+  position: relative;
+}
+
+.c52 {
+  position: relative;
+}
+
+.c52:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c59 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  min-width: 20px;
+}
+
+.c59:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #BABABA;
+}
+
+.c59:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c59:checked:after {
+  background-color: #00ADEF;
+}
+
+.c59:disabled {
+  cursor: not-allowed;
+}
+
+.c59:disabled:checked:after {
+  background-color: #BABABA;
+}
+
+.c60 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin: 8px 16px 8px 0;
+  color: #898989;
+  pointer-events: none;
+}
+
+.c60:last-of-type {
+  margin-right: 0;
+}
+
+.c61 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin: 8px 16px 8px 0;
+  color: #000;
+  pointer-events: all;
+}
+
+.c61:last-of-type {
+  margin-right: 0;
+}
+
+.c57 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 21px;
+}
+
+.c25 {
+  margin-bottom: 14px;
+  padding: 35px;
+}
+
+.c62 {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 751px;
+}
+
+.c62 tr td:first-child,
+.c62 th td:first-child {
+  border-left: 1px solid #DDDDDD;
+  border-right: 0px;
+}
+
+.c62 tr td:last-child,
+.c62 th td:last-child {
+  border-left: 0px;
+}
+
+.c63 {
+  border-bottom: 1px solid #DDDDDD;
+  max-height: 56px;
+}
+
+.c64 {
+  height: 56px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.c66 {
+  height: 79px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.c66:last-child {
+  border-bottom: none;
+}
+
+.c66:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.c66:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+.c66 > td:last-child p,
+.c66 th:last-child p {
+  margin-right: 84px;
+}
+
+.c65 {
+  text-align: start;
+  background-color: #F1F1F1;
+  width: 182px;
+  padding-right: 127px;
+  padding-left: 21px;
+  border: 1px solid #DDDDDD;
+}
+
+.c65:first-child {
+  border-right: 0;
+  border-top-left-radius: 8px;
+}
+
+.c65:last-child {
+  border-left: 0;
+  padding-left: 0px;
+  border-top-right-radius: 8px;
+}
+
+.c67 {
+  border-right: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.c72 {
+  margin-left: 7px;
+}
+
+.c70 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c68 {
+  margin-left: 21px;
+  display: grid;
+}
+
+.c26 {
+  margin-bottom: 14px;
+  margin-left: 14px;
+}
+
+.c36 {
+  margin-bottom: 14px;
+}
+
+.c35 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 14px;
+  margin-left: 14px;
+  padding: 14px;
+}
+
+.c56 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 14px;
+}
+
+.c58 {
+  margin-right: 28px;
+}
+
+.c54 {
+  margin-bottom: 14px;
+}
+
+.c43 {
+  margin-bottom: 14px;
+}
+
+.c50 {
+  margin-right: 14px;
+  width: 410px;
+}
+
+.c41 {
+  padding: 14px;
+  max-width: 658px;
+}
+
+.c49 {
+  padding-top: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c73 {
+  background-color: #FFFFFF;
+  padding: 14px;
+}
+
+.c74 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-right: 21px;
+}
+
+.c76 {
+  width: 177px;
+}
+
+.c69 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c69 svg {
+  height: 21px;
+}
+
+.c69 svg path {
+  fill: currentColor;
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:992px) {
+  .c24 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (max-width:480px) {
+  .c37 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:992px) {
+  .c74 {
+    -ms-flex: 0 0 91.666667%;
+    -webkit-flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+}
+
+<div
+  className="c0"
+  id="wrapper-scroll"
+>
+  <div
+    className="sc-AxjAm c1"
+    data-name="container"
+  >
+    <div
+      className="c2"
+      data-name="row"
+    >
+      <div
+        className="c3"
+        data-name="col-lg-3"
+      >
+        <div
+          className="c4"
+        >
+          <div
+            className="c5"
+          >
+            <p
+              className="c6"
+              color="gray6"
+              type="subheading"
+            >
+              DADOS DA CONTRATAÇÃO
+            </p>
+          </div>
+          <div>
+            <div
+              className="c7"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Dados do Cliente
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Dados para Contato
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Pessoa Politicamente Exposta (PPE)
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Endereço
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Contato em casos de acidente
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Declaração de Acompanhantes
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+          </div>
+          <div
+            className="c12 c13"
+          />
+          <div
+            className="c5"
+          >
+            <p
+              className="c14"
+              color="gray5"
+              type="subheading"
+            >
+              ENVIAR PROPOSTA PARA:
+            </p>
+          </div>
+          <div
+            className="c15 c16"
+            data-testid="userCard"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <div
+                className="c19"
+                data-testid="userCardThumbnail"
+              >
+                <p
+                  className="c20"
+                  color="unset"
+                  type="body"
+                >
+                  CL
+                </p>
+              </div>
+              <div
+                className="c21"
+              >
+                <h5
+                  className="c22"
+                  color="unset"
+                  type="headline"
+                >
+                  Cliente
+                </h5>
+                <span
+                  className="c23"
+                  color="unset"
+                  type="caption"
+                >
+                  cliente
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c24"
+        data-name="col-lg-8"
+      >
+        <section
+          id="section-1"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                DADOS DO CLIENTE
+              </p>
+              <div>
+                <div
+                  className="c27 c28"
+                  size="default"
+                >
+                  <div
+                    className="c29 c30"
+                  >
+                    <span
+                      className="c31"
+                      color="gray5"
+                      type="caption"
+                    >
+                      Nome
+                    </span>
+                  </div>
+                  <div
+                    className="c32 c33"
+                  >
+                    <h6
+                      className="c34"
+                      color="gray6"
+                      type="title"
+                    >
+                      
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c12 c13"
+              />
+              <div>
+                <div
+                  className="c27 c28"
+                  size="default"
+                >
+                  <div
+                    className="c29 c30"
+                  >
+                    <span
+                      className="c31"
+                      color="gray5"
+                      type="caption"
+                    >
+                      CPF
+                    </span>
+                  </div>
+                  <div
+                    className="c32 c33"
+                  >
+                    <h6
+                      className="c34"
+                      color="gray6"
+                      type="title"
+                    >
+                      
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c12 c13"
+              />
+              <div
+                className="c35"
+              >
+                <h5
+                  className="c22 c36"
+                  color="unset"
+                  type="headline"
+                >
+                  O cliente reside no Brasil?
+                </h5>
+                <div
+                  className="c37"
+                  width="auto"
+                >
+                  <label
+                    className="c38"
+                  >
+                    <input
+                      checked={false}
+                      className="c39"
+                      data-gtm-form="input"
+                      data-gtm-name="Sim"
+                      data-testid="radio-input-brazilian-resident"
+                      onChange={[Function]}
+                      type="radio"
+                      value="1"
+                    />
+                    Sim
+                  </label>
+                  <label
+                    className="c38"
+                  >
+                    <input
+                      checked={false}
+                      className="c39"
+                      data-gtm-form="input"
+                      data-gtm-name="Não"
+                      data-testid="radio-input-brazilian-resident"
+                      onChange={[Function]}
+                      type="radio"
+                      value="0"
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-2"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c40"
+              data-testid="card-body"
+              overflow="visible"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                DADOS PARA CONTATO
+              </p>
+              <div
+                className="c41"
+              >
+                <div
+                  className="c42 c43"
+                >
+                  <div
+                    className="c44"
+                  >
+                    <label
+                      className="c45"
+                    >
+                      E-MAIL
+                    </label>
+                    <div
+                      className="c46 c47"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c48"
+                        data-testid="e-mail"
+                        onChange={[Function]}
+                        placeholder="Digite aqui..."
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="c49"
+                >
+                  <div
+                    className="c42 c50"
+                  >
+                    <div
+                      className="c44"
+                    >
+                      <label
+                        className="c45"
+                      >
+                        TELEFONE
+                      </label>
+                      <div
+                        className="c46 c47"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c48"
+                          data-testid="telefone"
+                          onChange={[Function]}
+                          placeholder="Ex: (12) 34567890"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="c51 "
+                  >
+                    <div
+                      className="c52"
+                      data-testid="select-TIPO DE TELEFONE"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="c42"
+                        disabled={false}
+                      >
+                        <div
+                          className="c44"
+                        >
+                          <label
+                            className="c45"
+                          >
+                            TIPO DE TELEFONE
+                          </label>
+                          <div
+                            className="c46 c47"
+                            onClick={[Function]}
+                          >
+                            <input
+                              className="c48"
+                              data-testid="select-option-input-undefined"
+                              disabled={false}
+                              placeholder="Selecione"
+                              readOnly={true}
+                              value=""
+                            />
+                            <div
+                              className="c53"
+                              id="suffix"
+                            >
+                              <svg
+                                aria-label="arrowdown"
+                                fill="#272727"
+                                height={21}
+                                role="img"
+                                width={21}
+                              >
+                                arrow-down.svg
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-3"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                PESSOA POLITICAMENTE EXPOSTA (PPE)
+              </p>
+              <div
+                className="c41"
+              >
+                <h5
+                  className="c22 c54"
+                  color="unset"
+                  type="headline"
+                >
+                  Segurado é ou possui parentesco com uma pessoa politicamente exposta?
+                </h5>
+                <p
+                  className="c55 c54"
+                  color="gray5"
+                  type="body"
+                >
+                  Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
+                </p>
+                <div
+                  className="c56"
+                >
+                  <div
+                    className="c57 c58"
+                  >
+                    <input
+                      aria-checked={false}
+                      aria-label="Sim"
+                      checked={false}
+                      className="c59"
+                      data-testid="input-radio-sim"
+                      disabled={true}
+                      id="input-radio-sim"
+                      name="is-ppe"
+                      onChange={[Function]}
+                      tabIndex={0}
+                      type="radio"
+                      value={1}
+                    />
+                    <label
+                      className="c60"
+                      disabled={true}
+                      htmlFor="input-radio-sim"
+                    >
+                      Sim
+                    </label>
+                  </div>
+                  <div
+                    className="c57 c58"
+                  >
+                    <input
+                      aria-checked={true}
+                      aria-label="Não"
+                      checked={true}
+                      className="c59"
+                      data-testid="input-radio-nao"
+                      disabled={false}
+                      id="input-radio-nao"
+                      name="is-ppe"
+                      onChange={[Function]}
+                      tabIndex={0}
+                      type="radio"
+                      value={0}
+                    />
+                    <label
+                      className="c61"
+                      disabled={false}
+                      htmlFor="input-radio-nao"
+                    >
+                      Não
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-4"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                ENDEREÇO
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-5"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                CONTATO EM CASO DE ACIDENTES
+              </p>
+              <div
+                className="c41"
+              >
+                <div
+                  className="c49"
+                >
+                  <div
+                    className="c42 c50"
+                  >
+                    <div
+                      className="c44"
+                    >
+                      <label
+                        className="c45"
+                      >
+                        NOME
+                      </label>
+                      <div
+                        className="c46 c47"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c48"
+                          data-testid="nome"
+                          placeholder="Digite aqui... "
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="c42 c43"
+                  >
+                    <div
+                      className="c44"
+                    >
+                      <label
+                        className="c45"
+                      >
+                        TELEFONE
+                      </label>
+                      <div
+                        className="c46 c47"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c48"
+                          data-testid="telefone"
+                          placeholder="Ex: (12) 34567890"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-6"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                DECLARAÇÃO DE ACOMPANHANTES
+              </p>
+              <div
+                className="c41"
+              >
+                <table
+                  className="c62"
+                >
+                  <thead
+                    className="c63"
+                  >
+                    <tr
+                      className="c64"
+                    >
+                      <th
+                        className="c65"
+                      >
+                        <p
+                          className="c6 "
+                          color="gray6"
+                          type="subheading"
+                        >
+                          NOMES
+                        </p>
+                      </th>
+                      <th
+                        className="c65"
+                      >
+                        <p
+                          className="c6 "
+                          color="gray6"
+                          type="subheading"
+                        >
+                          STATUS
+                        </p>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    className=""
+                  >
+                    <tr
+                      className="c66"
+                    >
+                      <td
+                        className="c67"
+                      >
+                        <p
+                          className="c20 c68"
+                          color="unset"
+                          type="body"
+                        >
+                          Bruno Mizhari
+                          <a
+                            className="c69"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c67"
+                      >
+                        <div
+                          className="c70"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c71 c72"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      className="c66"
+                    >
+                      <td
+                        className="c67"
+                      >
+                        <p
+                          className="c20 c68"
+                          color="unset"
+                          type="body"
+                        >
+                          Valesca
+                          <a
+                            className="c69"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c67"
+                      >
+                        <div
+                          className="c70"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c71 c72"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      className="c66"
+                    >
+                      <td
+                        className="c67"
+                      >
+                        <p
+                          className="c20 c68"
+                          color="unset"
+                          type="body"
+                        >
+                          Anitta
+                          <a
+                            className="c69"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c67"
+                      >
+                        <div
+                          className="c70"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c71 c72"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      className="c66"
+                    >
+                      <td
+                        className="c67"
+                      >
+                        <p
+                          className="c20 c68"
+                          color="unset"
+                          type="body"
+                        >
+                          Pablo Vittar
+                          <a
+                            className="c69"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c67"
+                      >
+                        <div
+                          className="c70"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c71 c72"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c73"
+  >
+    <div
+      className="c74"
+      data-name="col-lg-11"
+    >
+      <button
+        className="c75 c76"
+        color="secondary"
+        disabled={false}
+      >
+        <span
+          className="c77"
+        >
+          ENVIAR PROPOSTA
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

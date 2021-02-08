@@ -1,0 +1,1961 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerTravelDetailsForm renders correctly 1`] = `
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c24 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c6 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c8 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c14 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c20 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c22 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c23 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c30 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c31 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c52 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c68 {
+  color: #E72176;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c15 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c37 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.c16 .c17 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c19 {
+  background: #CFE8D2;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c21 {
+  padding-left: 14px;
+}
+
+.c27 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c29.c29 > * {
+  margin-bottom: 7px;
+}
+
+.c29.c29 :last-child {
+  margin-bottom: 0px;
+}
+
+.c28 {
+  margin: 14px;
+  width: auto;
+}
+
+.c36 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  width: 20px;
+}
+
+.c36:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #BABABA;
+}
+
+.c36:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c36:checked:after {
+  background-color: #00ADEF;
+}
+
+.c35 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  margin: 8px 16px 8px 0;
+  pointer-events: all;
+}
+
+.c35:last-of-type {
+  margin-right: 0;
+}
+
+.c34 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: auto;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c12 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c72 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c72:hover:active {
+  pointer-events: auto;
+}
+
+.c72:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c72:hover:before {
+  width: 100%;
+}
+
+.c72:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c72:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c74 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  height: 100vh;
+  overflow: auto;
+}
+
+.c4 {
+  padding: 21px 14px 14px;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.c5 {
+  padding: 7px 0;
+  margin-bottom: 7px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 22px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 7px 0;
+  padding-left: 21px;
+  border-left: 2px solid #00ADEF;
+}
+
+.c7:hover {
+  background-color: #ebebeb;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 22px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 7px 0;
+  padding-left: 21px;
+}
+
+.c11:hover {
+  background-color: #ebebeb;
+}
+
+.c9 {
+  cursor: pointer;
+}
+
+.c13 {
+  margin: 7px 0;
+}
+
+.c10 {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #E72176;
+  margin-left: 3px;
+  margin-bottom: 6px;
+}
+
+.c41 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c44 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c44 #prefix {
+  padding-left: 7px;
+}
+
+.c44 #suffix {
+  padding-right: 7px;
+}
+
+.c44:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c44:focus-within #prefix,
+.c44:focus-within #suffix {
+  color: #272727;
+}
+
+.c42 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c50 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c45 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c45:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c45::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c39 {
+  position: relative;
+  height: 70px;
+}
+
+.c39 .c43 {
+  height: calc(100% - 24px);
+}
+
+.c48 {
+  position: relative;
+}
+
+.c49 {
+  position: relative;
+}
+
+.c49:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c56 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  min-width: 20px;
+}
+
+.c56:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #BABABA;
+}
+
+.c56:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c56:checked:after {
+  background-color: #00ADEF;
+}
+
+.c56:disabled {
+  cursor: not-allowed;
+}
+
+.c56:disabled:checked:after {
+  background-color: #BABABA;
+}
+
+.c57 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin: 8px 16px 8px 0;
+  color: #898989;
+  pointer-events: none;
+}
+
+.c57:last-of-type {
+  margin-right: 0;
+}
+
+.c58 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin: 8px 16px 8px 0;
+  color: #000;
+  pointer-events: all;
+}
+
+.c58:last-of-type {
+  margin-right: 0;
+}
+
+.c54 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 21px;
+}
+
+.c25 {
+  margin-bottom: 14px;
+  padding: 35px;
+}
+
+.c59 {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 751px;
+}
+
+.c59 tr td:first-child,
+.c59 th td:first-child {
+  border-left: 1px solid #DDDDDD;
+  border-right: 0px;
+}
+
+.c59 tr td:last-child,
+.c59 th td:last-child {
+  border-left: 0px;
+}
+
+.c60 {
+  border-bottom: 1px solid #DDDDDD;
+  max-height: 56px;
+}
+
+.c61 {
+  height: 56px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.c63 {
+  height: 79px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.c63:last-child {
+  border-bottom: none;
+}
+
+.c63:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.c63:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+.c63 > td:last-child p,
+.c63 th:last-child p {
+  margin-right: 84px;
+}
+
+.c62 {
+  text-align: start;
+  background-color: #F1F1F1;
+  width: 182px;
+  padding-right: 127px;
+  padding-left: 21px;
+  border: 1px solid #DDDDDD;
+}
+
+.c62:first-child {
+  border-right: 0;
+  border-top-left-radius: 8px;
+}
+
+.c62:last-child {
+  border-left: 0;
+  padding-left: 0px;
+  border-top-right-radius: 8px;
+}
+
+.c64 {
+  border-right: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.c69 {
+  margin-left: 7px;
+}
+
+.c67 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c65 {
+  margin-left: 21px;
+  display: grid;
+}
+
+.c26 {
+  margin-bottom: 14px;
+  margin-left: 14px;
+}
+
+.c33 {
+  margin-bottom: 14px;
+}
+
+.c32 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 14px;
+  margin-left: 14px;
+  padding: 14px;
+}
+
+.c53 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 14px;
+}
+
+.c55 {
+  margin-right: 28px;
+}
+
+.c51 {
+  margin-bottom: 14px;
+}
+
+.c40 {
+  margin-bottom: 14px;
+}
+
+.c47 {
+  margin-right: 14px;
+  width: 410px;
+}
+
+.c38 {
+  padding: 14px;
+  max-width: 658px;
+}
+
+.c46 {
+  padding-top: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c70 {
+  background-color: #FFFFFF;
+  padding: 14px;
+}
+
+.c71 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-right: 21px;
+}
+
+.c73 {
+  width: 177px;
+}
+
+.c66 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c66 svg {
+  height: 21px;
+}
+
+.c66 svg path {
+  fill: currentColor;
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:992px) {
+  .c24 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (max-width:480px) {
+  .c34 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:992px) {
+  .c71 {
+    -ms-flex: 0 0 91.666667%;
+    -webkit-flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+}
+
+<div
+  className="c0"
+  id="wrapper-scroll"
+>
+  <div
+    className="sc-AxjAm c1"
+    data-name="container"
+  >
+    <div
+      className="c2"
+      data-name="row"
+    >
+      <div
+        className="c3"
+        data-name="col-lg-3"
+      >
+        <div
+          className="c4"
+        >
+          <div
+            className="c5"
+          >
+            <p
+              className="c6"
+              color="gray6"
+              type="subheading"
+            >
+              DADOS DA CONTRATAÇÃO
+            </p>
+          </div>
+          <div>
+            <div
+              className="c7"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Dados do Cliente
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Dados para Contato
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Pessoa Politicamente Exposta (PPE)
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Endereço
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Contato em casos de acidente
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+            <div
+              className="c11"
+              onClick={[Function]}
+            >
+              <span
+                className="c8 c9"
+                color="gray6"
+                type="caption"
+              >
+                Declaração de Acompanhantes
+              </span>
+              <span
+                className="c10"
+              />
+            </div>
+          </div>
+          <div
+            className="c12 c13"
+          />
+          <div
+            className="c5"
+          >
+            <p
+              className="c14"
+              color="gray5"
+              type="subheading"
+            >
+              ENVIAR PROPOSTA PARA:
+            </p>
+          </div>
+          <div
+            className="c15 c16"
+            data-testid="userCard"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <div
+                className="c19"
+                data-testid="userCardThumbnail"
+              >
+                <p
+                  className="c20"
+                  color="unset"
+                  type="body"
+                >
+                  CL
+                </p>
+              </div>
+              <div
+                className="c21"
+              >
+                <h5
+                  className="c22"
+                  color="unset"
+                  type="headline"
+                >
+                  Cliente
+                </h5>
+                <span
+                  className="c23"
+                  color="unset"
+                  type="caption"
+                >
+                  cliente
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c24"
+        data-name="col-lg-8"
+      >
+        <section
+          id="section-1"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                DADOS DO CLIENTE
+              </p>
+              <div
+                className="c27 c28"
+              >
+                <div
+                  className="c29"
+                >
+                  <span
+                    className="c30"
+                    color="gray5"
+                    type="captionUppercase"
+                  >
+                    Nome
+                  </span>
+                  <h5
+                    className="c31"
+                    color="gray6"
+                    type="headline"
+                  >
+                    
+                  </h5>
+                </div>
+              </div>
+              <div
+                className="c12 c13"
+              />
+              <div
+                className="c27 c28"
+              >
+                <div
+                  className="c29"
+                >
+                  <span
+                    className="c30"
+                    color="gray5"
+                    type="captionUppercase"
+                  >
+                    CPF
+                  </span>
+                  <h5
+                    className="c31"
+                    color="gray6"
+                    type="headline"
+                  >
+                    
+                  </h5>
+                </div>
+              </div>
+              <div
+                className="c12 c13"
+              />
+              <div
+                className="c32"
+              >
+                <h5
+                  className="c22 c33"
+                  color="unset"
+                  type="headline"
+                >
+                  O cliente reside no Brasil?
+                </h5>
+                <div
+                  className="c34"
+                  width="auto"
+                >
+                  <label
+                    className="c35"
+                  >
+                    <input
+                      checked={false}
+                      className="c36"
+                      data-gtm-form="input"
+                      data-gtm-name="Sim"
+                      data-testid="radio-input-brazilian-resident"
+                      onChange={[Function]}
+                      type="radio"
+                      value="1"
+                    />
+                    Sim
+                  </label>
+                  <label
+                    className="c35"
+                  >
+                    <input
+                      checked={false}
+                      className="c36"
+                      data-gtm-form="input"
+                      data-gtm-name="Não"
+                      data-testid="radio-input-brazilian-resident"
+                      onChange={[Function]}
+                      type="radio"
+                      value="0"
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-2"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c37"
+              data-testid="card-body"
+              overflow="visible"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                DADOS PARA CONTATO
+              </p>
+              <div
+                className="c38"
+              >
+                <div
+                  className="c39 c40"
+                >
+                  <div
+                    className="c41"
+                  >
+                    <label
+                      className="c42"
+                    >
+                      E-MAIL
+                    </label>
+                    <div
+                      className="c43 c44"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c45"
+                        data-testid="e-mail"
+                        onChange={[Function]}
+                        placeholder="Digite aqui..."
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="c46"
+                >
+                  <div
+                    className="c39 c47"
+                  >
+                    <div
+                      className="c41"
+                    >
+                      <label
+                        className="c42"
+                      >
+                        TELEFONE
+                      </label>
+                      <div
+                        className="c43 c44"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c45"
+                          data-testid="telefone"
+                          onChange={[Function]}
+                          placeholder="Ex: (12) 34567890"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="c48 "
+                  >
+                    <div
+                      className="c49"
+                      data-testid="select-TIPO DE TELEFONE"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="c39"
+                        disabled={false}
+                      >
+                        <div
+                          className="c41"
+                        >
+                          <label
+                            className="c42"
+                          >
+                            TIPO DE TELEFONE
+                          </label>
+                          <div
+                            className="c43 c44"
+                            onClick={[Function]}
+                          >
+                            <input
+                              className="c45"
+                              data-testid="select-option-input-undefined"
+                              disabled={false}
+                              placeholder="Selecione"
+                              readOnly={true}
+                              value=""
+                            />
+                            <div
+                              className="c50"
+                              id="suffix"
+                            >
+                              <svg
+                                aria-label="arrowdown"
+                                fill="#272727"
+                                height={21}
+                                role="img"
+                                width={21}
+                              >
+                                arrow-down.svg
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-3"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                PESSOA POLITICAMENTE EXPOSTA (PPE)
+              </p>
+              <div
+                className="c38"
+              >
+                <h5
+                  className="c22 c51"
+                  color="unset"
+                  type="headline"
+                >
+                  Segurado é ou possui parentesco com uma pessoa politicamente exposta?
+                </h5>
+                <p
+                  className="c52 c51"
+                  color="gray5"
+                  type="body"
+                >
+                  Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
+                </p>
+                <div
+                  className="c53"
+                >
+                  <div
+                    className="c54 c55"
+                  >
+                    <input
+                      aria-checked={false}
+                      aria-label="Sim"
+                      checked={false}
+                      className="c56"
+                      data-testid="input-radio-sim"
+                      disabled={true}
+                      id="input-radio-sim"
+                      name="is-ppe"
+                      onChange={[Function]}
+                      tabIndex={0}
+                      type="radio"
+                      value={1}
+                    />
+                    <label
+                      className="c57"
+                      disabled={true}
+                      htmlFor="input-radio-sim"
+                    >
+                      Sim
+                    </label>
+                  </div>
+                  <div
+                    className="c54 c55"
+                  >
+                    <input
+                      aria-checked={true}
+                      aria-label="Não"
+                      checked={true}
+                      className="c56"
+                      data-testid="input-radio-nao"
+                      disabled={false}
+                      id="input-radio-nao"
+                      name="is-ppe"
+                      onChange={[Function]}
+                      tabIndex={0}
+                      type="radio"
+                      value={0}
+                    />
+                    <label
+                      className="c58"
+                      disabled={false}
+                      htmlFor="input-radio-nao"
+                    >
+                      Não
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-4"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                ENDEREÇO
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-5"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                CONTATO EM CASO DE ACIDENTES
+              </p>
+              <div
+                className="c38"
+              >
+                <div
+                  className="c46"
+                >
+                  <div
+                    className="c39 c47"
+                  >
+                    <div
+                      className="c41"
+                    >
+                      <label
+                        className="c42"
+                      >
+                        NOME
+                      </label>
+                      <div
+                        className="c43 c44"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c45"
+                          data-testid="nome"
+                          placeholder="Digite aqui... "
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="c39 c40"
+                  >
+                    <div
+                      className="c41"
+                    >
+                      <label
+                        className="c42"
+                      >
+                        TELEFONE
+                      </label>
+                      <div
+                        className="c43 c44"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c45"
+                          data-testid="telefone"
+                          placeholder="Ex: (12) 34567890"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="section-6"
+        >
+          <div
+            className="c15 c25"
+          >
+            <div
+              className="c17 c18"
+              data-testid="card-body"
+              overflow="hidden"
+            >
+              <p
+                className="c14 c26"
+                color="gray5"
+                type="subheading"
+              >
+                DECLARAÇÃO DE ACOMPANHANTES
+              </p>
+              <div
+                className="c38"
+              >
+                <table
+                  className="c59"
+                >
+                  <thead
+                    className="c60"
+                  >
+                    <tr
+                      className="c61"
+                    >
+                      <th
+                        className="c62"
+                      >
+                        <p
+                          className="c6 "
+                          color="gray6"
+                          type="subheading"
+                        >
+                          NOMES
+                        </p>
+                      </th>
+                      <th
+                        className="c62"
+                      >
+                        <p
+                          className="c6 "
+                          color="gray6"
+                          type="subheading"
+                        >
+                          STATUS
+                        </p>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    className=""
+                  >
+                    <tr
+                      className="c63"
+                    >
+                      <td
+                        className="c64"
+                      >
+                        <p
+                          className="c20 c65"
+                          color="unset"
+                          type="body"
+                        >
+                          Bruno Mizhari
+                          <a
+                            className="c66"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c64"
+                      >
+                        <div
+                          className="c67"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c68 c69"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      className="c63"
+                    >
+                      <td
+                        className="c64"
+                      >
+                        <p
+                          className="c20 c65"
+                          color="unset"
+                          type="body"
+                        >
+                          Valesca
+                          <a
+                            className="c66"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c64"
+                      >
+                        <div
+                          className="c67"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c68 c69"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      className="c63"
+                    >
+                      <td
+                        className="c64"
+                      >
+                        <p
+                          className="c20 c65"
+                          color="unset"
+                          type="body"
+                        >
+                          Anitta
+                          <a
+                            className="c66"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c64"
+                      >
+                        <div
+                          className="c67"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c68 c69"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      className="c63"
+                    >
+                      <td
+                        className="c64"
+                      >
+                        <p
+                          className="c20 c65"
+                          color="unset"
+                          type="body"
+                        >
+                          Pablo Vittar
+                          <a
+                            className="c66"
+                            data-gtm-clicktype="link"
+                            data-gtm-name="Inserir Dados"
+                            data-gtm-type="click"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            INSERIR DADOS
+                          </a>
+                        </p>
+                      </td>
+                      <td
+                        className="c64"
+                      >
+                        <div
+                          className="c67"
+                        >
+                          <svg
+                            aria-label="closerounded"
+                            fill="#E72176"
+                            role="img"
+                            width="21"
+                          >
+                            close-rounded.svg
+                          </svg>
+                          <span
+                            className="c68 c69"
+                            color="magenta2"
+                            type="caption"
+                          >
+                            Dados não inseridos
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c70"
+  >
+    <div
+      className="c71"
+      data-name="col-lg-11"
+    >
+      <button
+        className="c72 c73"
+        color="secondary"
+        disabled={false}
+      >
+        <span
+          className="c74"
+        >
+          ENVIAR PROPOSTA
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

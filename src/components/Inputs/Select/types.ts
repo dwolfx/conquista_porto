@@ -6,6 +6,7 @@ export type TOptions = {
   text: string
   onClick?: () => void
   selected?: boolean
+  value?: string | number
 }
 
 export type TSelected = {

@@ -7,7 +7,7 @@ import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
 
-import { ParnerSteps } from '../../types'
+import { PartnerSteps } from '../../types'
 
 import * as s from './styles'
 
@@ -28,7 +28,7 @@ const TripInsurenceParnerPRO = ({
   } = useStackFluxManagement<StepComponentProps>()
 
   React.useEffect(() => {
-    if (getLength() === 0) instantiate(ParnerSteps.TravelDetailsForm)
+    if (getLength() === 0) instantiate(PartnerSteps.CustomerTravelDetailsForm)
   }, [instantiate, getLength])
 
   React.useEffect(() => {
