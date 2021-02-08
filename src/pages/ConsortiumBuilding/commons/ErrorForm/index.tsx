@@ -7,7 +7,7 @@ export const ErrorForm =  (stepValue: string = 'R$ 50.000,00 e R$ 500.000,00', s
     message: 'Campo obrigatório',
   },
   coveredValue: {
-    icon: 'information' as keyof typeof dict,
+    icon: 'alertrounded' as keyof typeof dict,
     message: `O valor deve ser entre ${stepValue}`,
   },
   isNumber: {
