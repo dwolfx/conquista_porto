@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { uuid } from 'uuidv4'
 import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
+import moment from 'moment'
 
 import Icon from 'components/IconExporter'
 import ButtonLink from 'components/Button/Link'
@@ -13,6 +14,7 @@ import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 
 import useMedia from 'hooks/useMedia'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
+import { calculateAge } from 'helpers'
 
 import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
 import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
@@ -42,8 +44,38 @@ const CompanionStep = () => {
 
   useEffect(() => {
     setCompanions(form.acompanhantes || [])
-    setGreaterThanSeventy(form.qtdPassagMaiorSetentaAnos || 0)
-    setLessThanSeventy(form.qtdPassagMenorSetentaAnos || 0)
+    const mainPassenger = moment(
+      form.passageiroPrincipal?.dataNascimento,
+      'DD/MM/YYYY'
+    )
+    const passengerAge = calculateAge(mainPassenger.format('DD/MM/YYYY'))
+    const checkQuantity =
+      (form.acompanhantes || []).length ===
+      (form.qtdPassagMaiorSetentaAnos || 0) +
+        (form.qtdPassagMenorSetentaAnos || 0)
+    if (passengerAge <= 70) {
+      setGreaterThanSeventy(form.qtdPassagMaiorSetentaAnos || 0)
+      if (checkQuantity) {
+        setLessThanSeventy(form.qtdPassagMenorSetentaAnos || 0)
+      } else {
+        setLessThanSeventy(
+          form.qtdPassagMenorSetentaAnos
+            ? form.qtdPassagMenorSetentaAnos - 1
+            : 0
+        )
+      }
+    } else {
+      setLessThanSeventy(form.qtdPassagMenorSetentaAnos || 0)
+      if (checkQuantity) {
+        setGreaterThanSeventy(form.qtdPassagMaiorSetentaAnos || 0)
+      } else {
+        setGreaterThanSeventy(
+          form.qtdPassagMaiorSetentaAnos
+            ? form.qtdPassagMaiorSetentaAnos - 1
+            : 0
+        )
+      }
+    }
     const checkAllStatusTrue = form.acompanhantes?.every(
       companion => companion.status === true
     )
