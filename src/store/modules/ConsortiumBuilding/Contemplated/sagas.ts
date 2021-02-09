@@ -12,7 +12,6 @@ export function* getData() {
   const getContemplatedIntervalDataURL = `${baseURLNamespaceConsortiumBuilding}/produtos/1/valores`
   try {
     const response = yield call(get, getContemplatedIntervalDataURL)
-    console.log('teste', response)
     yield put(GetContemplatedIntervalDataSuccess({ data: response.data }))
     loggerSucess(getContemplatedIntervalDataURL, 'GET', response?.status)
   } catch (err) {

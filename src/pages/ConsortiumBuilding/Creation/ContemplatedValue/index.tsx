@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import * as s from './styles'
 
 import Text from 'components/Text'
 import StepBar from 'components/StepBar'
 import Loading from 'components/Loading'
 import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
-import { formatMoneyDecimal } from 'helpers'
+import { formatLocaleStringToNumber, formatMoneyDecimal } from 'helpers'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { GetContemplatedIntervalDataRequest } from 'store/modules/ConsortiumBuilding/Contemplated/action'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { StepComponent } from 'hooks/FluxManagement/types'
+import * as s from './styles'
 import { IContemplatedState } from './types'
-import { IForm } from '../types'
+import { IFormConsortiumBuilding } from '../types'
 
-const ContemplatedStep: StepComponent = () => {
-  const { updateForm } = useFormFluxManagement<IForm>()
+const ContemplatedValue: StepComponent = () => {
+  const { updateForm, form } = useFormFluxManagement<IFormConsortiumBuilding>()
   const [contemplateValue, setContemplateValue] = useState({
     touched: false,
     value: '',
@@ -24,13 +24,11 @@ const ContemplatedStep: StepComponent = () => {
   const [isValid, setIsValid] = useState(false)
   const dispatch = useDispatch()
   const { data, isLoading, status } = useSelector(
-    (state: IContemplatedState) => {
-      return {
-        data: state.contemplated.data,
-        isLoading: state.contemplated.isLoading,
-        status: state.contemplated.status,
-      }
-    }
+    (state: IContemplatedState) => ({
+      data: state.contemplated.data,
+      isLoading: state.contemplated.isLoading,
+      status: state.contemplated.status,
+    })
   )
 
   const { creation, page, buttons } = texts(
@@ -49,11 +47,11 @@ const ContemplatedStep: StepComponent = () => {
 
   const validateInput = (value: string) => {
     setContemplateValue({ touched: true, value })
-    let minimal = data ? data.valor_minimo_credito : 0
-    let maximum = data ? data.valor_maximo_credito : 0
+    const minimal = data ? data.valor_minimo_credito : 0
+    const maximum = data ? data.valor_maximo_credito : 0
     if (
-      parseInt(value.replace(/\./g, '')) < minimal ||
-      parseInt(value.replace(/\./g, '')) > maximum
+      formatLocaleStringToNumber(value.replace(/\./g, '')) < minimal ||
+      formatLocaleStringToNumber(value.replace(/\./g, '')) > maximum
     ) {
       setIsValid(false)
     } else {
@@ -62,11 +60,12 @@ const ContemplatedStep: StepComponent = () => {
   }
 
   const handleButtonClick = () => {
-    isValid &&
-      contemplateValue.value &&
+    if (isValid && contemplateValue.value) {
       updateForm({
-        contemplatedValue: contemplateValue.value,
+        ...form,
+        valorCredito: Number(contemplateValue.value),
       })
+    }
   }
 
   return (
@@ -117,4 +116,4 @@ const ContemplatedStep: StepComponent = () => {
   )
 }
 
-export default ContemplatedStep
+export default ContemplatedValue

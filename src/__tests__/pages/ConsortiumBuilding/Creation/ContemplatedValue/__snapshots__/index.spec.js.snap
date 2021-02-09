@@ -1,0 +1,603 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContemplatedValue - Consortium Building - renders correctly 1`] = `
+Array [
+  .c6 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c7 {
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c9 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c4 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c5.c5 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c8.c8 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c0 {
+  background-color: #555861;
+  height: 56px;
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0;
+  padding: 0 14px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c3 p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:980px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) and (max-width:980px) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="sc-AxhUy c1"
+      data-name="container"
+    >
+      <div
+        className="sc-AxgMl c2"
+        data-name="row"
+      >
+        <div
+          className="sc-AxheI c3"
+          data-name="col-lg-12"
+        >
+          <div
+            className="c4"
+            size="small"
+          >
+            <div
+              className="c5"
+            >
+              <h5
+                className="c6"
+                color="gray4"
+                type="headline"
+              >
+                Simulação
+              </h5>
+              <h5
+                className="c7"
+                color="white"
+                type="headline"
+              >
+                Consórcio de Imóvel
+              </h5>
+            </div>
+            <div
+              className="c8"
+            >
+              <h6
+                className="c9"
+                color="gray4"
+                type="title"
+              >
+                ETAPA 2 de 2
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  .c2 {
+  color: #272727;
+  text-align: center;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c3 {
+  color: #898989;
+  text-align: center;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c12 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c12:hover:active {
+  pointer-events: none;
+}
+
+.c12:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c12:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c14 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c7 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c9 #prefix {
+  padding-left: 7px;
+}
+
+.c9 #suffix {
+  padding-right: 7px;
+}
+
+.c9:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c9:focus-within #prefix,
+.c9:focus-within #suffix {
+  color: #272727;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c11 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c11:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c11::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c5 {
+  position: relative;
+  height: 56px;
+}
+
+.c5 .c8 {
+  height: 100%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 128px);
+  height: auto;
+  background-color: #FFFFFF;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 418px;
+}
+
+.c4 {
+  margin: 14px 0 35px;
+}
+
+.c13 {
+  margin-top: 35px;
+}
+
+.c6 {
+  margin-bottom: px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:480px) {
+  .c1 {
+    margin: 14px;
+  }
+}
+
+@media (min-width:736px) and (max-width:980px) {
+  .c1 {
+    margin: 140px;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <h5
+        className="c2"
+        color="gray6"
+        type="headline"
+      >
+        Qual valor você planeja receber ao ser contemplado?
+      </h5>
+      <h6
+        className="c3 c4"
+        color="gray5"
+        type="title"
+      >
+        Valores disponíveis entre 50 e 500 mil reais
+      </h6>
+      <div
+        className="c5 c6"
+        disabled={false}
+      >
+        <div
+          className="c7"
+        >
+          <div
+            className="c8 c9"
+            onClick={[Function]}
+          >
+            <div
+              className="c10"
+              id="prefix"
+            >
+              R$
+            </div>
+            <input
+              className="c11"
+              data-gtm-form="input"
+              data-gtm-name="quanto investir"
+              data-testid="financial-application-money-input"
+              disabled={false}
+              onChange={[Function]}
+              placeholder="0,00"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        className="c12 c13"
+        color="secondary"
+        data-gtm-clicktype="button"
+        data-gtm-name="Simular"
+        data-gtm-type="click"
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          className="c14"
+        >
+          Simular
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;

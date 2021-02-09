@@ -1,3 +1,4 @@
+import React from 'react'
 import { Types } from './types'
 
 export function AddElementFluxManagementStack<T>(
