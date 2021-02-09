@@ -13,6 +13,7 @@ export type TColumns = {
       width?: string | number
       minWidth?: string | number
     }
+    marginLeftCell?: number
   }
   sticky?: 'left' | 'right'
   canSort?: boolean

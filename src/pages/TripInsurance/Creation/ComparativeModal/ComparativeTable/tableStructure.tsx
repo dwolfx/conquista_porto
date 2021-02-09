@@ -21,6 +21,7 @@ export const columns = (columnTitles: ITableTitles[]): TColumns[] => {
           width: '222px',
           minWidth: '222px',
         },
+        marginLeftCell: 1,
       },
       format: (row: any) => (
         <s.FirstColumnCellWrapper>
@@ -45,6 +46,7 @@ export const columns = (columnTitles: ITableTitles[]): TColumns[] => {
           width: '222px',
           minWidth: '222px',
         },
+        marginLeftCell: 1,
       },
       format: row => (
         <s.CellWrapper>

@@ -28,11 +28,7 @@ const TableBody = ({
     return (
       <s.InfoTableContent>
         <div>
-          <Loading
-            type="bar"
-            legend={loadingMessage}
-            textAlign="center"
-          />
+          <Loading type="bar" legend={loadingMessage} textAlign="center" />
         </div>
       </s.InfoTableContent>
     )
@@ -84,13 +80,13 @@ const TableBody = ({
           >
             {row.cells.map((cell: any) => {
               const styles = cell.column.styles || cell.column
-
               return (
                 <s.TbodyTd
                   width={styles.width}
                   minWidth={styles.minWidth}
                   align={cell.column.align}
                   isSticky={!!cell.column.sticky}
+                  marginLeftCell={styles.marginLeftCell}
                   inheritMarginFirstCell={styles.inheritMarginFirstCell}
                   {...cell.getCellProps()}
                 >
