@@ -48,6 +48,7 @@ import virtualKeyboard from './VirtualKeyboard/sagas'
 import token2fa from './2FAToken/sagas'
 import withdraw from './Withdraw/sagas'
 import zipCode from './ZipCode/sagas'
+import contemplated from './ConsortiumBuilding/Contemplated/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -96,5 +97,6 @@ export default function* rootSaga() {
     lastTransaction,
     withdraw,
     zipCode,
+    contemplated,
   ])
 }

@@ -26,6 +26,7 @@ const privateWelfare = require('./src/mocks/privateWelfare.json')
 const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatusPRE.json')
 const getBond = require('./src/mocks/getBond.json')
 const fundExtract = require('./src/mocks/fundExtract.json')
+const consortiumBuildingContemplatedMock = require('./src/mocks/consortiumBuildingContemplated.json')
 
 server.use(middlewares)
 
@@ -229,6 +230,12 @@ router.render = (req, res) => {
       //   msg: 'Assinatura eletrônica incorreta',
       //   retries: 0,
       // })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/produtos/1/valores')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingContemplatedMock })
     }
   }
 

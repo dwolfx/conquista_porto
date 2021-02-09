@@ -6,7 +6,7 @@ import MoneyInput from 'components/Inputs/Money'
 export const ContentWrapper = styled.div`
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 128px);
   height: auto;
   background-color: ${({ theme }) => theme.colors.white};
   align-items: center;

@@ -10,9 +10,15 @@ import StepBar from 'components/StepBar'
 import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
 import * as s from './styles'
 import * as t from './types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
+import { Steps, IForm } from '../types'
 
 const ChooseState: React.FC = () => {
   const dispatch = useDispatch()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
   const [selectedState, setSelectedState] = useState<t.ISelected>({
     id: 0,
     name: 'Selecione',
@@ -22,7 +28,10 @@ const ChooseState: React.FC = () => {
 
   const [states, setStates] = useState<TOptions[]>([])
 
-  const handleClick = () => {}
+  const handleClick = () => {
+    updateForm({ ...form, selectedState: selectedState.name })
+    instantiate(Steps.contemplatedValue)
+  }
 
   const { consortiumBuildingStatesData } = useSelector((state: any) => ({
     consortiumBuildingStatesData: state.consortiumBuildingStates.data,
@@ -71,6 +80,7 @@ const ChooseState: React.FC = () => {
                 data-gtm-type="click"
                 data-gtm-clicktype="button"
                 onClick={() => handleClick()}
+                disabled={selectedState.name === 'Selecione'}
               >
                 {buttons.next}
               </s.StyledButton>

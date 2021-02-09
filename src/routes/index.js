@@ -37,8 +37,8 @@ import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
 import TripInsuranceProposalPROCreation from 'pages/TripInsurance/PRO/Creation'
 import TripInsuranceProposalCreation from 'pages/TripInsurance/Creation'
 
-import ConsortiumBuildingCreation from 'pages/ConsortiumBuilding/PRO/Creation'
-import ConsortiumBuildingPROCreation from 'pages/ConsortiumBuilding/Creation'
+import ConsortiumBuildingPROCreation from 'pages/ConsortiumBuilding/PRO/Creation'
+import ConsortiumBuildingCreation from 'pages/ConsortiumBuilding/Creation'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
