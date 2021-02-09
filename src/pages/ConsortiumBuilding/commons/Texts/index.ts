@@ -74,10 +74,10 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
     },
   },
   hire: {
-    title: 'Simulação',
+    title: 'Contratação',
     stepMax: 4,
     steps: {
-      InformationConfirmation: {
+      informationConfirmation: {
         actualStep: 1,
         title: 'Confirme seus dados',
         subtitle:
