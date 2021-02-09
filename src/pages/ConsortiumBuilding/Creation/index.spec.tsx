@@ -6,7 +6,6 @@ import { renderWithReduxAndTheme } from 'testUtils'
 import { storeFactory } from 'setupTests'
 import theme from 'styles/theme'
 
-import { fireEvent } from '@testing-library/dom'
 import ConsortiumBuildingCreation from '.'
 
 const fn = jest.fn()

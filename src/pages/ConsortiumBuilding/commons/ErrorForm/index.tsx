@@ -1,7 +1,7 @@
 import { dict } from "components/IconExporter";
 import { IErrorForm } from "./types";
 
-export const ErrorForm =  (stepValue: string = 'R$ 50.000,00 e R$ 500.000,00', stepPersonData: string = '1.183,90'):IErrorForm => ({
+export const ErrorForm =  (stepValue: string = 'R$ 50.000,00 e R$ 500.000,00', stepPersonData: string = '1.183,90', abbreviationFormat?: string):IErrorForm => ({
   isRequired: {
     icon: 'information' as keyof typeof dict,
     message: 'Campo obrigatório',
@@ -20,7 +20,7 @@ export const ErrorForm =  (stepValue: string = 'R$ 50.000,00 e R$ 500.000,00', s
   },
   isAbbreviation: {
     icon: 'information' as keyof typeof dict,
-    message: 'A sigla deve seguir o formato XXX/UF'
+    message: `A sigla deve seguir o formato ${abbreviationFormat}`
   },
   isDocumentNumber: {
     icon: 'information' as keyof typeof dict,

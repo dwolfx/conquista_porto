@@ -167,7 +167,7 @@ describe('ChooseState component', () => {
 
     userEvent.click(destinationSelect)
 
-    const option = screen.getByTestId('option-TOCANTINS')
+    const option = screen.getByTestId('option-Tocantins')
 
     userEvent.click(option)
 

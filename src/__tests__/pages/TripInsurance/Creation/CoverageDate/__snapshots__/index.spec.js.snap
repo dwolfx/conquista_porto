@@ -1,0 +1,1163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Coverage Date renders correctly 1`] = `
+Array [
+  .c6 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c7 {
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c9 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c4 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c5.c5 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c8.c8 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c0 {
+  background-color: #555861;
+  height: 56px;
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0;
+  padding: 0 14px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c3 p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:575px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:980px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (min-width:736px) and (max-width:980px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+      data-name="container"
+    >
+      <div
+        className="c2"
+        data-name="row"
+      >
+        <div
+          className="c3"
+          data-name="col-lg-12"
+        >
+          <div
+            className="c4"
+            size="small"
+          >
+            <div
+              className="c5"
+            >
+              <h5
+                className="c6"
+                color="gray4"
+                type="headline"
+              >
+                Simulação
+              </h5>
+              <h5
+                className="c7"
+                color="white"
+                type="headline"
+              >
+                Seguro Viagem
+              </h5>
+            </div>
+            <div
+              className="c8"
+            >
+              <h6
+                className="c9"
+                color="gray4"
+                type="title"
+              >
+                ETAPA 2 de 5
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  .c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  -ms-flex-align: center !important;
+  -webkit-align-items: center !important;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  -ms-flex-pack: start !important;
+  -webkit-box-pack: start !important;
+  -webkit-justify-content: flex-start !important;
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+
+.c10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 8.333333%;
+}
+
+.c5 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+}
+
+.c9 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c12 {
+  color: unset;
+  text-align: center;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c7 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c4 {
+  width: 100%;
+}
+
+.c6 {
+  padding: 0 14px;
+}
+
+.c8 {
+  margin: 21px 0;
+}
+
+.c17 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c17:hover:active {
+  pointer-events: none;
+}
+
+.c17:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c17:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c19 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c14 {
+  margin: 0;
+  background-color: #FFFFFF;
+  padding: 0;
+}
+
+.c14 .DateInput_input {
+  background: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  border-bottom: 2px #BABABA solid;
+  font-weight: 400;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+  width: 145px;
+  height: 35px;
+}
+
+.c14 .DateInput_input input {
+  width: 145px;
+  height: 35px;
+}
+
+.c14 .DateInput_input__focused {
+  border-bottom: 2px #00ADEF solid;
+}
+
+.c14 .DayPicker_weekHeader_li {
+  text-transform: capitalize;
+}
+
+.c14 .CalendarDay {
+  border: none;
+  color: #898989;
+  background: #FFFFFF;
+  font-weight: 400;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c14 .CalendarDay__blocked_calendar,
+.c14 .CalendarDay__blocked_out_of_range {
+  color: #BABABA;
+  background-color: #F1F1F1;
+}
+
+.c14 .CalendarDay__default:hover {
+  color: #272727;
+  background-color: #EFFBFF;
+  border-radius: 4px;
+}
+
+.c14 .CalendarDay__blocked_calendar.CalendarDay__default:hover {
+  color: #BABABA;
+  background-color: #F1F1F1;
+}
+
+.c14 .CalendarDay__selected_span {
+  background: #EFFBFF;
+  color: #272727;
+}
+
+.c14 .CalendarDay__selected_span:hover {
+  background: #EFFBFF;
+}
+
+.c14 .CalendarMonth_caption {
+  color: #272727;
+  padding-top: 28px;
+  padding-bottom: 49px;
+  text-transform: capitalize;
+}
+
+.c14 .CalendarMonth_caption strong {
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c14 .CalendarDay__selected:hover {
+  background: #EFFBFF !important;
+  color: #272727 !important;
+}
+
+.c14 .CalendarDay__hovered_span:hover,
+.c14 .CalendarDay__hovered_span {
+  background: #EFFBFF;
+  color: #272727;
+}
+
+.c14 .DateRangePicker_picker {
+  left: 0 !important;
+  visibility: inherit;
+  top: 46px !important;
+}
+
+.c14 .DayPicker_transitionContainer {
+  height: 330px !important;
+}
+
+.c14 .DateInput_fang {
+  display: inline;
+  top: 36px !important;
+}
+
+.c14 .DayPicker__withBorder {
+  box-shadow: 0 2px 6px #0000000d,0 0 0 1px #00000012;
+}
+
+.c14 .CalendarDay__blocked_calendar.CalendarDay__selected_span {
+  color: #BABABA;
+}
+
+.c14 .CalendarDay__selected.CalendarDay__selected_start {
+  background: #00ADEF !important;
+  color: #FFFFFF !important;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.c14 .CalendarDay__selected.CalendarDay__selected_end {
+  background: #00ADEF !important;
+  color: #FFFFFF !important;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.c16 {
+  width: 28px;
+  background-color: transparent;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: calc(100vh - 128px);
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: calc(100vh - 128px);
+}
+
+.c18 {
+  width: 100%;
+  margin-top: 28px;
+}
+
+.c13 {
+  margin-bottom: 28px;
+}
+
+.c15 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.c15 .DateRangePickerInput_arrow {
+  width: 28px;
+}
+
+.c15 .DateInput {
+  width: 175px;
+}
+
+.c15 .DateInput input {
+  width: 175px;
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width:768px) {
+  .c3 {
+    display: none;
+  }
+}
+
+@media (max-width:575px) {
+  .c10 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:576px) {
+  .c10 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:768px) {
+  .c10 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+  .c14 .DateInput_input {
+    width: 100%;
+    height: 35px;
+  }
+
+  .c14 .DateInput_input input {
+    width: 100%;
+    height: 35px;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DateRangePicker_picker.DateRangePicker_picker__directionLeft {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DayPicker.DayPicker__horizontal.DayPicker__withBorder > div > div:first-child {
+    width: 100% !important;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DayPicker_transitionContainer.DayPicker_transitionContainer__horizontal {
+    width: 100% !important;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .CalendarMonthGrid.CalendarMonthGrid__horizontal {
+    width: 94% !important;
+    max-height: 325px;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DayPicker_weekHeader {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    left: 0px;
+    padding: 0px 7% 0 4% !important;
+    width: 100%;
+    -webkit-box-pack: space-around;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DayPicker_weekHeader_ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-pack: space-around;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DayPicker_weekHeader_li {
+    width: 35px !important;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .CalendarMonth_caption strong {
+    margin-right: 7px;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DateRangePickerInput {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DateRangePickerInput_arrow {
+    width: 0 !important;
+  }
+}
+
+@media (max-width:736px) {
+  .c14 .DateInput {
+    width: calc(50% - 7px);
+  }
+}
+
+@media (min-width:736px) and (max-width:980px) {
+  .c0 {
+    height: calc(100vh - 128px);
+  }
+}
+
+@media (min-width:1280px) {
+  .c0 {
+    height: calc(100vh - 128px);
+  }
+}
+
+@media (max-width:480px) {
+  .c18 {
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width:980px) {
+  .c13 {
+    width: 75%;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+}
+
+@media (max-width:736px) {
+  .c15 .DateRangePickerInput_arrow {
+    width: 14px !important;
+  }
+}
+
+@media (max-width:736px) {
+  .c15 .DateInput {
+    width: calc(50% - 7px);
+  }
+}
+
+@media (max-width:980px) {
+  .c15 .DateInput {
+    width: 145px;
+  }
+
+  .c15 .DateInput input {
+    width: 145px;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+      data-name="container"
+    >
+      <div
+        className="c2"
+        data-name="row align-items-center justify-content-start"
+      >
+        <div
+          className="c3"
+          data-name="col-auto col-md-3 hidden-md-down"
+        >
+          <div
+            className="c4"
+          >
+            <h4
+              className="c5 c6"
+              color="gray6"
+              type="heading4"
+            >
+              Cobertura
+            </h4>
+            <div
+              className="c7 c8"
+            />
+            <h5
+              className="c9 c6"
+              color="gray6"
+              type="headline"
+            >
+              O seguro não terá validade se contratado durante a viagem ou fora do território nacional.
+            </h5>
+          </div>
+        </div>
+        <div
+          className="c10"
+          data-name="offset-1 col-xs-12 col-sm-8 col-md-4"
+          offset={1}
+        >
+          <div
+            className="c11"
+          >
+            <h5
+              className="c12 c13"
+              color="unset"
+              type="headline"
+            >
+              Quais as datas de partida e de chegada da sua viagem?
+            </h5>
+            <div
+              className="sc-qQYBZ c14 c15"
+            >
+              <div
+                className="DateRangePicker DateRangePicker_1"
+              >
+                <div>
+                  <div
+                    className="DateRangePickerInput DateRangePickerInput_1"
+                  >
+                    <div
+                      className="DateInput DateInput_1"
+                    >
+                      <input
+                        aria-describedby="DateInput__screen-reader-message-id-coverage-date-range_dateBegin"
+                        aria-label="Data de partida"
+                        autoComplete="off"
+                        className="DateInput_input DateInput_input_1"
+                        disabled={false}
+                        id="id-coverage-date-range_dateBegin"
+                        name="id-coverage-date-range_dateBegin"
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        placeholder="Data de partida"
+                        readOnly={false}
+                        required={false}
+                        type="text"
+                        value=""
+                      />
+                      <p
+                        className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+                        id="DateInput__screen-reader-message-id-coverage-date-range_dateBegin"
+                      >
+                        Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+                      </p>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      className="DateRangePickerInput_arrow DateRangePickerInput_arrow_1"
+                      role="presentation"
+                    >
+                      <div
+                        className="c16"
+                      />
+                    </div>
+                    <div
+                      className="DateInput DateInput_1"
+                    >
+                      <input
+                        aria-describedby="DateInput__screen-reader-message-id-coverage-date-range_dateEnd"
+                        aria-label="Data de chegada"
+                        autoComplete="off"
+                        className="DateInput_input DateInput_input_1"
+                        disabled={false}
+                        id="id-coverage-date-range_dateEnd"
+                        name="id-coverage-date-range_dateEnd"
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        placeholder="Data de chegada"
+                        readOnly={false}
+                        required={false}
+                        type="text"
+                        value=""
+                      />
+                      <p
+                        className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+                        id="DateInput__screen-reader-message-id-coverage-date-range_dateEnd"
+                      >
+                        Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              className="c17 c18"
+              color="primary"
+              data-gtm-clicktype="button"
+              data-gtm-name="proximo"
+              data-gtm-type="click"
+              disabled={true}
+              id="next-button"
+              onClick={[Function]}
+            >
+              <span
+                className="c19"
+              >
+                PRÓXIMO
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

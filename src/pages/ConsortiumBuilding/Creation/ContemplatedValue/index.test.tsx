@@ -2,9 +2,9 @@ import React from 'react'
 import { screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 import { renderWithReduxAndTheme } from 'testUtils'
-import ContemplatedStep from '.'
 import { createStore } from 'redux'
 import { formatMoneyDecimal } from 'helpers'
+import ContemplatedValue from '.'
 
 const reducerMock = {
   contemplated: {
@@ -23,16 +23,16 @@ const reducerMock = {
   },
 }
 
-describe('ContemplatedStep', () => {
+describe('ContemplatedValue', () => {
   const storeMock = (state = reducerMock) => state
   const store = createStore(storeMock)
 
   it('Should exist', () => {
-    expect(ContemplatedStep).toBeDefined()
+    expect(ContemplatedValue).toBeDefined()
   })
 
   it('Should show error message if the value not belong to interval', () => {
-    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedStep />, {
+    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedValue />, {
       store,
     })
 
@@ -53,7 +53,7 @@ describe('ContemplatedStep', () => {
   })
 
   it('Should enable button if the value belong to interval', async () => {
-    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedStep />, {
+    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedValue />, {
       store,
     })
 
@@ -63,7 +63,7 @@ describe('ContemplatedStep', () => {
   })
 
   it('Should button be disabled if the value is out of the interval', async () => {
-    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedStep />, {
+    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedValue />, {
       store,
     })
 

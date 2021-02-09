@@ -8,30 +8,46 @@ import { TOptions } from 'components/Inputs/Select/types'
 
 import StepBar from 'components/StepBar'
 import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { capitalize } from 'helpers'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import * as s from './styles'
 import * as t from './types'
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import { StepComponentProps } from 'hooks/FluxManagement/types'
-import { Steps, IForm } from '../types'
+import { IFormConsortiumBuilding, Steps } from '../types'
 
 const ChooseState: React.FC = () => {
   const dispatch = useDispatch()
+  const { updateForm } = useFormFluxManagement<IFormConsortiumBuilding>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
-  const { updateForm, form } = useFormFluxManagement<IForm>()
+
   const [selectedState, setSelectedState] = useState<t.ISelected>({
     id: 0,
-    name: 'Selecione',
+    name: '',
   })
 
   const { creation, page, buttons } = texts()
 
   const [states, setStates] = useState<TOptions[]>([])
+  const [uf, setUf] = React.useState<string>('')
 
   const handleClick = () => {
-    updateForm({ ...form, selectedState: selectedState.name })
-    instantiate(Steps.contemplatedValue)
+    updateForm({
+      tipoPessoa: 1,
+      tipoBusca: 1,
+      codigoTipoGrupo: 1,
+      codigoProduto: 1,
+      codigoCanal: 1,
+      uf,
+    })
+    instantiate(Steps.contemplatedStep)
   }
+
+  const isDisabledButton: boolean = !(
+    !!uf &&
+    !!selectedState &&
+    !!selectedState.name
+  )
 
   const { consortiumBuildingStatesData } = useSelector((state: any) => ({
     consortiumBuildingStatesData: state.consortiumBuildingStates.data,
@@ -42,10 +58,26 @@ const ChooseState: React.FC = () => {
       dispatch(GetStatesRequest())
     } else {
       const statesOptions = consortiumBuildingStatesData.uf.map(
-        (state: any, index: number) => ({
+        (state: t.IState, index: number) => ({
           id: index + 1,
-          text: state.nome,
-          onClick: () => setSelectedState({ id: index + 1, name: state.nome }),
+          text: state.nome
+            .split(' ')
+            .map(value =>
+              value.length > 2 ? capitalize(value) : value.toLowerCase()
+            )
+            .join(' '),
+          onClick: () => {
+            setSelectedState({
+              id: index + 1,
+              name: state.nome
+                .split(' ')
+                .map(value =>
+                  value.length > 2 ? capitalize(value) : value.toLowerCase()
+                )
+                .join(' '),
+            })
+            setUf(state.sigla)
+          },
         })
       )
       setStates(statesOptions)
@@ -79,8 +111,8 @@ const ChooseState: React.FC = () => {
                 data-gtm-name="proximo"
                 data-gtm-type="click"
                 data-gtm-clicktype="button"
-                onClick={() => handleClick()}
-                disabled={selectedState.name === 'Selecione'}
+                disabled={isDisabledButton}
+                onClick={handleClick}
               >
                 {buttons.next}
               </s.StyledButton>

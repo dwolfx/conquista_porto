@@ -1,0 +1,1627 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Passenger renders correctly 1`] = `
+Array [
+  .c12 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c8 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: calc(100% - 14px);
+}
+
+.c2 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c11 {
+  overflow: auto;
+  padding: 21px 14px;
+}
+
+.c9 {
+  margin: 0 auto;
+}
+
+.c4 {
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  border-radius: 8px;
+  position: fixed;
+  margin: 28px 0;
+  max-height: calc(100vh - (28px * 2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  top: 0;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px;
+}
+
+.c6 {
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  color: #272727;
+  font-weight: normal;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c7 {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.c7:hover {
+  fill: #00ADEF;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 13;
+}
+
+.c13 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c13:hover:active {
+  pointer-events: auto;
+}
+
+.c13:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c13:hover:before {
+  width: 100%;
+}
+
+.c13:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c13:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c15 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c1 .c3 {
+  width: 418px;
+  top: unset;
+}
+
+.c1 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+.c14 {
+  margin-top: 35px;
+  width: 110px;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:575px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+  .c11 {
+    padding: 21px 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c4 {
+    min-width: unset;
+    width: calc(100vw - 28px);
+    top: auto;
+    margin: 0;
+    max-height: calc(100vh - (14px * 2));
+  }
+}
+
+@media (max-width:736px) {
+  .c1 .c3 {
+    width: 332px;
+  }
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+<div
+    className="c0 c1"
+  >
+    <div
+      className="c2"
+      onClick={[Function]}
+    />
+    <div
+      className="c3 c4"
+    >
+      <header
+        className="c5"
+      >
+        <h3
+          className="c6"
+        >
+          Esportes de aventura
+        </h3>
+        <svg
+          aria-label="close"
+          className="c7"
+          data-gtm-clicktype="button"
+          data-gtm-name="botao fechar"
+          data-gtm-subname="modal Esportes de aventura"
+          data-gtm-type="click"
+          fill="#BABABA"
+          height={28}
+          onClick={[Function]}
+          role="img"
+          width={28}
+        >
+          close.svg
+        </svg>
+      </header>
+      <div
+        className="c8 c9"
+      />
+      <div
+        className="c10 c11"
+      >
+        <h5
+          className="c12"
+          color="unset"
+          type="headline"
+        >
+          Pessoas maiores de 70 anos, ou grupos com uma ou mais pessoas acima de 70 anos, não recebem cobertura do seguro em caso de acidentes durante a prática de esportes de aventura.
+        </h5>
+        <button
+          className="c13 c14"
+          color="primary"
+          data-gtm-clicktype="button"
+          data-gtm-name="botao modal passageiros maiores setenta anos aceitar seguro viagem"
+          data-gtm-subname="botao modal passageiros maiores setenta anos aceitar"
+          data-gtm-type="click"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="c15"
+          >
+            ACEITAR
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  .c6 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c7 {
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c9 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c4 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c5.c5 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c8.c8 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c0 {
+  background-color: #555861;
+  height: 56px;
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0;
+  padding: 0 14px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c3 p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:575px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:980px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="sc-AxjAm c1"
+      data-name="container"
+    >
+      <div
+        className="sc-AxirZ c2"
+        data-name="row"
+      >
+        <div
+          className="c3"
+          data-name="col-lg-12"
+        >
+          <div
+            className="c4"
+            size="small"
+          >
+            <div
+              className="c5"
+            >
+              <h5
+                className="c6"
+                color="gray4"
+                type="headline"
+              >
+                Simulação
+              </h5>
+              <h5
+                className="c7"
+                color="white"
+                type="headline"
+              >
+                Seguro Viagem
+              </h5>
+            </div>
+            <div
+              className="c8"
+            >
+              <h6
+                className="c9"
+                color="gray4"
+                type="title"
+              >
+                ETAPA 3 de 4
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  .c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+
+.c10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 8.333333%;
+}
+
+.c5 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+}
+
+.c9 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c12 {
+  color: #272727;
+  text-align: center;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c14 {
+  color: #898989;
+  text-align: center;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c18 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c13 {
+  cursor: pointer;
+}
+
+.c7 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c4 {
+  width: 100%;
+}
+
+.c6 {
+  padding: 0 14px;
+}
+
+.c8 {
+  margin: 21px 0;
+}
+
+.c29 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c29:hover:active {
+  pointer-events: auto;
+}
+
+.c29:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c29:hover:before {
+  width: 100%;
+}
+
+.c29:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c29:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c20 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c20:hover:active {
+  pointer-events: none;
+}
+
+.c20:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c20:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c22 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c25 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c27 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c27 #prefix {
+  padding-left: 7px;
+}
+
+.c27 #suffix {
+  padding-right: 7px;
+}
+
+.c27:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c27:focus-within #prefix,
+.c27:focus-within #suffix {
+  color: #272727;
+}
+
+.c28 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c28:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c28::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c23 {
+  position: relative;
+  height: 56px;
+}
+
+.c23 .c26 {
+  height: 100%;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.c19 {
+  margin-top: 7px;
+  width: 150px;
+  height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c24 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c24 input::-webkit-outer-spin-button,
+.c24 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.c24 div {
+  border-radius: 0;
+  border-bottom: 0;
+}
+
+.c21 {
+  height: 100%;
+  width: 35px;
+  padding: 0 7px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 7px;
+  background: #EBEBEB;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c21 span {
+  padding: 0;
+  font-size: 20px;
+}
+
+.c30 {
+  height: 100%;
+  width: 35px;
+  padding: 0 7px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 7px;
+  background: linear-gradient(90deg,#00ADEF 0%,#018CB7 146.43%);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c30 span {
+  padding: 0;
+  font-size: 20px;
+}
+
+.c0 {
+  width: 100%;
+  height: calc(100% - 56px);
+  background-color: #FFFFFF;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 98px 14px;
+  height: 100%;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  -ms-flex-align: center !important;
+  -webkit-align-items: center !important;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  -ms-flex-pack: start !important;
+  -webkit-box-pack: start !important;
+  -webkit-justify-content: flex-start !important;
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
+  height: 100%;
+}
+
+.c17 {
+  margin-top: 35px;
+}
+
+.c31 {
+  margin-top: 35px;
+  width: 100%;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.c11 > h5 > span {
+  vertical-align: middle;
+  margin-left: 14px;
+}
+
+.c15 {
+  width: 335px;
+  margin-top: 7px;
+}
+
+@media (min-width:768px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width:768px) {
+  .c3 {
+    display: none;
+  }
+}
+
+@media (max-width:575px) {
+  .c10 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:576px) {
+  .c10 {
+    -ms-flex: 0 0 58.333333%;
+    -webkit-flex: 0 0 58.333333%;
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+}
+
+@media (min-width:768px) {
+  .c10 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+  .c0 {
+    height: 100%;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width:480px) {
+  .c1 {
+    padding-top: 21px;
+    padding-bottom: 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c11 {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width:980px) {
+  .c11 > h5 > span {
+    display: none;
+  }
+}
+
+@media (max-width:480px) {
+  .c15 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
+<div
+    className="c0"
+    data-testid="passenger-step"
+  >
+    <div
+      className="sc-AxjAm c1"
+      data-name="container"
+    >
+      <div
+        className="sc-AxirZ c2"
+        data-name="row align-items-center justify-content-start"
+      >
+        <div
+          className="c3"
+          data-name="col-auto col-md-3 hidden-md-down"
+        >
+          <div
+            className="c4"
+          >
+            <h4
+              className="c5 c6"
+              color="gray6"
+              type="heading4"
+            >
+              Passageiros
+            </h4>
+            <div
+              className="c7 c8"
+            />
+            <h5
+              className="c9 c6"
+              color="gray6"
+              type="headline"
+            >
+              O seguro cobre até 20 passageiros, incluindo você.
+            </h5>
+          </div>
+        </div>
+        <div
+          className="c10"
+          data-name="offset-1 col-xs-12 col-sm-7 col-md-4"
+          offset={1}
+        >
+          <div
+            className="c11"
+          >
+            <h5
+              className="c12"
+              color="gray6"
+              type="headline"
+            >
+              Quantos passageiros haverá na viagem?
+              <span
+                className="c13"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <svg
+                  aria-label="info-passengers"
+                  data-testid="passenger-info"
+                  fill="#00ADEF"
+                  height={21}
+                  role="button"
+                  width={21}
+                >
+                  information.svg
+                </svg>
+              </span>
+            </h5>
+            <span
+              className="c14 c15"
+              color="gray5"
+              type="caption"
+            >
+              Indique o número de passageiros, incluindo você. Considere a idade atual de todos com base na data de hoje.
+            </span>
+          </div>
+          <div
+            className="c16 c17"
+          >
+            <label
+              className=""
+            >
+              <span
+                className="c18 "
+                color="gray5"
+                type="captionUppercase"
+              >
+                PASSAGEIROS ATÉ 70 ANOS
+              </span>
+            </label>
+            <div
+              className="c19"
+            >
+              <button
+                className="c20 c21"
+                color="primary"
+                data-testid="-subtract-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                <span
+                  className="c22"
+                >
+                  <svg
+                    aria-label="subtract"
+                    fill="#BABABA"
+                    role="img"
+                    width={12}
+                  >
+                    subtract.svg
+                  </svg>
+                </span>
+              </button>
+              <div
+                className="c23 c24"
+                disabled={false}
+              >
+                <div
+                  className="c25"
+                >
+                  <div
+                    className="c26 c27"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c28"
+                      data-testid="input-number-"
+                      disabled={false}
+                      max={20}
+                      min={0}
+                      onChange={[Function]}
+                      type="number"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                className="c29 c30"
+                color="primary"
+                data-testid="-add-button"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  className="c22"
+                >
+                  <svg
+                    aria-label="plus"
+                    fill="#FFFFFF"
+                    role="img"
+                    width={12}
+                  >
+                    plus.svg
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div
+            className="c16 c17"
+          >
+            <label
+              className=""
+            >
+              <span
+                className="c18 "
+                color="gray5"
+                type="captionUppercase"
+              >
+                PASSAGEIROS DE 71 ATÉ 90 ANOS 
+              </span>
+            </label>
+            <div
+              className="c19"
+            >
+              <button
+                className="c20 c21"
+                color="primary"
+                data-testid="-subtract-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                <span
+                  className="c22"
+                >
+                  <svg
+                    aria-label="subtract"
+                    fill="#BABABA"
+                    role="img"
+                    width={12}
+                  >
+                    subtract.svg
+                  </svg>
+                </span>
+              </button>
+              <div
+                className="c23 c24"
+                disabled={false}
+              >
+                <div
+                  className="c25"
+                >
+                  <div
+                    className="c26 c27"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c28"
+                      data-testid="input-number-"
+                      disabled={false}
+                      max={20}
+                      min={0}
+                      onChange={[Function]}
+                      type="number"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                className="c29 c30"
+                color="primary"
+                data-testid="-add-button"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  className="c22"
+                >
+                  <svg
+                    aria-label="plus"
+                    fill="#FFFFFF"
+                    role="img"
+                    width={12}
+                  >
+                    plus.svg
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <button
+            className="c20 c31"
+            color="primary"
+            data-gtm-clicktype="button"
+            data-gtm-name="proximo"
+            data-gtm-type="click"
+            disabled={true}
+            onClick={[Function]}
+          >
+            <span
+              className="c22"
+            >
+              Próximo
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
