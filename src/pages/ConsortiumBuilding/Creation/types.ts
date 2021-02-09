@@ -1,9 +1,11 @@
+import InformationConfirmation from '../Hire/InformationConfirmation'
 import ChooseState from './ChooseState'
 import ContemplatedValue from './ContemplatedValue'
 
 export const Steps = {
   chooseState: ChooseState,
   contemplatedStep: ContemplatedValue,
+  informationConfirmationStep: InformationConfirmation,
 }
 
 export interface IFormConsortiumBuilding {

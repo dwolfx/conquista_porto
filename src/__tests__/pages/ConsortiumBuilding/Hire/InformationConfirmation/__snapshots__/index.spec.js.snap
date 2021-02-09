@@ -1,0 +1,942 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InformationConfirmation - Consortium Building - renders correctly 1`] = `
+Array [
+  .c4 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c5.c5 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c8.c8 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c6 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c7 {
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c9 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c0 {
+  background-color: #555861;
+  height: 56px;
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0;
+  padding: 0 14px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c3 p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:980px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="sc-AxgMl c1"
+      data-name="container"
+    >
+      <div
+        className="sc-AxheI c2"
+        data-name="row"
+      >
+        <div
+          className="sc-Axmtr c3"
+          data-name="col-lg-12"
+        >
+          <div
+            className="c4"
+            size="small"
+          >
+            <div
+              className="c5"
+            >
+              <h5
+                className="c6"
+                color="gray4"
+                type="headline"
+              >
+                Contratação
+              </h5>
+              <h5
+                className="c7"
+                color="white"
+                type="headline"
+              >
+                Consórcio de Imóvel
+              </h5>
+            </div>
+            <div
+              className="c8"
+            >
+              <h6
+                className="c9"
+                color="gray4"
+                type="title"
+              >
+                ETAPA 1 de 4
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  .c5 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c3 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+}
+
+.c6 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c0 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 14px 21px 77px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 {
+  padding: 14px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+  .c0 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c0 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:1280px) {
+  .c0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    -ms-flex: 0 0 83.333333%;
+    -webkit-flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+}
+
+@media (min-width:992px) {
+  .c7 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:1280px) {
+  .c2 {
+    margin-right: 28px;
+  }
+}
+
+@media (min-width:736px) {
+  .c4 {
+    text-align: center;
+  }
+
+  .c4:last-child {
+    margin-bottom: 28px;
+  }
+}
+
+@media (min-width:1280px) {
+  .c4 {
+    text-align: left;
+  }
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+<div
+    className="sc-AxgMl c0"
+    data-name="container"
+  >
+    <div
+      className="sc-Axmtr c1"
+      data-name="col-lg-3"
+    >
+      <div
+        className="c2"
+      >
+        <h4
+          className="c3 c4"
+          color="unset"
+          type="heading4"
+        >
+          Confirme seus dados
+        </h4>
+        <div
+          className="c5"
+        />
+        <h5
+          className="c6 c4"
+          color="gray6"
+          type="headline"
+        >
+          Precisamos confirmar algumas de suas informações para continuar.
+        </h5>
+      </div>
+    </div>
+    <div
+      className="sc-Axmtr c7"
+      data-name="col-md-10 col-lg-8"
+    />
+  </div>,
+  .c6 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c6:hover:active {
+  pointer-events: auto;
+}
+
+.c6:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c6:hover:before {
+  width: 100%;
+}
+
+.c6:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c6:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  padding: 14px;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  border-top: 1px solid #DDDDDD;
+}
+
+.c5 {
+  min-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-right: 21px;
+}
+
+.c7 {
+  width: 100%;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+  .c4 {
+    -ms-flex: 0 0 91.666667%;
+    -webkit-flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (max-width:1280px) {
+  .c5 {
+    padding-right: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c5 {
+    padding-right: 0;
+  }
+}
+
+@media (min-width:736px) {
+  .c7 {
+    width: 133px;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="sc-AxgMl c1"
+      data-name="container"
+    >
+      <div
+        className="sc-AxheI c2"
+        data-name="row"
+      >
+        <div
+          className="sc-Axmtr c3"
+          data-name="col-lg-3"
+        />
+        <div
+          className="sc-Axmtr c4"
+          data-name="col-md-11 col-lg-8"
+        >
+          <div
+            className="c5"
+          >
+            <button
+              className="c6 c7"
+              color="secondary"
+              disabled={false}
+            >
+              <span
+                className="c8"
+              >
+                Próximo
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

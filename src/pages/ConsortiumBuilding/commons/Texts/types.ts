@@ -328,7 +328,7 @@ export interface IResultHireStepHireFlux {
 }
 
 export interface IStepHireFlux {
-  InformationConfirmation: IInformationConfirmationStepHireFlux
+  informationConfirmation: IInformationConfirmationStepHireFlux
   payment: IPaymentStepHireFlux
   lifeInsurance: ILifeInsuranceStepHireFlux
   insuranceLender: IInsuranceLenderStepHireFlux
