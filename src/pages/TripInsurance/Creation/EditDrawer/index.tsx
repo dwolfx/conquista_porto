@@ -15,6 +15,11 @@ import useMedia from 'hooks/useMedia'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
 import * as s from './styles'
+import { calculateAge } from 'helpers'
+import {
+  totalPassengerBelowSeventyYears,
+  totalPassengerAboveSeventyYears,
+} from './helpers'
 interface IEditDrawer {
   isDrawerOpen: boolean
   handleClose: (isDrawerOpen: boolean) => void
@@ -132,19 +137,25 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   const [
     numberOfPassangersBelowSeventyYears,
     setNumberOfPassangersBelowSeventyYears,
-  ] = useState({
-    id: form.qtdPassagMenorSetentaAnos?.toString(),
-    name: form.qtdPassagMenorSetentaAnos?.toString(),
-    value: form.qtdPassagMenorSetentaAnos || 0,
-  })
+  ] = useState(
+    totalPassengerBelowSeventyYears(
+      form.qtdPassagMenorSetentaAnos || 0,
+      form.passageiroPrincipal?.dataNascimento,
+      (form.acompanhantes || []).length,
+      form.qtdPassagMaiorSetentaAnos || 0
+    )
+  )
   const [
     numberOfPassangersAboveSeventyYears,
     setNumberOfPassangersAboveSeventyYears,
-  ] = useState({
-    id: form.qtdPassagMaiorSetentaAnos?.toString(),
-    name: form.qtdPassagMaiorSetentaAnos?.toString(),
-    value: form.qtdPassagMaiorSetentaAnos || 0,
-  })
+  ] = useState(
+    totalPassengerAboveSeventyYears(
+      form.qtdPassagMaiorSetentaAnos || 0,
+      form.passageiroPrincipal?.dataNascimento,
+      (form.acompanhantes || []).length,
+      form.qtdPassagMenorSetentaAnos || 0
+    )
+  )
   const [selectedMotocicleOption, setSelectedMotocicleOption] = useState({
     id: form.isMotocicleta ? 1 : 2,
     name: form.isMotocicleta ? 'Irei praticar' : 'Não irei praticar',
@@ -313,6 +324,32 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
   // O 'form' está sendo observado por um useEffect no componente 'ChoosePlan' (pai deste componente), portanto,
   // ao atualizar o 'form' o dispatch com a action 'PostInsuranceQuotationRequest' será realizado.
   const handleClick = () => {
+    const belowSeventh =
+      calculateAge(
+        moment(form.passageiroPrincipal?.dataNascimento).format('DD/MM/YYYY')
+      ) <= 70 &&
+      (numberOfPassangersBelowSeventyYears.value !==
+        form.qtdPassagMenorSetentaAnos ||
+        numberOfPassangersBelowSeventyYears.value === 1)
+        ? numberOfPassangersBelowSeventyYears.value - 1
+        : numberOfPassangersBelowSeventyYears.value
+    const aboveSeventh =
+      calculateAge(
+        moment(form.passageiroPrincipal?.dataNascimento).format('DD/MM/YYYY')
+      ) > 70 &&
+      (numberOfPassangersAboveSeventyYears.value !==
+        form.qtdPassagMaiorSetentaAnos ||
+        numberOfPassangersBelowSeventyYears.value === 1)
+        ? numberOfPassangersAboveSeventyYears.value - 1
+        : numberOfPassangersAboveSeventyYears.value
+
+    const newCompanions = [...new Array(belowSeventh + aboveSeventh)].map(
+      (_, index) => ({
+        id: index + 1,
+        nome: `Acompanhante ${index + 1}`,
+        status: false,
+      })
+    )
     updateForm({
       ...form,
       nationalDestination: selectedDestination.id === 1,
@@ -330,10 +367,11 @@ const EditDrawer: React.FC<IEditDrawer> = ({ isDrawerOpen, handleClose }) => {
         })),
       dataIda: initialDate?.format('DD/MM/YYYY'),
       dataVolta: finalDate?.format('DD/MM/YYYY'),
-      qtdPassagMenorSetentaAnos: numberOfPassangersBelowSeventyYears.value,
-      qtdPassagMaiorSetentaAnos: numberOfPassangersAboveSeventyYears.value,
+      qtdPassagMenorSetentaAnos: belowSeventh,
+      qtdPassagMaiorSetentaAnos: aboveSeventh,
       isPraticaAventura: selectedAdventureSportsOption.id === 1,
       isMotocicleta: selectedMotocicleOption.id === 1,
+      acompanhantes: [...newCompanions],
     })
     handleClose(false)
   }
