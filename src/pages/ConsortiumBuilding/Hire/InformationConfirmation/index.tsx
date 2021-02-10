@@ -1,15 +1,34 @@
+import React from 'react'
 import Divisor from 'components/Divisor'
 import StepBar from 'components/StepBar'
 import useMedia from 'hooks/useMedia'
 import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
-import React from 'react'
+import PersonalDataCard from './PersonalDataCard'
+import ContactCard from './ContactCard'
+import CardStructure from './CardStructure'
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import * as s from './styles'
 
+export interface IPersonalDataForm {
+  civilStatus: string
+  spouseName?: string
+  spouseDocument?: string
+}
+
 const InformationConfirmation: React.FC = () => {
   const { hire, page, buttons } = texts()
+  const [personalDataForm, setPersonalDataForm] = React.useState<
+    IPersonalDataForm
+  >({
+    civilStatus: '',
+    spouseName: '',
+    spouseDocument: '',
+  })
   const isSmUp = useMedia('smUp')
   const isLgUp = useMedia('lgUp')
+
+  useFetchCustomerProfile()
 
   return (
     <>
@@ -31,7 +50,25 @@ const InformationConfirmation: React.FC = () => {
             </s.TitleText>
           </s.TitleWrapper>
         </s.Column>
-        <s.Column lg={8} md={10}></s.Column>
+        <s.Column lg={8} md={10}>
+          <CardStructure
+            title={hire.steps.informationConfirmation.containerFirst.title}
+            link={hire.steps.informationConfirmation.containerFirst.link}
+          >
+            <PersonalDataCard
+              personalData={[personalDataForm, setPersonalDataForm]}
+              label={hire.steps.informationConfirmation.containerFirst.label}
+            />
+          </CardStructure>
+          <CardStructure
+            title={hire.steps.informationConfirmation.containerSecond.title}
+            link={hire.steps.informationConfirmation.containerSecond.link}
+          >
+            <ContactCard
+              label={hire.steps.informationConfirmation.containerSecond.label}
+            />
+          </CardStructure>
+        </s.Column>
       </s.ContentContainer>
       <s.FooterContainer>
         <s.FooterContent>
