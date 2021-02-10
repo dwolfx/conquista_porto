@@ -205,49 +205,47 @@ describe('ForthStep tests', () => {
   })
   it('should contain the address inputs: NÚMERO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const numberInput = screen.getByTestId('número')
-    expect(numberInput).toBeInTheDocument()
+    expect(screen.getByTestId('número')).toBeInTheDocument()
   })
   it('should test the address inputs: NÚMERO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const numberInput = screen.getByTestId('número')
-    fireEvent.change(numberInput, { target: { value: '1225' } })
-    expect(numberInput).toHaveValue('1225')
+    fireEvent.change(screen.getByTestId('número'), {
+      target: { value: '1225' },
+    })
+    expect(screen.getByTestId('número')).toHaveValue('1225')
   })
   it('should contain the address inputs: COMPLEMENTO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const additionalDetails = screen.getByTestId('complemento')
-    expect(additionalDetails).toBeInTheDocument()
+    expect(screen.getByTestId('complemento')).toBeInTheDocument()
   })
   it('should test the address inputs: COMPLEMENTO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const additionalDetails = screen.getByTestId('complemento')
-    fireEvent.change(additionalDetails, { target: { value: 'apto. 22' } })
-    expect(additionalDetails).toHaveValue('apto. 22')
+    fireEvent.change(screen.getByTestId('complemento'), {
+      target: { value: 'apto. 22' },
+    })
+    expect(screen.getByTestId('complemento')).toHaveValue('apto. 22')
   })
   it('should contain the address inputs: BAIRRO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const neighborhoodInput = screen.getByTestId('bairro')
-    expect(neighborhoodInput).toBeInTheDocument()
+    expect(screen.getByTestId('bairro')).toBeInTheDocument()
   })
   it('should test the address inputs: BAIRRO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const neighborhoodInput = screen.getByTestId('bairro')
-    fireEvent.change(neighborhoodInput, {
+    fireEvent.change(screen.getByTestId('bairro'), {
       target: { value: 'Jardim Casqueiro' },
     })
-    expect(neighborhoodInput).toHaveValue('Jardim Casqueiro')
+    expect(screen.getByTestId('bairro')).toHaveValue('Jardim Casqueiro')
   })
   it('should contain the address inputs: CIDADE', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const cityInput = screen.getByTestId('cidade')
-    expect(cityInput).toBeInTheDocument()
+    expect(screen.getByTestId('cidade')).toBeInTheDocument()
   })
   it('should test the address inputs: CIDADE', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
-    const cityInput = screen.getByTestId('cidade')
-    fireEvent.change(cityInput, { target: { value: 'São Paulo' } })
-    expect(cityInput).toHaveValue('São Paulo')
+    fireEvent.change(screen.getByTestId('cidade'), {
+      target: { value: 'São Paulo' },
+    })
+    expect(screen.getByTestId('cidade')).toHaveValue('São Paulo')
   })
   it('should contain the address inputs: ESTADO', () => {
     renderWithReduxAndTheme(<ForthStep formData={{}} onNextStep={() => {}} />)
@@ -289,16 +287,22 @@ describe('ForthStep tests', () => {
     fireEvent.click(dayInput)
     fireEvent.click(screen.getByTestId('option-1'))
 
-    const cepInput = screen.getByTestId('cep')
-    fireEvent.change(cepInput, { target: { value: '11533230' } })
-    const addressInput = screen.getByTestId('endereço')
-    fireEvent.change(addressInput, { target: { value: 'Rua Uruguai' } })
-    const numberInput = screen.getByTestId('número')
-    fireEvent.change(numberInput, { target: { value: '1225' } })
-    const additionalDetails = screen.getByTestId('complemento')
-    fireEvent.change(additionalDetails, { target: { value: 'apto. 22' } })
-    const neighborhoodInput = screen.getByTestId('bairro')
-    fireEvent.change(neighborhoodInput, {
+    fireEvent.change(screen.getByTestId('cep'), {
+      target: { value: '11533230' },
+    })
+    fireEvent.change(screen.getByTestId('endereço'), {
+      target: { value: 'Rua Uruguai' },
+    })
+
+    fireEvent.change(screen.getByTestId('número'), {
+      target: { value: '1225' },
+    })
+
+    fireEvent.change(screen.getByTestId('complemento'), {
+      target: { value: 'apto. 22' },
+    })
+
+    fireEvent.change(screen.getByTestId('bairro'), {
       target: { value: 'Jardim Casqueiro' },
     })
     const cityInput = screen.getByTestId('cidade')

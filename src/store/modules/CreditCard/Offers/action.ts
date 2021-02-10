@@ -1,6 +1,8 @@
 import { Types, ICreditCardOffer, ICreditCardOfferRequest } from './types'
 
-export function GetCreditCardOfferRequest(payload: Omit<ICreditCardOfferRequest, 'type'>) {
+export function GetCreditCardOfferRequest(
+  payload: Omit<ICreditCardOfferRequest, 'type'>
+) {
   return {
     ...payload,
     type: Types.GET_CREDIT_CARD_OFFERS_REQUEST,

@@ -2,13 +2,11 @@ import React from 'react'
 
 import Select from 'components/Inputs/Select'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import { IOption } from '../../types'
 
 import * as S from '../styles'
-
 interface IProps {
-  selectedOption: IOption
-  setSelectedOption: (sex: IOption) => void
+  selectedOption: TSelected
+  setSelectedOption: (sex: TSelected) => void
   preSelectedSex?: string
 }
 

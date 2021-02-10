@@ -23,6 +23,8 @@ const baseURLNamespaceRecommendation =
 const baseURLNamespaceRewards = process.env.REACT_APP_BASE_URL_REWARDS || ''
 const baseURLNamespaceAuth2 = process.env.REACT_APP_BASE_URL_AUTH2 || ''
 const baseURLNamespaceAtlas = process.env.REACT_APP_BASE_URL_ATLAS || ''
+const baseURLNamespacePROCartao =
+  process.env.REACT_APP_BASE_URL_PRO_CARTAO || ''
 
 const responseInterceptor = response => response
 
@@ -79,7 +81,6 @@ const responseErrorInterceptor = error => {
         })
       )
   }
-
   return Promise.reject(error.response)
 }
 
@@ -103,4 +104,5 @@ export {
   responseErrorInterceptor,
   requestInterceptor,
   baseURLNamespaceAuth2,
+  baseURLNamespacePROCartao,
 }

@@ -3,29 +3,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import { uuid } from 'uuidv4'
 import moment from 'moment'
 
+import Loading from 'components/Loading'
+import Button from 'components/Button'
 import VerticalList from 'components/VerticalList'
+import LoadingState from 'pages/CreditCard/common/components/FullScreenLoadingState'
+import NoOffersState from 'pages/CreditCard/common/components/NoOffersState'
 import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
+import { GetCreditCardOfferRequest } from 'store/modules/CreditCard/Offers/action'
+import { useToast } from 'hooks/toast'
+import { formatCpf, handleGiwRedirect } from 'helpers'
 import {
   ICreditCardOffer,
   OFFER_CODE,
 } from 'store/modules/CreditCard/Offers/types'
-import { GetCreditCardOfferRequest } from 'store/modules/CreditCard/Offers/action'
-import { formatCpf, handleGiwRedirect } from 'helpers'
-import { useToast } from 'hooks/toast'
 import {
   ICreditCardCreationPayload,
   IStepComponent,
 } from 'pages/CreditCard/Creation/types'
 
-import LoadingState from './FullScreenLoadingState'
-import NoOffersState from './NoOffersState'
-
 import { GridContainer, WhiteContent } from '../styles'
+import { brazilianStates } from '../../common/Selects/BrazilianStates/types'
+
 import * as s from './styles'
 import * as t from './types'
-import Loading from 'components/Loading'
-import Button from 'components/Button'
-import { brazilianStates } from '../CreditCardStep/Selects/BrazilianStates/types'
 
 const FirstStep = ({
   onNextStep,

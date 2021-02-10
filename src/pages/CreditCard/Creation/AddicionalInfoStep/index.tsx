@@ -5,6 +5,7 @@ import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupat
 
 import { dict } from 'components/IconExporter'
 import Divisor from 'components/Divisor'
+import { TSelected } from 'components/Inputs/Select/types'
 
 import {
   ECivilStateLabel,
@@ -14,9 +15,9 @@ import CivilState from 'pages/CreditCard/Creation/common/CivilState'
 import Sex from 'pages/CreditCard/Creation/common/Sex'
 import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 
-import { IStepComponent, IOption } from '../types'
-
+import { IStepComponent } from '../types'
 import { GridContainer } from '../styles'
+
 import { IState } from './types'
 import * as S from './styles'
 
@@ -36,12 +37,12 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
   const [city, setCity] = useState('')
   const [motherName, setMotherName] = useState('')
   const [errors, setErrors] = useState({ mother: false, city: false })
-  const [selectedCivilState, setSelectedCivilState] = useState<IOption>({
+  const [selectedCivilState, setSelectedCivilState] = useState<TSelected>({
     id: -1,
     name: '',
   })
-  const [selectedSex, setSelectedSex] = useState<IOption>({ id: -1, name: '' })
-  const [selectedOcupation, setSelectedOcupation] = useState<IOption>({
+  const [selectedSex, setSelectedSex] = useState<TSelected>({ id: -1, name: '' })
+  const [selectedOcupation, setSelectedOcupation] = useState<TSelected>({
     id: -1,
     name: '',
   })
@@ -51,9 +52,9 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
     onNextStep({
       cidade: city,
       nomeMae: motherName,
-      codigoEstadoCivil: selectedCivilState.id.toString(),
-      codigoProfissao: selectedOcupation.id.toString(),
-      sexo: selectedSex.id.toString(),
+      codigoEstadoCivil: selectedCivilState?.id?.toString(),
+      codigoProfissao: selectedOcupation?.id?.toString(),
+      sexo: selectedSex?.id?.toString(),
     })
   }
 
@@ -105,8 +106,8 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
   }, [motherName, city, selectedCivilState, selectedSex, selectedOcupation])
 
   return (
-    <S.Wrapper>
-      <GridContainer>
+    <GridContainer>
+      <S.Wrapper>
         <S.StyledMain xs={12} sm={6} lg={4}>
           <S.StyledText>
             Agora confirme alguns dados do seu cadastro:
@@ -180,8 +181,8 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
             </S.Footer>
           </S.StyledForm>
         </S.StyledMain>
-      </GridContainer>
-    </S.Wrapper>
+      </S.Wrapper>
+    </GridContainer>
   )
 }
 

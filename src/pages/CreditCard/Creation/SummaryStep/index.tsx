@@ -6,11 +6,11 @@ import Checkbox from 'components/Inputs/Checkbox'
 import Button from 'components/Button'
 
 import { ISummaryStep } from 'pages/CreditCard/Creation/types'
-import PersonalData from './PersonalData'
-import CardData from './CardData'
-import DeliveryData from './DeliveryData'
+import PersonalData from 'pages/CreditCard/common/components/PersonalData'
+import CardData from 'pages/CreditCard/common/components/CardData'
+import { StyledCard } from 'pages/CreditCard/common/components/CardData/styles'
+import DeliveryData from 'pages/CreditCard/common/components/DeliveryData'
 
-import { StyledCard } from './CardData/styles'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 

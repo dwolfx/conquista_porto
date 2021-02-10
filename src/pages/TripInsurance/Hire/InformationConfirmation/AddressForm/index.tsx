@@ -1,12 +1,12 @@
 import React from 'react'
 import useZipCodeFetch from 'hooks/ZipCode/useZipCodeFetch'
-import { brazilianStates } from 'pages/CreditCard/Creation/CreditCardStep/Selects/BrazilianStates/types'
+import { brazilianStates } from 'pages/CreditCard/common/Selects/BrazilianStates/types'
 import * as s from './styles'
 import {
   errorCEP,
   isInvalidCEP,
   validationInputError,
-} from 'pages/CreditCard/Creation/CreditCardStep/validators'
+} from 'helpers/validators'
 import { IPassengerAddress } from 'pages/TripInsurance/Creation/types'
 import { dict } from 'components/IconExporter'
 

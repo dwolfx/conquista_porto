@@ -74,7 +74,7 @@ export const FooterText = styled(Text).attrs(() => ({
   color: 'gray5',
 }))`
   text-align: center;
-  margin-top: ${({ theme }) => theme.spacing(3)}px;
+  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(4)}px`};
 `
 
 export const LoadingWrapper = styled.div`

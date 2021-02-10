@@ -2,48 +2,56 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Col, Container, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-import { baseURLNamespaceInvestAws, axiosInstance } from 'services/api'
 
 import Radio from 'components/Inputs/Radio/New'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
+import Loading from 'components/Loading'
+import { TSelected } from 'components/Inputs/Select/types'
 import HorizontalList from 'components/HorizontalList'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
+import useZipCodeFetch from 'hooks/ZipCode/useZipCodeFetch'
 import { OFFER_CODE } from 'store/modules/CreditCard/Offers/types'
+import { errorCEP, isInvalidCEP } from 'helpers/validators'
 
-import SelectExpirationDays from './Selects/ExpirationDays'
-import SelectBrazilianStates from './Selects/BrazilianStates'
-import { errorCEP, isInvalidCEP } from './validators'
-import { FLAGS, IOption, IStepComponent, CEPResponse } from '../types'
+import SelectExpirationDays from '../../common/Selects/ExpirationDays'
+import SelectBrazilianStates from '../../common/Selects/BrazilianStates'
+import { FLAGS, IStepComponent } from '../types'
 
 import * as s from './styles'
 
 const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
   const isMobile = useMedia('xs')
   const { addToast } = useToast()
-  const [selectedDay, setSelectedDay] = useState<IOption>({ id: 0, name: '' })
+  const {
+    data: cepData,
+    isLoading: isZipCodeLoading,
+    searchZipCode,
+    hasError: hasZipCodeError,
+  } = useZipCodeFetch()
+  const [selectedDay, setSelectedDay] = useState<TSelected>({ id: 0, name: '' })
   const [selectedFlag, setSelectedFlag] = useState<FLAGS | ''>('')
 
   // Address states
-  const [cep, setCep] = useState('')
-  const [streetAddress, setStreetAddress] = useState('')
-  const [number, setNumber] = useState('')
-  const [additionalInfo, setAdditionalInfo] = useState('')
-  const [neighbourhood, setNeighbourhood] = useState('')
-  const [city, setCity] = useState('')
-  const [stateOption, setStateOption] = useState<IOption>({ id: 0, name: '' })
-  const [hasAnyError, setHasAnyError] = useState(true)
-  const [addressDisabled, setAddressDisabled] = useState(false)
-  const [touched, setTouched] = useState({
-    cep: false,
-    streetAddress: false,
-    number: false,
-    additionalInfo: false,
-    neighbourhood: false,
-    city: false,
-    stateOption: false,
+  const [cep, setCep] = useState({ value: '', touched: false })
+  const [streetAddress, setStreetAddress] = useState({
+    value: '',
+    touched: false,
   })
+  const [number, setNumber] = useState({ value: '', touched: false })
+  const [additionalInfo, setAdditionalInfo] = useState({
+    value: '',
+    touched: false,
+  })
+  const [neighbourhood, setNeighbourhood] = useState({
+    value: '',
+    touched: false,
+  })
+  const [city, setCity] = useState({ value: '', touched: false })
+  const [stateOption, setStateOption] = useState<TSelected>({ id: 0, name: '' })
+  const [hasAnyError, setHasAnyError] = useState(true)
+  const [isAddressDisabled, setIsAddressDisabled] = useState(false)
 
   const { creditCardOffer, isCreditCardExpirationDaysLoading } = useSelector(
     (state: any) => ({
@@ -55,11 +63,11 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
 
   useEffect(() => {
     if (
-      cep.trim().length !== 0 &&
-      streetAddress.trim().length !== 0 &&
-      number.trim().length !== 0 &&
-      neighbourhood.trim().length !== 0 &&
-      city.trim().length !== 0 &&
+      cep.value.trim().length !== 0 &&
+      streetAddress.value.trim().length !== 0 &&
+      number.value.trim().length !== 0 &&
+      neighbourhood.value.trim().length !== 0 &&
+      city.value.trim().length !== 0 &&
       stateOption.id !== 0 &&
       selectedFlag !== '' &&
       selectedDay.id !== 0
@@ -81,42 +89,30 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
     selectedDay,
   ])
 
-  const touch = (key: string) => {
-    setTouched(touched => ({
-      ...touched,
-      [key]: true,
-    }))
-  }
-
-  const getAddress = async () => {
-    if (cep.length === 9) {
-      try {
-        const [cepPrefix, cepSufix] = cep.split('-')
-        const { data, status } = await axiosInstance.get<CEPResponse>(
-          `${baseURLNamespaceInvestAws}/cliente/endereco`,
-          {
-            params: { cep: cepPrefix, cepSufixo: cepSufix },
-          }
-        )
-
-        if (status === 200) {
-          const { bairro, uf, cidade, logradouro, tipoLogradouro } = data
-          setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
-          setCity(cidade)
-          setNeighbourhood(bairro)
-          setStateOption({ id: 99, name: uf })
-          setAddressDisabled(true)
-        }
-      } catch (e) {
-        setAddressDisabled(false)
-        addToast({
-          type: 'error',
-          title: 'Houve um erro ao buscar CEP.',
-          description: 'Por favor, edite o endereço manualmente.',
-        })
-      }
+  useEffect(() => {
+    if (cepData.data) {
+      const { bairro, uf, cidade, logradouro, tipoLogradouro } = cepData.data
+      setStreetAddress({
+        value: `${tipoLogradouro}. ${logradouro}`,
+        touched: true,
+      })
+      setCity({ value: cidade, touched: true })
+      setNeighbourhood({ value: bairro, touched: true })
+      setStateOption({ id: 99, name: uf })
+      setIsAddressDisabled(true)
     }
-  }
+  }, [cepData])
+
+  useEffect(() => {
+    if (hasZipCodeError) {
+      setIsAddressDisabled(false)
+      addToast({
+        type: 'error',
+        title: 'Houve um erro ao buscar CEP.',
+        description: 'Por favor, edite o endereço manualmente.',
+      })
+    }
+  }, [hasZipCodeError, addToast])
 
   return (
     <s.ContentWrapper>
@@ -258,17 +254,12 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
           <Col lg={12}>
             <s.Card
               data-testid="card-credit-card-address"
+              headerEndItem={isZipCodeLoading && <Loading type="spinner" />}
               headerTitle={
                 <s.TextTitle>
                   Informe um endereço para receber o cartão
                 </s.TextTitle>
               }
-              // Aguardando definição de negócio: API de CEP
-              // headerEndItem={
-              //   <s.ButtonLink onClick={() => console.log('clicked')}>
-              //     utilizar endereço do cadastro
-              //   </s.ButtonLink>
-              // }
             >
               <s.FormContainer>
                 <Row>
@@ -276,16 +267,17 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                     <s.CEPInput
                       label="cep"
                       name="cep"
-                      value={cep}
+                      value={cep.value}
                       placeholder="00000-000"
-                      hasError={isInvalidCEP(cep, touched.cep)}
-                      error={isInvalidCEP(cep, touched.cep) && errorCEP(cep)}
-                      onBlur={() => {
-                        getAddress()
-                        touch('cep')
-                      }}
+                      hasError={isInvalidCEP(cep.value, cep.touched)}
+                      error={
+                        isInvalidCEP(cep.value, cep.touched) &&
+                        errorCEP(cep.value)
+                      }
+                      onBlur={() => searchZipCode(cep.value)}
                       onChange={(e: any) => {
-                        setCep(e.target.value)
+                        setIsAddressDisabled(false)
+                        setCep({ ...cep, value: e.target.value })
                       }}
                     />
                   </s.FormCol>
@@ -295,21 +287,32 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="endereco"
                       placeholder="Digite"
                       maxLength={40}
-                      disabled={addressDisabled}
-                      value={streetAddress}
+                      disabled={
+                        isAddressDisabled || hasZipCodeError || isZipCodeLoading
+                      }
+                      value={streetAddress.value}
                       hasError={
-                        streetAddress.length === 0 && touched.streetAddress
+                        streetAddress.value.length === 0 &&
+                        streetAddress.touched
                       }
                       error={
-                        streetAddress.length === 0 &&
-                        touched.streetAddress && {
+                        streetAddress.value.length === 0 &&
+                        streetAddress.touched && {
                           icon: 'information',
                           message: 'Campo obrigatório',
                         }
                       }
-                      onBlur={() => touch('streetAddress')}
-                      onChange={(e: any) => {
-                        setStreetAddress(e.target.value)
+                      onBlur={() =>
+                        setStreetAddress(oldState => ({
+                          ...oldState,
+                          touched: true,
+                        }))
+                      }
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setStreetAddress({
+                          ...streetAddress,
+                          value: e.currentTarget.value,
+                        })
                       }}
                     />
                   </s.FormCol>
@@ -319,15 +322,20 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="numero"
                       placeholder="Digite"
                       maxLength={5}
-                      value={number}
-                      hasError={number.length === 0 && touched.number}
-                      onBlur={() => touch('number')}
-                      onChange={(e: any) => {
-                        setNumber(e.target.value)
+                      value={number.value}
+                      hasError={number.value.length === 0 && number.touched}
+                      onBlur={() =>
+                        setNumber(oldState => ({ ...oldState, touched: true }))
+                      }
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setNumber({
+                          ...number,
+                          value: e.currentTarget.value,
+                        })
                       }}
                       error={
-                        number.length === 0 &&
-                        touched.number && {
+                        number.value.length === 0 &&
+                        number.touched && {
                           icon: 'information',
                           message: 'Campo obrigatório',
                         }
@@ -339,12 +347,20 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       label="complemento"
                       name="complemento"
                       maxLength={20}
-                      value={additionalInfo}
+                      value={additionalInfo.value}
                       hasError={false}
                       placeholder="Digite"
-                      onBlur={() => touch('additionalInfo')}
-                      onChange={(e: any) => {
-                        setAdditionalInfo(e.target.value)
+                      onBlur={() =>
+                        setAdditionalInfo(oldState => ({
+                          ...oldState,
+                          touched: true,
+                        }))
+                      }
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setAdditionalInfo({
+                          ...additionalInfo,
+                          value: e.currentTarget.value,
+                        })
                       }}
                     />
                   </s.FormCol>
@@ -354,18 +370,29 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="bairro"
                       placeholder="Digite"
                       maxLength={30}
-                      disabled={addressDisabled}
-                      value={neighbourhood}
-                      hasError={
-                        neighbourhood.length === 0 && touched.neighbourhood
+                      disabled={
+                        isAddressDisabled || hasZipCodeError || isZipCodeLoading
                       }
-                      onBlur={() => touch('neighbourhood')}
-                      onChange={(e: any) => {
-                        setNeighbourhood(e.target.value)
+                      value={neighbourhood.value}
+                      hasError={
+                        neighbourhood.value.length === 0 &&
+                        neighbourhood.touched
+                      }
+                      onBlur={() =>
+                        setNeighbourhood(oldState => ({
+                          ...oldState,
+                          touched: true,
+                        }))
+                      }
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setNeighbourhood({
+                          ...neighbourhood,
+                          value: e.currentTarget.value,
+                        })
                       }}
                       error={
-                        neighbourhood.length === 0 &&
-                        touched.neighbourhood && {
+                        neighbourhood.value.length === 0 &&
+                        neighbourhood.touched && {
                           icon: 'information',
                           message: 'Campo obrigatório',
                         }
@@ -377,17 +404,24 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       label="cidade"
                       name="cidade"
                       placeholder="Digite"
-                      value={city}
+                      value={city.value}
                       maxLength={25}
-                      disabled={addressDisabled}
-                      hasError={city.length === 0 && touched.city}
-                      onBlur={() => touch('city')}
-                      onChange={(e: any) => {
-                        setCity(e.target.value)
+                      disabled={
+                        isAddressDisabled || hasZipCodeError || isZipCodeLoading
+                      }
+                      hasError={city.value.length === 0 && city.touched}
+                      onBlur={() =>
+                        setCity(oldState => ({ ...oldState, touched: true }))
+                      }
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setCity({
+                          ...city,
+                          value: e.currentTarget.value,
+                        })
                       }}
                       error={
-                        city.length === 0 &&
-                        touched.city && {
+                        city.value.length === 0 &&
+                        city.touched && {
                           icon: 'information',
                           message: 'Campo obrigatório',
                         }
@@ -397,7 +431,9 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
 
                   <s.FormCol md={3} sm={4} xs={12}>
                     <SelectBrazilianStates
-                      disabled={addressDisabled}
+                      disabled={
+                        isAddressDisabled || hasZipCodeError || isZipCodeLoading
+                      }
                       selectedOption={stateOption}
                       setSelectedOption={setStateOption}
                     />
@@ -413,12 +449,12 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
             onClick={() =>
               onNextStep({
                 ...formData,
-                cep,
-                cidade: city,
-                logradouro: streetAddress,
-                bairro: neighbourhood,
-                numeroLogradouro: number,
-                complemento: additionalInfo.length > 0 ? additionalInfo : '',
+                cep: cep.value,
+                cidade: city.value,
+                logradouro: streetAddress.value,
+                bairro: neighbourhood.value,
+                numeroLogradouro: number.value,
+                complemento: additionalInfo.value,
                 uf: stateOption.name,
                 codigoBandeira: selectedFlag,
                 diaVencimento: selectedDay.name,

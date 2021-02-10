@@ -21,7 +21,7 @@ import RegisterDocumentStep from './RegisterDocumentStep'
 import AddicionalInfoStep from './AddicionalInfoStep'
 import CreditCardStep from './CreditCardStep'
 import SummaryStep from './SummaryStep'
-import ConfirmationMessageStep from './ConfirmationMessageStep'
+import ConfirmationMessageStep from '../common/components/ConfirmationMessageStep'
 
 import { ICreditCardCreationPayload, IOrderResponse } from './types'
 import {

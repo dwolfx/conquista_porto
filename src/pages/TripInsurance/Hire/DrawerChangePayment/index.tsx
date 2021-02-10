@@ -13,7 +13,7 @@ import { IForm } from 'pages/TripInsurance/Creation/types'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { capitalize, formatMoney } from 'helpers'
 import IconExporter from 'components/IconExporter'
-import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
+import { validationInputError } from 'helpers/validators'
 import { TFlagName } from '../PaymentStep/types'
 import { getFlagCode } from '../PaymentStep/utils'
 import {

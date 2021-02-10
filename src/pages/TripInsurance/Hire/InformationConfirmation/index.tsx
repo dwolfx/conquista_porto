@@ -22,7 +22,7 @@ import StepBar from 'pages/TripInsurance/commons/StepBar'
 import {
   errorObject,
   validationInputError,
-} from 'pages/CreditCard/Creation/CreditCardStep/validators'
+} from 'helpers/validators'
 import {
   IForm,
   IPassengerAddress,

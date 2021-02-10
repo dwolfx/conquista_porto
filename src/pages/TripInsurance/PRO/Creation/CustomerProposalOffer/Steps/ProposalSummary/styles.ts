@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Container as ContainerCmp, Col as ColCmp } from 'styled-bootstrap-grid'
+import ComparativeModalCmp from 'pages/TripInsurance/Creation/ComparativeModal'
 import TextCmp from 'components/Text'
 import CardCmp from 'components/Card'
-import ComparativeModalCmp from 'pages/TripInsurance/Creation/ComparativeModal'
-import DataShower from 'pages/CreditCard/Creation/SummaryStep/DataShower'
+import DataShower from 'pages/CreditCard/common/components/DataShower'
 import Button from 'components/Button'
 import { Table } from 'components/Table/styles'
 

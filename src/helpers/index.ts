@@ -152,7 +152,6 @@ export const removeCookieValue = (key: string) => {
       window.location.hostname.length
     )
   }
-
   Cookies.remove(key, { domain })
 }
 
@@ -255,6 +254,25 @@ export const calculateAge = (birthDateString: string) => {
     age -= 1
   }
   return age
+}
+
+export const exchangePROToken = () => {
+  Cookies.set('TOKEN', 'skjadiosjiapdkpasdhjsaijdaidsoh')
+  console.log('accessToken atual: ', Cookies.get('accessToken'))
+  const tokenPRO = Cookies.get('TOKEN')
+  console.log('tokenPRO: ', tokenPRO)
+  if (tokenPRO) {
+    Cookies.set('accessToken', tokenPRO)
+    console.log('Caiu no IF e veja se mudou o accessToken', Cookies.get('accessToken'))
+  }
+  // Cookies.set('TOKEN', 'skjadiosjiapdkpasdhjsaijdaidsoh', { domain: '.portoseguro.brasil' })
+  // console.log('accessToken atual: ', Cookies.get('accessToken'))
+  // const accessToken = Cookies.get('accessToken')
+  // console.log('accessToken: ', accessToken)
+  // if (accessToken) {
+  //   Cookies.set('tokenPRO', accessToken, { domain: '.portoseguro.brasil' })
+  //   console.log('Caiu no IF e veja se mudou o accessToken', Cookies.get('tokenPRO'))
+  // }
 }
 
 export * from 'cpf-cnpj-validator'

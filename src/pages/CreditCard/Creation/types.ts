@@ -17,11 +17,6 @@ export interface ISummaryStep {
   retrySubmit: boolean
 }
 
-export interface IOption {
-  id: number | string
-  name: string
-}
-
 export enum DocumentType {
   RG = 'RG',
   RNE = 'RNE',

@@ -25,6 +25,7 @@ const privateWelfare = require('./src/mocks/privateWelfare.json')
 const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatusPRE.json')
 const getBond = require('./src/mocks/getBond.json')
 const fundExtract = require('./src/mocks/fundExtract.json')
+const creditCardPROCreationResponse = require('./src/mocks/PRO/cartao-credito/success-response-creation.json')
 
 server.use(middlewares)
 
@@ -107,6 +108,12 @@ router.render = (req, res) => {
     }
 
     return res.status(200).jsonp({})
+  }
+
+  if (req.originalUrl.startsWith('/api/pro/cartao/proposta')) {
+    return res.status(200).jsonp({
+      ...creditCardPROCreationResponse,
+    })
   }
 
   if (req.originalUrl.startsWith('/api/goal/goals')) {
