@@ -126,17 +126,28 @@ export interface IContainerInformationConfirmationStepHireFlux {
   label?:
     | string
     | ILabelContainerFirstInformationConfirmationStepHireFlux
-    | ILabelContainerSecondInformationConfirmationStepHireFlux
     | ILabelContainerThirdInformationConfirmationStepHireFlux
     | ILabelContainerFourthInformationConfirmationStepHireFlux
+}
+
+export interface IContainerFirstInformationConfirmationStepHireFlux {
+  title: string
+  link: string
+  label: ILabelContainerFirstInformationConfirmationStepHireFlux
+}
+
+export interface IContainerSecondInformationConfirmationStepHireFlux {
+  title: string
+  link: string
+  label: ILabelContainerSecondInformationConfirmationStepHireFlux
 }
 
 export interface IInformationConfirmationStepHireFlux {
   actualStep: 1 | 2 | 3 | 4 | 5 | null
   title: string
   subtitle: string
-  containerFirst: IContainerInformationConfirmationStepHireFlux
-  containerSecond: IContainerInformationConfirmationStepHireFlux
+  containerFirst: IContainerFirstInformationConfirmationStepHireFlux
+  containerSecond: IContainerSecondInformationConfirmationStepHireFlux
   containerThird: IContainerInformationConfirmationStepHireFlux
   containerFourth: IContainerInformationConfirmationStepHireFlux
   containerFifth: IContainerInformationConfirmationStepHireFlux

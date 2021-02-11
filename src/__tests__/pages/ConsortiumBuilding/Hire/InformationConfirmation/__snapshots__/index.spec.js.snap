@@ -193,6 +193,30 @@ Array [
   }
 }
 
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
 @media (min-width:576px) {
 
 }
@@ -360,6 +384,341 @@ Array [
   line-height: 25px;
 }
 
+.c12 {
+  color: #898989;
+  text-align: unset;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c14 {
+  color: #00ADEF;
+  text-align: unset;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c18 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c20 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c34 {
+  color: #E72176;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c17 {
+  width: 30%;
+}
+
+.c19 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.c26 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c29 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c29 #prefix {
+  padding-left: 7px;
+}
+
+.c29 #suffix {
+  padding-right: 7px;
+}
+
+.c29:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c29:focus-within #prefix,
+.c29:focus-within #suffix {
+  color: #272727;
+}
+
+.c27 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c31 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c30 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c30:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c30::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c25 {
+  position: relative;
+  height: 70px;
+}
+
+.c25 .c28 {
+  height: calc(100% - 24px);
+}
+
+.c22 {
+  position: relative;
+}
+
+.c24 {
+  position: relative;
+}
+
+.c24:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c16 {
+  padding-left: 14px;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c23 {
+  margin: 28px 14px;
+}
+
+.c33 {
+  padding-left: 14px;
+}
+
+.c33 div {
+  overflow-wrap: anywhere;
+}
+
+.c8 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c13 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c13 svg {
+  height: 21px;
+}
+
+.c13 svg path {
+  fill: currentColor;
+}
+
+.c9 {
+  margin-bottom: 14px;
+  padding: 35px 35px 21px;
+}
+
+.c9 div {
+  overflow: visible;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c0 {
   width: 100%;
   padding-right: 15px;
@@ -436,6 +795,53 @@ Array [
 
 @media (min-width:992px) {
 
+}
+
+@media (max-width:736px) {
+  .c17 {
+    width: 100%;
+    margin-bottom: 7px;
+  }
+}
+
+@media (max-width:736px) {
+  .c15 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width:736px) {
+  .c21 {
+    width: 630px;
+  }
+}
+
+@media (max-width:736px) {
+  .c32 {
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c9 {
+    padding: 14px 14px 0;
+  }
+}
+
+@media (max-width:736px) {
+  .c11 {
+    padding: 14px 14px 0;
+  }
 }
 
 @media (min-width:576px) {
@@ -595,7 +1001,322 @@ Array [
     <div
       className="sc-Axmtr c7"
       data-name="col-md-10 col-lg-8"
-    />
+    >
+      <div
+        className="c8 c9"
+        data-testid="card-structure-id"
+      >
+        <div
+          className="c10"
+          data-testid="card-body"
+          overflow="hidden"
+        >
+          <div
+            className="c11"
+          >
+            <p
+              className="c12 "
+              color="gray5"
+              type="subheading"
+            >
+              dados pessoais
+            </p>
+            <a
+              className="c13 "
+              disabled={false}
+              onClick={[Function]}
+            >
+              <span
+                className="c14 "
+                color="blue4"
+                type="button"
+              >
+                Alterar no perfil
+              </span>
+              <svg
+                aria-label="arrowright"
+                fill="#BABABA"
+                role="img"
+                width={21}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+          </div>
+          <div
+            className="c15 c16"
+          >
+            <div
+              className="c17"
+            >
+              <span
+                className="c18"
+                color="gray5"
+                type="caption"
+              >
+                Nome
+              </span>
+            </div>
+            <div
+              className="c19"
+            >
+              <h6
+                className="c20"
+                color="gray6"
+                type="title"
+              >
+                Rubao Teste
+              </h6>
+            </div>
+          </div>
+          <div
+            className="c5"
+          />
+          <div
+            className="c15 c16"
+          >
+            <div
+              className="c17"
+            >
+              <span
+                className="c18"
+                color="gray5"
+                type="caption"
+              >
+                CPF
+              </span>
+            </div>
+            <div
+              className="c19"
+            >
+              <h6
+                className="c20"
+                color="gray6"
+                type="title"
+              >
+                362.753.128-07
+              </h6>
+            </div>
+          </div>
+          <div
+            className="c5"
+          />
+          <div
+            className="c15 c16"
+          >
+            <div
+              className="c17"
+            >
+              <span
+                className="c18"
+                color="gray5"
+                type="caption"
+              >
+                Data de Nascimento
+              </span>
+            </div>
+            <div
+              className="c19"
+            >
+              <h6
+                className="c20"
+                color="gray6"
+                type="title"
+              >
+                11/11/1981
+              </h6>
+            </div>
+          </div>
+          <div
+            className="c5"
+          />
+          <div
+            className="c15 c16"
+          >
+            <div
+              className="c17"
+            >
+              <span
+                className="c18"
+                color="gray5"
+                type="caption"
+              >
+                Nacionalidade
+              </span>
+            </div>
+            <div
+              className="c19"
+            >
+              <h6
+                className="c20"
+                color="gray6"
+                type="title"
+              >
+                Brasileiro(a)
+              </h6>
+            </div>
+          </div>
+          <div
+            className="c21"
+          >
+            <div
+              className="c22 c23"
+              data-testid="select-civil-status-id"
+            >
+              <div
+                className="c24"
+                data-testid="select-Estado civil"
+                onClick={[Function]}
+              >
+                <div
+                  className="c25"
+                  disabled={false}
+                >
+                  <div
+                    className="c26"
+                  >
+                    <label
+                      className="c27"
+                    >
+                      Estado civil
+                    </label>
+                    <div
+                      className="c28 c29"
+                      onClick={[Function]}
+                    >
+                      <input
+                        className="c30"
+                        data-testid="select-option-input-undefined"
+                        disabled={false}
+                        placeholder="Selecione"
+                        readOnly={true}
+                        value=""
+                      />
+                      <div
+                        className="c31"
+                        id="suffix"
+                      >
+                        <svg
+                          aria-label="arrowdown"
+                          fill="#272727"
+                          height={21}
+                          role="img"
+                          width={21}
+                        >
+                          arrow-down.svg
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c8 c9"
+        data-testid="card-structure-id"
+      >
+        <div
+          className="c10"
+          data-testid="card-body"
+          overflow="hidden"
+        >
+          <div
+            className="c11"
+          >
+            <p
+              className="c12 "
+              color="gray5"
+              type="subheading"
+            >
+              Dados para contato
+            </p>
+            <a
+              className="c13 "
+              disabled={false}
+              onClick={[Function]}
+            >
+              <span
+                className="c14 "
+                color="blue4"
+                type="button"
+              >
+                Alterar no perfil
+              </span>
+              <svg
+                aria-label="arrowright"
+                fill="#BABABA"
+                role="img"
+                width={21}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+          </div>
+          <div
+            className="c32"
+          >
+            <div
+              className="c15 c33"
+            >
+              <div
+                className="c17"
+              >
+                <span
+                  className="c18"
+                  color="gray5"
+                  type="caption"
+                >
+                  E-mail
+                </span>
+              </div>
+              <div
+                className="c19"
+              >
+                <h6
+                  className="c20"
+                  color="gray6"
+                  type="title"
+                >
+                  ricardo.eufrasio@portoseguro.com.br
+                </h6>
+              </div>
+            </div>
+            <div
+              className="c5"
+            />
+            <div
+              className="c15 c33"
+            >
+              <div
+                className="c17"
+              >
+                <span
+                  className="c18"
+                  color="gray5"
+                  type="caption"
+                >
+                  Celular
+                </span>
+              </div>
+              <div
+                className="c19"
+              >
+                <span
+                  className="c34"
+                  color="magenta2"
+                  type="caption"
+                >
+                  Não preenchido
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   .c6 {
   background: linear-gradient( to left, #2F736B -35%, #46A166 );
@@ -785,6 +1506,30 @@ Array [
 }
 
 @media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:736px) {
 
 }
 
