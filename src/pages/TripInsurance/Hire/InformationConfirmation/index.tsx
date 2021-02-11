@@ -133,8 +133,12 @@ const InformationConfirmation: StepComponent = () => {
   const [documentNumberPpe, setDocumentNumberPpe] = React.useState<string>()
   const [documentDigitPpe, setDocumentDigitPpe] = React.useState<string>()
   const [namePpe, setNamePpe] = React.useState<string>()
+  const [cep, setCep] = React.useState<string>('')
   const [numero, setNumero] = React.useState({ value: '', touched: false })
-  const [complemento, setComplemento] = React.useState({ value: '', touched: false })
+  const [complemento, setComplemento] = React.useState({
+    value: '',
+    touched: false,
+  })
   const [isReside, setIsReside] = React.useState<boolean>(
     form.passageiroPrincipal?.isResidePais ?? true
   )
@@ -283,6 +287,8 @@ const InformationConfirmation: StepComponent = () => {
     !!form.passageiroPrincipal?.contato?.nome &&
     !!form.passageiroPrincipal?.contato?.celularDDD &&
     !!form.passageiroPrincipal?.contato?.celularNumero &&
+    cep.length === 9 &&
+    isReside &&
     form.passageiroPrincipal?.contato?.celularDDD.length === 2 &&
     [8, 9].includes(form.passageiroPrincipal?.contato?.celularNumero.length) &&
     isPpeValid()
@@ -570,10 +576,11 @@ const InformationConfirmation: StepComponent = () => {
               </s.AddressText>
             )}
             <s.TextInputContainer>
-              <AddressForm 
+              <AddressForm
                 addressData={[address, setAddress]}
                 numero={[numero, setNumero]}
                 complemento={[complemento, setComplemento]}
+                cep={[cep, setCep]}
               />
             </s.TextInputContainer>
           </s.Card>
@@ -609,28 +616,31 @@ const InformationConfirmation: StepComponent = () => {
                   })
                 }
               />
-                <s.EmergencyContactTextInput
-                  label="telefone"
-                  placeholder="Digite somente números"
-                  onBlur={() => checkForm('isContactPhone')}
-                  error={validationPhone()}
-                  maxLength={16}
-                  value={formatPhoneNumber(`${form.passageiroPrincipal?.contato?.celularDDD ?? ''}${form.passageiroPrincipal?.contato?.celularNumero ?? ''}` )}
-                  onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                    const value = e.currentTarget.value.replace(/\D/g, '')
-                    updateForm({
-                      ...form,
-                      passageiroPrincipal: {
-                        ...form.passageiroPrincipal,
-                        contato: {
-                          ...form.passageiroPrincipal?.contato,
-                          celularDDD: value.slice(0, 2),
-                          celularNumero: value.slice(2),
-                        },
+              <s.EmergencyContactTextInput
+                label="telefone"
+                placeholder="Digite somente números"
+                onBlur={() => checkForm('isContactPhone')}
+                error={validationPhone()}
+                maxLength={16}
+                value={formatPhoneNumber(
+                  `${form.passageiroPrincipal?.contato?.celularDDD ?? ''}${form
+                    .passageiroPrincipal?.contato?.celularNumero ?? ''}`
+                )}
+                onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                  const value = e.currentTarget.value.replace(/\D/g, '')
+                  updateForm({
+                    ...form,
+                    passageiroPrincipal: {
+                      ...form.passageiroPrincipal,
+                      contato: {
+                        ...form.passageiroPrincipal?.contato,
+                        celularDDD: value.slice(0, 2),
+                        celularNumero: value.slice(2),
                       },
-                    })
-                  }}
-                />
+                    },
+                  })
+                }}
+              />
             </s.EmergencyContactWrapper>
           </s.Card>
           <s.CardLast>

@@ -18,7 +18,7 @@ interface IFormAddres {
   stateOption: boolean
 }
 
-type TInputForm = { value: string, touched: boolean }
+type TInputForm = { value: string; touched: boolean }
 
 interface IAddressForm {
   numero: [TInputForm, React.Dispatch<React.SetStateAction<TInputForm>>]
@@ -27,6 +27,7 @@ interface IAddressForm {
     IPassengerAddress,
     React.Dispatch<React.SetStateAction<IPassengerAddress>>
   ]
+  cep: [string, React.Dispatch<React.SetStateAction<string>>]
 }
 
 type EAddressForm =
@@ -44,6 +45,7 @@ const AddressForm: React.FC<IAddressForm> = ({
   numero: [numero, setNumero],
   complemento: [complemento, setComplemento],
   addressData: [addressData, setAddressData],
+  cep: [cep, setCep],
 }: IAddressForm) => {
   const {
     data: zipCode,
@@ -52,7 +54,6 @@ const AddressForm: React.FC<IAddressForm> = ({
     hasError,
   } = useZipCodeFetch()
 
-  const [cep, setCep] = React.useState<string>('')
   const [stateSelect, setStateSelect] = React.useState({
     id: 0,
     name: 'Selecione',
@@ -152,6 +153,7 @@ const AddressForm: React.FC<IAddressForm> = ({
     } else {
       setFormAddress('', 'numeroCep')
       setFormAddress('', 'complementoCep')
+      setFormAddress('', 'numero')
     }
   }
 
@@ -218,9 +220,9 @@ const AddressForm: React.FC<IAddressForm> = ({
               onBlur={() => touch('number')}
               error={validationInputError(numero.value, numero.touched)}
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
-                setNumero({ 
+                setNumero({
                   ...numero,
-                  value: e.currentTarget.value
+                  value: e.currentTarget.value,
                 })
               }
             />
