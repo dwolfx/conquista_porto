@@ -378,6 +378,10 @@ Array [
 
 }
 
+@media (max-width:480px) {
+
+}
+
 <div
     className="c0"
   >
@@ -575,20 +579,6 @@ Array [
   line-height: 25px;
 }
 
-.c34 {
-  color: unset;
-  text-align: unset;
-  text-transform: none;
-  font-weight: normal;
-  font-size: 14px;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  font-weight: 600;
-  line-height: 19px;
-}
-
 .c44 {
   color: #898989;
   text-align: unset;
@@ -636,6 +626,34 @@ Array [
 
 .c55 {
   color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c56 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c34 {
+  color: unset;
   text-align: unset;
   text-transform: none;
   font-weight: normal;
@@ -865,6 +883,48 @@ Array [
 }
 
 .c37:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c73 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c73:hover:active {
+  pointer-events: none;
+}
+
+.c73:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c73:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -1252,6 +1312,245 @@ Array [
   margin-left: 14px;
 }
 
+.c67 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c70 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c70 #prefix {
+  padding-left: 7px;
+}
+
+.c70 #suffix {
+  padding-right: 7px;
+}
+
+.c70:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c70:focus-within #prefix,
+.c70:focus-within #suffix {
+  color: #272727;
+}
+
+.c68 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c72 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c71 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c71:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c71::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c66 {
+  position: relative;
+  height: 70px;
+}
+
+.c66 .c69 {
+  height: calc(100% - 24px);
+}
+
+.c61 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  width: 20px;
+}
+
+.c61:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #BABABA;
+}
+
+.c61:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c61:checked:after {
+  background-color: #00ADEF;
+}
+
+.c60 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  margin: 8px 16px 8px 0;
+  pointer-events: all;
+}
+
+.c60:last-of-type {
+  margin-right: 0;
+}
+
+.c59 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c63 {
+  position: relative;
+}
+
+.c65 {
+  position: relative;
+}
+
+.c65:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c74 {
+  width: 100%;
+}
+
+.c57 {
+  margin-top: 14px;
+}
+
+.c62:first-child {
+  margin-right: 14px;
+}
+
+.c58 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 28px;
+}
+
+.c58 label {
+  margin-right: 28px;
+}
+
+.c64 {
+  margin-top: 28px;
+}
+
 @media (min-width:576px) {
 
 }
@@ -1568,6 +1867,15 @@ Array [
   }
 }
 
+@media (max-width:480px) {
+  .c59 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+}
+
 <div
     className="c0"
     data-name="container"
@@ -1857,9 +2165,10 @@ Array [
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
-                data-gtm-subname="alterar dados do contratante - seguro viagem"
+                data-gtm-subname="alterar dados do contratante - seguro viagem - pro"
                 data-gtm-type="click"
                 disabled={false}
+                onClick={[Function]}
               >
                 <span
                   className="c24"
@@ -2094,8 +2403,9 @@ Array [
                 <a
                   className="c45"
                   disabled={false}
+                  onClick={[Function]}
                 >
-                  ALTERAR
+                  ALTERAR NO PERFIL
                   <span
                     className="c46"
                   />
@@ -2206,6 +2516,171 @@ Array [
           </div>
         </div>
         <div
+          className="c8"
+        >
+          <div
+            className="c9"
+            onClick={[Function]}
+          />
+          <div
+            className="c10"
+            size="sm"
+          >
+            <div
+              className="c11"
+            >
+              <h5
+                className="c12 c13"
+                color="unset"
+                type="headline"
+              >
+                Alterar pessoa politicamente exposta
+              </h5>
+              <svg
+                aria-label="close"
+                className="c14"
+                data-gtm-clicktype="button"
+                data-gtm-name="botao fechar"
+                data-gtm-subname="menu Alterar pessoa politicamente exposta"
+                data-gtm-type="click"
+                fill="#BABABA"
+                onClick={[Function]}
+                role="img"
+                width={21}
+              >
+                close.svg
+              </svg>
+            </div>
+            <div
+              className="c15"
+            >
+              <h5
+                className="c19 "
+                color="gray6"
+                type="headline"
+              >
+                Você é ou possui parentesco com uma pessoa politicamente exposta?
+              </h5>
+              <p
+                className="c56 c57"
+                color="gray5"
+                type="body"
+              >
+                Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos anteriores, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos de alto nível, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
+              </p>
+              <div
+                className="c58"
+                data-testid="radio-exposed-person"
+              >
+                <div
+                  className="c59"
+                  width="auto"
+                >
+                  <label
+                    className="c60"
+                  >
+                    <input
+                      checked={true}
+                      className="c61 c62"
+                      data-gtm-form="input"
+                      data-gtm-name="Sim"
+                      onChange={[Function]}
+                      type="radio"
+                      value="0"
+                    />
+                    Sim
+                  </label>
+                  <label
+                    className="c60"
+                  >
+                    <input
+                      checked={false}
+                      className="c61 c62"
+                      data-gtm-form="input"
+                      data-gtm-name="Não"
+                      onChange={[Function]}
+                      type="radio"
+                      value="1"
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+              <div
+                className="c63 c64"
+              >
+                <div
+                  className="c65"
+                  data-testid="select-Quem é a pessoa políticamente exposta?"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="c66"
+                    disabled={false}
+                  >
+                    <div
+                      className="c67"
+                    >
+                      <label
+                        className="c68"
+                      >
+                        Quem é a pessoa políticamente exposta?
+                      </label>
+                      <div
+                        className="c69 c70"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c71"
+                          data-testid="select-option-input-undefined"
+                          disabled={false}
+                          placeholder="Selecione"
+                          readOnly={true}
+                          value=""
+                        />
+                        <div
+                          className="c72"
+                          id="suffix"
+                        >
+                          <svg
+                            aria-label="arrowdown"
+                            fill="#272727"
+                            height={21}
+                            role="img"
+                            width={21}
+                          >
+                            arrow-down.svg
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="c36"
+            >
+              <button
+                className="c73 c74"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="salvar alterações"
+                data-gtm-subname="alterar pessoa politicamente exposta - seguro viagem - pro"
+                data-gtm-type="click"
+                disabled={true}
+                onClick={[Function]}
+              >
+                <span
+                  className="c24"
+                >
+                  SALVAR ALTERAÇÕES
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
           className="c39 c40"
         >
           <div
@@ -2229,6 +2704,7 @@ Array [
                 <a
                   className="c45"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <span
@@ -3134,6 +3610,10 @@ Array [
 }
 
 @media (min-width:736px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 

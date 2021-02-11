@@ -62,14 +62,11 @@ export const RadioLabel = styled.label<ILabel>`
   margin: 8px 16px 8px 0;
   pointer-events: ${props => (props.disabled ? 'none' : 'all')};
 
-
   ${props =>
     (props.itemsDirection === 'row' ||
       props.itemsDirection === 'row-reverse') &&
-    `&:last-of-type {
-    margin-right: 0;
-  }`}
-}`
+    '&:last-of-type { margin-right: 0; }'}
+`
 
 interface IWrapper {
   itemsAlign: 'flex-start' | 'start ' | 'center' | 'flex-end' | 'end'

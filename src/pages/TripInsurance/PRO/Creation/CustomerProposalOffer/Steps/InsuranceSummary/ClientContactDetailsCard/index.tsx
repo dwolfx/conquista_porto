@@ -7,7 +7,7 @@ import Text from 'components/Text'
 
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
-import { formatPhoneNumber } from 'helpers'
+import { formatPhoneNumber, handleGiwRedirect } from 'helpers'
 
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { IMainPassenger } from 'pages/TripInsurance/Creation/types'
@@ -38,8 +38,11 @@ const ClientContactDetailsCard: React.FC = () => {
             hasNotification={checkEmptyContactDataFields(
               form.passageiroPrincipal ?? {}
             )}
+            onClick={() => {
+              handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+            }}
           >
-            ALTERAR
+            ALTERAR NO PERFIL
           </ButtonLink>
         </s.CardTitleWrapper>
         <DataRow

@@ -2,10 +2,9 @@ import React from 'react'
 
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
-// import userEvent from '@testing-library/user-event'
+import userEvent from '@testing-library/user-event'
 
 import ClientDataCard from '.'
-import userEvent from '@testing-library/user-event'
 
 const defaultStore: {
   fluxManagement: { stack: React.ReactElement[]; form: {} }

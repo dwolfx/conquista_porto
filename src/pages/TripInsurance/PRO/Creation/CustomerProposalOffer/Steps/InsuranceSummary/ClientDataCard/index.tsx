@@ -3,7 +3,7 @@ import React from 'react'
 import ButtonLink from 'components/Button/Link'
 import DataRow from 'pages/TripInsurance/commons/DataRow'
 import Divisor from 'components/Divisor'
-import EditHirerData from 'pages/TripInsurance/PRO/Creation/CustomerProposalOffer/Steps/InsuranceSummary/ClientDataCard/EditingData/EditHirerData'
+import EditClientDataDrawer from 'pages/TripInsurance/PRO/Creation/CustomerProposalOffer/Steps/InsuranceSummary/ClientDataCard/EditClientDataDrawer'
 import Text from 'components/Text'
 
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
@@ -18,9 +18,10 @@ import * as s from '../styles'
 const ClientDataCard: React.FC = () => {
   const { form } = useFormFluxManagement<IForm>()
 
-  const [isHirerDataDrawerOpen, setIsHirerDataDrawerOpen] = React.useState<
-    boolean
-  >(false)
+  const [
+    isEditClientDataDrawerOpen,
+    setIsEditClientDataDrawerOpen,
+  ] = React.useState<boolean>(false)
 
   const checkEmptyClientDataFields = (
     mainPassenger: IMainPassenger
@@ -37,9 +38,9 @@ const ClientDataCard: React.FC = () => {
 
   return (
     <>
-      <EditHirerData
-        isOpen={isHirerDataDrawerOpen}
-        handleClose={() => setIsHirerDataDrawerOpen(false)}
+      <EditClientDataDrawer
+        isOpen={isEditClientDataDrawerOpen}
+        handleClose={() => setIsEditClientDataDrawerOpen(false)}
       />
       <s.Card>
         <s.CardContentWrapper>
@@ -49,7 +50,7 @@ const ClientDataCard: React.FC = () => {
             </Text>
             <ButtonLink
               onClick={() => {
-                setIsHirerDataDrawerOpen(true)
+                setIsEditClientDataDrawerOpen(true)
               }}
               hasNotification={checkEmptyClientDataFields(
                 form.passageiroPrincipal ?? {}

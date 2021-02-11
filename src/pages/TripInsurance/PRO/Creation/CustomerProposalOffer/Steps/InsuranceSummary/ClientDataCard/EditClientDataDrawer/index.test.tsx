@@ -3,11 +3,9 @@ import { renderWithReduxAndTheme, screen, act } from 'testUtils'
 import { storeFactory } from 'setupTests'
 import userEvent from '@testing-library/user-event'
 
-import EditHirerData from './index'
+import EditClientDataDrawer from './index'
 
-import * as t from './types'
-
-const defaultStore: t.IDefaultStore = {
+const defaultStore = {
   customerProfile: {
     data: {
       cpfCnpj: '36275312807',
@@ -33,17 +31,17 @@ const createRootContainer = () => {
   return container
 }
 
-const setup = (initialState: t.IDefaultStore) => {
+const setup = (initialState: {}) => {
   const store = storeFactory(initialState)
   return renderWithReduxAndTheme(
-    <EditHirerData isOpen handleClose={() => {}} />,
+    <EditClientDataDrawer isOpen handleClose={() => {}} />,
     { store, container: createRootContainer() }
   )
 }
 
-describe('EditHirerData component', () => {
+describe('EditClientDataDrawer component', () => {
   it('should exists', () => {
-    expect(EditHirerData).toBeDefined()
+    expect(EditClientDataDrawer).toBeDefined()
   })
   it('should render Title', () => {
     setup(defaultStore)
@@ -126,7 +124,7 @@ describe('EditHirerData component', () => {
       const handleClose = jest.fn()
 
       renderWithReduxAndTheme(
-        <EditHirerData isOpen handleClose={handleClose} />,
+        <EditClientDataDrawer isOpen handleClose={handleClose} />,
         { store, container: createRootContainer() }
       )
 
@@ -140,11 +138,27 @@ describe('EditHirerData component', () => {
       const handleClose = jest.fn()
 
       renderWithReduxAndTheme(
-        <EditHirerData isOpen handleClose={handleClose} />,
+        <EditClientDataDrawer isOpen handleClose={handleClose} />,
         { container: createRootContainer() }
       )
       const closeButton = screen.getByText(/close/i)
       userEvent.click(closeButton)
+      expect(handleClose).toHaveBeenCalled()
+    })
+    it(`should trigger drawer 'salvar alterações' button`, () => {
+      const store = storeFactory(defaultStore)
+      const handleClose = jest.fn()
+
+      renderWithReduxAndTheme(
+        <EditClientDataDrawer isOpen handleClose={handleClose} />,
+        { store, container: createRootContainer() }
+      )
+      userEvent.click(
+        screen.getByRole('button', {
+          name: /SALVAR ALTERAÇÕES/i,
+        })
+      )
+
       expect(handleClose).toHaveBeenCalled()
     })
   })

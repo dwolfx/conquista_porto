@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 
@@ -9,9 +9,12 @@ import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 import WarningFlag from 'pages/TripInsurance/commons/WarningFlag'
 
-import { formatCpf, handleGiwRedirect } from 'helpers'
-import useMedia from 'hooks/useMedia'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
+import useMedia from 'hooks/useMedia'
+import { formatCpf, handleGiwRedirect } from 'helpers'
+
+import { IForm } from 'pages/TripInsurance/PRO/types'
 
 import * as s from './styles'
 import * as t from './types'
@@ -22,10 +25,17 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
   ...rest
 }) => {
   const isMobile = useMedia('sm')
+  const { form, updateForm } = useFormFluxManagement<IForm>()
 
-  const [isBrazilianResident, setIsBrazilianResident] = useState<boolean>(false)
+  const [isBrazilianResident, setIsBrazilianResident] = React.useState<boolean>(
+    true
+  )
 
   useFetchCustomerProfile()
+
+  React.useEffect(() => {
+    setIsBrazilianResident(form.passageiroPrincipal?.isResidePais ?? false)
+  }, [form.passageiroPrincipal])
 
   const { customerProfile, isLoading } = useSelector((state: any) => ({
     customerProfile: state.customerProfile.data,
@@ -37,8 +47,18 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
       disabled={isLoading}
       data-gtm-type="click"
       data-gtm-clicktype="button"
-      data-gtm-subname="alterar dados do contratante - seguro viagem"
+      data-gtm-subname="alterar dados do contratante - seguro viagem - pro"
       data-gtm-name="salvar alterações"
+      onClick={() => {
+        updateForm({
+          ...form,
+          passageiroPrincipal: {
+            ...form.passageiroPrincipal,
+            isResidePais: isBrazilianResident,
+          },
+        })
+        handleClose()
+      }}
     >
       SALVAR ALTERAÇÕES
     </s.SaveChangesButton>

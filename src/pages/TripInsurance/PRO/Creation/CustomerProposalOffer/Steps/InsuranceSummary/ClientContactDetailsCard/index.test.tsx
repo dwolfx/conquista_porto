@@ -2,6 +2,7 @@ import React from 'react'
 
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
+import userEvent from '@testing-library/user-event'
 
 import ClientContactDetailsCard from '.'
 
@@ -46,5 +47,24 @@ describe('ClientContactDetailsCard component', () => {
     })
 
     expect(screen.getAllByText('Não preenchido')).toHaveLength(2)
+  })
+  it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
+    const store = storeFactory(defaultStore)
+    renderWithReduxAndTheme(<ClientContactDetailsCard />, { store })
+
+    //@ts-expect-error
+    delete window.location
+    window.location = {
+      ...window.location,
+      href: '/',
+    }
+
+    const updateAtProfileButton = screen.getByText(/alterar no perfil/i)
+
+    userEvent.click(updateAtProfileButton)
+
+    expect(
+      window.location.href.includes('portaldecliente/conquista/perfil?r=true')
+    ).toBeTruthy()
   })
 })
