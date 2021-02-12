@@ -11,6 +11,7 @@ const tripInsuranceCreditCardMock = require('./src/mocks/tripInsuranceCreditCard
 const tripInsuranceQuotationMock = require('./src/mocks/tripInsuranceQuotation.json')
 const tripInsuranceProposalMock = require('./src/mocks/tripInsuranceProposal.json')
 const consortiumBuildingStatesMock = require('./src/mocks/consortiumBuildingStates.json')
+const consortiumBuildingProposalSimulationsMock = require('./src/mocks/consortiumBuildingProposalSimulations.json')
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
@@ -217,6 +218,14 @@ router.render = (req, res) => {
   if (req.originalUrl.endsWith('/produtos/comercializacao/uf')) {
     if (req.method === 'GET') {
       return res.status(200).jsonp({ ...consortiumBuildingStatesMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/proposta/simular')) {
+    if (req.method === 'POST') {
+      return res
+        .status(200)
+        .jsonp({ ...consortiumBuildingProposalSimulationsMock })
     }
   }
 
