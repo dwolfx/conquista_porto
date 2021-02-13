@@ -382,6 +382,10 @@ Array [
 
 }
 
+@media (max-width:480px) {
+
+}
+
 <div
     className="c0"
   >
@@ -894,7 +898,7 @@ Array [
   width: 0;
 }
 
-.c73 {
+.c75 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -912,11 +916,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c73:hover:active {
+.c75:hover:active {
   pointer-events: none;
 }
 
-.c73:hover:active:after {
+.c75:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -924,7 +928,7 @@ Array [
   transition: all ease 0s;
 }
 
-.c73:before {
+.c75:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -1312,7 +1316,7 @@ Array [
   margin-left: 14px;
 }
 
-.c67 {
+.c69 {
   background-color: #F1F1F1;
   border-radius: 8px 8px 0px 0px;
   height: 100%;
@@ -1325,7 +1329,7 @@ Array [
   line-height: 25px;
 }
 
-.c70 {
+.c72 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1340,24 +1344,24 @@ Array [
   position: relative;
 }
 
-.c70 #prefix {
+.c72 #prefix {
   padding-left: 7px;
 }
 
-.c70 #suffix {
+.c72 #suffix {
   padding-right: 7px;
 }
 
-.c70:focus-within {
+.c72:focus-within {
   border-bottom: 2px solid #00ADEF;
 }
 
-.c70:focus-within #prefix,
-.c70:focus-within #suffix {
+.c72:focus-within #prefix,
+.c72:focus-within #suffix {
   color: #272727;
 }
 
-.c68 {
+.c70 {
   color: #898989;
   padding-left: 14px;
   padding-top: 7px;
@@ -1372,7 +1376,7 @@ Array [
   line-height: 16px;
 }
 
-.c72 {
+.c74 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1386,7 +1390,7 @@ Array [
   height: 100%;
 }
 
-.c71 {
+.c73 {
   background-color: inherit;
   border: none;
   color: #272727;
@@ -1396,12 +1400,12 @@ Array [
   width: 100%;
 }
 
-.c71:-webkit-autofill {
+.c73:-webkit-autofill {
   box-shadow: none;
   -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
 }
 
-.c71::-webkit-input-placeholder {
+.c73::-webkit-input-placeholder {
   color: #BABABA;
   font-weight: normal;
   font-family: Open Sans;
@@ -1413,23 +1417,23 @@ Array [
   line-height: 25px;
 }
 
-.c66 {
+.c68 {
   position: relative;
   height: 70px;
 }
 
-.c66 .c69 {
+.c68 .c71 {
   height: calc(100% - 24px);
 }
 
-.c61 {
+.c62 {
   height: 20px;
   margin-right: 10px;
   position: relative;
   width: 20px;
 }
 
-.c61:before {
+.c62:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -1442,7 +1446,7 @@ Array [
   border: 1px solid #BABABA;
 }
 
-.c61:after {
+.c62:after {
   content: '';
   width: 10px;
   height: 10px;
@@ -1454,11 +1458,11 @@ Array [
   background-color: transparent;
 }
 
-.c61:checked:after {
+.c62:checked:after {
   background-color: #00ADEF;
 }
 
-.c60 {
+.c61 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1475,11 +1479,11 @@ Array [
   pointer-events: all;
 }
 
-.c60:last-of-type {
+.c61:last-of-type {
   margin-right: 0;
 }
 
-.c59 {
+.c60 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1502,15 +1506,15 @@ Array [
   justify-content: center;
 }
 
-.c63 {
+.c64 {
   position: relative;
 }
 
-.c65 {
+.c66 {
   position: relative;
 }
 
-.c65:after {
+.c66:after {
   content: '';
   cursor: pointer;
   height: 100%;
@@ -1520,7 +1524,7 @@ Array [
   width: 100%;
 }
 
-.c74 {
+.c76 {
   width: 100%;
 }
 
@@ -1528,7 +1532,7 @@ Array [
   margin-top: 14px;
 }
 
-.c62:first-child {
+.c63:first-child {
   margin-right: 14px;
 }
 
@@ -1547,8 +1551,24 @@ Array [
   margin-right: 28px;
 }
 
-.c64 {
+.c65 {
   margin-top: 28px;
+}
+
+.c65 .c67 {
+  height: 86px;
+}
+
+.c65 .c71 {
+  height: calc(100% - 38px);
+}
+
+.c65 label {
+  display: block;
+}
+
+.c65 .sc-fznNvL {
+  top: 86px;
 }
 
 @media (min-width:576px) {
@@ -1868,11 +1888,19 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c59 {
+  .c60 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
     margin: 15px 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c58 .c59 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 }
 
@@ -2573,15 +2601,15 @@ Array [
                 data-testid="radio-exposed-person"
               >
                 <div
-                  className="c59"
+                  className="c59 c60"
                   width="auto"
                 >
                   <label
-                    className="c60"
+                    className="c61"
                   >
                     <input
                       checked={true}
-                      className="c61 c62"
+                      className="c62 c63"
                       data-gtm-form="input"
                       data-gtm-name="Sim"
                       onChange={[Function]}
@@ -2591,11 +2619,11 @@ Array [
                     Sim
                   </label>
                   <label
-                    className="c60"
+                    className="c61"
                   >
                     <input
                       checked={false}
-                      className="c61 c62"
+                      className="c62 c63"
                       data-gtm-form="input"
                       data-gtm-name="Não"
                       onChange={[Function]}
@@ -2607,31 +2635,31 @@ Array [
                 </div>
               </div>
               <div
-                className="c63 c64"
+                className="c64 c65"
               >
                 <div
-                  className="c65"
+                  className="c66"
                   data-testid="select-Quem é a pessoa políticamente exposta?"
                   onClick={[Function]}
                 >
                   <div
-                    className="c66"
+                    className="c67 c68"
                     disabled={false}
                   >
                     <div
-                      className="c67"
+                      className="c69"
                     >
                       <label
-                        className="c68"
+                        className="c70"
                       >
                         Quem é a pessoa políticamente exposta?
                       </label>
                       <div
-                        className="c69 c70"
+                        className="c71 c72"
                         onClick={[Function]}
                       >
                         <input
-                          className="c71"
+                          className="c73"
                           data-testid="select-option-input-undefined"
                           disabled={false}
                           placeholder="Selecione"
@@ -2639,7 +2667,7 @@ Array [
                           value=""
                         />
                         <div
-                          className="c72"
+                          className="c74"
                           id="suffix"
                         >
                           <svg
@@ -2662,7 +2690,7 @@ Array [
               className="c36"
             >
               <button
-                className="c73 c74"
+                className="c75 c76"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3610,6 +3638,10 @@ Array [
 }
 
 @media (min-width:736px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 

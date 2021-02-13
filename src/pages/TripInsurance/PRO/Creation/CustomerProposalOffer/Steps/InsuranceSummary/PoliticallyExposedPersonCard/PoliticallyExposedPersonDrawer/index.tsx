@@ -13,7 +13,6 @@ import useMedia from 'hooks/useMedia'
 import { cpf, formatCpf } from 'helpers'
 
 import { IForm } from 'pages/TripInsurance/PRO/types'
-
 import { ICustomerProfileState } from '../../types'
 
 import * as s from './styles'
@@ -46,14 +45,14 @@ const PoliticallyExposedPersonDrawer: React.FC<t.IPoliticallyExposedPersonDrawer
   ] = React.useState<string>('')
   const [isCPFValid, setIsCPFValid] = React.useState<boolean>(true)
 
-  useFetchCustomerProfile()
-
   const { customerProfileData, customerProfileIsLoading } = useSelector(
     (state: { customerProfile: ICustomerProfileState }) => ({
       customerProfileData: state.customerProfile.data,
       customerProfileIsLoading: state.customerProfile.isLoading,
     })
   )
+
+  useFetchCustomerProfile()
 
   // Has politically exposed person
   React.useEffect(() => {
@@ -111,6 +110,22 @@ const PoliticallyExposedPersonDrawer: React.FC<t.IPoliticallyExposedPersonDrawer
       setPoliticalyExposedPersonCPF('')
     }
   }, [form.pessoaExposta])
+
+  // It check if the CPF value is equal to customerProfile CPF when the kinship value is not '7'
+  React.useEffect(() => {
+    if (
+      selectedPoliticalyExposedKinship.value !== 7 &&
+      customerProfileData?.cpfCnpj
+    ) {
+      if (politicalyExposedPersonCPF === customerProfileData.cpfCnpj) {
+        setIsCPFValid(false)
+      }
+    }
+  }, [
+    selectedPoliticalyExposedKinship,
+    politicalyExposedPersonCPF,
+    customerProfileData,
+  ])
 
   // Set name and CPF case kinship is equal ({ name: 'Eu', value: 7, })
   React.useEffect(() => {
@@ -208,7 +223,7 @@ const PoliticallyExposedPersonDrawer: React.FC<t.IPoliticallyExposedPersonDrawer
             )}
             selected={selectedPoliticalyExposedKinship}
             label="Quem é a pessoa políticamente exposta?"
-            optionBoxSize={300}
+            optionBoxSize={250}
           />
           {selectedPoliticalyExposedKinship.value !== 7 &&
           selectedPoliticalyExposedKinship.value !== 0 ? (
@@ -245,7 +260,12 @@ const PoliticallyExposedPersonDrawer: React.FC<t.IPoliticallyExposedPersonDrawer
                   setPoliticalyExposedPersonCPF(
                     event.target.value.replace(/\./g, '').replace('-', '')
                   )
-                  u.checkOnChangeCpfValidity(event.target.value, setIsCPFValid)
+                  u.checkOnChangeCpfValidity(
+                    event.target.value,
+                    setIsCPFValid,
+                    selectedPoliticalyExposedKinship.value,
+                    customerProfileData.cpfCnpj
+                  )
                 }}
               />
             </>

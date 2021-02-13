@@ -57,14 +57,27 @@ const radioOptions = [
 ]
 
 const checkOnChangeCpfValidity = (
-  value: string,
-  setIsCPFValid: (arg: boolean) => void
+  CPF: string,
+  setIsCPFValid: (arg: boolean) => void,
+  selectedPoliticalyExposedKinshipValue: number,
+  customerCPF: string
 ) => {
-  if (value.replace(/\./g, '').replace('-', '').length < 11) {
+  if (+CPF.replace(/\./g, '').replace('-', '').length < 11) {
     setIsCPFValid(true)
   }
-  if (value.replace(/\./g, '').replace('-', '').length === 11) {
-    setIsCPFValid(cpf.isValid(value.replace(/\./g, '').replace('-', '')))
+
+  if (+CPF.replace(/\./g, '').replace('-', '').length === 11) {
+    setIsCPFValid(cpf.isValid(CPF.replace(/\./g, '').replace('-', '')))
+  }
+
+  // If CPF length is equal to 11 and the kinship is not equal to
+  // { name: 'Eu', value: 7, } and the CPF value is equal to customer CPF
+  if (
+    CPF.replace(/\./g, '').replace('-', '').length === 11 &&
+    selectedPoliticalyExposedKinshipValue !== 7 &&
+    CPF.replace(/\./g, '').replace('-', '') === customerCPF
+  ) {
+    setIsCPFValid(false)
   }
 }
 
