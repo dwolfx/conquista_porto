@@ -9,13 +9,12 @@ export const Steps = {
 }
 
 export interface IFormConsortiumBuilding {
-  tipoPessoa: number
-  tipoBusca: number
-  codigoTipoGrupo: number
+  tipoPessoa: 1
+  tipoBusca: 3
   codigoProduto: 1
   valorCredito?: number
   uf: string
-  codigoCanal: number
+  codigoCanal: 7
 }
 
 export interface IMaxMinProductResponse {

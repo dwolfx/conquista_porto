@@ -27,6 +27,11 @@ const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatu
 const getBond = require('./src/mocks/getBond.json')
 const fundExtract = require('./src/mocks/fundExtract.json')
 const consortiumBuildingContemplatedMock = require('./src/mocks/consortiumBuildingContemplated.json')
+const consortiumBuildingCivilStatusMock = require('./src/mocks/consortiumBuildingCivilStatus.json')
+const consortiumBuildingCountriesMock = require('./src/mocks/consortiumBuildingCountries.json')
+const consortiumBuildingFatcaMock = require('./src/mocks/consortiumBuildingFatca.json')
+const consortiumBuildingNationalityMock = require('./src/mocks/consortiumBuildingNationality.json')
+const consortiumBuildingJobsMock = require('./src/mocks/consortiumBuildingJobs.json')
 
 server.use(middlewares)
 
@@ -236,6 +241,36 @@ router.render = (req, res) => {
   if (req.originalUrl.endsWith('/produtos/1/valores')) {
     if (req.method === 'GET') {
       return res.status(200).jsonp({ ...consortiumBuildingContemplatedMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/dados/lista-fatca')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingFatcaMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/dados/paises')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingCountriesMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/dados/estados-civis')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingCivilStatusMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/dados/nacionalidades')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingNationalityMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/dados/profissoes')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...consortiumBuildingJobsMock })
     }
   }
 

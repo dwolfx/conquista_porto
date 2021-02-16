@@ -85,12 +85,12 @@ export interface ILabelContainerSecondInformationConfirmationStepHireFlux {
   phone: string
 }
 
-export interface ILabelContainerThirdInformationConfirmationStepHireFlux {
+export interface ILabelContainerFourthInformationConfirmationStepHireFlux {
   zipCode: string
   address: string
 }
 
-export interface ILabelContainerFourthInformationConfirmationStepHireFlux {
+export interface ILabelContainerThirdInformationConfirmationStepHireFlux {
   documentType: string
   address: string
   documentNumber: string
@@ -102,7 +102,7 @@ export interface ILabelContainerFourthInformationConfirmationStepHireFlux {
   fatca: string
   passportNumber: string
   passportType: string
-  countryIssuancePassport: string
+  passportIssuingCountry: string
 }
 
 export interface ILabelContainerFifthInformationConfirmationStepHireFlux {
@@ -123,11 +123,7 @@ export interface IContainerInformationConfirmationStepHireFlux {
   link?: string
   messageRNE?: string
   text?: ILabelContainerFifthInformationConfirmationStepHireFlux
-  label?:
-    | string
-    | ILabelContainerFirstInformationConfirmationStepHireFlux
-    | ILabelContainerThirdInformationConfirmationStepHireFlux
-    | ILabelContainerFourthInformationConfirmationStepHireFlux
+  label?: string | ILabelContainerFourthInformationConfirmationStepHireFlux
 }
 
 export interface IContainerFirstInformationConfirmationStepHireFlux {
@@ -142,14 +138,34 @@ export interface IContainerSecondInformationConfirmationStepHireFlux {
   label: ILabelContainerSecondInformationConfirmationStepHireFlux
 }
 
+export interface IPlaceholderContainerThirdInformationConfirmationStepHireFlux {
+  documentNumber: string
+  dateDispatch: string
+  expeditedBodyRG: string
+  expeditedBodyRNE: string
+}
+
+export interface IContainerThirdInformationConfirmationStepHireFlux {
+  title: string
+  label: ILabelContainerThirdInformationConfirmationStepHireFlux
+  messageRNE: string
+  placeholder: IPlaceholderContainerThirdInformationConfirmationStepHireFlux
+}
+
+export interface IContainerFourthInformationConfirmationStepHireFlux {
+  title: string
+  link: string
+  label: ILabelContainerFourthInformationConfirmationStepHireFlux
+}
+
 export interface IInformationConfirmationStepHireFlux {
   actualStep: 1 | 2 | 3 | 4 | 5 | null
   title: string
   subtitle: string
   containerFirst: IContainerFirstInformationConfirmationStepHireFlux
   containerSecond: IContainerSecondInformationConfirmationStepHireFlux
-  containerThird: IContainerInformationConfirmationStepHireFlux
-  containerFourth: IContainerInformationConfirmationStepHireFlux
+  containerThird: IContainerThirdInformationConfirmationStepHireFlux
+  containerFourth: IContainerFourthInformationConfirmationStepHireFlux
   containerFifth: IContainerInformationConfirmationStepHireFlux
   containerSixth: ILabelContainerSixthInformationConfirmationStepHireFlux
 }

@@ -258,3 +258,18 @@ export const calculateAge = (birthDateString: string) => {
 }
 
 export * from 'cpf-cnpj-validator'
+
+export const maskRG = (value: string): string => {
+  let maskValue = value.replace(/\D/g, '')
+
+  switch (maskValue.length) {
+    case 9:
+      return maskValue.replace(/^(\d{2})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4')
+    case 8:
+      return maskValue.replace(/^(\d{1})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4')
+    case 7:
+      return maskValue.replace(/^(\d{1})(\d{3})(\d{3})$/, '$1.$2.$3')
+    default:
+      return maskValue
+  }
+}

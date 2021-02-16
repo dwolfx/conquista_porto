@@ -12,7 +12,7 @@ export const Card = styled(CardComponent)`
     padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(2)}px 0`};
   }
 
-  div {
+  & > div {
     overflow: visible;
   }
 `
@@ -23,6 +23,7 @@ export const CardTitleWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   align-items: center;
+  padding-left: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
     padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(2)}px 0`};
@@ -33,4 +34,8 @@ export const CardTitleText = styled(Text)``
 
 export const TextLink = styled(Text)``
 
-export const BtnLink = styled(ButtonLink)``
+export const BtnLink = styled(ButtonLink)`
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    width: 83px;
+  }
+`

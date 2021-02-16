@@ -12,7 +12,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
     },
   },
   formDefault: {
-    placeholderInput: 'Digite aqui...',
+    placeholderInput: 'Digite aqui',
     placeholderSelect: 'Selecione',
   },
   buttons: {
@@ -103,7 +103,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
             phone: 'Celular',
           },
         },
-        containerThird: {
+        containerFourth: {
           title: 'Endereço',
           link: 'Alterar no perfil',
           label: {
@@ -111,7 +111,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
             address: 'Endereço',
           },
         },
-        containerFourth: {
+        containerThird: {
           title: 'Documentos',
           label: {
             documentType: 'Tipo de documento',
@@ -125,7 +125,13 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
             fatca: 'FATCA',
             passportNumber: 'Número do Passaporte',
             passportType: 'Tipo de passaporte',
-            countryIssuancePassport: 'País de emissão do passaporte',
+            passportIssuingCountry: 'País de emissão do passaporte',
+          },
+          placeholder: {
+            documentNumber: 'Digite aqui',
+            dateDispatch: 'Ex: 12/12/2002',
+            expeditedBodyRG: 'Ex: XXX/SP',
+            expeditedBodyRNE: 'Ex: SSP/SP',
           },
           messageRNE:
             'Registro Nacional de Estrangeiro, documento exigido a clientes estrangeiros que residem no Brasil.',

@@ -1,0 +1,36 @@
+{
+  "lista_fatca": [
+    {
+      "codigo": "CRS101",
+      "descricao": "CRS101"
+    },
+    {
+      "codigo": "CRS102",
+      "descricao": "CRS102"
+    },
+    {
+      "codigo": "CRS103",
+      "descricao": "CRS103"
+    },
+    {
+      "codigo": "FATCA101",
+      "descricao": "FATCA101"
+    },
+    {
+      "codigo": "FATCA102",
+      "descricao": "FATCA102"
+    },
+    {
+      "codigo": "FATCA103",
+      "descricao": "FATCA103"
+    },
+    {
+      "codigo": "FATCA104",
+      "descricao": "FATCA104"
+    },
+    {
+      "codigo": "FATCA105",
+      "descricao": "FATCA105"
+    }
+  ]
+}

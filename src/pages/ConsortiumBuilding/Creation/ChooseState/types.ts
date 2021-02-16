@@ -9,6 +9,14 @@ export interface IState {
   nome: string
 }
 
+export interface IConsortiumBuildingStates {
+  consortiumBuildingStates: {
+    data: t.IPayload
+    isLoading: boolean
+    hasError: boolean
+  }
+}
+
 export interface IDefaultStore {
   consortiumBuildingStates: {
     data: t.IPayload

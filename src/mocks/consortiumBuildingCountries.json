@@ -1,0 +1,1036 @@
+{
+  "paises": [
+    {
+      "codigo": "BRASIL",
+      "descricao": "BRASIL"
+    },
+    {
+      "codigo": "ESTADOS UNIDOS",
+      "descricao": "ESTADOS UNIDOS"
+    },
+    {
+      "codigo": "PORTUGAL",
+      "descricao": "PORTUGAL"
+    },
+    {
+      "codigo": "CHINA",
+      "descricao": "CHINA"
+    },
+    {
+      "codigo": "CHILE",
+      "descricao": "CHILE"
+    },
+    {
+      "codigo": "ESPANHA",
+      "descricao": "ESPANHA"
+    },
+    {
+      "codigo": "COREIA",
+      "descricao": "COREIA"
+    },
+    {
+      "codigo": "IRA",
+      "descricao": "IRA"
+    },
+    {
+      "codigo": "COREIA DO NORTE",
+      "descricao": "COREIA DO NORTE"
+    },
+    {
+      "codigo": "BOLIVIA",
+      "descricao": "BOLIVIA"
+    },
+    {
+      "codigo": "CUBA",
+      "descricao": "CUBA"
+    },
+    {
+      "codigo": "EQUADOR",
+      "descricao": "EQUADOR"
+    },
+    {
+      "codigo": "ETIOPIA",
+      "descricao": "ETIOPIA"
+    },
+    {
+      "codigo": "GANA",
+      "descricao": "GANA"
+    },
+    {
+      "codigo": "INDONESIA",
+      "descricao": "INDONESIA"
+    },
+    {
+      "codigo": "QUENIA",
+      "descricao": "QUENIA"
+    },
+    {
+      "codigo": "NIGERIA",
+      "descricao": "NIGERIA"
+    },
+    {
+      "codigo": "PAQUISTAO",
+      "descricao": "PAQUISTAO"
+    },
+    {
+      "codigo": "SAO TOME E PRINCIPE",
+      "descricao": "SAO TOME E PRINCIPE"
+    },
+    {
+      "codigo": "SRI LANKA",
+      "descricao": "SRI LANKA"
+    },
+    {
+      "codigo": "SIRIA",
+      "descricao": "SIRIA"
+    },
+    {
+      "codigo": "TANZANIA",
+      "descricao": "TANZANIA"
+    },
+    {
+      "codigo": "TAILANDIA",
+      "descricao": "TAILANDIA"
+    },
+    {
+      "codigo": "TURQUIA",
+      "descricao": "TURQUIA"
+    },
+    {
+      "codigo": "VIETNA",
+      "descricao": "VIETNA"
+    },
+    {
+      "codigo": "IEMEN",
+      "descricao": "IEMEN"
+    },
+    {
+      "codigo": "AFEGANISTAO",
+      "descricao": "AFEGANISTAO"
+    },
+    {
+      "codigo": "ALBANIA",
+      "descricao": "ALBANIA"
+    },
+    {
+      "codigo": "ARGELIA",
+      "descricao": "ARGELIA"
+    },
+    {
+      "codigo": "ANGOLA",
+      "descricao": "ANGOLA"
+    },
+    {
+      "codigo": "ANTIGUA E BARBUDA",
+      "descricao": "ANTIGUA E BARBUDA"
+    },
+    {
+      "codigo": "ARGENTINA",
+      "descricao": "ARGENTINA"
+    },
+    {
+      "codigo": "BANGLADESH",
+      "descricao": "BANGLADESH"
+    },
+    {
+      "codigo": "BRUNEI",
+      "descricao": "BRUNEI"
+    },
+    {
+      "codigo": "CAMBOJA",
+      "descricao": "CAMBOJA"
+    },
+    {
+      "codigo": "MONGOLIA",
+      "descricao": "MONGOLIA"
+    },
+    {
+      "codigo": "MARROCOS",
+      "descricao": "MARROCOS"
+    },
+    {
+      "codigo": "NAMIBIA",
+      "descricao": "NAMIBIA"
+    },
+    {
+      "codigo": "NEPAL",
+      "descricao": "NEPAL"
+    },
+    {
+      "codigo": "FILIPINAS",
+      "descricao": "FILIPINAS"
+    },
+    {
+      "codigo": "SUDAO",
+      "descricao": "SUDAO"
+    },
+    {
+      "codigo": "TADJIQUISTAO",
+      "descricao": "TADJIQUISTAO"
+    },
+    {
+      "codigo": "VENEZUELA",
+      "descricao": "VENEZUELA"
+    },
+    {
+      "codigo": "NICARAGUA",
+      "descricao": "NICARAGUA"
+    },
+    {
+      "codigo": "ZIMBABUE",
+      "descricao": "ZIMBABUE"
+    },
+    {
+      "codigo": "ITALIA",
+      "descricao": "ITALIA"
+    },
+    {
+      "codigo": "GUINE",
+      "descricao": "GUINE"
+    },
+    {
+      "codigo": "GUINE EQUATORIAL",
+      "descricao": "GUINE EQUATORIAL"
+    },
+    {
+      "codigo": "GUINE-BISSAU",
+      "descricao": "GUINE-BISSAU"
+    },
+    {
+      "codigo": "HAITI",
+      "descricao": "HAITI"
+    },
+    {
+      "codigo": "HOLANDA",
+      "descricao": "HOLANDA"
+    },
+    {
+      "codigo": "HONDURAS",
+      "descricao": "HONDURAS"
+    },
+    {
+      "codigo": "HONG KONG",
+      "descricao": "HONG KONG"
+    },
+    {
+      "codigo": "HUNGRIA",
+      "descricao": "HUNGRIA"
+    },
+    {
+      "codigo": "ILHA BOUVET",
+      "descricao": "ILHA BOUVET"
+    },
+    {
+      "codigo": "ILHA DE ASCENSAO",
+      "descricao": "ILHA DE ASCENSAO"
+    },
+    {
+      "codigo": "ILHA DE CLIPPERTON",
+      "descricao": "ILHA DE CLIPPERTON"
+    },
+    {
+      "codigo": "ILHA DE MAN",
+      "descricao": "ILHA DE MAN"
+    },
+    {
+      "codigo": "ILHA NATAL",
+      "descricao": "ILHA NATAL"
+    },
+    {
+      "codigo": "ILHA PITCAIRN",
+      "descricao": "ILHA PITCAIRN"
+    },
+    {
+      "codigo": "ILHA REUNIAO",
+      "descricao": "ILHA REUNIAO"
+    },
+    {
+      "codigo": "ILHAS ALAND",
+      "descricao": "ILHAS ALAND"
+    },
+    {
+      "codigo": "ILHAS CAYMAN",
+      "descricao": "ILHAS CAYMAN"
+    },
+    {
+      "codigo": "ILHAS COCOS",
+      "descricao": "ILHAS COCOS"
+    },
+    {
+      "codigo": "ILHAS COOK",
+      "descricao": "ILHAS COOK"
+    },
+    {
+      "codigo": "ILHAS FAROES",
+      "descricao": "ILHAS FAROES"
+    },
+    {
+      "codigo": "ILHAS GEORGIA DO SUL E SANDWICH DO SUL",
+      "descricao": "ILHAS GEORGIA DO SUL E SANDWICH DO SUL"
+    },
+    {
+      "codigo": "ILHAS HEARD E MCDONALD (TERRITORIO DA AUSTRALIA)",
+      "descricao": "ILHAS HEARD E MCDONALD (TERRITORIO DA AUSTRALIA)"
+    },
+    {
+      "codigo": "ILHAS MALVINAS",
+      "descricao": "ILHAS MALVINAS"
+    },
+    {
+      "codigo": "ILHAS MARIANAS DO NORTE",
+      "descricao": "ILHAS MARIANAS DO NORTE"
+    },
+    {
+      "codigo": "ILHAS MARSHALL",
+      "descricao": "ILHAS MARSHALL"
+    },
+    {
+      "codigo": "ILHAS MENORES DOS ESTADOS UNIDOS",
+      "descricao": "ILHAS MENORES DOS ESTADOS UNIDOS"
+    },
+    {
+      "codigo": "ILHAS NORFOLK",
+      "descricao": "ILHAS NORFOLK"
+    },
+    {
+      "codigo": "ILHAS SALOMAO",
+      "descricao": "ILHAS SALOMAO"
+    },
+    {
+      "codigo": "ILHAS SEYCHELLES",
+      "descricao": "ILHAS SEYCHELLES"
+    },
+    {
+      "codigo": "ILHAS TOKELAU",
+      "descricao": "ILHAS TOKELAU"
+    },
+    {
+      "codigo": "ILHAS TURKS E CAICOS",
+      "descricao": "ILHAS TURKS E CAICOS"
+    },
+    {
+      "codigo": "ILHAS VIRGENS (ESTADOS UNIDOS)",
+      "descricao": "ILHAS VIRGENS (ESTADOS UNIDOS)"
+    },
+    {
+      "codigo": "ILHAS VIRGENS (INGLATERRA)",
+      "descricao": "ILHAS VIRGENS (INGLATERRA)"
+    },
+    {
+      "codigo": "INDIA",
+      "descricao": "INDIA"
+    },
+    {
+      "codigo": "IRLANDA",
+      "descricao": "IRLANDA"
+    },
+    {
+      "codigo": "ISLANDIA",
+      "descricao": "ISLANDIA"
+    },
+    {
+      "codigo": "JAMAICA",
+      "descricao": "JAMAICA"
+    },
+    {
+      "codigo": "JAPAO",
+      "descricao": "JAPAO"
+    },
+    {
+      "codigo": "JERSEY",
+      "descricao": "JERSEY"
+    },
+    {
+      "codigo": "AFRICA DO SUL",
+      "descricao": "AFRICA DO SUL"
+    },
+    {
+      "codigo": "ALEMANHA",
+      "descricao": "ALEMANHA"
+    },
+    {
+      "codigo": "ARABIA SAUDITA",
+      "descricao": "ARABIA SAUDITA"
+    },
+    {
+      "codigo": "ARMENIA",
+      "descricao": "ARMENIA"
+    },
+    {
+      "codigo": "ARUBA",
+      "descricao": "ARUBA"
+    },
+    {
+      "codigo": "AUSTRALIA",
+      "descricao": "AUSTRALIA"
+    },
+    {
+      "codigo": "AUSTRIA",
+      "descricao": "AUSTRIA"
+    },
+    {
+      "codigo": "AZERBAIJAO",
+      "descricao": "AZERBAIJAO"
+    },
+    {
+      "codigo": "BAHAMAS",
+      "descricao": "BAHAMAS"
+    },
+    {
+      "codigo": "BAHREIN",
+      "descricao": "BAHREIN"
+    },
+    {
+      "codigo": "BARBADOS",
+      "descricao": "BARBADOS"
+    },
+    {
+      "codigo": "BELARUS",
+      "descricao": "BELARUS"
+    },
+    {
+      "codigo": "BELGICA",
+      "descricao": "BELGICA"
+    },
+    {
+      "codigo": "BELIZE",
+      "descricao": "BELIZE"
+    },
+    {
+      "codigo": "BENIN",
+      "descricao": "BENIN"
+    },
+    {
+      "codigo": "BERMUDAS",
+      "descricao": "BERMUDAS"
+    },
+    {
+      "codigo": "BOSNIA-HERZEGOVINA",
+      "descricao": "BOSNIA-HERZEGOVINA"
+    },
+    {
+      "codigo": "BOTSUANA",
+      "descricao": "BOTSUANA"
+    },
+    {
+      "codigo": "BULGARIA",
+      "descricao": "BULGARIA"
+    },
+    {
+      "codigo": "BURKINA FASSO",
+      "descricao": "BURKINA FASSO"
+    },
+    {
+      "codigo": "BURUNDI",
+      "descricao": "BURUNDI"
+    },
+    {
+      "codigo": "BUTAO",
+      "descricao": "BUTAO"
+    },
+    {
+      "codigo": "CABO VERDE",
+      "descricao": "CABO VERDE"
+    },
+    {
+      "codigo": "CAMAROES",
+      "descricao": "CAMAROES"
+    },
+    {
+      "codigo": "CANADA",
+      "descricao": "CANADA"
+    },
+    {
+      "codigo": "CANARIAS",
+      "descricao": "CANARIAS"
+    },
+    {
+      "codigo": "CAZAQUISTAO",
+      "descricao": "CAZAQUISTAO"
+    },
+    {
+      "codigo": "CEUTA E MELILLA",
+      "descricao": "CEUTA E MELILLA"
+    },
+    {
+      "codigo": "CHADE",
+      "descricao": "CHADE"
+    },
+    {
+      "codigo": "CHIPRE",
+      "descricao": "CHIPRE"
+    },
+    {
+      "codigo": "CINGAPURA",
+      "descricao": "CINGAPURA"
+    },
+    {
+      "codigo": "COLOMBIA",
+      "descricao": "COLOMBIA"
+    },
+    {
+      "codigo": "COMORES",
+      "descricao": "COMORES"
+    },
+    {
+      "codigo": "CONGO",
+      "descricao": "CONGO"
+    },
+    {
+      "codigo": "COREIA DO SUL",
+      "descricao": "COREIA DO SUL"
+    },
+    {
+      "codigo": "COSTA DO MARFIM",
+      "descricao": "COSTA DO MARFIM"
+    },
+    {
+      "codigo": "COSTA RICA",
+      "descricao": "COSTA RICA"
+    },
+    {
+      "codigo": "CROACIA",
+      "descricao": "CROACIA"
+    },
+    {
+      "codigo": "CURACAO",
+      "descricao": "CURACAO"
+    },
+    {
+      "codigo": "DIEGO GARCIA",
+      "descricao": "DIEGO GARCIA"
+    },
+    {
+      "codigo": "DINAMARCA",
+      "descricao": "DINAMARCA"
+    },
+    {
+      "codigo": "DJIBUTI",
+      "descricao": "DJIBUTI"
+    },
+    {
+      "codigo": "DOMINICA",
+      "descricao": "DOMINICA"
+    },
+    {
+      "codigo": "EL SALVADOR",
+      "descricao": "EL SALVADOR"
+    },
+    {
+      "codigo": "EMIRADOS ARABES UNIDOS",
+      "descricao": "EMIRADOS ARABES UNIDOS"
+    },
+    {
+      "codigo": "ERITREIA",
+      "descricao": "ERITREIA"
+    },
+    {
+      "codigo": "ESLOVAQUIA",
+      "descricao": "ESLOVAQUIA"
+    },
+    {
+      "codigo": "ESLOVENIA",
+      "descricao": "ESLOVENIA"
+    },
+    {
+      "codigo": "ESTONIA",
+      "descricao": "ESTONIA"
+    },
+    {
+      "codigo": "FIJI",
+      "descricao": "FIJI"
+    },
+    {
+      "codigo": "FINLANDIA",
+      "descricao": "FINLANDIA"
+    },
+    {
+      "codigo": "FRANCA",
+      "descricao": "FRANCA"
+    },
+    {
+      "codigo": "GABAO",
+      "descricao": "GABAO"
+    },
+    {
+      "codigo": "GAMBIA",
+      "descricao": "GAMBIA"
+    },
+    {
+      "codigo": "GEORGIA",
+      "descricao": "GEORGIA"
+    },
+    {
+      "codigo": "GIBRALTAR",
+      "descricao": "GIBRALTAR"
+    },
+    {
+      "codigo": "GRA-BRETANHA (REINO UNIDO, UK)",
+      "descricao": "GRA-BRETANHA (REINO UNIDO, UK)"
+    },
+    {
+      "codigo": "PERU",
+      "descricao": "PERU"
+    },
+    {
+      "codigo": "EGITO",
+      "descricao": "EGITO"
+    },
+    {
+      "codigo": "PARAGUAI",
+      "descricao": "PARAGUAI"
+    },
+    {
+      "codigo": "GRANADA",
+      "descricao": "GRANADA"
+    },
+    {
+      "codigo": "GRECIA",
+      "descricao": "GRECIA"
+    },
+    {
+      "codigo": "GROELANDIA",
+      "descricao": "GROELANDIA"
+    },
+    {
+      "codigo": "GUADALUPE",
+      "descricao": "GUADALUPE"
+    },
+    {
+      "codigo": "GUAM (TERRITORIO DOS ESTADOS UNIDOS)",
+      "descricao": "GUAM (TERRITORIO DOS ESTADOS UNIDOS)"
+    },
+    {
+      "codigo": "GUATEMALA",
+      "descricao": "GUATEMALA"
+    },
+    {
+      "codigo": "GUERNSEY",
+      "descricao": "GUERNSEY"
+    },
+    {
+      "codigo": "GUIANA FRANCESA",
+      "descricao": "GUIANA FRANCESA"
+    },
+    {
+      "codigo": "ANDORRA",
+      "descricao": "ANDORRA"
+    },
+    {
+      "codigo": "ANGUILLA",
+      "descricao": "ANGUILLA"
+    },
+    {
+      "codigo": "ANTARTIDA",
+      "descricao": "ANTARTIDA"
+    },
+    {
+      "codigo": "JORDANIA",
+      "descricao": "JORDANIA"
+    },
+    {
+      "codigo": "KIRIBATI",
+      "descricao": "KIRIBATI"
+    },
+    {
+      "codigo": "KOSOVO",
+      "descricao": "KOSOVO"
+    },
+    {
+      "codigo": "KUAIT",
+      "descricao": "KUAIT"
+    },
+    {
+      "codigo": "LESOTO",
+      "descricao": "LESOTO"
+    },
+    {
+      "codigo": "LETONIA",
+      "descricao": "LETONIA"
+    },
+    {
+      "codigo": "LIBANO",
+      "descricao": "LIBANO"
+    },
+    {
+      "codigo": "LIBERIA",
+      "descricao": "LIBERIA"
+    },
+    {
+      "codigo": "LIBIA",
+      "descricao": "LIBIA"
+    },
+    {
+      "codigo": "LIECHTENSTEIN",
+      "descricao": "LIECHTENSTEIN"
+    },
+    {
+      "codigo": "LITUANIA",
+      "descricao": "LITUANIA"
+    },
+    {
+      "codigo": "LUXEMBURGO",
+      "descricao": "LUXEMBURGO"
+    },
+    {
+      "codigo": "MACAU",
+      "descricao": "MACAU"
+    },
+    {
+      "codigo": "MACEDONIA (REPUBLICA YUGOSLAVA)",
+      "descricao": "MACEDONIA (REPUBLICA YUGOSLAVA)"
+    },
+    {
+      "codigo": "MADAGASCAR",
+      "descricao": "MADAGASCAR"
+    },
+    {
+      "codigo": "MALASIA",
+      "descricao": "MALASIA"
+    },
+    {
+      "codigo": "MALAUI",
+      "descricao": "MALAUI"
+    },
+    {
+      "codigo": "MALDIVAS",
+      "descricao": "MALDIVAS"
+    },
+    {
+      "codigo": "MALI",
+      "descricao": "MALI"
+    },
+    {
+      "codigo": "MALTA",
+      "descricao": "MALTA"
+    },
+    {
+      "codigo": "MARTINICA",
+      "descricao": "MARTINICA"
+    },
+    {
+      "codigo": "MAURICIO",
+      "descricao": "MAURICIO"
+    },
+    {
+      "codigo": "MAURITANIA",
+      "descricao": "MAURITANIA"
+    },
+    {
+      "codigo": "MAYOTTE",
+      "descricao": "MAYOTTE"
+    },
+    {
+      "codigo": "MEXICO",
+      "descricao": "MEXICO"
+    },
+    {
+      "codigo": "MICRONESIA",
+      "descricao": "MICRONESIA"
+    },
+    {
+      "codigo": "MOCAMBIQUE",
+      "descricao": "MOCAMBIQUE"
+    },
+    {
+      "codigo": "MOLDOVA",
+      "descricao": "MOLDOVA"
+    },
+    {
+      "codigo": "MONACO",
+      "descricao": "MONACO"
+    },
+    {
+      "codigo": "MONTENEGRO",
+      "descricao": "MONTENEGRO"
+    },
+    {
+      "codigo": "MONTSERRAT",
+      "descricao": "MONTSERRAT"
+    },
+    {
+      "codigo": "MYANMA",
+      "descricao": "MYANMA"
+    },
+    {
+      "codigo": "NAURU",
+      "descricao": "NAURU"
+    },
+    {
+      "codigo": "NIGER",
+      "descricao": "NIGER"
+    },
+    {
+      "codigo": "NIUE",
+      "descricao": "NIUE"
+    },
+    {
+      "codigo": "NORUEGA",
+      "descricao": "NORUEGA"
+    },
+    {
+      "codigo": "NOVA CALEDONIA",
+      "descricao": "NOVA CALEDONIA"
+    },
+    {
+      "codigo": "NOVA ZELANDIA",
+      "descricao": "NOVA ZELANDIA"
+    },
+    {
+      "codigo": "OMA",
+      "descricao": "OMA"
+    },
+    {
+      "codigo": "PAISES BAIXOS CARIBENHOS",
+      "descricao": "PAISES BAIXOS CARIBENHOS"
+    },
+    {
+      "codigo": "PALAU",
+      "descricao": "PALAU"
+    },
+    {
+      "codigo": "PALESTINA",
+      "descricao": "PALESTINA"
+    },
+    {
+      "codigo": "PAPUA-NOVA GUINE",
+      "descricao": "PAPUA-NOVA GUINE"
+    },
+    {
+      "codigo": "POLINESIA FRANCESA",
+      "descricao": "POLINESIA FRANCESA"
+    },
+    {
+      "codigo": "POLONIA",
+      "descricao": "POLONIA"
+    },
+    {
+      "codigo": "PORTO RICO",
+      "descricao": "PORTO RICO"
+    },
+    {
+      "codigo": "QATAR",
+      "descricao": "QATAR"
+    },
+    {
+      "codigo": "QUIRGUISTAO",
+      "descricao": "QUIRGUISTAO"
+    },
+    {
+      "codigo": "REPUBLICA CENTRO-AFRICANA",
+      "descricao": "REPUBLICA CENTRO-AFRICANA"
+    },
+    {
+      "codigo": "REPUBLICA DEMOCRATICA DO CONGO",
+      "descricao": "REPUBLICA DEMOCRATICA DO CONGO"
+    },
+    {
+      "codigo": "REPUBLICA DOMINICANA",
+      "descricao": "REPUBLICA DOMINICANA"
+    },
+    {
+      "codigo": "REPUBLICA TCHECA",
+      "descricao": "REPUBLICA TCHECA"
+    },
+    {
+      "codigo": "ROMENIA",
+      "descricao": "ROMENIA"
+    },
+    {
+      "codigo": "RUANDA",
+      "descricao": "RUANDA"
+    },
+    {
+      "codigo": "RUSSIA",
+      "descricao": "RUSSIA"
+    },
+    {
+      "codigo": "SAARA OCIDENTAL",
+      "descricao": "SAARA OCIDENTAL"
+    },
+    {
+      "codigo": "SAINT-PIERRE E MIQUELON",
+      "descricao": "SAINT-PIERRE E MIQUELON"
+    },
+    {
+      "codigo": "SAMOA AMERICANA",
+      "descricao": "SAMOA AMERICANA"
+    },
+    {
+      "codigo": "SAMOA OCIDENTAL",
+      "descricao": "SAMOA OCIDENTAL"
+    },
+    {
+      "codigo": "SAN MARINO",
+      "descricao": "SAN MARINO"
+    },
+    {
+      "codigo": "SANTA HELENA",
+      "descricao": "SANTA HELENA"
+    },
+    {
+      "codigo": "SANTA LUCIA",
+      "descricao": "SANTA LUCIA"
+    },
+    {
+      "codigo": "SAO BARTOLOMEU",
+      "descricao": "SAO BARTOLOMEU"
+    },
+    {
+      "codigo": "SAO CRISTOVAO E NEVIS",
+      "descricao": "SAO CRISTOVAO E NEVIS"
+    },
+    {
+      "codigo": "SAO MARTIM",
+      "descricao": "SAO MARTIM"
+    },
+    {
+      "codigo": "SAO MARTINHO",
+      "descricao": "SAO MARTINHO"
+    },
+    {
+      "codigo": "SAO VICENTE E GRANADINAS",
+      "descricao": "SAO VICENTE E GRANADINAS"
+    },
+    {
+      "codigo": "SENEGAL",
+      "descricao": "SENEGAL"
+    },
+    {
+      "codigo": "SERRA LEOA",
+      "descricao": "SERRA LEOA"
+    },
+    {
+      "codigo": "SERVIA",
+      "descricao": "SERVIA"
+    },
+    {
+      "codigo": "SOMALIA",
+      "descricao": "SOMALIA"
+    },
+    {
+      "codigo": "SUAZILANDIA",
+      "descricao": "SUAZILANDIA"
+    },
+    {
+      "codigo": "SUDAO DO SUL",
+      "descricao": "SUDAO DO SUL"
+    },
+    {
+      "codigo": "SUECIA",
+      "descricao": "SUECIA"
+    },
+    {
+      "codigo": "SUICA",
+      "descricao": "SUICA"
+    },
+    {
+      "codigo": "SURINAME",
+      "descricao": "SURINAME"
+    },
+    {
+      "codigo": "SVALBARD",
+      "descricao": "SVALBARD"
+    },
+    {
+      "codigo": "TAIWAN",
+      "descricao": "TAIWAN"
+    },
+    {
+      "codigo": "TERRITORIO BRITANICO DO OCEANO INDICO",
+      "descricao": "TERRITORIO BRITANICO DO OCEANO INDICO"
+    },
+    {
+      "codigo": "TERRITORIOS DO SUL DA FRANCA",
+      "descricao": "TERRITORIOS DO SUL DA FRANCA"
+    },
+    {
+      "codigo": "TIMOR-LESTE",
+      "descricao": "TIMOR-LESTE"
+    },
+    {
+      "codigo": "TOGO",
+      "descricao": "TOGO"
+    },
+    {
+      "codigo": "TONGA",
+      "descricao": "TONGA"
+    },
+    {
+      "codigo": "TRINIDAD E TOBAGO",
+      "descricao": "TRINIDAD E TOBAGO"
+    },
+    {
+      "codigo": "TRISTAO DA CUNHA",
+      "descricao": "TRISTAO DA CUNHA"
+    },
+    {
+      "codigo": "TUNISIA",
+      "descricao": "TUNISIA"
+    },
+    {
+      "codigo": "TURCOMENISTAO",
+      "descricao": "TURCOMENISTAO"
+    },
+    {
+      "codigo": "TUVALU",
+      "descricao": "TUVALU"
+    },
+    {
+      "codigo": "UCRANIA",
+      "descricao": "UCRANIA"
+    },
+    {
+      "codigo": "URUGUAI",
+      "descricao": "URUGUAI"
+    },
+    {
+      "codigo": "UZBEQUISTAO",
+      "descricao": "UZBEQUISTAO"
+    },
+    {
+      "codigo": "VANUATU",
+      "descricao": "VANUATU"
+    },
+    {
+      "codigo": "VATICANO",
+      "descricao": "VATICANO"
+    },
+    {
+      "codigo": "WALLIS E FUTUNA",
+      "descricao": "WALLIS E FUTUNA"
+    },
+    {
+      "codigo": "ZAMBIA",
+      "descricao": "ZAMBIA"
+    },
+    {
+      "codigo": "INGLATERRA",
+      "descricao": "INGLATERRA"
+    },
+    {
+      "codigo": "GUIANA",
+      "descricao": "GUIANA"
+    },
+    {
+      "codigo": "IRAQUE",
+      "descricao": "IRAQUE"
+    },
+    {
+      "codigo": "LAOS",
+      "descricao": "LAOS"
+    },
+    {
+      "codigo": "PANAMA",
+      "descricao": "PANAMA"
+    },
+    {
+      "codigo": "UGANDA",
+      "descricao": "UGANDA"
+    },
+    {
+      "codigo": "ISRAEL",
+      "descricao": "ISRAEL"
+    }
+  ]
+}
