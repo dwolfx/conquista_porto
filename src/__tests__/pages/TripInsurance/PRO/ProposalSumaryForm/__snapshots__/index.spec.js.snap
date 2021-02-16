@@ -242,6 +242,34 @@ Array [
   }
 }
 
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
 @media (min-width:576px) {
 
 }
@@ -335,30 +363,6 @@ Array [
 }
 
 @media (max-width:480px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
-@media (max-width:736px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:736px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
-@media (max-width:1280px) {
 
 }
 
@@ -776,6 +780,102 @@ Array [
   width: 100%;
 }
 
+.c14 {
+  fill: #BABABA;
+  cursor: pointer;
+  height: 28px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 28px;
+}
+
+.c14:hover {
+  fill: #00ADEF;
+}
+
+.c15 {
+  overflow-y: auto;
+  height: 100%;
+  padding: 28px 14px;
+}
+
+.c36 {
+  border-top: 1px solid #DDDDDD;
+  height: 63px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 14px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.c11 {
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 14px 14px;
+}
+
+.c13 {
+  color: #272727;
+}
+
+.c10 {
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  max-width: 392px;
+  top: 0;
+  right: calc(-100% - 7px);
+}
+
+.c8 {
+  width: 100%;
+  height: 100%;
+  z-index: 13;
+}
+
+.c9 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
 .c22 {
   background: #FFFFFF;
   background-repeat: no-repeat;
@@ -967,6 +1067,159 @@ Array [
   line-height: 15px;
 }
 
+.c69 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c72 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c72 #prefix {
+  padding-left: 7px;
+}
+
+.c72 #suffix {
+  padding-right: 7px;
+}
+
+.c72:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c72:focus-within #prefix,
+.c72:focus-within #suffix {
+  color: #272727;
+}
+
+.c70 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c74 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c73 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c73:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c73::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c68 {
+  position: relative;
+  height: 70px;
+}
+
+.c68 .c71 {
+  height: calc(100% - 24px);
+}
+
+.c64 {
+  position: relative;
+}
+
+.c66 {
+  position: relative;
+}
+
+.c66:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c82 {
+  width: 100%;
+}
+
+.c77 {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+.c78 {
+  margin-bottom: 28px;
+}
+
+.c80 {
+  margin-bottom: 28px;
+}
+
+.c79 {
+  margin-bottom: 21px;
+}
+
+.c81 {
+  margin-top: 28px;
+}
+
 .c39 {
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
@@ -1076,102 +1329,6 @@ Array [
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-.c14 {
-  fill: #BABABA;
-  cursor: pointer;
-  height: 28px;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  width: 28px;
-}
-
-.c14:hover {
-  fill: #00ADEF;
-}
-
-.c15 {
-  overflow-y: auto;
-  height: 100%;
-  padding: 28px 14px;
-}
-
-.c36 {
-  border-top: 1px solid #DDDDDD;
-  height: 63px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding: 0 14px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: auto;
-}
-
-.c11 {
-  border-bottom: 1px solid #DDDDDD;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px 14px 14px;
-}
-
-.c13 {
-  color: #272727;
-}
-
-.c10 {
-  background-color: #FFFFFF;
-  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px 14px 0 14px;
-  position: fixed;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  max-width: 392px;
-  top: 0;
-  right: calc(-100% - 7px);
-}
-
-.c8 {
-  width: 100%;
-  height: 100%;
-  z-index: 13;
-}
-
-.c9 {
-  background-color: rgba(39,39,39,0.63);
-  height: 100%;
-  position: fixed;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-  width: 100%;
-  visibility: hidden;
-  opacity: 0;
-  left: 0;
-  top: 0;
 }
 
 .c32 {
@@ -1316,121 +1473,11 @@ Array [
   margin-left: 14px;
 }
 
-.c69 {
-  background-color: #F1F1F1;
-  border-radius: 8px 8px 0px 0px;
-  height: 100%;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-.c72 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-bottom: 1px solid #DDDDDD;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  padding: 0 7px;
-  position: relative;
-}
-
-.c72 #prefix {
-  padding-left: 7px;
-}
-
-.c72 #suffix {
-  padding-right: 7px;
-}
-
-.c72:focus-within {
-  border-bottom: 2px solid #00ADEF;
-}
-
-.c72:focus-within #prefix,
-.c72:focus-within #suffix {
-  color: #272727;
-}
-
-.c70 {
-  color: #898989;
-  padding-left: 14px;
-  padding-top: 7px;
-  font-family: Open Sans;
-  font-size: 12px;
-  -webkit-letter-spacing: 0.5px;
-  -moz-letter-spacing: 0.5px;
-  -ms-letter-spacing: 0.5px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 16px;
-}
-
-.c74 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #BABABA;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font: inherit;
-  height: 100%;
-}
-
-.c73 {
-  background-color: inherit;
-  border: none;
-  color: #272727;
-  font: inherit;
-  height: 100%;
-  padding: 0 7px;
+.c85 {
   width: 100%;
 }
 
-.c73:-webkit-autofill {
-  box-shadow: none;
-  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
-}
-
-.c73::-webkit-input-placeholder {
-  color: #BABABA;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 18px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-.c68 {
-  position: relative;
-  height: 70px;
-}
-
-.c68 .c71 {
-  height: calc(100% - 24px);
-}
-
-.c79 {
-  width: 100%;
-}
-
-.c78 + .c77 {
+.c84 + .c83 {
   margin-top: 28px;
 }
 
@@ -1514,24 +1561,6 @@ Array [
   justify-content: center;
 }
 
-.c64 {
-  position: relative;
-}
-
-.c66 {
-  position: relative;
-}
-
-.c66:after {
-  content: '';
-  cursor: pointer;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
 .c76 {
   width: 100%;
 }
@@ -1575,7 +1604,7 @@ Array [
   display: block;
 }
 
-.c65 .sc-fzonZV {
+.c65 .sc-fzqAui {
   top: 86px;
 }
 
@@ -1663,6 +1692,50 @@ Array [
 
 @media (min-width:992px) {
 
+}
+
+@media (max-width:736px) {
+  .c15 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c36 {
+    padding: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c36 {
+    padding: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c11 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c10 {
+    max-width: 484px;
+    margin: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c10 {
+    min-width: 100vw;
+    padding: 0;
+  }
+}
+
+@media (min-width:736px) {
+  .c80 {
+    margin-bottom: 0px;
+  }
 }
 
 @media (min-width:576px) {
@@ -1836,44 +1909,6 @@ Array [
 
 @media (max-width:480px) {
 
-}
-
-@media (max-width:736px) {
-  .c15 {
-    padding: 0;
-  }
-}
-
-@media (max-width:1280px) {
-  .c36 {
-    padding: 14px;
-  }
-}
-
-@media (max-width:736px) {
-  .c36 {
-    padding: 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c11 {
-    padding: 0;
-  }
-}
-
-@media (max-width:1280px) {
-  .c10 {
-    max-width: 484px;
-    margin: 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c10 {
-    min-width: 100vw;
-    padding: 0;
-  }
 }
 
 @media (min-width:736px) {
@@ -2789,6 +2824,303 @@ Array [
           </div>
         </div>
         <div
+          className="c8"
+        >
+          <div
+            className="c9"
+            onClick={[Function]}
+          />
+          <div
+            className="c10"
+            size="sm"
+          >
+            <div
+              className="c11"
+            >
+              <h5
+                className="c12 c13"
+                color="unset"
+                type="headline"
+              >
+                Alterar endereço
+              </h5>
+              <svg
+                aria-label="close"
+                className="c14"
+                data-gtm-clicktype="button"
+                data-gtm-name="botao fechar"
+                data-gtm-subname="menu Alterar endereço"
+                data-gtm-type="click"
+                fill="#BABABA"
+                onClick={[Function]}
+                role="img"
+                width={21}
+              >
+                close.svg
+              </svg>
+            </div>
+            <div
+              className="c15"
+            >
+              <p
+                className="c56 "
+                color="gray5"
+                type="body"
+              >
+                Por favor, inclua somente CEPs de endereços no Brasil. Endereços no exterior não são válidos.
+              </p>
+              <div
+                className="c67 c68 c77"
+                disabled={false}
+              >
+                <div
+                  className="c69"
+                >
+                  <label
+                    className="c70"
+                  >
+                    CEP
+                  </label>
+                  <div
+                    className="c71 c72"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c73"
+                      data-testid="cep"
+                      disabled={false}
+                      maxLength={9}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Busca por CEP"
+                      value=""
+                    />
+                    <div
+                      className="c74"
+                      id="suffix"
+                    >
+                      <svg
+                        aria-label="search"
+                        className=""
+                        fill="#BABABA"
+                        role="img"
+                        width={21}
+                      >
+                        search.svg
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c67 c68 c78"
+                disabled={false}
+              >
+                <div
+                  className="c69"
+                >
+                  <label
+                    className="c70"
+                  >
+                    Endereço (Rua/Avenida)
+                  </label>
+                  <div
+                    className="c71 c72"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c73"
+                      data-testid="endereço (rua/avenida)"
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Digite aqui"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c67 c68 c78"
+                disabled={false}
+              >
+                <div
+                  className="c69"
+                >
+                  <label
+                    className="c70"
+                  >
+                    Número
+                  </label>
+                  <div
+                    className="c71 c72"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c73"
+                      data-testid="número"
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Digite aqui"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c67 c68 c79"
+                disabled={false}
+              >
+                <div
+                  className="c69"
+                >
+                  <label
+                    className="c70"
+                  >
+                    Complemento (opcional)
+                  </label>
+                  <div
+                    className="c71 c72"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c73"
+                      data-testid="complemento (opcional)"
+                      disabled={false}
+                      onChange={[Function]}
+                      placeholder="Digite aqui"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c67 c68 c78"
+                disabled={false}
+              >
+                <div
+                  className="c69"
+                >
+                  <label
+                    className="c70"
+                  >
+                    Bairro
+                  </label>
+                  <div
+                    className="c71 c72"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c73"
+                      data-testid="bairro"
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Digite aqui"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c64 c80"
+              >
+                <div
+                  className="c66"
+                  data-testid="select-Estado"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="c67 c68"
+                    disabled={false}
+                  >
+                    <div
+                      className="c69"
+                    >
+                      <label
+                        className="c70"
+                      >
+                        Estado
+                      </label>
+                      <div
+                        className="c71 c72"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c73"
+                          data-testid="select-option-input-undefined"
+                          disabled={false}
+                          placeholder="Selecione"
+                          readOnly={true}
+                          value="Selecione"
+                        />
+                        <div
+                          className="c74"
+                          id="suffix"
+                        >
+                          <svg
+                            aria-label="arrowdown"
+                            fill="#272727"
+                            height={21}
+                            role="img"
+                            width={21}
+                          >
+                            arrow-down.svg
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c67 c68 c81"
+                disabled={false}
+              >
+                <div
+                  className="c69"
+                >
+                  <label
+                    className="c70"
+                  >
+                    Cidade
+                  </label>
+                  <div
+                    className="c71 c72"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c73"
+                      data-testid="cidade"
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Digite aqui"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="c36"
+            >
+              <button
+                className="c75 c82"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="salvar alterações"
+                data-gtm-subname="alterar endereço do passageiro principal - seguro viagem - pro"
+                data-gtm-type="click"
+                disabled={true}
+                onClick={[Function]}
+              >
+                <span
+                  className="c24"
+                >
+                  SALVAR ALTERAÇÕES
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
           className="c39 c40"
         >
           <div
@@ -2812,6 +3144,7 @@ Array [
                 <a
                   className="c45"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <span
@@ -2931,7 +3264,7 @@ Array [
               className="c15"
             >
               <div
-                className="c67 c68 c77 c78"
+                className="c67 c68 c83 c84"
               >
                 <div
                   className="c69"
@@ -2958,7 +3291,7 @@ Array [
                 </div>
               </div>
               <div
-                className="c67 c68 c77 c78"
+                className="c67 c68 c83 c84"
               >
                 <div
                   className="c69"
@@ -2991,7 +3324,7 @@ Array [
               className="c36"
             >
               <button
-                className="c75 c79"
+                className="c75 c85"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3603,6 +3936,34 @@ Array [
 
 }
 
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
 @media (min-width:576px) {
 
 }
@@ -3730,30 +4091,6 @@ Array [
     width: 100%;
     margin-right: 0;
   }
-}
-
-@media (max-width:736px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:736px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:480px) {
-
 }
 
 @media (min-width:736px) {

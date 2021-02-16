@@ -5,6 +5,16 @@ import { storeFactory } from 'setupTests'
 
 import AddressCard from '.'
 
+const createRootContainer = () => {
+  let container = document.getElementById('root')
+  if (!container) {
+    container = document.createElement('div')
+    container.setAttribute('id', 'root')
+    document.body.appendChild(container)
+  }
+  return container
+}
+
 const defaultStore: {
   fluxManagement: { stack: React.ReactElement[]; form: {} }
 } = {
@@ -33,6 +43,7 @@ describe('AddressCard component', () => {
     const store = storeFactory(defaultStore)
     renderWithReduxAndTheme(<AddressCard />, {
       store,
+      container: createRootContainer(),
     })
     expect(AddressCard).toBeDefined()
   })
@@ -59,6 +70,7 @@ describe('AddressCard component', () => {
     })
     renderWithReduxAndTheme(<AddressCard />, {
       store,
+      container: createRootContainer(),
     })
 
     expect(
