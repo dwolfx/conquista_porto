@@ -1,0 +1,3852 @@
+{
+  "profissoes": [
+    {
+      "codigo": "ABASTECEDOR",
+      "descricao": "ABASTECEDOR"
+    },
+    {
+      "codigo": "ACABADOR",
+      "descricao": "ACABADOR"
+    },
+    {
+      "codigo": "ACCOUNT CORPORATE",
+      "descricao": "ACCOUNT CORPORATE"
+    },
+    {
+      "codigo": "ACESSOR",
+      "descricao": "ACESSOR"
+    },
+    {
+      "codigo": "ACOMPANHANTE",
+      "descricao": "ACOMPANHANTE"
+    },
+    {
+      "codigo": "ACOUGUEIRO",
+      "descricao": "ACOUGUEIRO"
+    },
+    {
+      "codigo": "ACUPUNTURISTA",
+      "descricao": "ACUPUNTURISTA"
+    },
+    {
+      "codigo": "ADESIVADOR",
+      "descricao": "ADESIVADOR"
+    },
+    {
+      "codigo": "ADESTRADOR DE CAES",
+      "descricao": "ADESTRADOR DE CAES"
+    },
+    {
+      "codigo": "ADM BANCO DADOS",
+      "descricao": "ADM BANCO DADOS"
+    },
+    {
+      "codigo": "ADM DE PROJETOS",
+      "descricao": "ADM DE PROJETOS"
+    },
+    {
+      "codigo": "ADVOGADO (A)",
+      "descricao": "ADVOGADO (A)"
+    },
+    {
+      "codigo": "AERONAUTA",
+      "descricao": "AERONAUTA"
+    },
+    {
+      "codigo": "AGENCIADOR (A)",
+      "descricao": "AGENCIADOR (A)"
+    },
+    {
+      "codigo": "AGENCIADOR DE OBRAS",
+      "descricao": "AGENCIADOR DE OBRAS"
+    },
+    {
+      "codigo": "AGENTE ADMINISTRATIVO",
+      "descricao": "AGENTE ADMINISTRATIVO"
+    },
+    {
+      "codigo": "AGENTE AEROPORTUARIO",
+      "descricao": "AGENTE AEROPORTUARIO"
+    },
+    {
+      "codigo": "AGENTE AEROVIARIO",
+      "descricao": "AGENTE AEROVIARIO"
+    },
+    {
+      "codigo": "AGENTE COMERCIAL",
+      "descricao": "AGENTE COMERCIAL"
+    },
+    {
+      "codigo": "AGENTE DE CORREIOS",
+      "descricao": "AGENTE DE CORREIOS"
+    },
+    {
+      "codigo": "AGENTE DE ESCOLTA",
+      "descricao": "AGENTE DE ESCOLTA"
+    },
+    {
+      "codigo": "AGENTE DE MARKETING",
+      "descricao": "AGENTE DE MARKETING"
+    },
+    {
+      "codigo": "AGENTE DE POLICIA",
+      "descricao": "AGENTE DE POLICIA"
+    },
+    {
+      "codigo": "AGENTE DE SANEAMENTO",
+      "descricao": "AGENTE DE SANEAMENTO"
+    },
+    {
+      "codigo": "AGENTE DE SAUDE",
+      "descricao": "AGENTE DE SAUDE"
+    },
+    {
+      "codigo": "AGENTE DE SEGURANCA",
+      "descricao": "AGENTE DE SEGURANCA"
+    },
+    {
+      "codigo": "AGENTE DE VIAGEM",
+      "descricao": "AGENTE DE VIAGEM"
+    },
+    {
+      "codigo": "AGENTE ESCOLAR",
+      "descricao": "AGENTE ESCOLAR"
+    },
+    {
+      "codigo": "AGENTE FEDERAL",
+      "descricao": "AGENTE FEDERAL"
+    },
+    {
+      "codigo": "AGENTE FISCAL",
+      "descricao": "AGENTE FISCAL"
+    },
+    {
+      "codigo": "AGENTE FUNERARIO",
+      "descricao": "AGENTE FUNERARIO"
+    },
+    {
+      "codigo": "AGENTE PATRIMONIAL",
+      "descricao": "AGENTE PATRIMONIAL"
+    },
+    {
+      "codigo": "AGENTE PENITENCIARIO",
+      "descricao": "AGENTE PENITENCIARIO"
+    },
+    {
+      "codigo": "AGENTE PROTECAO",
+      "descricao": "AGENTE PROTECAO"
+    },
+    {
+      "codigo": "AGENTE SERVICO",
+      "descricao": "AGENTE SERVICO"
+    },
+    {
+      "codigo": "AGENTE TRANSITO",
+      "descricao": "AGENTE TRANSITO"
+    },
+    {
+      "codigo": "AGENTE VISTORIA",
+      "descricao": "AGENTE VISTORIA"
+    },
+    {
+      "codigo": "AGRICULTOR",
+      "descricao": "AGRICULTOR"
+    },
+    {
+      "codigo": "AGRONOMO (A)",
+      "descricao": "AGRONOMO (A)"
+    },
+    {
+      "codigo": "AJUDANTE ADM",
+      "descricao": "AJUDANTE ADM"
+    },
+    {
+      "codigo": "AJUDANTE DE DESPACHO",
+      "descricao": "AJUDANTE DE DESPACHO"
+    },
+    {
+      "codigo": "AJUDANTE DE EXPEDICAO",
+      "descricao": "AJUDANTE DE EXPEDICAO"
+    },
+    {
+      "codigo": "AJUDANTE DE MOTORISTA",
+      "descricao": "AJUDANTE DE MOTORISTA"
+    },
+    {
+      "codigo": "AJUDANTE DE PATIO",
+      "descricao": "AJUDANTE DE PATIO"
+    },
+    {
+      "codigo": "AJUDANTE DE PEDREIRO",
+      "descricao": "AJUDANTE DE PEDREIRO"
+    },
+    {
+      "codigo": "AJUDANTE DE POLIDOR",
+      "descricao": "AJUDANTE DE POLIDOR"
+    },
+    {
+      "codigo": "AJUDANTE DE PRODUCAO",
+      "descricao": "AJUDANTE DE PRODUCAO"
+    },
+    {
+      "codigo": "AJUDANTE GERAL",
+      "descricao": "AJUDANTE GERAL"
+    },
+    {
+      "codigo": "AJUDANTE OPERACIONAL",
+      "descricao": "AJUDANTE OPERACIONAL"
+    },
+    {
+      "codigo": "AJUSTADOR (A)",
+      "descricao": "AJUSTADOR (A)"
+    },
+    {
+      "codigo": "ALIMENTADOR DE MAQUINA",
+      "descricao": "ALIMENTADOR DE MAQUINA"
+    },
+    {
+      "codigo": "ALINHADOR (A)",
+      "descricao": "ALINHADOR (A)"
+    },
+    {
+      "codigo": "ALMOXARIFE",
+      "descricao": "ALMOXARIFE"
+    },
+    {
+      "codigo": "AMOSTRADOR (A)",
+      "descricao": "AMOSTRADOR (A)"
+    },
+    {
+      "codigo": "ANALISTA COMERCIAL",
+      "descricao": "ANALISTA COMERCIAL"
+    },
+    {
+      "codigo": "ANALISTA CONTABIL",
+      "descricao": "ANALISTA CONTABIL"
+    },
+    {
+      "codigo": "ANALISTA DE COBRANCA",
+      "descricao": "ANALISTA DE COBRANCA"
+    },
+    {
+      "codigo": "ANALISTA DE COM EXTERIOR",
+      "descricao": "ANALISTA DE COM EXTERIOR"
+    },
+    {
+      "codigo": "ANALISTA DE CREDITO",
+      "descricao": "ANALISTA DE CREDITO"
+    },
+    {
+      "codigo": "ANALISTA DE LABORATORIO",
+      "descricao": "ANALISTA DE LABORATORIO"
+    },
+    {
+      "codigo": "ANALISTA DE MARCAS",
+      "descricao": "ANALISTA DE MARCAS"
+    },
+    {
+      "codigo": "ANALISTA DE MARKETING",
+      "descricao": "ANALISTA DE MARKETING"
+    },
+    {
+      "codigo": "ANALISTA DE OPERACOES",
+      "descricao": "ANALISTA DE OPERACOES"
+    },
+    {
+      "codigo": "ANALISTA DE PROCESSOS",
+      "descricao": "ANALISTA DE PROCESSOS"
+    },
+    {
+      "codigo": "ANALISTA DE PRODUTO",
+      "descricao": "ANALISTA DE PRODUTO"
+    },
+    {
+      "codigo": "ANALISTA DE PROJETO",
+      "descricao": "ANALISTA DE PROJETO"
+    },
+    {
+      "codigo": "ANALISTA DE RELACIONAMENTO",
+      "descricao": "ANALISTA DE RELACIONAMENTO"
+    },
+    {
+      "codigo": "ANALISTA DE RH",
+      "descricao": "ANALISTA DE RH"
+    },
+    {
+      "codigo": "ANALISTA DE RISCO",
+      "descricao": "ANALISTA DE RISCO"
+    },
+    {
+      "codigo": "ANALISTA DE SINISTROS",
+      "descricao": "ANALISTA DE SINISTROS"
+    },
+    {
+      "codigo": "ANALISTA DE SISTEMAS",
+      "descricao": "ANALISTA DE SISTEMAS"
+    },
+    {
+      "codigo": "ANALISTA DE SUPORTE",
+      "descricao": "ANALISTA DE SUPORTE"
+    },
+    {
+      "codigo": "ANALISTA DE TI",
+      "descricao": "ANALISTA DE TI"
+    },
+    {
+      "codigo": "ANALISTA DE TRIBUTOS",
+      "descricao": "ANALISTA DE TRIBUTOS"
+    },
+    {
+      "codigo": "ANALISTA DE VENDAS",
+      "descricao": "ANALISTA DE VENDAS"
+    },
+    {
+      "codigo": "ANALISTA FINANCEIRO",
+      "descricao": "ANALISTA FINANCEIRO"
+    },
+    {
+      "codigo": "ANALISTA FISCAL",
+      "descricao": "ANALISTA FISCAL"
+    },
+    {
+      "codigo": "ANALISTA GERAL",
+      "descricao": "ANALISTA GERAL"
+    },
+    {
+      "codigo": "ANALISTA JUDICIARIO",
+      "descricao": "ANALISTA JUDICIARIO"
+    },
+    {
+      "codigo": "ANALISTA LEGISLATIVO",
+      "descricao": "ANALISTA LEGISLATIVO"
+    },
+    {
+      "codigo": "ANALISTA OPERACIONAL",
+      "descricao": "ANALISTA OPERACIONAL"
+    },
+    {
+      "codigo": "ANESTESISTA",
+      "descricao": "ANESTESISTA"
+    },
+    {
+      "codigo": "ANISTIADO PUBLICO",
+      "descricao": "ANISTIADO PUBLICO"
+    },
+    {
+      "codigo": "ANL ADM DE PESSOAS",
+      "descricao": "ANL ADM DE PESSOAS"
+    },
+    {
+      "codigo": "ANL ADMINISTRATIVO",
+      "descricao": "ANL ADMINISTRATIVO"
+    },
+    {
+      "codigo": "ANL CONTROLE DE QUALIDADE",
+      "descricao": "ANL CONTROLE DE QUALIDADE"
+    },
+    {
+      "codigo": "ANL DE COMPLIANCE",
+      "descricao": "ANL DE COMPLIANCE"
+    },
+    {
+      "codigo": "ANL DE DESENVOLVIMENTO",
+      "descricao": "ANL DE DESENVOLVIMENTO"
+    },
+    {
+      "codigo": "ANL DE NEGOCIOS",
+      "descricao": "ANL DE NEGOCIOS"
+    },
+    {
+      "codigo": "ANL DE OUVIDORIA",
+      "descricao": "ANL DE OUVIDORIA"
+    },
+    {
+      "codigo": "ANL DE PLANEJAMENTO",
+      "descricao": "ANL DE PLANEJAMENTO"
+    },
+    {
+      "codigo": "ANL DE RELACIONAMENTO",
+      "descricao": "ANL DE RELACIONAMENTO"
+    },
+    {
+      "codigo": "ANL DE SEGUROS",
+      "descricao": "ANL DE SEGUROS"
+    },
+    {
+      "codigo": "ANL DE TREINAMENTO",
+      "descricao": "ANL DE TREINAMENTO"
+    },
+    {
+      "codigo": "ANL POLITICAS PUBLICAS",
+      "descricao": "ANL POLITICAS PUBLICAS"
+    },
+    {
+      "codigo": "ANTENISTA",
+      "descricao": "ANTENISTA"
+    },
+    {
+      "codigo": "APICULTOR",
+      "descricao": "APICULTOR"
+    },
+    {
+      "codigo": "APLICADOR",
+      "descricao": "APLICADOR"
+    },
+    {
+      "codigo": "APOIADOR DE SAUDE",
+      "descricao": "APOIADOR DE SAUDE"
+    },
+    {
+      "codigo": "APOIO TECNICO",
+      "descricao": "APOIO TECNICO"
+    },
+    {
+      "codigo": "APONTADOR (A)",
+      "descricao": "APONTADOR (A)"
+    },
+    {
+      "codigo": "APOSEN POR IDADE",
+      "descricao": "APOSEN POR IDADE"
+    },
+    {
+      "codigo": "APOSEN POR INVALIDEZ",
+      "descricao": "APOSEN POR INVALIDEZ"
+    },
+    {
+      "codigo": "APOSEN POR TEMPO DE SERV",
+      "descricao": "APOSEN POR TEMPO DE SERV"
+    },
+    {
+      "codigo": "APRENDIZ",
+      "descricao": "APRENDIZ"
+    },
+    {
+      "codigo": "APRESENTADOR (A)",
+      "descricao": "APRESENTADOR (A)"
+    },
+    {
+      "codigo": "ARBITRO (A)",
+      "descricao": "ARBITRO (A)"
+    },
+    {
+      "codigo": "ARMADOR (A)",
+      "descricao": "ARMADOR (A)"
+    },
+    {
+      "codigo": "ARMEIRO",
+      "descricao": "ARMEIRO"
+    },
+    {
+      "codigo": "ARQUEOLOGO (A)",
+      "descricao": "ARQUEOLOGO (A)"
+    },
+    {
+      "codigo": "ARQUITETO (A)",
+      "descricao": "ARQUITETO (A)"
+    },
+    {
+      "codigo": "ARQUIVISTA",
+      "descricao": "ARQUIVISTA"
+    },
+    {
+      "codigo": "ARREMATADEIRA",
+      "descricao": "ARREMATADEIRA"
+    },
+    {
+      "codigo": "ARRUMADEIRA",
+      "descricao": "ARRUMADEIRA"
+    },
+    {
+      "codigo": "ARTE FINALISTA",
+      "descricao": "ARTE FINALISTA"
+    },
+    {
+      "codigo": "ARTESAO (A)",
+      "descricao": "ARTESAO (A)"
+    },
+    {
+      "codigo": "ARTICULADOR SOCIAL",
+      "descricao": "ARTICULADOR SOCIAL"
+    },
+    {
+      "codigo": "ARTIFICIE",
+      "descricao": "ARTIFICIE"
+    },
+    {
+      "codigo": "ARTISTA",
+      "descricao": "ARTISTA"
+    },
+    {
+      "codigo": "ARTISTA PLASTICO",
+      "descricao": "ARTISTA PLASTICO"
+    },
+    {
+      "codigo": "ASSESSOR (A)",
+      "descricao": "ASSESSOR (A)"
+    },
+    {
+      "codigo": "ASSESSOR (A) CHEFE",
+      "descricao": "ASSESSOR (A) CHEFE"
+    },
+    {
+      "codigo": "ASSESSOR (A) COMERCIAL",
+      "descricao": "ASSESSOR (A) COMERCIAL"
+    },
+    {
+      "codigo": "ASSESSOR (A) DE PATRIMONIO",
+      "descricao": "ASSESSOR (A) DE PATRIMONIO"
+    },
+    {
+      "codigo": "ASSESSOR (A) DIRETORIA",
+      "descricao": "ASSESSOR (A) DIRETORIA"
+    },
+    {
+      "codigo": "ASSESSOR (A) INFORMATICA",
+      "descricao": "ASSESSOR (A) INFORMATICA"
+    },
+    {
+      "codigo": "ASSESSOR (A) PARLAMENTAR",
+      "descricao": "ASSESSOR (A) PARLAMENTAR"
+    },
+    {
+      "codigo": "ASSESSOR (A) PRESIDENCIA",
+      "descricao": "ASSESSOR (A) PRESIDENCIA"
+    },
+    {
+      "codigo": "ASSESSOR (A) SETORIAL",
+      "descricao": "ASSESSOR (A) SETORIAL"
+    },
+    {
+      "codigo": "ASSESSOR (A) SUPORTE",
+      "descricao": "ASSESSOR (A) SUPORTE"
+    },
+    {
+      "codigo": "ASSESSOR (A) TECNICO",
+      "descricao": "ASSESSOR (A) TECNICO"
+    },
+    {
+      "codigo": "ASSESSOR DESEMBARGADOR",
+      "descricao": "ASSESSOR DESEMBARGADOR"
+    },
+    {
+      "codigo": "ASSESSORISTA",
+      "descricao": "ASSESSORISTA"
+    },
+    {
+      "codigo": "ASSIST ADMINISTRATIVO",
+      "descricao": "ASSIST ADMINISTRATIVO"
+    },
+    {
+      "codigo": "ASSIST AUDITORIA",
+      "descricao": "ASSIST AUDITORIA"
+    },
+    {
+      "codigo": "ASSIST COBRANCA",
+      "descricao": "ASSIST COBRANCA"
+    },
+    {
+      "codigo": "ASSIST COM EXTERIOR",
+      "descricao": "ASSIST COM EXTERIOR"
+    },
+    {
+      "codigo": "ASSIST COMERCIAL",
+      "descricao": "ASSIST COMERCIAL"
+    },
+    {
+      "codigo": "ASSIST CONTABIL",
+      "descricao": "ASSIST CONTABIL"
+    },
+    {
+      "codigo": "ASSIST DE AGENCIA",
+      "descricao": "ASSIST DE AGENCIA"
+    },
+    {
+      "codigo": "ASSIST DE ATENDIMENTO",
+      "descricao": "ASSIST DE ATENDIMENTO"
+    },
+    {
+      "codigo": "ASSIST DE ESCRITORIO",
+      "descricao": "ASSIST DE ESCRITORIO"
+    },
+    {
+      "codigo": "ASSIST DE GERENCIA",
+      "descricao": "ASSIST DE GERENCIA"
+    },
+    {
+      "codigo": "ASSIST DE JUIZ",
+      "descricao": "ASSIST DE JUIZ"
+    },
+    {
+      "codigo": "ASSIST DE MARKETING",
+      "descricao": "ASSIST DE MARKETING"
+    },
+    {
+      "codigo": "ASSIST DE OPERACIONAL",
+      "descricao": "ASSIST DE OPERACIONAL"
+    },
+    {
+      "codigo": "ASSIST DE PESQUISAS",
+      "descricao": "ASSIST DE PESQUISAS"
+    },
+    {
+      "codigo": "ASSIST DE PROJETOS",
+      "descricao": "ASSIST DE PROJETOS"
+    },
+    {
+      "codigo": "ASSIST DE SERV BANCARIOS",
+      "descricao": "ASSIST DE SERV BANCARIOS"
+    },
+    {
+      "codigo": "ASSIST DE SUPRIMENTOS",
+      "descricao": "ASSIST DE SUPRIMENTOS"
+    },
+    {
+      "codigo": "ASSIST DEPTO PESSOAL",
+      "descricao": "ASSIST DEPTO PESSOAL"
+    },
+    {
+      "codigo": "ASSIST DIRETORIA",
+      "descricao": "ASSIST DIRETORIA"
+    },
+    {
+      "codigo": "ASSIST EXECUTIVO (A)",
+      "descricao": "ASSIST EXECUTIVO (A)"
+    },
+    {
+      "codigo": "ASSIST EXPEDICAO",
+      "descricao": "ASSIST EXPEDICAO"
+    },
+    {
+      "codigo": "ASSIST FINANCEIRO",
+      "descricao": "ASSIST FINANCEIRO"
+    },
+    {
+      "codigo": "ASSIST FISCAL",
+      "descricao": "ASSIST FISCAL"
+    },
+    {
+      "codigo": "ASSIST INFORMATICA",
+      "descricao": "ASSIST INFORMATICA"
+    },
+    {
+      "codigo": "ASSIST JURIDICO",
+      "descricao": "ASSIST JURIDICO"
+    },
+    {
+      "codigo": "ASSIST LEGISLATIVO",
+      "descricao": "ASSIST LEGISLATIVO"
+    },
+    {
+      "codigo": "ASSIST LOGISTICA",
+      "descricao": "ASSIST LOGISTICA"
+    },
+    {
+      "codigo": "ASSIST ORCAMENTARIO",
+      "descricao": "ASSIST ORCAMENTARIO"
+    },
+    {
+      "codigo": "ASSIST PARLAMENTAR",
+      "descricao": "ASSIST PARLAMENTAR"
+    },
+    {
+      "codigo": "ASSIST PEDAGOGICA",
+      "descricao": "ASSIST PEDAGOGICA"
+    },
+    {
+      "codigo": "ASSIST PRESIDENTE",
+      "descricao": "ASSIST PRESIDENTE"
+    },
+    {
+      "codigo": "ASSIST PRODUTO",
+      "descricao": "ASSIST PRODUTO"
+    },
+    {
+      "codigo": "ASSIST SOCIAL",
+      "descricao": "ASSIST SOCIAL"
+    },
+    {
+      "codigo": "ASSIST TECNICO",
+      "descricao": "ASSIST TECNICO"
+    },
+    {
+      "codigo": "ASSIST TECNOLOGIA",
+      "descricao": "ASSIST TECNOLOGIA"
+    },
+    {
+      "codigo": "ASSIST TESOURARIA",
+      "descricao": "ASSIST TESOURARIA"
+    },
+    {
+      "codigo": "ASSISTENTE ADMINISTRATIVO",
+      "descricao": "ASSISTENTE ADMINISTRATIVO"
+    },
+    {
+      "codigo": "ASSISTENTE DE FABRICA",
+      "descricao": "ASSISTENTE DE FABRICA"
+    },
+    {
+      "codigo": "ATENDENTE GERAL",
+      "descricao": "ATENDENTE GERAL"
+    },
+    {
+      "codigo": "ATLETA",
+      "descricao": "ATLETA"
+    },
+    {
+      "codigo": "ATOR",
+      "descricao": "ATOR"
+    },
+    {
+      "codigo": "ATRIZ",
+      "descricao": "ATRIZ"
+    },
+    {
+      "codigo": "ATUARIO",
+      "descricao": "ATUARIO"
+    },
+    {
+      "codigo": "AUDITOR (A)",
+      "descricao": "AUDITOR (A)"
+    },
+    {
+      "codigo": "AUDITOR (A) DA RECEITA",
+      "descricao": "AUDITOR (A) DA RECEITA"
+    },
+    {
+      "codigo": "AUDITOR (A) DE SISTEMA",
+      "descricao": "AUDITOR (A) DE SISTEMA"
+    },
+    {
+      "codigo": "AUDITOR (A) ESTOQUE",
+      "descricao": "AUDITOR (A) ESTOQUE"
+    },
+    {
+      "codigo": "AUDITOR (A) FISCAL",
+      "descricao": "AUDITOR (A) FISCAL"
+    },
+    {
+      "codigo": "AUX ADMINISTRATIVO",
+      "descricao": "AUX ADMINISTRATIVO"
+    },
+    {
+      "codigo": "AUX COBRANCA",
+      "descricao": "AUX COBRANCA"
+    },
+    {
+      "codigo": "AUX CONTABIL",
+      "descricao": "AUX CONTABIL"
+    },
+    {
+      "codigo": "AUX CONTAS",
+      "descricao": "AUX CONTAS"
+    },
+    {
+      "codigo": "AUX DE ACABAMENTO",
+      "descricao": "AUX DE ACABAMENTO"
+    },
+    {
+      "codigo": "AUX DE ALMOXARIFE",
+      "descricao": "AUX DE ALMOXARIFE"
+    },
+    {
+      "codigo": "AUX DE BERCARIO",
+      "descricao": "AUX DE BERCARIO"
+    },
+    {
+      "codigo": "AUX DE COMPRAS",
+      "descricao": "AUX DE COMPRAS"
+    },
+    {
+      "codigo": "AUX DE CONSULTORIO",
+      "descricao": "AUX DE CONSULTORIO"
+    },
+    {
+      "codigo": "AUX DE COORDENACAO",
+      "descricao": "AUX DE COORDENACAO"
+    },
+    {
+      "codigo": "AUX DE COSTURA",
+      "descricao": "AUX DE COSTURA"
+    },
+    {
+      "codigo": "AUX DE COZINHA",
+      "descricao": "AUX DE COZINHA"
+    },
+    {
+      "codigo": "AUX DE CRECHE",
+      "descricao": "AUX DE CRECHE"
+    },
+    {
+      "codigo": "AUX DE DISCIPLINA",
+      "descricao": "AUX DE DISCIPLINA"
+    },
+    {
+      "codigo": "AUX DE ELETRICISTA",
+      "descricao": "AUX DE ELETRICISTA"
+    },
+    {
+      "codigo": "AUX DE ENFERMAGEM",
+      "descricao": "AUX DE ENFERMAGEM"
+    },
+    {
+      "codigo": "AUX DE ESCRITORIO",
+      "descricao": "AUX DE ESCRITORIO"
+    },
+    {
+      "codigo": "AUX DE ESTOQUE",
+      "descricao": "AUX DE ESTOQUE"
+    },
+    {
+      "codigo": "AUX DE EXPEDICAO",
+      "descricao": "AUX DE EXPEDICAO"
+    },
+    {
+      "codigo": "AUX DE FARMACIA",
+      "descricao": "AUX DE FARMACIA"
+    },
+    {
+      "codigo": "AUX DE GARCON",
+      "descricao": "AUX DE GARCON"
+    },
+    {
+      "codigo": "AUX DE HEMOTERAPIA",
+      "descricao": "AUX DE HEMOTERAPIA"
+    },
+    {
+      "codigo": "AUX DE IMPLANTACAO",
+      "descricao": "AUX DE IMPLANTACAO"
+    },
+    {
+      "codigo": "AUX DE INSTALACAO",
+      "descricao": "AUX DE INSTALACAO"
+    },
+    {
+      "codigo": "AUX DE LIMPEZA",
+      "descricao": "AUX DE LIMPEZA"
+    },
+    {
+      "codigo": "AUX DE LOGISTICA",
+      "descricao": "AUX DE LOGISTICA"
+    },
+    {
+      "codigo": "AUX DE MANUTENCAO",
+      "descricao": "AUX DE MANUTENCAO"
+    },
+    {
+      "codigo": "AUX DE MARKETING",
+      "descricao": "AUX DE MARKETING"
+    },
+    {
+      "codigo": "AUX DE OBRAS",
+      "descricao": "AUX DE OBRAS"
+    },
+    {
+      "codigo": "AUX DE POLIDOR",
+      "descricao": "AUX DE POLIDOR"
+    },
+    {
+      "codigo": "AUX DE PORTARIA",
+      "descricao": "AUX DE PORTARIA"
+    },
+    {
+      "codigo": "AUX DE PRODUCAO",
+      "descricao": "AUX DE PRODUCAO"
+    },
+    {
+      "codigo": "AUX DE PROTESE",
+      "descricao": "AUX DE PROTESE"
+    },
+    {
+      "codigo": "AUX DE SAUDE",
+      "descricao": "AUX DE SAUDE"
+    },
+    {
+      "codigo": "AUX DE SECRETARIA",
+      "descricao": "AUX DE SECRETARIA"
+    },
+    {
+      "codigo": "AUX DE SEGURO",
+      "descricao": "AUX DE SEGURO"
+    },
+    {
+      "codigo": "AUX DE SOLDA",
+      "descricao": "AUX DE SOLDA"
+    },
+    {
+      "codigo": "AUX DE SUPERVISAO",
+      "descricao": "AUX DE SUPERVISAO"
+    },
+    {
+      "codigo": "AUX DE VENDAS",
+      "descricao": "AUX DE VENDAS"
+    },
+    {
+      "codigo": "AUX DENTISTA",
+      "descricao": "AUX DENTISTA"
+    },
+    {
+      "codigo": "AUX DEPTO PESSOAL",
+      "descricao": "AUX DEPTO PESSOAL"
+    },
+    {
+      "codigo": "AUX DESIGNER",
+      "descricao": "AUX DESIGNER"
+    },
+    {
+      "codigo": "AUX DESPACHANTE",
+      "descricao": "AUX DESPACHANTE"
+    },
+    {
+      "codigo": "AUX ESCRITORIO",
+      "descricao": "AUX ESCRITORIO"
+    },
+    {
+      "codigo": "AUX ESTAMPARIA",
+      "descricao": "AUX ESTAMPARIA"
+    },
+    {
+      "codigo": "AUX ESTOQUE",
+      "descricao": "AUX ESTOQUE"
+    },
+    {
+      "codigo": "AUX EXECUTIVO",
+      "descricao": "AUX EXECUTIVO"
+    },
+    {
+      "codigo": "AUX FINANCEIRO",
+      "descricao": "AUX FINANCEIRO"
+    },
+    {
+      "codigo": "AUX IMPORTACAO E EXPORTACAO",
+      "descricao": "AUX IMPORTACAO E EXPORTACAO"
+    },
+    {
+      "codigo": "AUX INFORMATICA",
+      "descricao": "AUX INFORMATICA"
+    },
+    {
+      "codigo": "AUX INTERCAMBIO",
+      "descricao": "AUX INTERCAMBIO"
+    },
+    {
+      "codigo": "AUX JUDICIARIO",
+      "descricao": "AUX JUDICIARIO"
+    },
+    {
+      "codigo": "AUX LABORATORIO",
+      "descricao": "AUX LABORATORIO"
+    },
+    {
+      "codigo": "AUX OPERACIONAL",
+      "descricao": "AUX OPERACIONAL"
+    },
+    {
+      "codigo": "AUX PATRIMONIAL",
+      "descricao": "AUX PATRIMONIAL"
+    },
+    {
+      "codigo": "AUX PROTESE",
+      "descricao": "AUX PROTESE"
+    },
+    {
+      "codigo": "AUX SEGURANCA",
+      "descricao": "AUX SEGURANCA"
+    },
+    {
+      "codigo": "AUX SERVICOS GERAIS",
+      "descricao": "AUX SERVICOS GERAIS"
+    },
+    {
+      "codigo": "AUX TECNICO (A)",
+      "descricao": "AUX TECNICO (A)"
+    },
+    {
+      "codigo": "AUX TESOURARIA",
+      "descricao": "AUX TESOURARIA"
+    },
+    {
+      "codigo": "AUX VETERINARIO",
+      "descricao": "AUX VETERINARIO"
+    },
+    {
+      "codigo": "AUX VIG SANITARIA",
+      "descricao": "AUX VIG SANITARIA"
+    },
+    {
+      "codigo": "AUX. DE COZINHA",
+      "descricao": "AUX. DE COZINHA"
+    },
+    {
+      "codigo": "AVALIADOR (A)",
+      "descricao": "AVALIADOR (A)"
+    },
+    {
+      "codigo": "AVIADOR (A)",
+      "descricao": "AVIADOR (A)"
+    },
+    {
+      "codigo": "AVICOLA",
+      "descricao": "AVICOLA"
+    },
+    {
+      "codigo": "AVICULTOR",
+      "descricao": "AVICULTOR"
+    },
+    {
+      "codigo": "AZULEGISTA",
+      "descricao": "AZULEGISTA"
+    },
+    {
+      "codigo": "BABA",
+      "descricao": "BABA"
+    },
+    {
+      "codigo": "BACK OFFICE",
+      "descricao": "BACK OFFICE"
+    },
+    {
+      "codigo": "BAILARINO (A)",
+      "descricao": "BAILARINO (A)"
+    },
+    {
+      "codigo": "BALANCEIRO",
+      "descricao": "BALANCEIRO"
+    },
+    {
+      "codigo": "BALCONISTA",
+      "descricao": "BALCONISTA"
+    },
+    {
+      "codigo": "BANHISTA",
+      "descricao": "BANHISTA"
+    },
+    {
+      "codigo": "BARBEIRO",
+      "descricao": "BARBEIRO"
+    },
+    {
+      "codigo": "BARMAN",
+      "descricao": "BARMAN"
+    },
+    {
+      "codigo": "BERCARISTA",
+      "descricao": "BERCARISTA"
+    },
+    {
+      "codigo": "BIBLIOTECARIO (A)",
+      "descricao": "BIBLIOTECARIO (A)"
+    },
+    {
+      "codigo": "BILHETEIRO",
+      "descricao": "BILHETEIRO"
+    },
+    {
+      "codigo": "BIOLOGO (A)",
+      "descricao": "BIOLOGO (A)"
+    },
+    {
+      "codigo": "BIOMEDICO (A)",
+      "descricao": "BIOMEDICO (A)"
+    },
+    {
+      "codigo": "BIOQUIMICO (A)",
+      "descricao": "BIOQUIMICO (A)"
+    },
+    {
+      "codigo": "BISPO",
+      "descricao": "BISPO"
+    },
+    {
+      "codigo": "BOBINEIRO",
+      "descricao": "BOBINEIRO"
+    },
+    {
+      "codigo": "BOMBEIRO",
+      "descricao": "BOMBEIRO"
+    },
+    {
+      "codigo": "BOMBEIRO CIVIL",
+      "descricao": "BOMBEIRO CIVIL"
+    },
+    {
+      "codigo": "BOMBISTA",
+      "descricao": "BOMBISTA"
+    },
+    {
+      "codigo": "BORDADEIRA",
+      "descricao": "BORDADEIRA"
+    },
+    {
+      "codigo": "BORRACHEIRO",
+      "descricao": "BORRACHEIRO"
+    },
+    {
+      "codigo": "BUSINESS DEVELOPMENT",
+      "descricao": "BUSINESS DEVELOPMENT"
+    },
+    {
+      "codigo": "CABELEIREIRO (A)",
+      "descricao": "CABELEIREIRO (A)"
+    },
+    {
+      "codigo": "CABISTA",
+      "descricao": "CABISTA"
+    },
+    {
+      "codigo": "CABO",
+      "descricao": "CABO"
+    },
+    {
+      "codigo": "CADASTRADOR (A)",
+      "descricao": "CADASTRADOR (A)"
+    },
+    {
+      "codigo": "CAIXA",
+      "descricao": "CAIXA"
+    },
+    {
+      "codigo": "CALCULISTA",
+      "descricao": "CALCULISTA"
+    },
+    {
+      "codigo": "CALDEIREIRO",
+      "descricao": "CALDEIREIRO"
+    },
+    {
+      "codigo": "CALHEIRO",
+      "descricao": "CALHEIRO"
+    },
+    {
+      "codigo": "CALIGRAFO (A)",
+      "descricao": "CALIGRAFO (A)"
+    },
+    {
+      "codigo": "CAMAREIRO (A)",
+      "descricao": "CAMAREIRO (A)"
+    },
+    {
+      "codigo": "CAMBUZEIRO",
+      "descricao": "CAMBUZEIRO"
+    },
+    {
+      "codigo": "CAMINHONEIRO (A)",
+      "descricao": "CAMINHONEIRO (A)"
+    },
+    {
+      "codigo": "CANTINEIRO (A)",
+      "descricao": "CANTINEIRO (A)"
+    },
+    {
+      "codigo": "CANTOR (A)",
+      "descricao": "CANTOR (A)"
+    },
+    {
+      "codigo": "CAPITAO",
+      "descricao": "CAPITAO"
+    },
+    {
+      "codigo": "CAPTADOR DE MOVEIS",
+      "descricao": "CAPTADOR DE MOVEIS"
+    },
+    {
+      "codigo": "CAPTADOR DE RECURSOS",
+      "descricao": "CAPTADOR DE RECURSOS"
+    },
+    {
+      "codigo": "CARCEREIRO (A)",
+      "descricao": "CARCEREIRO (A)"
+    },
+    {
+      "codigo": "CARPINTEIRO",
+      "descricao": "CARPINTEIRO"
+    },
+    {
+      "codigo": "CARRETEIRO",
+      "descricao": "CARRETEIRO"
+    },
+    {
+      "codigo": "CARTEIRO",
+      "descricao": "CARTEIRO"
+    },
+    {
+      "codigo": "CARVOEIRO",
+      "descricao": "CARVOEIRO"
+    },
+    {
+      "codigo": "CASEIRO",
+      "descricao": "CASEIRO"
+    },
+    {
+      "codigo": "CENOTECNICO",
+      "descricao": "CENOTECNICO"
+    },
+    {
+      "codigo": "CHANCELER",
+      "descricao": "CHANCELER"
+    },
+    {
+      "codigo": "CHAPEIRO",
+      "descricao": "CHAPEIRO"
+    },
+    {
+      "codigo": "CHAVEIRO",
+      "descricao": "CHAVEIRO"
+    },
+    {
+      "codigo": "CHEFE ADMINISTRATIVO",
+      "descricao": "CHEFE ADMINISTRATIVO"
+    },
+    {
+      "codigo": "CHEFE DE COZINHA",
+      "descricao": "CHEFE DE COZINHA"
+    },
+    {
+      "codigo": "CHEFE DE GABINETE",
+      "descricao": "CHEFE DE GABINETE"
+    },
+    {
+      "codigo": "CHEFE DE MANUTENCAO",
+      "descricao": "CHEFE DE MANUTENCAO"
+    },
+    {
+      "codigo": "CHEFE DE MAQUINAS",
+      "descricao": "CHEFE DE MAQUINAS"
+    },
+    {
+      "codigo": "CHEFE DE RECEPCAO",
+      "descricao": "CHEFE DE RECEPCAO"
+    },
+    {
+      "codigo": "CHEFE DE REPORTAGEM",
+      "descricao": "CHEFE DE REPORTAGEM"
+    },
+    {
+      "codigo": "CHEFE DE SECAO",
+      "descricao": "CHEFE DE SECAO"
+    },
+    {
+      "codigo": "CHEFE DE SERV SOCIAL",
+      "descricao": "CHEFE DE SERV SOCIAL"
+    },
+    {
+      "codigo": "CHEFE DE SERVICO",
+      "descricao": "CHEFE DE SERVICO"
+    },
+    {
+      "codigo": "CHEFE DE SETOR",
+      "descricao": "CHEFE DE SETOR"
+    },
+    {
+      "codigo": "CHEFE DE UNIDADE",
+      "descricao": "CHEFE DE UNIDADE"
+    },
+    {
+      "codigo": "CHEFE DE VENDAS",
+      "descricao": "CHEFE DE VENDAS"
+    },
+    {
+      "codigo": "CHEFE LABORATORIO",
+      "descricao": "CHEFE LABORATORIO"
+    },
+    {
+      "codigo": "CHEFE MANUTENCAO",
+      "descricao": "CHEFE MANUTENCAO"
+    },
+    {
+      "codigo": "CHEFE PESSOAL",
+      "descricao": "CHEFE PESSOAL"
+    },
+    {
+      "codigo": "CHEFE RH",
+      "descricao": "CHEFE RH"
+    },
+    {
+      "codigo": "CHEFE TESOURARIA",
+      "descricao": "CHEFE TESOURARIA"
+    },
+    {
+      "codigo": "CHURRASQUEIRO",
+      "descricao": "CHURRASQUEIRO"
+    },
+    {
+      "codigo": "CIENTISTA DE DADOS",
+      "descricao": "CIENTISTA DE DADOS"
+    },
+    {
+      "codigo": "CINEGRAFISTA",
+      "descricao": "CINEGRAFISTA"
+    },
+    {
+      "codigo": "CIR DENTISTA",
+      "descricao": "CIR DENTISTA"
+    },
+    {
+      "codigo": "CIRURGIAO (A)",
+      "descricao": "CIRURGIAO (A)"
+    },
+    {
+      "codigo": "CLASSIFICADOR DE CHAPAS",
+      "descricao": "CLASSIFICADOR DE CHAPAS"
+    },
+    {
+      "codigo": "CLASSIFICADOR DE GRAO",
+      "descricao": "CLASSIFICADOR DE GRAO"
+    },
+    {
+      "codigo": "CO PILOTO",
+      "descricao": "CO PILOTO"
+    },
+    {
+      "codigo": "COACHING",
+      "descricao": "COACHING"
+    },
+    {
+      "codigo": "COBRADOR (A)",
+      "descricao": "COBRADOR (A)"
+    },
+    {
+      "codigo": "COLETOR DE DADOS",
+      "descricao": "COLETOR DE DADOS"
+    },
+    {
+      "codigo": "COLOCADOR DE VIDROS",
+      "descricao": "COLOCADOR DE VIDROS"
+    },
+    {
+      "codigo": "COLORISTA",
+      "descricao": "COLORISTA"
+    },
+    {
+      "codigo": "COMANDANTE",
+      "descricao": "COMANDANTE"
+    },
+    {
+      "codigo": "COMERCIANTE",
+      "descricao": "COMERCIANTE"
+    },
+    {
+      "codigo": "COMISSARIO DE BORDO",
+      "descricao": "COMISSARIO DE BORDO"
+    },
+    {
+      "codigo": "COMMIS",
+      "descricao": "COMMIS"
+    },
+    {
+      "codigo": "COMPOSITOR (A)",
+      "descricao": "COMPOSITOR (A)"
+    },
+    {
+      "codigo": "COMPRADOR (A)",
+      "descricao": "COMPRADOR (A)"
+    },
+    {
+      "codigo": "COMPRESSOR",
+      "descricao": "COMPRESSOR"
+    },
+    {
+      "codigo": "COMUNICACAO SOCIAL",
+      "descricao": "COMUNICACAO SOCIAL"
+    },
+    {
+      "codigo": "CONDUTOR (A)",
+      "descricao": "CONDUTOR (A)"
+    },
+    {
+      "codigo": "CONDUTOR (A) ESCOLAR",
+      "descricao": "CONDUTOR (A) ESCOLAR"
+    },
+    {
+      "codigo": "CONFEITEIRO (A)",
+      "descricao": "CONFEITEIRO (A)"
+    },
+    {
+      "codigo": "CONFERENTE",
+      "descricao": "CONFERENTE"
+    },
+    {
+      "codigo": "CONFERENTE TRANSPORTES",
+      "descricao": "CONFERENTE TRANSPORTES"
+    },
+    {
+      "codigo": "CONSTRUTOR (A)",
+      "descricao": "CONSTRUTOR (A)"
+    },
+    {
+      "codigo": "CONSULTOR (A)  DE VENDAS",
+      "descricao": "CONSULTOR (A)  DE VENDAS"
+    },
+    {
+      "codigo": "CONSULTOR (A) COMERCIAL",
+      "descricao": "CONSULTOR (A) COMERCIAL"
+    },
+    {
+      "codigo": "CONSULTOR (A) DE NEGOCIO",
+      "descricao": "CONSULTOR (A) DE NEGOCIO"
+    },
+    {
+      "codigo": "CONSULTOR (A) DE QUALIDADE",
+      "descricao": "CONSULTOR (A) DE QUALIDADE"
+    },
+    {
+      "codigo": "CONSULTOR (A) DE SISTEMAS",
+      "descricao": "CONSULTOR (A) DE SISTEMAS"
+    },
+    {
+      "codigo": "CONSULTOR (A) JURIDICO",
+      "descricao": "CONSULTOR (A) JURIDICO"
+    },
+    {
+      "codigo": "CONSULTOR (A) SAP",
+      "descricao": "CONSULTOR (A) SAP"
+    },
+    {
+      "codigo": "CONSULTOR (A) TECNICO (A)",
+      "descricao": "CONSULTOR (A) TECNICO (A)"
+    },
+    {
+      "codigo": "CONSULTOR DE SISTEMAS",
+      "descricao": "CONSULTOR DE SISTEMAS"
+    },
+    {
+      "codigo": "CONSULTORA DE QUALIDADE",
+      "descricao": "CONSULTORA DE QUALIDADE"
+    },
+    {
+      "codigo": "CONTADOR (A)",
+      "descricao": "CONTADOR (A)"
+    },
+    {
+      "codigo": "CONTINUO (A)",
+      "descricao": "CONTINUO (A)"
+    },
+    {
+      "codigo": "CONTRAMESTRE",
+      "descricao": "CONTRAMESTRE"
+    },
+    {
+      "codigo": "CONTROLADOR (A)",
+      "descricao": "CONTROLADOR (A)"
+    },
+    {
+      "codigo": "CONTROLADOR DE CARGAS",
+      "descricao": "CONTROLADOR DE CARGAS"
+    },
+    {
+      "codigo": "CONTROLLER",
+      "descricao": "CONTROLLER"
+    },
+    {
+      "codigo": "COOPERADO (A)",
+      "descricao": "COOPERADO (A)"
+    },
+    {
+      "codigo": "COORD CONTABIL",
+      "descricao": "COORD CONTABIL"
+    },
+    {
+      "codigo": "COORD DE CONTAS",
+      "descricao": "COORD DE CONTAS"
+    },
+    {
+      "codigo": "COORD DE CURSOS",
+      "descricao": "COORD DE CURSOS"
+    },
+    {
+      "codigo": "COORD DE PROJETOS",
+      "descricao": "COORD DE PROJETOS"
+    },
+    {
+      "codigo": "COORD EXPORTACAO",
+      "descricao": "COORD EXPORTACAO"
+    },
+    {
+      "codigo": "COORD FINANCEIRO",
+      "descricao": "COORD FINANCEIRO"
+    },
+    {
+      "codigo": "COORD FISCAL",
+      "descricao": "COORD FISCAL"
+    },
+    {
+      "codigo": "COORD GERAL",
+      "descricao": "COORD GERAL"
+    },
+    {
+      "codigo": "COORD RECURSOS HUMANOS",
+      "descricao": "COORD RECURSOS HUMANOS"
+    },
+    {
+      "codigo": "COORD SERVICOS",
+      "descricao": "COORD SERVICOS"
+    },
+    {
+      "codigo": "COORD SUPORTE",
+      "descricao": "COORD SUPORTE"
+    },
+    {
+      "codigo": "COORD TECNICO (A)",
+      "descricao": "COORD TECNICO (A)"
+    },
+    {
+      "codigo": "COORD TRANSPORTE",
+      "descricao": "COORD TRANSPORTE"
+    },
+    {
+      "codigo": "COORDE DE PRODUTO",
+      "descricao": "COORDE DE PRODUTO"
+    },
+    {
+      "codigo": "COORDENADOR (A)",
+      "descricao": "COORDENADOR (A)"
+    },
+    {
+      "codigo": "COPEIRA",
+      "descricao": "COPEIRA"
+    },
+    {
+      "codigo": "COPIADOR",
+      "descricao": "COPIADOR"
+    },
+    {
+      "codigo": "COPISTA",
+      "descricao": "COPISTA"
+    },
+    {
+      "codigo": "CORONEL",
+      "descricao": "CORONEL"
+    },
+    {
+      "codigo": "CORREGEDOR",
+      "descricao": "CORREGEDOR"
+    },
+    {
+      "codigo": "CORRESPONDENTE BANCARIO",
+      "descricao": "CORRESPONDENTE BANCARIO"
+    },
+    {
+      "codigo": "CORRETOR (A)",
+      "descricao": "CORRETOR (A)"
+    },
+    {
+      "codigo": "CORRETOR (A) DE IMOVEIS",
+      "descricao": "CORRETOR (A) DE IMOVEIS"
+    },
+    {
+      "codigo": "CORRETOR (A) DE SEGUROS",
+      "descricao": "CORRETOR (A) DE SEGUROS"
+    },
+    {
+      "codigo": "CORTADOR (A)",
+      "descricao": "CORTADOR (A)"
+    },
+    {
+      "codigo": "COSTUREIRA",
+      "descricao": "COSTUREIRA"
+    },
+    {
+      "codigo": "COTADOR",
+      "descricao": "COTADOR"
+    },
+    {
+      "codigo": "COVEIRO",
+      "descricao": "COVEIRO"
+    },
+    {
+      "codigo": "COZINHEIRO (A)",
+      "descricao": "COZINHEIRO (A)"
+    },
+    {
+      "codigo": "CREDIARISTA",
+      "descricao": "CREDIARISTA"
+    },
+    {
+      "codigo": "CUIDADOR (A)",
+      "descricao": "CUIDADOR (A)"
+    },
+    {
+      "codigo": "CURADOR (A) CULTURAL",
+      "descricao": "CURADOR (A) CULTURAL"
+    },
+    {
+      "codigo": "CUSTOMER SERVICE",
+      "descricao": "CUSTOMER SERVICE"
+    },
+    {
+      "codigo": "DECORADOR (A)",
+      "descricao": "DECORADOR (A)"
+    },
+    {
+      "codigo": "DEDETIZADOR",
+      "descricao": "DEDETIZADOR"
+    },
+    {
+      "codigo": "DEFENSOR (A) PUBLICO (A)",
+      "descricao": "DEFENSOR (A) PUBLICO (A)"
+    },
+    {
+      "codigo": "DELEGADO (A)",
+      "descricao": "DELEGADO (A)"
+    },
+    {
+      "codigo": "DEMONSTRADOR (A)",
+      "descricao": "DEMONSTRADOR (A)"
+    },
+    {
+      "codigo": "DENTISTA",
+      "descricao": "DENTISTA"
+    },
+    {
+      "codigo": "DEPILADORA",
+      "descricao": "DEPILADORA"
+    },
+    {
+      "codigo": "DEPUTADO (A)",
+      "descricao": "DEPUTADO (A)"
+    },
+    {
+      "codigo": "DERMATOLOGISTA",
+      "descricao": "DERMATOLOGISTA"
+    },
+    {
+      "codigo": "DESENHISTA",
+      "descricao": "DESENHISTA"
+    },
+    {
+      "codigo": "DESENHISTA PROJETISTA",
+      "descricao": "DESENHISTA PROJETISTA"
+    },
+    {
+      "codigo": "DESENVOLVEDOR DE SISTEMA",
+      "descricao": "DESENVOLVEDOR DE SISTEMA"
+    },
+    {
+      "codigo": "DESIGNER",
+      "descricao": "DESIGNER"
+    },
+    {
+      "codigo": "DESIGNER GRAFICO",
+      "descricao": "DESIGNER GRAFICO"
+    },
+    {
+      "codigo": "DESPACHANTE",
+      "descricao": "DESPACHANTE"
+    },
+    {
+      "codigo": "DETETIVE",
+      "descricao": "DETETIVE"
+    },
+    {
+      "codigo": "DETETIZADOR",
+      "descricao": "DETETIZADOR"
+    },
+    {
+      "codigo": "DIAGRAMADOR",
+      "descricao": "DIAGRAMADOR"
+    },
+    {
+      "codigo": "DIARISTA",
+      "descricao": "DIARISTA"
+    },
+    {
+      "codigo": "DIGITADOR (A)",
+      "descricao": "DIGITADOR (A)"
+    },
+    {
+      "codigo": "DIRETOR (A) COMERCIAL",
+      "descricao": "DIRETOR (A) COMERCIAL"
+    },
+    {
+      "codigo": "DIRETOR (A) DE DEPTO",
+      "descricao": "DIRETOR (A) DE DEPTO"
+    },
+    {
+      "codigo": "DIRETOR (A) DE PROJETOS",
+      "descricao": "DIRETOR (A) DE PROJETOS"
+    },
+    {
+      "codigo": "DIRETOR (A) ESCOLAR",
+      "descricao": "DIRETOR (A) ESCOLAR"
+    },
+    {
+      "codigo": "DIRETOR (A) FINANCEIRO (A)",
+      "descricao": "DIRETOR (A) FINANCEIRO (A)"
+    },
+    {
+      "codigo": "DIRETOR (A) GERAL",
+      "descricao": "DIRETOR (A) GERAL"
+    },
+    {
+      "codigo": "DIRETOR (A) MEDICO (A)",
+      "descricao": "DIRETOR (A) MEDICO (A)"
+    },
+    {
+      "codigo": "DIRETOR (A) TECNICO (A)",
+      "descricao": "DIRETOR (A) TECNICO (A)"
+    },
+    {
+      "codigo": "DIRETOR DE TECNOLOGIA",
+      "descricao": "DIRETOR DE TECNOLOGIA"
+    },
+    {
+      "codigo": "DIRETOR INFORMATICA",
+      "descricao": "DIRETOR INFORMATICA"
+    },
+    {
+      "codigo": "DIRETOR PRODUTOS",
+      "descricao": "DIRETOR PRODUTOS"
+    },
+    {
+      "codigo": "DIRETOR(A) POS VENDA",
+      "descricao": "DIRETOR(A) POS VENDA"
+    },
+    {
+      "codigo": "DIRIGENTE",
+      "descricao": "DIRIGENTE"
+    },
+    {
+      "codigo": "DIVULGADOR (A)",
+      "descricao": "DIVULGADOR (A)"
+    },
+    {
+      "codigo": "DO LAR",
+      "descricao": "DO LAR"
+    },
+    {
+      "codigo": "DOMESTICA",
+      "descricao": "DOMESTICA"
+    },
+    {
+      "codigo": "DOSIMETRISTA",
+      "descricao": "DOSIMETRISTA"
+    },
+    {
+      "codigo": "DOUTORADO",
+      "descricao": "DOUTORADO"
+    },
+    {
+      "codigo": "DUBLADOR (A)",
+      "descricao": "DUBLADOR (A)"
+    },
+    {
+      "codigo": "ECONOMISTA",
+      "descricao": "ECONOMISTA"
+    },
+    {
+      "codigo": "EDITOR (A)",
+      "descricao": "EDITOR (A)"
+    },
+    {
+      "codigo": "EDITOR (A) DE SINCRONISMO",
+      "descricao": "EDITOR (A) DE SINCRONISMO"
+    },
+    {
+      "codigo": "EDITOR (A) DE VIDEOS",
+      "descricao": "EDITOR (A) DE VIDEOS"
+    },
+    {
+      "codigo": "EDITOR (A) IMAGEM",
+      "descricao": "EDITOR (A) IMAGEM"
+    },
+    {
+      "codigo": "EDUCADOR (A)",
+      "descricao": "EDUCADOR (A)"
+    },
+    {
+      "codigo": "EDUCADOR (A) FISICO (A)",
+      "descricao": "EDUCADOR (A) FISICO (A)"
+    },
+    {
+      "codigo": "ELETRICISTA",
+      "descricao": "ELETRICISTA"
+    },
+    {
+      "codigo": "ELETROMECANICO",
+      "descricao": "ELETROMECANICO"
+    },
+    {
+      "codigo": "EMBALADOR (A)",
+      "descricao": "EMBALADOR (A)"
+    },
+    {
+      "codigo": "EMBARCADOR",
+      "descricao": "EMBARCADOR"
+    },
+    {
+      "codigo": "EMPACOTADOR (A)",
+      "descricao": "EMPACOTADOR (A)"
+    },
+    {
+      "codigo": "EMPILHADOR",
+      "descricao": "EMPILHADOR"
+    },
+    {
+      "codigo": "EMPREGADA DOMESTICA",
+      "descricao": "EMPREGADA DOMESTICA"
+    },
+    {
+      "codigo": "EMPREITEIRO",
+      "descricao": "EMPREITEIRO"
+    },
+    {
+      "codigo": "ENCANADOR",
+      "descricao": "ENCANADOR"
+    },
+    {
+      "codigo": "ENCARREGADO (A) PESSOAL",
+      "descricao": "ENCARREGADO (A) PESSOAL"
+    },
+    {
+      "codigo": "ENCARREGADO (A) SERV GERAIS",
+      "descricao": "ENCARREGADO (A) SERV GERAIS"
+    },
+    {
+      "codigo": "ENCARREGADO (A) SETOR",
+      "descricao": "ENCARREGADO (A) SETOR"
+    },
+    {
+      "codigo": "ENCARREGADO GERAL",
+      "descricao": "ENCARREGADO GERAL"
+    },
+    {
+      "codigo": "ENCARREGADO MANUTENCAO",
+      "descricao": "ENCARREGADO MANUTENCAO"
+    },
+    {
+      "codigo": "ENFERMEIRO (A)",
+      "descricao": "ENFERMEIRO (A)"
+    },
+    {
+      "codigo": "ENG DE PROJETOS",
+      "descricao": "ENG DE PROJETOS"
+    },
+    {
+      "codigo": "ENG DE VENDAS",
+      "descricao": "ENG DE VENDAS"
+    },
+    {
+      "codigo": "ENG ELETRICISTA",
+      "descricao": "ENG ELETRICISTA"
+    },
+    {
+      "codigo": "ENG EQUIPAMENTOS",
+      "descricao": "ENG EQUIPAMENTOS"
+    },
+    {
+      "codigo": "ENG INDUSTRIAL",
+      "descricao": "ENG INDUSTRIAL"
+    },
+    {
+      "codigo": "ENG QUIMICO (A)",
+      "descricao": "ENG QUIMICO (A)"
+    },
+    {
+      "codigo": "ENGENHEIRO",
+      "descricao": "ENGENHEIRO"
+    },
+    {
+      "codigo": "ENGENHEIRO (A)",
+      "descricao": "ENGENHEIRO (A)"
+    },
+    {
+      "codigo": "ENGENHEIRO (A) AMBIENTAL",
+      "descricao": "ENGENHEIRO (A) AMBIENTAL"
+    },
+    {
+      "codigo": "ENGENHEIRO (A) CIVIL",
+      "descricao": "ENGENHEIRO (A) CIVIL"
+    },
+    {
+      "codigo": "ENGENHEIRO (A) DE PROCESSO",
+      "descricao": "ENGENHEIRO (A) DE PROCESSO"
+    },
+    {
+      "codigo": "ENGENHEIRO (A) MECANICO (A)",
+      "descricao": "ENGENHEIRO (A) MECANICO (A)"
+    },
+    {
+      "codigo": "ENGENHEIRO (A) NAVAL",
+      "descricao": "ENGENHEIRO (A) NAVAL"
+    },
+    {
+      "codigo": "ENGENHEIRO AERONAUTICO",
+      "descricao": "ENGENHEIRO AERONAUTICO"
+    },
+    {
+      "codigo": "ENTREGADOR",
+      "descricao": "ENTREGADOR"
+    },
+    {
+      "codigo": "ESCREVENTE",
+      "descricao": "ESCREVENTE"
+    },
+    {
+      "codigo": "ESCRITOR (A)",
+      "descricao": "ESCRITOR (A)"
+    },
+    {
+      "codigo": "ESCRITURARIO (A)",
+      "descricao": "ESCRITURARIO (A)"
+    },
+    {
+      "codigo": "ESCRIVAO",
+      "descricao": "ESCRIVAO"
+    },
+    {
+      "codigo": "ESCRIVAO CHEFE",
+      "descricao": "ESCRIVAO CHEFE"
+    },
+    {
+      "codigo": "ESFIHEIRO",
+      "descricao": "ESFIHEIRO"
+    },
+    {
+      "codigo": "ESPEC DE TELECOMUNICACAO",
+      "descricao": "ESPEC DE TELECOMUNICACAO"
+    },
+    {
+      "codigo": "ESPECIALISTA",
+      "descricao": "ESPECIALISTA"
+    },
+    {
+      "codigo": "ESPECIALISTA PROJETOS",
+      "descricao": "ESPECIALISTA PROJETOS"
+    },
+    {
+      "codigo": "ESPECIALISTA SAP",
+      "descricao": "ESPECIALISTA SAP"
+    },
+    {
+      "codigo": "ESTAGIARIO (A)",
+      "descricao": "ESTAGIARIO (A)"
+    },
+    {
+      "codigo": "ESTAMPADOR",
+      "descricao": "ESTAMPADOR"
+    },
+    {
+      "codigo": "ESTATISTICO (A)",
+      "descricao": "ESTATISTICO (A)"
+    },
+    {
+      "codigo": "ESTATUTARIO (A)",
+      "descricao": "ESTATUTARIO (A)"
+    },
+    {
+      "codigo": "ESTETICISTA",
+      "descricao": "ESTETICISTA"
+    },
+    {
+      "codigo": "ESTILISTA",
+      "descricao": "ESTILISTA"
+    },
+    {
+      "codigo": "ESTIVADOR",
+      "descricao": "ESTIVADOR"
+    },
+    {
+      "codigo": "ESTOFADOR",
+      "descricao": "ESTOFADOR"
+    },
+    {
+      "codigo": "ESTOQUISTA",
+      "descricao": "ESTOQUISTA"
+    },
+    {
+      "codigo": "ESTUDANTE",
+      "descricao": "ESTUDANTE"
+    },
+    {
+      "codigo": "EXAMINADOR (A)",
+      "descricao": "EXAMINADOR (A)"
+    },
+    {
+      "codigo": "EXECUTIVO (A)",
+      "descricao": "EXECUTIVO (A)"
+    },
+    {
+      "codigo": "EXECUTIVO (A) DE CONTAS",
+      "descricao": "EXECUTIVO (A) DE CONTAS"
+    },
+    {
+      "codigo": "EXECUTIVO (A) DE NEGOCIO",
+      "descricao": "EXECUTIVO (A) DE NEGOCIO"
+    },
+    {
+      "codigo": "EXECUTIVO (A) DE VENDAS",
+      "descricao": "EXECUTIVO (A) DE VENDAS"
+    },
+    {
+      "codigo": "EXECUTOR (A) DE TESTE",
+      "descricao": "EXECUTOR (A) DE TESTE"
+    },
+    {
+      "codigo": "EXPEDIDOR (A)",
+      "descricao": "EXPEDIDOR (A)"
+    },
+    {
+      "codigo": "EXPEDIDOR (A) DE MEDIDAS",
+      "descricao": "EXPEDIDOR (A) DE MEDIDAS"
+    },
+    {
+      "codigo": "EXPETOR (A) DE MEDIDAS",
+      "descricao": "EXPETOR (A) DE MEDIDAS"
+    },
+    {
+      "codigo": "EXTENSIONISTA",
+      "descricao": "EXTENSIONISTA"
+    },
+    {
+      "codigo": "EXTRUSOR",
+      "descricao": "EXTRUSOR"
+    },
+    {
+      "codigo": "FARMACEUTICO (A)",
+      "descricao": "FARMACEUTICO (A)"
+    },
+    {
+      "codigo": "FATURISTA",
+      "descricao": "FATURISTA"
+    },
+    {
+      "codigo": "FAXINEIRO (A)",
+      "descricao": "FAXINEIRO (A)"
+    },
+    {
+      "codigo": "FEIRANTE",
+      "descricao": "FEIRANTE"
+    },
+    {
+      "codigo": "FERMENTADOR",
+      "descricao": "FERMENTADOR"
+    },
+    {
+      "codigo": "FERRAMENTEIRO",
+      "descricao": "FERRAMENTEIRO"
+    },
+    {
+      "codigo": "FERROVIARIO (A)",
+      "descricao": "FERROVIARIO (A)"
+    },
+    {
+      "codigo": "FISCAL DE OBRAS",
+      "descricao": "FISCAL DE OBRAS"
+    },
+    {
+      "codigo": "FISCAL DE PISTA",
+      "descricao": "FISCAL DE PISTA"
+    },
+    {
+      "codigo": "FISCAL DE RENDA",
+      "descricao": "FISCAL DE RENDA"
+    },
+    {
+      "codigo": "FISCAL DE TRANSPORTE",
+      "descricao": "FISCAL DE TRANSPORTE"
+    },
+    {
+      "codigo": "FISCAL DE TRIBUTOS",
+      "descricao": "FISCAL DE TRIBUTOS"
+    },
+    {
+      "codigo": "FISCAL SANITARIO",
+      "descricao": "FISCAL SANITARIO"
+    },
+    {
+      "codigo": "FISIOTERAPEUTA",
+      "descricao": "FISIOTERAPEUTA"
+    },
+    {
+      "codigo": "FLORISTA",
+      "descricao": "FLORISTA"
+    },
+    {
+      "codigo": "FONOAUDIOLOGO (A)",
+      "descricao": "FONOAUDIOLOGO (A)"
+    },
+    {
+      "codigo": "FORNEIRO (A)",
+      "descricao": "FORNEIRO (A)"
+    },
+    {
+      "codigo": "FOTOGRAFO (A)",
+      "descricao": "FOTOGRAFO (A)"
+    },
+    {
+      "codigo": "FRENTISTA",
+      "descricao": "FRENTISTA"
+    },
+    {
+      "codigo": "FRESADOR",
+      "descricao": "FRESADOR"
+    },
+    {
+      "codigo": "FUNDIDOR",
+      "descricao": "FUNDIDOR"
+    },
+    {
+      "codigo": "FUNILEIRO",
+      "descricao": "FUNILEIRO"
+    },
+    {
+      "codigo": "GARANTISTA",
+      "descricao": "GARANTISTA"
+    },
+    {
+      "codigo": "GARCON",
+      "descricao": "GARCON"
+    },
+    {
+      "codigo": "GARCONETE",
+      "descricao": "GARCONETE"
+    },
+    {
+      "codigo": "GARDEMANGER",
+      "descricao": "GARDEMANGER"
+    },
+    {
+      "codigo": "GARI",
+      "descricao": "GARI"
+    },
+    {
+      "codigo": "GARIMPEIRO",
+      "descricao": "GARIMPEIRO"
+    },
+    {
+      "codigo": "GASISTA",
+      "descricao": "GASISTA"
+    },
+    {
+      "codigo": "GASTROENTEROLOGISTA",
+      "descricao": "GASTROENTEROLOGISTA"
+    },
+    {
+      "codigo": "GEOGRAFO (A)",
+      "descricao": "GEOGRAFO (A)"
+    },
+    {
+      "codigo": "GEOLOGO (A)",
+      "descricao": "GEOLOGO (A)"
+    },
+    {
+      "codigo": "GERENTE ADM",
+      "descricao": "GERENTE ADM"
+    },
+    {
+      "codigo": "GERENTE ATENDIMENTO",
+      "descricao": "GERENTE ATENDIMENTO"
+    },
+    {
+      "codigo": "GERENTE CAMBIO",
+      "descricao": "GERENTE CAMBIO"
+    },
+    {
+      "codigo": "GERENTE COMERCIAL",
+      "descricao": "GERENTE COMERCIAL"
+    },
+    {
+      "codigo": "GERENTE CONTABIL",
+      "descricao": "GERENTE CONTABIL"
+    },
+    {
+      "codigo": "GERENTE DE ARMAZEM",
+      "descricao": "GERENTE DE ARMAZEM"
+    },
+    {
+      "codigo": "GERENTE DE COMPRAS",
+      "descricao": "GERENTE DE COMPRAS"
+    },
+    {
+      "codigo": "GERENTE DE CONSULTORIA",
+      "descricao": "GERENTE DE CONSULTORIA"
+    },
+    {
+      "codigo": "GERENTE DE CONTAS",
+      "descricao": "GERENTE DE CONTAS"
+    },
+    {
+      "codigo": "GERENTE DE EQUIPE",
+      "descricao": "GERENTE DE EQUIPE"
+    },
+    {
+      "codigo": "GERENTE DE FABRICA",
+      "descricao": "GERENTE DE FABRICA"
+    },
+    {
+      "codigo": "GERENTE DE LOGISTICA",
+      "descricao": "GERENTE DE LOGISTICA"
+    },
+    {
+      "codigo": "GERENTE DE OPERACIONAL",
+      "descricao": "GERENTE DE OPERACIONAL"
+    },
+    {
+      "codigo": "GERENTE DE PRODUCAO",
+      "descricao": "GERENTE DE PRODUCAO"
+    },
+    {
+      "codigo": "GERENTE DE PRODUTO",
+      "descricao": "GERENTE DE PRODUTO"
+    },
+    {
+      "codigo": "GERENTE DE PROJETOS",
+      "descricao": "GERENTE DE PROJETOS"
+    },
+    {
+      "codigo": "GERENTE DE REDES",
+      "descricao": "GERENTE DE REDES"
+    },
+    {
+      "codigo": "GERENTE DE REGIONAL",
+      "descricao": "GERENTE DE REGIONAL"
+    },
+    {
+      "codigo": "GERENTE DE SECAO",
+      "descricao": "GERENTE DE SECAO"
+    },
+    {
+      "codigo": "GERENTE DE SEGURANCA",
+      "descricao": "GERENTE DE SEGURANCA"
+    },
+    {
+      "codigo": "GERENTE DE SERVICOS",
+      "descricao": "GERENTE DE SERVICOS"
+    },
+    {
+      "codigo": "GERENTE DE SISTEMAS",
+      "descricao": "GERENTE DE SISTEMAS"
+    },
+    {
+      "codigo": "GERENTE DE TI",
+      "descricao": "GERENTE DE TI"
+    },
+    {
+      "codigo": "GERENTE DE VENDAS",
+      "descricao": "GERENTE DE VENDAS"
+    },
+    {
+      "codigo": "GERENTE DEPTO PESSOAL",
+      "descricao": "GERENTE DEPTO PESSOAL"
+    },
+    {
+      "codigo": "GERENTE EXECUTIVO (A)",
+      "descricao": "GERENTE EXECUTIVO (A)"
+    },
+    {
+      "codigo": "GERENTE FINANCEIRO (A)",
+      "descricao": "GERENTE FINANCEIRO (A)"
+    },
+    {
+      "codigo": "GERENTE GERAL",
+      "descricao": "GERENTE GERAL"
+    },
+    {
+      "codigo": "GERENTE JURIDICO",
+      "descricao": "GERENTE JURIDICO"
+    },
+    {
+      "codigo": "GERENTE NEGOCIOS",
+      "descricao": "GERENTE NEGOCIOS"
+    },
+    {
+      "codigo": "GERENTE OFICINA",
+      "descricao": "GERENTE OFICINA"
+    },
+    {
+      "codigo": "GERENTE PLANEJAMENTO",
+      "descricao": "GERENTE PLANEJAMENTO"
+    },
+    {
+      "codigo": "GERENTE RECURSOS HUMANOS",
+      "descricao": "GERENTE RECURSOS HUMANOS"
+    },
+    {
+      "codigo": "GERENTE SEGURANCA",
+      "descricao": "GERENTE SEGURANCA"
+    },
+    {
+      "codigo": "GESSEIRO",
+      "descricao": "GESSEIRO"
+    },
+    {
+      "codigo": "GESTOR (A) DE NEGOCIOS",
+      "descricao": "GESTOR (A) DE NEGOCIOS"
+    },
+    {
+      "codigo": "GESTOR (A) DE RECEITAS",
+      "descricao": "GESTOR (A) DE RECEITAS"
+    },
+    {
+      "codigo": "GINECOLOGISTA",
+      "descricao": "GINECOLOGISTA"
+    },
+    {
+      "codigo": "GOVERNANTA",
+      "descricao": "GOVERNANTA"
+    },
+    {
+      "codigo": "GRANJEIRO",
+      "descricao": "GRANJEIRO"
+    },
+    {
+      "codigo": "GRAVADOR",
+      "descricao": "GRAVADOR"
+    },
+    {
+      "codigo": "GREIDISTA",
+      "descricao": "GREIDISTA"
+    },
+    {
+      "codigo": "GUARDA CIVIL",
+      "descricao": "GUARDA CIVIL"
+    },
+    {
+      "codigo": "GUARDA JUDICIARIO",
+      "descricao": "GUARDA JUDICIARIO"
+    },
+    {
+      "codigo": "GUARDA METROPOLITANO",
+      "descricao": "GUARDA METROPOLITANO"
+    },
+    {
+      "codigo": "GUARDA MUNICIPAL",
+      "descricao": "GUARDA MUNICIPAL"
+    },
+    {
+      "codigo": "GUINCHEIRO",
+      "descricao": "GUINCHEIRO"
+    },
+    {
+      "codigo": "HOMEM DE AREA",
+      "descricao": "HOMEM DE AREA"
+    },
+    {
+      "codigo": "ILUMINADOR (A)",
+      "descricao": "ILUMINADOR (A)"
+    },
+    {
+      "codigo": "ILUSTRADOR (A)",
+      "descricao": "ILUSTRADOR (A)"
+    },
+    {
+      "codigo": "IMPERMEABILIZADOR (A)",
+      "descricao": "IMPERMEABILIZADOR (A)"
+    },
+    {
+      "codigo": "IMPLANTADOR (A)",
+      "descricao": "IMPLANTADOR (A)"
+    },
+    {
+      "codigo": "IMPRESSOR (A)",
+      "descricao": "IMPRESSOR (A)"
+    },
+    {
+      "codigo": "INFESTADOR (A)",
+      "descricao": "INFESTADOR (A)"
+    },
+    {
+      "codigo": "INSPERTOR (A) DE PRODUCAO",
+      "descricao": "INSPERTOR (A) DE PRODUCAO"
+    },
+    {
+      "codigo": "INSPERTOR (A) EQUIPAMENTOS",
+      "descricao": "INSPERTOR (A) EQUIPAMENTOS"
+    },
+    {
+      "codigo": "INSPETOR (A) DE QUALIDADE",
+      "descricao": "INSPETOR (A) DE QUALIDADE"
+    },
+    {
+      "codigo": "INSPETOR (A) DE SINISTRO",
+      "descricao": "INSPETOR (A) DE SINISTRO"
+    },
+    {
+      "codigo": "INSPETOR (A) DE TRANSITO",
+      "descricao": "INSPETOR (A) DE TRANSITO"
+    },
+    {
+      "codigo": "INSPETOR (A) GERAL",
+      "descricao": "INSPETOR (A) GERAL"
+    },
+    {
+      "codigo": "INSPETOR (A) POLICIA",
+      "descricao": "INSPETOR (A) POLICIA"
+    },
+    {
+      "codigo": "INSPETOR (A) SEGURANCA",
+      "descricao": "INSPETOR (A) SEGURANCA"
+    },
+    {
+      "codigo": "INST PARAQUEDISTA",
+      "descricao": "INST PARAQUEDISTA"
+    },
+    {
+      "codigo": "INSTALADOR (A)",
+      "descricao": "INSTALADOR (A)"
+    },
+    {
+      "codigo": "INSTALADOR DE ACESSORIOS",
+      "descricao": "INSTALADOR DE ACESSORIOS"
+    },
+    {
+      "codigo": "INSTALADOR ELETRONICO",
+      "descricao": "INSTALADOR ELETRONICO"
+    },
+    {
+      "codigo": "INSTRUMENTADOR (A)",
+      "descricao": "INSTRUMENTADOR (A)"
+    },
+    {
+      "codigo": "INSTRUMENTISTA",
+      "descricao": "INSTRUMENTISTA"
+    },
+    {
+      "codigo": "INSTRUTOR (A)",
+      "descricao": "INSTRUTOR (A)"
+    },
+    {
+      "codigo": "INTERLOCUTOR (A)",
+      "descricao": "INTERLOCUTOR (A)"
+    },
+    {
+      "codigo": "INTERPRETE",
+      "descricao": "INTERPRETE"
+    },
+    {
+      "codigo": "INVENTARIANTE",
+      "descricao": "INVENTARIANTE"
+    },
+    {
+      "codigo": "INVESTIGADOR (A)",
+      "descricao": "INVESTIGADOR (A)"
+    },
+    {
+      "codigo": "JARDINEIRO",
+      "descricao": "JARDINEIRO"
+    },
+    {
+      "codigo": "JATISTA",
+      "descricao": "JATISTA"
+    },
+    {
+      "codigo": "JORNALEIRO",
+      "descricao": "JORNALEIRO"
+    },
+    {
+      "codigo": "JORNALISTA",
+      "descricao": "JORNALISTA"
+    },
+    {
+      "codigo": "JUIZ (A)",
+      "descricao": "JUIZ (A)"
+    },
+    {
+      "codigo": "LACTARISTA",
+      "descricao": "LACTARISTA"
+    },
+    {
+      "codigo": "LAMINADOR",
+      "descricao": "LAMINADOR"
+    },
+    {
+      "codigo": "LANTERNEIRO",
+      "descricao": "LANTERNEIRO"
+    },
+    {
+      "codigo": "LAPIDADOR (A)",
+      "descricao": "LAPIDADOR (A)"
+    },
+    {
+      "codigo": "LAVADEIRA",
+      "descricao": "LAVADEIRA"
+    },
+    {
+      "codigo": "LAVADOR",
+      "descricao": "LAVADOR"
+    },
+    {
+      "codigo": "LEGISLADOR",
+      "descricao": "LEGISLADOR"
+    },
+    {
+      "codigo": "LEILOEIRA",
+      "descricao": "LEILOEIRA"
+    },
+    {
+      "codigo": "LEITURISTA",
+      "descricao": "LEITURISTA"
+    },
+    {
+      "codigo": "LETRISTA",
+      "descricao": "LETRISTA"
+    },
+    {
+      "codigo": "LIDER ALMOXARIFADO",
+      "descricao": "LIDER ALMOXARIFADO"
+    },
+    {
+      "codigo": "LIDER DE DEPARTAMENTO",
+      "descricao": "LIDER DE DEPARTAMENTO"
+    },
+    {
+      "codigo": "LIDER DE INVENTARIO",
+      "descricao": "LIDER DE INVENTARIO"
+    },
+    {
+      "codigo": "LIDER DE SEGURANCA",
+      "descricao": "LIDER DE SEGURANCA"
+    },
+    {
+      "codigo": "LOCATARIO DE IMOVEIS",
+      "descricao": "LOCATARIO DE IMOVEIS"
+    },
+    {
+      "codigo": "LOCUTOR (A)",
+      "descricao": "LOCUTOR (A)"
+    },
+    {
+      "codigo": "LUBRIFICADOR",
+      "descricao": "LUBRIFICADOR"
+    },
+    {
+      "codigo": "MACHEIRO",
+      "descricao": "MACHEIRO"
+    },
+    {
+      "codigo": "MAJOR",
+      "descricao": "MAJOR"
+    },
+    {
+      "codigo": "MALEIRO",
+      "descricao": "MALEIRO"
+    },
+    {
+      "codigo": "MANICURE",
+      "descricao": "MANICURE"
+    },
+    {
+      "codigo": "MANIPULADOR",
+      "descricao": "MANIPULADOR"
+    },
+    {
+      "codigo": "MANOBRISTA",
+      "descricao": "MANOBRISTA"
+    },
+    {
+      "codigo": "MANTENEDOR (A)",
+      "descricao": "MANTENEDOR (A)"
+    },
+    {
+      "codigo": "MANTENEDOR DE VIA FERREA",
+      "descricao": "MANTENEDOR DE VIA FERREA"
+    },
+    {
+      "codigo": "MAQUIADOR (A)",
+      "descricao": "MAQUIADOR (A)"
+    },
+    {
+      "codigo": "MAQUINISTA",
+      "descricao": "MAQUINISTA"
+    },
+    {
+      "codigo": "MARCINEIRO",
+      "descricao": "MARCINEIRO"
+    },
+    {
+      "codigo": "MARINHEIRO",
+      "descricao": "MARINHEIRO"
+    },
+    {
+      "codigo": "MARMORISTA",
+      "descricao": "MARMORISTA"
+    },
+    {
+      "codigo": "MARTELETEIRO",
+      "descricao": "MARTELETEIRO"
+    },
+    {
+      "codigo": "MASSAGISTA",
+      "descricao": "MASSAGISTA"
+    },
+    {
+      "codigo": "MASSEIRO",
+      "descricao": "MASSEIRO"
+    },
+    {
+      "codigo": "MASSOTERAPEUTA",
+      "descricao": "MASSOTERAPEUTA"
+    },
+    {
+      "codigo": "MATEMATICO (A)",
+      "descricao": "MATEMATICO (A)"
+    },
+    {
+      "codigo": "MATRIZEIRO (A)",
+      "descricao": "MATRIZEIRO (A)"
+    },
+    {
+      "codigo": "MECANICO",
+      "descricao": "MECANICO"
+    },
+    {
+      "codigo": "MECANICO DE AERONAVE",
+      "descricao": "MECANICO DE AERONAVE"
+    },
+    {
+      "codigo": "MECANICO DE MANUTENCAO",
+      "descricao": "MECANICO DE MANUTENCAO"
+    },
+    {
+      "codigo": "MECANICO DE MAQUINAS",
+      "descricao": "MECANICO DE MAQUINAS"
+    },
+    {
+      "codigo": "MECANOGRAFO",
+      "descricao": "MECANOGRAFO"
+    },
+    {
+      "codigo": "MEDICO (A)",
+      "descricao": "MEDICO (A)"
+    },
+    {
+      "codigo": "MEDIDOR",
+      "descricao": "MEDIDOR"
+    },
+    {
+      "codigo": "MEIO OFICIAL",
+      "descricao": "MEIO OFICIAL"
+    },
+    {
+      "codigo": "MENSAGEIRO",
+      "descricao": "MENSAGEIRO"
+    },
+    {
+      "codigo": "MERENDEIRA",
+      "descricao": "MERENDEIRA"
+    },
+    {
+      "codigo": "MERGULHADOR",
+      "descricao": "MERGULHADOR"
+    },
+    {
+      "codigo": "MESTRE DE OBRAS",
+      "descricao": "MESTRE DE OBRAS"
+    },
+    {
+      "codigo": "MESTRE MECANICA",
+      "descricao": "MESTRE MECANICA"
+    },
+    {
+      "codigo": "METEOROLOGISTA",
+      "descricao": "METEOROLOGISTA"
+    },
+    {
+      "codigo": "METRI",
+      "descricao": "METRI"
+    },
+    {
+      "codigo": "METROVIARIO (A)",
+      "descricao": "METROVIARIO (A)"
+    },
+    {
+      "codigo": "MICROPIGMENTADOR (A)",
+      "descricao": "MICROPIGMENTADOR (A)"
+    },
+    {
+      "codigo": "MINISTRO PRESBITERIANO",
+      "descricao": "MINISTRO PRESBITERIANO"
+    },
+    {
+      "codigo": "MISSIONARIO (A)",
+      "descricao": "MISSIONARIO (A)"
+    },
+    {
+      "codigo": "MISTURADOR",
+      "descricao": "MISTURADOR"
+    },
+    {
+      "codigo": "MODELADOR",
+      "descricao": "MODELADOR"
+    },
+    {
+      "codigo": "MODELISTA",
+      "descricao": "MODELISTA"
+    },
+    {
+      "codigo": "MODELO",
+      "descricao": "MODELO"
+    },
+    {
+      "codigo": "MOLDADOR",
+      "descricao": "MOLDADOR"
+    },
+    {
+      "codigo": "MOLEIRO",
+      "descricao": "MOLEIRO"
+    },
+    {
+      "codigo": "MONITOR (A)",
+      "descricao": "MONITOR (A)"
+    },
+    {
+      "codigo": "MONITOR (A) ESCOLAR",
+      "descricao": "MONITOR (A) ESCOLAR"
+    },
+    {
+      "codigo": "MONTADOR",
+      "descricao": "MONTADOR"
+    },
+    {
+      "codigo": "MOTOBOY",
+      "descricao": "MOTOBOY"
+    },
+    {
+      "codigo": "MOTOGIRL",
+      "descricao": "MOTOGIRL"
+    },
+    {
+      "codigo": "MOTORISTA BOIADEIRO",
+      "descricao": "MOTORISTA BOIADEIRO"
+    },
+    {
+      "codigo": "MOTORISTA DE CARGA",
+      "descricao": "MOTORISTA DE CARGA"
+    },
+    {
+      "codigo": "MOTORISTA DE PESSOAS",
+      "descricao": "MOTORISTA DE PESSOAS"
+    },
+    {
+      "codigo": "MOTOTAXISTA",
+      "descricao": "MOTOTAXISTA"
+    },
+    {
+      "codigo": "MULTIPLICADOR",
+      "descricao": "MULTIPLICADOR"
+    },
+    {
+      "codigo": "MUSEOLOGO (A)",
+      "descricao": "MUSEOLOGO (A)"
+    },
+    {
+      "codigo": "MUSICISTA",
+      "descricao": "MUSICISTA"
+    },
+    {
+      "codigo": "MUSICO",
+      "descricao": "MUSICO"
+    },
+    {
+      "codigo": "NEGOCIADOR (A)",
+      "descricao": "NEGOCIADOR (A)"
+    },
+    {
+      "codigo": "NEUROLOGISTA",
+      "descricao": "NEUROLOGISTA"
+    },
+    {
+      "codigo": "NUTRICIONISTA",
+      "descricao": "NUTRICIONISTA"
+    },
+    {
+      "codigo": "OFFICE BOY",
+      "descricao": "OFFICE BOY"
+    },
+    {
+      "codigo": "OFICIAL",
+      "descricao": "OFICIAL"
+    },
+    {
+      "codigo": "OFICIAL ADM",
+      "descricao": "OFICIAL ADM"
+    },
+    {
+      "codigo": "OFICIAL AVIADOR",
+      "descricao": "OFICIAL AVIADOR"
+    },
+    {
+      "codigo": "OFICIAL DE CARTORIO",
+      "descricao": "OFICIAL DE CARTORIO"
+    },
+    {
+      "codigo": "OFICIAL DE GABINETE",
+      "descricao": "OFICIAL DE GABINETE"
+    },
+    {
+      "codigo": "OFICIAL DE JUSTICA",
+      "descricao": "OFICIAL DE JUSTICA"
+    },
+    {
+      "codigo": "OFICIAL DE MAQUINAS",
+      "descricao": "OFICIAL DE MAQUINAS"
+    },
+    {
+      "codigo": "OFICIAL DE SAUDE",
+      "descricao": "OFICIAL DE SAUDE"
+    },
+    {
+      "codigo": "OFICIAL DE SEGURANCA",
+      "descricao": "OFICIAL DE SEGURANCA"
+    },
+    {
+      "codigo": "OFICINEIRO",
+      "descricao": "OFICINEIRO"
+    },
+    {
+      "codigo": "OFTALMOLOGISTA",
+      "descricao": "OFTALMOLOGISTA"
+    },
+    {
+      "codigo": "OPERADOR (A) CALLCENTER",
+      "descricao": "OPERADOR (A) CALLCENTER"
+    },
+    {
+      "codigo": "OPERADOR (A) COMERCIAL",
+      "descricao": "OPERADOR (A) COMERCIAL"
+    },
+    {
+      "codigo": "OPERADOR (A) COMPUTADOR",
+      "descricao": "OPERADOR (A) COMPUTADOR"
+    },
+    {
+      "codigo": "OPERADOR (A) DE AUDIO",
+      "descricao": "OPERADOR (A) DE AUDIO"
+    },
+    {
+      "codigo": "OPERADOR (A) DE CAIXA",
+      "descricao": "OPERADOR (A) DE CAIXA"
+    },
+    {
+      "codigo": "OPERADOR (A) DE CAMBIO",
+      "descricao": "OPERADOR (A) DE CAMBIO"
+    },
+    {
+      "codigo": "OPERADOR (A) DE CONTROLE",
+      "descricao": "OPERADOR (A) DE CONTROLE"
+    },
+    {
+      "codigo": "OPERADOR (A) DE ESTRUTORA",
+      "descricao": "OPERADOR (A) DE ESTRUTORA"
+    },
+    {
+      "codigo": "OPERADOR (A) DE FORNO",
+      "descricao": "OPERADOR (A) DE FORNO"
+    },
+    {
+      "codigo": "OPERADOR (A) DE LOGISTICA",
+      "descricao": "OPERADOR (A) DE LOGISTICA"
+    },
+    {
+      "codigo": "OPERADOR (A) DE MAQUINAS",
+      "descricao": "OPERADOR (A) DE MAQUINAS"
+    },
+    {
+      "codigo": "OPERADOR (A) DE PONTE",
+      "descricao": "OPERADOR (A) DE PONTE"
+    },
+    {
+      "codigo": "OPERADOR (A) DE PRODUCAO",
+      "descricao": "OPERADOR (A) DE PRODUCAO"
+    },
+    {
+      "codigo": "OPERADOR (A) DE PROTECAO",
+      "descricao": "OPERADOR (A) DE PROTECAO"
+    },
+    {
+      "codigo": "OPERADOR (A) DE RADIO",
+      "descricao": "OPERADOR (A) DE RADIO"
+    },
+    {
+      "codigo": "OPERADOR (A) DE SOM",
+      "descricao": "OPERADOR (A) DE SOM"
+    },
+    {
+      "codigo": "OPERADOR (A) DE SUBESTACAO",
+      "descricao": "OPERADOR (A) DE SUBESTACAO"
+    },
+    {
+      "codigo": "OPERADOR (A) FINANCEIRO (A)",
+      "descricao": "OPERADOR (A) FINANCEIRO (A)"
+    },
+    {
+      "codigo": "OPERADOR (A) FISCAL",
+      "descricao": "OPERADOR (A) FISCAL"
+    },
+    {
+      "codigo": "OPERADOR (A) GERAL",
+      "descricao": "OPERADOR (A) GERAL"
+    },
+    {
+      "codigo": "OPERADOR (A) INDUSTRIAL",
+      "descricao": "OPERADOR (A) INDUSTRIAL"
+    },
+    {
+      "codigo": "OPERADOR (A) MAT CIRURGICOS",
+      "descricao": "OPERADOR (A) MAT CIRURGICOS"
+    },
+    {
+      "codigo": "OPERADOR (A) MICROFILMAGEM",
+      "descricao": "OPERADOR (A) MICROFILMAGEM"
+    },
+    {
+      "codigo": "OPERADOR (A) TELEMARKETING",
+      "descricao": "OPERADOR (A) TELEMARKETING"
+    },
+    {
+      "codigo": "OPERADOR (A) TRANSPORTE",
+      "descricao": "OPERADOR (A) TRANSPORTE"
+    },
+    {
+      "codigo": "OPERADOR (A) TURISMO",
+      "descricao": "OPERADOR (A) TURISMO"
+    },
+    {
+      "codigo": "OPERARIO (A)",
+      "descricao": "OPERARIO (A)"
+    },
+    {
+      "codigo": "ORCAMENTISTA",
+      "descricao": "ORCAMENTISTA"
+    },
+    {
+      "codigo": "ORGANIZADOR (A) DE EVENTOS",
+      "descricao": "ORGANIZADOR (A) DE EVENTOS"
+    },
+    {
+      "codigo": "ORGANIZADOR (A) GERAL",
+      "descricao": "ORGANIZADOR (A) GERAL"
+    },
+    {
+      "codigo": "ORIENTADOR (A) EDUCACIONAL",
+      "descricao": "ORIENTADOR (A) EDUCACIONAL"
+    },
+    {
+      "codigo": "ORTOPEDISTA",
+      "descricao": "ORTOPEDISTA"
+    },
+    {
+      "codigo": "OTORRINOLARINGOLOGISTA",
+      "descricao": "OTORRINOLARINGOLOGISTA"
+    },
+    {
+      "codigo": "OURIVES",
+      "descricao": "OURIVES"
+    },
+    {
+      "codigo": "OUVIDOR",
+      "descricao": "OUVIDOR"
+    },
+    {
+      "codigo": "PADEIRO",
+      "descricao": "PADEIRO"
+    },
+    {
+      "codigo": "PADRE",
+      "descricao": "PADRE"
+    },
+    {
+      "codigo": "PAISAGISTA",
+      "descricao": "PAISAGISTA"
+    },
+    {
+      "codigo": "PASSADEIRA",
+      "descricao": "PASSADEIRA"
+    },
+    {
+      "codigo": "PASTELEIRO",
+      "descricao": "PASTELEIRO"
+    },
+    {
+      "codigo": "PASTOR (A)",
+      "descricao": "PASTOR (A)"
+    },
+    {
+      "codigo": "PATROLEIRO",
+      "descricao": "PATROLEIRO"
+    },
+    {
+      "codigo": "PECUARISTA",
+      "descricao": "PECUARISTA"
+    },
+    {
+      "codigo": "PEDAGOGO (A)",
+      "descricao": "PEDAGOGO (A)"
+    },
+    {
+      "codigo": "PEDREIRO",
+      "descricao": "PEDREIRO"
+    },
+    {
+      "codigo": "PEIXEIRO",
+      "descricao": "PEIXEIRO"
+    },
+    {
+      "codigo": "PENSIONISTA MILITAR MORTE PAI",
+      "descricao": "PENSIONISTA MILITAR MORTE PAI"
+    },
+    {
+      "codigo": "PENSIONISTA POR VIUVEZ",
+      "descricao": "PENSIONISTA POR VIUVEZ"
+    },
+    {
+      "codigo": "PERITO (A)",
+      "descricao": "PERITO (A)"
+    },
+    {
+      "codigo": "PERSONAL TRAINER",
+      "descricao": "PERSONAL TRAINER"
+    },
+    {
+      "codigo": "PESCADOR",
+      "descricao": "PESCADOR"
+    },
+    {
+      "codigo": "PESQUISADOR (A)",
+      "descricao": "PESQUISADOR (A)"
+    },
+    {
+      "codigo": "PILOTEIRO",
+      "descricao": "PILOTEIRO"
+    },
+    {
+      "codigo": "PILOTO",
+      "descricao": "PILOTO"
+    },
+    {
+      "codigo": "PILOTO AUTOMOBILISTICO",
+      "descricao": "PILOTO AUTOMOBILISTICO"
+    },
+    {
+      "codigo": "PINTOR (A)",
+      "descricao": "PINTOR (A)"
+    },
+    {
+      "codigo": "PINTOR DE AUTO",
+      "descricao": "PINTOR DE AUTO"
+    },
+    {
+      "codigo": "PINTOR PREDIAL",
+      "descricao": "PINTOR PREDIAL"
+    },
+    {
+      "codigo": "PIZZAIOLO",
+      "descricao": "PIZZAIOLO"
+    },
+    {
+      "codigo": "PLANEJADOR (A)",
+      "descricao": "PLANEJADOR (A)"
+    },
+    {
+      "codigo": "PLANTONISTA",
+      "descricao": "PLANTONISTA"
+    },
+    {
+      "codigo": "PLATAFORMISTA",
+      "descricao": "PLATAFORMISTA"
+    },
+    {
+      "codigo": "PODOLOGO (A)",
+      "descricao": "PODOLOGO (A)"
+    },
+    {
+      "codigo": "POLICIAL CIVIL",
+      "descricao": "POLICIAL CIVIL"
+    },
+    {
+      "codigo": "POLICIAL FEDERAL",
+      "descricao": "POLICIAL FEDERAL"
+    },
+    {
+      "codigo": "POLICIAL MILITAR",
+      "descricao": "POLICIAL MILITAR"
+    },
+    {
+      "codigo": "POLIDOR",
+      "descricao": "POLIDOR"
+    },
+    {
+      "codigo": "PORTEIRO",
+      "descricao": "PORTEIRO"
+    },
+    {
+      "codigo": "PRATICANTE DE PRODUCAO",
+      "descricao": "PRATICANTE DE PRODUCAO"
+    },
+    {
+      "codigo": "PREFEITO (A)",
+      "descricao": "PREFEITO (A)"
+    },
+    {
+      "codigo": "PRENSISTA",
+      "descricao": "PRENSISTA"
+    },
+    {
+      "codigo": "PREPARADOR (A)",
+      "descricao": "PREPARADOR (A)"
+    },
+    {
+      "codigo": "PREPARADOR (A) FISICO",
+      "descricao": "PREPARADOR (A) FISICO"
+    },
+    {
+      "codigo": "PRESIDENTE",
+      "descricao": "PRESIDENTE"
+    },
+    {
+      "codigo": "PROCESSISTA",
+      "descricao": "PROCESSISTA"
+    },
+    {
+      "codigo": "PROCURADOR (A)",
+      "descricao": "PROCURADOR (A)"
+    },
+    {
+      "codigo": "PRODUTOR (A)",
+      "descricao": "PRODUTOR (A)"
+    },
+    {
+      "codigo": "PRODUTOR DE EVENTOS",
+      "descricao": "PRODUTOR DE EVENTOS"
+    },
+    {
+      "codigo": "PRODUTOR RURAL",
+      "descricao": "PRODUTOR RURAL"
+    },
+    {
+      "codigo": "PROFESSOR (A)",
+      "descricao": "PROFESSOR (A)"
+    },
+    {
+      "codigo": "PROFESSOR (A) ASSISTENTE",
+      "descricao": "PROFESSOR (A) ASSISTENTE"
+    },
+    {
+      "codigo": "PROFESSOR (A) IDIOMAS",
+      "descricao": "PROFESSOR (A) IDIOMAS"
+    },
+    {
+      "codigo": "PROFISSIONAL DE SUPORTE",
+      "descricao": "PROFISSIONAL DE SUPORTE"
+    },
+    {
+      "codigo": "PROGRAMADOR (A)",
+      "descricao": "PROGRAMADOR (A)"
+    },
+    {
+      "codigo": "PROGRAMADOR (A) VISUAL",
+      "descricao": "PROGRAMADOR (A) VISUAL"
+    },
+    {
+      "codigo": "PROJETISTA",
+      "descricao": "PROJETISTA"
+    },
+    {
+      "codigo": "PROMOTOR (A)",
+      "descricao": "PROMOTOR (A)"
+    },
+    {
+      "codigo": "PROMOTOR (A) DE JUSTICA",
+      "descricao": "PROMOTOR (A) DE JUSTICA"
+    },
+    {
+      "codigo": "PROMOTOR (A) DE VENDAS",
+      "descricao": "PROMOTOR (A) DE VENDAS"
+    },
+    {
+      "codigo": "PROPAGANDISTA",
+      "descricao": "PROPAGANDISTA"
+    },
+    {
+      "codigo": "PROPRIETARIO (A)",
+      "descricao": "PROPRIETARIO (A)"
+    },
+    {
+      "codigo": "PROSPECTOR",
+      "descricao": "PROSPECTOR"
+    },
+    {
+      "codigo": "PROTETICO",
+      "descricao": "PROTETICO"
+    },
+    {
+      "codigo": "PSICANALISTA",
+      "descricao": "PSICANALISTA"
+    },
+    {
+      "codigo": "PSICOLOGO (A)",
+      "descricao": "PSICOLOGO (A)"
+    },
+    {
+      "codigo": "PSICOPEDAGOGO (A)",
+      "descricao": "PSICOPEDAGOGO (A)"
+    },
+    {
+      "codigo": "PSICOTERAPEUTA",
+      "descricao": "PSICOTERAPEUTA"
+    },
+    {
+      "codigo": "PSIQUIATRA",
+      "descricao": "PSIQUIATRA"
+    },
+    {
+      "codigo": "PUBLICITARIO",
+      "descricao": "PUBLICITARIO"
+    },
+    {
+      "codigo": "QUIMICO (A)",
+      "descricao": "QUIMICO (A)"
+    },
+    {
+      "codigo": "QUIROPRAXISTA",
+      "descricao": "QUIROPRAXISTA"
+    },
+    {
+      "codigo": "RADIALISTA",
+      "descricao": "RADIALISTA"
+    },
+    {
+      "codigo": "RADIOLOGISTA",
+      "descricao": "RADIOLOGISTA"
+    },
+    {
+      "codigo": "REBARBADOR (A)",
+      "descricao": "REBARBADOR (A)"
+    },
+    {
+      "codigo": "REBOBINADOR",
+      "descricao": "REBOBINADOR"
+    },
+    {
+      "codigo": "RECAUCHUTADOR",
+      "descricao": "RECAUCHUTADOR"
+    },
+    {
+      "codigo": "RECEPCIONISTA",
+      "descricao": "RECEPCIONISTA"
+    },
+    {
+      "codigo": "RECREADOR (A)",
+      "descricao": "RECREADOR (A)"
+    },
+    {
+      "codigo": "RECRUTADOR DE SINISTRO",
+      "descricao": "RECRUTADOR DE SINISTRO"
+    },
+    {
+      "codigo": "RECUPERADORA",
+      "descricao": "RECUPERADORA"
+    },
+    {
+      "codigo": "REDATOR (A)",
+      "descricao": "REDATOR (A)"
+    },
+    {
+      "codigo": "REFLEXOTERAPEUTA",
+      "descricao": "REFLEXOTERAPEUTA"
+    },
+    {
+      "codigo": "REFRATARISTA",
+      "descricao": "REFRATARISTA"
+    },
+    {
+      "codigo": "REGULADOR (A)",
+      "descricao": "REGULADOR (A)"
+    },
+    {
+      "codigo": "REITOR (A)",
+      "descricao": "REITOR (A)"
+    },
+    {
+      "codigo": "RELOJOEIRO",
+      "descricao": "RELOJOEIRO"
+    },
+    {
+      "codigo": "REPARADOR",
+      "descricao": "REPARADOR"
+    },
+    {
+      "codigo": "REPORTER",
+      "descricao": "REPORTER"
+    },
+    {
+      "codigo": "REPOSITOR (A)",
+      "descricao": "REPOSITOR (A)"
+    },
+    {
+      "codigo": "REPRESENTANTE COMERCIAL",
+      "descricao": "REPRESENTANTE COMERCIAL"
+    },
+    {
+      "codigo": "REPRESENTANTE DE MARKETING",
+      "descricao": "REPRESENTANTE DE MARKETING"
+    },
+    {
+      "codigo": "REPRESENTANTE DE VENDAS",
+      "descricao": "REPRESENTANTE DE VENDAS"
+    },
+    {
+      "codigo": "RESIDENTE",
+      "descricao": "RESIDENTE"
+    },
+    {
+      "codigo": "RESINADOR",
+      "descricao": "RESINADOR"
+    },
+    {
+      "codigo": "RESTAURADOR (A)",
+      "descricao": "RESTAURADOR (A)"
+    },
+    {
+      "codigo": "RETIFICADOR (A)",
+      "descricao": "RETIFICADOR (A)"
+    },
+    {
+      "codigo": "REVENDEDOR (A)",
+      "descricao": "REVENDEDOR (A)"
+    },
+    {
+      "codigo": "REVESTIDOR (A)",
+      "descricao": "REVESTIDOR (A)"
+    },
+    {
+      "codigo": "REVISADOR (A)",
+      "descricao": "REVISADOR (A)"
+    },
+    {
+      "codigo": "ROBOTISTA",
+      "descricao": "ROBOTISTA"
+    },
+    {
+      "codigo": "RONDANTE",
+      "descricao": "RONDANTE"
+    },
+    {
+      "codigo": "ROTEIRISTA",
+      "descricao": "ROTEIRISTA"
+    },
+    {
+      "codigo": "SACERDOTE",
+      "descricao": "SACERDOTE"
+    },
+    {
+      "codigo": "SALADEIRO (A)",
+      "descricao": "SALADEIRO (A)"
+    },
+    {
+      "codigo": "SALGADEIRO (A)",
+      "descricao": "SALGADEIRO (A)"
+    },
+    {
+      "codigo": "SALVA VIDAS",
+      "descricao": "SALVA VIDAS"
+    },
+    {
+      "codigo": "SANGRADOR DE SERINGUEIRA",
+      "descricao": "SANGRADOR DE SERINGUEIRA"
+    },
+    {
+      "codigo": "SAPATEIRO",
+      "descricao": "SAPATEIRO"
+    },
+    {
+      "codigo": "SARGENTO",
+      "descricao": "SARGENTO"
+    },
+    {
+      "codigo": "SECRETARIO (A)",
+      "descricao": "SECRETARIO (A)"
+    },
+    {
+      "codigo": "SECURITARIO",
+      "descricao": "SECURITARIO"
+    },
+    {
+      "codigo": "SEGURANCA",
+      "descricao": "SEGURANCA"
+    },
+    {
+      "codigo": "SELADOR",
+      "descricao": "SELADOR"
+    },
+    {
+      "codigo": "SERRADOR",
+      "descricao": "SERRADOR"
+    },
+    {
+      "codigo": "SERRALHEIRO",
+      "descricao": "SERRALHEIRO"
+    },
+    {
+      "codigo": "SERVENTE",
+      "descricao": "SERVENTE"
+    },
+    {
+      "codigo": "SETORISTA",
+      "descricao": "SETORISTA"
+    },
+    {
+      "codigo": "SIMULADOR DE PROCESSO",
+      "descricao": "SIMULADOR DE PROCESSO"
+    },
+    {
+      "codigo": "SINDICO (A)",
+      "descricao": "SINDICO (A)"
+    },
+    {
+      "codigo": "SOCIO (A)",
+      "descricao": "SOCIO (A)"
+    },
+    {
+      "codigo": "SOCIO (A) PROPRIETARIO (A)",
+      "descricao": "SOCIO (A) PROPRIETARIO (A)"
+    },
+    {
+      "codigo": "SOCIO GERENTE",
+      "descricao": "SOCIO GERENTE"
+    },
+    {
+      "codigo": "SOCIOLOGO (A)",
+      "descricao": "SOCIOLOGO (A)"
+    },
+    {
+      "codigo": "SOCORRISTA",
+      "descricao": "SOCORRISTA"
+    },
+    {
+      "codigo": "SOLDADO",
+      "descricao": "SOLDADO"
+    },
+    {
+      "codigo": "SOLDADOR",
+      "descricao": "SOLDADOR"
+    },
+    {
+      "codigo": "SOMMELIER",
+      "descricao": "SOMMELIER"
+    },
+    {
+      "codigo": "SONDADOR",
+      "descricao": "SONDADOR"
+    },
+    {
+      "codigo": "SONOPLASTA",
+      "descricao": "SONOPLASTA"
+    },
+    {
+      "codigo": "SORVETEIRO",
+      "descricao": "SORVETEIRO"
+    },
+    {
+      "codigo": "SUB CHEFE",
+      "descricao": "SUB CHEFE"
+    },
+    {
+      "codigo": "SUB GERENTE",
+      "descricao": "SUB GERENTE"
+    },
+    {
+      "codigo": "SUB OFICIAL",
+      "descricao": "SUB OFICIAL"
+    },
+    {
+      "codigo": "SUBSCRITOR",
+      "descricao": "SUBSCRITOR"
+    },
+    {
+      "codigo": "SUBTENENTE",
+      "descricao": "SUBTENENTE"
+    },
+    {
+      "codigo": "SUPERINTENDENTE",
+      "descricao": "SUPERINTENDENTE"
+    },
+    {
+      "codigo": "SUPERV ADMINISTRATIVO",
+      "descricao": "SUPERV ADMINISTRATIVO"
+    },
+    {
+      "codigo": "SUPERVISOR (A) DE ESTOQUE",
+      "descricao": "SUPERVISOR (A) DE ESTOQUE"
+    },
+    {
+      "codigo": "SUPERVISOR (A) DE PRODUCAO",
+      "descricao": "SUPERVISOR (A) DE PRODUCAO"
+    },
+    {
+      "codigo": "SUPERVISOR (A) DE QUALIDADE",
+      "descricao": "SUPERVISOR (A) DE QUALIDADE"
+    },
+    {
+      "codigo": "SUPERVISOR (A) DE VENDAS",
+      "descricao": "SUPERVISOR (A) DE VENDAS"
+    },
+    {
+      "codigo": "SUPERVISOR (A) GERAL",
+      "descricao": "SUPERVISOR (A) GERAL"
+    },
+    {
+      "codigo": "SUPERVISOR (A) TECNICO (A)",
+      "descricao": "SUPERVISOR (A) TECNICO (A)"
+    },
+    {
+      "codigo": "SUSHIMAN",
+      "descricao": "SUSHIMAN"
+    },
+    {
+      "codigo": "TABELIAO",
+      "descricao": "TABELIAO"
+    },
+    {
+      "codigo": "TAPECEIRO",
+      "descricao": "TAPECEIRO"
+    },
+    {
+      "codigo": "TATUADOR",
+      "descricao": "TATUADOR"
+    },
+    {
+      "codigo": "TAXISTA",
+      "descricao": "TAXISTA"
+    },
+    {
+      "codigo": "TEC ADMINISTRATIVO",
+      "descricao": "TEC ADMINISTRATIVO"
+    },
+    {
+      "codigo": "TEC ARQUIVO",
+      "descricao": "TEC ARQUIVO"
+    },
+    {
+      "codigo": "TEC COMUNICACAO",
+      "descricao": "TEC COMUNICACAO"
+    },
+    {
+      "codigo": "TEC CONTABIL",
+      "descricao": "TEC CONTABIL"
+    },
+    {
+      "codigo": "TEC DE ANALISE",
+      "descricao": "TEC DE ANALISE"
+    },
+    {
+      "codigo": "TEC DE COMUNICACAO",
+      "descricao": "TEC DE COMUNICACAO"
+    },
+    {
+      "codigo": "TEC DE EDIFICACAO",
+      "descricao": "TEC DE EDIFICACAO"
+    },
+    {
+      "codigo": "TEC DE ELETRONICA",
+      "descricao": "TEC DE ELETRONICA"
+    },
+    {
+      "codigo": "TEC DE ENFERMAGEM",
+      "descricao": "TEC DE ENFERMAGEM"
+    },
+    {
+      "codigo": "TEC DE GINASTICA",
+      "descricao": "TEC DE GINASTICA"
+    },
+    {
+      "codigo": "TEC DE INFORMATICA",
+      "descricao": "TEC DE INFORMATICA"
+    },
+    {
+      "codigo": "TEC DE LABORATORIO",
+      "descricao": "TEC DE LABORATORIO"
+    },
+    {
+      "codigo": "TEC DE LOGISTICA",
+      "descricao": "TEC DE LOGISTICA"
+    },
+    {
+      "codigo": "TEC DE OPERACOES",
+      "descricao": "TEC DE OPERACOES"
+    },
+    {
+      "codigo": "TEC DE PESQUISA",
+      "descricao": "TEC DE PESQUISA"
+    },
+    {
+      "codigo": "TEC DE PREVIDENCIA",
+      "descricao": "TEC DE PREVIDENCIA"
+    },
+    {
+      "codigo": "TEC DE REDES",
+      "descricao": "TEC DE REDES"
+    },
+    {
+      "codigo": "TEC DE SEGURANCA",
+      "descricao": "TEC DE SEGURANCA"
+    },
+    {
+      "codigo": "TEC DE SEGUROS",
+      "descricao": "TEC DE SEGUROS"
+    },
+    {
+      "codigo": "TEC DE SISTEMAS",
+      "descricao": "TEC DE SISTEMAS"
+    },
+    {
+      "codigo": "TEC DE SUPORTE",
+      "descricao": "TEC DE SUPORTE"
+    },
+    {
+      "codigo": "TEC DE TELECOMUNIC",
+      "descricao": "TEC DE TELECOMUNIC"
+    },
+    {
+      "codigo": "TEC DESPORTIVO",
+      "descricao": "TEC DESPORTIVO"
+    },
+    {
+      "codigo": "TEC ELETRONICA",
+      "descricao": "TEC ELETRONICA"
+    },
+    {
+      "codigo": "TEC ELETRONICO",
+      "descricao": "TEC ELETRONICO"
+    },
+    {
+      "codigo": "TEC EM ELETRONICA",
+      "descricao": "TEC EM ELETRONICA"
+    },
+    {
+      "codigo": "TEC EM GEOLOGIA",
+      "descricao": "TEC EM GEOLOGIA"
+    },
+    {
+      "codigo": "TEC EM PESQUISA",
+      "descricao": "TEC EM PESQUISA"
+    },
+    {
+      "codigo": "TEC FARMACIA",
+      "descricao": "TEC FARMACIA"
+    },
+    {
+      "codigo": "TEC FINANCEIRO",
+      "descricao": "TEC FINANCEIRO"
+    },
+    {
+      "codigo": "TEC FISIOTERAPIA",
+      "descricao": "TEC FISIOTERAPIA"
+    },
+    {
+      "codigo": "TEC FOMENTO",
+      "descricao": "TEC FOMENTO"
+    },
+    {
+      "codigo": "TEC IMPORTACAO",
+      "descricao": "TEC IMPORTACAO"
+    },
+    {
+      "codigo": "TEC INDUSTRIAL",
+      "descricao": "TEC INDUSTRIAL"
+    },
+    {
+      "codigo": "TEC INFORMATICA",
+      "descricao": "TEC INFORMATICA"
+    },
+    {
+      "codigo": "TEC INSPECAO",
+      "descricao": "TEC INSPECAO"
+    },
+    {
+      "codigo": "TEC JUDICIARIO",
+      "descricao": "TEC JUDICIARIO"
+    },
+    {
+      "codigo": "TEC JURIDICO (A)",
+      "descricao": "TEC JURIDICO (A)"
+    },
+    {
+      "codigo": "TEC MANUTENCAO",
+      "descricao": "TEC MANUTENCAO"
+    },
+    {
+      "codigo": "TEC MECANICO",
+      "descricao": "TEC MECANICO"
+    },
+    {
+      "codigo": "TEC ORGANIZACAO",
+      "descricao": "TEC ORGANIZACAO"
+    },
+    {
+      "codigo": "TEC PROGRAMACAO",
+      "descricao": "TEC PROGRAMACAO"
+    },
+    {
+      "codigo": "TEC QUIMICO",
+      "descricao": "TEC QUIMICO"
+    },
+    {
+      "codigo": "TEC SEG DO TRABALHO",
+      "descricao": "TEC SEG DO TRABALHO"
+    },
+    {
+      "codigo": "TECELAO",
+      "descricao": "TECELAO"
+    },
+    {
+      "codigo": "TELEFONISTA",
+      "descricao": "TELEFONISTA"
+    },
+    {
+      "codigo": "TELEVENDEDOR",
+      "descricao": "TELEVENDEDOR"
+    },
+    {
+      "codigo": "TELHADOR",
+      "descricao": "TELHADOR"
+    },
+    {
+      "codigo": "TENENTE",
+      "descricao": "TENENTE"
+    },
+    {
+      "codigo": "TENENTE MEDICO",
+      "descricao": "TENENTE MEDICO"
+    },
+    {
+      "codigo": "TERAPEUTA",
+      "descricao": "TERAPEUTA"
+    },
+    {
+      "codigo": "TESOUREIRO (A)",
+      "descricao": "TESOUREIRO (A)"
+    },
+    {
+      "codigo": "TEXTIL",
+      "descricao": "TEXTIL"
+    },
+    {
+      "codigo": "TOPOGRAFO",
+      "descricao": "TOPOGRAFO"
+    },
+    {
+      "codigo": "TORNEIRO MECANICO",
+      "descricao": "TORNEIRO MECANICO"
+    },
+    {
+      "codigo": "TOSADOR",
+      "descricao": "TOSADOR"
+    },
+    {
+      "codigo": "TRABALHADOR RURAL",
+      "descricao": "TRABALHADOR RURAL"
+    },
+    {
+      "codigo": "TRADER",
+      "descricao": "TRADER"
+    },
+    {
+      "codigo": "TRADUTOR (A)",
+      "descricao": "TRADUTOR (A)"
+    },
+    {
+      "codigo": "TRAINEE",
+      "descricao": "TRAINEE"
+    },
+    {
+      "codigo": "TRANSCRITORA",
+      "descricao": "TRANSCRITORA"
+    },
+    {
+      "codigo": "TRANSFUSIONISTA",
+      "descricao": "TRANSFUSIONISTA"
+    },
+    {
+      "codigo": "TRATADOR (A)",
+      "descricao": "TRATADOR (A)"
+    },
+    {
+      "codigo": "TRATORISTA",
+      "descricao": "TRATORISTA"
+    },
+    {
+      "codigo": "TREINADOR (A)",
+      "descricao": "TREINADOR (A)"
+    },
+    {
+      "codigo": "TUTOR (A) ELETRONICA",
+      "descricao": "TUTOR (A) ELETRONICA"
+    },
+    {
+      "codigo": "ULTRASSONISTA INDUSTRIAL",
+      "descricao": "ULTRASSONISTA INDUSTRIAL"
+    },
+    {
+      "codigo": "URBANISTA",
+      "descricao": "URBANISTA"
+    },
+    {
+      "codigo": "VAQUEIRO",
+      "descricao": "VAQUEIRO"
+    },
+    {
+      "codigo": "VARREDOR (A)",
+      "descricao": "VARREDOR (A)"
+    },
+    {
+      "codigo": "VENDEDOR (A)",
+      "descricao": "VENDEDOR (A)"
+    },
+    {
+      "codigo": "VENENEIRO (A)",
+      "descricao": "VENENEIRO (A)"
+    },
+    {
+      "codigo": "VEREADOR (A)",
+      "descricao": "VEREADOR (A)"
+    },
+    {
+      "codigo": "VERIFICADOR (A)",
+      "descricao": "VERIFICADOR (A)"
+    },
+    {
+      "codigo": "VETERINARIO (A)",
+      "descricao": "VETERINARIO (A)"
+    },
+    {
+      "codigo": "VICE DIRETOR (A)",
+      "descricao": "VICE DIRETOR (A)"
+    },
+    {
+      "codigo": "VICE PRESIDENTE",
+      "descricao": "VICE PRESIDENTE"
+    },
+    {
+      "codigo": "VIDEO GRAFISTA",
+      "descricao": "VIDEO GRAFISTA"
+    },
+    {
+      "codigo": "VIDRACEIRO",
+      "descricao": "VIDRACEIRO"
+    },
+    {
+      "codigo": "VIGILANTE",
+      "descricao": "VIGILANTE"
+    },
+    {
+      "codigo": "VISITADOR (A)",
+      "descricao": "VISITADOR (A)"
+    },
+    {
+      "codigo": "VISTORIADOR (A)",
+      "descricao": "VISTORIADOR (A)"
+    },
+    {
+      "codigo": "WEB DESIGNER",
+      "descricao": "WEB DESIGNER"
+    },
+    {
+      "codigo": "ZELADOR (A)",
+      "descricao": "ZELADOR (A)"
+    },
+    {
+      "codigo": "ZOOTECNISTA",
+      "descricao": "ZOOTECNISTA"
+    }
+  ]
+}

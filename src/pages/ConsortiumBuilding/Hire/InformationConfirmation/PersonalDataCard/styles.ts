@@ -54,7 +54,12 @@ export const DelimiterInputWrapper = styled.div`
 `
 
 export const Select = styled(SelectComponent)`
-  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}`}px;
+  margin: ${({ theme }) =>
+    `${theme.spacing(4)}px 0 ${theme.spacing(4)}px ${theme.spacing(2)}`}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}`}px;
+  }
 `
 
 export const InputPersonalData = styled(NewInput)`

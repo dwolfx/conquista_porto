@@ -1,38 +1,31 @@
 import React from 'react'
 import InputMask from 'react-input-mask'
 import { cpf } from 'cpf-cnpj-validator'
+
 import { useSelector } from 'react-redux'
-
 import Divisor from 'components/Divisor'
-import { ILabelContainerFirstInformationConfirmationStepHireFlux } from 'pages/ConsortiumBuilding/commons/Texts/types'
-
-import * as s from './styles'
 import { formatCpf } from 'helpers'
 import moment from 'moment'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import { IPersonalDataForm } from '..'
 import {
   errorObject,
   validationInputError,
 } from 'pages/CreditCard/Creation/CreditCardStep/validators'
+import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
 
-interface IPersonalDataCard {
-  personalData: [
-    IPersonalDataForm,
-    React.Dispatch<React.SetStateAction<IPersonalDataForm>>
-  ]
-  label: ILabelContainerFirstInformationConfirmationStepHireFlux
-}
-
-interface IFormPersonalData {
-  spouseDocument: boolean
-  spouseName: boolean
-}
+import {
+  ICivilStatusConsortiumBuildingState,
+  ICivilStatus,
+} from 'store/modules/ConsortiumBuilding/CivilStatus/types'
+import * as s from './styles'
+import { IFormPersonalData, IPersonalDataCard } from '../types'
 
 const PersonalDataCard: React.FC<IPersonalDataCard> = ({
   personalData: [personalData, setPersonalData],
   label,
 }: IPersonalDataCard) => {
+  const { formDefault } = texts()
+
   const [validForm, setValidForm] = React.useState<IFormPersonalData>({
     spouseDocument: false,
     spouseName: false,
@@ -45,34 +38,47 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
 
   const [isRestForm, setIsRestForm] = React.useState<boolean>(false)
 
-  const [civilStatusOption] = React.useState<TOptions[]>(
-    [
-      'Solteiro',
-      'Casado(a)',
-      'Divorciado(a)',
-      'Viúvo(a)',
-      'União Estável',
-      'Separado Judicialmente',
-      'Separado',
-    ].map((value, index) => ({
-      id: index + 1,
-      text: value,
-      onClick: () => {
-        setCivilStatus({ id: index + 1, name: value })
-        setPersonalData({
-          ...personalData,
-          civilStatus: value,
-        })
-      },
-    }))
+  const [civilStatusOption, setCivilStatusOption] = React.useState<TOptions[]>(
+    []
   )
 
   const { customerProfileData } = useSelector((state: any) => ({
     customerProfileData: state.customerProfile.data,
   }))
 
+  const { civilStatusConsortiumBuilding } = useSelector(
+    (state: {
+      civilStatusConsortiumBuilding: ICivilStatusConsortiumBuildingState
+    }) => ({
+      civilStatusConsortiumBuilding: state.civilStatusConsortiumBuilding.data,
+    })
+  )
+
   React.useEffect(() => {
-    const isResult = ['Casado(a)', 'União Estável'].includes(
+    if (
+      civilStatusConsortiumBuilding &&
+      civilStatusConsortiumBuilding.estados_civis
+    ) {
+      setCivilStatusOption(
+        civilStatusConsortiumBuilding.estados_civis.map(
+          (value: ICivilStatus) => ({
+            id: value.codigo,
+            text: value.descricao,
+            onClick: () => {
+              setCivilStatus({ id: value.codigo, name: value.descricao })
+              setPersonalData({
+                ...personalData,
+                civilStatus: value.descricao,
+              })
+            },
+          })
+        )
+      )
+    }
+  }, [civilStatusConsortiumBuilding, personalData, setPersonalData])
+
+  React.useEffect(() => {
+    const isResult = ['Casado', 'União Estável'].includes(
       personalData.civilStatus
     )
     setIsRestForm(isResult)
@@ -154,9 +160,9 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
         <>
           <s.DelimiterInputWrapper>
             <s.InputPersonalData
-              label="Nome do(a) cônjuge"
+              label={label.civilStatus}
               data-testid="input-spouse-name-id"
-              placeholder="Digite aqui"
+              placeholder={formDefault.placeholderInput}
               value={personalData.spouseName}
               onBlur={() => checkForm('spouseName')}
               error={validationInputError(

@@ -5,7 +5,10 @@ import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import createStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
-
+import consortiumBuildingCivilStatusMock from 'mocks/consortiumBuildingCivilStatus.json'
+import consortiumBuildingStatesMock from 'mocks/consortiumBuildingStates.json'
+import consortiumBuildingFatcaMock from 'mocks/consortiumBuildingFatca.json'
+import consortiumBuildingCountriesMock from 'mocks/consortiumBuildingCountries.json'
 import theme from 'styles/theme'
 
 import InformationConfirmation from 'pages/ConsortiumBuilding/Hire/InformationConfirmation'
@@ -22,6 +25,26 @@ const INITIAL_STATE = {
     status: 'loaded',
     hasError: false,
     isLoading: false,
+  },
+  civilStatusConsortiumBuilding: {
+    data: consortiumBuildingCivilStatusMock,
+    isLoading: false,
+    hasError: false,
+  },
+  consortiumBuildingStates: {
+    data: consortiumBuildingStatesMock,
+    isLoading: false,
+    hasError: false,
+  },
+  countriesConsortiumBuilding: {
+    data: consortiumBuildingCountriesMock,
+    isLoading: false,
+    hasError: false,
+  },
+  fatcaConsortiumBuilding: {
+    data: consortiumBuildingFatcaMock,
+    isLoading: false,
+    hasError: false,
   },
   fluxManagement: { stack: [], form: {} },
 }

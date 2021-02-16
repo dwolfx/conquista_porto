@@ -49,6 +49,10 @@ import lastTransaction from './Investment/LastTransaction/reducer'
 import withdraw from './Withdraw/reducer'
 import zipCode from './ZipCode/reducer'
 import contemplated from './ConsortiumBuilding/Contemplated/reducer'
+import jobsConsortiumBuilding from './ConsortiumBuilding/Jobs/reducer'
+import countriesConsortiumBuilding from './ConsortiumBuilding/Countries/reducer'
+import civilStatusConsortiumBuilding from './ConsortiumBuilding/CivilStatus/reducer'
+import fatcaConsortiumBuilding from './ConsortiumBuilding/Fatca/reducer'
 
 export default combineReducers({
   alignmentTerms,
@@ -98,4 +102,8 @@ export default combineReducers({
   withdraw,
   zipCode,
   contemplated,
+  jobsConsortiumBuilding,
+  countriesConsortiumBuilding,
+  civilStatusConsortiumBuilding,
+  fatcaConsortiumBuilding,
 })

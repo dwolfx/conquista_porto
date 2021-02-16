@@ -3,8 +3,9 @@ import { screen } from '@testing-library/react'
 import { renderWithReduxAndTheme } from 'testUtils'
 import { createStore } from 'redux'
 import { formatCpf } from 'helpers'
+import consortiumBuildingCivilStatusMock from 'mocks/consortiumBuildingCivilStatus.json'
 import PersonalDataCard from '.'
-import { IPersonalDataForm } from '..'
+import { IPersonalDataForm } from '../types'
 
 const reducerMock = {
   customerProfile: {
@@ -18,6 +19,11 @@ const reducerMock = {
     status: 'loaded',
     hasError: false,
     isLoading: false,
+  },
+  civilStatusConsortiumBuilding: {
+    hasError: false,
+    isLoading: false,
+    data: consortiumBuildingCivilStatusMock,
   },
 }
 

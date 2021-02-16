@@ -49,6 +49,10 @@ import token2fa from './2FAToken/sagas'
 import withdraw from './Withdraw/sagas'
 import zipCode from './ZipCode/sagas'
 import contemplated from './ConsortiumBuilding/Contemplated/sagas'
+import jobsConsortiumBuilding from './ConsortiumBuilding/Jobs/sagas'
+import countriesConsortiumBuilding from './ConsortiumBuilding/Countries/sagas'
+import civilStatusConsortiumBuilding from './ConsortiumBuilding/CivilStatus/sagas'
+import fatcaConsortiumBuilding from './ConsortiumBuilding/Fatca/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -98,5 +102,9 @@ export default function* rootSaga() {
     withdraw,
     zipCode,
     contemplated,
+    jobsConsortiumBuilding,
+    countriesConsortiumBuilding,
+    civilStatusConsortiumBuilding,
+    fatcaConsortiumBuilding,
   ])
 }

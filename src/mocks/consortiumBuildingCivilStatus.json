@@ -1,0 +1,32 @@
+{
+  "estados_civis": [
+    {
+      "codigo": "1",
+      "descricao": "Solteiro"
+    },
+    {
+      "codigo": "2",
+      "descricao": "Casado"
+    },
+    {
+      "codigo": "3",
+      "descricao": "Divorciado"
+    },
+    {
+      "codigo": "4",
+      "descricao": "Viúvo"
+    },
+    {
+      "codigo": "5",
+      "descricao": "União Estável"
+    },
+    {
+      "codigo": "6",
+      "descricao": "Separado Judicialmente"
+    },
+    {
+      "codigo": "7",
+      "descricao": "Separado"
+    }
+  ]
+}

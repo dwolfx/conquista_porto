@@ -1,0 +1,1036 @@
+{
+  "nacionalidades": [
+    {
+      "codigo": "BRASILEIRA",
+      "descricao": "BRASILEIRA"
+    },
+    {
+      "codigo": "AMERICANA",
+      "descricao": "AMERICANA"
+    },
+    {
+      "codigo": "PORTUGUESA",
+      "descricao": "PORTUGUESA"
+    },
+    {
+      "codigo": "CHINESA",
+      "descricao": "CHINESA"
+    },
+    {
+      "codigo": "CHILENA",
+      "descricao": "CHILENA"
+    },
+    {
+      "codigo": "ESPANHOLA",
+      "descricao": "ESPANHOLA"
+    },
+    {
+      "codigo": "COREANA",
+      "descricao": "COREANA"
+    },
+    {
+      "codigo": "IRANIANO",
+      "descricao": "IRANIANO"
+    },
+    {
+      "codigo": "NORTE-COREANO",
+      "descricao": "NORTE-COREANO"
+    },
+    {
+      "codigo": "BOLIVIANA",
+      "descricao": "BOLIVIANA"
+    },
+    {
+      "codigo": "CUBANA",
+      "descricao": "CUBANA"
+    },
+    {
+      "codigo": "EQUATORIANA",
+      "descricao": "EQUATORIANA"
+    },
+    {
+      "codigo": "ETIOPE",
+      "descricao": "ETIOPE"
+    },
+    {
+      "codigo": "GANENSE",
+      "descricao": "GANENSE"
+    },
+    {
+      "codigo": "INDONESIA",
+      "descricao": "INDONESIA"
+    },
+    {
+      "codigo": "QUENIANO",
+      "descricao": "QUENIANO"
+    },
+    {
+      "codigo": "NIGERIANA",
+      "descricao": "NIGERIANA"
+    },
+    {
+      "codigo": "PAQUISTANESA",
+      "descricao": "PAQUISTANESA"
+    },
+    {
+      "codigo": "SAO-TOMENSE",
+      "descricao": "SAO-TOMENSE"
+    },
+    {
+      "codigo": "CINGALESA",
+      "descricao": "CINGALESA"
+    },
+    {
+      "codigo": "SIRIA",
+      "descricao": "SIRIA"
+    },
+    {
+      "codigo": "TANZANIANA",
+      "descricao": "TANZANIANA"
+    },
+    {
+      "codigo": "TAILANDESA",
+      "descricao": "TAILANDESA"
+    },
+    {
+      "codigo": "TURCA",
+      "descricao": "TURCA"
+    },
+    {
+      "codigo": "VIETNAMITA",
+      "descricao": "VIETNAMITA"
+    },
+    {
+      "codigo": "IEMENITA",
+      "descricao": "IEMENITA"
+    },
+    {
+      "codigo": "AFEGANE",
+      "descricao": "AFEGANE"
+    },
+    {
+      "codigo": "ALBANESA",
+      "descricao": "ALBANESA"
+    },
+    {
+      "codigo": "ARGELINA",
+      "descricao": "ARGELINA"
+    },
+    {
+      "codigo": "ANGOLANA",
+      "descricao": "ANGOLANA"
+    },
+    {
+      "codigo": "ANTIGUANA",
+      "descricao": "ANTIGUANA"
+    },
+    {
+      "codigo": "ARGENTINA",
+      "descricao": "ARGENTINA"
+    },
+    {
+      "codigo": "BENGALI",
+      "descricao": "BENGALI"
+    },
+    {
+      "codigo": "BRUNEIANA",
+      "descricao": "BRUNEIANA"
+    },
+    {
+      "codigo": "CAMBOJANA",
+      "descricao": "CAMBOJANA"
+    },
+    {
+      "codigo": "MONGOL",
+      "descricao": "MONGOL"
+    },
+    {
+      "codigo": "MARROQUINA",
+      "descricao": "MARROQUINA"
+    },
+    {
+      "codigo": "NAMIBIA",
+      "descricao": "NAMIBIA"
+    },
+    {
+      "codigo": "NEPALESA",
+      "descricao": "NEPALESA"
+    },
+    {
+      "codigo": "FILIPINA",
+      "descricao": "FILIPINA"
+    },
+    {
+      "codigo": "SUDANESA",
+      "descricao": "SUDANESA"
+    },
+    {
+      "codigo": "TADJIQUE",
+      "descricao": "TADJIQUE"
+    },
+    {
+      "codigo": "VENEZUELANA",
+      "descricao": "VENEZUELANA"
+    },
+    {
+      "codigo": "NICARAGUENSE",
+      "descricao": "NICARAGUENSE"
+    },
+    {
+      "codigo": "ZIMBABUANA",
+      "descricao": "ZIMBABUANA"
+    },
+    {
+      "codigo": "ITALIANA",
+      "descricao": "ITALIANA"
+    },
+    {
+      "codigo": "GUINEU-EQUATORIANO",
+      "descricao": "GUINEU-EQUATORIANO"
+    },
+    {
+      "codigo": "GUINEU-EQUATORIANO",
+      "descricao": "GUINEU-EQUATORIANO"
+    },
+    {
+      "codigo": "GUINEENSE",
+      "descricao": "GUINEENSE"
+    },
+    {
+      "codigo": "HAITIANA",
+      "descricao": "HAITIANA"
+    },
+    {
+      "codigo": "HOLANDESA",
+      "descricao": "HOLANDESA"
+    },
+    {
+      "codigo": "HONDURENHA",
+      "descricao": "HONDURENHA"
+    },
+    {
+      "codigo": "HONG-KONGUIANA",
+      "descricao": "HONG-KONGUIANA"
+    },
+    {
+      "codigo": "HUNGARA",
+      "descricao": "HUNGARA"
+    },
+    {
+      "codigo": "DA ILHA BOUVET",
+      "descricao": "DA ILHA BOUVET"
+    },
+    {
+      "codigo": "DA ILHA DE ASCENSAO",
+      "descricao": "DA ILHA DE ASCENSAO"
+    },
+    {
+      "codigo": "DA ILHA DE CLIPPERTON",
+      "descricao": "DA ILHA DE CLIPPERTON"
+    },
+    {
+      "codigo": "MANES",
+      "descricao": "MANES"
+    },
+    {
+      "codigo": "NATALENSE",
+      "descricao": "NATALENSE"
+    },
+    {
+      "codigo": "PITCAIRNENSE",
+      "descricao": "PITCAIRNENSE"
+    },
+    {
+      "codigo": "REUNIONENSE",
+      "descricao": "REUNIONENSE"
+    },
+    {
+      "codigo": "ALANDES",
+      "descricao": "ALANDES"
+    },
+    {
+      "codigo": "CAIMANES",
+      "descricao": "CAIMANES"
+    },
+    {
+      "codigo": "COQUENSE",
+      "descricao": "COQUENSE"
+    },
+    {
+      "codigo": "COOKENSE",
+      "descricao": "COOKENSE"
+    },
+    {
+      "codigo": "FAROENSE",
+      "descricao": "FAROENSE"
+    },
+    {
+      "codigo": "DAS ILHAS GEORGIA DO SUL E SANDWICH DO SUL",
+      "descricao": "DAS ILHAS GEORGIA DO SUL E SANDWICH DO SUL"
+    },
+    {
+      "codigo": "DAS ILHAS HEARD E MCDONALD",
+      "descricao": "DAS ILHAS HEARD E MCDONALD"
+    },
+    {
+      "codigo": "MALVINENSE",
+      "descricao": "MALVINENSE"
+    },
+    {
+      "codigo": "NORTE-MARIANENSE",
+      "descricao": "NORTE-MARIANENSE"
+    },
+    {
+      "codigo": "MARSHALLINO",
+      "descricao": "MARSHALLINO"
+    },
+    {
+      "codigo": "DAS ILHAS MENORES AFASTADAS",
+      "descricao": "DAS ILHAS MENORES AFASTADAS"
+    },
+    {
+      "codigo": "NORFOLQUINO",
+      "descricao": "NORFOLQUINO"
+    },
+    {
+      "codigo": "SALOMONICO",
+      "descricao": "SALOMONICO"
+    },
+    {
+      "codigo": "SEICHELENSE",
+      "descricao": "SEICHELENSE"
+    },
+    {
+      "codigo": "TOQUELAUANO",
+      "descricao": "TOQUELAUANO"
+    },
+    {
+      "codigo": "TURQUES",
+      "descricao": "TURQUES"
+    },
+    {
+      "codigo": "VIRGINENSE(EUA)",
+      "descricao": "VIRGINENSE(EUA)"
+    },
+    {
+      "codigo": "VIRGINENSE",
+      "descricao": "VIRGINENSE"
+    },
+    {
+      "codigo": "INDIANA",
+      "descricao": "INDIANA"
+    },
+    {
+      "codigo": "IRLANDESA",
+      "descricao": "IRLANDESA"
+    },
+    {
+      "codigo": "ISLANDESA",
+      "descricao": "ISLANDESA"
+    },
+    {
+      "codigo": "JAMAICANA",
+      "descricao": "JAMAICANA"
+    },
+    {
+      "codigo": "JAPONESA",
+      "descricao": "JAPONESA"
+    },
+    {
+      "codigo": "CANALINA",
+      "descricao": "CANALINA"
+    },
+    {
+      "codigo": "SUL-AFRICANA",
+      "descricao": "SUL-AFRICANA"
+    },
+    {
+      "codigo": "ALEMA",
+      "descricao": "ALEMA"
+    },
+    {
+      "codigo": "SAUDITA",
+      "descricao": "SAUDITA"
+    },
+    {
+      "codigo": "ARMENIA",
+      "descricao": "ARMENIA"
+    },
+    {
+      "codigo": "ARUBANA",
+      "descricao": "ARUBANA"
+    },
+    {
+      "codigo": "AUSTRALIANA",
+      "descricao": "AUSTRALIANA"
+    },
+    {
+      "codigo": "AUSTRIACA",
+      "descricao": "AUSTRIACA"
+    },
+    {
+      "codigo": "AZERBAIJANO",
+      "descricao": "AZERBAIJANO"
+    },
+    {
+      "codigo": "BAHAMENSE",
+      "descricao": "BAHAMENSE"
+    },
+    {
+      "codigo": "BARENITA",
+      "descricao": "BARENITA"
+    },
+    {
+      "codigo": "BARBADIANA",
+      "descricao": "BARBADIANA"
+    },
+    {
+      "codigo": "BIELO-RUSSA",
+      "descricao": "BIELO-RUSSA"
+    },
+    {
+      "codigo": "BELGA",
+      "descricao": "BELGA"
+    },
+    {
+      "codigo": "BELIZENHA",
+      "descricao": "BELIZENHA"
+    },
+    {
+      "codigo": "BENINENSE",
+      "descricao": "BENINENSE"
+    },
+    {
+      "codigo": "BERMUDIANA",
+      "descricao": "BERMUDIANA"
+    },
+    {
+      "codigo": "BOSNIA",
+      "descricao": "BOSNIA"
+    },
+    {
+      "codigo": "BETCHUANA",
+      "descricao": "BETCHUANA"
+    },
+    {
+      "codigo": "BULGARA",
+      "descricao": "BULGARA"
+    },
+    {
+      "codigo": "BURQUINES",
+      "descricao": "BURQUINES"
+    },
+    {
+      "codigo": "BURUNDINESA",
+      "descricao": "BURUNDINESA"
+    },
+    {
+      "codigo": "BUTANESA",
+      "descricao": "BUTANESA"
+    },
+    {
+      "codigo": "CABO-VERDIANA",
+      "descricao": "CABO-VERDIANA"
+    },
+    {
+      "codigo": "CAMARONESA",
+      "descricao": "CAMARONESA"
+    },
+    {
+      "codigo": "CANADENSE",
+      "descricao": "CANADENSE"
+    },
+    {
+      "codigo": "CANARIO",
+      "descricao": "CANARIO"
+    },
+    {
+      "codigo": "CAZAQUE",
+      "descricao": "CAZAQUE"
+    },
+    {
+      "codigo": "DE CEUTA E MELILLA",
+      "descricao": "DE CEUTA E MELILLA"
+    },
+    {
+      "codigo": "CHADIANA",
+      "descricao": "CHADIANA"
+    },
+    {
+      "codigo": "CIPRIOTA",
+      "descricao": "CIPRIOTA"
+    },
+    {
+      "codigo": "CINGAPURIANA",
+      "descricao": "CINGAPURIANA"
+    },
+    {
+      "codigo": "COLOMBIANA",
+      "descricao": "COLOMBIANA"
+    },
+    {
+      "codigo": "COMORENSE",
+      "descricao": "COMORENSE"
+    },
+    {
+      "codigo": "CONGOLESA",
+      "descricao": "CONGOLESA"
+    },
+    {
+      "codigo": "SUL-COREANA",
+      "descricao": "SUL-COREANA"
+    },
+    {
+      "codigo": "MARFINENSE",
+      "descricao": "MARFINENSE"
+    },
+    {
+      "codigo": "COSTARRIQUENHA",
+      "descricao": "COSTARRIQUENHA"
+    },
+    {
+      "codigo": "CROATA",
+      "descricao": "CROATA"
+    },
+    {
+      "codigo": "CURACAUENSE",
+      "descricao": "CURACAUENSE"
+    },
+    {
+      "codigo": "CHAGOSITANO",
+      "descricao": "CHAGOSITANO"
+    },
+    {
+      "codigo": "DINAMARQUESA",
+      "descricao": "DINAMARQUESA"
+    },
+    {
+      "codigo": "DJIBUTIANA",
+      "descricao": "DJIBUTIANA"
+    },
+    {
+      "codigo": "DOMINIQUENSE",
+      "descricao": "DOMINIQUENSE"
+    },
+    {
+      "codigo": "SALVADORENHA",
+      "descricao": "SALVADORENHA"
+    },
+    {
+      "codigo": "ARABE",
+      "descricao": "ARABE"
+    },
+    {
+      "codigo": "ERITREIA",
+      "descricao": "ERITREIA"
+    },
+    {
+      "codigo": "ESLOVACO",
+      "descricao": "ESLOVACO"
+    },
+    {
+      "codigo": "ESLOVENO",
+      "descricao": "ESLOVENO"
+    },
+    {
+      "codigo": "ESTONIANA",
+      "descricao": "ESTONIANA"
+    },
+    {
+      "codigo": "FIJIANA",
+      "descricao": "FIJIANA"
+    },
+    {
+      "codigo": "FINLANDESA",
+      "descricao": "FINLANDESA"
+    },
+    {
+      "codigo": "FRANCESA",
+      "descricao": "FRANCESA"
+    },
+    {
+      "codigo": "GABONESA",
+      "descricao": "GABONESA"
+    },
+    {
+      "codigo": "GAMBIANA",
+      "descricao": "GAMBIANA"
+    },
+    {
+      "codigo": "GEORGIANA",
+      "descricao": "GEORGIANA"
+    },
+    {
+      "codigo": "GIBRALTARIANA",
+      "descricao": "GIBRALTARIANA"
+    },
+    {
+      "codigo": "INGLESA",
+      "descricao": "INGLESA"
+    },
+    {
+      "codigo": "PERUANA",
+      "descricao": "PERUANA"
+    },
+    {
+      "codigo": "EGIPCIA",
+      "descricao": "EGIPCIA"
+    },
+    {
+      "codigo": "PARAGUAIA",
+      "descricao": "PARAGUAIA"
+    },
+    {
+      "codigo": "GRANADINA",
+      "descricao": "GRANADINA"
+    },
+    {
+      "codigo": "GREGA",
+      "descricao": "GREGA"
+    },
+    {
+      "codigo": "GROENLANDESA",
+      "descricao": "GROENLANDESA"
+    },
+    {
+      "codigo": "GUADALUPENSE",
+      "descricao": "GUADALUPENSE"
+    },
+    {
+      "codigo": "GUAMES",
+      "descricao": "GUAMES"
+    },
+    {
+      "codigo": "GUATEMALTECA",
+      "descricao": "GUATEMALTECA"
+    },
+    {
+      "codigo": "GUERNESIANO",
+      "descricao": "GUERNESIANO"
+    },
+    {
+      "codigo": "FRANCO-GUIANENSE",
+      "descricao": "FRANCO-GUIANENSE"
+    },
+    {
+      "codigo": "ANDORRANA",
+      "descricao": "ANDORRANA"
+    },
+    {
+      "codigo": "ANGUILLANA",
+      "descricao": "ANGUILLANA"
+    },
+    {
+      "codigo": "DE ANTARTIDA",
+      "descricao": "DE ANTARTIDA"
+    },
+    {
+      "codigo": "JORDANIANA",
+      "descricao": "JORDANIANA"
+    },
+    {
+      "codigo": "KIRIBATIANA",
+      "descricao": "KIRIBATIANA"
+    },
+    {
+      "codigo": "KOSOVAR",
+      "descricao": "KOSOVAR"
+    },
+    {
+      "codigo": "KUWAITIANO",
+      "descricao": "KUWAITIANO"
+    },
+    {
+      "codigo": "LESOTA",
+      "descricao": "LESOTA"
+    },
+    {
+      "codigo": "LETAO",
+      "descricao": "LETAO"
+    },
+    {
+      "codigo": "LIBANESA",
+      "descricao": "LIBANESA"
+    },
+    {
+      "codigo": "LIBERIANA",
+      "descricao": "LIBERIANA"
+    },
+    {
+      "codigo": "LIBIA",
+      "descricao": "LIBIA"
+    },
+    {
+      "codigo": "LIECHTENSTEINIENSE",
+      "descricao": "LIECHTENSTEINIENSE"
+    },
+    {
+      "codigo": "LITUANA",
+      "descricao": "LITUANA"
+    },
+    {
+      "codigo": "LUXEMBURGUESA",
+      "descricao": "LUXEMBURGUESA"
+    },
+    {
+      "codigo": "MACAUENSE",
+      "descricao": "MACAUENSE"
+    },
+    {
+      "codigo": "MACEDONIO",
+      "descricao": "MACEDONIO"
+    },
+    {
+      "codigo": "MALGAXE",
+      "descricao": "MALGAXE"
+    },
+    {
+      "codigo": "MALAIA",
+      "descricao": "MALAIA"
+    },
+    {
+      "codigo": "MALAUIANO",
+      "descricao": "MALAUIANO"
+    },
+    {
+      "codigo": "MALDIVIA",
+      "descricao": "MALDIVIA"
+    },
+    {
+      "codigo": "MALINESA",
+      "descricao": "MALINESA"
+    },
+    {
+      "codigo": "MALTESA",
+      "descricao": "MALTESA"
+    },
+    {
+      "codigo": "MARTINIQUENSE",
+      "descricao": "MARTINIQUENSE"
+    },
+    {
+      "codigo": "MAURICIANA",
+      "descricao": "MAURICIANA"
+    },
+    {
+      "codigo": "MAURITANA",
+      "descricao": "MAURITANA"
+    },
+    {
+      "codigo": "MAIOTENSE",
+      "descricao": "MAIOTENSE"
+    },
+    {
+      "codigo": "MEXICANA",
+      "descricao": "MEXICANA"
+    },
+    {
+      "codigo": "MICRONESIA",
+      "descricao": "MICRONESIA"
+    },
+    {
+      "codigo": "MOCAMBICANA",
+      "descricao": "MOCAMBICANA"
+    },
+    {
+      "codigo": "MOLDAVO",
+      "descricao": "MOLDAVO"
+    },
+    {
+      "codigo": "MONEGASCA",
+      "descricao": "MONEGASCA"
+    },
+    {
+      "codigo": "MONTENEGRA",
+      "descricao": "MONTENEGRA"
+    },
+    {
+      "codigo": "MONTSERRATIANO",
+      "descricao": "MONTSERRATIANO"
+    },
+    {
+      "codigo": "BIRMANES",
+      "descricao": "BIRMANES"
+    },
+    {
+      "codigo": "NAURUANA",
+      "descricao": "NAURUANA"
+    },
+    {
+      "codigo": "NIGERINA",
+      "descricao": "NIGERINA"
+    },
+    {
+      "codigo": "NIUEANA",
+      "descricao": "NIUEANA"
+    },
+    {
+      "codigo": "NORUEGUESA",
+      "descricao": "NORUEGUESA"
+    },
+    {
+      "codigo": "CALEDONIA",
+      "descricao": "CALEDONIA"
+    },
+    {
+      "codigo": "NEOZELANDESA",
+      "descricao": "NEOZELANDESA"
+    },
+    {
+      "codigo": "OMANI",
+      "descricao": "OMANI"
+    },
+    {
+      "codigo": "DOS PAISES BAIXOS CARIBENHOS",
+      "descricao": "DOS PAISES BAIXOS CARIBENHOS"
+    },
+    {
+      "codigo": "PALAUENSE",
+      "descricao": "PALAUENSE"
+    },
+    {
+      "codigo": "PALESTINO",
+      "descricao": "PALESTINO"
+    },
+    {
+      "codigo": "PAUASIA",
+      "descricao": "PAUASIA"
+    },
+    {
+      "codigo": "FRANCO-POLINESIA",
+      "descricao": "FRANCO-POLINESIA"
+    },
+    {
+      "codigo": "POLONESA",
+      "descricao": "POLONESA"
+    },
+    {
+      "codigo": "PORTORRIQUENHA",
+      "descricao": "PORTORRIQUENHA"
+    },
+    {
+      "codigo": "CATARENSE",
+      "descricao": "CATARENSE"
+    },
+    {
+      "codigo": "QUIRGUIZ",
+      "descricao": "QUIRGUIZ"
+    },
+    {
+      "codigo": "CENTRO-AFRICANA",
+      "descricao": "CENTRO-AFRICANA"
+    },
+    {
+      "codigo": "CONGOLESA",
+      "descricao": "CONGOLESA"
+    },
+    {
+      "codigo": "DOMINICANA",
+      "descricao": "DOMINICANA"
+    },
+    {
+      "codigo": "TCHECO",
+      "descricao": "TCHECO"
+    },
+    {
+      "codigo": "ROMENA",
+      "descricao": "ROMENA"
+    },
+    {
+      "codigo": "RUANDESA",
+      "descricao": "RUANDESA"
+    },
+    {
+      "codigo": "RUSSA",
+      "descricao": "RUSSA"
+    },
+    {
+      "codigo": "SAARIANO",
+      "descricao": "SAARIANO"
+    },
+    {
+      "codigo": "PEDRO-MIQUELONENSE",
+      "descricao": "PEDRO-MIQUELONENSE"
+    },
+    {
+      "codigo": "SAMOANA",
+      "descricao": "SAMOANA"
+    },
+    {
+      "codigo": "SAMOANO",
+      "descricao": "SAMOANO"
+    },
+    {
+      "codigo": "SAMARINES",
+      "descricao": "SAMARINES"
+    },
+    {
+      "codigo": "HELENENSE",
+      "descricao": "HELENENSE"
+    },
+    {
+      "codigo": "SANTA-LUCENSE",
+      "descricao": "SANTA-LUCENSE"
+    },
+    {
+      "codigo": "SAO-BARTOLOMEENSE",
+      "descricao": "SAO-BARTOLOMEENSE"
+    },
+    {
+      "codigo": "SAO-CRISTOVENSE",
+      "descricao": "SAO-CRISTOVENSE"
+    },
+    {
+      "codigo": "SAO-MARTINHENSE",
+      "descricao": "SAO-MARTINHENSE"
+    },
+    {
+      "codigo": "SAO-MARTINHENSE",
+      "descricao": "SAO-MARTINHENSE"
+    },
+    {
+      "codigo": "SAO-VICENTINO",
+      "descricao": "SAO-VICENTINO"
+    },
+    {
+      "codigo": "SENEGALESA",
+      "descricao": "SENEGALESA"
+    },
+    {
+      "codigo": "LEONESA",
+      "descricao": "LEONESA"
+    },
+    {
+      "codigo": "SERVIA",
+      "descricao": "SERVIA"
+    },
+    {
+      "codigo": "SOMALI",
+      "descricao": "SOMALI"
+    },
+    {
+      "codigo": "SUAZI",
+      "descricao": "SUAZI"
+    },
+    {
+      "codigo": "SUL-SUDANES",
+      "descricao": "SUL-SUDANES"
+    },
+    {
+      "codigo": "SUECA",
+      "descricao": "SUECA"
+    },
+    {
+      "codigo": "SUICA",
+      "descricao": "SUICA"
+    },
+    {
+      "codigo": "SURINAMESA",
+      "descricao": "SURINAMESA"
+    },
+    {
+      "codigo": "SVALBARDENSE",
+      "descricao": "SVALBARDENSE"
+    },
+    {
+      "codigo": "TAIWANES",
+      "descricao": "TAIWANES"
+    },
+    {
+      "codigo": "DO TERRITORIO BRITANICO DO OCEANO INDICO",
+      "descricao": "DO TERRITORIO BRITANICO DO OCEANO INDICO"
+    },
+    {
+      "codigo": "DO TERRITORIOS DO SUL DA FRANCA",
+      "descricao": "DO TERRITORIOS DO SUL DA FRANCA"
+    },
+    {
+      "codigo": "TIMORENSE",
+      "descricao": "TIMORENSE"
+    },
+    {
+      "codigo": "TOGOLESA",
+      "descricao": "TOGOLESA"
+    },
+    {
+      "codigo": "TONGANESA",
+      "descricao": "TONGANESA"
+    },
+    {
+      "codigo": "TRINITARIO-TOBAGENSE",
+      "descricao": "TRINITARIO-TOBAGENSE"
+    },
+    {
+      "codigo": "TRISTANITA",
+      "descricao": "TRISTANITA"
+    },
+    {
+      "codigo": "TUNISIANA",
+      "descricao": "TUNISIANA"
+    },
+    {
+      "codigo": "TURCOMANA",
+      "descricao": "TURCOMANA"
+    },
+    {
+      "codigo": "TUVALUANA",
+      "descricao": "TUVALUANA"
+    },
+    {
+      "codigo": "UCRANIANA",
+      "descricao": "UCRANIANA"
+    },
+    {
+      "codigo": "URUGUAIA",
+      "descricao": "URUGUAIA"
+    },
+    {
+      "codigo": "UZBEQUE",
+      "descricao": "UZBEQUE"
+    },
+    {
+      "codigo": "VANUATUENSE",
+      "descricao": "VANUATUENSE"
+    },
+    {
+      "codigo": "VATICANO",
+      "descricao": "VATICANO"
+    },
+    {
+      "codigo": "WALLIS-FUTUNENSE",
+      "descricao": "WALLIS-FUTUNENSE"
+    },
+    {
+      "codigo": "ZAMBIANA",
+      "descricao": "ZAMBIANA"
+    },
+    {
+      "codigo": "INGLESA",
+      "descricao": "INGLESA"
+    },
+    {
+      "codigo": "GUIANENSE",
+      "descricao": "GUIANENSE"
+    },
+    {
+      "codigo": "IRAQUIANA",
+      "descricao": "IRAQUIANA"
+    },
+    {
+      "codigo": "LAOSIANA",
+      "descricao": "LAOSIANA"
+    },
+    {
+      "codigo": "PANAMENHO",
+      "descricao": "PANAMENHO"
+    },
+    {
+      "codigo": "UGANDENSE",
+      "descricao": "UGANDENSE"
+    },
+    {
+      "codigo": "ISRAELENSE",
+      "descricao": "ISRAELENSE"
+    }
+  ]
+}

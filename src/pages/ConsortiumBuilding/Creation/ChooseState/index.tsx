@@ -34,10 +34,9 @@ const ChooseState: React.FC = () => {
   const handleClick = () => {
     updateForm({
       tipoPessoa: 1,
-      tipoBusca: 1,
-      codigoTipoGrupo: 1,
+      tipoBusca: 3,
       codigoProduto: 1,
-      codigoCanal: 1,
+      codigoCanal: 7,
       uf,
     })
     instantiate(Steps.contemplatedStep)
