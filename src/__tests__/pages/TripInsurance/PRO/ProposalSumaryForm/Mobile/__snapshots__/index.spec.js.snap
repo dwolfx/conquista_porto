@@ -1307,6 +1307,14 @@ Array [
   height: calc(100% - 24px);
 }
 
+.c74 {
+  width: 100%;
+}
+
+.c73 + .c72 {
+  margin-top: 28px;
+}
+
 .c57 {
   height: 20px;
   margin-right: 10px;
@@ -1448,7 +1456,7 @@ Array [
   display: block;
 }
 
-.c60 .sc-fznNvL {
+.c60 .sc-fzonZV {
   top: 86px;
 }
 
@@ -2674,6 +2682,128 @@ Array [
           </div>
         </div>
         <div
+          className="c8"
+        >
+          <div
+            className="c9"
+            onClick={[Function]}
+          />
+          <div
+            className="c10"
+          >
+            <header
+              className="c11"
+            >
+              <h3
+                className="c12"
+              >
+                Alterar contato em caso de acidente
+              </h3>
+              <svg
+                aria-label="close"
+                className="c13"
+                data-gtm-clicktype="button"
+                data-gtm-name="botao fechar"
+                data-gtm-subname="modal Alterar contato em caso de acidente"
+                data-gtm-type="click"
+                fill="#BABABA"
+                height={28}
+                onClick={[Function]}
+                role="img"
+                width={28}
+              >
+                close.svg
+              </svg>
+            </header>
+            <div
+              className="c14 c15"
+            />
+            <div
+              className="c16"
+            >
+              <div
+                className="c62 c63 c72 c73"
+              >
+                <div
+                  className="c64"
+                >
+                  <label
+                    className="c65"
+                  >
+                    Nome
+                  </label>
+                  <div
+                    className="c66 c67"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c68"
+                      data-gtm-form="input"
+                      data-gtm-name="contato-caso-acidente-nome"
+                      data-testid="nome"
+                      onChange={[Function]}
+                      placeholder="Digite aqui"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c62 c63 c72 c73"
+              >
+                <div
+                  className="c64"
+                >
+                  <label
+                    className="c65"
+                  >
+                    telefone
+                  </label>
+                  <div
+                    className="c66 c67"
+                    onClick={[Function]}
+                  >
+                    <input
+                      className="c68"
+                      data-gtm-form="input"
+                      data-gtm-name="contato-caso-acidente-telefone"
+                      data-testid="telefone"
+                      maxLength={16}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Digite somente números"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
+            >
+              <button
+                className="c70 c74"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="salvar alterações"
+                data-gtm-subname="alterar contato em caso de acidente - seguro viagem - pro"
+                data-gtm-type="click"
+                disabled={true}
+                onClick={[Function]}
+              >
+                <span
+                  className="c25"
+                >
+                  SALVAR ALTERAÇÕES
+                </span>
+              </button>
+            </footer>
+          </div>
+        </div>
+        <div
           className="c40 c41"
         >
           <div
@@ -2697,6 +2827,7 @@ Array [
                 <a
                   className="c46"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <span
