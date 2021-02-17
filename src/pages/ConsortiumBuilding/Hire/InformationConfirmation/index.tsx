@@ -8,13 +8,21 @@ import { useDispatch } from 'react-redux'
 import { GetCountriesRequest } from 'store/modules/ConsortiumBuilding/Countries/action'
 import { GetCivilStatusRequest } from 'store/modules/ConsortiumBuilding/CivilStatus/action'
 import { GetFatcaRequest } from 'store/modules/ConsortiumBuilding/Fatca/action'
+import { GetJobsRequest } from 'store/modules/ConsortiumBuilding/Jobs/action'
 import PersonalDataCard from './PersonalDataCard'
 import ContactCard from './ContactCard'
 import CardStructure from './CardStructure'
 import DocumentCard from './DocumentCard'
 
 import * as s from './styles'
-import { IDocumentForm, IPersonalDataForm } from './types'
+import {
+  IDocumentForm,
+  IFinancialForm,
+  IPersonalDataForm,
+  IPpeForm,
+} from './types'
+import PpeCard from './PpeCard'
+import FinancialCard from './FinancialCard'
 
 const InformationConfirmation: React.FC = () => {
   const dispatch = useDispatch()
@@ -47,6 +55,16 @@ const InformationConfirmation: React.FC = () => {
     false
   )
 
+  const [ppe, setPee] = React.useState<IPpeForm>({
+    isPpe: false,
+    whoPoliticallyExport: '',
+  })
+
+  const [financial, setFinancial] = React.useState<IFinancialForm>({
+    profession: '',
+    grossMonthlyIncome: '',
+  })
+
   const isSmUp = useMedia('smUp')
   const isLgUp = useMedia('lgUp')
 
@@ -56,6 +74,7 @@ const InformationConfirmation: React.FC = () => {
     dispatch(GetCountriesRequest())
     dispatch(GetCivilStatusRequest())
     dispatch(GetFatcaRequest())
+    dispatch(GetJobsRequest())
   }, [dispatch])
 
   return (
@@ -109,6 +128,22 @@ const InformationConfirmation: React.FC = () => {
               placeholder={
                 hire.steps.informationConfirmation.containerThird.placeholder
               }
+            />
+          </CardStructure>
+          <CardStructure
+            title={hire.steps.informationConfirmation.containerFifth.title}
+          >
+            <PpeCard
+              ppeData={[ppe, setPee]}
+              label={hire.steps.informationConfirmation.containerFifth.text}
+            />
+          </CardStructure>
+          <CardStructure
+            title={hire.steps.informationConfirmation.containerSixth.title}
+          >
+            <FinancialCard
+              financialData={[financial, setFinancial]}
+              label={hire.steps.informationConfirmation.containerSixth.label}
             />
           </CardStructure>
         </s.Column>

@@ -1,5 +1,7 @@
 import {
+  ILabelContainerFifthInformationConfirmationStepHireFlux,
   ILabelContainerFirstInformationConfirmationStepHireFlux,
+  ILabelSixthInformationConfirmationStepHireFlux,
   ILabelContainerThirdInformationConfirmationStepHireFlux,
   IPlaceholderContainerThirdInformationConfirmationStepHireFlux,
 } from 'pages/ConsortiumBuilding/commons/Texts/types'
@@ -24,6 +26,11 @@ export interface IDocumentForm {
   passportNumber: string
   passportType: string
   passportIssuingCountry: string
+}
+
+export interface IPpeForm {
+  isPpe: boolean
+  whoPoliticallyExport: string
 }
 
 export interface IDocumentCard {
@@ -63,4 +70,22 @@ export interface IFormDocumentData {
   passportNumber: boolean
   passportType: boolean
   passportIssuingCountry: boolean
+}
+
+export interface IPpeCard {
+  label: ILabelContainerFifthInformationConfirmationStepHireFlux
+  ppeData: [IPpeForm, React.Dispatch<React.SetStateAction<IPpeForm>>]
+}
+
+export interface IFinancialForm {
+  profession: string
+  grossMonthlyIncome: string
+}
+
+export interface IFinancialCard {
+  label: ILabelSixthInformationConfirmationStepHireFlux
+  financialData: [
+    IFinancialForm,
+    React.Dispatch<React.SetStateAction<IFinancialForm>>
+  ]
 }

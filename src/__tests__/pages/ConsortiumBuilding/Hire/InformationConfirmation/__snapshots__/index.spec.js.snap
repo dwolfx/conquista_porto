@@ -329,6 +329,14 @@ Array [
 
 }
 
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
 <div
     className="c0"
   >
@@ -502,6 +510,20 @@ Array [
   -ms-letter-spacing: 0;
   letter-spacing: 0;
   line-height: 25px;
+}
+
+.c50 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
 }
 
 .c18 {
@@ -998,6 +1020,73 @@ Array [
   padding: 14px;
 }
 
+.c48 {
+  padding: 7px 14px 21px;
+}
+
+.c49 {
+  margin-bottom: 14px;
+  max-width: 630px;
+}
+
+.c51 {
+  max-width: 630px;
+  margin-bottom: 28px;
+}
+
+.c52 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 30px;
+}
+
+.c52 > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: initial;
+  -ms-flex-direction: initial;
+  flex-direction: initial;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c52 label {
+  margin-right: 28px;
+}
+
+.c53 {
+  padding: 0 14px 0;
+}
+
+.c54 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 14px 0 28px;
+}
+
+.c55 {
+  margin-bottom: px;
+}
+
 @media (min-width:576px) {
 
 }
@@ -1255,6 +1344,18 @@ Array [
 
 @media (min-width:736px) {
 
+}
+
+@media (min-width:736px) {
+  .c52 {
+    margin-top: 14px;
+  }
+}
+
+@media (min-width:736px) {
+  .c54 {
+    width: 630px;
+  }
 }
 
 <div
@@ -1753,6 +1854,202 @@ Array [
           </div>
         </div>
       </div>
+      <div
+        className="c8 c9"
+        data-testid="card-structure-id"
+      >
+        <div
+          className="c10"
+          data-testid="card-body"
+          overflow="hidden"
+        >
+          <div
+            className="c11"
+          >
+            <p
+              className="c12 "
+              color="gray5"
+              type="subheading"
+            >
+              pessoa politicamente exposta
+            </p>
+          </div>
+          <div
+            className="c48"
+          >
+            <h5
+              className="c43 c49"
+              color="unset"
+              type="headline"
+            >
+              Você é ou possui parentesco com uma pessoa politicamente exposta?
+            </h5>
+            <p
+              className="c50 c51"
+              color="gray5"
+              type="body"
+            >
+              Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos anteriores, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos de alto nível, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
+            </p>
+            <div
+              className="c52"
+              data-testid="radio-ppe"
+            >
+              <div
+                className="c45"
+                width="auto"
+              >
+                <label
+                  className="c46"
+                >
+                  <input
+                    checked={false}
+                    className="c47 "
+                    data-gtm-form="input"
+                    data-gtm-name="Sim"
+                    onChange={[Function]}
+                    type="radio"
+                    value="1"
+                  />
+                  Sim
+                </label>
+                <label
+                  className="c46"
+                >
+                  <input
+                    checked={true}
+                    className="c47 "
+                    data-gtm-form="input"
+                    data-gtm-name="Não"
+                    onChange={[Function]}
+                    type="radio"
+                    value="2"
+                  />
+                  Não
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c8 c9"
+        data-testid="card-structure-id"
+      >
+        <div
+          className="c10"
+          data-testid="card-body"
+          overflow="hidden"
+        >
+          <div
+            className="c11"
+          >
+            <p
+              className="c12 "
+              color="gray5"
+              type="subheading"
+            >
+              Dados financeiros
+            </p>
+          </div>
+          <div
+            className="c53"
+          >
+            <div
+              className="c54"
+            >
+              <div
+                className="c23 "
+                data-testid="select-jobs-id"
+              >
+                <div
+                  className="c25"
+                  data-testid="select-Profissão"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="c26"
+                    disabled={false}
+                  >
+                    <div
+                      className="c27"
+                    >
+                      <label
+                        className="c28"
+                      >
+                        Profissão
+                      </label>
+                      <div
+                        className="c29 c30"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c31"
+                          data-testid="select-option-input-undefined"
+                          disabled={false}
+                          placeholder="Selecione"
+                          readOnly={true}
+                          value=""
+                        />
+                        <div
+                          className="c32"
+                          id="suffix"
+                        >
+                          <svg
+                            aria-label="arrowdown"
+                            fill="#272727"
+                            height={21}
+                            role="img"
+                            width={21}
+                          >
+                            arrow-down.svg
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="c54"
+            >
+              <div
+                className="c26 c55"
+              >
+                <div
+                  className="c27"
+                >
+                  <label
+                    className="c28"
+                  >
+                    Renda mensal bruta
+                  </label>
+                  <div
+                    className="c29 c30"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="c32"
+                      id="prefix"
+                    >
+                      R$
+                    </div>
+                    <input
+                      className="c31"
+                      data-testid="financial-money-input"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="0,00"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   .c6 {
@@ -1899,6 +2196,7 @@ Array [
   bottom: 0;
   width: 100vw;
   border-top: 1px solid #DDDDDD;
+  z-index: 14;
 }
 
 .c5 {
@@ -2112,6 +2410,14 @@ Array [
   .c7 {
     width: 133px;
   }
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
 }
 
 <div

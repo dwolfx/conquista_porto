@@ -14,6 +14,7 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
   formDefault: {
     placeholderInput: 'Digite aqui',
     placeholderSelect: 'Selecione',
+    placeholderInputMoney: '0,00',
   },
   buttons: {
     start: 'Inicio',
@@ -143,8 +144,8 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
               'Você é ou possui parentesco com uma pessoa politicamente exposta?',
             content:
               'Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos anteriores, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos de alto nível, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.',
+            label: 'quem é a pessoa politicamente exposta?',
           },
-          label: 'quem é a pessoa políticamente exposta?',
         },
         containerSixth: {
           title: 'Dados financeiros',
