@@ -1,0 +1,34 @@
+{
+  "simulacoes": [
+    {
+      "codigoGrupo": "A321",
+      "numeroCota": 42,
+      "valorParcela": 1395.79,
+      "valorCredito": 92500,
+      "prazo": 80,
+      "fundoReserva": 0.5,
+      "taxaAdministrativa": 15.5,
+      "seguroVida": 0.035,
+      "codBem": "AUTO7",
+      "informacaoProduto": "Até o grupo A304",
+      "assembParticipacao": "1",
+      "dtAssembleia": "19/03/2021",
+      "dtAvenctoAssembl": "19/03/2021",
+      "totalVagas": 265,
+      "taxaAdesao": 0,
+      "taxaAdministracao": 16,
+      "tiposDeLance": "Conforme Regulamento",
+      "descProduto": "O credito e as parcelas ser?o atualizados mensalmente pela Fundac?o Instituto de Pesquisas Economicas (FIPE)",
+      "fdReserva": 0.5,
+      "tipoGrupo": 2,
+      "valorPrimeiraParcela": 1115.35,
+      "valorDemaisParcelas": 1115.35,
+      "valorAdesao": 1115.35,
+      "numeroParticipantes": 300,
+      "percentualLanceFixo": 0,
+      "percentualLanceLivre": 1,
+      "percentualLanceEmbutido": 15,
+      "produtoSugerido": "AUTOMOVEL FLEX CREDITO ALTO AFCA07"
+    }
+  ]
+}
