@@ -9,6 +9,7 @@ import consortiumBuildingCivilStatusMock from 'mocks/consortiumBuildingCivilStat
 import consortiumBuildingStatesMock from 'mocks/consortiumBuildingStates.json'
 import consortiumBuildingFatcaMock from 'mocks/consortiumBuildingFatca.json'
 import consortiumBuildingCountriesMock from 'mocks/consortiumBuildingCountries.json'
+import consortiumBuildingJobsMock from 'mocks/consortiumBuildingJobs.json'
 import theme from 'styles/theme'
 
 import InformationConfirmation from 'pages/ConsortiumBuilding/Hire/InformationConfirmation'
@@ -43,6 +44,11 @@ const INITIAL_STATE = {
   },
   fatcaConsortiumBuilding: {
     data: consortiumBuildingFatcaMock,
+    isLoading: false,
+    hasError: false,
+  },
+  jobsConsortiumBuilding: {
+    data: consortiumBuildingJobsMock,
     isLoading: false,
     hasError: false,
   },

@@ -52,6 +52,7 @@ export const FooterContainer = styled.div`
   bottom: 0;
   width: 100vw;
   border-top: 1px solid ${({ theme }) => theme.colors.gray3};
+  z-index: 14;
 `
 
 export const ButtonAlign = styled.div`

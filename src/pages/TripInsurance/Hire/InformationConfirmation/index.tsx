@@ -508,7 +508,7 @@ const InformationConfirmation: StepComponent = () => {
                 <s.Select
                   label={
                     isSmUp
-                      ? 'quem é a pessoa políticamente exposta?'
+                      ? 'quem é a pessoa politicamente exposta?'
                       : 'quem é a PPE?'
                   }
                   options={ppeOptions}

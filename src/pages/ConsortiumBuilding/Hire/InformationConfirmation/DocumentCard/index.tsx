@@ -159,18 +159,14 @@ const DocumentCard: React.FC<IDocumentCard> = ({
     )
   )
 
-  /**
-   * USECALLBACK
-   */
-
   const setListOptionFatca = React.useCallback(
     (
       data: IFatca[],
-      setFatca: React.Dispatch<React.SetStateAction<TOptions[]>>,
+      setFatcaMethod: React.Dispatch<React.SetStateAction<TOptions[]>>,
       key: string,
       setSelect: React.Dispatch<React.SetStateAction<TSelected>>
     ) => {
-      setFatca(
+      setFatcaMethod(
         data.map((value, index) => ({
           id: index + 1,
           text: value.descricao,
@@ -199,8 +195,10 @@ const DocumentCard: React.FC<IDocumentCard> = ({
           id: index + 1,
           text: value.descricao
             .split(' ')
-            .map((value: string) =>
-              value.length > 2 ? capitalize(value) : value.toLowerCase()
+            .map(character =>
+              character.length > 2
+                ? capitalize(character)
+                : character.toLowerCase()
             )
             .join(' '),
           onClick: () => {
@@ -208,8 +206,10 @@ const DocumentCard: React.FC<IDocumentCard> = ({
               id: index + 1,
               name: value.descricao
                 .split(' ')
-                .map((value: string) =>
-                  value.length > 2 ? capitalize(value) : value.toLowerCase()
+                .map(character =>
+                  character.length > 2
+                    ? capitalize(character)
+                    : character.toLowerCase()
                 )
                 .join(' '),
             })
@@ -217,8 +217,10 @@ const DocumentCard: React.FC<IDocumentCard> = ({
               ...documentData,
               [key]: value.descricao
                 .split(' ')
-                .map(value =>
-                  value.length > 2 ? capitalize(value) : value.toLowerCase()
+                .map(character =>
+                  character.length > 2
+                    ? capitalize(character)
+                    : character.toLowerCase()
                 )
                 .join(' '),
             })

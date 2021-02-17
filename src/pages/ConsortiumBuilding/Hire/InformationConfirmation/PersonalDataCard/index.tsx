@@ -17,6 +17,7 @@ import {
   ICivilStatusConsortiumBuildingState,
   ICivilStatus,
 } from 'store/modules/ConsortiumBuilding/CivilStatus/types'
+import useMedia from 'hooks/useMedia'
 import * as s from './styles'
 import { IFormPersonalData, IPersonalDataCard } from '../types'
 
@@ -24,6 +25,7 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
   personalData: [personalData, setPersonalData],
   label,
 }: IPersonalDataCard) => {
+  const isSmUp = useMedia('smUp')
   const { formDefault } = texts()
 
   const [validForm, setValidForm] = React.useState<IFormPersonalData>({
@@ -154,6 +156,7 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
           label="Estado civil"
           options={civilStatusOption}
           selected={civilStatus}
+          optionBoxSize={isSmUp ? 300 : 100}
         />
       </s.DelimiterWrapper>
       {isRestForm && (

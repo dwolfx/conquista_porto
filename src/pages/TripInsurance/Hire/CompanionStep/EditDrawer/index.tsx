@@ -567,7 +567,7 @@ const CompanionEditDrawer: React.FC<IProps> = ({
                 },
               ]}
               selected={selectedPoliticalyExposedKinship}
-              label="Quem é a pessoa políticamente exposta?"
+              label="Quem é a pessoa politicamente exposta?"
               optionBoxSize={350}
             />
           </s.ColInput>

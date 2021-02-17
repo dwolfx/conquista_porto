@@ -108,22 +108,17 @@ export interface ILabelContainerThirdInformationConfirmationStepHireFlux {
 export interface ILabelContainerFifthInformationConfirmationStepHireFlux {
   title: string
   content: string
+  label: string
+}
+
+export interface ILabelSixthInformationConfirmationStepHireFlux {
+  profession: string
+  grossMonthlyIncome: string
 }
 
 export interface ILabelContainerSixthInformationConfirmationStepHireFlux {
   title: string
-  label: {
-    profession: string
-    grossMonthlyIncome: string
-  }
-}
-
-export interface IContainerInformationConfirmationStepHireFlux {
-  title: string
-  link?: string
-  messageRNE?: string
-  text?: ILabelContainerFifthInformationConfirmationStepHireFlux
-  label?: string | ILabelContainerFourthInformationConfirmationStepHireFlux
+  label: ILabelSixthInformationConfirmationStepHireFlux
 }
 
 export interface IContainerFirstInformationConfirmationStepHireFlux {
@@ -158,6 +153,11 @@ export interface IContainerFourthInformationConfirmationStepHireFlux {
   label: ILabelContainerFourthInformationConfirmationStepHireFlux
 }
 
+export interface IContainerFifthInformationConfirmationStepHireFlux {
+  title: string
+  text: ILabelContainerFifthInformationConfirmationStepHireFlux
+}
+
 export interface IInformationConfirmationStepHireFlux {
   actualStep: 1 | 2 | 3 | 4 | 5 | null
   title: string
@@ -166,7 +166,7 @@ export interface IInformationConfirmationStepHireFlux {
   containerSecond: IContainerSecondInformationConfirmationStepHireFlux
   containerThird: IContainerThirdInformationConfirmationStepHireFlux
   containerFourth: IContainerFourthInformationConfirmationStepHireFlux
-  containerFifth: IContainerInformationConfirmationStepHireFlux
+  containerFifth: IContainerFifthInformationConfirmationStepHireFlux
   containerSixth: ILabelContainerSixthInformationConfirmationStepHireFlux
 }
 
@@ -378,6 +378,7 @@ export interface IHireFlux {
 export interface IFormDefault {
   placeholderInput: string
   placeholderSelect: string
+  placeholderInputMoney: string
 }
 
 export interface ITexts {
