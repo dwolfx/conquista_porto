@@ -5,12 +5,18 @@ import {
   IPoliticallyExposedPerson,
   IMainPassenger,
 } from 'pages/TripInsurance/Creation/types'
+import {
+  ICreditCardInstallment,
+  ICoverage,
+} from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
 import CustomerTravelDetailsForm from './Creation/PartnerOffer/Steps/CustomerTravelDetailsForm'
 import TravelDetailsForm from './Creation/PartnerOffer/Steps/TravelDetailsForm'
 
 import InsuranceSummary from './Creation/CustomerProposalOffer/Steps/InsuranceSummary'
 import ProposalSummary from './Creation/CustomerProposalOffer/Steps/ProposalSummary'
+import SuccessState from './Creation/CustomerProposalOffer/Steps/RequestProposalStatus/Success'
+import ErrorState from './Creation/CustomerProposalOffer/Steps/RequestProposalStatus/Error'
 
 export const ParnerSteps = {
   CustomerTravelDetailsForm: CustomerTravelDetailsForm,
@@ -20,19 +26,16 @@ export const ParnerSteps = {
 export const CustomerSteps = {
   InsuranceSummary: InsuranceSummary,
   ProposalSummary: ProposalSummary,
+  successStep: SuccessState,
+  errorStep: ErrorState,
 }
 
 export interface IForm {
   acompanhantes?: ICompanion[]
-  codigoCanal?: number
-  codigoOperacao?: string
   codigoPaisDestino?: string
   codigoUfOrigem?: string
   dataIda?: string
   dataVolta?: string
-  hasLatinAmericaCountryAndOtherCountry?: boolean
-  hasOnlyLatinAmericaDestination?: boolean
-  idParceiro?: number
   idSimulacao?: string
   isAceiteTermos?: boolean
   isCienteMoto?: boolean
@@ -48,8 +51,14 @@ export interface IForm {
   pessoaExposta?: IPoliticallyExposedPerson
   qtdPassagMaiorSetentaAnos?: number
   qtdPassagMenorSetentaAnos?: number
-  susep?: string
   valorComDesconto?: number
-  valorSeguro?: number
-  valorSemDesconto: number
+  valorSemDesconto?: number
+  formasPagamento?: {
+    listaParcelamentoCartao: ICreditCardInstallment[]
+    listaParcelamentoCartaoPorto: ICreditCardInstallment[]
+  }
+  coberturas: ICoverage[]
+  codigoOperacao?: string
+  idParceiro?: number
+  susep?: string
 }

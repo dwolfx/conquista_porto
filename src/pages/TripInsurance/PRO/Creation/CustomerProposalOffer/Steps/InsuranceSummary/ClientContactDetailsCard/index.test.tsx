@@ -24,9 +24,12 @@ const defaultStore: {
 describe('ClientContactDetailsCard component', () => {
   it('should exists', () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<ClientContactDetailsCard />, {
-      store,
-    })
+    renderWithReduxAndTheme(
+      <ClientContactDetailsCard setHasEmptyData={() => {}} />,
+      {
+        store,
+      }
+    )
     expect(ClientContactDetailsCard).toBeDefined()
   })
   it(`should render error`, () => {
@@ -42,18 +45,24 @@ describe('ClientContactDetailsCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<ClientContactDetailsCard />, {
-      store,
-    })
+    renderWithReduxAndTheme(
+      <ClientContactDetailsCard setHasEmptyData={() => {}} />,
+      {
+        store,
+      }
+    )
 
     expect(screen.getAllByText('Não preenchido')).toHaveLength(2)
   })
   it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<ClientContactDetailsCard />, { store })
+    renderWithReduxAndTheme(
+      <ClientContactDetailsCard setHasEmptyData={() => {}} />,
+      { store }
+    )
 
     //@ts-expect-error
-    delete window.location
+    delete window.location as {}
     window.location = {
       ...window.location,
       href: '/',

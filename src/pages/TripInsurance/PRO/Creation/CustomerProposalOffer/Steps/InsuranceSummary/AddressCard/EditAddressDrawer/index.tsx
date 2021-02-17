@@ -266,6 +266,7 @@ const EditAddressDrawer: React.FC<t.IAddressDrawer> = ({
         disabled={isLoading}
         options={statusOption()}
         selected={stateSelect}
+        optionBoxDirection="top"
       />
       <s.CityTextInput
         label="Cidade"

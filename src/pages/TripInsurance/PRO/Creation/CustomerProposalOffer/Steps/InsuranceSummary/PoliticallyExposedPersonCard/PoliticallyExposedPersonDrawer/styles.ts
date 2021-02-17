@@ -59,20 +59,22 @@ export const LoadingWrapper = styled.div`
 export const Select = styled(SelectCmp)`
   margin-top: ${({ theme: { spacing } }) => spacing(4)}px;
 
-  ${InputFieldGroup} {
-    height: 86px;
-  }
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    ${InputFieldGroup} {
+      height: 86px;
+    }
 
-  ${InputWrapper} {
-    height: calc(100% - 38px);
-  }
+    ${InputWrapper} {
+      height: calc(100% - 38px);
+    }
 
-  label {
-    display: block;
-  }
+    label {
+      display: block;
+    }
 
-  ${OptionsWrapper} {
-    top: 86px;
+    ${OptionsWrapper} {
+      top: 86px;
+    }
   }
 `
 

@@ -12,9 +12,13 @@ import { formatPhoneNumber, handleGiwRedirect } from 'helpers'
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { IMainPassenger } from 'pages/TripInsurance/Creation/types'
 
+import { ICardInterface } from '../types'
 import * as s from '../styles'
 
-const ClientContactDetailsCard: React.FC = () => {
+const ClientContactDetailsCard: React.FC<ICardInterface> = ({
+  setHasEmptyData,
+  ...rest
+}) => {
   const { form } = useFormFluxManagement<IForm>()
 
   const checkEmptyContactDataFields = (
@@ -27,8 +31,13 @@ const ClientContactDetailsCard: React.FC = () => {
     )
   }
 
+  // Set 'contratar' button disabled
+  React.useEffect(() => {
+    setHasEmptyData(checkEmptyContactDataFields(form.passageiroPrincipal ?? {}))
+  }, [form.passageiroPrincipal, setHasEmptyData])
+
   return (
-    <s.Card>
+    <s.Card {...rest}>
       <s.CardContentWrapper>
         <s.CardTitleWrapper>
           <Text type="subheading" bold color="gray5">

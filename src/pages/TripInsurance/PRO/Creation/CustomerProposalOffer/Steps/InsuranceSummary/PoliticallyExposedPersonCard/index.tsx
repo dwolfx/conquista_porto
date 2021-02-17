@@ -10,9 +10,13 @@ import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { IPoliticallyExposedPerson } from 'pages/TripInsurance/Creation/types'
 
+import { ICardInterface } from '../types'
 import * as s from '../styles'
 
-const PoliticallyExposedPersonCard: React.FC = () => {
+const PoliticallyExposedPersonCard: React.FC<ICardInterface> = ({
+  setHasEmptyData,
+  ...rest
+}) => {
   const { form } = useFormFluxManagement<IForm>()
 
   const [
@@ -35,13 +39,18 @@ const PoliticallyExposedPersonCard: React.FC = () => {
       : true
   }
 
+  // Set 'contratar' button disabled
+  React.useEffect(() => {
+    setHasEmptyData(checkEmptyExposedPersonFields(form.pessoaExposta ?? {}))
+  }, [form.pessoaExposta, setHasEmptyData])
+
   return (
     <>
       <PoliticallyExposedPersonDrawer
         isOpen={isPoliticallyExposedPersonCardDrawerOpen}
         handleClose={() => setIsPoliticallyExposedPersonCardDrawerOpen(false)}
       />
-      <s.Card>
+      <s.Card {...rest}>
         <s.CardContentWrapper>
           <s.CardTitleWrapper>
             <Text type="subheading" bold color="gray5">

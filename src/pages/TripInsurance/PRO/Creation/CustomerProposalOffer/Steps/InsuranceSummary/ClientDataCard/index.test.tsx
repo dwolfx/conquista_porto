@@ -37,7 +37,7 @@ const createRootContainer = () => {
 describe('ClientDataCard component', () => {
   it('should exists', () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<ClientDataCard />, {
+    renderWithReduxAndTheme(<ClientDataCard setHasEmptyData={() => {}} />, {
       store,
       container: createRootContainer(),
     })
@@ -59,7 +59,7 @@ describe('ClientDataCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<ClientDataCard />, {
+    renderWithReduxAndTheme(<ClientDataCard setHasEmptyData={() => {}} />, {
       store,
       container: createRootContainer(),
     })
@@ -82,7 +82,7 @@ describe('ClientDataCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<ClientDataCard />, {
+    renderWithReduxAndTheme(<ClientDataCard setHasEmptyData={() => {}} />, {
       store,
       container: createRootContainer(),
     })
@@ -105,16 +105,16 @@ describe('ClientDataCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<ClientDataCard />, {
+    renderWithReduxAndTheme(<ClientDataCard setHasEmptyData={() => {}} />, {
       store,
       container: createRootContainer(),
     })
 
     const button = screen.getByText('ALTERAR')
     userEvent.click(button)
+    userEvent.click(screen.getByText('close.svg'))
+    userEvent.click(button)
 
     expect(screen.getAllByText('Alterar dados do contratante')).toBeDefined()
-
-    userEvent.click(screen.getByText('close.svg'))
   })
 })

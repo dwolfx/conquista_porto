@@ -36,10 +36,13 @@ const createRootContainer = () => {
 describe('ContactInfoAccidentsCaseCard component', () => {
   it('should exists', () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<ContactInfoAccidentsCaseCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <ContactInfoAccidentsCaseCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
     expect(ContactInfoAccidentsCaseCard).toBeDefined()
   })
   it(`should render error`, () => {
@@ -57,21 +60,29 @@ describe('ContactInfoAccidentsCaseCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<ContactInfoAccidentsCaseCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <ContactInfoAccidentsCaseCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
 
     expect(screen.getAllByText('Não preenchido')).toHaveLength(2)
   })
   it(`should trigger drawer`, () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<ContactInfoAccidentsCaseCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <ContactInfoAccidentsCaseCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
 
     const button = screen.getByText('ALTERAR')
+    userEvent.click(button)
+    userEvent.click(screen.getByText('close.svg'))
     userEvent.click(button)
 
     expect(

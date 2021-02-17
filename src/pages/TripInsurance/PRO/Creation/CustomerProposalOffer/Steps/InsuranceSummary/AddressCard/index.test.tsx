@@ -2,6 +2,7 @@ import React from 'react'
 
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
+import userEvent from '@testing-library/user-event'
 
 import AddressCard from '.'
 
@@ -41,7 +42,7 @@ const defaultStore: {
 describe('AddressCard component', () => {
   it('should exists', () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<AddressCard />, {
+    renderWithReduxAndTheme(<AddressCard setHasEmptyData={() => {}} />, {
       store,
       container: createRootContainer(),
     })
@@ -68,7 +69,7 @@ describe('AddressCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<AddressCard />, {
+    renderWithReduxAndTheme(<AddressCard setHasEmptyData={() => {}} />, {
       store,
       container: createRootContainer(),
     })
@@ -76,5 +77,19 @@ describe('AddressCard component', () => {
     expect(
       screen.getByText('Rua Augusta, 123A - teste - Penha - São Paulo - SP')
     ).toBeDefined()
+  })
+  it(`should trigger drawer`, () => {
+    const store = storeFactory(defaultStore)
+    renderWithReduxAndTheme(<AddressCard setHasEmptyData={() => {}} />, {
+      store,
+      container: createRootContainer(),
+    })
+
+    const button = screen.getByText('ALTERAR')
+    userEvent.click(button)
+    userEvent.click(screen.getByText('close.svg'))
+    userEvent.click(button)
+
+    expect(screen.getAllByText('Alterar endereço')).toBeDefined()
   })
 })

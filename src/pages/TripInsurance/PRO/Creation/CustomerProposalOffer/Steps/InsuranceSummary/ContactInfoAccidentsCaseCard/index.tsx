@@ -13,9 +13,13 @@ import { formatPhoneNumber } from 'helpers'
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { IPassengerContact } from 'pages/TripInsurance/Creation/types'
 
+import { ICardInterface } from '../types'
 import * as s from '../styles'
 
-const ContactInfoAccidentsCaseCard: React.FC = () => {
+const ContactInfoAccidentsCaseCard: React.FC<ICardInterface> = ({
+  setHasEmptyData,
+  ...rest
+}) => {
   const { form } = useFormFluxManagement<IForm>()
 
   const [
@@ -30,6 +34,15 @@ const ContactInfoAccidentsCaseCard: React.FC = () => {
       !contactInfo.nome || !contactInfo.celularDDD || !contactInfo.celularNumero
     )
   }
+
+  // Set 'contratar' button disabled
+  React.useEffect(() => {
+    setHasEmptyData(
+      checkEmptyContactInfoAccidentsCaseFields(
+        form.passageiroPrincipal?.contato ?? {}
+      )
+    )
+  }, [form.passageiroPrincipal, setHasEmptyData])
 
   return (
     <>

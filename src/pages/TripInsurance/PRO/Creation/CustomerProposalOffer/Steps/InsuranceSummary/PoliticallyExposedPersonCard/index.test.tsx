@@ -54,11 +54,26 @@ const createRootContainer = () => {
 describe('PoliticallyExposedPersonCard component', () => {
   it('should exists', () => {
     const store = storeFactory(defaultStore)
-    renderWithReduxAndTheme(<PoliticallyExposedPersonCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <PoliticallyExposedPersonCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
     expect(PoliticallyExposedPersonCard).toBeDefined()
+  })
+  it('should call setHasEmptyData function', () => {
+    const setHasEmptyData = jest.fn()
+    const store = storeFactory(defaultStore)
+    renderWithReduxAndTheme(
+      <PoliticallyExposedPersonCard setHasEmptyData={setHasEmptyData} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
+    expect(setHasEmptyData).toHaveBeenCalled()
   })
   it(`should render 'Não' if is not an exposed person`, () => {
     const store = storeFactory({
@@ -71,10 +86,13 @@ describe('PoliticallyExposedPersonCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<PoliticallyExposedPersonCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <PoliticallyExposedPersonCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
 
     expect(screen.getByRole('heading', { name: /Não/i })).toBeDefined()
   })
@@ -93,10 +111,13 @@ describe('PoliticallyExposedPersonCard component', () => {
         },
       },
     })
-    renderWithReduxAndTheme(<PoliticallyExposedPersonCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <PoliticallyExposedPersonCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
 
     expect(screen.getByText('Não preenchido')).toBeDefined()
   })
@@ -130,12 +151,17 @@ describe('PoliticallyExposedPersonCard component', () => {
         hasError: false,
       },
     })
-    renderWithReduxAndTheme(<PoliticallyExposedPersonCard />, {
-      store,
-      container: createRootContainer(),
-    })
+    renderWithReduxAndTheme(
+      <PoliticallyExposedPersonCard setHasEmptyData={() => {}} />,
+      {
+        store,
+        container: createRootContainer(),
+      }
+    )
 
     const button = screen.getByText('ALTERAR')
+    userEvent.click(button)
+    userEvent.click(screen.getByText('close.svg'))
     userEvent.click(button)
 
     expect(
@@ -149,7 +175,5 @@ describe('PoliticallyExposedPersonCard component', () => {
     expect(screen.getByTestId('select-option-input-undefined')).toHaveValue(
       'Companheiro(a)'
     )
-
-    userEvent.click(screen.getByText('close.svg'))
   })
 })

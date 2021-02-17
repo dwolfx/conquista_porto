@@ -20,10 +20,13 @@ export default function TripInsurenceCreation({
   isOpen: boolean
   closeHandler: () => void
 }) {
-
-  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const {
+    pop,
+    getLast,
+    getLength,
+    instantiate,
+    reset,
+  } = useStackFluxManagement<StepComponentProps>()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -43,6 +46,10 @@ export default function TripInsurenceCreation({
   React.useEffect(() => {
     if (isOpen && getLength() === 0) instantiate(Steps.originTrip)
   }, [isOpen, instantiate, getLength])
+
+  React.useEffect(() => {
+    return () => reset()
+  }, [reset])
 
   const modalFooterButton = () => (
     <s.ButtonWrapper>

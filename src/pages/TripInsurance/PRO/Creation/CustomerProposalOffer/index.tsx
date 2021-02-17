@@ -20,17 +20,26 @@ const CustomerProposalOffer = ({
   closeHandler: () => void
 }) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const { getLast, getLength, instantiate, pop } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const {
+    getLast,
+    getLength,
+    instantiate,
+    pop,
+    reset,
+  } = useStackFluxManagement<StepComponentProps>()
 
   // Steps:
   // 1 - ProposalSummary
   // 2 - InsuranceSummary
+  // 3 - succesStep/errorStep
 
   React.useEffect(() => {
     if (getLength() === 0) instantiate(CustomerSteps.ProposalSummary)
   }, [instantiate, getLength])
+
+  React.useEffect(() => {
+    return () => reset()
+  }, [reset])
 
   const modalFooterButton = () => (
     <s.ButtonWrapper>
@@ -78,32 +87,32 @@ const CustomerProposalOffer = ({
             <Row>
               <Col lg={12}>
                 <s.HeaderContent>
-                  {/* {getLast()?.type !== CustomerSteps.errorStep &&
-                  getLast()?.type !== CustomerSteps.successStep ? ( */}
-                  <s.PreviousIcon
-                    data-gtm-subname="layer seguro viagem"
-                    data-gtm-name="botao voltar step"
-                    data-gtm-type="click"
-                    data-gtm-clicktype="button"
-                    onClick={() =>
-                      getLength() === 1 ? setIsModalOpen(true) : pop()
-                    }
-                  />
-                  {/* ) : null} */}
+                  {getLast()?.type !== CustomerSteps.errorStep &&
+                  getLast()?.type !== CustomerSteps.successStep ? (
+                    <s.PreviousIcon
+                      data-gtm-subname="layer seguro viagem"
+                      data-gtm-name="botao voltar step"
+                      data-gtm-type="click"
+                      data-gtm-clicktype="button"
+                      onClick={() =>
+                        getLength() === 1 ? setIsModalOpen(true) : pop()
+                      }
+                    />
+                  ) : null}
                   <s.LogoWrapper>
                     <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
                   </s.LogoWrapper>
-                  {/* {getLast()?.type !== CustomerSteps.errorStep &&
-                  getLast()?.type !== CustomerSteps.successStep ? ( */}
-                  <s.CloseIcon
-                    className="layer-close-button"
-                    data-gtm-subname="botao fechar layer"
-                    data-gtm-name="botao fechar"
-                    data-gtm-type="click"
-                    data-gtm-clicktype="button"
-                    onClick={() => setIsModalOpen(true)}
-                  />
-                  {/* ) : null} */}
+                  {getLast()?.type !== CustomerSteps.errorStep &&
+                  getLast()?.type !== CustomerSteps.successStep ? (
+                    <s.CloseIcon
+                      className="layer-close-button"
+                      data-gtm-subname="botao fechar layer"
+                      data-gtm-name="botao fechar"
+                      data-gtm-type="click"
+                      data-gtm-clicktype="button"
+                      onClick={() => setIsModalOpen(true)}
+                    />
+                  ) : null}
                 </s.HeaderContent>
               </Col>
             </Row>

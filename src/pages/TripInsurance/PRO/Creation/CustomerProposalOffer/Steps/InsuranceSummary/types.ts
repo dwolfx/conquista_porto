@@ -13,3 +13,7 @@ export interface ICustomerProfileState {
   isLoading: boolean
   hasError: boolean
 }
+
+export interface ICardInterface {
+  setHasEmptyData: React.Dispatch<React.SetStateAction<boolean>>
+}

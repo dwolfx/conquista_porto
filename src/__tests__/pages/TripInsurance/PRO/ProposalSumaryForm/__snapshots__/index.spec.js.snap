@@ -370,7 +370,7 @@ Array [
 
 }
 
-@media (min-width:736px) {
+@media (max-width:480px) {
 
 }
 
@@ -379,6 +379,14 @@ Array [
 }
 
 @media (min-width:736px) {
+
+}
+
+@media (min-width:736px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 
@@ -1592,22 +1600,6 @@ Array [
   margin-top: 28px;
 }
 
-.c65 .c67 {
-  height: 86px;
-}
-
-.c65 .c71 {
-  height: calc(100% - 38px);
-}
-
-.c65 label {
-  display: block;
-}
-
-.c65 .sc-fzqAui {
-  top: 86px;
-}
-
 @media (min-width:576px) {
 
 }
@@ -1911,6 +1903,10 @@ Array [
 
 }
 
+@media (max-width:480px) {
+
+}
+
 @media (min-width:736px) {
   .c32 {
     margin-top: 14px;
@@ -1944,6 +1940,24 @@ Array [
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
+  }
+}
+
+@media (max-width:480px) {
+  .c65 .c67 {
+    height: 86px;
+  }
+
+  .c65 .c71 {
+    height: calc(100% - 38px);
+  }
+
+  .c65 label {
+    display: block;
+  }
+
+  .c65 .sc-fzqAui {
+    top: 86px;
   }
 }
 
@@ -3842,6 +3856,11 @@ Array [
   margin-right: 7px;
 }
 
+.c11 {
+  margin-right: 7px;
+  width: 134px;
+}
+
 @media (min-width:576px) {
   .c1 {
     max-width: 540px;
@@ -4093,6 +4112,17 @@ Array [
   }
 }
 
+@media (max-width:480px) {
+  .c11 {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (min-width:736px) {
+
+}
+
 @media (min-width:736px) {
 
 }
@@ -4101,7 +4131,7 @@ Array [
 
 }
 
-@media (min-width:736px) {
+@media (max-width:480px) {
 
 }
 
@@ -4149,14 +4179,15 @@ Array [
             onMouseLeave={[Function]}
           >
             <button
-              className="c10 c6"
+              className="c10 c11"
               color="secondary"
               disabled={true}
+              onClick={[Function]}
             >
               <span
                 className="c7"
               >
-                concluir contratação
+                CONTRATAR
               </span>
             </button>
           </span>

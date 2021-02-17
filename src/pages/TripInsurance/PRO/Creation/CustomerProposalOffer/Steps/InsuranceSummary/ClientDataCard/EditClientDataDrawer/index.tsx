@@ -82,7 +82,7 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
             NOME
           </Text>,
           <Text color="gray6" bold type="headline">
-            {customerProfile.customerName}
+            {customerProfile?.customerName ?? ''}
           </Text>,
         ]}
       />
@@ -93,7 +93,7 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
             CPF
           </Text>,
           <Text color="gray6" bold type="headline">
-            {formatCpf(customerProfile.cpfCnpj)}
+            {formatCpf(customerProfile?.cpfCnpj ?? '')}
           </Text>,
         ]}
       />
@@ -104,7 +104,9 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
             DATA DE NASCIMENTO
           </Text>,
           <Text color="gray6" bold type="headline">
-            {moment(customerProfile.customerBirthdate).format('DD/MM/YYYY')}
+            {customerProfile?.customerBirthdate
+              ? moment(customerProfile?.customerBirthdate).format('DD/MM/YYYY')
+              : ''}
           </Text>,
         ]}
       />
@@ -115,7 +117,11 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
             SEXO
           </Text>,
           <Text color="gray6" bold type="headline">
-            {customerProfile.customerGender === 'M' ? 'Masculino' : 'Feminino'}
+            {customerProfile?.customerGender
+              ? customerProfile?.customerGender === 'M'
+                ? 'Masculino'
+                : 'Feminino'
+              : ''}
           </Text>,
         ]}
       />

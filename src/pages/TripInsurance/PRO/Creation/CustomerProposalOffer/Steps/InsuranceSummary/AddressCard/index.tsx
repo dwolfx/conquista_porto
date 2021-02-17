@@ -12,9 +12,13 @@ import { IPassengerAddress } from 'pages/TripInsurance/Creation/types'
 
 import EditAddressDrawer from './EditAddressDrawer'
 
+import { ICardInterface } from '../types'
 import * as s from '../styles'
 
-const AddressCard: React.FC = () => {
+const AddressCard: React.FC<ICardInterface> = ({
+  setHasEmptyData,
+  ...rest
+}) => {
   const { form } = useFormFluxManagement<IForm>()
 
   const [isAddressCardDrawerOpen, setIsAddressCardDrawerOpen] = React.useState<
@@ -32,6 +36,13 @@ const AddressCard: React.FC = () => {
       !address.uf
     )
   }
+
+  // Set 'contratar' button disabled
+  React.useEffect(() => {
+    setHasEmptyData(
+      checkEmptyAddressFields(form.passageiroPrincipal?.endereco ?? {})
+    )
+  }, [form.passageiroPrincipal, setHasEmptyData])
 
   return (
     <>
