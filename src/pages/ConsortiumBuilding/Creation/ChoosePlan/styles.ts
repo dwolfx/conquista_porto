@@ -5,7 +5,7 @@ import { Container as ContainerCmp } from 'styled-bootstrap-grid'
 import TextCmp from 'components/Text'
 import DivisorCmp from 'components/Divisor'
 import ButtonCmp from 'components/Button'
-import LoadingStateCmp from 'pages/Home/commons/LoadingState'
+import LoadingCmp from 'components/Loading'
 
 export const Container = styled.div`
   display: flex;
@@ -104,6 +104,16 @@ export const DarkBackground = styled.div`
   z-index: 0;
   background-color: ${({ theme }) => theme.colors.grayblue1};
   height: 278px;
+  width: 100%;
+  display: flex;
+`
+
+export const DarkBackgroundLoading = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  background-color: ${({ theme }) => theme.colors.grayblue1};
+  height: 56px;
   width: 100%;
   display: flex;
 `
@@ -227,8 +237,12 @@ export const ErrorState = styled.div`
   }
 `
 
-export const LoadingState = styled(LoadingStateCmp)`
-  width: 428px;
+export const Loading = styled(LoadingCmp)``
+
+export const LoadingContainer = styled.div`
+  max-width: 428px;
+  margin: auto;
+  display: flex;
   min-height: calc(100vh - 136px);
   align-self: center;
 
