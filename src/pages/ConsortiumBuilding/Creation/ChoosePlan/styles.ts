@@ -108,7 +108,7 @@ export const DarkBackground = styled.div`
   display: flex;
 `
 
-export const DarkBackgroundLoading = styled.div`
+export const SmallDarkBackground = styled.div`
   position: absolute;
   top: 0;
   z-index: 0;

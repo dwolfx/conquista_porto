@@ -79,10 +79,32 @@ const ChoosePlan: React.FC = () => {
   )
 
   const renderContent = () => {
+    if (hasError) {
+      return (
+        <s.BackgroundWrapper>
+          <s.SmallDarkBackground />
+          <s.ContentContainer>
+            {renderHeader()}
+            <s.ErrorState>
+              <s.Text type="headline" color="magenta2">
+                Desculpe, não foi possível carregar suas informações. Aguarde
+                alguns instantes e tente novamente.
+              </s.Text>
+              <s.TryAgainButton
+                loading={isLoading}
+                onClick={() => simulationDispatch()}
+              >
+                TENTAR NOVAMENTE
+              </s.TryAgainButton>
+            </s.ErrorState>
+          </s.ContentContainer>
+        </s.BackgroundWrapper>
+      )
+    }
     if (isLoading) {
       return (
         <s.BackgroundWrapper>
-          <s.DarkBackgroundLoading />
+          <s.SmallDarkBackground />
           <s.ContentContainer>
             {renderHeader()}
             <s.LoadingContainer>
