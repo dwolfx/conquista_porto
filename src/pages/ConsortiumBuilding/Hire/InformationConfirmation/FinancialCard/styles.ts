@@ -4,6 +4,10 @@ import MoneyInput from 'components/Inputs/Money'
 
 export const WrapperFinancialCard = styled.div`
   padding: ${({ theme }) => `0 ${theme.spacing(2)}px 0`};
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    padding: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(2)}`}px;
+  }
 `
 
 export const DelimiterWrapper = styled.div`

@@ -9,7 +9,7 @@ import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 
 import { formatMoney } from 'helpers'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import { TSelected } from 'components/Inputs/Select/types'
 
 import * as s from './styles'
@@ -20,7 +20,7 @@ const ChangePaymentData: React.FC<i.IChangePaymentData> = ({
   handleClose,
   ...rest
 }) => {
-  const { hire, buttons } = texts()
+  const { hire, buttons } = TextsConsortiumBuilding()
   const isMobile = useMedia('sm')
   const theme = React.useContext(ThemeContext)
 

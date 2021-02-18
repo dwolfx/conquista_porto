@@ -44,6 +44,10 @@ export const RadioOptionsWrapper = styled.div`
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     margin-top: ${({ theme }) => theme.spacing(2)}px;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const RadioPpeCard = styled(Radio)``

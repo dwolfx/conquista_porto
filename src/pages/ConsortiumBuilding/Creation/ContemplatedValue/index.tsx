@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Text from 'components/Text'
 import StepBar from 'components/StepBar'
 import Loading from 'components/Loading'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 import { formatLocaleStringToNumber, formatMoneyDecimal } from 'helpers'
 
@@ -31,7 +31,7 @@ const ContemplatedValue: StepComponent = () => {
     })
   )
 
-  const { creation, page, buttons } = texts(
+  const { creation, page, buttons } = TextsConsortiumBuilding(
     `${data && data.valor_minimo_credito / 1000} e ${data &&
       data.valor_maximo_credito / 1000} mil reais`
   )

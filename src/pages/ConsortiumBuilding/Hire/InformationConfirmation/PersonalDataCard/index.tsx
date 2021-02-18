@@ -11,7 +11,7 @@ import {
   errorObject,
   validationInputError,
 } from 'pages/CreditCard/Creation/CreditCardStep/validators'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 
 import {
   ICivilStatusConsortiumBuildingState,
@@ -26,7 +26,7 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
   label,
 }: IPersonalDataCard) => {
   const isSmUp = useMedia('smUp')
-  const { formDefault } = texts()
+  const { formDefault } = TextsConsortiumBuilding()
 
   const [validForm, setValidForm] = React.useState<IFormPersonalData>({
     spouseDocument: false,

@@ -4,6 +4,7 @@ import {
   ILabelSixthInformationConfirmationStepHireFlux,
   ILabelContainerThirdInformationConfirmationStepHireFlux,
   IPlaceholderContainerThirdInformationConfirmationStepHireFlux,
+  IContainerFourthInformationConfirmationStepHireFlux,
 } from 'pages/ConsortiumBuilding/commons/Texts/types'
 
 export interface IPersonalDataForm {
@@ -87,5 +88,25 @@ export interface IFinancialCard {
   financialData: [
     IFinancialForm,
     React.Dispatch<React.SetStateAction<IFinancialForm>>
+  ]
+}
+
+export interface IAddressForm {
+  bairro?: string
+  numero?: string
+  tipo?: string
+  logradouro?: string
+  cidade?: string
+  uf?: string
+  complemento?: string
+  numeroCep?: string
+  complementoCep?: string
+}
+
+export interface IAddressConsortiumBuilding {
+  texts: IContainerFourthInformationConfirmationStepHireFlux
+  addressData: [
+    IAddressForm,
+    React.Dispatch<React.SetStateAction<IAddressForm>>
   ]
 }

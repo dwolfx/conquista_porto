@@ -305,6 +305,15 @@ export const TextInputContainer = styled.div`
   }
 `
 
+export const WrapperAddressForm = styled.div`
+  padding: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    width: 630px;
+  }
+`
+
 export const WarningFlag = styled(WarningFlagCmp)``
 
 export const Radio = styled(RadioComponent)``

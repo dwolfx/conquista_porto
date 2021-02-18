@@ -5,7 +5,7 @@ import Layer from 'components/Layer'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { Steps } from './types'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
-import { texts } from '../commons/Texts'
+import { TextsConsortiumBuilding } from '../commons/Texts'
 import Modal from 'components/Modal/ModalNew'
 
 import * as s from './styles'
@@ -17,7 +17,7 @@ export default function ConsortiumBuildingCreation({
   isOpen: boolean
   closeHandler: () => void
 }) {
-  const { modalFlowExit } = texts()
+  const { modalFlowExit } = TextsConsortiumBuilding()
 
   const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
     StepComponentProps
@@ -54,7 +54,7 @@ export default function ConsortiumBuildingCreation({
         data-gtm-name="continuar solicitação"
         onClick={() => setIsModalOpen(false)}
       >
-        {modalFlowExit.button.exit}
+        {modalFlowExit.button.continue}
       </s.Button>
     </s.ButtonWrapper>
   )

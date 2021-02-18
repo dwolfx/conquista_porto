@@ -1,6 +1,8 @@
 import { ITexts } from './types'
 
-export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
+export const TextsConsortiumBuilding = (
+  stepValue: string = '50 e 500 mil reais'
+): ITexts => ({
   page: 'Consórcio de Imóvel',
   modalFlowExit: {
     title: 'Deseja sair da página?',
@@ -110,6 +112,23 @@ export const texts = (stepValue: string = '50 e 500 mil reais'): ITexts => ({
           label: {
             zipCode: 'CEP',
             address: 'Endereço',
+          },
+          form: {
+            descriptionFirst:
+              'Por favor, inclua somente CEPs de endereços no Brasil.',
+            descriptionSecond: ' Endereços no exterior não são válidos.',
+            labels: {
+              zipcode: 'CEP',
+              address: 'ENDEREÇO',
+              number: 'NÚMEROS',
+              complement: 'COMPLEMENTO (OPCIONAL)',
+              neighborhood: 'BAIRRO',
+              state: 'ESTADO',
+              city: 'CIDADE',
+            },
+            placeholder: {
+              zipcode: 'Busca por CEP',
+            },
           },
         },
         containerThird: {
