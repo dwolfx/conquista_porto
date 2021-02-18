@@ -78,53 +78,75 @@ const ChoosePlan: React.FC = () => {
     </s.TitleWrapper>
   )
 
-  const renderContent = () => (
-    <>
-      <s.BackgroundWrapper>
-        <s.DarkBackground />
-        <s.ContentContainer>
-          {renderHeader()}
-          <s.Divider />
-          <s.ContentWrapper>
-            {consortiumBuildingProposalSimulations &&
-              renderTitle(consortiumBuildingProposalSimulations?.length)}
-            <s.CardsWrapper
-              cardsQuantity={consortiumBuildingProposalSimulations?.length || 1}
-            >
-              {consortiumBuildingProposalSimulations &&
-                consortiumBuildingProposalSimulations.map(
-                  (simulation: ISimulation) => (
-                    <PlanCard
-                      creditValue={simulation.valorCredito}
-                      monthlyValue={simulation.valorParcela}
-                      numberInstallment={simulation.prazo}
-                      groupCode={simulation.codigoGrupo}
-                      quota={simulation.numeroCota}
-                      reserveFund={simulation.fundoReserva}
-                      administrativeFee={simulation.taxaAdministrativa}
-                      lifeInsurance={simulation.seguroVida}
-                      key={simulation.codigoGrupo}
-                    />
-                  )
-                )}
-            </s.CardsWrapper>
-          </s.ContentWrapper>
-        </s.ContentContainer>
-      </s.BackgroundWrapper>
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <s.BackgroundWrapper>
+          <s.DarkBackgroundLoading />
+          <s.ContentContainer>
+            {renderHeader()}
+            <s.LoadingContainer>
+              <s.Loading
+                type="bar"
+                legend="Aguarde, estamos buscando as melhores opções para você..."
+                textAlign="center"
+              />
+            </s.LoadingContainer>
+          </s.ContentContainer>
+        </s.BackgroundWrapper>
+      )
+    }
 
-      <s.Footer>
-        <s.Button
-          data-gtm-name="alterar dados"
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          outline
-          onClick={() => {}}
-        >
-          alterar dados
-        </s.Button>
-      </s.Footer>
-    </>
-  )
+    return (
+      <>
+        <s.BackgroundWrapper>
+          <s.DarkBackground />
+          <s.ContentContainer>
+            {renderHeader()}
+            <s.Divider />
+            <s.ContentWrapper>
+              {consortiumBuildingProposalSimulations &&
+                renderTitle(consortiumBuildingProposalSimulations?.length)}
+              <s.CardsWrapper
+                cardsQuantity={
+                  consortiumBuildingProposalSimulations?.length || 1
+                }
+              >
+                {consortiumBuildingProposalSimulations &&
+                  consortiumBuildingProposalSimulations.map(
+                    (simulation: ISimulation) => (
+                      <PlanCard
+                        creditValue={simulation.valorCredito}
+                        monthlyValue={simulation.valorParcela}
+                        numberInstallment={simulation.prazo}
+                        groupCode={simulation.codigoGrupo}
+                        quota={simulation.numeroCota}
+                        reserveFund={simulation.fundoReserva}
+                        administrativeFee={simulation.taxaAdministrativa}
+                        lifeInsurance={simulation.seguroVida}
+                        key={simulation.codigoGrupo}
+                      />
+                    )
+                  )}
+              </s.CardsWrapper>
+            </s.ContentWrapper>
+          </s.ContentContainer>
+        </s.BackgroundWrapper>
+
+        <s.Footer>
+          <s.Button
+            data-gtm-name="alterar dados"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            outline
+            onClick={() => {}}
+          >
+            alterar dados
+          </s.Button>
+        </s.Footer>
+      </>
+    )
+  }
 
   return <s.Container>{renderContent()}</s.Container>
 }

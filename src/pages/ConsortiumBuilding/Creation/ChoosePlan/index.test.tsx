@@ -84,4 +84,19 @@ describe('Choose Plan tests', () => {
     expect(lifeInsuranceValue).toBeInTheDocument()
     expect(editData).toBeInTheDocument()
   })
+  it('should render loading state', () => {
+    setup({
+      consortiumBuildingProposalSimulations: {
+        data: responseMock,
+        isLoading: true,
+        hasError: false,
+      },
+    })
+
+    const title = screen.getAllByRole('heading', {
+      name: 'Aguarde, estamos buscando as melhores opções para você...',
+    })
+
+    expect(title[0]).toBeInTheDocument()
+  })
 })
