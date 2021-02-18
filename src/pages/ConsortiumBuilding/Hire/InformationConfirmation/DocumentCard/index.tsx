@@ -9,7 +9,7 @@ import { capitalize, maskRG } from 'helpers'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 
 import { IConsortiumBuildingStates } from 'pages/ConsortiumBuilding/Creation/ChooseState/types'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import useMedia from 'hooks/useMedia'
 import {
   ICountries,
@@ -38,7 +38,7 @@ const DocumentCard: React.FC<IDocumentCard> = ({
   placeholder,
   isForeignResidency: [isForeignResidency, setIsForeignResidency],
 }: IDocumentCard) => {
-  const { formDefault } = texts()
+  const { formDefault } = TextsConsortiumBuilding()
   const { isNumber } = ErrorForm()
 
   const clearForm = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 import { capitalize } from 'helpers'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import { useSelector } from 'react-redux'
 import { IJobsConsortiumBuildingState } from 'store/modules/ConsortiumBuilding/Jobs/types'
@@ -13,7 +13,7 @@ const FinancialCard: React.FC<IFinancialCard> = ({
   label,
   financialData: [financialData, setFinancialData],
 }: IFinancialCard) => {
-  const { formDefault } = texts()
+  const { formDefault } = TextsConsortiumBuilding()
 
   const [validForm, setValidForm] = React.useState<{
     grossMonthlyIncome: boolean

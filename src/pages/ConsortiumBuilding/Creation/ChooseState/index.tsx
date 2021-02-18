@@ -7,7 +7,7 @@ import { GetStatesRequest } from 'store/modules/ConsortiumBuilding/States/action
 import { TOptions } from 'components/Inputs/Select/types'
 
 import StepBar from 'components/StepBar'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { capitalize } from 'helpers'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
@@ -26,7 +26,7 @@ const ChooseState: React.FC = () => {
     name: '',
   })
 
-  const { creation, page, buttons } = texts()
+  const { creation, page, buttons } = TextsConsortiumBuilding()
 
   const [states, setStates] = useState<TOptions[]>([])
   const [uf, setUf] = React.useState<string>('')

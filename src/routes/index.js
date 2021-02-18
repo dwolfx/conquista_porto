@@ -266,7 +266,7 @@ export default function Routes({ ...props }) {
           <Route
             path="/consorcio-imovel/simular"
             exact
-            component={ConsortiumBuildingCreation} // adicionar layer do Simular-cliente
+            component={ConsortiumBuildingCreation}
             pageTitle="Consórcio Imóvel - Simular"
           />
         ) : null}

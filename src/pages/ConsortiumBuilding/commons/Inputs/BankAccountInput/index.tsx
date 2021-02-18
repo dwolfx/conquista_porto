@@ -2,14 +2,14 @@ import React from 'react'
 
 // import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 
 import * as s from './styles'
 import * as t from '../types'
 import * as u from '../utils'
 
 const BankAccountInput: React.FC<t.ITextInput> = ({ inputState, ...rest }) => {
-  const { formDefault } = texts()
+  const { formDefault } = TextsConsortiumBuilding()
 
   const setBankAccount = inputState[1]
   // const [bankAccount, setBankAccount] = inputState

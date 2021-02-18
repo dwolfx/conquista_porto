@@ -2,7 +2,7 @@ import React from 'react'
 import Divisor from 'components/Divisor'
 import StepBar from 'components/StepBar'
 import useMedia from 'hooks/useMedia'
-import { texts } from 'pages/ConsortiumBuilding/commons/Texts'
+import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 import { useDispatch } from 'react-redux'
 import { GetCountriesRequest } from 'store/modules/ConsortiumBuilding/Countries/action'
@@ -16,6 +16,7 @@ import DocumentCard from './DocumentCard'
 
 import * as s from './styles'
 import {
+  IAddressForm,
   IDocumentForm,
   IFinancialForm,
   IPersonalDataForm,
@@ -23,10 +24,11 @@ import {
 } from './types'
 import PpeCard from './PpeCard'
 import FinancialCard from './FinancialCard'
+import AddressCard from './AddressCard'
 
 const InformationConfirmation: React.FC = () => {
   const dispatch = useDispatch()
-  const { hire, page, buttons } = texts()
+  const { hire, page, buttons } = TextsConsortiumBuilding()
   const [personalDataForm, setPersonalDataForm] = React.useState<
     IPersonalDataForm
   >({
@@ -63,6 +65,18 @@ const InformationConfirmation: React.FC = () => {
   const [financial, setFinancial] = React.useState<IFinancialForm>({
     profession: '',
     grossMonthlyIncome: '',
+  })
+
+  const [address, setAddress] = React.useState<IAddressForm>({
+    tipo: 'Rua',
+    logradouro: '',
+    bairro: '',
+    cidade: '',
+    uf: '',
+    complemento: '',
+    numero: '',
+    numeroCep: '',
+    complementoCep: '',
   })
 
   const isSmUp = useMedia('smUp')
@@ -113,6 +127,15 @@ const InformationConfirmation: React.FC = () => {
           >
             <ContactCard
               label={hire.steps.informationConfirmation.containerSecond.label}
+            />
+          </CardStructure>
+          <CardStructure
+            title={hire.steps.informationConfirmation.containerFourth.title}
+            link={hire.steps.informationConfirmation.containerFourth.link}
+          >
+            <AddressCard
+              addressData={[address, setAddress]}
+              texts={hire.steps.informationConfirmation.containerFourth}
             />
           </CardStructure>
           <CardStructure

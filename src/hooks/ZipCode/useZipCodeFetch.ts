@@ -41,12 +41,12 @@ export default function useZipCodeFetch(): IUseZipCodeFetch {
   ])
 
   useEffect(() => {
-    setHasError(zipcodeData.hasError)
+    setHasError(zipcodeData?.hasError || false)
     if (zipcodeData && zipcodeData.data) {
       setData(zipcodeData)
       cleanZip()
     }
-    setIsLoading(zipcodeData.isLoading)
+    setIsLoading(zipcodeData?.isLoading || false)
   }, [cleanZip, zipcodeData])
 
   return { data, searchZipCode, isLoading, hasError }

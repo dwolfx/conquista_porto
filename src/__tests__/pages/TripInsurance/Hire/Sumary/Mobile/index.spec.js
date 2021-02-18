@@ -35,8 +35,7 @@ const mockStore = createStore([])
 const store = mockStore(INITIAL_STATE)
 
 beforeAll(() => {
-  // eslint-disable-next-line no-unused-vars
-  ReactDOM.createPortal = jest.fn((element, node) => element)
+  ReactDOM.createPortal = jest.fn(element => element)
 })
 
 afterEach(() => {

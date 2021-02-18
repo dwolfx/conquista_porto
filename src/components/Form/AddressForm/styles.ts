@@ -10,10 +10,16 @@ const spaceError = css`
   margin-bottom: ${({ theme }) => theme.spacing(8)}px;
 `
 
-export const CEPInput = styled(CEPInputCmp)`
+const spaceZipCode = css`
   margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+`
 
+export const CEPInput = styled(CEPInputCmp)`
   ${({ error }) => error && spaceError}
+`
+
+export const WrapperZipcodeInput = styled.div<{ space: boolean }>`
+  ${({ space }) => space && spaceZipCode}
 `
 
 export const TextInput = styled(NewInput)`

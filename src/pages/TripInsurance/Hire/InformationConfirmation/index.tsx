@@ -10,7 +10,7 @@ import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Radio from 'components/Inputs/Radio'
-import AddressForm from './AddressForm'
+import AddressForm from 'components/Form/AddressForm'
 
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
@@ -29,7 +29,6 @@ import { TOptions, TSelected } from 'components/Inputs/Select/types'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import {
   IForm,
-  IPassengerAddress,
   IPoliticallyExposedPerson,
   Steps,
 } from 'pages/TripInsurance/Creation/types'
@@ -142,17 +141,16 @@ const InformationConfirmation: StepComponent = () => {
   const [degreeRelationship, setDegreeRelationship] = React.useState<number>(
     form?.pessoaExposta?.grauRelacionamento || 2
   )
-
-  const [address, setAddress] = React.useState<IPassengerAddress>({
-    tipo: 'Rua',
-    logradouro: '',
-    bairro: '',
-    cidade: '',
-    uf: '',
-    complemento: '',
-    numero: '',
-    numeroCep: '',
-    complementoCep: '',
+  const [cep, setCep] = React.useState<string>('')
+  const [type, setType] = React.useState<string>('Rua')
+  const [streetAddress, setStreetAddress] = React.useState<string>('')
+  const [number, setNumber] = React.useState<string>('')
+  const [complement, setComplement] = React.useState<string>('')
+  const [neighbourhood, setNeighbourhood] = React.useState<string>('')
+  const [city, setCity] = React.useState<string>('')
+  const [state, setState] = React.useState<TSelected>({
+    id: 0,
+    name: '',
   })
 
   /**
@@ -220,9 +218,15 @@ const InformationConfirmation: StepComponent = () => {
         ...form.passageiroPrincipal,
         sexo: gender,
         endereco: {
-          ...address,
-          complemento: address.complemento ?? '',
-          tipo: address.tipo || 'Rua',
+          complemento: complement,
+          bairro: neighbourhood,
+          numero: number,
+          logradouro: streetAddress,
+          cidade: city,
+          uf: state.name,
+          numeroCep: cep.slice(0, 5),
+          complementoCep: cep.slice(-3),
+          tipo: type,
         },
       },
       pessoaExposta: ppe,
@@ -273,13 +277,13 @@ const InformationConfirmation: StepComponent = () => {
   const isDisabledButton: boolean =
     !!(form.passageiroPrincipal?.sexo ?? genderSelect.id) &&
     !!form.passageiroPrincipal?.isResidePais &&
-    !!address.bairro &&
-    !!address.cidade &&
-    !!address.uf &&
-    !!address.logradouro &&
-    !!address.numero &&
-    !!address.numeroCep &&
-    !!address.complementoCep &&
+    !!neighbourhood &&
+    !!city &&
+    !!state.name &&
+    !!streetAddress &&
+    !!number &&
+    !!type &&
+    !!cep &&
     !!form.isAceiteTermos &&
     !!form.isCienteMoto &&
     !!form.passageiroPrincipal?.contato?.nome &&
@@ -572,9 +576,18 @@ const InformationConfirmation: StepComponent = () => {
                 no exterior não são válidos.
               </s.AddressText>
             )}
-            <s.TextInputContainer>
-              <AddressForm addressData={[address, setAddress]} />
-            </s.TextInputContainer>
+            <s.WrapperAddressForm>
+              <AddressForm
+                cep={[cep, setCep]}
+                type={[type, setType]}
+                streetAddress={[streetAddress, setStreetAddress]}
+                number={[number, setNumber]}
+                complement={[complement, setComplement]}
+                neighbourhood={[neighbourhood, setNeighbourhood]}
+                city={[city, setCity]}
+                state={[state, setState]}
+              />
+            </s.WrapperAddressForm>
           </s.Card>
           <s.Card>
             <s.CardTitleText

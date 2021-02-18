@@ -147,10 +147,28 @@ export interface IContainerThirdInformationConfirmationStepHireFlux {
   placeholder: IPlaceholderContainerThirdInformationConfirmationStepHireFlux
 }
 
+export interface ILabelFormContainerFourthInformationConfirmationStepHireFlux {
+  zipcode: string
+  address: string
+  number: string
+  complement: string
+  neighborhood: string
+  state: string
+  city: string
+}
+
+export interface IFormContainerFourthInformationConfirmationStepHireFlux {
+  descriptionFirst: string
+  descriptionSecond: string
+  labels: ILabelFormContainerFourthInformationConfirmationStepHireFlux
+  placeholder: { zipcode: string }
+}
+
 export interface IContainerFourthInformationConfirmationStepHireFlux {
   title: string
   link: string
   label: ILabelContainerFourthInformationConfirmationStepHireFlux
+  form: IFormContainerFourthInformationConfirmationStepHireFlux
 }
 
 export interface IContainerFifthInformationConfirmationStepHireFlux {
