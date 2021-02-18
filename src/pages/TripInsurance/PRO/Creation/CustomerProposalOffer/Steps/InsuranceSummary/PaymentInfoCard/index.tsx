@@ -16,6 +16,8 @@ import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { IPayment } from 'pages/TripInsurance/Creation/types'
 
+import EditPaymentInfoDrawer from './DrawerChangePayment'
+
 import * as s from '../styles'
 
 // mock temporário
@@ -23,6 +25,9 @@ const tripInsuranceQuotations = tripInsuranceQuotationMock.ViagemPacote.pacotes
 
 const PaymentInfoCard: React.FC = () => {
   const { form } = useFormFluxManagement<IForm>()
+  const [isPaymentDrawerOpen, setIsPaymentDrawerOpen] = React.useState<boolean>(
+    false
+  )
 
   const checkEmptyPaymentFields = (
     paymentData: IPayment | undefined
@@ -71,59 +76,68 @@ const PaymentInfoCard: React.FC = () => {
   }
 
   return (
-    <s.Card>
-      <s.CardContentWrapper>
-        <s.CardTitleWrapper>
-          <Text type="subheading" bold color="gray5">
-            FORMA DE PAGAMENTO
-          </Text>
-          <ButtonLink hasNotification={checkEmptyPaymentFields(form.pagamento)}>
-            ALTERAR
-          </ButtonLink>
-        </s.CardTitleWrapper>
-        <DataRow
-          label="Modelo"
-          value={`${
-            form.pagamento?.isCartaoPorto ? 'Cartão Porto Seguro ' : 'Cartão '
-          }${capitalize(
-            getFlagName(
-              !!form.pagamento?.isCartaoPorto,
-              form.pagamento?.codigoBandeira ?? 0
-            )
-          )}`}
-          error={
-            !form.pagamento?.codigoBandeira ||
-            !getFlagName(
-              !!form.pagamento?.isCartaoPorto,
-              form.pagamento?.codigoBandeira ?? 0
-            )
-          }
-        />
-        <Divisor />
-        <DataRow
-          label="Número"
-          value={`**** **** **** ${form.pagamento?.quartoNumero}`}
-          error={
-            !form.pagamento?.primeiroNumero ||
-            !form.pagamento?.segundoNumero ||
-            !form.pagamento?.terceiroNumero ||
-            !form.pagamento?.quartoNumero
-          }
-        />
-        <Divisor />
-        <DataRow
-          label="Vencimento"
-          value={`${form.pagamento?.mesValidade}/${form.pagamento?.anoValidade}`}
-          error={!form.pagamento?.mesValidade || !form.pagamento?.anoValidade}
-        />
-        <Divisor />
-        <DataRow
-          label="Número de parcelas"
-          value={getInstallment()}
-          error={!form.pagamento?.quantidadeParcelas}
-        />
-      </s.CardContentWrapper>
-    </s.Card>
+    <>
+      <EditPaymentInfoDrawer
+        isOpen={isPaymentDrawerOpen}
+        handleClose={() => setIsPaymentDrawerOpen(false)}
+      />
+      <s.Card>
+        <s.CardContentWrapper>
+          <s.CardTitleWrapper>
+            <Text type="subheading" bold color="gray5">
+              FORMA DE PAGAMENTO
+            </Text>
+            <ButtonLink
+              hasNotification={checkEmptyPaymentFields(form.pagamento)}
+              onClick={() => setIsPaymentDrawerOpen(true)}
+            >
+              ALTERAR
+            </ButtonLink>
+          </s.CardTitleWrapper>
+          <DataRow
+            label="Modelo"
+            value={`${
+              form.pagamento?.isCartaoPorto ? 'Cartão Porto Seguro ' : 'Cartão '
+            }${capitalize(
+              getFlagName(
+                !!form.pagamento?.isCartaoPorto,
+                form.pagamento?.codigoBandeira ?? 0
+              )
+            )}`}
+            error={
+              !form.pagamento?.codigoBandeira ||
+              !getFlagName(
+                !!form.pagamento?.isCartaoPorto,
+                form.pagamento?.codigoBandeira ?? 0
+              )
+            }
+          />
+          <Divisor />
+          <DataRow
+            label="Número"
+            value={`**** **** **** ${form.pagamento?.quartoNumero}`}
+            error={
+              !form.pagamento?.primeiroNumero ||
+              !form.pagamento?.segundoNumero ||
+              !form.pagamento?.terceiroNumero ||
+              !form.pagamento?.quartoNumero
+            }
+          />
+          <Divisor />
+          <DataRow
+            label="Vencimento"
+            value={`${form.pagamento?.mesValidade}/${form.pagamento?.anoValidade}`}
+            error={!form.pagamento?.mesValidade || !form.pagamento?.anoValidade}
+          />
+          <Divisor />
+          <DataRow
+            label="Número de parcelas"
+            value={getInstallment()}
+            error={!form.pagamento?.quantidadeParcelas}
+          />
+        </s.CardContentWrapper>
+      </s.Card>
+    </>
   )
 }
 

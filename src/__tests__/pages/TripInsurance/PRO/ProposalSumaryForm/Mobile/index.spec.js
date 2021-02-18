@@ -36,6 +36,11 @@ const INITIAL_STATE = {
     isLoading: false,
     hasError: false,
   },
+  tripInsuranceCreditCard: {
+    data: null,
+    isLoading: false,
+    hasError: false,
+  },
 }
 
 const mockStore = createStore([])

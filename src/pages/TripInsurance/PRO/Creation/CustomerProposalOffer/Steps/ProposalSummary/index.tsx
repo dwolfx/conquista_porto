@@ -19,6 +19,9 @@ import { StepComponent } from 'hooks/FluxManagement/types'
 import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
 
 import { IForm } from 'pages/TripInsurance/PRO/types'
+import { useDispatch } from 'react-redux'
+import { useToast } from 'hooks/toast'
+import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
 
 import * as s from './styles'
 
@@ -30,6 +33,8 @@ const ChoosePlan: StepComponent = () => {
   const isVerticalTablet = useMedia('sm')
   const { instantiate } = useStackFluxManagement<{}>()
   const { form, updateForm } = useFormFluxManagement<IForm>()
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   const [isModalOpen, setIsModalOpen] = React.useState(false)
 
@@ -421,7 +426,13 @@ const ChoosePlan: StepComponent = () => {
         },
       ],
     })
-  }, [updateForm])
+
+    dispatch(
+      GetTripInsuranceCreditCardRequest({
+        onErrorToast: addToast,
+      })
+    )
+  }, [updateForm, dispatch, addToast])
 
   return (
     <s.ContentWrapper>

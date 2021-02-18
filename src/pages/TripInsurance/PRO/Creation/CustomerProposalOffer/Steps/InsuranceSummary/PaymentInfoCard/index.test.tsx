@@ -5,6 +5,16 @@ import { storeFactory } from 'setupTests'
 
 import PaymentInfoCard from '.'
 
+const createRootContainer = () => {
+  let container = document.getElementById('root')
+  if (!container) {
+    container = document.createElement('div')
+    container.setAttribute('id', 'root')
+    document.body.appendChild(container)
+  }
+  return container
+}
+
 const defaultStore: {
   fluxManagement: { stack: React.ReactElement[]; form: {} }
 } = {
@@ -33,6 +43,7 @@ describe('PaymentInfoCard component', () => {
     const store = storeFactory(defaultStore)
     renderWithReduxAndTheme(<PaymentInfoCard />, {
       store,
+      container: createRootContainer(),
     })
     expect(PaymentInfoCard).toBeDefined()
   })
@@ -45,6 +56,7 @@ describe('PaymentInfoCard component', () => {
     })
     renderWithReduxAndTheme(<PaymentInfoCard />, {
       store,
+      container: createRootContainer(),
     })
 
     expect(screen.getAllByText('Não preenchido')).toHaveLength(4)
@@ -72,6 +84,7 @@ describe('PaymentInfoCard component', () => {
     })
     renderWithReduxAndTheme(<PaymentInfoCard />, {
       store,
+      container: createRootContainer(),
     })
 
     expect(

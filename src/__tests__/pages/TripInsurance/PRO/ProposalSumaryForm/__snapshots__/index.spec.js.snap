@@ -266,6 +266,14 @@ Array [
 
 }
 
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
 @media (min-width:736px) {
 
 }
@@ -861,6 +869,28 @@ Array [
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   max-width: 392px;
+  top: 0;
+  right: calc(-100% - 7px);
+}
+
+.c86 {
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  max-width: 658px;
   top: 0;
   right: calc(-100% - 7px);
 }
@@ -1489,6 +1519,37 @@ Array [
   margin-top: 28px;
 }
 
+.c88 {
+  width: 100%;
+}
+
+.c87 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c89 {
+  margin: 0 0 28px;
+}
+
+.c90 {
+  width: 100%;
+}
+
 .c62 {
   height: 20px;
   margin-right: 10px;
@@ -1719,6 +1780,20 @@ Array [
 
 @media (max-width:480px) {
   .c10 {
+    min-width: 100vw;
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c86 {
+    max-width: 484px;
+    margin: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c86 {
     min-width: 100vw;
     padding: 0;
   }
@@ -3486,6 +3561,180 @@ Array [
           </div>
         </div>
         <div
+          className="c8"
+        >
+          <div
+            className="c9"
+            onClick={[Function]}
+          />
+          <div
+            className="c86"
+          >
+            <div
+              className="c11"
+            >
+              <h5
+                className="c12 c13"
+                color="unset"
+                type="headline"
+              >
+                Alterar dados
+              </h5>
+              <svg
+                aria-label="close"
+                className="c14"
+                data-gtm-clicktype="button"
+                data-gtm-name="botao fechar"
+                data-gtm-subname="menu Alterar dados"
+                data-gtm-type="click"
+                fill="#BABABA"
+                onClick={[Function]}
+                role="img"
+                width={21}
+              >
+                close.svg
+              </svg>
+            </div>
+            <div
+              className="c15"
+            >
+              <form
+                className="c87"
+              >
+                <div
+                  className="c88"
+                >
+                  <div
+                    className="c64 c89"
+                  >
+                    <div
+                      className="c66"
+                      data-testid="select-Forma de Pagamento"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="c67 c68"
+                        disabled={false}
+                      >
+                        <div
+                          className="c69"
+                        >
+                          <label
+                            className="c70"
+                          >
+                            Forma de Pagamento
+                          </label>
+                          <div
+                            className="c71 c72"
+                            onClick={[Function]}
+                          >
+                            <input
+                              className="c73"
+                              data-testid="select-option-input-undefined"
+                              disabled={false}
+                              placeholder="Selecione"
+                              readOnly={true}
+                              value=""
+                            />
+                            <div
+                              className="c74"
+                              id="suffix"
+                            >
+                              <svg
+                                aria-label="arrowdown"
+                                fill="#272727"
+                                height={21}
+                                role="img"
+                                width={21}
+                              >
+                                arrow-down.svg
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="c88"
+                >
+                  <div
+                    className="c64 c89"
+                  >
+                    <div
+                      className="c66"
+                      data-testid="select-Número de Parcelas"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="c67 c68"
+                        disabled={false}
+                      >
+                        <div
+                          className="c69"
+                        >
+                          <label
+                            className="c70"
+                          >
+                            Número de Parcelas
+                          </label>
+                          <div
+                            className="c71 c72"
+                            onClick={[Function]}
+                          >
+                            <input
+                              className="c73"
+                              data-testid="select-option-input-undefined"
+                              disabled={false}
+                              placeholder="Selecione"
+                              readOnly={true}
+                              value=""
+                            />
+                            <div
+                              className="c74"
+                              id="suffix"
+                            >
+                              <svg
+                                aria-label="arrowdown"
+                                fill="#272727"
+                                height={21}
+                                role="img"
+                                width={21}
+                              >
+                                arrow-down.svg
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              className="c36"
+            >
+              <button
+                className="c37 c90"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="salvar alterações"
+                data-gtm-type="click"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  className="c24"
+                >
+                  SALVAR ALTERAÇÕES
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
           className="c39 c40"
         >
           <div
@@ -3509,6 +3758,7 @@ Array [
                 <a
                   className="c45"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <span
@@ -3964,6 +4214,14 @@ Array [
 }
 
 @media (max-width:736px) {
+
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:1280px) {
 
 }
 

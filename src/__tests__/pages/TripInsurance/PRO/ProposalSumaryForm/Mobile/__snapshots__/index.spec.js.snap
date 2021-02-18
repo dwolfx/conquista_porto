@@ -1370,6 +1370,37 @@ Array [
   margin-top: 28px;
 }
 
+.c82 {
+  width: 100%;
+}
+
+.c81 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c83 {
+  margin: 0 0 28px;
+}
+
+.c84 {
+  width: 100%;
+}
+
 .c57 {
   height: 20px;
   margin-right: 10px;
@@ -3270,6 +3301,185 @@ Array [
           </div>
         </div>
         <div
+          className="c8 "
+        >
+          <div
+            className="c9"
+            onClick={[Function]}
+          />
+          <div
+            className="c10"
+          >
+            <header
+              className="c11"
+            >
+              <h3
+                className="c12"
+              >
+                Alterar dados
+              </h3>
+              <svg
+                aria-label="close"
+                className="c13"
+                data-gtm-clicktype="button"
+                data-gtm-name="botao fechar"
+                data-gtm-subname="modal Alterar dados"
+                data-gtm-type="click"
+                fill="#BABABA"
+                height={28}
+                onClick={[Function]}
+                role="img"
+                width={28}
+              >
+                close.svg
+              </svg>
+            </header>
+            <div
+              className="c14 c15"
+            />
+            <div
+              className="c16"
+            >
+              <form
+                className="c81"
+              >
+                <div
+                  className="c82"
+                >
+                  <div
+                    className="c59 c83"
+                  >
+                    <div
+                      className="c61"
+                      data-testid="select-Forma de Pagamento"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="c62 c63"
+                        disabled={false}
+                      >
+                        <div
+                          className="c64"
+                        >
+                          <label
+                            className="c65"
+                          >
+                            Forma de Pagamento
+                          </label>
+                          <div
+                            className="c66 c67"
+                            onClick={[Function]}
+                          >
+                            <input
+                              className="c68"
+                              data-testid="select-option-input-undefined"
+                              disabled={false}
+                              placeholder="Selecione"
+                              readOnly={true}
+                              value=""
+                            />
+                            <div
+                              className="c69"
+                              id="suffix"
+                            >
+                              <svg
+                                aria-label="arrowdown"
+                                fill="#272727"
+                                height={21}
+                                role="img"
+                                width={21}
+                              >
+                                arrow-down.svg
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="c82"
+                >
+                  <div
+                    className="c59 c83"
+                  >
+                    <div
+                      className="c61"
+                      data-testid="select-Número de Parcelas"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="c62 c63"
+                        disabled={false}
+                      >
+                        <div
+                          className="c64"
+                        >
+                          <label
+                            className="c65"
+                          >
+                            Número de Parcelas
+                          </label>
+                          <div
+                            className="c66 c67"
+                            onClick={[Function]}
+                          >
+                            <input
+                              className="c68"
+                              data-testid="select-option-input-undefined"
+                              disabled={false}
+                              placeholder="Selecione"
+                              readOnly={true}
+                              value=""
+                            />
+                            <div
+                              className="c69"
+                              id="suffix"
+                            >
+                              <svg
+                                aria-label="arrowdown"
+                                fill="#272727"
+                                height={21}
+                                role="img"
+                                width={21}
+                              >
+                                arrow-down.svg
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              className="c21 c15"
+            />
+            <footer
+              className="c37"
+            >
+              <button
+                className="c38 c84"
+                color="primary"
+                data-gtm-clicktype="button"
+                data-gtm-name="salvar alterações"
+                data-gtm-type="click"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  className="c25"
+                >
+                  SALVAR ALTERAÇÕES
+                </span>
+              </button>
+            </footer>
+          </div>
+        </div>
+        <div
           className="c40 c41"
         >
           <div
@@ -3293,6 +3503,7 @@ Array [
                 <a
                   className="c46"
                   disabled={false}
+                  onClick={[Function]}
                 >
                   ALTERAR
                   <span
