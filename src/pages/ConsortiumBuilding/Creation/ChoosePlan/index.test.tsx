@@ -99,4 +99,22 @@ describe('Choose Plan tests', () => {
 
     expect(title[0]).toBeInTheDocument()
   })
+  it('should render error state', () => {
+    setup({
+      consortiumBuildingProposalSimulations: {
+        data: responseMock,
+        isLoading: false,
+        hasError: true,
+      },
+    })
+
+    const title = screen.getByText(
+      /Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente./i
+    )
+    const tryAgainButton = screen.getByText(/tentar novamente/i)
+    userEvent.click(tryAgainButton)
+
+    expect(title).toBeInTheDocument()
+    expect(tryAgainButton).toBeInTheDocument()
+  })
 })
