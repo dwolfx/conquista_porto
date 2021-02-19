@@ -331,10 +331,6 @@ Array [
 
 }
 
-@media (max-width:480px) {
-
-}
-
 @media (min-width:736px) {
 
 }
@@ -1782,10 +1778,6 @@ Array [
 }
 
 @media (min-width:736px) {
-
-}
-
-@media (max-width:480px) {
 
 }
 
@@ -3652,68 +3644,7 @@ Array [
   padding-left: 15px;
 }
 
-.c5 {
-  background: #FFFFFF;
-  background-repeat: no-repeat;
-  border: 1px solid #00ADEF;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #00ADEF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c5:hover:active {
-  pointer-events: auto;
-}
-
-.c5:hover:active:after {
-  background-color: #EFFBFF;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c5:hover:before {
-  width: 100%;
-}
-
-.c5:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c5:before {
-  background-color: #EFFBFF;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c10 {
+.c7 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -3731,11 +3662,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c10:hover:active {
+.c7:hover:active {
   pointer-events: none;
 }
 
-.c10:hover:active:after {
+.c7:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -3743,7 +3674,7 @@ Array [
   transition: all ease 0s;
 }
 
-.c10:before {
+.c7:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -3755,7 +3686,7 @@ Array [
   width: 0;
 }
 
-.c7 {
+.c9 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -3782,7 +3713,7 @@ Array [
   line-height: 15px;
 }
 
-.c8 {
+.c5 {
   cursor: pointer;
 }
 
@@ -3819,11 +3750,7 @@ Array [
   margin-right: 14px;
 }
 
-.c6 {
-  margin-right: 7px;
-}
-
-.c11 {
+.c8 {
   margin-right: 7px;
   width: 134px;
 }
@@ -4007,7 +3934,7 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c9 {
+  .c6 {
     width: 100%;
   }
 }
@@ -4057,14 +3984,7 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c6 {
-    width: 100%;
-    margin-right: 0;
-  }
-}
-
-@media (max-width:480px) {
-  .c11 {
+  .c8 {
     width: 100%;
     margin-right: 0;
   }
@@ -4113,30 +4033,19 @@ Array [
           className="c4"
           data-name="col-sm-12 col-md-9 col-lg-8"
         >
-          <button
-            className="c5 c6"
-            color="primary"
-            disabled={false}
-          >
-            <span
-              className="c7"
-            >
-              rejeitar proposta
-            </span>
-          </button>
           <span
-            className="c8 c9"
+            className="c5 c6"
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
           >
             <button
-              className="c10 c11"
+              className="c7 c8"
               color="secondary"
               disabled={true}
               onClick={[Function]}
             >
               <span
-                className="c7"
+                className="c9"
               >
                 CONTRATAR
               </span>

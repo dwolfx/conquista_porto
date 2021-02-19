@@ -24,8 +24,8 @@ describe('VerticalCard component tests', () => {
     const textsToBeDefined = [
       'Pré-selecionado pelo seu parceiro',
       'Brasil Prata',
-      '6x SEM JUROS DE R$ 5,32',
-      'R$ 31,94 à vista',
+      '6x SEM JUROS DE R$ 5,61',
+      'R$ 33,63 à vista',
       'R$ 10.000,00',
     ]
 

@@ -15,18 +15,13 @@ import VerticalCard from './VerticalCard'
 import { CustomerSteps } from 'pages/TripInsurance/PRO/types'
 import { StepComponent } from 'hooks/FluxManagement/types'
 
-// mock temporário
-import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
-
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
 import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
 
 import * as s from './styles'
-
-// mock temporário
-const tripInsuranceQuotations = tripInsuranceQuotationMock.ViagemPacote.pacotes
 
 const ChoosePlan: StepComponent = () => {
   const isMobile = useMedia('xs')
@@ -37,6 +32,22 @@ const ChoosePlan: StepComponent = () => {
   const { addToast } = useToast()
 
   const [isModalOpen, setIsModalOpen] = React.useState(false)
+  const [tripInsuranceQuotation, setTripInsuranceQuotation] = React.useState<
+    IPlan
+  >({
+    ViagemCobertura: {
+      coberturas: [],
+    },
+    codigoPlano: '',
+    formasPagamento: {
+      listaParcelamentoCartao: [],
+      listaParcelamentoCartaoPorto: [],
+    },
+    nomePlano: '',
+    valorCartaoPortoSeguro: '',
+    valorSeguroBruto: '',
+    valorTotal: '',
+  })
 
   // mock temporário
   React.useEffect(() => {
@@ -137,7 +148,7 @@ const ChoosePlan: StepComponent = () => {
       paisesAdicionais: [
         {
           codigo: '10',
-          descricao: 'Africa',
+          descricao: 'Japão',
         },
       ],
       pagamento: {
@@ -151,7 +162,7 @@ const ChoosePlan: StepComponent = () => {
         anoValidade: '25',
         nomeTitular: 'Nome No Cartão',
         quantidadeParcelas: 2,
-        isCartaoPorto: true,
+        isCartaoPorto: false,
       },
       passageiroPrincipal: {
         nome: 'Nome Passageiro Principal',
@@ -434,14 +445,41 @@ const ChoosePlan: StepComponent = () => {
     )
   }, [updateForm, dispatch, addToast])
 
+  // Set tripInsuranceQuotation with form values
+  React.useEffect(() => {
+    setTripInsuranceQuotation({
+      ViagemCobertura: {
+        coberturas: form.coberturas ?? [],
+      },
+      codigoPlano: form.pacoteEscolhido ?? '',
+      formasPagamento: form.formasPagamento ?? {
+        listaParcelamentoCartao: [],
+        listaParcelamentoCartaoPorto: [],
+      },
+      nomePlano: form.nomeDoPlano ?? '',
+      valorCartaoPortoSeguro: form.valorComDesconto
+        ? `${form.valorComDesconto}`
+        : '',
+      valorSeguroBruto: form.valorSemDesconto ? `${form.valorSemDesconto}` : '',
+      valorTotal: form.valorSemDesconto ? `${form.valorSemDesconto}` : '',
+    })
+  }, [
+    form.coberturas,
+    form.formasPagamento,
+    form.nomeDoPlano,
+    form.pacoteEscolhido,
+    form.valorComDesconto,
+    form.valorSemDesconto,
+  ])
+
   return (
     <s.ContentWrapper>
       <s.ComparativeModal
         isOpen={isModalOpen}
         handleClose={setIsModalOpen}
-        travelPlans={tripInsuranceQuotations}
+        travelPlans={[tripInsuranceQuotation]}
         isLoading={false}
-        // isLoading={isLoading}
+        // isLoading={isLoading} com a chamada do redis
       />
       <StepBar title="Contratação" actualStep={1} totalNumberOfSteps={2} />
       <s.Container>
@@ -470,18 +508,24 @@ const ChoosePlan: StepComponent = () => {
                 value={
                   form.nationalDestination
                     ? 'Nacional'
-                    : `Internacional / ${form.paisesAdicionais?.map(
+                    : form.paisesAdicionais
+                    ? `Internacional / ${form.paisesAdicionais?.map(
                         (country, index) =>
                           index + 1 !== form.paisesAdicionais?.length
                             ? `${country.descricao},`
                             : country.descricao
                       )}`
+                    : ''
                 }
               />
               <Divisor />
               <s.DataDisplayer
                 label="Período"
-                value={`${form.dataIda} até ${form.dataVolta}`}
+                value={
+                  form.dataIda && form.dataVolta
+                    ? `${form.dataIda} até ${form.dataVolta}`
+                    : ''
+                }
               />
               <Divisor />
               <s.DataDisplayer
@@ -559,12 +603,12 @@ const ChoosePlan: StepComponent = () => {
             {isMobile ? (
               <VerticalCard
                 comparativeModalSetState={setIsModalOpen}
-                planInformation={tripInsuranceQuotations[0]}
+                planInformation={tripInsuranceQuotation}
               />
             ) : (
               <HorizontalCard
                 comparativeModalSetState={setIsModalOpen}
-                planInformation={tripInsuranceQuotations[0]}
+                planInformation={tripInsuranceQuotation}
               />
             )}
           </s.Col>
@@ -575,9 +619,6 @@ const ChoosePlan: StepComponent = () => {
           <Row>
             <s.Col lg={3} md={3} sm={12} noMargin />
             <s.FooterCol lg={8} md={9} sm={12}>
-              <s.NextButton color="primary" outline>
-                REJEITAR PROPOSTA
-              </s.NextButton>
               <s.NextButton
                 color="secondary"
                 onClick={() => instantiate(CustomerSteps.InsuranceSummary)}

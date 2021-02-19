@@ -52,8 +52,8 @@ export interface IPlan {
   valorTotal: string
   codigoPlano: string
   nomePlano: string
-  urlManualPlano: string
-  valorAssistencia: string
+  urlManualPlano?: string
+  valorAssistencia?: string
   valorSeguroBruto: string
   ViagemCobertura: {
     coberturas: ICoverage[]

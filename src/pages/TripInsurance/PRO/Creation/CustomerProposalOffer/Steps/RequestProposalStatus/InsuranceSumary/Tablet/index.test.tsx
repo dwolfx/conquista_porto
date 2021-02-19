@@ -22,71 +22,9 @@ const defaultStore: IDefaultStore = {
   fluxManagement: {
     stack: [],
     form: {
-      acompanhantes: [
-        {
-          nome: 'Nome Acompanhante 1',
-          email: 'email@acompanhante1.com',
-          dataNascimento: '31/05/1990',
-          sexo: 'F',
-          numeroCpf: '111111111',
-          digitoCpf: '22',
-          isResidePais: true,
-          celularDDD: '11',
-          celularNumero: '987985465',
-          contato: {
-            nome: 'Contato Do Passageiro Principal',
-            celularDDD: '11',
-            celularNumero: '932216554',
-          },
-          endereco: {
-            tipo: 'Rua',
-            logradouro: 'Rua Augusta',
-            bairro: 'Penha',
-            cidade: 'São Paulo',
-            uf: 'SP',
-            complemento: '',
-            numero: '123A',
-            numeroCep: '01419',
-            complementoCep: '001',
-          },
-          id: 1,
-          status: true,
-          numeroCpfResponsavel: '111111111',
-          digitoCpfResponsavel: '22',
-          codigoPaisResidente: '28',
-          pessoaExposta: {
-            nome: 'Nome Pessoa Exposta',
-            numeroCpf: '000000001',
-            digitoCpf: '91',
-            grauRelacionamento: 1,
-            grauParentesco: 1,
-          },
-        },
-      ],
-      codigoCanal: 1,
-      codigoOperacao: '',
-      codigoPaisDestino: '',
-      codigoUfOrigem: 'AC',
       dataIda: '20/12/2025',
       dataVolta: '30/12/2025',
-      hasLatinAmericaCountryAndOtherCountry: false,
-      hasOnlyLatinAmericaDestination: false,
-      idParceiro: 123,
-      idSimulacao: '123',
-      isAceiteTermos: true,
-      isCienteMoto: true,
-      isMotocicleta: true,
-      isPraticaAventura: false,
-      motivoViagem: 1,
-      nationalDestination: false,
       nomeDoPlano: 'Brasil Terra',
-      pacoteEscolhido: '',
-      paisesAdicionais: [
-        {
-          codigo: '10',
-          descricao: 'Africa',
-        },
-      ],
       pagamento: {
         codigoBandeira: 7,
         primeiroNumero: '5555',
@@ -98,48 +36,136 @@ const defaultStore: IDefaultStore = {
         anoValidade: '25',
         nomeTitular: 'Nome No Cartão',
         quantidadeParcelas: 2,
-        isCartaoPorto: true,
+        isCartaoPorto: false,
       },
-      passageiroPrincipal: {
-        nome: 'Nome Passageiro Principal',
-        email: 'email@principal.com',
-        dataNascimento: '20/12/1980',
-        sexo: 'M',
-        numeroCpf: '000000001',
-        digitoCpf: '91',
-        isResidePais: true,
-        celularDDD: '11',
-        celularNumero: '965543221',
-        contato: {
-          nome: 'Contato Do Passageiro Principal',
-          celularDDD: '11',
-          celularNumero: '932216554',
-        },
-        endereco: {
-          tipo: 'Rua',
-          logradouro: 'Rua Augusta',
-          bairro: 'Penha',
-          cidade: 'São Paulo',
-          uf: 'SP',
-          complemento: '',
-          numero: '123A',
-          numeroCep: '01419',
-          complementoCep: '001',
-        },
-      },
-      pessoaExposta: {
-        nome: 'Nome Pessoa Exposta',
-        numeroCpf: '000000001',
-        digitoCpf: '91',
-        grauRelacionamento: 1,
-        grauParentesco: 4,
-      },
-      qtdPassagMaiorSetentaAnos: 0,
-      qtdPassagMenorSetentaAnos: 1,
-      susep: '',
       valorComDesconto: 1001.02,
-      valorSeguro: 1100.5,
       valorSemDesconto: 1100.5,
+      formasPagamento: {
+        listaParcelamentoCartao: [
+          {
+            valor: '33.63',
+            id: '1',
+            descricao: 'À vista',
+          },
+          {
+            valor: '16.82',
+            id: '2',
+            descricao: '2x',
+          },
+          {
+            valor: '11.21',
+            id: '3',
+            descricao: '3x',
+          },
+          {
+            valor: '8.41',
+            id: '4',
+            descricao: '4x',
+          },
+          {
+            valor: '6.73',
+            id: '5',
+            descricao: '5x',
+          },
+          {
+            valor: '5.61',
+            id: '6',
+            descricao: '6x',
+          },
+          {
+            valor: '4.8',
+            id: '7',
+            descricao: '7x',
+          },
+          {
+            valor: '4.2',
+            id: '8',
+            descricao: '8x',
+          },
+          {
+            valor: '3.74',
+            id: '9',
+            descricao: '9x',
+          },
+          {
+            valor: '3.36',
+            id: '10',
+            descricao: '10x',
+          },
+          {
+            valor: '3.06',
+            id: '11',
+            descricao: '11x',
+          },
+          {
+            valor: '2.8',
+            id: '12',
+            descricao: '12x',
+          },
+        ],
+        listaParcelamentoCartaoPorto: [
+          {
+            valor: '31.94',
+            id: '1',
+            descricao: 'À vista',
+          },
+          {
+            valor: '15.97',
+            id: '2',
+            descricao: '2x',
+          },
+          {
+            valor: '10.65',
+            id: '3',
+            descricao: '3x',
+          },
+          {
+            valor: '7.99',
+            id: '4',
+            descricao: '4x',
+          },
+          {
+            valor: '6.39',
+            id: '5',
+            descricao: '5x',
+          },
+          {
+            valor: '5.32',
+            id: '6',
+            descricao: '6x',
+          },
+          {
+            valor: '4.56',
+            id: '7',
+            descricao: '7x',
+          },
+          {
+            valor: '3.99',
+            id: '8',
+            descricao: '8x',
+          },
+          {
+            valor: '3.55',
+            id: '9',
+            descricao: '9x',
+          },
+          {
+            valor: '3.19',
+            id: '10',
+            descricao: '10x',
+          },
+          {
+            valor: '2.9',
+            id: '11',
+            descricao: '11x',
+          },
+          {
+            valor: '2.66',
+            id: '12',
+            descricao: '12x',
+          },
+        ],
+      },
     },
   },
   tripInsuranceProposal: {
@@ -169,14 +195,13 @@ describe('Success state tests', () => {
     expect(screen.getByText(/plano/i)).toBeInTheDocument()
     expect(screen.getByText('Brasil Terra')).toBeInTheDocument()
   })
-  // Liberar teste após integração do redis
-  // it('should display the field: "Total"', () => {
-  //   setup(defaultStore)
-  //   expect(screen.getByText(/total/i)).toBeInTheDocument()
-  //   expect(
-  //     screen.getByRole('heading', { name: '6x de R$ 5,61' })
-  //   ).toBeInTheDocument()
-  // })
+  it('should display the field: "Total"', () => {
+    setup(defaultStore)
+    expect(screen.getByText(/total/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: '2x de R$ 16,82' })
+    ).toBeInTheDocument()
+  })
   it('should display the field: "Período"', () => {
     setup(defaultStore)
     expect(screen.getByText(/período/i)).toBeInTheDocument()
