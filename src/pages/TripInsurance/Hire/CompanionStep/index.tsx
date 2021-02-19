@@ -168,6 +168,7 @@ const CompanionStep = () => {
         companions={companions}
         selectedCompanion={selectedCompanion}
         companionAge={companionAge}
+        mainPassenger={form.passageiroPrincipal || {}}
       />
       <StepBar title="Contratação" actualStep={2} totalNumberOfSteps={4} />
       <s.ContentWrapper>

@@ -26,7 +26,7 @@ export const PageWrapper = styled.div`
 
 export const Container = styled(ContainerComp)`
   margin-top: ${({ theme }) => theme.spacing(3)}px;
-` 
+`
 
 export const RadioWrapper = styled.div`
   display: flex;
@@ -61,8 +61,22 @@ export const InputNumber = styled(InputNumberComp)`
 `
 
 export const SectionCard = styled(Card)`
-  padding: ${({ theme }) => theme.spacing(5)}px;
+  padding: ${({ theme }) =>
+    `${theme.spacing(5)}px ${theme.spacing(5)}px ${theme.spacing(2)}px`};
   border-radius: 0;
+`
+
+export const FirstSectionCard = styled(Card)`
+  padding: ${({ theme }) => `${theme.spacing(5)}px`};
+  border-radius: 7px 7px 0px 0px;
+`
+
+export const LastSectionCard = styled(Card)`
+  padding: ${({ theme }) =>
+    `${theme.spacing(5)}px ${theme.spacing(5)}px ${theme.spacing(
+      5
+    )}px ${theme.spacing(7)}px`};
+  border-radius: 0px 0px 7px 7px;
 `
 
 export const BadgeNotification = styled.span`
@@ -74,7 +88,8 @@ export const BadgeNotification = styled.span`
 `
 
 export const NavWrapper = styled.div`
-  padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
+  padding: ${({ theme }) =>
+    `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
   width: 100%;
   position: sticky;
   top: 0;
@@ -105,21 +120,24 @@ export const Tag = styled.div<{ active: boolean }>`
   margin: ${({ theme }) => `${theme.spacing(1)}px 0`};
   padding-left: ${({ theme }) => theme.spacing(3)}px;
 
-  ${({ active, theme }) => active ? `
+  ${({ active, theme }) =>
+    active
+      ? `
     border-left: 2px solid ${theme.colors.blue4};
-  `: '' }
+  `
+      : ''}
 
   &:hover {
-    background-color: #EBEBEB;
+    background-color: #ebebeb;
   }
 `
 
 export const TagText = styled(Text).attrs(() => ({
   type: 'caption',
   color: 'gray6',
-  bold: true
+  bold: true,
 }))`
-  cursor: pointer; 
+  cursor: pointer;
 `
 
 export const SectionTitleWrapper = styled.div`
@@ -152,18 +170,23 @@ export const CleanButton = styled(ButtonLink).attrs(() => ({ noIcon: true }))`
   margin-left: ${({ theme }) => theme.spacing(6)}px;
 `
 
-export const FindProposalButton = styled(Button).attrs(() => ({ color: 'primary' }))`
+export const FindProposalButton = styled(Button).attrs(() => ({
+  color: 'primary',
+}))`
   width: 658px;
 `
 
-export const CommissionHelpButton = styled(ButtonLink).attrs(() => ({ noIcon: true }))`
+export const CommissionHelpButton = styled(ButtonLink).attrs(() => ({
+  noIcon: true,
+}))`
   justify-content: flex-end;
 `
 
 export const SectionContentWrapper = styled.div<{ flexDirection?: string }>`
-  // width: 658px;
+  max-width: 658px;
   display: flex;
-  flex-direction: ${({ flexDirection }) => flexDirection ? flexDirection : 'row' };
+  flex-direction: ${({ flexDirection }) =>
+    flexDirection ? flexDirection : 'row'};
   padding: ${({ theme }) => theme.spacing(2)}px;
 `
 
@@ -182,5 +205,3 @@ export const ErrorText = styled(TextContainer).attrs(() => ({
   type: 'headline',
   color: 'magenta2',
 }))``
-
-

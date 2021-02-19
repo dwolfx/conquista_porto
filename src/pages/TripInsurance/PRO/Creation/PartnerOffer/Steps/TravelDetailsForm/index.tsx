@@ -428,7 +428,7 @@ const TravelDetailsForm: StepComponent = () => {
           </Col>
           <Col lg={8}>
             <section id="section-1" ref={sectionOne}>
-              <S.SectionCard overflow="visible" css="padding: 35px 35px 14px;">
+              <S.FirstSectionCard overflow="visible">
                 <S.SectionTitleWrapper>
                   <S.SectionTitle>ORIGEM E DESTINO</S.SectionTitle>
                 </S.SectionTitleWrapper>
@@ -459,7 +459,7 @@ const TravelDetailsForm: StepComponent = () => {
                     />
                   )}
                 </S.SectionContentWrapper>
-              </S.SectionCard>
+              </S.FirstSectionCard>
             </section>
 
             <section id="section-2" ref={sectionTwo}>
@@ -658,7 +658,7 @@ const TravelDetailsForm: StepComponent = () => {
             </section>
 
             <section id="section-submit">
-              <S.SectionCard overflow="visible" id="section-submit-card">
+              <S.LastSectionCard overflow="visible" id="section-submit-card">
                 <S.FindProposalButton
                   disabled={
                     !isSectionOneValid ||
@@ -670,7 +670,7 @@ const TravelDetailsForm: StepComponent = () => {
                 >
                   {isFormPristine ? 'carregar planos' : 'atualizar planos'}
                 </S.FindProposalButton>
-              </S.SectionCard>
+              </S.LastSectionCard>
             </section>
 
             {!isInsuranceQuotationLoading &&

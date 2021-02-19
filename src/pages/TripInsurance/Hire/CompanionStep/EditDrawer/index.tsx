@@ -7,12 +7,17 @@ import moment from 'moment'
 import { dict } from 'components/IconExporter'
 import useMedia from 'hooks/useMedia'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import { IForm, ICompanion } from 'pages/TripInsurance/Creation/types'
+import {
+  IForm,
+  ICompanion,
+  IMainPassenger,
+} from 'pages/TripInsurance/Creation/types'
 import { formatCpf, formatPhoneNumber, cpf } from 'helpers'
 
 import * as s from './styles'
 interface IProps {
   companions: ICompanion[]
+  mainPassenger: IMainPassenger
   isDrawerOpen: boolean
   selectedCompanion: number
   companionAge: number
@@ -20,6 +25,7 @@ interface IProps {
 }
 const CompanionEditDrawer: React.FC<IProps> = ({
   companions,
+  mainPassenger,
   isDrawerOpen,
   selectedCompanion,
   companionAge,
@@ -105,109 +111,89 @@ const CompanionEditDrawer: React.FC<IProps> = ({
     emergencyContactPhone,
   ])
 
-  const setDataHooks = useCallback((type: string, data: ICompanion = {}) => {
-    setFullName(
-      type === 'update'
-        ? {
-            touched: false,
-            value: data.nome || '',
-          }
-        : { touched: false, value: '' }
-    )
-    setDocumentNumber(
-      type === 'update'
-        ? {
-            touched: false,
-            value: `${data.numeroCpf}${data.digitoCpf}`,
-          }
-        : { touched: false, value: '' }
-    )
-    setBirthday(
-      type === 'update'
-        ? {
-            touched: false,
-            value: `${data.dataNascimento}`,
-            error: '',
-          }
-        : { touched: false, value: '', error: '' }
-    )
-    setIsBrazilianResident(
-      type === 'update' ? data.isResidePais || false : true
-    )
-    setSelectedGender(
-      type === 'update'
-        ? data.sexo === 'M'
-          ? {
-              name: 'Masculino',
-              value: 'M',
-            }
-          : { name: 'Feminino', value: 'F' }
-        : { name: '', value: '' }
-    )
-    setHasPoliticallyExposedPerson(
-      type === 'update'
-        ? Object.keys(data.pessoaExposta || {}).length
-          ? true
-          : false
-        : false
-    )
-    setSelectedPoliticalyExposedKinship(
-      type === 'update'
-        ? {
-            name: getPoliticalExposedKinship(
-              data.pessoaExposta ? data.pessoaExposta?.grauParentesco || 0 : 0
-            ),
-            value: data.pessoaExposta
-              ? data.pessoaExposta?.grauParentesco || 0
-              : 0,
-          }
-        : { name: '', value: '' }
-    )
-    setPoliticalyExposedPersonName(
-      type === 'update'
-        ? {
-            touched: Object.keys(data.pessoaExposta || {}).length
-              ? true
-              : false,
-            value: Object.keys(data.pessoaExposta || {}).length
-              ? `${data.pessoaExposta?.nome}`
-              : '',
-          }
-        : { touched: false, value: '' }
-    )
-    setPoliticalyExposedDocument(
-      type === 'update'
-        ? {
-            touched: false,
-            value: Object.keys(data.pessoaExposta || {}).length
-              ? `${data.pessoaExposta?.numeroCpf}${data.pessoaExposta?.digitoCpf}`
-              : '',
-          }
-        : { touched: false, value: '' }
-    )
-    setIsSameContactForEmergencyData(
-      type === 'update' ? (data.contato?.nome ? false : true) : false
-    )
-
-    setEmergencyContactName(
-      type === 'update'
-        ? {
-            touched: false,
-            value: data.contato?.nome ? data.contato.nome : '',
-          }
-        : { touched: false, value: '' }
-    )
-    setEmergencyContactPhone(
-      type === 'update'
-        ? {
-            touched: false,
-            value: `${data.contato?.celularDDD ? data.contato.celularDDD : ''}${
-              data.contato?.celularNumero ? data.contato.celularNumero : ''
-            }`,
-          }
-        : { touched: false, value: '' }
-    )
-  }, [])
+  const setDataHooks = useCallback(
+    (type: string, data: ICompanion = {}) => {
+      if (type === 'update') {
+        setFullName({
+          touched: false,
+          value: data.nome || '',
+        })
+        setDocumentNumber({
+          touched: false,
+          value: `${data.numeroCpf}${data.digitoCpf}`,
+        })
+        setBirthday({
+          touched: false,
+          value: `${data.dataNascimento}`,
+          error: '',
+        })
+        setIsBrazilianResident(data.isResidePais || false)
+        setSelectedGender(
+          data.sexo === 'M'
+            ? {
+                name: 'Masculino',
+                value: 'M',
+              }
+            : { name: 'Feminino', value: 'F' }
+        )
+        setHasPoliticallyExposedPerson(
+          Object.keys(data.pessoaExposta || {}).length ? true : false
+        )
+        setSelectedPoliticalyExposedKinship({
+          name: getPoliticalExposedKinship(
+            data.pessoaExposta ? data.pessoaExposta?.grauParentesco || 0 : 0
+          ),
+          value: data.pessoaExposta
+            ? data.pessoaExposta?.grauParentesco || 0
+            : 0,
+        })
+        setPoliticalyExposedPersonName({
+          touched: Object.keys(data.pessoaExposta || {}).length ? true : false,
+          value: Object.keys(data.pessoaExposta || {}).length
+            ? `${data.pessoaExposta?.nome}`
+            : '',
+        })
+        setPoliticalyExposedDocument({
+          touched: false,
+          value: Object.keys(data.pessoaExposta || {}).length
+            ? `${data.pessoaExposta?.numeroCpf}${data.pessoaExposta?.digitoCpf}`
+            : '',
+        })
+        setIsSameContactForEmergencyData(
+          data.contato?.nome === mainPassenger.contato?.nome &&
+            data.contato?.celularNumero ===
+              mainPassenger.contato?.celularNumero &&
+            data.contato?.celularDDD === mainPassenger.contato?.celularDDD
+            ? true
+            : false
+        )
+        setEmergencyContactName({
+          touched: false,
+          value: data.contato?.nome ? data.contato.nome : '',
+        })
+        setEmergencyContactPhone({
+          touched: false,
+          value: `${data.contato?.celularDDD ? data.contato.celularDDD : ''}${
+            data.contato?.celularNumero ? data.contato.celularNumero : ''
+          }`,
+        })
+      } else {
+        setFullName({ touched: false, value: '' })
+        setDocumentNumber({ touched: false, value: '' })
+        setBirthday({ touched: false, value: '', error: '' })
+        setIsBrazilianResident(true)
+        setSelectedGender({ name: '', value: '' })
+        setHasPoliticallyExposedPerson(false)
+        setSelectedPoliticalyExposedKinship({ name: '', value: '' })
+        setPoliticalyExposedPersonName({ touched: false, value: '' })
+        setPoliticalyExposedDocument({ touched: false, value: '' })
+        setIsSameContactForEmergencyData(false)
+        setEmergencyContactName({ touched: false, value: '' })
+        setEmergencyContactPhone({ touched: false, value: '' })
+      }
+    },
+    [mainPassenger.contato]
+  )
 
   // input validation
   useEffect(() => {
@@ -740,16 +726,16 @@ const CompanionEditDrawer: React.FC<IProps> = ({
             numeroCpf: documentNumber.value.slice(0, 9),
             digitoCpf: documentNumber.value.slice(9),
             isResidePais: isBrazilianResident,
-            codigoPaisResidente: '',
+            codigoPaisResidente: '28',
             contato: {
               nome: isSameContactForEmergencyData
-                ? form.passageiroPrincipal?.nome
+                ? form.passageiroPrincipal?.contato?.nome
                 : emergencyContactName.value,
               celularDDD: isSameContactForEmergencyData
-                ? form.passageiroPrincipal?.celularDDD
+                ? form.passageiroPrincipal?.contato?.celularDDD
                 : emergencyContactPhone.value.slice(0, 2),
               celularNumero: isSameContactForEmergencyData
-                ? form.passageiroPrincipal?.celularNumero
+                ? form.passageiroPrincipal?.contato?.celularNumero
                 : emergencyContactPhone.value.slice(2),
             },
           }

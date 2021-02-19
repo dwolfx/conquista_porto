@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { Col, Container, Row } from 'styled-bootstrap-grid'
+import moment from 'moment'
 
 import StepBar from 'pages/TripInsurance/commons/StepBar'
 import Text from 'components/Text'
+
+import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { IForm, CustomerSteps } from 'pages/TripInsurance/PRO/types'
+import { calculateAge } from 'helpers'
 
 import AddressCard from './AddressCard'
 import ClientDataCard from './ClientDataCard'
@@ -14,15 +21,11 @@ import ContactInfoAccidentsCaseCard from './ContactInfoAccidentsCaseCard'
 import PaymentInfoCard from './PaymentInfoCard'
 import PoliticallyExposedPersonCard from './PoliticallyExposedPersonCard'
 
-import useMedia from 'hooks/useMedia'
-import { useToast } from 'hooks/toast'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 
 import { PostTripInsuranceProposalRequest } from 'store/modules/TripInsurance/Proposal/action'
 
 import { ITripInsuranceProposal } from 'store/modules/TripInsurance/Proposal/types'
-import { IForm, CustomerSteps } from 'pages/TripInsurance/PRO/types'
 
 import * as S from './styles'
 
@@ -57,6 +60,34 @@ const InsuranceSummary = () => {
       proposalHasError: state.tripInsuranceProposal.hasError,
     })
   )
+
+  const [
+    quantityCompanionsOverSeventy,
+    setQuantityCompanionsOverSeventy,
+  ] = useState(form.qtdPassagMaiorSetentaAnos || 0)
+  const [
+    quantityCompanionsBellowSeventy,
+    setQuantityCompanionsBellowSeventy,
+  ] = useState(form.qtdPassagMenorSetentaAnos || 0)
+
+  const mainPassengerAge = calculateAge(
+    moment(form.passageiroPrincipal?.dataNascimento, 'DD/MM/YYYY').format(
+      'DD/MM/YYYY'
+    )
+  )
+
+  useEffect(() => {
+    if (form.qtdPassagMaiorSetentaAnos && mainPassengerAge > 70) {
+      setQuantityCompanionsOverSeventy(form.qtdPassagMaiorSetentaAnos - 1)
+    }
+    if (form.qtdPassagMenorSetentaAnos && mainPassengerAge <= 70) {
+      setQuantityCompanionsBellowSeventy(form.qtdPassagMenorSetentaAnos - 1)
+    }
+  }, [
+    form.qtdPassagMaiorSetentaAnos,
+    form.qtdPassagMenorSetentaAnos,
+    mainPassengerAge,
+  ])
 
   // Handle with submit button
   React.useEffect(() => {
@@ -144,7 +175,6 @@ const InsuranceSummary = () => {
                   Proposta de Seguro Viagem especial para você!
                 </Text>
               </S.HeaderTitleWrapper>
-
               <S.HeaderTitleWrapper>
                 <Text type={isMobile ? 'body' : 'headline'} color="gray6">
                   Se precisar tirar dúvidas fale com seu parceiro.
@@ -152,7 +182,6 @@ const InsuranceSummary = () => {
               </S.HeaderTitleWrapper>
             </S.HeaderWrapper>
           </S.HeaderCol>
-
           <Col lg={8} md={9} sm={12}>
             <ClientDataCard setHasEmptyData={setHasClientDataEmptyData} />
             <ClientContactDetailsCard
@@ -165,12 +194,14 @@ const InsuranceSummary = () => {
             <ContactInfoAccidentsCaseCard
               setHasEmptyData={setHasContactInfoAccidentsCaseData}
             />
-            <CompanionInfoCard />
+            {quantityCompanionsBellowSeventy > 0 ? <CompanionInfoCard /> : null}
+            {quantityCompanionsOverSeventy > 0 ? (
+              <CompanionInfoCard isCompanionOverSeventy />
+            ) : null}
             <PaymentInfoCard />
           </Col>
         </Row>
       </S.Container>
-
       <S.FooterContainer>
         <Container>
           <Row>
