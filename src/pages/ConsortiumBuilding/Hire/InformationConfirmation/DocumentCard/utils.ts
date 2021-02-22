@@ -1,40 +1,15 @@
-import React from 'react'
 import moment from 'moment'
 
-import { TOptions, TSelected } from 'components/Inputs/Select/types'
+import { TSelected } from 'components/Inputs/Select/types'
+import { brazilianStates } from 'pages/CreditCard/Creation/CreditCardStep/Selects/BrazilianStates/types'
 import { IPlaceholderContainerThirdInformationConfirmationStepHireFlux } from 'pages/ConsortiumBuilding/commons/Texts/types'
-import { IDocumentForm } from '../types'
 import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import { dict } from 'components/IconExporter'
 import { IErrorResponse } from 'pages/ConsortiumBuilding/commons/ErrorForm/types'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 import { validityError } from 'pages/TripInsurance/Hire/PaymentStep/CreditCard/utils'
-import { IPayload } from 'store/modules/ConsortiumBuilding/States/types'
 
 const { isDate, isAbbreviation } = ErrorForm()
-
-export const setDocumentTypeOptionMethod = (
-  setData: React.Dispatch<React.SetStateAction<TSelected>>,
-  setForm?: React.Dispatch<React.SetStateAction<IDocumentForm>>,
-  formData?: IDocumentForm,
-  clearForm?: () => void
-): TOptions[] =>
-  ['RG', 'RNE'].map((value, index) => ({
-    id: index + 1,
-    text: value,
-    onClick: () => {
-      setData({ id: index + 1, name: value })
-      if (setForm && formData) {
-        setForm({
-          ...formData,
-          documentType: value === 'RG' ? 'RG' : 'RNE',
-        })
-      }
-      if (clearForm) {
-        clearForm()
-      }
-    },
-  }))
 
 export const placeholderExpediteBody = (
   documentType: TSelected,
@@ -76,7 +51,7 @@ export const validationErrorDateDispatch = (
       return validityError
     }
 
-    if (moment().isAfter(validate)) {
+    if (moment().isBefore(validate)) {
       return isDate
     }
   }
@@ -86,8 +61,7 @@ export const validationErrorDateDispatch = (
 
 export const validationErrorExpeditedBody = (
   expeditedBody: string,
-  validation: boolean,
-  consortiumBuildingStatesData: IPayload
+  validation: boolean
 ): boolean | { icon: keyof typeof dict; message: string } => {
   /**
    * FALTA HÁ VALIDAÇÃO DO ORGÃO EXPEDITOR
@@ -95,9 +69,7 @@ export const validationErrorExpeditedBody = (
   if (expeditedBody && expeditedBody.length === 6) {
     const [, uf] = expeditedBody.split('/')
 
-    const findState = consortiumBuildingStatesData.uf.findIndex(
-      value => value.sigla === uf
-    )
+    const findState = brazilianStates.findIndex(value => value === uf)
 
     if (findState === -1) {
       return isAbbreviation

@@ -43,7 +43,7 @@ const AddressCard: React.FC<IAddressConsortiumBuilding> = ({
         cidade,
         logradouro,
         complementoCep,
-        tipo,
+        complemento,
         uf,
         numeroCep,
         numero,
@@ -51,7 +51,7 @@ const AddressCard: React.FC<IAddressConsortiumBuilding> = ({
 
       setZipCodeDataDisplay(`${numeroCep}-${complementoCep}`)
       setAddressDataDisplay(
-        `${bairro}, ${numero} - ${tipo} ${logradouro} - ${cidade} - ${uf}`
+        `${logradouro}, ${numero} - ${complemento} - ${bairro} - ${cidade} - ${uf}`
       )
     }
 

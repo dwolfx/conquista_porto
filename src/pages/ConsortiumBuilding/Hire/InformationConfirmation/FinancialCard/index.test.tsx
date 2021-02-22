@@ -21,6 +21,10 @@ const reducerMock = {
     hasError: false,
     isLoading: false,
   },
+  fluxManagement: {
+    form: {},
+    stack: [],
+  },
 }
 
 describe('Finacial Card component tests', () => {

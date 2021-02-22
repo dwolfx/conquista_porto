@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import useMedia from 'hooks/useMedia'
@@ -10,13 +10,23 @@ import {
 } from 'store/modules/ConsortiumBuilding/ProposalSimulations/types'
 import { PostProposalSimulationsRequest } from 'store/modules/ConsortiumBuilding/ProposalSimulations/action'
 
-import PlanCard from './PlanCard'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
 
+import { GetCountriesRequest } from 'store/modules/ConsortiumBuilding/Countries/action'
+import { GetCivilStatusRequest } from 'store/modules/ConsortiumBuilding/CivilStatus/action'
+import { GetFatcaRequest } from 'store/modules/ConsortiumBuilding/Fatca/action'
+import { GetJobsRequest } from 'store/modules/ConsortiumBuilding/Jobs/action'
+import { IFormConsortiumBuilding, Steps } from '../types'
 import * as s from './styles'
+import PlanCard from './PlanCard'
 
 const ChoosePlan: React.FC = () => {
   const isMobile = useMedia('sm')
   const dispatch = useDispatch()
+  const { updateForm, form } = useFormFluxManagement<IFormConsortiumBuilding>()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
   const { addToast } = useToast()
 
   const {
@@ -50,10 +60,6 @@ const ChoosePlan: React.FC = () => {
       })
     )
   }, [addToast, dispatch])
-
-  useEffect(() => {
-    simulationDispatch()
-  }, [simulationDispatch])
 
   const renderHeader = () => (
     <s.ContextWrapper>
@@ -147,6 +153,18 @@ const ChoosePlan: React.FC = () => {
                         administrativeFee={simulation.taxaAdministrativa}
                         lifeInsurance={simulation.seguroVida}
                         key={simulation.codigoGrupo}
+                        handlerClick={() => {
+                          updateForm({
+                            ...form,
+                            plan: simulation,
+                          })
+
+                          dispatch(GetCountriesRequest())
+                          dispatch(GetCivilStatusRequest())
+                          dispatch(GetFatcaRequest())
+                          dispatch(GetJobsRequest())
+                          instantiate(Steps.informationConfirmationStep)
+                        }}
                       />
                     )
                   )}

@@ -1,20 +1,16 @@
 import React from 'react'
+
 import Divisor from 'components/Divisor'
 import StepBar from 'components/StepBar'
 import useMedia from 'hooks/useMedia'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
-import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
-import { useDispatch } from 'react-redux'
-import { GetCountriesRequest } from 'store/modules/ConsortiumBuilding/Countries/action'
-import { GetCivilStatusRequest } from 'store/modules/ConsortiumBuilding/CivilStatus/action'
-import { GetFatcaRequest } from 'store/modules/ConsortiumBuilding/Fatca/action'
-import { GetJobsRequest } from 'store/modules/ConsortiumBuilding/Jobs/action'
+
+import { TSelected } from 'components/Inputs/Select/types'
 import PersonalDataCard from './PersonalDataCard'
 import ContactCard from './ContactCard'
 import CardStructure from './CardStructure'
 import DocumentCard from './DocumentCard'
 
-import * as s from './styles'
 import {
   IAddressForm,
   IDocumentForm,
@@ -26,9 +22,11 @@ import PpeCard from './PpeCard'
 import FinancialCard from './FinancialCard'
 import AddressCard from './AddressCard'
 
+import * as s from './styles'
+
 const InformationConfirmation: React.FC = () => {
-  const dispatch = useDispatch()
   const { hire, page, buttons } = TextsConsortiumBuilding()
+
   const [personalDataForm, setPersonalDataForm] = React.useState<
     IPersonalDataForm
   >({
@@ -37,15 +35,19 @@ const InformationConfirmation: React.FC = () => {
     spouseDocument: '',
   })
 
+  const [documentTypeSelect, setDocumentTypeSelect] = React.useState<TSelected>(
+    {
+      id: 0,
+      name: '',
+    }
+  )
+
   const [documentForm, setDocumentForm] = React.useState<IDocumentForm>({
     isForeignResidency: false,
-    documentType: '',
-    address: '',
     documentNumber: '',
     dateDispatch: '',
     expeditedBody: '',
     foreignResidence: '',
-    countryResidence: '',
     documentNumberNIF: '',
     fatca: '',
     passportNumber: '',
@@ -82,14 +84,48 @@ const InformationConfirmation: React.FC = () => {
   const isSmUp = useMedia('smUp')
   const isLgUp = useMedia('lgUp')
 
-  useFetchCustomerProfile()
+  const isDisabled = (): boolean => {
+    let validDefault: boolean =
+      !!personalDataForm.civilStatus &&
+      !!documentTypeSelect.name &&
+      !!documentForm.documentNumber &&
+      !!documentForm.dateDispatch &&
+      !!documentForm.expeditedBody &&
+      !!address.bairro &&
+      !!address.cidade &&
+      !!address.complementoCep &&
+      !!address.logradouro &&
+      !!address.numero &&
+      !!address.numero &&
+      !!address.numeroCep &&
+      !!address.tipo &&
+      !!address.uf &&
+      !!financial.profession &&
+      !!financial.grossMonthlyIncome
 
-  React.useEffect(() => {
-    dispatch(GetCountriesRequest())
-    dispatch(GetCivilStatusRequest())
-    dispatch(GetFatcaRequest())
-    dispatch(GetJobsRequest())
-  }, [dispatch])
+    if (['Casado', 'União Estável'].includes(personalDataForm.civilStatus)) {
+      validDefault =
+        validDefault &&
+        !!personalDataForm.spouseDocument &&
+        !!personalDataForm.spouseName
+    }
+
+    if (ppe.isPpe) {
+      validDefault = validDefault && !!ppe.whoPoliticallyExport
+    }
+
+    if (isForeignResidency) {
+      validDefault =
+        validDefault &&
+        !!documentForm.documentNumberNIF &&
+        !!documentForm.fatca &&
+        !!documentForm.passportNumber &&
+        !!documentTypeSelect.name &&
+        !!documentForm.passportIssuingCountry
+    }
+
+    return validDefault
+  }
 
   return (
     <>
@@ -143,6 +179,7 @@ const InformationConfirmation: React.FC = () => {
           >
             <DocumentCard
               documentData={[documentForm, setDocumentForm]}
+              documentType={[documentTypeSelect, setDocumentTypeSelect]}
               isForeignResidency={[isForeignResidency, setIsForeignResidency]}
               label={hire.steps.informationConfirmation.containerThird.label}
               text={
@@ -177,7 +214,13 @@ const InformationConfirmation: React.FC = () => {
             <s.Column lg={3} />
             <s.Column lg={8} md={11}>
               <s.ButtonAlign>
-                <s.NextButton color="secondary">{buttons.next}</s.NextButton>
+                <s.NextButton
+                  data-testid="button-next-id"
+                  color="secondary"
+                  disabled={!isDisabled()}
+                >
+                  {buttons.next}
+                </s.NextButton>
               </s.ButtonAlign>
             </s.Column>
           </s.RowContent>

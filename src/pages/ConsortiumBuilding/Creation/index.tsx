@@ -9,6 +9,7 @@ import { TextsConsortiumBuilding } from '../commons/Texts'
 import Modal from 'components/Modal/ModalNew'
 
 import * as s from './styles'
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 export default function ConsortiumBuildingCreation({
   isOpen = true,
@@ -25,9 +26,12 @@ export default function ConsortiumBuildingCreation({
 
   const [isModalOpen, setIsModalOpen] = React.useState(false)
 
+  useFetchCustomerProfile()
+
   // Steps:
   // 1 - ChooseState
   // 2 - ContemplatedValue
+  // 3 - ChoosePlan
   // 4 - InformationConfirmation
 
   React.useEffect(() => {

@@ -4,6 +4,7 @@ import { fireEvent } from '@testing-library/dom'
 import { renderWithReduxAndTheme } from 'testUtils'
 import { createStore } from 'redux'
 import { formatMoneyDecimal } from 'helpers'
+import Loading from 'components/Loading'
 import ContemplatedValue from '.'
 
 const reducerMock = {
@@ -31,34 +32,14 @@ describe('ContemplatedValue', () => {
     expect(ContemplatedValue).toBeDefined()
   })
 
-  it('Should show error message if the value not belong to interval', () => {
-    const { getByTestId } = renderWithReduxAndTheme(<ContemplatedValue />, {
-      store,
-    })
-
-    const input = getByTestId('financial-application-money-input')
-    fireEvent.change(input, { target: { value: '10.000,00' } })
-
-    expect(
-      screen.getByText(
-        `O valor deve ser entre R$ ${reducerMock.contemplated.data &&
-          formatMoneyDecimal(
-            reducerMock.contemplated.data.valor_minimo_credito * 100
-          )} e R$ ${reducerMock.contemplated.data &&
-          formatMoneyDecimal(
-            reducerMock.contemplated.data.valor_maximo_credito * 100
-          )}`
-      )
-    ).toBeInTheDocument()
-  })
-
   it('Should enable button if the value belong to interval', async () => {
     const { getByTestId } = renderWithReduxAndTheme(<ContemplatedValue />, {
       store,
     })
 
     const input = getByTestId('financial-application-money-input')
-    fireEvent.change(input, { target: { value: '50.000,00' } })
+    fireEvent.change(input, { target: { value: '200.000,00' } })
+    fireEvent.blur(input)
     expect(screen.getByText('Simular').closest('button')).not.toBeDisabled()
   })
 
@@ -68,7 +49,7 @@ describe('ContemplatedValue', () => {
     })
 
     const input = getByTestId('financial-application-money-input')
-    fireEvent.change(input, { target: { value: '100.000.000,00' } })
+    fireEvent.change(input, { target: { value: '1.000,00' } })
     expect(screen.getByText('Simular').closest('button')).toBeDisabled()
   })
 })

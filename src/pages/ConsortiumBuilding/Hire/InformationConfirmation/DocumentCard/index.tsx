@@ -8,7 +8,6 @@ import Divisor from 'components/Divisor'
 import { capitalize, maskRG } from 'helpers'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 
-import { IConsortiumBuildingStates } from 'pages/ConsortiumBuilding/Creation/ChooseState/types'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import useMedia from 'hooks/useMedia'
 import {
@@ -22,7 +21,6 @@ import {
 import { IDocumentCard, IFormDocumentData } from '../types'
 
 import {
-  setDocumentTypeOptionMethod,
   placeholderExpediteBody,
   validationErrorDocument,
   validationErrorDateDispatch,
@@ -34,6 +32,7 @@ import * as s from './styles'
 const DocumentCard: React.FC<IDocumentCard> = ({
   label,
   documentData: [documentData, setDocumentData],
+  documentType: [documentTypeSelect, setDocumentTypeSelect],
   text,
   placeholder,
   isForeignResidency: [isForeignResidency, setIsForeignResidency],
@@ -66,12 +65,6 @@ const DocumentCard: React.FC<IDocumentCard> = ({
   /**
    * USESELECTOR
    */
-
-  const { consortiumBuildingStatesData } = useSelector(
-    (state: IConsortiumBuildingStates) => ({
-      consortiumBuildingStatesData: state.consortiumBuildingStates.data,
-    })
-  )
 
   const { fatcaConsortiumBuilding } = useSelector(
     (state: { fatcaConsortiumBuilding: IFatcaConsortiumBuildingState }) => ({
@@ -145,18 +138,15 @@ const DocumentCard: React.FC<IDocumentCard> = ({
     setCountryIssuancePassportOption,
   ] = React.useState<TOptions[]>([])
 
-  const [documentType, setDocumentType] = React.useState<TSelected>({
-    id: 0,
-    name: '',
-  })
-
   const [documentTypeOption] = React.useState<TOptions[]>(
-    setDocumentTypeOptionMethod(
-      setDocumentType,
-      setDocumentData,
-      documentData,
-      clearForm
-    )
+    ['RG', 'RNE'].map((value, index) => ({
+      id: index + 1,
+      text: value,
+      onClick: () => {
+        setDocumentTypeSelect({ id: index + 1, name: value })
+        clearForm()
+      },
+    }))
   )
 
   const setListOptionFatca = React.useCallback(
@@ -285,12 +275,12 @@ const DocumentCard: React.FC<IDocumentCard> = ({
               data-testid="select-document-type-id"
               label={label.documentType}
               options={documentTypeOption}
-              selected={documentType}
+              selected={documentTypeSelect}
             />
           </s.DelimiterWrapper>
         </s.ColDocument>
         <s.ColDocument sm={6}>
-          {documentType.name ? (
+          {documentTypeSelect.name ? (
             <s.FormDocumentWrapper>
               <s.InputDocument
                 label={label.documentNumber}
@@ -306,7 +296,7 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                 )}
                 onChange={(e: React.FormEvent<HTMLInputElement>) => {
                   setDocumentNumber(
-                    documentType.name === 'RG'
+                    documentTypeSelect.name === 'RG'
                       ? maskRG(e.currentTarget.value)
                       : e.currentTarget.value
                   )
@@ -355,13 +345,12 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                   data-testid="input-spouse-name-id"
                   maxLength={6}
                   placeholder={placeholderExpediteBody(
-                    documentType,
+                    documentTypeSelect,
                     placeholder
                   )}
                   error={validationErrorExpeditedBody(
                     documentData.expeditedBody,
-                    validForm.expeditedBody,
-                    consortiumBuildingStatesData
+                    validForm.expeditedBody
                   )}
                 />
               </InputMask>
@@ -369,7 +358,7 @@ const DocumentCard: React.FC<IDocumentCard> = ({
           ) : null}
         </s.ColDocument>
       </s.RowDocument>
-      {documentType.name === 'RNE' && isSmUp ? (
+      {documentTypeSelect.name === 'RNE' && isSmUp ? (
         <s.TextDocument>{text}</s.TextDocument>
       ) : null}
       <Divisor />
@@ -420,7 +409,10 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                   onChange={(e: React.FormEvent<HTMLInputElement>) => {
                     setDocumentData({
                       ...documentData,
-                      documentNumber: e.currentTarget.value.replace(/\D/g, ''),
+                      documentNumberNIF: e.currentTarget.value.replace(
+                        /\D/g,
+                        ''
+                      ),
                     })
                   }}
                 />
