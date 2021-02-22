@@ -40,12 +40,15 @@ export const QuestionText = styled(Text)`
     ${({ theme }) => theme.spacing(5)}px;
 `
 
-export const StyledButton = styled(ButtonComponent)`
-  margin-top: ${({ theme }) => theme.spacing(5)}px;
-`
+export const StyledButton = styled(ButtonComponent)``
 
 export const InputMoney = styled(MoneyInput)`
-  margin-bottom: ${({ error, theme }) => !!error && theme.spacing(7)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(5)}px;
+  margin-bottom: ${({ error, theme }) => !!error && theme.spacing(10)}px;
+
+  & > span {
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
+  }
 
   ${({ value }) => !!value && placeholderColor}
 `

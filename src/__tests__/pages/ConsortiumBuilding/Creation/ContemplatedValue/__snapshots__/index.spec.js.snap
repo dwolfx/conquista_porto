@@ -419,7 +419,7 @@ Array [
   width: 0;
 }
 
-.c14 {
+.c13 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -484,12 +484,13 @@ Array [
   margin: 14px 0 35px;
 }
 
-.c13 {
-  margin-top: 35px;
+.c6 {
+  margin-bottom: 35px;
+  margin-bottom: px;
 }
 
-.c6 {
-  margin-bottom: px;
+.c6 > span {
+  margin-top: 7px;
 }
 
 @media (min-width:576px) {
@@ -584,7 +585,7 @@ Array [
         </div>
       </div>
       <button
-        className="c12 c13"
+        className="c12 "
         color="secondary"
         data-gtm-clicktype="button"
         data-gtm-name="Simular"
@@ -593,7 +594,7 @@ Array [
         onClick={[Function]}
       >
         <span
-          className="c14"
+          className="c13"
         >
           Simular
         </span>

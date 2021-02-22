@@ -6,7 +6,8 @@ import Loading from 'components/Loading'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 import { formatMoneyDecimal } from 'helpers'
-
+import { dict } from 'components/IconExporter'
+import { PostProposalSimulationsRequest } from 'store/modules/ConsortiumBuilding/ProposalSimulations/action'
 import { useDispatch, useSelector } from 'react-redux'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
@@ -16,9 +17,6 @@ import { useToast } from 'hooks/toast'
 import { IFormConsortiumBuilding, Steps } from '../types'
 
 import * as s from './styles'
-import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
-import { dict } from 'components/IconExporter'
-import { PostProposalSimulationsRequest } from 'store/modules/ConsortiumBuilding/ProposalSimulations/action'
 
 const ContemplatedValue: StepComponent = () => {
   const dispatch = useDispatch()
@@ -99,7 +97,7 @@ const ContemplatedValue: StepComponent = () => {
       }
     }
 
-    return validationInputError(contemplateValue, isTouched)
+    return false
   }
 
   return (

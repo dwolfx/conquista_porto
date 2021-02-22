@@ -1,6 +1,6 @@
-import { Types, IAction } from './types'
+import { Types, IAction, IStatesConsortiumBuilding } from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: IStatesConsortiumBuilding = {
   data: null,
   isLoading: false,
   hasError: false,

@@ -63,6 +63,6 @@ export const Select = styled(SelectComponent)`
 `
 
 export const InputPersonalData = styled(NewInput)`
-  margin: ${({ theme }) => `0 ${theme.spacing(2)}`}px;
+  margin-left: ${({ theme }) => theme.spacing(2)}px;
   ${({ error }) => error && spacePlusError}
 `
