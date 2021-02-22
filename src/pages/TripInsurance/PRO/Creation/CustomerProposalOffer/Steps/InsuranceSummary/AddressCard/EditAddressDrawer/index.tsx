@@ -8,18 +8,18 @@ import useZipCodeFetch from 'hooks/ZipCode/useZipCodeFetch'
 
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useMedia from 'hooks/useMedia'
-import { brazilianStates } from 'pages/CreditCard/Creation/CreditCardStep/Selects/BrazilianStates/types'
+import { brazilianStates } from 'pages/CreditCard/common/Selects/BrazilianStates/types'
 
 import { IForm } from 'pages/TripInsurance/PRO/types'
-
-import * as s from './styles'
-import * as t from './types'
 
 import {
   errorCEP,
   isInvalidCEP,
   validationInputError,
-} from 'pages/CreditCard/Creation/CreditCardStep/validators'
+} from 'helpers/validators'
+
+import * as s from './styles'
+import * as t from './types'
 
 const EditAddressDrawer: React.FC<t.IAddressDrawer> = ({
   isOpen,

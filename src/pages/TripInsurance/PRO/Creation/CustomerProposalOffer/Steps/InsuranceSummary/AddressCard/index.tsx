@@ -50,7 +50,7 @@ const AddressCard: React.FC<ICardInterface> = ({
         isOpen={isAddressCardDrawerOpen}
         handleClose={() => setIsAddressCardDrawerOpen(false)}
       />
-      <s.Card>
+      <s.Card {...rest}>
         <s.CardContentWrapper>
           <s.CardTitleWrapper>
             <Text type="subheading" bold color="gray5">
