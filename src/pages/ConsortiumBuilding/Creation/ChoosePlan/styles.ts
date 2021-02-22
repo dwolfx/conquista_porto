@@ -6,6 +6,7 @@ import TextCmp from 'components/Text'
 import DivisorCmp from 'components/Divisor'
 import ButtonCmp from 'components/Button'
 import LoadingCmp from 'components/Loading'
+import NewInput from 'components/NewInput'
 
 export const Container = styled.div`
   display: flex;

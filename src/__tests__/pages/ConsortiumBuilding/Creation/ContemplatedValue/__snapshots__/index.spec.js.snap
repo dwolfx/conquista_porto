@@ -282,6 +282,75 @@ Array [
   line-height: 19px;
 }
 
+.c12 {
+  background: #EBEBEB;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #BABABA;
+  cursor: not-allowed;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c12:hover:active {
+  pointer-events: none;
+}
+
+.c12:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c12:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c13 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
 .c7 {
   background-color: #F1F1F1;
   border-radius: 8px 8px 0px 0px;
@@ -375,75 +444,6 @@ Array [
 
 .c5 .c8 {
   height: 100%;
-}
-
-.c12 {
-  background: #EBEBEB;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #BABABA;
-  cursor: not-allowed;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c12:hover:active {
-  pointer-events: none;
-}
-
-.c12:hover:active:after {
-  background-color: #2F736B;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c12:before {
-  background-color: #2F736B;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c13 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 25px;
-  position: relative;
-  width: 100%;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
 }
 
 .c0 {

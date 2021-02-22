@@ -273,6 +273,15 @@ export default function Routes({ ...props }) {
         {process.env.REACT_APP_ENV === 'development' ||
         process.env.REACT_APP_ENV === 'local' ? (
           <Route
+            path="/consorcio-imovel/simular/termos"
+            exact
+            component={ConsortiumBuildingCreation}
+            pageTitle="Consórcio Imóvel - Termos"
+          />
+        ) : null}
+        {process.env.REACT_APP_ENV === 'development' ||
+        process.env.REACT_APP_ENV === 'local' ? (
+          <Route
             path="/seguro-viagem/simular"
             exact
             component={TripInsuranceProposalCreation}
