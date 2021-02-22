@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Col, Container as ContainerComp } from 'styled-bootstrap-grid'
 
 import ButtonComp from 'components/Button'
+import ButtonLinkCmp from 'components/Button/Link'
 import CardComponent from 'components/Card'
 import PopoverComp from 'components/Popover'
 
@@ -147,4 +148,8 @@ export const SubmitButton = styled(ButtonComp).attrs(() => ({
     width: 100%;
     margin-right: 0;
   }
+`
+
+export const ButtonLink = styled(ButtonLinkCmp)`
+  text-align: end;
 `

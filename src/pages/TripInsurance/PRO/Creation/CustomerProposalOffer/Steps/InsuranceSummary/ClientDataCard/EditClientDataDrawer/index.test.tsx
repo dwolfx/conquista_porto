@@ -19,6 +19,14 @@ const defaultStore = {
     },
     isLoading: false,
   },
+  fluxManagement: {
+    stack: [],
+    form: {
+      passageiroPrincipal: {
+        isResidePais: true,
+      },
+    },
+  },
 }
 
 const createRootContainer = () => {
@@ -88,15 +96,15 @@ describe('EditClientDataDrawer component', () => {
     const firstOption = screen.getByLabelText(/sim/i)
     const secondOption = screen.getByLabelText(/não/i)
 
-    expect(secondOption).toBeChecked()
-
-    userEvent.click(firstOption)
-
     expect(firstOption).toBeChecked()
 
     userEvent.click(secondOption)
 
     expect(secondOption).toBeChecked()
+
+    userEvent.click(firstOption)
+
+    expect(firstOption).toBeChecked()
   })
   describe('Buttons tests', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {

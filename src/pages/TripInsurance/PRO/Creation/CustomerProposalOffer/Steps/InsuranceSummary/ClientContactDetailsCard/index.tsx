@@ -1,6 +1,5 @@
 import React from 'react'
 
-import ButtonLink from 'components/Button/Link'
 import DataRow from 'pages/TripInsurance/commons/DataRow'
 import Divisor from 'components/Divisor'
 import Text from 'components/Text'
@@ -43,7 +42,7 @@ const ClientContactDetailsCard: React.FC<ICardInterface> = ({
           <Text type="subheading" bold color="gray5">
             DADOS PARA CONTATO
           </Text>
-          <ButtonLink
+          <s.ButtonLink
             hasNotification={checkEmptyContactDataFields(
               form.passageiroPrincipal ?? {}
             )}
@@ -52,7 +51,7 @@ const ClientContactDetailsCard: React.FC<ICardInterface> = ({
             }}
           >
             ALTERAR NO PERFIL
-          </ButtonLink>
+          </s.ButtonLink>
         </s.CardTitleWrapper>
         <DataRow
           label="Telefone"

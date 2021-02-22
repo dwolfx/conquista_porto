@@ -510,7 +510,7 @@ Array [
   line-height: 25px;
 }
 
-.c51 {
+.c52 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -822,7 +822,7 @@ Array [
   width: 0;
 }
 
-.c38 {
+.c84 {
   background: linear-gradient( to left, #018CB7 20%, #00ADEF );
   background-repeat: no-repeat;
   border: none;
@@ -840,11 +840,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c38:hover:active {
+.c84:hover:active {
   pointer-events: auto;
 }
 
-.c38:hover:active:after {
+.c84:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -852,11 +852,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c38:hover:before {
+.c84:hover:before {
   width: 100%;
 }
 
-.c38:hover:after {
+.c84:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -871,7 +871,7 @@ Array [
   width: 100%;
 }
 
-.c38:before {
+.c84:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -883,7 +883,7 @@ Array [
   width: 0;
 }
 
-.c70 {
+.c38 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -901,11 +901,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c70:hover:active {
+.c38:hover:active {
   pointer-events: none;
 }
 
-.c70:hover:active:after {
+.c38:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -913,7 +913,7 @@ Array [
   transition: all ease 0s;
 }
 
-.c70:before {
+.c38:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -952,7 +952,7 @@ Array [
   line-height: 15px;
 }
 
-.c64 {
+.c65 {
   background-color: #F1F1F1;
   border-radius: 8px 8px 0px 0px;
   height: 100%;
@@ -965,7 +965,7 @@ Array [
   line-height: 25px;
 }
 
-.c67 {
+.c68 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -980,24 +980,24 @@ Array [
   position: relative;
 }
 
-.c67 #prefix {
+.c68 #prefix {
   padding-left: 7px;
 }
 
-.c67 #suffix {
+.c68 #suffix {
   padding-right: 7px;
 }
 
-.c67:focus-within {
+.c68:focus-within {
   border-bottom: 2px solid #00ADEF;
 }
 
-.c67:focus-within #prefix,
-.c67:focus-within #suffix {
+.c68:focus-within #prefix,
+.c68:focus-within #suffix {
   color: #272727;
 }
 
-.c65 {
+.c66 {
   color: #898989;
   padding-left: 14px;
   padding-top: 7px;
@@ -1012,7 +1012,7 @@ Array [
   line-height: 16px;
 }
 
-.c69 {
+.c70 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1026,7 +1026,7 @@ Array [
   height: 100%;
 }
 
-.c68 {
+.c69 {
   background-color: inherit;
   border: none;
   color: #272727;
@@ -1036,12 +1036,12 @@ Array [
   width: 100%;
 }
 
-.c68:-webkit-autofill {
+.c69:-webkit-autofill {
   box-shadow: none;
   -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
 }
 
-.c68::-webkit-input-placeholder {
+.c69::-webkit-input-placeholder {
   color: #BABABA;
   font-weight: normal;
   font-family: Open Sans;
@@ -1053,24 +1053,24 @@ Array [
   line-height: 25px;
 }
 
-.c63 {
+.c64 {
   position: relative;
   height: 70px;
 }
 
-.c63 .c66 {
+.c64 .c67 {
   height: calc(100% - 24px);
 }
 
-.c59 {
+.c60 {
   position: relative;
 }
 
-.c61 {
+.c62 {
   position: relative;
 }
 
-.c61:after {
+.c62:after {
   content: '';
   cursor: pointer;
   height: 100%;
@@ -1214,6 +1214,10 @@ Array [
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.c51 {
+  text-align: end;
 }
 
 .c33 {
@@ -1393,18 +1397,18 @@ Array [
   margin: 0 0 28px;
 }
 
-.c84 {
+.c85 {
   width: 100%;
 }
 
-.c57 {
+.c58 {
   height: 20px;
   margin-right: 10px;
   position: relative;
   width: 20px;
 }
 
-.c57:before {
+.c58:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -1417,7 +1421,7 @@ Array [
   border: 1px solid #BABABA;
 }
 
-.c57:after {
+.c58:after {
   content: '';
   width: 10px;
   height: 10px;
@@ -1429,11 +1433,11 @@ Array [
   background-color: transparent;
 }
 
-.c57:checked:after {
+.c58:checked:after {
   background-color: #00ADEF;
 }
 
-.c56 {
+.c57 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1450,11 +1454,11 @@ Array [
   pointer-events: all;
 }
 
-.c56:last-of-type {
+.c57:last-of-type {
   margin-right: 0;
 }
 
-.c55 {
+.c56 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1481,15 +1485,15 @@ Array [
   width: 100%;
 }
 
-.c52 {
+.c53 {
   margin-top: 14px;
 }
 
-.c58:first-child {
+.c59:first-child {
   margin-right: 14px;
 }
 
-.c53 {
+.c54 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1500,11 +1504,11 @@ Array [
   margin-top: 28px;
 }
 
-.c53 label {
+.c54 label {
   margin-right: 28px;
 }
 
-.c60 {
+.c61 {
   margin-top: 28px;
 }
 
@@ -1809,7 +1813,7 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c55 {
+  .c56 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -1818,7 +1822,7 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c53 .c54 {
+  .c54 .c55 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -1826,19 +1830,19 @@ Array [
 }
 
 @media (max-width:480px) {
-  .c60 .c62 {
+  .c61 .c63 {
     height: 86px;
   }
 
-  .c60 .c66 {
+  .c61 .c67 {
     height: calc(100% - 38px);
   }
 
-  .c60 label {
+  .c61 label {
     display: block;
   }
 
-  .c60 .sc-fzqAui {
+  .c61 .sc-fzqAui {
     top: 86px;
   }
 }
@@ -2138,7 +2142,7 @@ Array [
                 data-gtm-name="salvar alterações"
                 data-gtm-subname="alterar dados do contratante - seguro viagem - pro"
                 data-gtm-type="click"
-                disabled={false}
+                disabled={true}
                 onClick={[Function]}
               >
                 <span
@@ -2337,7 +2341,7 @@ Array [
                   DADOS PARA CONTATO
                 </p>
                 <a
-                  className="c46"
+                  className="c46 c51"
                   disabled={false}
                   onClick={[Function]}
                 >
@@ -2478,26 +2482,26 @@ Array [
                 Você é ou possui parentesco com uma pessoa politicamente exposta?
               </h5>
               <p
-                className="c51 c52"
+                className="c52 c53"
                 color="gray5"
                 type="body"
               >
                 Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos anteriores, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos de alto nível, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
               </p>
               <div
-                className="c53"
+                className="c54"
                 data-testid="radio-exposed-person"
               >
                 <div
-                  className="c54 c55"
+                  className="c55 c56"
                   width="auto"
                 >
                   <label
-                    className="c56"
+                    className="c57"
                   >
                     <input
                       checked={true}
-                      className="c57 c58"
+                      className="c58 c59"
                       data-gtm-form="input"
                       data-gtm-name="Sim"
                       onChange={[Function]}
@@ -2507,11 +2511,11 @@ Array [
                     Sim
                   </label>
                   <label
-                    className="c56"
+                    className="c57"
                   >
                     <input
                       checked={false}
-                      className="c57 c58"
+                      className="c58 c59"
                       data-gtm-form="input"
                       data-gtm-name="Não"
                       onChange={[Function]}
@@ -2523,31 +2527,31 @@ Array [
                 </div>
               </div>
               <div
-                className="c59 c60"
+                className="c60 c61"
               >
                 <div
-                  className="c61"
+                  className="c62"
                   data-testid="select-Quem é a pessoa políticamente exposta?"
                   onClick={[Function]}
                 >
                   <div
-                    className="c62 c63"
+                    className="c63 c64"
                     disabled={false}
                   >
                     <div
-                      className="c64"
+                      className="c65"
                     >
                       <label
-                        className="c65"
+                        className="c66"
                       >
                         Quem é a pessoa políticamente exposta?
                       </label>
                       <div
-                        className="c66 c67"
+                        className="c67 c68"
                         onClick={[Function]}
                       >
                         <input
-                          className="c68"
+                          className="c69"
                           data-testid="select-option-input-undefined"
                           disabled={false}
                           placeholder="Selecione"
@@ -2555,7 +2559,7 @@ Array [
                           value=""
                         />
                         <div
-                          className="c69"
+                          className="c70"
                           id="suffix"
                         >
                           <svg
@@ -2581,7 +2585,7 @@ Array [
               className="c37"
             >
               <button
-                className="c70 c71"
+                className="c38 c71"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -2705,30 +2709,30 @@ Array [
               className="c16"
             >
               <p
-                className="c51 "
+                className="c52 "
                 color="gray5"
                 type="body"
               >
                 Por favor, inclua somente CEPs de endereços no Brasil. Endereços no exterior não são válidos.
               </p>
               <div
-                className="c62 c63 c72"
+                className="c63 c64 c72"
                 disabled={false}
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     CEP
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-testid="cep"
                       disabled={false}
                       maxLength={9}
@@ -2738,7 +2742,7 @@ Array [
                       value=""
                     />
                     <div
-                      className="c69"
+                      className="c70"
                       id="suffix"
                     >
                       <svg
@@ -2755,23 +2759,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c62 c63 c73"
+                className="c63 c64 c73"
                 disabled={false}
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     Endereço (Rua/Avenida)
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-testid="endereço (rua/avenida)"
                       disabled={false}
                       onBlur={[Function]}
@@ -2782,23 +2786,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c62 c63 c73"
+                className="c63 c64 c73"
                 disabled={false}
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     Número
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-testid="número"
                       disabled={false}
                       onBlur={[Function]}
@@ -2809,23 +2813,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c62 c63 c74"
+                className="c63 c64 c74"
                 disabled={false}
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     Complemento (opcional)
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-testid="complemento (opcional)"
                       disabled={false}
                       onChange={[Function]}
@@ -2835,23 +2839,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c62 c63 c73"
+                className="c63 c64 c73"
                 disabled={false}
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     Bairro
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-testid="bairro"
                       disabled={false}
                       onBlur={[Function]}
@@ -2862,31 +2866,31 @@ Array [
                 </div>
               </div>
               <div
-                className="c59 c75"
+                className="c60 c75"
               >
                 <div
-                  className="c61"
+                  className="c62"
                   data-testid="select-Estado"
                   onClick={[Function]}
                 >
                   <div
-                    className="c62 c63"
+                    className="c63 c64"
                     disabled={false}
                   >
                     <div
-                      className="c64"
+                      className="c65"
                     >
                       <label
-                        className="c65"
+                        className="c66"
                       >
                         Estado
                       </label>
                       <div
-                        className="c66 c67"
+                        className="c67 c68"
                         onClick={[Function]}
                       >
                         <input
-                          className="c68"
+                          className="c69"
                           data-testid="select-option-input-undefined"
                           disabled={false}
                           placeholder="Selecione"
@@ -2894,7 +2898,7 @@ Array [
                           value="Selecione"
                         />
                         <div
-                          className="c69"
+                          className="c70"
                           id="suffix"
                         >
                           <svg
@@ -2913,23 +2917,23 @@ Array [
                 </div>
               </div>
               <div
-                className="c62 c63 c76"
+                className="c63 c64 c76"
                 disabled={false}
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     Cidade
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-testid="cidade"
                       disabled={false}
                       onBlur={[Function]}
@@ -2947,7 +2951,7 @@ Array [
               className="c37"
             >
               <button
-                className="c70 c77"
+                className="c38 c77"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3096,22 +3100,22 @@ Array [
               className="c16"
             >
               <div
-                className="c62 c63 c78 c79"
+                className="c63 c64 c78 c79"
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     Nome
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-gtm-form="input"
                       data-gtm-name="contato-caso-acidente-nome"
                       data-testid="nome"
@@ -3123,22 +3127,22 @@ Array [
                 </div>
               </div>
               <div
-                className="c62 c63 c78 c79"
+                className="c63 c64 c78 c79"
               >
                 <div
-                  className="c64"
+                  className="c65"
                 >
                   <label
-                    className="c65"
+                    className="c66"
                   >
                     telefone
                   </label>
                   <div
-                    className="c66 c67"
+                    className="c67 c68"
                     onClick={[Function]}
                   >
                     <input
-                      className="c68"
+                      className="c69"
                       data-gtm-form="input"
                       data-gtm-name="contato-caso-acidente-telefone"
                       data-testid="telefone"
@@ -3159,7 +3163,7 @@ Array [
               className="c37"
             >
               <button
-                className="c70 c80"
+                className="c38 c80"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"
@@ -3339,31 +3343,31 @@ Array [
                   className="c82"
                 >
                   <div
-                    className="c59 c83"
+                    className="c60 c83"
                   >
                     <div
-                      className="c61"
+                      className="c62"
                       data-testid="select-Forma de Pagamento"
                       onClick={[Function]}
                     >
                       <div
-                        className="c62 c63"
+                        className="c63 c64"
                         disabled={false}
                       >
                         <div
-                          className="c64"
+                          className="c65"
                         >
                           <label
-                            className="c65"
+                            className="c66"
                           >
                             Forma de Pagamento
                           </label>
                           <div
-                            className="c66 c67"
+                            className="c67 c68"
                             onClick={[Function]}
                           >
                             <input
-                              className="c68"
+                              className="c69"
                               data-testid="select-option-input-undefined"
                               disabled={false}
                               placeholder="Selecione"
@@ -3371,7 +3375,7 @@ Array [
                               value=""
                             />
                             <div
-                              className="c69"
+                              className="c70"
                               id="suffix"
                             >
                               <svg
@@ -3394,31 +3398,31 @@ Array [
                   className="c82"
                 >
                   <div
-                    className="c59 c83"
+                    className="c60 c83"
                   >
                     <div
-                      className="c61"
+                      className="c62"
                       data-testid="select-Número de Parcelas"
                       onClick={[Function]}
                     >
                       <div
-                        className="c62 c63"
+                        className="c63 c64"
                         disabled={false}
                       >
                         <div
-                          className="c64"
+                          className="c65"
                         >
                           <label
-                            className="c65"
+                            className="c66"
                           >
                             Número de Parcelas
                           </label>
                           <div
-                            className="c66 c67"
+                            className="c67 c68"
                             onClick={[Function]}
                           >
                             <input
-                              className="c68"
+                              className="c69"
                               data-testid="select-option-input-undefined"
                               disabled={false}
                               placeholder="Selecione"
@@ -3426,7 +3430,7 @@ Array [
                               value=""
                             />
                             <div
-                              className="c69"
+                              className="c70"
                               id="suffix"
                             >
                               <svg
@@ -3454,7 +3458,7 @@ Array [
               className="c37"
             >
               <button
-                className="c38 c84"
+                className="c84 c85"
                 color="primary"
                 data-gtm-clicktype="button"
                 data-gtm-name="salvar alterações"

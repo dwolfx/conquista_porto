@@ -44,7 +44,7 @@ const EditHirerData: React.FC<t.IEditHirerData> = ({
 
   const footerButton = () => (
     <s.SaveChangesButton
-      disabled={isLoading}
+      disabled={!isBrazilianResident || isLoading}
       data-gtm-type="click"
       data-gtm-clicktype="button"
       data-gtm-subname="alterar dados do contratante - seguro viagem - pro"

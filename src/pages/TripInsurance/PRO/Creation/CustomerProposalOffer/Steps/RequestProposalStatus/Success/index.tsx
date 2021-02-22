@@ -34,7 +34,7 @@ const SuccessState: StepComponent = () => {
                     history.push('/')
                   }}
                 >
-                  inicio
+                  início
                 </S.Button>
               }
             >
