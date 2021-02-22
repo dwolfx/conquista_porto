@@ -14,12 +14,14 @@ export const Text = styled(TextCmp).attrs(() => ({
   padding-bottom: ${({ theme }) => theme.spacing(5)}px;
 `
 
-export const Layer = styled(LayerCmp)`
+export const Layer = styled(LayerCmp)<{ hasMarginBottom: boolean }>`
   ${ChildrenWrapper} {
-    margin-bottom: ${({ theme }) => theme.spacing(9)}px;
+    margin-bottom: ${({ hasMarginBottom, theme: { spacing } }) =>
+      hasMarginBottom ? `${spacing(9)}px` : '0'};
 
     @media ${({ theme }) => theme.mediaQueries.xs} {
-      margin-bottom: ${({ theme }) => theme.spacing(16)}px;
+      margin-bottom: ${({ hasMarginBottom, theme: { spacing } }) =>
+        hasMarginBottom ? `${spacing(16)}px` : '0'};
     }
   }
 `

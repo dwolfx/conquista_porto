@@ -1,29 +1,29 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row } from 'styled-bootstrap-grid'
 
+import Button from 'components/Button'
 import Divisor from 'components/Divisor'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+
+import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
+import { CustomerSteps, IForm } from 'pages/TripInsurance/PRO/types'
+import { StepComponent } from 'hooks/FluxManagement/types'
+import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
 
 import HorizontalCard from './HorizontalCard'
 import VerticalCard from './VerticalCard'
 
-import { CustomerSteps } from 'pages/TripInsurance/PRO/types'
-import { StepComponent } from 'hooks/FluxManagement/types'
-
-import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
-import { IForm } from 'pages/TripInsurance/PRO/types'
-import { useDispatch } from 'react-redux'
-import { useToast } from 'hooks/toast'
-import { GetTripInsuranceCreditCardRequest } from 'store/modules/TripInsurance/CreditCard/action'
-
 import * as s from './styles'
 
-const ChoosePlan: StepComponent = () => {
+const ProposalSummary: StepComponent = () => {
   const isMobile = useMedia('xs')
   const isVerticalTablet = useMedia('sm')
   const { instantiate } = useStackFluxManagement<{}>()
@@ -48,6 +48,16 @@ const ChoosePlan: StepComponent = () => {
     valorSeguroBruto: '',
     valorTotal: '',
   })
+
+  const {
+    // redisResponse,
+    tripInsuranceCreditCard,
+  } = useSelector(
+    (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
+      // redisResponse: state.redis,
+      tripInsuranceCreditCard: state.tripInsuranceCreditCard,
+    })
+  )
 
   // mock temporário
   React.useEffect(() => {
@@ -477,13 +487,22 @@ const ChoosePlan: StepComponent = () => {
         },
       ],
     })
+  }, [updateForm])
 
-    dispatch(
-      GetTripInsuranceCreditCardRequest({
-        onErrorToast: addToast,
-      })
-    )
-  }, [updateForm, dispatch, addToast])
+  React.useEffect(() => {
+    if (!tripInsuranceCreditCard.data && !tripInsuranceCreditCard.hasError) {
+      dispatch(
+        GetTripInsuranceCreditCardRequest({
+          onErrorToast: addToast,
+        })
+      )
+    }
+  }, [
+    dispatch,
+    addToast,
+    tripInsuranceCreditCard.data,
+    tripInsuranceCreditCard.hasError,
+  ])
 
   // Set tripInsuranceQuotation with form values
   React.useEffect(() => {
@@ -512,14 +531,58 @@ const ChoosePlan: StepComponent = () => {
     form.valorSemDesconto,
   ])
 
-  return (
+  const handleTryAgain = () => {
+    // if (redisResponse.hasError) {
+    //   dispatch(GetRedisDataRequest({}))
+    // }
+    if (tripInsuranceCreditCard.hasError) {
+      dispatch(
+        GetTripInsuranceCreditCardRequest({
+          onErrorToast: addToast,
+        })
+      )
+    }
+  }
+
+  const renderLoading = () => (
+    <>
+      <StepBar title="Contratação" actualStep={1} totalNumberOfSteps={2} />
+      <s.CenterContent>
+        <s.Loading
+          type="bar"
+          legend="Aguarde, estamos buscando suas informações..."
+        />
+      </s.CenterContent>
+    </>
+  )
+
+  const renderError = () => (
+    <>
+      <StepBar title="Contratação" actualStep={1} totalNumberOfSteps={2} />
+      <s.CenterContent>
+        <s.ErrorText textAlign="center">
+          Desculpe, não foi possível carregar as informações. Aguarde alguns
+          instantes e tente novamente.
+        </s.ErrorText>
+        <Button
+          color="primary"
+          data-gtm-name="botao tentar novamente"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          onClick={() => handleTryAgain()}
+        >
+          TENTAR NOVAMENTE
+        </Button>
+      </s.CenterContent>
+    </>
+  )
+
+  const renderContent = () => (
     <s.ContentWrapper>
       <s.ComparativeModal
         isOpen={isModalOpen}
         handleClose={setIsModalOpen}
         travelPlans={[tripInsuranceQuotation]}
-        isLoading={false}
-        // isLoading={isLoading} com a chamada do redis
       />
       <StepBar title="Contratação" actualStep={1} totalNumberOfSteps={2} />
       <s.Container>
@@ -671,6 +734,21 @@ const ChoosePlan: StepComponent = () => {
       </s.FooterContainer>
     </s.ContentWrapper>
   )
+
+  const getContent = () => {
+    switch (true) {
+      // case redisResponse.isLoading:
+      case tripInsuranceCreditCard.isLoading:
+        return renderLoading()
+      // case redisResponse.hasError:
+      case tripInsuranceCreditCard.hasError:
+        return renderError()
+      default:
+        return renderContent()
+    }
+  }
+
+  return getContent()
 }
 
-export default ChoosePlan
+export default ProposalSummary

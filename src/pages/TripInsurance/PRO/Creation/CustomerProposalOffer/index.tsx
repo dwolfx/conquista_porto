@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Col, Container, Row } from 'styled-bootstrap-grid'
 
 import Modal from 'components/Modal/ModalNew'
@@ -9,6 +10,7 @@ import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 
 import { StepComponentProps } from 'hooks/FluxManagement/types'
 import { CustomerSteps } from 'pages/TripInsurance/PRO/types'
+import { ITripInsuranceCreditCard } from 'store/modules/TripInsurance/CreditCard/types'
 
 import * as s from './styles'
 
@@ -27,6 +29,16 @@ const CustomerProposalOffer = ({
     pop,
     reset,
   } = useStackFluxManagement<StepComponentProps>()
+
+  const {
+    // redisResponse,
+    tripInsuranceCreditCard,
+  } = useSelector(
+    (state: { tripInsuranceCreditCard: ITripInsuranceCreditCard }) => ({
+      // redisResponse: state.redis,
+      tripInsuranceCreditCard: state.tripInsuranceCreditCard,
+    })
+  )
 
   // Steps:
   // 1 - ProposalSummary
@@ -79,6 +91,12 @@ const CustomerProposalOffer = ({
         {modalFooterButton()}
       </Modal>
       <s.Layer
+        hasMarginBottom={
+          // !redisResponse.hasError &&
+          // !redisResponse.isLoading &&
+          !tripInsuranceCreditCard.hasError &&
+          !tripInsuranceCreditCard.isLoading
+        }
         isOpen={isOpen}
         handleClose={() => setIsModalOpen(true)}
         data-testid="trip-insurance-layer"

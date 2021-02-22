@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { Container as ContainerCmp, Col as ColCmp } from 'styled-bootstrap-grid'
-import ComparativeModalCmp from 'pages/TripInsurance/Creation/ComparativeModal'
-import TextCmp from 'components/Text'
-import CardCmp from 'components/Card'
-import DataShower from 'pages/CreditCard/common/components/DataShower'
 import Button from 'components/Button'
+import CardCmp from 'components/Card'
+import ComparativeModalCmp from 'pages/TripInsurance/Creation/ComparativeModal'
+import DataShower from 'pages/CreditCard/common/components/DataShower'
+import LoadingCmp from 'components/Loading'
 import { Table } from 'components/Table/styles'
+import TextCmp from 'components/Text'
 
 export const ContentWrapper = styled.div`
   background-color: ${props => props.theme.colors.gray1};
@@ -135,4 +136,29 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+`
+
+export const CenterContent = styled.div`
+  height: calc(100vh - 128px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding: ${({ theme }) => theme.spacing(2)}px;
+  }
+`
+
+export const ErrorText = styled(TextCmp).attrs(() => ({
+  color: 'magenta2',
+  type: 'headline',
+}))`
+  max-width: 441px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const Loading = styled(LoadingCmp)`
+  max-width: 441px;
 `
