@@ -13,6 +13,7 @@ interface IPlanCardProps {
   reserveFund: number
   administrativeFee: number
   lifeInsurance: number
+  handlerClick: () => void
 }
 
 const PlanCard = ({
@@ -24,6 +25,7 @@ const PlanCard = ({
   reserveFund,
   administrativeFee,
   lifeInsurance,
+  handlerClick,
 }: IPlanCardProps) => {
   return (
     <s.CardComponent>
@@ -99,7 +101,9 @@ const PlanCard = ({
           </s.Col>
         </s.Row>
         <s.Row>
-          <s.Button color="secondary">CONTRATAR</s.Button>
+          <s.Button onClick={handlerClick} color="secondary">
+            CONTRATAR
+          </s.Button>
         </s.Row>
         <s.Divider />
         <s.Row>

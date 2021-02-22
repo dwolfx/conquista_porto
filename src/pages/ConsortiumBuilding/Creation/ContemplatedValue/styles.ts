@@ -1,7 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Text from 'components/Text'
 import ButtonComponent from 'components/Button'
 import MoneyInput from 'components/Inputs/Money'
+
+const placeholderColor = css`
+  & #prefix {
+    color: ${({ theme }) => theme.colors.gray6};
+  }
+`
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -40,4 +46,6 @@ export const StyledButton = styled(ButtonComponent)`
 
 export const InputMoney = styled(MoneyInput)`
   margin-bottom: ${({ error, theme }) => !!error && theme.spacing(7)}px;
+
+  ${({ value }) => !!value && placeholderColor}
 `

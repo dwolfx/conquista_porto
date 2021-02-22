@@ -1,3 +1,4 @@
+import { TSelected } from 'components/Inputs/Select/types'
 import {
   ILabelContainerFifthInformationConfirmationStepHireFlux,
   ILabelContainerFirstInformationConfirmationStepHireFlux,
@@ -15,13 +16,10 @@ export interface IPersonalDataForm {
 
 export interface IDocumentForm {
   isForeignResidency: boolean
-  documentType: 'RG' | 'RNE' | ''
-  address: string
   documentNumber: string
   dateDispatch: string
   expeditedBody: string
   foreignResidence: string
-  countryResidence: string
   documentNumberNIF: string
   fatca: string
   passportNumber: string
@@ -39,6 +37,7 @@ export interface IDocumentCard {
     IDocumentForm,
     React.Dispatch<React.SetStateAction<IDocumentForm>>
   ]
+  documentType: [TSelected, React.Dispatch<React.SetStateAction<TSelected>>]
   label: ILabelContainerThirdInformationConfirmationStepHireFlux
   text: string
   placeholder: IPlaceholderContainerThirdInformationConfirmationStepHireFlux

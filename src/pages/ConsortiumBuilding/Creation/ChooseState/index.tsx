@@ -12,6 +12,7 @@ import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { capitalize } from 'helpers'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { GetContemplatedIntervalDataRequest } from 'store/modules/ConsortiumBuilding/Contemplated/action'
 import * as s from './styles'
 import * as t from './types'
 import { IFormConsortiumBuilding, Steps } from '../types'
@@ -31,7 +32,7 @@ const ChooseState: React.FC = () => {
   const [states, setStates] = useState<TOptions[]>([])
   const [uf, setUf] = React.useState<string>('')
 
-  const handleClick = () => {
+  const handleClick = React.useCallback(() => {
     updateForm({
       tipoPessoa: 1,
       tipoBusca: 3,
@@ -39,8 +40,9 @@ const ChooseState: React.FC = () => {
       codigoCanal: 7,
       uf,
     })
+    dispatch(GetContemplatedIntervalDataRequest())
     instantiate(Steps.contemplatedStep)
-  }
+  }, [dispatch, instantiate, uf, updateForm])
 
   const isDisabledButton: boolean = !(
     !!uf &&

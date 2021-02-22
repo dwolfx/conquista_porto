@@ -1,25 +1,25 @@
 import React from 'react'
 import InputMask from 'react-input-mask'
 import { cpf } from 'cpf-cnpj-validator'
-
 import { useSelector } from 'react-redux'
-import Divisor from 'components/Divisor'
+
 import { formatCpf } from 'helpers'
 import moment from 'moment'
+import Divisor from 'components/Divisor'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 import {
   errorObject,
   validationInputError,
 } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
-
 import {
   ICivilStatusConsortiumBuildingState,
   ICivilStatus,
 } from 'store/modules/ConsortiumBuilding/CivilStatus/types'
 import useMedia from 'hooks/useMedia'
-import * as s from './styles'
 import { IFormPersonalData, IPersonalDataCard } from '../types'
+
+import * as s from './styles'
 
 const PersonalDataCard: React.FC<IPersonalDataCard> = ({
   personalData: [personalData, setPersonalData],
@@ -163,7 +163,7 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
         <>
           <s.DelimiterInputWrapper>
             <s.InputPersonalData
-              label={label.civilStatus}
+              label={label.spouseName}
               data-testid="input-spouse-name-id"
               placeholder={formDefault.placeholderInput}
               value={personalData.spouseName}
