@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import 'styled-components/macro'
 import moment from 'moment'
 import { Row, Col } from 'styled-bootstrap-grid'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 
 import DatePickerRange from 'components/Dates/DatePickerRange'
 import MultiSelector from 'components/MultiSelector'
@@ -12,7 +13,10 @@ import Text from 'components/Text'
 import UserCard from 'components/Card/UserCard'
 import { IOption } from 'components/MultiSelector/types'
 import { IForm } from 'pages/TripInsurance/PRO/types'
-import { hasLatinAmerica } from 'pages/TripInsurance/Creation/OriginTripStep/helpers'
+import {
+  hasLatinAmerica,
+  hasOnlyLatinAmerica,
+} from 'pages/TripInsurance/Creation/OriginTripStep/helpers'
 import ComparativeModal from 'pages/TripInsurance/Creation/ComparativeModal'
 import { useToast } from 'hooks/toast'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
@@ -73,6 +77,7 @@ const TravelDetailsForm: StepComponent = () => {
   const [isSectionOneValid, setIsSectionOneValid] = useState(false)
   const [isSectionTwoValid, setIsSectionTwoValid] = useState(false)
   const [isSectionThreeValid, setIsSectionThreeValid] = useState(false)
+  const [isSectionFourValid, setIsSectionFourValid] = useState(false)
   const [isSectionFiveValid, setIsSectionFiveValid] = useState(false)
 
   // section 1
@@ -96,8 +101,8 @@ const TravelDetailsForm: StepComponent = () => {
   const [counts, setCounts] = useState({ young: 0, old: 0, total: 0 })
 
   // section 4
-  const [isPraticaAventura, setIsPraticaAventura] = useState(false)
-  const [isMotocicleta, setIsMotocicleta] = useState(false)
+  const [isPraticaAventura, setIsPraticaAventura] = useState(0)
+  const [isMotocicleta, setIsMotocicleta] = useState(0)
 
   // section 5
   const [selectedCommission, setSelectedComission] = useState({
@@ -218,6 +223,12 @@ const TravelDetailsForm: StepComponent = () => {
       setIsSectionThreeValid(false)
     }
 
+    if (isPraticaAventura === 0 && isMotocicleta === 0) {
+      setIsSectionFourValid(false)
+    } else {
+      setIsSectionFourValid(true)
+    }
+
     if (selectedCommission.id) {
       setIsSectionFiveValid(true)
     } else {
@@ -229,7 +240,9 @@ const TravelDetailsForm: StepComponent = () => {
     counts,
     initialDate,
     finalDate,
+    isPraticaAventura,
     selectedCommission.id,
+    isMotocicleta,
   ])
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
@@ -250,8 +263,8 @@ const TravelDetailsForm: StepComponent = () => {
   const onSubmitForm = () => {
     setIsFormPristine(false)
     const payload = {
-      isPraticaAventura,
-      isMotocicleta,
+      isPraticaAventura: isPraticaAventura === 1,
+      isMotocicleta: isMotocicleta === 1,
       codigoCanal: 1,
       motivoViagem: 1,
       codigoUfOrigem: 'SP',
@@ -358,8 +371,9 @@ const TravelDetailsForm: StepComponent = () => {
   }
 
   return (
-    <S.PageWrapper id="wrapper-scroll">
-      <S.Container>
+    <>
+      <StepBar title="Proposta" actualStep={2} totalNumberOfSteps={3} />
+      <S.Container id="wrapper-scroll">
         <Row>
           <Col lg={3}>
             <S.NavWrapper>
@@ -474,6 +488,7 @@ const TravelDetailsForm: StepComponent = () => {
                     startDateText="Data de partida"
                     endDateText="Data de chegada"
                     blockPastDays
+                    keepOpenOnDateSelect={false}
                     focusedInput={focusedInput}
                     onHandleFocusedInput={(focused: any) =>
                       onHandleRangeFocused(focused)
@@ -526,7 +541,7 @@ const TravelDetailsForm: StepComponent = () => {
                     disabledCase={counts.total === 20}
                     afterOnChange={value => {
                       setCounts({ ...counts, old: value })
-                      setIsPraticaAventura(false)
+                      setIsPraticaAventura(2)
                     }}
                     label={
                       <Text type="headline" color="gray6">
@@ -558,20 +573,20 @@ const TravelDetailsForm: StepComponent = () => {
                           label="Sim"
                           id="esportes-sim"
                           value
-                          checked={isPraticaAventura}
+                          checked={isPraticaAventura === 1}
                           disabled={counts.old > 0}
                           name="isPraticaAventura"
-                          handleChange={() => setIsPraticaAventura(true)}
+                          handleChange={() => setIsPraticaAventura(1)}
                         />
                         <S.Radio
                           label="Não"
                           aria-label="radio-esportes-nao"
                           id="esportes-nao"
-                          checked={!isPraticaAventura}
+                          checked={isPraticaAventura === 2}
                           disabled={counts.old > 0}
                           value={false}
                           name="isPraticaAventura"
-                          handleChange={() => setIsPraticaAventura(false)}
+                          handleChange={() => setIsPraticaAventura(2)}
                         />
                       </S.RadioWrapper>
                     </S.InputWrapper>
@@ -594,12 +609,12 @@ const TravelDetailsForm: StepComponent = () => {
                           label="Sim"
                           id="motocicleta-sim"
                           value
-                          checked={isMotocicleta}
+                          checked={isMotocicleta === 1}
                           name="isMotocicleta"
-                          handleChange={() => setIsMotocicleta(true)}
+                          handleChange={() => setIsMotocicleta(1)}
                           disabled={
-                            selectedDestinationType.id === 1 ||
-                            hasLatinAmerica(selectedCountries)
+                            hasOnlyLatinAmerica(selectedCountries) ||
+                            selectedDestinationType.id === 1
                           }
                         />
                         <S.Radio
@@ -607,15 +622,15 @@ const TravelDetailsForm: StepComponent = () => {
                           id="motocicleta-nao"
                           value={false}
                           name="isMotocicleta"
-                          handleChange={() => setIsMotocicleta(false)}
+                          handleChange={() => setIsMotocicleta(2)}
                           checked={
-                            !isMotocicleta ||
-                            selectedDestinationType.id === 1 ||
-                            hasLatinAmerica(selectedCountries)
+                            hasOnlyLatinAmerica(selectedCountries) ||
+                            isMotocicleta === 2 ||
+                            selectedDestinationType.id === 1
                           }
                           disabled={
-                            selectedDestinationType.id === 1 ||
-                            hasLatinAmerica(selectedCountries)
+                            hasOnlyLatinAmerica(selectedCountries) ||
+                            selectedDestinationType.id === 1
                           }
                         />
                       </S.RadioWrapper>
@@ -626,7 +641,7 @@ const TravelDetailsForm: StepComponent = () => {
                         <Text type="caption" bold color="gray5">
                           Informamos que a cobertura adicional não contempla
                           acidentes de motocicleta em qualquer destino na
-                          América do Sul.
+                          América Latina.
                         </Text>
                       </S.InformationWrapper>
                     )}
@@ -664,6 +679,7 @@ const TravelDetailsForm: StepComponent = () => {
                     !isSectionOneValid ||
                     !isSectionTwoValid ||
                     !isSectionThreeValid ||
+                    !isSectionFourValid ||
                     !isSectionFiveValid
                   }
                   onClick={onSubmitForm}
@@ -743,7 +759,7 @@ const TravelDetailsForm: StepComponent = () => {
         isOpen={isComissionDetailsModalOpen}
         handleClose={() => setIsComissionDetailsModalOpen(false)}
       />
-    </S.PageWrapper>
+    </>
   )
 }
 

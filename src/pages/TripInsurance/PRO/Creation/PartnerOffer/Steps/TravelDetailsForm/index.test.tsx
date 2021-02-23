@@ -81,8 +81,6 @@ describe('CustomerDataForm tests', () => {
     renderWithReduxAndTheme(setup(), {
       container: createRootContainer(),
     })
-    expect(screen.getByTestId('input-radio-esportes-nao')).toBeChecked()
-    expect(screen.getByTestId('input-radio-esportes-sim')).not.toBeChecked()
     fireEvent.click(screen.getByTestId('input-radio-esportes-sim'))
     expect(screen.getByTestId('input-radio-esportes-nao')).not.toBeChecked()
     expect(screen.getByTestId('input-radio-esportes-sim')).toBeChecked()
@@ -91,8 +89,6 @@ describe('CustomerDataForm tests', () => {
     renderWithReduxAndTheme(setup(), {
       container: createRootContainer(),
     })
-    expect(screen.getByTestId('input-radio-motocicleta-nao')).toBeChecked()
-    expect(screen.getByTestId('input-radio-motocicleta-sim')).not.toBeChecked()
     fireEvent.click(screen.getByTestId('input-radio-motocicleta-sim'))
     expect(screen.getByTestId('input-radio-motocicleta-nao')).not.toBeChecked()
     expect(screen.getByTestId('input-radio-motocicleta-sim')).toBeChecked()

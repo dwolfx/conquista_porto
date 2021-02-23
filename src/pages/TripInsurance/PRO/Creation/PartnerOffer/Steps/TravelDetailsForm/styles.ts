@@ -10,6 +10,7 @@ import SelectComp from 'components/Inputs/Select'
 import InputNumberComp from 'components/Inputs/Number'
 import Text from 'components/Text'
 import { InputNumberContainer } from 'components/Inputs/Number/styles'
+import IconCmp from 'components/IconExporter'
 
 export const QuestionWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(6)}px;
@@ -25,6 +26,7 @@ export const PageWrapper = styled.div`
 `
 
 export const Container = styled(ContainerComp)`
+  height: 100vh;
   margin-top: ${({ theme }) => theme.spacing(3)}px;
 `
 
