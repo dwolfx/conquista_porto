@@ -28,17 +28,22 @@ export const ContextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing(2)}px 0px;
+  min-height: 56px;
+  padding: ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(4)}px 0;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     align-items: flex-start;
   }
 `
 export const SimulationText = styled(TextCmp)`
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
+  margin: 0 ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(2)}px 0;
 `
 
-export const Text = styled(TextCmp)``
+export const Text = styled(TextCmp)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
 
 interface ITitleWrapper {
   cardsQuantity: number
@@ -119,6 +124,24 @@ export const SmallDarkBackground = styled.div`
 `
 
 export const ContentContainer = styled(ContainerCmp)`
+  padding-left: 0;
+  padding-right: 0;
+  height: calc(100vh - 135px);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: column;
+    height: calc(100vh - 198px);
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  }
+`
+
+export const ContentSchemeContainer = styled(ContainerCmp)`
   padding-left: 0;
   padding-right: 0;
   display: flex;
@@ -227,13 +250,13 @@ export const ErrorState = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 434px;
   min-height: calc(100vh - 136px);
+  width: 434px;
   align-self: center;
   text-align: center;
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    width: 304px;
+    width: 318px;
   }
 `
 
@@ -248,5 +271,33 @@ export const LoadingContainer = styled.div`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 304px;
+  }
+`
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    flex-direction: column;
+    width: 100%;
+  }
+`
+
+export const ExitButton = styled(ButtonCmp)`
+  width: 98px;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 100%;
+    margin: 0 0 ${({ theme }) => theme.spacing(2)}px 0;
+  }
+`
+
+export const SimulateAgainButton = styled(ButtonCmp)`
+  width: 205px;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    width: 100%;
   }
 `

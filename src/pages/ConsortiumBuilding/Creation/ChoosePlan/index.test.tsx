@@ -117,4 +117,25 @@ describe('Choose Plan tests', () => {
     expect(title).toBeInTheDocument()
     expect(tryAgainButton).toBeInTheDocument()
   })
+
+  it('should render not content state', () => {
+    setup({
+      consortiumBuildingProposalSimulations: {
+        data: {
+          simulacoes: [],
+        },
+        isLoading: false,
+        hasError: true,
+      },
+    })
+
+    const title = screen.getByText(
+      /Desculpe, no momento não temos um plano adequado para suas necessidades./i
+    )
+    const simulateAgainButton = screen.getByText(/simular novamente/i)
+    userEvent.click(simulateAgainButton)
+
+    expect(title).toBeInTheDocument()
+    expect(simulateAgainButton).toBeInTheDocument()
+  })
 })

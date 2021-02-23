@@ -48,18 +48,18 @@ const ChoosePlan: React.FC = () => {
     dispatch(
       PostProposalSimulationsRequest({
         payload: {
-          tipoPessoa: 1,
-          tipoBusca: 1,
-          codigoProduto: 2,
-          valorCredito: 92000, // Colocar informação que vem do form
-          uf: 'SP', // Colocar informação que vem do form
-          codigoCanal: '7',
+          tipoPessoa: form.tipoPessoa,
+          tipoBusca: form.tipoBusca,
+          codigoProduto: form.codigoProduto,
+          valorCredito: form.valorCredito || 0,
+          uf: form.uf,
+          codigoCanal: `${form.codigoCanal}`,
         },
         onErrorToast: addToast,
         onSuccess: () => null,
       })
     )
-  }, [addToast, dispatch])
+  }, [addToast, dispatch, form])
 
   const renderHeader = () => (
     <s.ContextWrapper>
@@ -85,6 +85,41 @@ const ChoosePlan: React.FC = () => {
   )
 
   const renderContent = () => {
+    if (
+      !isLoading &&
+      consortiumBuildingProposalSimulations &&
+      consortiumBuildingProposalSimulations?.length <= 0
+    ) {
+      return (
+        <s.BackgroundWrapper>
+          <s.SmallDarkBackground />
+          <s.ContentContainer>
+            {renderHeader()}
+            <s.ErrorState>
+              <s.Text type="headline">
+                Desculpe, no momento não temos um plano adequado para suas
+                necessidades.
+              </s.Text>
+              <s.ButtonsWrapper>
+                <s.ExitButton
+                  loading={isLoading}
+                  onClick={() => instantiate(Steps.chooseState)}
+                >
+                  INICIO
+                </s.ExitButton>
+                <s.SimulateAgainButton
+                  outline
+                  loading={isLoading}
+                  onClick={() => simulationDispatch()}
+                >
+                  SIMULAR NOVAMENTE
+                </s.SimulateAgainButton>
+              </s.ButtonsWrapper>
+            </s.ErrorState>
+          </s.ContentContainer>
+        </s.BackgroundWrapper>
+      )
+    }
     if (hasError) {
       return (
         <s.BackgroundWrapper>
@@ -129,7 +164,7 @@ const ChoosePlan: React.FC = () => {
       <>
         <s.BackgroundWrapper>
           <s.DarkBackground />
-          <s.ContentContainer>
+          <s.ContentSchemeContainer>
             {renderHeader()}
             <s.Divider />
             <s.ContentWrapper>
@@ -170,7 +205,7 @@ const ChoosePlan: React.FC = () => {
                   )}
               </s.CardsWrapper>
             </s.ContentWrapper>
-          </s.ContentContainer>
+          </s.ContentSchemeContainer>
         </s.BackgroundWrapper>
 
         <s.Footer>
