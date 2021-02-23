@@ -17,3 +17,9 @@ export interface IState {
 export interface IPayload {
   uf: IState[]
 }
+
+export interface IStatesConsortiumBuilding {
+  data: IPayload | null
+  isLoading: boolean
+  hasError: boolean
+}

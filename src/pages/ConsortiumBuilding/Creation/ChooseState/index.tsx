@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
-
 import { GetStatesRequest } from 'store/modules/ConsortiumBuilding/States/action'
-
 import { TOptions } from 'components/Inputs/Select/types'
-
 import StepBar from 'components/StepBar'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
@@ -13,9 +9,11 @@ import { capitalize } from 'helpers'
 import { StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { GetContemplatedIntervalDataRequest } from 'store/modules/ConsortiumBuilding/Contemplated/action'
+import { IStatesConsortiumBuilding } from 'store/modules/ConsortiumBuilding/States/types'
+import { IFormConsortiumBuilding, Steps } from '../types'
+
 import * as s from './styles'
 import * as t from './types'
-import { IFormConsortiumBuilding, Steps } from '../types'
 
 const ChooseState: React.FC = () => {
   const dispatch = useDispatch()
@@ -50,9 +48,16 @@ const ChooseState: React.FC = () => {
     !!selectedState.name
   )
 
-  const { consortiumBuildingStatesData } = useSelector((state: any) => ({
-    consortiumBuildingStatesData: state.consortiumBuildingStates.data,
-  }))
+  const {
+    consortiumBuildingStatesData: {
+      data: consortiumBuildingStatesData,
+      isLoading,
+    },
+  } = useSelector(
+    (state: { consortiumBuildingStates: IStatesConsortiumBuilding }) => ({
+      consortiumBuildingStatesData: state.consortiumBuildingStates,
+    })
+  )
 
   useEffect(() => {
     if (!consortiumBuildingStatesData) {
@@ -106,6 +111,7 @@ const ChooseState: React.FC = () => {
                 options={states}
                 selected={selectedState}
                 label=""
+                isLoading={isLoading}
                 optionBoxSize={300}
               />
               <s.StyledButton
