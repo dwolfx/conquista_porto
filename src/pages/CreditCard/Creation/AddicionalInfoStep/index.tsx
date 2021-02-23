@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupation/action'
@@ -58,6 +58,15 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
     })
   }
 
+  useLayoutEffect(() => {
+    const layerChildrenElement = document.querySelector('#layer-children')
+    if (layerChildrenElement) {
+      layerChildrenElement.scrollTo({ 
+        top: 0
+      })
+    }
+  }, [])
+
   useEffect(() => {
     if (creditCardOccupation.data === null) {
       dispatch(GetCreditCardOccupationRequest())
@@ -106,83 +115,85 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
   }, [motherName, city, selectedCivilState, selectedSex, selectedOcupation])
 
   return (
-    <GridContainer>
-      <S.Wrapper>
-        <S.StyledMain xs={12} sm={6} lg={4}>
-          <S.StyledText>
-            Agora confirme alguns dados do seu cadastro:
-          </S.StyledText>
-          <S.StyledForm>
-            <S.FlexWrapper>
+    <S.Wrapper>
+      <GridContainer>
+        <S.Row>
+          <S.StyledMain xs={12} sm={6} lg={4}>
+            <S.StyledText>
+              Agora confirme alguns dados do seu cadastro:
+            </S.StyledText>
+            <S.StyledForm>
+              <S.FlexWrapper>
+                <>
+                  <CivilState
+                    preSelectedCivilState={
+                      formData.codigoEstadoCivil ? +formData.codigoEstadoCivil : 0
+                    }
+                    selectedOption={selectedCivilState}
+                    setSelectedOption={setSelectedCivilState}
+                  />
+                </>
+                <>
+                  <Sex
+                    preSelectedSex={formData.sexo}
+                    selectedOption={selectedSex}
+                    setSelectedOption={setSelectedSex}
+                  />
+                </>
+              </S.FlexWrapper>
+
               <>
-                <CivilState
-                  preSelectedCivilState={
-                    formData.codigoEstadoCivil ? +formData.codigoEstadoCivil : 0
+                <Ocupation
+                  selectedOption={selectedOcupation}
+                  setSelectedOption={setSelectedOcupation}
+                  creditCardOccupation={creditCardOccupation}
+                  preSelectedOccupation={
+                    formData.codigoProfissao ? +formData.codigoProfissao : 0
                   }
-                  selectedOption={selectedCivilState}
-                  setSelectedOption={setSelectedCivilState}
                 />
               </>
-              <>
-                <Sex
-                  preSelectedSex={formData.sexo}
-                  selectedOption={selectedSex}
-                  setSelectedOption={setSelectedSex}
-                />
-              </>
-            </S.FlexWrapper>
 
-            <>
-              <Ocupation
-                selectedOption={selectedOcupation}
-                setSelectedOption={setSelectedOcupation}
-                creditCardOccupation={creditCardOccupation}
-                preSelectedOccupation={
-                  formData.codigoProfissao ? +formData.codigoProfissao : 0
-                }
+              <S.StyledInput
+                label="cidade"
+                error={errors.city && cityError}
+                value={city}
+                onChange={e => {
+                  const { value } = e.target
+                  setCity(value)
+                  setErrors({ ...errors, city: !value.length })
+                }}
               />
-            </>
 
-            <S.StyledInput
-              label="cidade"
-              error={errors.city && cityError}
-              value={city}
-              onChange={e => {
-                const { value } = e.target
-                setCity(value)
-                setErrors({ ...errors, city: !value.length })
-              }}
-            />
+              <S.StyledInput
+                label="nome da mãe"
+                error={errors.mother && motherNameError}
+                value={motherName}
+                onChange={e => {
+                  const { value } = e.target
+                  setMotherName(value)
+                  setErrors({ ...errors, mother: !value.length })
+                }}
+              />
 
-            <S.StyledInput
-              label="nome da mãe"
-              error={errors.mother && motherNameError}
-              value={motherName}
-              onChange={e => {
-                const { value } = e.target
-                setMotherName(value)
-                setErrors({ ...errors, mother: !value.length })
-              }}
-            />
+              <S.StyledButton
+                disabled={hasAnyError}
+                onClick={() => handleOnClick()}
+              >
+                próximo
+              </S.StyledButton>
 
-            <S.StyledButton
-              disabled={hasAnyError}
-              onClick={() => handleOnClick()}
-            >
-              próximo
-            </S.StyledButton>
-
-            <S.Footer>
-              <Divisor />
-              <S.AnotherStyledText>
-                Não se preocupe, a solicitação só será enviada após informarmos
-                o cartão disponível para você.
-              </S.AnotherStyledText>
-            </S.Footer>
-          </S.StyledForm>
-        </S.StyledMain>
-      </S.Wrapper>
-    </GridContainer>
+              <S.Footer>
+                <Divisor />
+                <S.AnotherStyledText>
+                  Não se preocupe, a solicitação só será enviada após informarmos
+                  o cartão disponível para você.
+                </S.AnotherStyledText>
+              </S.Footer>
+            </S.StyledForm>
+          </S.StyledMain>
+        </S.Row>
+      </GridContainer>
+    </S.Wrapper>
   )
 }
 

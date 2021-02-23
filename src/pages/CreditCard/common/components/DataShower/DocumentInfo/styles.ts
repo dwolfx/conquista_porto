@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  padding: ${({ theme }) => theme.spacing(2)}px 0;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
     padding: 0;
@@ -25,6 +25,13 @@ export const FlexWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: ${({ theme }) => theme.spacing(2)}px 0;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: ${({ theme }) => theme.spacing(2)}px;
   }
 `
 

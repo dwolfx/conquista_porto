@@ -27,7 +27,6 @@ export const Header = styled.div`
 export const HeaderGridContainer = styled(Container)`
   @media ${({ theme }) => theme.mediaQueries.mdUp} {
     padding: 0px;
-    margin: ${({ theme }) => `${theme.spacing(0)}px ${theme.spacing(4)}px`};
   }
 `
 

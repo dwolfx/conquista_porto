@@ -26,3 +26,6 @@ export const FooterText = styled(Text)`
 export const FieldForm = styled.div<{ error?: boolean }>`
   margin-bottom: ${({ theme, error }) => theme.spacing(error ? 7 : 4)}px;
 `
+export const FormWrapper = styled.div`
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+`

@@ -50,6 +50,7 @@ exports[`ComissionDetailsModal renders correctly 1`] = `
 
 .c8 {
   overflow: auto;
+  height: unset;
   padding: 21px 14px;
 }
 
@@ -161,7 +162,7 @@ exports[`ComissionDetailsModal renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c2 {
     min-width: unset;
     width: calc(100vw - 28px);

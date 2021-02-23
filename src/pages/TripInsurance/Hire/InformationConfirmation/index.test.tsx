@@ -144,29 +144,9 @@ describe('InformationConfirmation component tests', () => {
     )
     const radioOptions = screen.getAllByRole('radio')
 
-    const texts = ['Rubao', '362.753.128-07', '11/11/1981', 'Masculino']
-
-    texts
-      .map(value => screen.getByText(value))
-      .forEach(value => expect(value).toBeInTheDocument())
-
     expect(updateProfileLink).toHaveLength(2)
     expect(radioOptions).toHaveLength(4)
     expect([brazilianResidentOption]).toBeDefined()
-  })
-  it('should render correctly "Dados para contato" card', () => {
-    renderWithReduxAndTheme(<InformationConfirmation />)
-    const textsToBeDefined = [
-      'dados para contato',
-      'bruno.mizrahi@sciensa.com',
-      '(11) 9 9725-7249',
-    ]
-
-    const suiteTests = textsToBeDefined.map(word => ({
-      execution: screen.getByText(word),
-    }))
-
-    suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
   })
   it('should render correctly "Pessoa Politicamente Exposta (PPE)" card', () => {
     renderWithReduxAndTheme(<InformationConfirmation />)

@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
 import moment from 'moment'
+import { FLAGS } from 'pages/CreditCard/Creation/types'
 
 type IFormatMoneyOptions = {
   currency?: string
@@ -257,7 +258,6 @@ export const calculateAge = (birthDateString: string) => {
 }
 
 export const exchangePROToken = () => {
-  Cookies.set('TOKEN', 'skjadiosjiapdkpasdhjsaijdaidsoh')
   console.log('accessToken atual: ', Cookies.get('accessToken'))
   const tokenPRO = Cookies.get('TOKEN')
   console.log('tokenPRO: ', tokenPRO)
@@ -273,6 +273,14 @@ export const exchangePROToken = () => {
   //   Cookies.set('tokenPRO', accessToken, { domain: '.portoseguro.brasil' })
   //   console.log('Caiu no IF e veja se mudou o accessToken', Cookies.get('tokenPRO'))
   // }
+}
+
+export const getCreditCardDetails = (flagCode: FLAGS | null) => {
+  const flagName = flagCode === FLAGS.MASTERCARD ? 'MASTERCARD' : 'VISA'
+  return {
+    flagCode: flagCode ? flagCode : null,
+    flagName: flagCode ? flagName : null
+  }
 }
 
 export * from 'cpf-cnpj-validator'

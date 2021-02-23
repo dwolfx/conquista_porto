@@ -79,6 +79,12 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
   const [expeditionDate, setExpeditionDate] = useState('')
   const [issuingBody, setIssuingBody] = useState('')
 
+  const [touchedInputs, setTouchedInputs] = useState({
+    documentNumber: false,
+    expeditionDate: false,
+    issuingBody: false
+  })
+
   const {
     creditCardClient,
     isClientDataLoading,
@@ -192,6 +198,13 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     return value
   }
 
+  const touchInput = (formKey: string) => {
+    setTouchedInputs({
+      ...touchedInputs,
+      [formKey]: true,
+    })
+  }
+
   const getContent = () => {
     if (isClientDataLoading) {
       return (
@@ -212,11 +225,10 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
                         elements={[
                           <s.Label>{item.label}</s.Label>,
                           <Popover
-                            zIndex={14}
-                            key={uuid()}
-                            content={item.value}
                             tooltip
                             placement="top"
+                            zIndex={14}
+                            content={item.value}
                           >
                             <s.Value>{getItemValue(item.value)}</s.Value>
                           </Popover>
@@ -272,10 +284,14 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
             onChange={e => setDocumentNumber(e.target.value)}
           />
           <ExpeditionDateInput
+            touched={touchedInputs.documentNumber}
+            handleTouchField={() => touchInput('documentNumber')}
             expeditionDate={expeditionDate}
             setExpeditionDate={setExpeditionDate}
           />
           <IssuingBodyInput
+            touched={touchedInputs.issuingBody}
+            handleTouchField={() => touchInput('issuingBody')}
             issuingBody={issuingBody}
             setIssuingBody={setIssuingBody}
           />

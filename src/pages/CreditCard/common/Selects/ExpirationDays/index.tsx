@@ -14,7 +14,7 @@ interface IProps {
 const SelectExpirationDays = ({
   type,
   selectedOption,
-  setSelectedOption,
+  setSelectedOption
 }: IProps) => {
   const [options, setOptions] = useState<TOptions[]>([])
   const { expirationDays, isLoading } = useSelector((state: any) => ({
@@ -70,10 +70,10 @@ const SelectExpirationDays = ({
     <Select
       label="data de vencimento"
       emptyText="Por favor, selecione uma bandeira."
+      testId="data-vencimento-fatura"
       options={options}
       isLoading={isLoading}
       selected={selectedOption}
-      testId="data-vencimento-fatura"
     />
   )
 }

@@ -10,10 +10,7 @@ import MakeSenseSection from 'components/Solutions/MakeSenseSection'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
-import {
-  CloseCreationLayer,
-  OpenCreationLayer,
-} from 'store/modules/CreditCard/action'
+import { OpenCreationLayer } from 'store/modules/CreditCard/action'
 import { ICreditCardState } from 'store/modules/CreditCard/types'
 
 import Creation from './Creation'
@@ -158,12 +155,7 @@ export default function CreditCard() {
 
       <FileDownloadSection data={downloadFileSectionData} />
 
-      {isCreationLayerOpen && (
-        <Creation
-          isOpen={isCreationLayerOpen}
-          handleClose={() => dispatch(CloseCreationLayer())}
-        />
-      )}
+      {isCreationLayerOpen && <Creation isOpen={isCreationLayerOpen} />}
     </>
   )
 }

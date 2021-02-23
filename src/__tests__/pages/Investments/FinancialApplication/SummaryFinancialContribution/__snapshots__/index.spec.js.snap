@@ -367,13 +367,13 @@ Object {
   margin-bottom: 21px;
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c6 {
     padding: 0 21px;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c1 {
     border-radius: 0;
     padding: 21px 0 0 0;
@@ -381,20 +381,20 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c1 .c2 {
     max-height: 100vh;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c20 {
     margin: 0;
     width: 100%;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c20 {
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -402,14 +402,14 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c23 {
     margin: 0;
     width: 100%;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c23 {
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -417,7 +417,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c18 {
     -webkit-box-pack: space-around;
     -webkit-justify-content: space-around;
@@ -436,13 +436,13 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c4 {
     padding: 0;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c10 {
     background-color: #F1F1F1;
     border-radius: 8px;
@@ -601,7 +601,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-fzoNJl fuJQuW sc-fzplgP dGyDRe"
+      class="sc-fzoNJl fuJQuW sc-fzplgP cshOKa"
     >
       <div
         class="sc-fznWOq bXeOpI"
@@ -609,10 +609,10 @@ Object {
         overflow="hidden"
       >
         <div
-          class="sc-fzqzEs lbiyUS"
+          class="sc-fzqzEs hxtrsX"
         >
           <div
-            class="sc-fzqARJ hHBXB sc-fzoMdx cbjImN"
+            class="sc-fzqARJ hHBXB sc-fzoMdx OjaUI"
           >
             <div
               class="sc-fzqNqU kyKKEL"
@@ -630,10 +630,10 @@ Object {
             class="sc-AxjAm gmpEky"
           />
           <div
-            class="sc-fzqOul cQpMui"
+            class="sc-fzqOul dvajev"
           >
             <div
-              class="sc-fzqARJ hHBXB sc-fzoMdx cbjImN"
+              class="sc-fzqARJ hHBXB sc-fzoMdx OjaUI"
             >
               <div
                 class="sc-fzqNqU gbjgec"
@@ -660,7 +660,7 @@ Object {
               </div>
             </div>
             <div
-              class="sc-fzqARJ hHBXB sc-fzoMdx cbjImN"
+              class="sc-fzqARJ hHBXB sc-fzoMdx OjaUI"
             >
               <div
                 class="sc-fzqNqU gbjgec"
@@ -719,10 +719,10 @@ Object {
         class="sc-fzolEj iwMlca"
       >
         <div
-          class="sc-fzonjX KnbOB"
+          class="sc-fzonjX bNtqw"
         >
           <button
-            class="sc-fzqLLg bXpJVI sc-fznzqM sc-fznOgF eELXDs"
+            class="sc-fzqLLg bXpJVI sc-fznzqM sc-fznOgF eSpDzI"
             color="primary"
           >
             <span
@@ -732,7 +732,7 @@ Object {
             </span>
           </button>
           <button
-            class="sc-fzqLLg dkVgkl sc-fznzqM sc-fznYue cwExOj"
+            class="sc-fzqLLg dkVgkl sc-fznzqM sc-fznYue iDdrkb"
             color="secondary"
             disabled=""
           >

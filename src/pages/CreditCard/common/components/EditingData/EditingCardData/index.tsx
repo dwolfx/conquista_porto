@@ -21,7 +21,6 @@ const EditingCardData: React.FC<t.ICardData> = ({
   ...rest
 }) => {
   const isMobile = useMedia('sm')
-
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 
   const [selectedFlagOption, setSelectedFlagOption] = useState<FLAGS | ''>('')
@@ -86,7 +85,7 @@ const EditingCardData: React.FC<t.ICardData> = ({
           <SelectExpirationDays
             type={selectedFlagOption as FLAGS}
             selectedOption={selectedDueDateOption}
-            setSelectedOption={setSelectedDueDateOption}
+            setSelectedOption={setSelectedDueDateOption} 
           />
         </s.SelectWrapper>
       </s.Container>
@@ -122,6 +121,7 @@ const EditingCardData: React.FC<t.ICardData> = ({
         handleClose={handleClose}
         modalTitle="Alterar dados do cartão"
         footer={footerButton()}
+        fullHeightOnMobile
         {...rest}
       >
         {getContent()}

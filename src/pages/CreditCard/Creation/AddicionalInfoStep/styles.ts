@@ -4,9 +4,9 @@ import Button from 'components/Button'
 import NewInput from 'components/NewInput'
 import Text from 'components/Text'
 
-import { Row, Col } from 'styled-bootstrap-grid'
+import { Row as RowComponent, Col } from 'styled-bootstrap-grid'
 
-export const Wrapper = styled(Row)`
+export const Row = styled(RowComponent)`
   height: calc(100% - 56px);
   background-color: ${({ theme }) => theme.colors.white};
 
@@ -101,4 +101,11 @@ export const FlexWrapper = styled.div`
 
 export const Footer = styled.div`
   margin: ${({ theme }) => `${theme.spacing(4)}px 0 ${theme.spacing(6)}px`};
+`
+
+export const Wrapper = styled.div`
+  background: ${({ theme }) => theme.colors.white};
+  min-height: calc(100% - 56px);
+  display: flex;
+  align-items: center;
 `

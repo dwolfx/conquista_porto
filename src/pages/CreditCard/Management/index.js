@@ -13,10 +13,7 @@ import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 import Icon from 'components/IconExporter'
 import TopicsIconContent from 'components/TopicsIconContent'
-import {
-  CloseCreationLayer,
-  OpenCreationLayer,
-} from 'store/modules/CreditCard/action'
+import { OpenCreationLayer } from 'store/modules/CreditCard/action'
 
 import { formatMoney } from 'helpers'
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
@@ -98,7 +95,7 @@ export default function ManagementCreditCard() {
   useFetchCreditCard()
 
   useEffect(() => {
-    if (creditCard.data) {
+    if (creditCard.data && creditCard.data.length) {
       setSelectedCreditCard(creditCard.data[0].UltimosDigitos)
     }
   }, [creditCard.data])
@@ -265,10 +262,7 @@ export default function ManagementCreditCard() {
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
         {creditCard.isCreationLayerOpen && (
-          <Creation
-            isOpen={creditCard.isCreationLayerOpen}
-            handleClose={() => dispatch(CloseCreationLayer())}
-          />
+          <Creation isOpen={creditCard.isCreationLayerOpen} />
         )}
       </>
     )

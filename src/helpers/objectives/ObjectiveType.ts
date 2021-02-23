@@ -168,7 +168,6 @@ export default class ObjectiveType {
    * const image2 = await ObjectiveType.getImageById(9999) //throw error
    */
   static async getImageByGoalType(goalType: string) {
-    console.log(goalType)
     const image: { default: string } = await import(
       `assets/images/pages/Objectives/Manager/banner_default/${goalType.toLowerCase()}.jpg`
     )

@@ -1,8 +1,6 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 
 import * as s from './styles'
-
 interface IMailLink {
   hrefValue: string
   children: string

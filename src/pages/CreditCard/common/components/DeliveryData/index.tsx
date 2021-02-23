@@ -4,7 +4,7 @@ import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
-import { ICreditCardCreationPayload, ISummaryStep } from 'pages/CreditCard/Creation/types'
+import { ISummaryStep } from 'pages/CreditCard/Creation/types'
 import DataShower from '../DataShower'
 import EditingDeliveryData from '../EditingData/EditingDeliveryData'
 
@@ -13,19 +13,16 @@ import * as S from './styles'
 const DeliveryData = ({
   formData,
   setFormData,
-}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
+}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit' | 'isLoading'>) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const isDeliveryDataValid = (formData: ICreditCardCreationPayload) => {
-    return (
-      !!formData.cep &&
-      !!formData.logradouro &&
-      !!formData.numeroLogradouro &&
-      !!formData.bairro &&
-      !!formData.cidade &&
-      !!formData.uf
-    )
-  }
+  const isDeliveryDataValid = () =>
+    !!formData.cep &&
+    !!formData.logradouro &&
+    !!formData.numeroLogradouro &&
+    !!formData.bairro &&
+    !!formData.cidade &&
+    !!formData.uf
 
   return (
     <>
@@ -44,7 +41,7 @@ const DeliveryData = ({
         headerEndItem={
           <Button
             onClick={() => setIsOpen(true)}
-            hasNotification={!isDeliveryDataValid(formData)}
+            hasNotification={!isDeliveryDataValid()}
           >
             <Text bold type="button" color="blue4">
               Alterar
@@ -53,23 +50,19 @@ const DeliveryData = ({
         }
       >
         <S.Wrapper>
-          <DataShower
-            label="CEP"
-            value={formData?.cep?.replace(/(\d{5})(\d{3})/g, '$1-$2')}
-          />
+          <DataShower label="CEP">
+            {formData?.cep?.replace(/(\d{5})(\d{3})/g, '$1-$2')}
+          </DataShower>
           <Divisor />
-          <DataShower
-            label="Endereço"
-            value={`${formData.logradouro}, ${formData.numeroLogradouro}`}
-          />
+          <DataShower label="Endereço">{`${formData.logradouro}, ${formData.numeroLogradouro}`}</DataShower>
           <Divisor />
-          <DataShower label="Complemento" value={formData.complemento} />
+          <DataShower label="Complemento">{formData.complemento}</DataShower>
           <Divisor />
-          <DataShower label="Bairro" value={formData.bairro} />
+          <DataShower label="Bairro">{formData.bairro}</DataShower>
           <Divisor />
-          <DataShower label="Cidade" value={formData.cidade} />
+          <DataShower label="Cidade">{formData.cidade}</DataShower>
           <Divisor />
-          <DataShower label="Estado" value={formData.uf} />
+          <DataShower label="Estado">{formData.uf}</DataShower>
         </S.Wrapper>
       </S.StyledCard>
     </>

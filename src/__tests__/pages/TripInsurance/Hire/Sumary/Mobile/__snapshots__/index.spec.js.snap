@@ -203,7 +203,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c2 {
     padding: 0px;
   }
@@ -223,7 +223,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -235,7 +235,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -255,7 +255,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -263,7 +263,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -271,7 +271,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -279,7 +279,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -287,15 +287,15 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -600,6 +600,7 @@ Array [
 
 .c9 {
   overflow: auto;
+  height: unset;
   padding: 21px 14px;
 }
 
@@ -1084,7 +1085,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1098,7 +1099,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c3 {
     min-width: unset;
     width: calc(100vw - 28px);
@@ -1128,7 +1129,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c28 {
     -webkit-align-items: flex-start;
     -webkit-box-align: flex-start;
@@ -1161,7 +1162,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c35 {
     margin: 0 7px 14px;
   }
@@ -1177,7 +1178,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c29 {
     -webkit-align-items: flex-start;
     -webkit-box-align: flex-start;
@@ -1200,7 +1201,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c30 {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -1219,7 +1220,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c37 {
     padding: 14px 0;
   }
@@ -1231,17 +1232,17 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c38 {
     margin: 0 14px 28px;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1935,7 +1936,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1947,7 +1948,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1959,7 +1960,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1979,7 +1980,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1987,7 +1988,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -1995,7 +1996,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -2003,7 +2004,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -2011,17 +2012,17 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c0 {
     padding: 0;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c6 {
     width: 100%;
     margin: 14px;

@@ -11,7 +11,8 @@ import NoOffersState from 'pages/CreditCard/common/components/NoOffersState'
 import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
 import { GetCreditCardOfferRequest } from 'store/modules/CreditCard/Offers/action'
 import { useToast } from 'hooks/toast'
-import { formatCpf, handleGiwRedirect } from 'helpers'
+import useMedia from 'hooks/useMedia'
+import { formatCpf, handleGiwRedirect, truncateString } from 'helpers'
 import {
   ICreditCardOffer,
   OFFER_CODE,
@@ -33,6 +34,7 @@ const FirstStep = ({
 }: Pick<IStepComponent, 'onNextStep'>) => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
+  const isMobile = useMedia('xs')
   const [hasNoOffers, setHasNoOffers] = useState(false)
   const [brazilianStateOption, setBrazilianStateOption] = useState('')
   const [customerData, setCustomerData] = useState<t.TCustomerData | undefined>(
@@ -155,6 +157,7 @@ const FirstStep = ({
           <Loading
             type="bar"
             legend="Aguarde, estamos buscando suas informações..."
+            textAlign="center"
           />
         </s.LoadingWrapper>
       )
@@ -169,7 +172,7 @@ const FirstStep = ({
               <VerticalList
                 elements={[
                   <s.Label>{t.EInputsLabel[key as t.TEnumKeys]}</s.Label>,
-                  <s.Value>{value}</s.Value>,
+                  <s.Value>{isMobile ? truncateString(value, 25) : value}</s.Value>,
                 ]}
               />
               {index === 3 ? null : <s.Divisor />}

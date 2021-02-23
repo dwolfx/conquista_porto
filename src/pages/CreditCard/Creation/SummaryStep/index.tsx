@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useLayoutEffect } from 'react'
+import { ThemeContext } from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
 import Checkbox from 'components/Inputs/Checkbox'
@@ -19,8 +21,19 @@ const FifthStep = ({
   setFormData,
   onSubmit,
   retrySubmit,
+  isLoading,
 }: ISummaryStep) => {
   const [isChecked, setChecked] = useState(false)
+  const themeContext = useContext(ThemeContext)
+
+  useLayoutEffect(() => {
+    const layerChildrenElement = document.querySelector('#layer-children')
+    if (layerChildrenElement) {
+      layerChildrenElement.scrollTo({ 
+        top: 0
+      })
+    }
+  }, [])
 
   return (
     <>
@@ -44,7 +57,11 @@ const FifthStep = ({
               <PersonalData formData={formData} setFormData={setFormData} />
               <CardData formData={formData} setFormData={setFormData} />
               <DeliveryData formData={formData} setFormData={setFormData} />
-              <StyledCard>
+              <StyledCard
+                css={`
+                  margin-bottom: ${themeContext.spacing(11)}px;
+                `}
+              >
                 <S.CheckboxWrapper>
                   <Checkbox
                     data-testid="credit-card-check"
@@ -70,6 +87,7 @@ const FifthStep = ({
         <Button
           color="secondary"
           disabled={!isChecked}
+          loading={isLoading}
           onClick={() => onSubmit()}
         >
           {retrySubmit ? 'TENTAR NOVAMENTE' : 'SOLICITAR CARTÃO'}

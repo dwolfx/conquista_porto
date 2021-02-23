@@ -8,15 +8,22 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 
 export const GridContainer = styled(Container)``
-export const GridRow = styled(Row)``
 export const GridCol = styled(Col)``
 
-export const StyledCard = styled(Card)`
+export const GridRow = styled(Row)`
   margin-top: ${({ theme }) => theme.spacing(3)}px;
+`
+
+export const StyledCard = styled(Card)`
+  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
   height: auto;
 
   @media ${({ theme }) => theme.mediaQueries.mdUp} {
     height: 100%;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(3)}px`};
   }
 `
 
@@ -61,6 +68,10 @@ export const SuccessIcon = styled(Icon).attrs(() => ({
 
 export const BoxContent = styled.div`
   max-width: 725px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    max-width: 232px;
+  }
 `
 
 export const ListWrapper = styled.ul``
@@ -80,15 +91,13 @@ export const Title = styled(Text).attrs({
   type: 'headline',
   color: 'gray6',
   bold: true,
-})`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
+})``
 
 export const Description = styled(Text).attrs({
   type: 'body',
   color: 'gray5',
 })`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   & > a {
     color: ${props => props.theme.colors.blue4};
     font-weight: 400;
@@ -100,11 +109,15 @@ export const CreditCardImg = styled.img.attrs({
   alt: 'Cartão de crédito',
 })`
   width: 180px;
-  padding-left: ${({ theme }) => theme.spacing(2)}px;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  margin: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     width: 300px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: ${({ theme }) => `${theme.spacing(1)}px 0 0`};
+    padding: ${({ theme }) => `0 ${theme.spacing(2)}px 11px`};
   }
 `
 

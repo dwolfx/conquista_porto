@@ -42,7 +42,10 @@ export const StyledText = styled(Text)`
 export const CheckboxWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(21)}px ${theme.spacing(2)}px ${theme.spacing(6)}px`};
+  padding: ${({ theme }) =>
+    `${theme.spacing(2)}px ${theme.spacing(21)}px ${theme.spacing(
+      2
+    )}px ${theme.spacing(6)}px`};
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
     padding: ${({ theme }) => `${theme.spacing(3)}px`};
@@ -50,6 +53,8 @@ export const CheckboxWrapper = styled.div`
 `
 
 export const Footer = styled.div`
+  position: fixed;
+  bottom: 0;
   width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.gray3};
   margin-top: ${({ theme }) => theme.spacing(2)}px;
@@ -75,7 +80,8 @@ export const StyledCol = styled(Col)`
   }
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
-    margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(1)}px 0 ${theme.spacing(2)}px`};
+    margin: ${({ theme }) =>
+      `${theme.spacing(4)}px ${theme.spacing(1)}px 0 ${theme.spacing(2)}px`};
   }
 `
 
@@ -83,5 +89,4 @@ export const StyledVerticalList = styled(VerticalList)`
   @media ${({ theme }) => theme.mediaQueries.sm} {
     padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(4)}px`};
   }
-
 `

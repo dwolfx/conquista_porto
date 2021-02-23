@@ -13,23 +13,27 @@ const CreditCardContent = ({
   flag,
   title,
   path,
-  valor
+  valor,
 }: Omit<CreditCardInfo, 'type'>) => {
   const history = useHistory()
   return (
     <CardInfo>
-      <Title> 
+      <Title>
         <Text type="headline">{title}</Text>
       </Title>
       <HorizontalListStyled
         noPadding
         size="medium"
         startItems={[
-          <Text type="captionUppercase" bold color="gray5">limite disponível</Text>,
+          <Text type="captionUppercase" bold color="gray5">
+            limite disponível
+          </Text>,
         ]}
         endItems={[
           <IconExporter name={flag || 'creditcard'} width="25" />,
-          <Text type="body" bold>{valor}</Text>,
+          <Text type="body" bold>
+            {valor}
+          </Text>,
         ]}
       />
       <Button

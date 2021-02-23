@@ -37,14 +37,14 @@ export default function Select({
     return options.map(option => (
       <s.OptionsItem
         selected={option.id === selected.id}
+        data-testid={`option-${option.text.replace(/\s/gs, '-')}`}
+        key={uuid()}
         onClick={() => {
           if (option.onClick) {
             option.onClick()
           }
           setOptionsOpen(false)
         }}
-        data-testid={`option-${option.text.replace(/\s/gs, '-')}`}
-        key={uuid()}
       >
         {option.icon && (
           <Icon name={option.icon} color="gray6" width={21} height={21} />

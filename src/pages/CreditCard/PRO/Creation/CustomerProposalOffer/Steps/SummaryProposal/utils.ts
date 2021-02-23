@@ -69,7 +69,6 @@ export const getSummaryProposal = async (
 ) => {
   setIsLoading(true)
   setHasError(false)
-  console.log('getSummaryProposal, ok')
   try {
     const { data } = await axiosInstance.get(`${baseURLNamespacePROCartao}/proposta/${keyRedis}`)
     const payload: ICreditCardProposalRequest = {

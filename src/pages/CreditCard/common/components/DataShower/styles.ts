@@ -15,7 +15,7 @@ export const ValueWrapper = styled.div`
 export const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing(2)}px 0;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
     align-items: flex-start;

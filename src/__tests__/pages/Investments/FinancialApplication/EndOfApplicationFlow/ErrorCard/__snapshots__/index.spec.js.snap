@@ -279,7 +279,7 @@ Object {
   margin: 0 0 11px 56px;
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c13 {
     margin: 0 14px;
   }
@@ -289,7 +289,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c11 {
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
@@ -304,7 +304,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c1 {
     height: 100%;
     border-radius: 0;
@@ -312,7 +312,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c3 {
     margin-top: 11px;
   }
@@ -324,7 +324,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c9 {
     margin-left: 70px;
   }
@@ -336,7 +336,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c4 {
     margin-left: 21px;
   }
@@ -423,7 +423,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-fznZeY jVvOhJ sc-fzqNqU jfbFek"
+      class="sc-fznZeY jVvOhJ sc-fzqNqU coBa-DJ"
     >
       <div
         class="sc-fzoLag kvFCaS"
@@ -431,10 +431,10 @@ Object {
         overflow="hidden"
       >
         <div
-          class="sc-fzoNJl dFSshK"
+          class="sc-fzoNJl aabJX"
         >
           <div
-            class="sc-fzqPZZ gFSoIF"
+            class="sc-fzqPZZ kwDutU"
           >
             <svg
               aria-label="closerounded"
@@ -454,7 +454,7 @@ Object {
             </h5>
           </div>
           <p
-            class="sc-AxjAm gLsLGV sc-fzoXWK crPfML"
+            class="sc-AxjAm gLsLGV sc-fzoXWK bVozIi"
             color="unset"
             type="body"
           >
@@ -466,10 +466,10 @@ Object {
         class="sc-fzoXzr fphgXx"
       >
         <div
-          class="sc-fzoiQi zPwPR"
+          class="sc-fzoiQi dcAqSc"
         >
           <button
-            class="sc-AxheI dpFMtT sc-fznWqX eXhEJa"
+            class="sc-AxheI dpFMtT sc-fznWqX hOtMTT"
             color="primary"
             data-gtm-clicktype="button"
             data-gtm-name="gerenciar investimentos"
@@ -482,7 +482,7 @@ Object {
             </span>
           </button>
           <button
-            class="sc-AxheI kAKOXk sc-fznWqX eXhEJa"
+            class="sc-AxheI kAKOXk sc-fznWqX hOtMTT"
             color="primary"
             data-gtm-clicktype="button"
             data-gtm-name="lista de fundos"

@@ -7,7 +7,7 @@ import { MD5 } from 'crypto-js'
 import Loading from 'components/Loading'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { base64decode } from 'helpers'
+import { base64decode, exchangePROToken } from 'helpers'
 import { baseURLNamespaceInvestAws, post } from 'services/api'
 import { baseURLNamespacePROCartao } from 'services/apiConfig'
 import Radio from 'components/Inputs/Radio/New'
@@ -16,8 +16,6 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import HorizontalList from 'components/HorizontalList'
 import UserCard from 'components/Card/UserCard'
-// import LoadingState from 'pages/CreditCard/common/components/FullScreenLoadingState'
-// import NoOffersState from 'pages/CreditCard/common/components/NoOffersState'
 import SelectExpirationDays from 'pages/CreditCard/common/Selects/ExpirationDays'
 import SelectBrazilianStates from 'pages/CreditCard/common/Selects/BrazilianStates'
 import saveRedis from 'services/common/Redis'
@@ -51,11 +49,6 @@ const CreditCardStepPRO = () => {
     hasError: hasZipCodeError,
   } = useZipCodeFetch()
 
-  // const { creditCardOffers, isCreditCardOffersLoading } = useSelector((state: any) => ({
-  //   creditCardOffers: state.creditCardOffer.data,
-  //   isCreditCardOffersLoading: state.creditCardOffer.isLoading,
-  // }))
-
   const [isLoading, setIsLoading] = useState(false)
   const [submitErrorCount, setSubmitErrorCount] = useState<number>(0)
   const [customer, setCustomer] = useState<IBase64DecodedResponse | null>(null)
@@ -88,13 +81,13 @@ const CreditCardStepPRO = () => {
     'success' | 'error' | null
   >(null)
 
-  // const syncToken = React.useCallback(() => {
-  //   exchangePROToken()
-  // }, [])
+  const syncToken = React.useCallback(() => {
+    exchangePROToken()
+  }, [])
 
-  // useEffect(() => {
-  //   syncToken()
-  // }, [syncToken])
+  useEffect(() => {
+    syncToken()
+  }, [syncToken])
 
   // Base64 Decode
   useEffect(() => {
@@ -147,32 +140,6 @@ const CreditCardStepPRO = () => {
     }
   }, [dispatch])
 
-  // const handleGetAddress = useCallback(() => {
-  //   const handleSuccess = (cepResponse: CEPResponse) => {
-  //     const { tipoLogradouro, cidade, logradouro, bairro, uf } = cepResponse
-  //     setStreetAddress({
-  //       value: `${tipoLogradouro}. ${logradouro}`,
-  //       touched: true,
-  //     })
-  //     setCity({ value: cidade, touched: true })
-  //     setNeighbourhood({ value: bairro, touched: true })
-  //     setStateOption({ id: 99, name: uf })
-  //     setLoadingCep(false)
-  //     setIsAddressDisabled(true)
-  //   }
-
-  //   const handleError = () => {
-  //     setLoadingCep(false)
-  //     addToast({
-  //       type: 'error',
-  //       title: 'Houve um erro ao buscar CEP.',
-  //       description: 'Por favor, edite o endereço manualmente.',
-  //     })
-  //   }
-
-  //   getAddress({ cep: cep.value, handleSuccess, handleError })
-  // }, [addToast, cep])
-
   const handleSaveRedis = async () => {
     if (customer?.cpfCliente) {
       const md5CPF = MD5(customer.cpfCliente.toString()).toString()
@@ -192,7 +159,6 @@ const CreditCardStepPRO = () => {
           },
         },
       }
-      console.log({ md5CPF })
       await saveRedis<ICreditCardRedis>(payload, baseURLNamespacePROCartao)
     }
   }
@@ -237,7 +203,7 @@ const CreditCardStepPRO = () => {
         payload
       )
 
-      if (data.Message.tipoCritica !== 'SUCESSO') {
+      if (data.Message.TipoCritica !== 'SUCESSO') {
         throw new Error(JSON.stringify({ msg: data.Message }))
       }
       setProposalStatus('success')

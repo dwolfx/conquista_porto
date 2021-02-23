@@ -11,6 +11,9 @@ import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
 import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupation/action'
 import { useToast } from 'hooks/toast'
+import PersonalData from 'pages/CreditCard/common/components/PersonalData'
+import CardData from 'pages/CreditCard/common/components/CardData'
+import DeliveryData from 'pages/CreditCard/common/components/DeliveryData'
 import {
   GetCreditCardExpirationDaysRequest,
   GetCreditCardExpirationDaysClearData,
@@ -20,11 +23,6 @@ import {
   ICreditCardProposalRequest,
   IOrderResponse,
 } from 'pages/CreditCard/Creation/types'
-
-
-import PersonalData from 'pages/CreditCard/common/components/PersonalData'
-import CardData from 'pages/CreditCard/common/components/CardData'
-import DeliveryData from 'pages/CreditCard/common/components/DeliveryData'
 
 import SummaryProposalLoading from './Loading'
 import SummaryProposalError from './Error'

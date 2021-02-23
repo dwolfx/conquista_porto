@@ -220,7 +220,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -499,7 +499,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c2 {
     min-width: unset;
     margin: 0 auto;

@@ -246,7 +246,7 @@ exports[`Login component should renders correctly with development value for env
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c7 {
     width: 100%;
     padding: 0;
@@ -635,7 +635,7 @@ exports[`Login component should renders correctly with error message 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c7 {
     width: 100%;
     padding: 0;
@@ -1022,7 +1022,7 @@ exports[`Login component should renders correctly with local value for env 1`] =
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c7 {
     width: 100%;
     padding: 0;

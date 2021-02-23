@@ -502,7 +502,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c2 {
     width: 100%;
   }

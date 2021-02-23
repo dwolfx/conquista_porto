@@ -1,13 +1,13 @@
 import React from 'react'
+import 'styled-components/macro'
 
 import Button from 'components/Button'
 import Divisor from 'components/Divisor'
 import { ECardFlagLabel } from 'pages/CreditCard/Creation/common/labels'
+import { ICreditCardCreationPayload, IOrderResponse } from 'pages/CreditCard/Creation/types'
 
 import SuccessContent from './SuccessContent'
 import ErrorContent from './ErrorContent'
-
-import { ICreditCardCreationPayload, IOrderResponse } from 'pages/CreditCard/Creation/types'
 
 import * as S from './styles'
 

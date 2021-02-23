@@ -3,23 +3,26 @@ import React, { useState } from 'react'
 import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
-
-import { ECardFlagLabel } from 'pages/CreditCard/Creation/common/labels'
-import { ICreditCardCreationPayload, ISummaryStep } from 'pages/CreditCard/Creation/types'
+import {
+  FLAGS,
+  ICreditCardCreationPayload,
+  ISummaryStep,
+} from 'pages/CreditCard/Creation/types'
 import DataShower from 'pages/CreditCard/common/components/DataShower'
 import EditingCardData from 'pages/CreditCard/common/components/EditingData/EditingCardData'
+import useCreditCardDetails from 'hooks/CreditCard/useCreditCardDetails'
 
 import * as S from './styles'
 
 const CardData = ({
   formData,
   setFormData,
-}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
+}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit' | 'isLoading'>) => {
   const [isOpen, setIsOpen] = useState(false)
+  const { flagName } = useCreditCardDetails(formData.codigoBandeira as FLAGS || null)
 
-  const isCreditCardDataValid = (formData: ICreditCardCreationPayload) => {
-    return !!formData.codigoBandeira && !!formData.diaVencimento
-  }
+  const isCreditCardDataValid = (formData: ICreditCardCreationPayload) =>
+    !!formData.codigoBandeira && !!formData.diaVencimento
 
   return (
     <>
@@ -49,15 +52,9 @@ const CardData = ({
         }
       >
         <S.Wrapper>
-          <DataShower
-            label="Bandeira"
-            value={ECardFlagLabel[+formData.codigoBandeira!]}
-          />
+          <DataShower label="Bandeira">{flagName}</DataShower>
           <Divisor />
-          <DataShower
-            label="Vencimento da fatura"
-            value={formData.diaVencimento}
-          />
+          <DataShower label="Vencimento da fatura">{formData.diaVencimento}</DataShower>
         </S.Wrapper>
       </S.StyledCard>
     </>

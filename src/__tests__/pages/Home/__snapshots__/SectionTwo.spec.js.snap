@@ -346,7 +346,7 @@ Array [
 
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
 
 }
 
@@ -985,7 +985,7 @@ Array [
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c5 {
     height: 205px;
   }

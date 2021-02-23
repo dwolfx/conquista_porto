@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Col, Container, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -61,6 +61,15 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
     })
   )
 
+  useLayoutEffect(() => {
+    const layerChildrenElement = document.querySelector('#layer-children')
+    if (layerChildrenElement) {
+      layerChildrenElement.scrollTo({ 
+        top: 0
+      })
+    }
+  }, [])
+
   useEffect(() => {
     if (
       cep.value.trim().length !== 0 &&
@@ -92,14 +101,14 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
   useEffect(() => {
     if (cepData.data) {
       const { bairro, uf, cidade, logradouro, tipoLogradouro } = cepData.data
-      setStreetAddress({
-        value: `${tipoLogradouro}. ${logradouro}`,
-        touched: true,
-      })
       setCity({ value: cidade, touched: true })
       setNeighbourhood({ value: bairro, touched: true })
       setStateOption({ id: 99, name: uf })
       setIsAddressDisabled(true)
+      setStreetAddress({
+        value: `${tipoLogradouro}. ${logradouro}`,
+        touched: true,
+      })
     }
   }, [cepData])
 
@@ -131,13 +140,13 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                 )}
                 {creditCardOffer && creditCardOffer.isMasterCardActive && (
                   <s.RadioCard
+                    data-testid="card-credit-card-flag-master"
                     checked={
                       selectedFlag === FLAGS.MASTERCARD ||
                       (creditCardOffer &&
                         creditCardOffer.CodigoOferta ===
                           OFFER_CODE.ONLY_MASTER_CODE)
                     }
-                    data-testid="card-credit-card-flag-master"
                     onClick={() => {
                       if (!isCreditCardExpirationDaysLoading) {
                         setSelectedFlag(FLAGS.MASTERCARD)

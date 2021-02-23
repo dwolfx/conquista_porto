@@ -83,13 +83,14 @@ export const objectivesColorGuide = [
   themeColors.magenta1,
 ]
 
+// https://www.npmjs.com/package/styled-bootstrap-grid
 export const gridConfig = {
   breakpoints: {
     xl: 1280,
-    lg: 1280,
-    md: 980,
-    sm: 736,
-    xs: 480,
+    lg: 1280, // min-width | > 1280px (Desktop)
+    md: 980, // min-width | 980px -> 1279px (Tablet Horizonal)
+    sm: 736, // min-width | 736px -> 979px (Tablet Vertical)
+    xs: 735, // max-width | 0 -> 735px (Mobile)
   },
   row: {
     padding: 7,
