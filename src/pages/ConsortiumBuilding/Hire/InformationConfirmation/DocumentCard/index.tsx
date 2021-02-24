@@ -1,13 +1,9 @@
 import React from 'react'
 import InputMask from 'react-input-mask'
 import { useSelector } from 'react-redux'
-
 import { TSelected, TOptions } from 'components/Inputs/Select/types'
-import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import Divisor from 'components/Divisor'
 import { capitalize, maskRG } from 'helpers'
-import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
-
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import useMedia from 'hooks/useMedia'
 import {
@@ -25,6 +21,8 @@ import {
   validationErrorDocument,
   validationErrorDateDispatch,
   validationErrorExpeditedBody,
+  validationErrorNIF,
+  validationErrorPassportNumber,
 } from './utils'
 
 import * as s from './styles'
@@ -38,7 +36,6 @@ const DocumentCard: React.FC<IDocumentCard> = ({
   isForeignResidency: [isForeignResidency, setIsForeignResidency],
 }: IDocumentCard) => {
   const { formDefault } = TextsConsortiumBuilding()
-  const { isNumber } = ErrorForm()
 
   const clearForm = () => {
     setValidForm({
@@ -50,7 +47,7 @@ const DocumentCard: React.FC<IDocumentCard> = ({
     setDocumentData({
       ...documentData,
       documentNumber: '',
-      expeditedBody: '',
+      expeditedBody: documentTypeSelect.name === 'RNE' ? 'CGPI/DIREX/DPF' : '',
       dateDispatch: '',
     })
     setDocumentNumber('')
@@ -292,7 +289,7 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                 error={validationErrorDocument(
                   documentNumber,
                   validForm.documentNumber,
-                  isNumber
+                  documentTypeSelect.name
                 )}
                 onChange={(e: React.FormEvent<HTMLInputElement>) => {
                   setDocumentNumber(
@@ -330,8 +327,13 @@ const DocumentCard: React.FC<IDocumentCard> = ({
               </InputMask>
               <InputMask
                 maskPlaceholder={null}
-                mask="aaa/aa"
-                value={documentData.expeditedBody}
+                mask={
+                  documentTypeSelect.name === 'RNE'
+                    ? '****/*****/***'
+                    : 'aaa/aa'
+                }
+                value={documentTypeSelect.name}
+                disabled={documentTypeSelect.name === 'RNE'}
                 onBlur={() => checkForm('expeditedBody')}
                 onChange={(e: React.FormEvent<HTMLInputElement>) =>
                   setDocumentData({
@@ -343,7 +345,7 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                 <s.InputDocument
                   label={label.expeditedBody}
                   data-testid="input-spouse-name-id"
-                  maxLength={6}
+                  maxLength={documentTypeSelect.name === 'RNE' ? 14 : 6}
                   placeholder={placeholderExpediteBody(
                     documentTypeSelect,
                     placeholder
@@ -401,18 +403,15 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                   placeholder={formDefault.placeholderInput}
                   value={documentData.documentNumberNIF}
                   onBlur={() => checkForm('documentNumberNIF')}
-                  error={validationInputError(
+                  error={validationErrorNIF(
                     documentData.documentNumberNIF,
                     validForm.documentNumberNIF
                   )}
-                  maxLength={9}
+                  maxLength={25}
                   onChange={(e: React.FormEvent<HTMLInputElement>) => {
                     setDocumentData({
                       ...documentData,
-                      documentNumberNIF: e.currentTarget.value.replace(
-                        /\D/g,
-                        ''
-                      ),
+                      documentNumberNIF: e.currentTarget.value.toUpperCase(),
                     })
                   }}
                 />
@@ -433,7 +432,8 @@ const DocumentCard: React.FC<IDocumentCard> = ({
                   placeholder={formDefault.placeholderInput}
                   value={documentData.passportNumber}
                   onBlur={() => checkForm('passportNumber')}
-                  error={validationInputError(
+                  maxLength={6}
+                  error={validationErrorPassportNumber(
                     documentData.passportNumber,
                     validForm.passportNumber
                   )}

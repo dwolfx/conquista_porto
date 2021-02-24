@@ -7,10 +7,7 @@ import { formatCpf } from 'helpers'
 import moment from 'moment'
 import Divisor from 'components/Divisor'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import {
-  errorObject,
-  validationInputError,
-} from 'pages/CreditCard/Creation/CreditCardStep/validators'
+import { errorObject } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import {
   ICivilStatusConsortiumBuildingState,
@@ -30,7 +27,6 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
 
   const [validForm, setValidForm] = React.useState<IFormPersonalData>({
     spouseDocument: false,
-    spouseName: false,
   })
 
   const [civilStatus, setCivilStatus] = React.useState<TSelected>({
@@ -87,7 +83,6 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
 
     if (!isResult) {
       setValidForm({
-        spouseName: false,
         spouseDocument: false,
       })
 
@@ -101,17 +96,11 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
     }
   }, [personalData, setPersonalData])
 
-  const checkForm = (key: string) => {
-    setValidForm((check: IFormPersonalData) => ({
-      ...check,
-      [key]: true,
-    }))
-  }
-
   const validationDocumentSpouse = (): errorObject | boolean => {
     if (
       personalData.spouseDocument &&
-      personalData.spouseDocument.length === 11
+      personalData.spouseDocument.length === 11 &&
+      validForm.spouseDocument
     ) {
       if (!cpf.isValid(personalData.spouseDocument)) {
         return {
@@ -121,10 +110,7 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
       }
     }
 
-    return validationInputError(
-      personalData.spouseDocument,
-      validForm.spouseDocument
-    )
+    return false
   }
 
   return (
@@ -167,11 +153,6 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
               data-testid="input-spouse-name-id"
               placeholder={formDefault.placeholderInput}
               value={personalData.spouseName}
-              onBlur={() => checkForm('spouseName')}
-              error={validationInputError(
-                personalData.spouseName,
-                validForm.spouseName
-              )}
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
                 setPersonalData({
                   ...personalData,
@@ -189,7 +170,7 @@ const PersonalDataCard: React.FC<IPersonalDataCard> = ({
                   spouseDocument: e.currentTarget.value.replace(/\D/g, ''),
                 })
               }
-              onBlur={() => checkForm('spouseDocument')}
+              onBlur={() => setValidForm({ spouseDocument: true })}
             >
               <s.InputPersonalData
                 label="CPF do(a) cônjuge"

@@ -1,16 +1,10 @@
 import React from 'react'
 import useZipCodeFetch from 'hooks/ZipCode/useZipCodeFetch'
+import { dict } from 'components/IconExporter'
+import { statusOption } from './utils'
+import { IAddressForm } from './types'
 
 import * as s from './styles'
-import {
-  errorCEP,
-  isInvalidCEP,
-  validationInputError,
-} from 'pages/CreditCard/Creation/CreditCardStep/validators'
-
-import { dict } from 'components/IconExporter'
-import { statusOption, touch } from './utils'
-import { IAddressForm, IFormAddres } from './types'
 
 const AddressForm: React.FC<IAddressForm> = ({
   cep: [cep, setCep],
@@ -28,16 +22,6 @@ const AddressForm: React.FC<IAddressForm> = ({
     isLoading,
     hasError,
   } = useZipCodeFetch()
-
-  const [touched, setTouched] = React.useState<IFormAddres>({
-    cep: false,
-    streetAddress: false,
-    number: false,
-    additionalInfo: false,
-    neighbourhood: false,
-    city: false,
-    stateOption: false,
-  })
 
   React.useEffect(() => {
     if (!zipCode.hasError && zipCode.data) {
@@ -65,15 +49,6 @@ const AddressForm: React.FC<IAddressForm> = ({
       setComplement('')
       setNeighbourhood('')
       setType('Rua')
-      setTouched({
-        cep: false,
-        streetAddress: false,
-        number: false,
-        additionalInfo: false,
-        neighbourhood: false,
-        city: false,
-        stateOption: false,
-      })
     }
   }, [
     isLoading,
@@ -85,14 +60,9 @@ const AddressForm: React.FC<IAddressForm> = ({
     setComplement,
     setNeighbourhood,
     setType,
-    setTouched,
   ])
 
   const errorResponseCep = () => {
-    if (isInvalidCEP(cep, touched.cep)) {
-      return errorCEP(cep)
-    }
-
     if (hasError) {
       return {
         icon: 'information' as keyof typeof dict,
@@ -112,7 +82,6 @@ const AddressForm: React.FC<IAddressForm> = ({
         <s.CEPInput
           label="CEP"
           error={errorResponseCep()}
-          onBlur={() => touch('cep', setTouched)}
           suffix={
             isLoading ? (
               <s.LoadingWrapper>
@@ -136,8 +105,6 @@ const AddressForm: React.FC<IAddressForm> = ({
             label="Endereço"
             value={streetAddress}
             disabled={isLoading}
-            onBlur={() => touch('streetAddress', setTouched)}
-            error={validationInputError(streetAddress, touched.streetAddress)}
             onChange={(e: React.FormEvent<HTMLInputElement>) =>
               setStreetAddress(e.currentTarget.value)
             }
@@ -148,8 +115,6 @@ const AddressForm: React.FC<IAddressForm> = ({
               label="Número"
               value={number}
               disabled={isLoading}
-              onBlur={() => touch('number', setTouched)}
-              error={validationInputError(number, touched.number)}
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
                 setNumber(e.currentTarget.value)
               }
@@ -169,8 +134,6 @@ const AddressForm: React.FC<IAddressForm> = ({
             label="Bairro"
             value={neighbourhood}
             disabled={isLoading}
-            onBlur={() => touch('neighbourhood', setTouched)}
-            error={validationInputError(neighbourhood, touched.neighbourhood)}
             onChange={(e: React.FormEvent<HTMLInputElement>) =>
               setNeighbourhood(e.currentTarget.value)
             }
@@ -186,9 +149,7 @@ const AddressForm: React.FC<IAddressForm> = ({
             <s.CityTextInput
               label="Cidade"
               value={city}
-              onBlur={() => touch('city', setTouched)}
               disabled={isLoading}
-              error={validationInputError(city, touched.city)}
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
                 setCity(e.currentTarget.value)
               }

@@ -273,6 +273,10 @@ Array [
 
 }
 
+@media (max-width:736px) {
+
+}
+
 @media (min-width:576px) {
 
 }
@@ -1277,6 +1281,17 @@ Array [
 }
 
 @media (max-width:736px) {
+  .c58 > span {
+    margin-top: 7px;
+  }
+
+  .c58 > span svg {
+    width: 24px;
+    margin-right: 14px;
+  }
+}
+
+@media (max-width:736px) {
 
 }
 
@@ -1845,7 +1860,6 @@ Array [
                       data-testid="cep"
                       disabled={false}
                       maxLength={9}
-                      onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Busca por CEP"
                       value=""
@@ -2342,7 +2356,6 @@ Array [
   bottom: 0;
   width: 100vw;
   border-top: 1px solid #DDDDDD;
-  z-index: 14;
 }
 
 .c5 {
@@ -2459,6 +2472,10 @@ Array [
 }
 
 @media (min-width:736px) {
+
+}
+
+@media (max-width:736px) {
 
 }
 

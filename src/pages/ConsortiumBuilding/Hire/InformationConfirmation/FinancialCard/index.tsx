@@ -1,23 +1,18 @@
 import React from 'react'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import { capitalize, formatMoneyDecimal } from 'helpers'
+import { capitalize } from 'helpers'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
-import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
 import { useSelector } from 'react-redux'
 import { IJobsConsortiumBuildingState } from 'store/modules/ConsortiumBuilding/Jobs/types'
 import { IFinancialCard } from '../types'
 
 import * as s from './styles'
-import { dict } from 'components/IconExporter'
-import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
-import { IFormConsortiumBuilding } from 'pages/ConsortiumBuilding/Creation/types'
-import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 
 const FinancialCard: React.FC<IFinancialCard> = ({
   label,
+  validationGrossMonthlyIncome,
   financialData: [financialData, setFinancialData],
 }: IFinancialCard) => {
-  const { form } = useFormFluxManagement<IFormConsortiumBuilding>()
   const { formDefault } = TextsConsortiumBuilding()
 
   const [validForm, setValidForm] = React.useState<{
@@ -81,33 +76,6 @@ const FinancialCard: React.FC<IFinancialCard> = ({
     }
   }, [financialData, jobsConsortiumBuilding, setFinancialData])
 
-  const validationGrossMonthlyIncome = ():
-    | boolean
-    | { icon: keyof typeof dict; message: string } => {
-    if (form && form.plan && form.plan.valorParcela) {
-      const { isGrossMonthlyIncome } = ErrorForm(
-        formatMoneyDecimal(form.plan?.valorParcela)
-      )
-      if (
-        form.plan?.valorParcela >=
-          Number(
-            financialData.grossMonthlyIncome
-              .split('.')
-              .join('')
-              .replace(',', '.')
-          ) &&
-        validForm.grossMonthlyIncome
-      ) {
-        return isGrossMonthlyIncome
-      }
-    }
-
-    return validationInputError(
-      financialData.grossMonthlyIncome,
-      validForm.grossMonthlyIncome
-    )
-  }
-
   return (
     <s.WrapperFinancialCard>
       <s.DelimiterWrapper>
@@ -132,7 +100,7 @@ const FinancialCard: React.FC<IFinancialCard> = ({
               grossMonthlyIncome: target.value,
             })
           }
-          error={validationGrossMonthlyIncome()}
+          error={validationGrossMonthlyIncome(validForm.grossMonthlyIncome)}
         />
       </s.DelimiterWrapper>
     </s.WrapperFinancialCard>

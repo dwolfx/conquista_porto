@@ -51,7 +51,7 @@ const ContemplatedValue: StepComponent = () => {
   const handleButtonClick = React.useCallback(() => {
     updateForm({
       ...form,
-      valorCredito: Number(contemplateValue.replace(/\./g, '')),
+      valorCredito: Number(contemplateValue.replace(/\D/g, '')) / 100,
     })
     dispatch(
       PostProposalSimulationsRequest({
@@ -59,7 +59,7 @@ const ContemplatedValue: StepComponent = () => {
           tipoPessoa: form.tipoPessoa,
           tipoBusca: form.tipoBusca,
           codigoProduto: form.codigoProduto,
-          valorCredito: Number(contemplateValue.replace(/\./g, '')),
+          valorCredito: Number(contemplateValue.replace(/\D/g, '')) / 100,
           uf: form.uf,
           codigoCanal: String(form.codigoCanal),
         },
@@ -83,7 +83,7 @@ const ContemplatedValue: StepComponent = () => {
     | boolean
     | { icon: keyof typeof dict; message: string } => {
     if (contemplateValue && data && isTouched) {
-      const { coveredValue } = ErrorForm(
+      const { grossMonthlyIncomeValidationMessage } = ErrorForm(
         `R$ ${data &&
           formatMoneyDecimal(data.valor_minimo_credito * 100)} e R$ ${data &&
           formatMoneyDecimal(data.valor_maximo_credito * 100)}`
@@ -93,7 +93,7 @@ const ContemplatedValue: StepComponent = () => {
         Number(contemplateValue.replace(/\D/g, '')) <
         data.valor_minimo_credito * 100
       ) {
-        return coveredValue
+        return grossMonthlyIncomeValidationMessage
       }
     }
 
