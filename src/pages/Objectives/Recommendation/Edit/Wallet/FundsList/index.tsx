@@ -70,7 +70,7 @@ const columns: TColumns[] = [
     accessor: 'taxa_administracao',
     format: (row: IFundsList) => (
       <Text color="gray5" bold>
-        {formatNumber(row.resgate_cotizacao)}%
+        {formatNumber(row.taxa_administracao)}%
       </Text>
     ),
   },
@@ -448,7 +448,7 @@ export default function FundsList({
 
                 <s.InfoRow>
                   <Text color={selectedFunds.length ? 'gray6' : 'gray4'} bold>
-                    {selectedFunds.length} Fundos selecionados
+                    {selectedFunds.length}
                   </Text>
                   <Button
                     color="secondary"
