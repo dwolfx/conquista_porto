@@ -4,31 +4,38 @@ import Divisor from 'components/Divisor'
 import StepBar from 'components/StepBar'
 import useMedia from 'hooks/useMedia'
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
-
+import { cpf } from 'cpf-cnpj-validator'
 import { TSelected } from 'components/Inputs/Select/types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { IFormConsortiumBuilding } from 'pages/ConsortiumBuilding/Creation/types'
+import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
+import { formatMoneyDecimal } from 'helpers'
 import PersonalDataCard from './PersonalDataCard'
 import ContactCard from './ContactCard'
 import CardStructure from './CardStructure'
 import DocumentCard from './DocumentCard'
 
-import {
-  IAddressForm,
-  IDocumentForm,
-  IFinancialForm,
-  IPersonalDataForm,
-  IPpeForm,
-} from './types'
+import * as t from './types'
+
 import PpeCard from './PpeCard'
 import FinancialCard from './FinancialCard'
 import AddressCard from './AddressCard'
 
 import * as s from './styles'
+import {
+  validationErrorDateDispatch,
+  validationErrorDocument,
+  validationErrorExpeditedBody,
+  validationErrorNIF,
+  validationErrorPassportNumber,
+} from './DocumentCard/utils'
 
 const InformationConfirmation: React.FC = () => {
   const { hire, page, buttons } = TextsConsortiumBuilding()
+  const { form } = useFormFluxManagement<IFormConsortiumBuilding>()
 
   const [personalDataForm, setPersonalDataForm] = React.useState<
-    IPersonalDataForm
+    t.IPersonalDataForm
   >({
     civilStatus: '',
     spouseName: '',
@@ -42,7 +49,7 @@ const InformationConfirmation: React.FC = () => {
     }
   )
 
-  const [documentForm, setDocumentForm] = React.useState<IDocumentForm>({
+  const [documentForm, setDocumentForm] = React.useState<t.IDocumentForm>({
     isForeignResidency: false,
     documentNumber: '',
     dateDispatch: '',
@@ -59,17 +66,17 @@ const InformationConfirmation: React.FC = () => {
     false
   )
 
-  const [ppe, setPee] = React.useState<IPpeForm>({
+  const [ppe, setPee] = React.useState<t.IPpeForm>({
     isPpe: false,
     whoPoliticallyExport: '',
   })
 
-  const [financial, setFinancial] = React.useState<IFinancialForm>({
+  const [financial, setFinancial] = React.useState<t.IFinancialForm>({
     profession: '',
     grossMonthlyIncome: '',
   })
 
-  const [address, setAddress] = React.useState<IAddressForm>({
+  const [address, setAddress] = React.useState<t.IAddressForm>({
     tipo: 'Rua',
     logradouro: '',
     bairro: '',
@@ -88,26 +95,38 @@ const InformationConfirmation: React.FC = () => {
     let validDefault: boolean =
       !!personalDataForm.civilStatus &&
       !!documentTypeSelect.name &&
-      !!documentForm.documentNumber &&
+      validationErrorDocument(
+        documentForm.documentNumber,
+        true,
+        documentTypeSelect.name
+      ) === undefined &&
       !!documentForm.dateDispatch &&
-      !!documentForm.expeditedBody &&
-      !!address.bairro &&
-      !!address.cidade &&
-      !!address.complementoCep &&
-      !!address.logradouro &&
-      !!address.numero &&
-      !!address.numero &&
-      !!address.numeroCep &&
-      !!address.tipo &&
-      !!address.uf &&
-      !!financial.profession &&
-      !!financial.grossMonthlyIncome
+      validationErrorDateDispatch(documentForm.dateDispatch, true) ===
+        undefined &&
+      documentTypeSelect.name === 'RNE'
+        ? true
+        : validationErrorExpeditedBody(documentForm.expeditedBody, true) ===
+            undefined &&
+          !!address.bairro &&
+          !!address.cidade &&
+          !!address.complementoCep &&
+          !!address.logradouro &&
+          !!address.numero &&
+          !!address.numero &&
+          !!address.numeroCep &&
+          !!address.tipo &&
+          !!address.uf &&
+          !!financial.profession &&
+          validationGrossMonthlyIncome(!!financial.grossMonthlyIncome) ===
+            undefined &&
+          !!financial.grossMonthlyIncome
 
     if (['Casado', 'União Estável'].includes(personalDataForm.civilStatus)) {
       validDefault =
         validDefault &&
         !!personalDataForm.spouseDocument &&
-        !!personalDataForm.spouseName
+        !!personalDataForm.spouseName &&
+        cpf.isValid(personalDataForm.spouseDocument)
     }
 
     if (ppe.isPpe) {
@@ -118,13 +137,39 @@ const InformationConfirmation: React.FC = () => {
       validDefault =
         validDefault &&
         !!documentForm.documentNumberNIF &&
+        validationErrorNIF(documentForm.documentNumberNIF, true) ===
+          undefined &&
         !!documentForm.fatca &&
         !!documentForm.passportNumber &&
+        validationErrorPassportNumber(documentForm.passportNumber, true) ===
+          undefined &&
         !!documentTypeSelect.name &&
         !!documentForm.passportIssuingCountry
     }
 
     return validDefault
+  }
+
+  const validationGrossMonthlyIncome = (
+    validForm: boolean
+  ): t.IValidationFunction => {
+    if (form && form.plan && form.plan.valorParcela) {
+      const { grossMonthlyIncomeValidationMessage } = ErrorForm(
+        formatMoneyDecimal(form.plan?.valorParcela)
+      )
+
+      const percentageGrossMonthlyIncome = 0.3 // 30%
+      const valueSalary =
+        Number(financial.grossMonthlyIncome.replace(/\D/g, '')) / 100
+
+      const resultPercentageSalary = valueSalary * percentageGrossMonthlyIncome
+
+      if (form.plan?.valorParcela > resultPercentageSalary && validForm) {
+        return grossMonthlyIncomeValidationMessage
+      }
+    }
+
+    return undefined
   }
 
   return (
@@ -203,6 +248,7 @@ const InformationConfirmation: React.FC = () => {
           >
             <FinancialCard
               financialData={[financial, setFinancial]}
+              validationGrossMonthlyIncome={validationGrossMonthlyIncome}
               label={hire.steps.informationConfirmation.containerSixth.label}
             />
           </CardStructure>

@@ -1,15 +1,18 @@
-import { dict } from "components/IconExporter";
+import { dict } from 'components/IconExporter'
 
 export interface IErrorResponse {
-  icon: keyof typeof dict; message: string
+  icon: keyof typeof dict
+  message: string
 }
 
 export interface IErrorForm {
-  isRequired: IErrorResponse
-  coveredValue: IErrorResponse
-  isNumber: IErrorResponse
-  isDate: IErrorResponse
-  isAbbreviation: IErrorResponse
-  isDocumentNumber: IErrorResponse
-  isGrossMonthlyIncome: IErrorResponse
+  requiredValidationMessage: IErrorResponse
+  coveredValueValidationMessage: IErrorResponse
+  numberValidationMessage: IErrorResponse
+  dateValidationMessage: IErrorResponse
+  abbreviationValidationMessage: IErrorResponse
+  nifValidationMessage: IErrorResponse
+  passportNumberValidationMessage: IErrorResponse
+  documentNumberValidationMessage: IErrorResponse
+  grossMonthlyIncomeValidationMessage: IErrorResponse
 }

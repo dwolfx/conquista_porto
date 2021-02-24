@@ -1,15 +1,17 @@
 import moment from 'moment'
-
 import { TSelected } from 'components/Inputs/Select/types'
 import { brazilianStates } from 'pages/CreditCard/Creation/CreditCardStep/Selects/BrazilianStates/types'
 import { IPlaceholderContainerThirdInformationConfirmationStepHireFlux } from 'pages/ConsortiumBuilding/commons/Texts/types'
-import { validationInputError } from 'pages/CreditCard/Creation/CreditCardStep/validators'
-import { dict } from 'components/IconExporter'
-import { IErrorResponse } from 'pages/ConsortiumBuilding/commons/ErrorForm/types'
 import { ErrorForm } from 'pages/ConsortiumBuilding/commons/ErrorForm'
 import { validityError } from 'pages/TripInsurance/Hire/PaymentStep/CreditCard/utils'
-
-const { isDate, isAbbreviation } = ErrorForm()
+import { IValidationFunction } from '../types'
+const {
+  numberValidationMessage,
+  dateValidationMessage,
+  abbreviationValidationMessage,
+  nifValidationMessage,
+  passportNumberValidationMessage,
+} = ErrorForm()
 
 export const placeholderExpediteBody = (
   documentType: TSelected,
@@ -29,52 +31,85 @@ export const placeholderExpediteBody = (
 export const validationErrorDocument = (
   documentNumber: string,
   validationDocumentNumber: boolean,
-  isNumber: IErrorResponse
-): boolean | { icon: keyof typeof dict; message: string } => {
+  type: string
+): IValidationFunction => {
   const value = documentNumber.replace(/\D/g, '')
 
-  if ((value.length < 7 || value.length > 9) && validationDocumentNumber) {
-    return isNumber
+  if (type === 'RG') {
+    if ((value.length < 7 || value.length > 9) && validationDocumentNumber) {
+      return numberValidationMessage
+    }
   }
 
-  return validationInputError(value, validationDocumentNumber)
+  if (type === 'RNE') {
+    if ((value.length < 8 || value.length > 12) && validationDocumentNumber) {
+      return numberValidationMessage
+    }
+  }
+
+  return undefined
 }
 
 export const validationErrorDateDispatch = (
   dateDispatch: string,
-  validation: boolean
-): boolean | { icon: keyof typeof dict; message: string } => {
-  if (dateDispatch && dateDispatch.length === 10) {
-    const validate = moment(dateDispatch, 'DD/MM/YYYY')
-
-    if (!validate.isValid()) {
+  isTouched: boolean
+): IValidationFunction => {
+  if (dateDispatch && isTouched) {
+    if (dateDispatch.length < 10) {
       return validityError
     }
 
-    if (moment().isBefore(validate)) {
-      return isDate
+    if (dateDispatch.length === 10) {
+      const validate = moment(dateDispatch, 'DD/MM/YYYY')
+
+      if (!validate.isValid()) {
+        return validityError
+      }
+
+      if (moment().isBefore(validate)) {
+        return dateValidationMessage
+      }
     }
   }
 
-  return validationInputError(dateDispatch, validation)
+  return undefined
 }
 
 export const validationErrorExpeditedBody = (
   expeditedBody: string,
   validation: boolean
-): boolean | { icon: keyof typeof dict; message: string } => {
-  /**
-   * FALTA HÁ VALIDAÇÃO DO ORGÃO EXPEDITOR
-   */
-  if (expeditedBody && expeditedBody.length === 6) {
+): IValidationFunction => {
+  if (expeditedBody && expeditedBody.length === 6 && validation) {
     const [, uf] = expeditedBody.split('/')
 
     const findState = brazilianStates.findIndex(value => value === uf)
 
     if (findState === -1) {
-      return isAbbreviation
+      return abbreviationValidationMessage
     }
   }
 
-  return validationInputError(expeditedBody, validation)
+  return undefined
+}
+
+export const validationErrorNIF = (
+  value: string,
+  validation: boolean
+): IValidationFunction => {
+  if (value && value.length > 25 && validation) {
+    return nifValidationMessage
+  }
+
+  return undefined
+}
+
+export const validationErrorPassportNumber = (
+  value: string,
+  validation: boolean
+): IValidationFunction => {
+  if (value && value.length > 6 && validation) {
+    return passportNumberValidationMessage
+  }
+
+  return undefined
 }

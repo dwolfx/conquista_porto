@@ -5,31 +5,39 @@ export const ErrorForm = (
   stepValue: string = 'R$ 50.000,00 e R$ 500.000,00',
   stepPersonData: string = '1.183,90'
 ): IErrorForm => ({
-  isRequired: {
+  requiredValidationMessage: {
     icon: 'information' as keyof typeof dict,
     message: 'Campo obrigatório',
   },
-  coveredValue: {
+  coveredValueValidationMessage: {
     icon: 'alertrounded' as keyof typeof dict,
     message: `O valor deve ser entre ${stepValue}`,
   },
-  isNumber: {
+  numberValidationMessage: {
     icon: 'information' as keyof typeof dict,
     message: `Número inválido. Por favor, verifique.`,
   },
-  isDate: {
+  dateValidationMessage: {
     icon: 'information' as keyof typeof dict,
     message: 'A data deve ser anterior. Por favor, verifique.',
   },
-  isAbbreviation: {
+  abbreviationValidationMessage: {
     icon: 'information' as keyof typeof dict,
     message: 'A sigla deve seguir o formato XXX/UF',
   },
-  isDocumentNumber: {
+  nifValidationMessage: {
+    icon: 'information' as keyof typeof dict,
+    message: 'NIF inválido.',
+  },
+  passportNumberValidationMessage: {
+    icon: 'information' as keyof typeof dict,
+    message: 'Número do Passaporte inválido.',
+  },
+  documentNumberValidationMessage: {
     icon: 'information' as keyof typeof dict,
     message: 'CPF inválido. Por favor, verifique e tente novamente.',
   },
-  isGrossMonthlyIncome: {
+  grossMonthlyIncomeValidationMessage: {
     icon: 'information' as keyof typeof dict,
     message: `O valor total não pode ser menor que ${stepPersonData}`,
   },

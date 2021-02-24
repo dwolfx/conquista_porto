@@ -37,7 +37,11 @@ describe('Finacial Card component tests', () => {
 
   it('should selected item', () => {
     const { getByTestId } = renderWithReduxAndTheme(
-      <FinacialCard financialData={[data, jest.fn()]} label={label} />,
+      <FinacialCard
+        financialData={[data, jest.fn()]}
+        label={label}
+        validationGrossMonthlyIncome={jest.fn()}
+      />,
       { store }
     )
 

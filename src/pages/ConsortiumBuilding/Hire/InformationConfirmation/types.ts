@@ -1,3 +1,4 @@
+import { dict } from 'components/IconExporter'
 import { TSelected } from 'components/Inputs/Select/types'
 import {
   ILabelContainerFifthInformationConfirmationStepHireFlux,
@@ -7,6 +8,14 @@ import {
   IPlaceholderContainerThirdInformationConfirmationStepHireFlux,
   IContainerFourthInformationConfirmationStepHireFlux,
 } from 'pages/ConsortiumBuilding/commons/Texts/types'
+
+export type IValidationFunction =
+  | { icon: keyof typeof dict; message: string }
+  | undefined
+
+export interface IIsValidForm {
+  grossMonthlyIncome: boolean
+}
 
 export interface IPersonalDataForm {
   civilStatus: string
@@ -54,7 +63,6 @@ export interface IPersonalDataCard {
 
 export interface IFormPersonalData {
   spouseDocument: boolean
-  spouseName: boolean
 }
 
 export interface IFormDocumentData {
@@ -88,6 +96,7 @@ export interface IFinancialCard {
     IFinancialForm,
     React.Dispatch<React.SetStateAction<IFinancialForm>>
   ]
+  validationGrossMonthlyIncome: (validForm: boolean) => IValidationFunction
 }
 
 export interface IAddressForm {

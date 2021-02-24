@@ -7,7 +7,20 @@ import LoadingCmp from 'components/Loading'
 import TextCmp from 'components/Text'
 
 const spaceError = css`
+  & > span {
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
+
+    svg {
+      width: 36px;
+      margin-right: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+
   margin-bottom: ${({ theme }) => theme.spacing(8)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(13)}px;
+  }
 `
 
 const spaceZipCode = css`
