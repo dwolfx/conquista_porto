@@ -3,12 +3,14 @@ import InformationConfirmation from '../Hire/InformationConfirmation'
 import ChoosePlan from './ChoosePlan'
 import ChooseState from './ChooseState'
 import ContemplatedValue from './ContemplatedValue'
+import Summary from '../Hire/Summary'
 
 export const Steps = {
   chooseState: ChooseState,
   contemplatedStep: ContemplatedValue,
   choosePlanStep: ChoosePlan,
   informationConfirmationStep: InformationConfirmation,
+  sumaryStep: Summary,
 }
 
 export interface IFormConsortiumBuilding {

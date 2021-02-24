@@ -316,7 +316,7 @@ export interface IContentContainerFirstSummaryStepHireFlux {
   creditValue: string
   reserveFund: string
   lifeInsurance: string
-  administrativeFee: string
+  administrativeFree: string
   earlyAdministrationFree: string
 }
 
@@ -329,13 +329,32 @@ export interface IContentContainerThirdSummaryStepHireFlux {
   earlyAdministrationFree: string
 }
 
-export interface IContainerSummaryStepHireFlux {
+export interface IContainerSummaryFirstStepHireFlux {
   title: string
-  label:
-    | { link: string }
-    | IContentContainerFirstSummaryStepHireFlux
-    | ILabelContainerFirstPaymentStepHireFlux
-    | IContentContainerThirdSummaryStepHireFlux
+  link: string
+  creditValue: string
+  reserveFund: string
+  lifeInsurance: string
+  administrativeFree: string
+  earlyAdministrationFree: string
+}
+
+export interface IContainerSummarySecondStepHireFlux {
+  title: string
+  monthlyInstallment: string
+  numberInstallment: string
+  dateForeseenFirstInstallment: string
+  dateOtherPlots: string
+}
+
+export interface IContainerSummaryThirdStepHireFlux {
+  title: string
+  firstInstallmentPaymentMethod: string
+  paymentRemainingInstallments: string
+  bank: string
+  agency: string
+  currentAccount: string
+  earlyAdministrationFree: string
 }
 
 export interface ISummaryStepHireFlux {
@@ -343,9 +362,9 @@ export interface ISummaryStepHireFlux {
   actualStep: 1 | 2 | 3 | 4 | 5 | null
   subtitle: string
   modalBackSimulation: IModalBackSimulationSummaryStepHireFlux
-  containerFirst: IContainerSummaryStepHireFlux
-  containerSecond: IContainerSummaryStepHireFlux
-  containerThird: IContainerSummaryStepHireFlux
+  containerFirst: IContainerSummaryFirstStepHireFlux
+  containerSecond: IContainerSummarySecondStepHireFlux
+  containerThird: IContainerSummaryThirdStepHireFlux
 }
 
 export interface IContentResultHireStepHireFlux {
