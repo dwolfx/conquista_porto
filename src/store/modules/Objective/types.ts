@@ -55,11 +55,11 @@ export interface IFunds {
   nickname: string
   company_name: string
   profile_risk: string
-  share_holder_profile_risk: 1 | 2 | 3 | 4 | 5
+  order_profile_risk: 1 | 2 | 3 | 4 | 5
   initial_date: string
   manager: string
   min_initial_value: number
-  min_value_to_apply: number
+  min_value_to_invest: number
   release_to_apply: boolean
   min_rescue_value: number
   release_to_rescue: boolean

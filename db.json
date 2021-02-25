@@ -6269,7 +6269,7 @@
         "order_profile_risk": 4,
         "initial_date": "27/02/2014",
         "min_initial_value": 1000,
-        "min_value_to_apply": 100,
+        "min_value_to_invest": 100,
         "release_to_apply": true,
         "release_to_rescue": true,
         "min_balance_value": 1000,

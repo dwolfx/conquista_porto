@@ -94,10 +94,10 @@ export const columns = (
     format: (row: IFunds) => formatActions(row, removeAction),
     align: 'center',
     styles: {
-      width: '5%',
+      width: '10%',
       minWidth: 65,
       header: {
-        width: '5%',
+        width: '10%',
         minWidth: 60,
       },
     },

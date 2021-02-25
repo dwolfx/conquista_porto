@@ -68,7 +68,7 @@ export type TObjectiveFunds = {
   order_profile_risk: 1 | 2 | 3 | 4 | 5
   initial_date: string
   min_initial_value: number
-  min_value_to_apply: number
+  min_value_to_invest: number
   release_to_apply: boolean
   release_to_rescue: boolean
   min_balance_value: number

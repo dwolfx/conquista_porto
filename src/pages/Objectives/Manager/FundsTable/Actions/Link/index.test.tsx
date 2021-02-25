@@ -23,7 +23,7 @@ const fundMock: TObjectiveFunds = {
   is_fund_active: true,
   min_balance_value: 1000,
   min_initial_value: 1000,
-  min_value_to_apply: 100,
+  min_value_to_invest: 100,
   monthly_value: 1100.77,
   name: 'Porto Seguro FI Referenciado DI Credito Privado',
   nickname: 'Porto Seguro FI RF Ref. DI CP',

@@ -196,9 +196,9 @@ export default function DistribuitedValues({
           <Text type="captionUppercase" color="gray5" bold>
             Total Distribuído
           </Text>
-          <Text type="captionUppercase" color="gray5" bold>
+          <s.Text type="captionUppercase" color="gray5" bold>
             Planejado
-          </Text>
+          </s.Text>
           <Text type="captionUppercase" color="gray5" bold>
             A Distribuir
           </Text>
@@ -207,9 +207,9 @@ export default function DistribuitedValues({
           <Text type="caption" color="gray6" bold>
             {Currency.parse(initialDistribuition, true)}
           </Text>
-          <Text type="caption" color="gray6" bold>
+          <s.Text type="caption" color="gray6" bold>
             {Currency.parse(recommendationData.answer.initial_value, true)}
-          </Text>
+          </s.Text>
           <s.ToDistributeWrapper>
             <Text
               type="caption"
@@ -237,9 +237,9 @@ export default function DistribuitedValues({
           <Text type="caption" color="gray6" bold>
             {Currency.parse(monthlyDistribuition, true)}
           </Text>
-          <Text type="caption" color="gray6" bold>
+          <s.Text type="caption" color="gray6" bold>
             {Currency.parse(recommendationData.answer.monthly_value, true)}
-          </Text>
+          </s.Text>
           <s.ToDistributeWrapper>
             <Text
               type="caption"

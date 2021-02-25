@@ -8,6 +8,8 @@ import MoneyInputCmp from 'components/Inputs/Money'
 import PercentualInfosCmp from 'components/Objective/PercentualInfo'
 import TableComp from 'components/Table'
 import Text from 'components/Text'
+import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
+import { LabelRow } from '../../WalletSection/TableView/styles'
 
 export const Container = styled(ContainerBootstrap)<{ isFirst?: boolean }>`
   padding: ${({ theme, isFirst }) =>
@@ -19,6 +21,10 @@ export const Container = styled(ContainerBootstrap)<{ isFirst?: boolean }>`
     padding-left: 0;
     padding-right: 0;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    max-width: unset;
+  }
 `
 
 export const InformativeRow = styled(Row)`
@@ -27,7 +33,6 @@ export const InformativeRow = styled(Row)`
 
 export const CardTable = styled(CardCmp)`
   height: 100%;
-  max-height: 647px;
 
   ${CardBody} {
     padding: 0 ${({ theme }) => theme.spacing(2)}px;
@@ -41,11 +46,12 @@ export const TextCompositionWrapper = styled.div`
 export const PercentualInfos = styled(PercentualInfosCmp)`
   padding: 0;
   margin: 0 0 ${({ theme }) => theme.spacing(2)}px;
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    flex-direction: row;
+  }
 `
 
-export const Table = styled(TableComp)`
-  height: calc(100% - 77px);
-`
+export const Table = styled(TableComp)``
 
 export const FundoWrapper = styled.div`
   display: flex;
@@ -84,6 +90,12 @@ export const MoneyInput = styled(MoneyInputCmp)<any>`
   }
 `
 
+export const TableLabelWithMargim = styled(TableLabel)`
+  ${LabelRow} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  }
+`
+
 export const Footer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   bottom: 0;
@@ -114,6 +126,7 @@ export const TableInfosWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-right: ${({ theme }) => theme.spacing(1)}px;
+  flex-direction: column;
 `
 
 export const SaveButtonTooltipContent = styled.div`

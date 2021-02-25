@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
 import CardCmp from 'components/Card'
+import TextCmp from 'components/Text'
+
+export const Text = styled(TextCmp)`
+  margin-top: 7px;
+  margin-bottom: 7px;
+`
 
 export const TotalAmountDistributed = styled.div`
   display: flex;
@@ -17,7 +23,15 @@ export const LabelWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   min-width: 127px;
-  margin-right: ${({ theme }) => `${theme.spacing(30)}px`};
+  margin-right: ${({ theme }) => `${theme.spacing(32)}px`};
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin-right: ${({ theme }) => `${theme.spacing(34)}px`};
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    margin-right: ${({ theme }) => `${theme.spacing(20)}px`};
+  }
 
   p + p {
     margin-top: ${({ theme }) => `${theme.spacing(1)}px`};
@@ -31,6 +45,10 @@ export const InitialAmountWrapper = styled.div`
   align-items: flex-start;
   min-width: 168px;
   margin-right: ${({ theme }) => `${theme.spacing(10)}px`};
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    margin-right: ${({ theme }) => `${theme.spacing(2)}px`};
+  }
 
   & > p:first-child,
   & > p:first-child + p {
@@ -63,7 +81,6 @@ export const ToDistributeWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: ${({ theme }) => `${theme.spacing(1)}px`};
 
   p + p {
     margin-left: ${({ theme }) => `${theme.spacing(1)}px`};

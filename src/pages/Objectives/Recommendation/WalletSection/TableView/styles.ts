@@ -134,4 +134,5 @@ export const EditButton = styled(Button)`
 
 export const LabelRow = styled(Row)`
   min-width: 315px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `

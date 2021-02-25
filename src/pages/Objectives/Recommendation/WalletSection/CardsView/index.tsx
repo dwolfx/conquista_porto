@@ -61,7 +61,7 @@ const CardsView = ({
           margin-top: ${theme.spacing(2)}px;
         `}
       >
-        <RiskColorTag borderRisk={fund.share_holder_profile_risk} />
+        <RiskColorTag borderRisk={fund.order_profile_risk} />
 
         <div
           css={`

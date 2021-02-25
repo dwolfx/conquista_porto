@@ -6,6 +6,7 @@ import CardCmp from 'components/Card'
 import LayerCmp from 'components/Layer'
 import { LayerHeader } from 'components/Layer/styles'
 import { RiskColorTag as RiskColor } from 'pages/Objectives/Recommendation/WalletSection/styles'
+import { CardBody } from 'components/Card/styles'
 
 export const Layer = styled(LayerCmp)`
   ${LayerHeader} {
@@ -24,6 +25,9 @@ export const Container = styled(ContainerBootstrap)`
 export const Card = styled(CardCmp)`
   min-height: 500px;
   height: calc(100vh - 250px);
+  ${CardBody} {
+    overflow: auto;
+  }
 `
 
 export const InfoRow = styled.div`
