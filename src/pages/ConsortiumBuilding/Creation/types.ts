@@ -10,7 +10,7 @@ export const Steps = {
   contemplatedStep: ContemplatedValue,
   choosePlanStep: ChoosePlan,
   informationConfirmationStep: InformationConfirmation,
-  sumaryStep: Summary,
+  summaryStep: Summary,
 }
 
 export interface IFormConsortiumBuilding {

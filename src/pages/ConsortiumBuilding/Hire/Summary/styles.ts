@@ -121,3 +121,16 @@ export const Button = styled(ButtonComp)`
     width: 100%;
   }
 `
+
+export const GoBackButton = styled(ButtonComp)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const ContinueButton = styled(ButtonComp)``
+
+export const ModalFooterWrapper = styled.div`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+`
