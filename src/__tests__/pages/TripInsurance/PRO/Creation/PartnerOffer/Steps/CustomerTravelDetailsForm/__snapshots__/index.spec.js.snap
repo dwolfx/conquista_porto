@@ -148,7 +148,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   line-height: 19px;
 }
 
-.c55 {
+.c59 {
   color: #898989;
   text-align: unset;
   text-transform: none;
@@ -162,7 +162,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   line-height: 19px;
 }
 
-.c71 {
+.c78 {
   color: #E72176;
   text-align: unset;
   text-transform: none;
@@ -255,7 +255,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   overflow: hidden;
 }
 
-.c40 {
+.c42 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -321,93 +321,13 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   width: auto;
 }
 
-.c39 {
-  height: 20px;
-  margin-right: 10px;
-  position: relative;
-  width: 20px;
-}
-
-.c39:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: block;
-  top: 0;
-  left: 0;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  border: 1px solid #BABABA;
-}
-
-.c39:after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  display: block;
-  position: absolute;
-  top: calc(50% - 5px);
-  left: calc(50% - 5px);
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.c39:checked:after {
-  background-color: #00ADEF;
-}
-
-.c38 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #000;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 14px;
-  font-style: normal;
-  margin: 8px 16px 8px 0;
-  pointer-events: all;
-}
-
-.c38:last-of-type {
-  margin-right: 0;
-}
-
-.c37 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: auto;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
 .c12 {
   border-bottom: 1px solid #DDDDDD;
   height: 0%;
   width: 100%;
 }
 
-.c75 {
+.c82 {
   background: linear-gradient( to left, #2F736B -35%, #46A166 );
   background-repeat: no-repeat;
   border: none;
@@ -425,11 +345,11 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   transition: all 0.4s ease-out;
 }
 
-.c75:hover:active {
+.c82:hover:active {
   pointer-events: auto;
 }
 
-.c75:hover:active:after {
+.c82:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -437,11 +357,11 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   transition: all ease 0s;
 }
 
-.c75:hover:before {
+.c82:hover:before {
   width: 100%;
 }
 
-.c75:hover:after {
+.c82:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -456,7 +376,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   width: 100%;
 }
 
-.c75:before {
+.c82:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -468,7 +388,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   width: 0;
 }
 
-.c77 {
+.c84 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -566,7 +486,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   margin-bottom: 6px;
 }
 
-.c44 {
+.c46 {
   background-color: #F1F1F1;
   border-radius: 8px 8px 0px 0px;
   height: 100%;
@@ -579,7 +499,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c47 {
+.c49 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -594,24 +514,24 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   position: relative;
 }
 
-.c47 #prefix {
+.c49 #prefix {
   padding-left: 7px;
 }
 
-.c47 #suffix {
+.c49 #suffix {
   padding-right: 7px;
 }
 
-.c47:focus-within {
+.c49:focus-within {
   border-bottom: 2px solid #00ADEF;
 }
 
-.c47:focus-within #prefix,
-.c47:focus-within #suffix {
+.c49:focus-within #prefix,
+.c49:focus-within #suffix {
   color: #272727;
 }
 
-.c45 {
+.c47 {
   color: #898989;
   padding-left: 14px;
   padding-top: 7px;
@@ -626,7 +546,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   line-height: 16px;
 }
 
-.c53 {
+.c56 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -640,7 +560,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   height: 100%;
 }
 
-.c48 {
+.c50 {
   background-color: inherit;
   border: none;
   color: #272727;
@@ -650,12 +570,12 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   width: 100%;
 }
 
-.c48:-webkit-autofill {
+.c50:-webkit-autofill {
   box-shadow: none;
   -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
 }
 
-.c48::-webkit-input-placeholder {
+.c50::-webkit-input-placeholder {
   color: #BABABA;
   font-weight: normal;
   font-family: Open Sans;
@@ -667,24 +587,24 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c42 {
+.c44 {
   position: relative;
   height: 70px;
 }
 
-.c42 .c46 {
+.c44 .c48 {
   height: calc(100% - 24px);
 }
 
-.c51 {
+.c53 {
   position: relative;
 }
 
-.c52 {
+.c55 {
   position: relative;
 }
 
-.c52:after {
+.c55:after {
   content: '';
   cursor: pointer;
   height: 100%;
@@ -694,14 +614,14 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   width: 100%;
 }
 
-.c59 {
+.c63 {
   height: 20px;
   margin-right: 10px;
   position: relative;
   min-width: 20px;
 }
 
-.c59:before {
+.c63:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -714,7 +634,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   border: 1px solid #BABABA;
 }
 
-.c59:after {
+.c63:after {
   content: '';
   width: 10px;
   height: 10px;
@@ -726,19 +646,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   background-color: transparent;
 }
 
-.c59:checked:after {
+.c63:checked:after {
   background-color: #00ADEF;
 }
 
-.c59:disabled {
+.c63:disabled {
   cursor: not-allowed;
 }
 
-.c59:disabled:checked:after {
+.c63:disabled:checked:after {
   background-color: #BABABA;
 }
 
-.c60 {
+.c64 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -754,11 +674,11 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   pointer-events: none;
 }
 
-.c60:last-of-type {
+.c64:last-of-type {
   margin-right: 0;
 }
 
-.c61 {
+.c65 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -774,11 +694,11 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   pointer-events: all;
 }
 
-.c61:last-of-type {
+.c65:last-of-type {
   margin-right: 0;
 }
 
-.c57 {
+.c61 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -803,57 +723,57 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   padding: 35px;
 }
 
-.c62 {
+.c69 {
   display: table;
   border-collapse: separate;
   border-spacing: 0;
   width: 751px;
 }
 
-.c62 tr td:first-child,
-.c62 th td:first-child {
+.c69 tr td:first-child,
+.c69 th td:first-child {
   border-left: 1px solid #DDDDDD;
   border-right: 0px;
 }
 
-.c62 tr td:last-child,
-.c62 th td:last-child {
+.c69 tr td:last-child,
+.c69 th td:last-child {
   border-left: 0px;
 }
 
-.c63 {
+.c70 {
   border-bottom: 1px solid #DDDDDD;
   max-height: 56px;
 }
 
-.c64 {
+.c71 {
   height: 56px;
   border-bottom: 1px solid #DDDDDD;
 }
 
-.c66 {
+.c73 {
   height: 79px;
   border-bottom: 1px solid #DDDDDD;
 }
 
-.c66:last-child {
+.c73:last-child {
   border-bottom: none;
 }
 
-.c66:last-child td:first-child {
+.c73:last-child td:first-child {
   border-bottom-left-radius: 8px;
 }
 
-.c66:last-child td:last-child {
+.c73:last-child td:last-child {
   border-bottom-right-radius: 8px;
 }
 
-.c66 > td:last-child p,
-.c66 th:last-child p {
+.c73 > td:last-child p,
+.c73 th:last-child p {
   margin-right: 84px;
 }
 
-.c65 {
+.c72 {
   text-align: start;
   background-color: #F1F1F1;
   width: 182px;
@@ -862,27 +782,27 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   border: 1px solid #DDDDDD;
 }
 
-.c65:first-child {
+.c72:first-child {
   border-right: 0;
   border-top-left-radius: 8px;
 }
 
-.c65:last-child {
+.c72:last-child {
   border-left: 0;
   padding-left: 0px;
   border-top-right-radius: 8px;
 }
 
-.c67 {
+.c74 {
   border-right: 1px solid #DDDDDD;
   border-bottom: 1px solid #DDDDDD;
 }
 
-.c72 {
+.c79 {
   margin-left: 7px;
 }
 
-.c70 {
+.c77 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -893,7 +813,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   align-items: center;
 }
 
-.c68 {
+.c75 {
   margin-left: 21px;
   display: grid;
 }
@@ -903,24 +823,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   margin-left: 14px;
 }
 
-.c36 {
-  margin-bottom: 14px;
-}
-
-.c35 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-top: 14px;
-  margin-left: 14px;
-  padding: 14px;
-}
-
-.c56 {
+.c60 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -931,29 +834,29 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   margin-top: 14px;
 }
 
-.c58 {
+.c62 {
   margin-right: 28px;
 }
 
-.c54 {
+.c58 {
   margin-bottom: 14px;
 }
 
-.c43 {
+.c68 {
   margin-bottom: 14px;
 }
 
-.c50 {
+.c67 {
   margin-right: 14px;
   width: 410px;
 }
 
-.c41 {
+.c57 {
   padding: 14px;
   max-width: 658px;
 }
 
-.c49 {
+.c66 {
   padding-top: 14px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -964,12 +867,12 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   flex-direction: row;
 }
 
-.c73 {
+.c80 {
   background-color: #FFFFFF;
   padding: 14px;
 }
 
-.c74 {
+.c81 {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -989,11 +892,137 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   padding-right: 21px;
 }
 
-.c76 {
+.c83 {
   width: 177px;
 }
 
-.c69 {
+.c40 {
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  width: 20px;
+}
+
+.c40:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #BABABA;
+}
+
+.c40:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.c40:checked:after {
+  background-color: #00ADEF;
+}
+
+.c39 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  margin: 8px 16px 8px 0;
+  pointer-events: all;
+}
+
+.c39:last-of-type {
+  margin-right: 0;
+}
+
+.c38 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: auto;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c35 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 14px;
+  margin-left: 14px;
+  padding: 14px;
+}
+
+.c36 {
+  margin-bottom: 14px;
+}
+
+.c41:first-child {
+  margin-right: 14px;
+}
+
+.c43 {
+  padding: 14px;
+  max-width: 658px;
+}
+
+.c45 {
+  margin-bottom: 14px;
+}
+
+.c51 {
+  padding-top: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c52 {
+  margin-right: 14px;
+  width: 410px;
+}
+
+.c76 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1014,12 +1043,22 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   line-height: 15px;
 }
 
-.c69 svg {
+.c76 svg {
   height: 21px;
 }
 
-.c69 svg path {
+.c76 svg path {
   fill: currentColor;
+}
+
+@media (min-width:768px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 }
 
 @media (min-width:992px) {
@@ -1032,7 +1071,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   }
 }
 
-@media (min-width:992px) {
+@media (min-width:768px) {
   .c24 {
     -ms-flex: 0 0 66.666667%;
     -webkit-flex: 0 0 66.666667%;
@@ -1042,12 +1081,13 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
-  .c37 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin: 15px 0;
+@media (min-width:992px) {
+  .c24 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
   }
 }
 
@@ -1075,13 +1115,84 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
   }
 }
 
+@media (max-width:480px) {
+  .c67 {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width:480px) {
+  .c57 {
+    padding: 14px 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c66 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 0;
+  }
+}
+
 @media (min-width:992px) {
-  .c74 {
+  .c81 {
     -ms-flex: 0 0 91.666667%;
     -webkit-flex: 0 0 91.666667%;
     -ms-flex: 0 0 91.666667%;
     flex: 0 0 91.666667%;
     max-width: 91.666667%;
+  }
+}
+
+@media (max-width:480px) {
+  .c38 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c35 {
+    padding: 0;
+  }
+
+  .c35 .c37 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+@media (max-width:480px) {
+  .c43 {
+    padding: 14px 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c51 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c52 {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width:480px) {
+  .c54 {
+    margin-top: 14px;
   }
 }
 
@@ -1099,7 +1210,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
     >
       <div
         className="c3"
-        data-name="col-lg-3"
+        data-name="col-md-3 col-lg-3"
       >
         <div
           className="c4"
@@ -1266,7 +1377,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
       </div>
       <div
         className="c24"
-        data-name="col-lg-8"
+        data-name="col-md-8 col-lg-8"
       >
         <section
           id="section-1"
@@ -1361,18 +1472,17 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                   O cliente reside no Brasil?
                 </h5>
                 <div
-                  className="c37"
+                  className="c37 c38"
                   width="auto"
                 >
                   <label
-                    className="c38"
+                    className="c39"
                   >
                     <input
                       checked={false}
-                      className="c39"
+                      className="c40 c41"
                       data-gtm-form="input"
                       data-gtm-name="Sim"
-                      data-testid="radio-input-brazilian-resident"
                       onChange={[Function]}
                       type="radio"
                       value="1"
@@ -1380,14 +1490,13 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                     Sim
                   </label>
                   <label
-                    className="c38"
+                    className="c39"
                   >
                     <input
                       checked={false}
-                      className="c39"
+                      className="c40 c41"
                       data-gtm-form="input"
                       data-gtm-name="Não"
-                      data-testid="radio-input-brazilian-resident"
                       onChange={[Function]}
                       type="radio"
                       value="0"
@@ -1406,7 +1515,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
             className="c15 c25"
           >
             <div
-              className="c17 c40"
+              className="c17 c42"
               data-testid="card-body"
               overflow="visible"
             >
@@ -1418,26 +1527,29 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                 DADOS PARA CONTATO
               </p>
               <div
-                className="c41"
+                className="c43"
               >
                 <div
-                  className="c42 c43"
+                  className="c44 c45"
                 >
                   <div
-                    className="c44"
+                    className="c46"
                   >
                     <label
-                      className="c45"
+                      className="c47"
                     >
-                      E-MAIL
+                      e-mail
                     </label>
                     <div
-                      className="c46 c47"
+                      className="c48 c49"
                       onClick={[Function]}
                     >
                       <input
-                        className="c48"
+                        className="c50"
+                        data-gtm-form="input"
+                        data-gtm-name="dados-para-contato-email"
                         data-testid="e-mail"
+                        onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="Digite aqui..."
                         value=""
@@ -1446,67 +1558,71 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  className="c49"
+                  className="c51"
                 >
                   <div
-                    className="c42 c50"
+                    className="c44 c52"
                   >
                     <div
-                      className="c44"
+                      className="c46"
                     >
                       <label
-                        className="c45"
+                        className="c47"
                       >
-                        TELEFONE
+                        telefone
                       </label>
                       <div
-                        className="c46 c47"
+                        className="c48 c49"
                         onClick={[Function]}
                       >
                         <input
-                          className="c48"
+                          className="c50"
+                          data-gtm-form="input"
+                          data-gtm-name="dados-para-contato-telefone"
                           data-testid="telefone"
+                          maxLength={16}
+                          onBlur={[Function]}
                           onChange={[Function]}
-                          placeholder="Ex: (12) 34567890"
+                          placeholder="Digite somente números"
                           value=""
                         />
                       </div>
                     </div>
                   </div>
                   <div
-                    className="c51 "
+                    className="c53 c54"
                   >
                     <div
-                      className="c52"
+                      className="c55"
                       data-testid="select-TIPO DE TELEFONE"
                       onClick={[Function]}
                     >
                       <div
-                        className="c42"
+                        className="c44"
                         disabled={false}
                       >
                         <div
-                          className="c44"
+                          className="c46"
                         >
                           <label
-                            className="c45"
+                            className="c47"
                           >
                             TIPO DE TELEFONE
                           </label>
                           <div
-                            className="c46 c47"
+                            className="c48 c49"
                             onClick={[Function]}
                           >
                             <input
-                              className="c48"
-                              data-testid="select-option-input-undefined"
+                              className="c50"
+                              data-testid="select-option-input-phone-type"
                               disabled={false}
                               placeholder="Selecione"
                               readOnly={true}
                               value=""
                             />
                             <div
-                              className="c53"
+                              className="c56"
                               id="suffix"
                             >
                               <svg
@@ -1548,33 +1664,33 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                 PESSOA POLITICAMENTE EXPOSTA (PPE)
               </p>
               <div
-                className="c41"
+                className="c57"
               >
                 <h5
-                  className="c22 c54"
+                  className="c22 c58"
                   color="unset"
                   type="headline"
                 >
                   Segurado é ou possui parentesco com uma pessoa politicamente exposta?
                 </h5>
                 <p
-                  className="c55 c54"
+                  className="c59 c58"
                   color="gray5"
                   type="body"
                 >
                   Pessoa Exposta Politicamente é aquela que desempenha ou desempenhou nos últimos cinco anos, cargos, empregos ou funções públicas relevantes como chefes de estado e de governo, políticos, altos servidores dos poderes públicos, magistrados ou militares de alto nível, dirigentes de empresas públicas ou dirigentes de partidos políticos.
                 </p>
                 <div
-                  className="c56"
+                  className="c60"
                 >
                   <div
-                    className="c57 c58"
+                    className="c61 c62"
                   >
                     <input
                       aria-checked={false}
                       aria-label="Sim"
                       checked={false}
-                      className="c59"
+                      className="c63"
                       data-testid="input-radio-sim"
                       disabled={true}
                       id="input-radio-sim"
@@ -1585,7 +1701,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                       value={1}
                     />
                     <label
-                      className="c60"
+                      className="c64"
                       disabled={true}
                       htmlFor="input-radio-sim"
                     >
@@ -1593,13 +1709,13 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="c57 c58"
+                    className="c61 c62"
                   >
                     <input
                       aria-checked={true}
                       aria-label="Não"
                       checked={true}
-                      className="c59"
+                      className="c63"
                       data-testid="input-radio-nao"
                       disabled={false}
                       id="input-radio-nao"
@@ -1610,7 +1726,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                       value={0}
                     />
                     <label
-                      className="c61"
+                      className="c65"
                       disabled={false}
                       htmlFor="input-radio-nao"
                     >
@@ -1662,29 +1778,30 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                 CONTATO EM CASO DE ACIDENTES
               </p>
               <div
-                className="c41"
+                className="c57"
               >
                 <div
-                  className="c49"
+                  className="c66"
                 >
                   <div
-                    className="c42 c50"
+                    className="c44 c67"
                   >
                     <div
-                      className="c44"
+                      className="c46"
                     >
                       <label
-                        className="c45"
+                        className="c47"
                       >
                         NOME
                       </label>
                       <div
-                        className="c46 c47"
+                        className="c48 c49"
                         onClick={[Function]}
                       >
                         <input
-                          className="c48"
+                          className="c50"
                           data-testid="nome"
+                          onChange={[Function]}
                           placeholder="Digite aqui... "
                           value=""
                         />
@@ -1692,23 +1809,24 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    className="c42 c43"
+                    className="c44 c68"
                   >
                     <div
-                      className="c44"
+                      className="c46"
                     >
                       <label
-                        className="c45"
+                        className="c47"
                       >
                         TELEFONE
                       </label>
                       <div
-                        className="c46 c47"
+                        className="c48 c49"
                         onClick={[Function]}
                       >
                         <input
-                          className="c48"
+                          className="c50"
                           data-testid="telefone"
+                          onChange={[Function]}
                           placeholder="Ex: (12) 34567890"
                           value=""
                         />
@@ -1739,19 +1857,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                 DECLARAÇÃO DE ACOMPANHANTES
               </p>
               <div
-                className="c41"
+                className="c57"
               >
                 <table
-                  className="c62"
+                  className="c69"
                 >
                   <thead
-                    className="c63"
+                    className="c70"
                   >
                     <tr
-                      className="c64"
+                      className="c71"
                     >
                       <th
-                        className="c65"
+                        className="c72"
                       >
                         <p
                           className="c6 "
@@ -1762,7 +1880,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                         </p>
                       </th>
                       <th
-                        className="c65"
+                        className="c72"
                       >
                         <p
                           className="c6 "
@@ -1778,19 +1896,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                     className=""
                   >
                     <tr
-                      className="c66"
+                      className="c73"
                     >
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <p
-                          className="c20 c68"
+                          className="c20 c75"
                           color="unset"
                           type="body"
                         >
                           Bruno Mizhari
                           <a
-                            className="c69"
+                            className="c76"
                             data-gtm-clicktype="link"
                             data-gtm-name="Inserir Dados"
                             data-gtm-type="click"
@@ -1802,10 +1920,10 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                         </p>
                       </td>
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <div
-                          className="c70"
+                          className="c77"
                         >
                           <svg
                             aria-label="closerounded"
@@ -1816,7 +1934,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                             close-rounded.svg
                           </svg>
                           <span
-                            className="c71 c72"
+                            className="c78 c79"
                             color="magenta2"
                             type="caption"
                           >
@@ -1826,19 +1944,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      className="c66"
+                      className="c73"
                     >
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <p
-                          className="c20 c68"
+                          className="c20 c75"
                           color="unset"
                           type="body"
                         >
                           Valesca
                           <a
-                            className="c69"
+                            className="c76"
                             data-gtm-clicktype="link"
                             data-gtm-name="Inserir Dados"
                             data-gtm-type="click"
@@ -1850,10 +1968,10 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                         </p>
                       </td>
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <div
-                          className="c70"
+                          className="c77"
                         >
                           <svg
                             aria-label="closerounded"
@@ -1864,7 +1982,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                             close-rounded.svg
                           </svg>
                           <span
-                            className="c71 c72"
+                            className="c78 c79"
                             color="magenta2"
                             type="caption"
                           >
@@ -1874,19 +1992,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      className="c66"
+                      className="c73"
                     >
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <p
-                          className="c20 c68"
+                          className="c20 c75"
                           color="unset"
                           type="body"
                         >
                           Anitta
                           <a
-                            className="c69"
+                            className="c76"
                             data-gtm-clicktype="link"
                             data-gtm-name="Inserir Dados"
                             data-gtm-type="click"
@@ -1898,10 +2016,10 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                         </p>
                       </td>
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <div
-                          className="c70"
+                          className="c77"
                         >
                           <svg
                             aria-label="closerounded"
@@ -1912,7 +2030,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                             close-rounded.svg
                           </svg>
                           <span
-                            className="c71 c72"
+                            className="c78 c79"
                             color="magenta2"
                             type="caption"
                           >
@@ -1922,19 +2040,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      className="c66"
+                      className="c73"
                     >
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <p
-                          className="c20 c68"
+                          className="c20 c75"
                           color="unset"
                           type="body"
                         >
                           Pablo Vittar
                           <a
-                            className="c69"
+                            className="c76"
                             data-gtm-clicktype="link"
                             data-gtm-name="Inserir Dados"
                             data-gtm-type="click"
@@ -1946,10 +2064,10 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                         </p>
                       </td>
                       <td
-                        className="c67"
+                        className="c74"
                       >
                         <div
-                          className="c70"
+                          className="c77"
                         >
                           <svg
                             aria-label="closerounded"
@@ -1960,7 +2078,7 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
                             close-rounded.svg
                           </svg>
                           <span
-                            className="c71 c72"
+                            className="c78 c79"
                             color="magenta2"
                             type="caption"
                           >
@@ -1979,19 +2097,19 @@ exports[`CustomerTravelDetailsForm renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c73"
+    className="c80"
   >
     <div
-      className="c74"
+      className="c81"
       data-name="col-lg-11"
     >
       <button
-        className="c75 c76"
+        className="c82 c83"
         color="secondary"
         disabled={false}
       >
         <span
-          className="c77"
+          className="c84"
         >
           ENVIAR PROPOSTA
         </span>

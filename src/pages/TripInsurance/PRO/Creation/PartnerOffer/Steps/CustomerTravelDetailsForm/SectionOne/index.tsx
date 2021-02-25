@@ -1,7 +1,6 @@
 import React from 'react'
 
 import DataRow from 'pages/TripInsurance/commons/DataRow'
-import Radio from 'components/Inputs/Radio'
 import WarningFlag from 'pages/TripInsurance/commons/WarningFlag'
 
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
@@ -11,7 +10,8 @@ import { formatCpf } from 'helpers'
 import { IForm } from 'pages/TripInsurance/PRO/types'
 import { Divisor } from 'pages/TripInsurance/PRO/Creation/PartnerOffer/styles'
 
-import * as s from '../styles'
+import { Card, CardTitle } from '../styles'
+import * as s from './styles'
 import * as t from '../types'
 import * as u from '../utils'
 
@@ -35,10 +35,10 @@ export const SectionOne: React.FC<t.ISectionOne> = ({
 
   return (
     <section id="section-1" ref={sectionOneRef} {...rest}>
-      <s.Card>
-        <s.CardTitle bold type="subheading" color="gray5">
+      <Card>
+        <CardTitle bold type="subheading" color="gray5">
           DADOS DO CLIENTE
-        </s.CardTitle>
+        </CardTitle>
         <DataRow label="Nome" value={form.passageiroPrincipal?.nome ?? ''} />
         <Divisor />
         <DataRow
@@ -58,19 +58,20 @@ export const SectionOne: React.FC<t.ISectionOne> = ({
           <s.RadioTitle type="headline" bold>
             O cliente reside no Brasil?
           </s.RadioTitle>
-          <Radio
+          <s.Radio
             options={u.radioOptions}
             itemsDirection="row"
             justifyContent="flex-start"
             checkedItem={isBrazilianResident}
-            onChange={e => setIsBrazilianResident(e.currentTarget.value)}
-            data-testid="radio-input-brazilian-resident"
+            onChange={(event: React.FormEvent<HTMLInputElement>) =>
+              setIsBrazilianResident(event.currentTarget.value)
+            }
           />
           {isBrazilianResident === '0' ? (
             <WarningFlag title="Este seguro só poderá ser contratado pelo segurado residente no Brasil." />
           ) : null}
         </s.RadioContainer>
-      </s.Card>
+      </Card>
     </section>
   )
 }

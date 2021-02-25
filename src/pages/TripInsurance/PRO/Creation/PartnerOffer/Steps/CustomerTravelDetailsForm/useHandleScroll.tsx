@@ -70,7 +70,7 @@ const useHandleScroll = (): IUseHandleScrollReturn => {
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
     const section = document.querySelector('#wrapper-scroll')
-    console.log({ ref, section })
+
     if (ref.current) {
       return section?.scrollTo({
         top: ref.current.offsetTop,

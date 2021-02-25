@@ -6,7 +6,6 @@ import SelectCmp from 'components/Inputs/Select'
 import RadioCmp from 'components/Inputs/Radio/New'
 import TextCmp from 'components/Text'
 import NewInput from 'components/NewInput'
-import { IHasError } from './types'
 
 export const Container = styled(ContainerCmp)`
   margin-top: ${({ theme }) => theme.spacing(3)}px;
@@ -158,7 +157,11 @@ export const SelectGender = styled(SelectCmp)`
   max-width: 630px;
 `
 
-export const SelectTelephoneType = styled(SelectCmp)``
+export const SelectTelephoneType = styled(SelectCmp)`
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+  }
+`
 
 export const RadioTitle = styled(TextCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
@@ -170,6 +173,10 @@ export const RadioContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing(2)}px;
   margin-left: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => theme.spacing(2)}px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0;
+  }
 `
 
 export const RadioOptionsWrapper = styled.div`
@@ -186,26 +193,38 @@ export const Text = styled(TextCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const TextInput = styled(NewInput)<IHasError>`
-  margin-bottom: ${({ theme, error }) =>
-    error ? theme.spacing(5) : theme.spacing(2)}px;
+export const TextInput = styled(NewInput)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const TextInputMedium = styled(NewInput)<IHasError>`
-  margin-right: ${({ theme, error }) =>
-    error ? theme.spacing(5) : theme.spacing(2)}px;
+export const TextInputMedium = styled(NewInput)`
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
   width: 410px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin-right: 0;
+    width: 100%;
+  }
 `
 
 export const ContentWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing(2)}px;
   max-width: 658px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: ${({ theme }) => theme.spacing(2)}px 0;
+  }
 `
 
 export const InputsWrapper = styled.div`
   padding-top: ${({ theme }) => theme.spacing(2)}px;
   display: flex;
   flex-direction: row;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    flex-direction: column;
+    padding-top: 0;
+  }
 `
 
 export const FooterContainer = styled.div`

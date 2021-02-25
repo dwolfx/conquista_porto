@@ -1,72 +1,87 @@
 import React from 'react'
 
-import * as s from '../styles'
+import { formatPhoneNumber } from 'helpers'
+
+import { Card, CardTitle } from '../styles'
+import * as s from './styles'
 import * as t from '../types'
 import * as u from '../utils'
 
 export const SectionTwo: React.FC<t.ISectionTwo> = ({
   setIsSectionValid,
   emailState,
-  phoneState,
+  phoneNumberState,
   selectedPhoneTypeState,
   sectionTwoRef,
   ...rest
 }) => {
   const [email, setEmail] = emailState
-  const [phone, setPhone] = phoneState
+  const [isEmailValid, setIsEmailValid] = React.useState<boolean>(true)
+  const [phoneNumber, setPhoneNumber] = phoneNumberState
+  const [isPhoneNumberValid, setIsPhoneNumberValid] = React.useState<boolean>(
+    true
+  )
   const [selectedPhoneType, setSelectedPhoneType] = selectedPhoneTypeState
+
+  const checkSectionTwoValidity = React.useCallback(
+    (): boolean =>
+      isEmailValid &&
+      isPhoneNumberValid &&
+      !!selectedPhoneType.id &&
+      selectedPhoneType.id > 0,
+    [isEmailValid, isPhoneNumberValid, selectedPhoneType.id]
+  )
+
+  React.useEffect(() => {
+    setIsSectionValid(checkSectionTwoValidity())
+  }, [setIsSectionValid, checkSectionTwoValidity])
 
   return (
     <section id="section-2" ref={sectionTwoRef} {...rest}>
-      <s.Card overflow="visible">
-        <s.CardTitle bold type="subheading" color="gray5">
+      <Card overflow="visible">
+        <CardTitle bold type="subheading" color="gray5">
           DADOS PARA CONTATO
-        </s.CardTitle>
+        </CardTitle>
         <s.ContentWrapper>
           <s.TextInput
-            label="E-MAIL"
-            value={email.value}
+            data-gtm-form="input"
+            data-gtm-name="dados-para-contato-email"
+            label="e-mail"
             placeholder="Digite aqui..."
-            hasError={!email.value && email.touched}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setEmail({ value: e.currentTarget.value, touched: true })
+            value={email}
+            onBlur={() => {
+              setIsEmailValid(email.length > 0)
             }}
-            error={
-              !email.value &&
-              email.touched && {
-                icon: 'alertrounded',
-                message: 'Campo obrigatório',
-              }
-            }
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setEmail(event.currentTarget.value)
+              setIsEmailValid(true)
+            }}
           />
           <s.InputsWrapper>
             <s.TextInputMedium
-              label="TELEFONE"
-              value={phone.value}
-              placeholder="Ex: (12) 34567890"
-              hasError={!email.value && email.touched}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setPhone({
-                  value: e.currentTarget.value,
-                  touched: true,
-                })
+              data-gtm-form="input"
+              data-gtm-name="dados-para-contato-telefone"
+              maxLength={16}
+              label="telefone"
+              placeholder="Digite somente números"
+              value={formatPhoneNumber(phoneNumber)}
+              onBlur={() => {
+                setIsPhoneNumberValid(phoneNumber.length > 9)
               }}
-              error={
-                !phone.value &&
-                phone.touched && {
-                  icon: 'alertrounded',
-                  message: 'Campo obrigatório',
-                }
-              }
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                setPhoneNumber(event.target.value.replace(/\D/g, ''))
+                setIsPhoneNumberValid(true)
+              }}
             />
             <s.SelectTelephoneType
+              testId="phone-type"
               label="TIPO DE TELEFONE"
               options={u.phoneTypeOptions(setSelectedPhoneType)}
               selected={selectedPhoneType}
             />
           </s.InputsWrapper>
         </s.ContentWrapper>
-      </s.Card>
+      </Card>
     </section>
   )
 }

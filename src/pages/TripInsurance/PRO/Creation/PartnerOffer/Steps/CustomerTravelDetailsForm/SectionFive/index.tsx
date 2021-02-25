@@ -19,11 +19,17 @@ export const SectionFive: React.FC<t.ISectionFive> = ({
             label="NOME"
             value=""
             placeholder="Digite aqui... "
+            onChange={() => {
+              setIsSectionValid(true)
+            }}
           />
           <s.TextInput
             label="TELEFONE"
             value=""
             placeholder="Ex: (12) 34567890"
+            onChange={() => {
+              setIsSectionValid(true)
+            }}
           />
         </s.InputsWrapper>
       </s.ContentWrapper>

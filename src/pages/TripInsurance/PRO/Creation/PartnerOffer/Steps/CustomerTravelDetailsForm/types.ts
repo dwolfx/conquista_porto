@@ -23,10 +23,6 @@ export interface IHash {
   hash: string
 }
 
-export interface IHasError {
-  hasError?: boolean
-}
-
 export interface IInputState {
   value: string
   touched: boolean
@@ -40,8 +36,8 @@ export interface ISectionOne {
 
 export interface ISectionTwo {
   setIsSectionValid: React.Dispatch<React.SetStateAction<boolean>>
-  emailState: [IInputState, React.Dispatch<React.SetStateAction<IInputState>>]
-  phoneState: [IInputState, React.Dispatch<React.SetStateAction<IInputState>>]
+  emailState: [string, React.Dispatch<React.SetStateAction<string>>]
+  phoneNumberState: [string, React.Dispatch<React.SetStateAction<string>>]
   selectedPhoneTypeState: [
     TSelected,
     React.Dispatch<React.SetStateAction<TSelected>>

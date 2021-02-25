@@ -6,6 +6,7 @@ import Text from 'components/Text'
 import UserCard from 'components/Card/UserCard'
 
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useMedia from 'hooks/useMedia'
 
 import { base64decode, truncateString } from 'helpers'
 
@@ -35,6 +36,9 @@ import * as t from './types'
 const CustomerTravelDetailsForm: t.StepComponent = () => {
   // const dispatch = useDispatch()
   const { updateForm } = useFormFluxManagement<IForm>()
+  const isMobile = useMedia('xs')
+  const isTabletVertical = useMedia('md')
+  const isTabletHorizontal = useMedia('lg')
   const { hash } = useParams<t.IHash>()
   const [
     customer,
@@ -50,14 +54,8 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
   const [isSectionOneValid, setIsSectionOneValid] = React.useState(false)
 
   //section-2
-  const [email, setEmail] = React.useState<t.IInputState>({
-    value: '',
-    touched: false,
-  })
-  const [phone, setPhone] = React.useState<t.IInputState>({
-    value: '',
-    touched: false,
-  })
+  const [email, setEmail] = React.useState<string>('')
+  const [phone, setPhone] = React.useState<string>('')
   const [selectedPhoneType, setSelectedPhoneType] = React.useState<t.TSelected>(
     {
       id: 0,
@@ -525,11 +523,24 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
     })
   }, [updateForm, customer])
 
+  const handleTruncate = (): number => {
+    switch (true) {
+      case isMobile:
+        return 18
+      case isTabletVertical:
+        return 50
+      case isTabletHorizontal:
+        return 10
+      default:
+        return 18
+    }
+  }
+
   return (
     <PageWrapper id="wrapper-scroll">
       <s.Container>
         <Row>
-          <Col lg={3}>
+          <Col lg={3} md={3}>
             <NavWrapper>
               <NavTitleWrapper>
                 <Text type="subheading" bold color="gray6">
@@ -601,14 +612,14 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
               <UserCard
                 name={
                   (customer?.nomeCliente &&
-                    truncateString(customer?.nomeCliente, 20)) ||
+                    truncateString(customer?.nomeCliente, handleTruncate())) ||
                   'Cliente'
                 }
                 type="cliente"
               />
             </NavWrapper>
           </Col>
-          <Col lg={8}>
+          <Col lg={8} md={8}>
             <SectionOne
               setIsSectionValid={setIsSectionOneValid}
               brazilianResidentState={[
@@ -620,7 +631,7 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
             <SectionTwo
               setIsSectionValid={setIsSectionTwoValid}
               emailState={[email, setEmail]}
-              phoneState={[phone, setPhone]}
+              phoneNumberState={[phone, setPhone]}
               selectedPhoneTypeState={[selectedPhoneType, setSelectedPhoneType]}
               sectionTwoRef={handleScroll.sectionTwo}
             />

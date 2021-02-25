@@ -73,6 +73,13 @@ export const CardTitleWrapper = styled.div`
 
 export const DataDisplayer = styled(DataShower)`
   padding: ${({ theme }) => theme.spacing(2)}px;
+  & > div:first-child {
+    min-width: 30%;
+  }
+  & > div:last-child {
+    max-width: 70%;
+    overflow-wrap: break-word;
+  }
 `
 
 export const PlansContainer = styled.div`

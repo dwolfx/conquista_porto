@@ -614,9 +614,10 @@ const ProposalSummary: StepComponent = () => {
                     : form.paisesAdicionais
                     ? `Internacional / ${form.paisesAdicionais?.map(
                         (country, index) =>
-                          index + 1 !== form.paisesAdicionais?.length
-                            ? `${country.descricao},`
-                            : country.descricao
+                          form.paisesAdicionais &&
+                          index + 1 > form.paisesAdicionais?.length
+                            ? ` ${country.descricao}, `
+                            : ` ${country.descricao}`
                       )}`
                     : ''
                 }
