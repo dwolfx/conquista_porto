@@ -4,14 +4,22 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import StepBar from 'components/StepBar'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
-import DataRow from '../../../TripInsurance/commons/DataRow'
+import DataRow from '../../commons/DataRow'
+import Modal from 'components/Modal/ModalNew'
 
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import Text from 'components/Text'
 import * as s from './styles'
 
+import { Steps } from '../../Creation/types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { StepComponentProps } from 'hooks/FluxManagement/types'
+
 const Summary = () => {
   const { hire, page, buttons } = TextsConsortiumBuilding()
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false)
+
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   //Mock temporário
   const mockSummary = {
@@ -38,6 +46,17 @@ const Summary = () => {
     },
   }
 
+  const modalFooterButton = () => (
+    <s.ModalFooterWrapper>
+      <s.GoBackButton outline onClick={() => instantiate(Steps.chooseState)}>
+        {hire.steps.summary.modalBackSimulation.button.goback}
+      </s.GoBackButton>
+      <s.ContinueButton onClick={() => setIsModalOpen(false)}>
+        {hire.steps.summary.modalBackSimulation.button.continue}
+      </s.ContinueButton>
+    </s.ModalFooterWrapper>
+  )
+
   return (
     <>
       <StepBar
@@ -46,6 +65,16 @@ const Summary = () => {
         actualStep={hire.steps.summary.actualStep}
         totalNumberOfSteps={hire.stepMax}
       />
+      <Modal
+        modalTitle={hire.steps.summary.modalBackSimulation.title}
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+      >
+        <Text type="headline" color="gray6">
+          {hire.steps.summary.modalBackSimulation.content}
+        </Text>
+        {modalFooterButton()}
+      </Modal>
       <s.Container>
         <Row>
           <Col lg={3} md={10} mdOffset={1} lgOffset={0}>
@@ -74,7 +103,7 @@ const Summary = () => {
                   >
                     {hire.steps.summary.containerFirst.title}
                   </s.CardTitleText>
-                  <ButtonLink onClick={() => {}}>
+                  <ButtonLink onClick={() => setIsModalOpen(true)}>
                     <Text type="button" bold color="blue4" textAlign="right">
                       {hire.steps.summary.containerFirst.link}
                     </Text>
