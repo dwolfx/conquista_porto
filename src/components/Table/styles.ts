@@ -42,15 +42,20 @@ export const WrapperContent = styled.div<IWrapper>`
 export const InfoTableContent = styled.div`
   margin: auto;
   width: 458px;
-  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  height: 470px;
   justify-content: center;
   padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(5)}px`};
   white-space: pre-line;
   text-align: center;
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    height: 330px;
+  }
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    height: 580px;
+  }
 `
 
 export const TableWrapper = styled.div`

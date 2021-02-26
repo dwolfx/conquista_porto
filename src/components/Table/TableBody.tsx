@@ -28,11 +28,7 @@ const TableBody = ({
     return (
       <s.InfoTableContent>
         <div>
-          <Loading
-            type="bar"
-            legend={loadingMessage}
-            textAlign="center"
-          />
+          <Loading type="bar" legend={loadingMessage} textAlign="center" />
         </div>
       </s.InfoTableContent>
     )
@@ -58,7 +54,7 @@ const TableBody = ({
     )
   }
 
-  if (!rowOrPage || rowOrPage.length === 0) {
+  if (!rowOrPage || (rowOrPage.length === 0 && !isLoading)) {
     return (
       <s.InfoTableContent>
         <div>
