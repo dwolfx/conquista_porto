@@ -122,7 +122,7 @@ const TravelDetailsForm: StepComponent = () => {
   })
 
   const scrollListenerFunc = useCallback(() => {
-    const layerBody = window.document.getElementById('wrapper-scroll')
+    const layerBody = window.document.getElementById('layer-children')
     let sectionOnePos = null
     let sectionTwoPos = null
     let sectionThreePos = null
@@ -203,7 +203,7 @@ const TravelDetailsForm: StepComponent = () => {
   }, [destinationCountries])
 
   useEffect(() => {
-    const layerBody = window.document.getElementById('wrapper-scroll')
+    const layerBody = window.document.getElementById('layer-children')
     if (layerBody !== null) {
       layerBody.addEventListener('scroll', scrollListenerFunc)
     }
@@ -256,7 +256,7 @@ const TravelDetailsForm: StepComponent = () => {
   ])
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-    const section = document.querySelector('#wrapper-scroll')
+    const section = document.querySelector('#layer-children')
     if (ref.current) {
       return section?.scrollTo({
         top: ref.current.offsetTop,
@@ -383,7 +383,7 @@ const TravelDetailsForm: StepComponent = () => {
   return (
     <>
       <StepBar title="Proposta" actualStep={2} totalNumberOfSteps={3} />
-      <S.Container id="wrapper-scroll">
+      <S.Container>
         <Row>
           <Col lg={3}>
             <NavWrapper>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { formatPhoneNumber } from 'helpers'
 
-import { Card, CardTitle } from '../styles'
+import { Card, CardTitle, ContentWrapper } from '../styles'
 import * as s from './styles'
 import * as t from '../types'
 import * as u from '../utils'
@@ -42,7 +42,7 @@ export const SectionTwo: React.FC<t.ISectionTwo> = ({
         <CardTitle bold type="subheading" color="gray5">
           DADOS PARA CONTATO
         </CardTitle>
-        <s.ContentWrapper>
+        <ContentWrapper>
           <s.TextInput
             data-gtm-form="input"
             data-gtm-name="dados-para-contato-email"
@@ -80,7 +80,7 @@ export const SectionTwo: React.FC<t.ISectionTwo> = ({
               selected={selectedPhoneType}
             />
           </s.InputsWrapper>
-        </s.ContentWrapper>
+        </ContentWrapper>
       </Card>
     </section>
   )

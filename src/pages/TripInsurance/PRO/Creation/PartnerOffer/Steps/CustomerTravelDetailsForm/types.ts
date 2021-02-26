@@ -48,6 +48,23 @@ export interface ISectionTwo {
 export interface ISectionThree {
   setIsSectionValid: React.Dispatch<React.SetStateAction<boolean>>
   sectionThreeRef: React.MutableRefObject<HTMLTableSectionElement | null>
+  customer: IBase64DecodedResponse | null
+  hasPoliticallyExposedPersonState: [
+    boolean,
+    React.Dispatch<React.SetStateAction<boolean>>
+  ]
+  selectedPoliticalyExposedKinshipState: [
+    TSelected,
+    React.Dispatch<React.SetStateAction<TSelected>>
+  ]
+  politicalyExposedPersonNameState: [
+    string,
+    React.Dispatch<React.SetStateAction<string>>
+  ]
+  politicalyExposedPersonCPFState: [
+    string,
+    React.Dispatch<React.SetStateAction<string>>
+  ]
 }
 
 export interface ISectionFour {
@@ -70,7 +87,3 @@ export type StepComponent = Step
 export type TSelected = Selected
 
 export type IBase64DecodedResponse = Base64Decode
-
-// interface ICompanion {
-//   companions: ICompanionsData[]
-// }

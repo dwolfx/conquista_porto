@@ -1,20 +1,17 @@
 import styled from 'styled-components'
 
+import ButtonCmp from 'components/Button'
 import DivisorComp from 'components/Divisor'
 import Icon from 'components/IconExporter'
-import ButtonCmp from 'components/Button'
 import LayerCmp from 'components/Layer'
-import TextCmp from 'components/Text'
 import ModalCmp from 'components/Modal/ModalNew'
+import TextCmp from 'components/Text'
+
+import { ChildrenWrapper } from 'components/Layer/styles'
 
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
-`
-
-export const PageWrapper = styled.div`
-  height: 100vh;
-  overflow: auto;
 `
 
 export const LogoWrapper = styled.div`
@@ -75,7 +72,17 @@ export const ButtonWrapper = styled.div`
   justify-content: flex-end;
 `
 
-export const Layer = styled(LayerCmp)``
+export const Layer = styled(LayerCmp)<{ hasMarginBottom: boolean }>`
+  ${ChildrenWrapper} {
+    margin-bottom: ${({ hasMarginBottom, theme: { spacing } }) =>
+      hasMarginBottom ? `${spacing(9)}px` : '0'};
+
+    @media ${({ theme }) => theme.mediaQueries.xs} {
+      margin-bottom: ${({ hasMarginBottom, theme: { spacing } }) =>
+        hasMarginBottom ? `${spacing(16)}px` : '0'};
+    }
+  }
+`
 
 export const Modal = styled(ModalCmp)``
 

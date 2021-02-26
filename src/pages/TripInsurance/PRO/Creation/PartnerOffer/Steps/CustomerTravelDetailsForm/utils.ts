@@ -1,3 +1,4 @@
+import { cpf } from 'helpers'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
 
 export const genderOptions = (
@@ -60,3 +61,71 @@ export const renderTableCompanionDataMock = [
     status: false,
   },
 ]
+
+const PPEList = [
+  {
+    id: 7,
+    name: 'Segurado',
+  },
+  {
+    id: 1,
+    name: 'Companheiro(a)',
+  },
+  {
+    id: 2,
+    name: 'Cônjuge',
+  },
+  {
+    id: 3,
+    name: 'Enteado(a)',
+  },
+  {
+    id: 4,
+    name: 'Filho(a)',
+  },
+  {
+    id: 5,
+    name: 'Pai ou mãe',
+  },
+  {
+    id: 6,
+    name: 'Outros',
+  },
+]
+
+export const getPoliticalyExposedKinshipOptions = (
+  setSelectedPoliticalyExposedKinship: (
+    value: React.SetStateAction<TSelected>
+  ) => void
+): TOptions[] => {
+  return [...PPEList].map(PPEItem => ({
+    id: PPEItem.id,
+    text: PPEItem.name,
+    onClick: () => setSelectedPoliticalyExposedKinship(PPEItem),
+  }))
+}
+
+export const checkOnChangeCpfValidity = (
+  CPF: string,
+  setIsCPFValid: (arg: boolean) => void,
+  selectedPoliticalyExposedKinshipID: number,
+  customerCPF: string
+) => {
+  if (+CPF.replace(/\./g, '').replace('-', '').length < 11) {
+    setIsCPFValid(true)
+  }
+
+  if (+CPF.replace(/\./g, '').replace('-', '').length === 11) {
+    setIsCPFValid(cpf.isValid(CPF.replace(/\./g, '').replace('-', '')))
+  }
+
+  // If CPF length is equal to 11 and the kinship is not equal to
+  // {  id: 7, name: 'Eu', } and the CPF value is equal to customer CPF
+  if (
+    CPF.replace(/\./g, '').replace('-', '').length === 11 &&
+    selectedPoliticalyExposedKinshipID !== 7 &&
+    CPF.replace(/\./g, '').replace('-', '') === customerCPF
+  ) {
+    setIsCPFValid(false)
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col } from 'styled-bootstrap-grid'
 import { useParams } from 'react-router-dom'
 
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 import Text from 'components/Text'
 import UserCard from 'components/Card/UserCard'
 
@@ -25,10 +26,8 @@ import {
   NavTitleWrapper,
   Tag,
   TagText,
-  // TagsWrapper,
   Divisor,
   BadgeNotification,
-  PageWrapper,
 } from '../../styles'
 import * as s from './styles'
 import * as t from './types'
@@ -48,12 +47,13 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
   const handleScroll = useHandleScroll()
 
   //section-1
+  const [isSectionOneValid, setIsSectionOneValid] = React.useState(false)
   const [isBrazilianResident, setIsBrazilianResident] = React.useState<string>(
     ''
   )
-  const [isSectionOneValid, setIsSectionOneValid] = React.useState(false)
 
   //section-2
+  const [isSectionTwoValid, setIsSectionTwoValid] = React.useState(false)
   const [email, setEmail] = React.useState<string>('')
   const [phone, setPhone] = React.useState<string>('')
   const [selectedPhoneType, setSelectedPhoneType] = React.useState<t.TSelected>(
@@ -62,10 +62,25 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
       name: '',
     }
   )
-  const [isSectionTwoValid, setIsSectionTwoValid] = React.useState(false)
 
   //section-3
   const [isSectionThreeValid, setIsSectionThreeValid] = React.useState(false)
+  const [
+    hasPoliticallyExposedPerson,
+    setHasPoliticallyExposedPerson,
+  ] = React.useState<boolean>(false)
+  const [
+    selectedPoliticalyExposedKinship,
+    setSelectedPoliticalyExposedKinship,
+  ] = React.useState<t.TSelected>({ id: 0, name: '' })
+  const [
+    politicalyExposedPersonName,
+    setPoliticalyExposedPersonName,
+  ] = React.useState<string>('')
+  const [
+    politicalyExposedPersonCPF,
+    setPoliticalyExposedPersonCPF,
+  ] = React.useState<string>('')
 
   //section-4
   const [isSectionFourValid, setIsSectionFourValid] = React.useState(false)
@@ -84,7 +99,7 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
     if (hash) {
       const dataDecoded: t.IBase64DecodedResponse = base64decode(hash)
       if (dataDecoded) {
-        setCustomer(dataDecoded)
+        setCustomer({ ...dataDecoded, cpfCliente: `${dataDecoded.cpfCliente}` })
       }
     }
   }, [hash])
@@ -523,7 +538,7 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
     })
   }, [updateForm, customer])
 
-  const handleTruncate = (): number => {
+  const handleTruncateLength = (): number => {
     switch (true) {
       case isMobile:
         return 18
@@ -536,8 +551,30 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
     }
   }
 
+  const fixedFooter = () => (
+    <s.FooterWrapper>
+      <s.FooterContainer>
+        <Row>
+          <Col lg={3} md={3} />
+          <s.FooterCol lg={8} md={8}>
+            <s.Button
+              color="secondary"
+              data-gtm-name="enviar proposta"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              onClick={() => {}}
+            >
+              ENVIAR PROPOSTA
+            </s.Button>
+          </s.FooterCol>
+        </Row>
+      </s.FooterContainer>
+    </s.FooterWrapper>
+  )
+
   return (
-    <PageWrapper id="wrapper-scroll">
+    <>
+      <StepBar title="Proposta" actualStep={3} totalNumberOfSteps={3} />
       <s.Container>
         <Row>
           <Col lg={3} md={3}>
@@ -612,7 +649,10 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
               <UserCard
                 name={
                   (customer?.nomeCliente &&
-                    truncateString(customer?.nomeCliente, handleTruncate())) ||
+                    truncateString(
+                      customer?.nomeCliente,
+                      handleTruncateLength()
+                    )) ||
                   'Cliente'
                 }
                 type="cliente"
@@ -621,48 +661,61 @@ const CustomerTravelDetailsForm: t.StepComponent = () => {
           </Col>
           <Col lg={8} md={8}>
             <SectionOne
+              sectionOneRef={handleScroll.sectionOne}
               setIsSectionValid={setIsSectionOneValid}
               brazilianResidentState={[
                 isBrazilianResident,
                 setIsBrazilianResident,
               ]}
-              sectionOneRef={handleScroll.sectionOne}
             />
             <SectionTwo
+              sectionTwoRef={handleScroll.sectionTwo}
               setIsSectionValid={setIsSectionTwoValid}
               emailState={[email, setEmail]}
               phoneNumberState={[phone, setPhone]}
               selectedPhoneTypeState={[selectedPhoneType, setSelectedPhoneType]}
-              sectionTwoRef={handleScroll.sectionTwo}
             />
             <SectionThree
-              setIsSectionValid={setIsSectionThreeValid}
               sectionThreeRef={handleScroll.sectionThree}
+              setIsSectionValid={setIsSectionThreeValid}
+              customer={customer}
+              hasPoliticallyExposedPersonState={[
+                hasPoliticallyExposedPerson,
+                setHasPoliticallyExposedPerson,
+              ]}
+              selectedPoliticalyExposedKinshipState={[
+                selectedPoliticalyExposedKinship,
+                setSelectedPoliticalyExposedKinship,
+              ]}
+              politicalyExposedPersonNameState={[
+                politicalyExposedPersonName,
+                setPoliticalyExposedPersonName,
+              ]}
+              politicalyExposedPersonCPFState={[
+                politicalyExposedPersonCPF,
+                setPoliticalyExposedPersonCPF,
+              ]}
             />
 
             <SectionFour
-              setIsSectionValid={setIsSectionFourValid}
               sectionFourRef={handleScroll.sectionFour}
+              setIsSectionValid={setIsSectionFourValid}
             />
 
             <SectionFive
-              setIsSectionValid={setIsSectionFiveValid}
               sectionFiveRef={handleScroll.sectionFive}
+              setIsSectionValid={setIsSectionFiveValid}
             />
 
             <SectionSix
-              setIsSectionValid={setIsSectionSixValid}
               sectionSixRef={handleScroll.sectionSix}
+              setIsSectionValid={setIsSectionSixValid}
             />
           </Col>
         </Row>
       </s.Container>
-      <s.FooterContainer>
-        <s.FooterCol lg={11}>
-          <s.Button color="secondary">ENVIAR PROPOSTA</s.Button>
-        </s.FooterCol>
-      </s.FooterContainer>
-    </PageWrapper>
+      {fixedFooter()}
+    </>
   )
 }
 

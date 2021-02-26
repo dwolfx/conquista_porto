@@ -3,15 +3,6 @@ import styled from 'styled-components'
 import NewInput from 'components/NewInput'
 import SelectCmp from 'components/Inputs/Select'
 
-export const ContentWrapper = styled.div`
-  padding: ${({ theme }) => theme.spacing(2)}px;
-  max-width: 658px;
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: ${({ theme }) => theme.spacing(2)}px 0;
-  }
-`
-
 export const TextInput = styled(NewInput)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `

@@ -1,5 +1,5 @@
 export interface IBase64DecodedResponse {
-  cpfCliente: number
+  cpfCliente: string
   idCorretor: string
   nomeCliente: string
 }

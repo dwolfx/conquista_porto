@@ -73,6 +73,7 @@ const TripInsurenceParnerPRO = ({
         {modalFooterButton()}
       </s.Modal>
       <s.Layer
+        hasMarginBottom={getLast()?.type !== PartnerSteps.TravelDetailsForm}
         isOpen={isOpen}
         handleClose={() => setIsModalOpen(true)}
         data-testid="trip-insurance-layer"

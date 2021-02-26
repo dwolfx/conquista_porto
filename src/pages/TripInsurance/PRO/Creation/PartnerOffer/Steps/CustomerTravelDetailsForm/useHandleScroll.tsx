@@ -15,7 +15,7 @@ const useHandleScroll = (): IUseHandleScrollReturn => {
   const sectionSix = React.useRef<HTMLTableSectionElement | null>(null)
 
   const scrollListenerFunc = React.useCallback(() => {
-    const layerBody = window.document.getElementById('wrapper-scroll')
+    const layerBody = window.document.getElementById('layer-children')
     let sectionOnePos = null
     let sectionTwoPos = null
     let sectionThreePos = null
@@ -61,7 +61,7 @@ const useHandleScroll = (): IUseHandleScrollReturn => {
   }, [])
 
   React.useEffect(() => {
-    const layerBody = window.document.getElementById('wrapper-scroll')
+    const layerBody = window.document.getElementById('layer-children')
     if (layerBody !== null) {
       layerBody.addEventListener('scroll', scrollListenerFunc)
     }
@@ -69,7 +69,7 @@ const useHandleScroll = (): IUseHandleScrollReturn => {
   }, [scrollListenerFunc])
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-    const section = document.querySelector('#wrapper-scroll')
+    const section = document.querySelector('#layer-children')
 
     if (ref.current) {
       return section?.scrollTo({

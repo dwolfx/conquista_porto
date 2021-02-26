@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { Container as ContainerCmp, Col as ColCmp } from 'styled-bootstrap-grid'
 import ButtonCmp from 'components/Button'
 import CardCmp from 'components/Card'
-import SelectCmp from 'components/Inputs/Select'
 import RadioCmp from 'components/Inputs/Radio/New'
 import TextCmp from 'components/Text'
 import NewInput from 'components/NewInput'
@@ -15,42 +14,9 @@ export const Col = styled(ColCmp)`
   padding: 0;
 `
 
-export const InformationWrapper = styled.div`
-  padding: ${({ theme }) =>
-    `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
-`
-
 export const Card = styled(CardCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => theme.spacing(5)}px;
-`
-
-export const CompanionCard = styled(CardCmp)`
-  display: flex;
-  align-items: center;
-  margin: 0 ${({ theme }) => theme.spacing(7)}px 0
-    ${({ theme }) => theme.spacing(7)}px;
-`
-
-export const TitleText = styled(TextCmp)`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
-
-export const NavigationItem = styled.div`
-  display: inline-flex;
-  padding-left: ${({ theme }) => theme.spacing(3)}px;
-  border-left: 2px solid ${({ theme }) => theme.colors.gray1};
-  &:first-of-type {
-    border-left: 2px solid ${({ theme }) => theme.colors.blue4};
-  }
-`
-
-export const BadgeNotification = styled.span`
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.magenta2};
-  margin-left: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const Table = styled.table`
@@ -152,33 +118,6 @@ export const CardTitle = styled(TextCmp)`
   margin-left: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const SelectGender = styled(SelectCmp)`
-  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
-  max-width: 630px;
-`
-
-export const SelectTelephoneType = styled(SelectCmp)`
-  @media ${props => props.theme.mediaQueries.xs} {
-    margin-top: ${({ theme }) => theme.spacing(2)}px;
-  }
-`
-
-export const RadioTitle = styled(TextCmp)`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
-
-export const RadioContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
-  padding: ${({ theme }) => theme.spacing(2)}px;
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: 0;
-  }
-`
-
 export const RadioOptionsWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -227,16 +166,21 @@ export const InputsWrapper = styled.div`
   }
 `
 
-export const FooterContainer = styled.div`
+export const FooterWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray3};
   background-color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.spacing(2)}px;
 `
+
+export const FooterContainer = styled(ContainerCmp)``
 
 export const FooterCol = styled(ColCmp)`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-right: ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const Button = styled(ButtonCmp)`
