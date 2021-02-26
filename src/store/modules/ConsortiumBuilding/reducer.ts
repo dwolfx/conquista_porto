@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   data: null,
   isLoading: false,
   hasError: false,
+  closeLayer: false,
 }
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -27,6 +28,11 @@ export default function(state = INITIAL_STATE, action: any) {
         ...state,
         isLoading: false,
         hasError: true,
+      }
+    case Types.GET_CLOSE_LAYER:
+      return {
+        ...state,
+        closeLayer: action.close,
       }
     default:
       return state

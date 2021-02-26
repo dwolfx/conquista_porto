@@ -20,3 +20,10 @@ export function GetConsortiumBuildingDataFailure() {
     type: Types.GET_FAILURE,
   }
 }
+
+export function GetConsortiumBuildingCloseLayer(close: boolean) {
+  return {
+    type: Types.GET_CLOSE_LAYER,
+    close,
+  }
+}

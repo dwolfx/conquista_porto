@@ -10,6 +10,8 @@ import Modal from 'components/Modal/ModalNew'
 
 import * as s from './styles'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
+import { useSelector, useDispatch } from 'react-redux'
+import { GetConsortiumBuildingCloseLayer } from 'store/modules/ConsortiumBuilding/action'
 
 export default function ConsortiumBuildingCreation({
   isOpen = true,
@@ -23,8 +25,14 @@ export default function ConsortiumBuildingCreation({
   const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
     StepComponentProps
   >()
-
+  const dispatch = useDispatch()
   const [isModalOpen, setIsModalOpen] = React.useState(false)
+
+  const { closeLayer } = useSelector((state: any) => {
+    return {
+      closeLayer: state.consortiumBuilding.closeLayer,
+    }
+  })
 
   useFetchCustomerProfile()
 
@@ -37,6 +45,13 @@ export default function ConsortiumBuildingCreation({
   React.useEffect(() => {
     if (isOpen && getLength() === 0) instantiate(Steps.chooseState)
   }, [isOpen, instantiate, getLength])
+
+  React.useEffect(() => {
+    if (closeLayer) {
+      dispatch(GetConsortiumBuildingCloseLayer(false))
+      closeHandler()
+    }
+  }, [closeLayer, dispatch, closeHandler])
 
   const modalFooterButton = () => (
     <s.ButtonWrapper>
