@@ -6,7 +6,6 @@ import Anbima from 'components/Anbima'
 import Button from 'components/Button'
 import Header from 'components/Header/TransactionsHeader'
 import FundDetails from 'components/Objective/FundDetails'
-import Table from 'components/Table/TableWithCheckbox'
 import { TColumns } from 'components/Table/types'
 import Text from 'components/Text'
 
@@ -46,60 +45,121 @@ const columns: TColumns[] = [
         </FundoWrapper>
       </FundoOutterWrapper>
     ),
+    styles: {
+      minWidth: 250,
+      header: {
+        minWidth: 230,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'Aplic. mín.',
     accessor: 'minimo_inicial',
     format: (row: IFundsList) => (
-      <Text color="gray5" bold>
-        {formatMoney(row.minimo_inicial)}
-      </Text>
+      <s.CellWrapper>
+        <Text color="gray5" bold>
+          {formatMoney(row.minimo_inicial)}
+        </Text>
+      </s.CellWrapper>
     ),
+    styles: {
+      minWidth: 130,
+      header: {
+        minWidth: 110,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'Regate (cot.)',
     accessor: 'resgate_cotizacao',
     format: (row: IFundsList) => (
-      <Text color="gray5" bold>
-        {row.resgate_cotizacao}
-      </Text>
+      <s.CellWrapper>
+        <Text color="gray5" bold>
+          {row.resgate_cotizacao}
+        </Text>
+      </s.CellWrapper>
     ),
+    styles: {
+      minWidth: 150,
+      header: {
+        minWidth: 130,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'Taxa adm (a.a.)',
     accessor: 'taxa_administracao',
     format: (row: IFundsList) => (
-      <Text color="gray5" bold>
-        {formatNumber(row.taxa_administracao)}%
-      </Text>
+      <s.CellWrapper>
+        <Text color="gray5" bold>
+          {formatNumber(row.taxa_administracao)}%
+        </Text>
+      </s.CellWrapper>
     ),
+    styles: {
+      minWidth: 150,
+      header: {
+        minWidth: 130,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'Rent. mês',
     accessor: 'rentabil_fundo_mes',
     format: (row: IFundsList) => (
-      <Text color="gray6" bold>
-        {formatNumber(row.rentabil_fundo_mes)}%
-      </Text>
+      <s.CellWrapper>
+        <Text color="gray6" bold>
+          {formatNumber(row.rentabil_fundo_mes)}%
+        </Text>
+      </s.CellWrapper>
     ),
+    styles: {
+      minWidth: 130,
+      header: {
+        minWidth: 110,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'Rent. ano',
     accessor: 'rentabil_fundo_ano',
     format: (row: IFundsList) => (
-      <Text color="gray6" bold>
-        {formatNumber(row.rentabil_fundo_ano)}%
-      </Text>
+      <s.CellWrapper>
+        <Text color="gray6" bold>
+          {formatNumber(row.rentabil_fundo_ano)}%
+        </Text>
+      </s.CellWrapper>
     ),
+    styles: {
+      minWidth: 130,
+      header: {
+        minWidth: 110,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'Rent. últ. 12m',
     accessor: 'rentabil_fundo_12_meses',
     format: (row: IFundsList) => (
-      <Text color="gray6" bold>
-        {formatNumber(row.rentabil_fundo_12_meses)}%
-      </Text>
+      <s.CellWrapper>
+        <Text color="gray6" bold>
+          {formatNumber(row.rentabil_fundo_12_meses)}%
+        </Text>
+      </s.CellWrapper>
     ),
+    styles: {
+      minWidth: 150,
+      header: {
+        minWidth: 10,
+      },
+    },
+    justifyHeader: 'flex-start',
   },
 ]
 
@@ -107,9 +167,9 @@ const columnsSticky: TColumns[] = [
   {
     ...columns[0],
     styles: {
-      minWidth: 179,
+      minWidth: 199,
       header: {
-        minWidth: 157,
+        minWidth: 179,
       },
     },
     sticky: 'left',
@@ -147,7 +207,7 @@ const columnsSticky: TColumns[] = [
   },
   {
     ...columns[4],
-    styles: { minWidth: 192, header: { minWidth: 130 } },
+    styles: { minWidth: 162, header: { minWidth: 130 } },
     canSort: false,
   },
   {
@@ -430,7 +490,7 @@ export default function FundsList({
                   filtersCount={filtersCount}
                 />
 
-                <Table
+                <s.Table
                   data={fundsListSorted}
                   columns={
                     isTabletVertical || isTabletHorizontal

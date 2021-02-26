@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { Container as ContainerBootstrap, Row } from 'styled-bootstrap-grid'
+import {
+  Container as ContainerBootstrap,
+  Row as RowCmp,
+  Col as ColCmp,
+} from 'styled-bootstrap-grid'
 
 import ButtonComponent from 'components/Button'
 import CardCmp from 'components/Card'
@@ -27,8 +31,15 @@ export const Container = styled(ContainerBootstrap)<{ isFirst?: boolean }>`
   }
 `
 
-export const InformativeRow = styled(Row)`
+export const Row = styled(RowCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const Col = styled(ColCmp)`
+  margin: 0px 0px ${({ theme }) => theme.spacing(2)}px;
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: ${({ theme }) => theme.spacing(2)}px 0px 0px;
+  }
 `
 
 export const CardTable = styled(CardCmp)`
@@ -112,9 +123,10 @@ export const Footer = styled.div`
   }
 `
 
-export const CompositionRow = styled(Row)`
+export const CompositionRow = styled(RowCmp)`
   @media ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: column-reverse;
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   }
 `
 
