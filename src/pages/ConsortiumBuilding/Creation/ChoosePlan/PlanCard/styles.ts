@@ -20,13 +20,13 @@ export const CardComponent = styled(CardCmp)`
     margin-right: 0px;
   }
 
-  @media ${({ theme }) => theme.mediaQueries.mdUp} {
+  &:nth-child(n + 3) {
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
     &:nth-child(2n) {
       margin-right: ${({ theme }) => theme.spacing(2)}px;
-    }
-
-    &:nth-child(n + 3) {
-      margin-top: ${({ theme }) => theme.spacing(2)}px;
     }
   }
 

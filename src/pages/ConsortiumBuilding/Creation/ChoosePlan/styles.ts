@@ -51,28 +51,32 @@ interface ITitleWrapper {
 
 export const TitleWrapper = styled.div<ITitleWrapper>`
   display: flex;
+  width: 816px;
 
 
   ${({ cardsQuantity, theme }) =>
     cardsQuantity < 3
       ? `
+
+    @media ${theme.mediaQueries.lgUp} {
+      width: 848px;
+    }  
     @media ${theme.mediaQueries.lg} {
       flex-direction: column;
       align-items: flex-start;
     }`
-      : `flex-direction: row;
-        align-items: center;`}
+      : `@media ${theme.mediaQueries.lgUp} {
+          width: 1280px; 
+        }
+      flex-direction: row;
+      align-items: center;
+    `}
 
   justify-content: ${({ cardsQuantity }) =>
     cardsQuantity === 1 ? `center` : `space-between`};
 
-  width: 830px;
   padding: ${({ theme }) => `${theme.spacing(4)}px 0px ${theme.spacing(3)}px`};
   
-  @media ${({ theme }) => theme.mediaQueries.lgUp}{
-    width: 1280px;
-  }
-
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
     align-items: flex-start;
@@ -181,6 +185,8 @@ export const CardsWrapper = styled.div<ICardsWrapper>`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: ${({ theme }) => theme.spacing(3)}px;
 
   ${({ cardsQuantity }) => cardsQuantity > 3 && `flex-wrap: wrap;`}
 
