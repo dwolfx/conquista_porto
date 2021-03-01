@@ -161,7 +161,7 @@
       "initial_date": "17/06/1999",
       "manager": "ARX Investimentos",
       "min_initial_value": 500,
-      "min_value_to_apply": 100,
+      "min_value_to_invest": 100,
       "release_to_apply": true,
       "min_rescue_value": 100,
       "release_to_rescue": true,

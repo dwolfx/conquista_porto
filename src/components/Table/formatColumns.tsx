@@ -37,7 +37,7 @@ import { WrapperContent } from './styles'
 //         minFundValue = row.min_initial_value
 //         break
 //       case 'monthly_value':
-//         minFundValue = row.min_value_to_apply
+//         minFundValue = row.min_value_to_invest
 //         break
 //       default:
 //         throw new UnexpectedTextException(

@@ -59,6 +59,7 @@ export default function WalletComposition({ onClose }: IProps) {
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
   const isTabletVertical = useMedia('sm')
+  const isDesktop = useMedia('lgUp')
 
   const [funds, setFunds] = useState<IFunds[] | []>([])
   const [recommendedFundIds, setRecommendedFundIds] = useState<number[] | []>(
@@ -493,7 +494,7 @@ export default function WalletComposition({ onClose }: IProps) {
           </Col>
 
           {!isMobile && !isTabletVertical ? (
-            <Col lg={9}>
+            <Col lg={9} md={12} sm={12}>
               <s.CardTable headerTitle="Minha carteira" headerIcon="financial">
                 <s.TextCompositionWrapper>
                   <Text type="headline" color="gray6">
@@ -503,8 +504,8 @@ export default function WalletComposition({ onClose }: IProps) {
                 </s.TextCompositionWrapper>
 
                 <s.TableInfosWrapper>
+                  {isDesktop && <s.TableLabelWithMargim />}
                   <s.PercentualInfos funds={funds} />
-                  <TableLabel />
                 </s.TableInfosWrapper>
 
                 <s.Table

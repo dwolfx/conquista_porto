@@ -18,7 +18,7 @@ import * as s from './styles'
 
 export const formatFundoInv = (row: IFunds) => (
   <s.FundoOutterWrapper key={`fund_name_${row.fund_id}`}>
-    <RiskColorTag borderRisk={row.share_holder_profile_risk} />
+    <RiskColorTag borderRisk={row.order_profile_risk} />
     <s.FundoWrapper>
       <s.FundoNameWrapper color="gray5">{row.name}</s.FundoNameWrapper>
       <Text type="caption" color="gray4" bold textAlign="left">
@@ -47,7 +47,7 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
   )
 
   useEffect(() => {
-    if(type === 'monthly_value') {
+    if (type === 'monthly_value') {
       setCompareError(innerValue !== 0 && innerValue < minValue)
     } else {
       setCompareError(innerValue < minValue)
@@ -61,7 +61,7 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
         minFundValue = row.min_initial_value
         break
       case 'monthly_value':
-        minFundValue = row.min_value_to_apply
+        minFundValue = row.min_value_to_invest
         break
       default:
         throw new UnexpectedTextException(

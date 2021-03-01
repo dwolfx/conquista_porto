@@ -19,12 +19,4 @@ export const PercentualText = styled(Text)`
     padding-left: ${({ theme }) => theme.spacing(2)}px;
     margin-left: ${({ theme }) => theme.spacing(2)}px;
   }
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    &:nth-child(2n) {
-      border-left: 0;
-      padding-left: 0;
-      margin-left: 0;
-    }
-  }
 `

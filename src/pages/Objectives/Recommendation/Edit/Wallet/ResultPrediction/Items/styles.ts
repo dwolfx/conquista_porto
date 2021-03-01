@@ -1,13 +1,16 @@
 import styled from 'styled-components'
-import HorizontalList from 'components/HorizontalList'
 import { mediaQueries } from 'styles/theme'
+import TextCmp from 'components/Text'
+import VerticalList from 'components/VerticalList'
 
-const tabletAndBiggerSmartphones = `${mediaQueries.smUp} and ${mediaQueries.md}`
+const tabletAndBiggerSmartphones = `${mediaQueries.smUp} and ${mediaQueries.lg}`
 
 export const Label = styled.div`
   ${props => props.theme.fontTypes.captionUppercase}
   color: ${props => props.theme.colors.gray5};
 `
+
+export const Text = styled(TextCmp)``
 
 export const Value = styled.div<any>`
   ${props => props.theme.fontTypes.body}
@@ -24,9 +27,8 @@ export const Items = styled.div`
   }
 `
 
-export const Item = styled(HorizontalList)`
+export const Item = styled(VerticalList)`
   flex-direction: row;
-  height: 35px;
   @media ${tabletAndBiggerSmartphones} {
     flex-direction: column;
   }

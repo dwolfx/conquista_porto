@@ -308,11 +308,11 @@ export default function FundsList({
       nickname: fund.apelido,
       company_name: fund.nome_empresa,
       profile_risk: fund.perfil_risco,
-      share_holder_profile_risk: fund.perfil_risco_ordem,
+      order_profile_risk: fund.perfil_risco_ordem,
       initial_date: '',
       manager: '',
       min_initial_value: fund.minimo_inicial,
-      min_value_to_apply: fund.aplicao_minima,
+      min_value_to_invest: fund.aplicao_minima,
       release_to_apply: true,
       min_rescue_value: 0,
       release_to_rescue: true,
@@ -448,7 +448,7 @@ export default function FundsList({
 
                 <s.InfoRow>
                   <Text color={selectedFunds.length ? 'gray6' : 'gray4'} bold>
-                    {selectedFunds.length}
+                    {selectedFunds.length} Fundos selecionados
                   </Text>
                   <Button
                     color="secondary"
