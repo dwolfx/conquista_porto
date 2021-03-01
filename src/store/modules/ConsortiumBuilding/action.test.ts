@@ -3,6 +3,7 @@ import {
   GetConsortiumBuildingDataRequest,
   GetConsortiumBuildingDataSuccess,
   GetConsortiumBuildingDataFailure,
+  GetConsortiumBuildingCloseLayer,
 } from './action'
 
 describe('Consortium Building Actions', () => {
@@ -26,6 +27,14 @@ describe('Consortium Building Actions', () => {
   test('if GetConsortiumBuildingDataFailure returns the correct object', () => {
     expect(GetConsortiumBuildingDataFailure()).toEqual({
       type: Types.GET_FAILURE,
+    })
+  })
+
+  test('if GetConsortiumBuildingCloseLayer returns the correct status', () => {
+    const close = true
+    expect(GetConsortiumBuildingCloseLayer(close)).toEqual({
+      type: Types.GET_CLOSE_LAYER,
+      close,
     })
   })
 })

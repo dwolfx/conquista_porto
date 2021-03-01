@@ -21,6 +21,7 @@ import { GetJobsRequest } from 'store/modules/ConsortiumBuilding/Jobs/action'
 import { IFormConsortiumBuilding, Steps } from '../types'
 import * as s from './styles'
 import PlanCard from './PlanCard'
+import { GetConsortiumBuildingCloseLayer } from 'store/modules/ConsortiumBuilding/action'
 
 const ChoosePlan: React.FC = () => {
   const isMobile = useMedia('sm')
@@ -103,14 +104,16 @@ const ChoosePlan: React.FC = () => {
               <s.ButtonsWrapper>
                 <s.ExitButton
                   loading={isLoading}
-                  onClick={() => instantiate(Steps.chooseState)}
+                  onClick={() =>
+                    dispatch(GetConsortiumBuildingCloseLayer(true))
+                  }
                 >
                   INICIO
                 </s.ExitButton>
                 <s.SimulateAgainButton
                   outline
                   loading={isLoading}
-                  onClick={() => simulationDispatch()}
+                  onClick={() => instantiate(Steps.chooseState)}
                 >
                   SIMULAR NOVAMENTE
                 </s.SimulateAgainButton>

@@ -8,6 +8,7 @@ describe('Consortium Building Reducer', () => {
       data: null,
       isLoading: false,
       hasError: false,
+      closeLayer: false,
     })
   })
 
@@ -19,6 +20,7 @@ describe('Consortium Building Reducer', () => {
           data: null,
           isLoading: false,
           hasError: false,
+          closeLayer: false,
         },
         {
           type: Types.GET_REQUEST,
@@ -29,6 +31,7 @@ describe('Consortium Building Reducer', () => {
       data: null,
       isLoading: true,
       hasError: false,
+      closeLayer: false,
     })
   })
 
@@ -40,6 +43,7 @@ describe('Consortium Building Reducer', () => {
           data: null,
           isLoading: false,
           hasError: false,
+          closeLayer: false,
         },
         {
           type: Types.GET_SUCCESS,
@@ -51,6 +55,7 @@ describe('Consortium Building Reducer', () => {
       hasError: false,
       status: 'loaded',
       isLoading: false,
+      closeLayer: false,
     })
   })
 
@@ -62,6 +67,7 @@ describe('Consortium Building Reducer', () => {
           hasError: false,
           status: '',
           isLoading: false,
+          closeLayer: false,
         },
         {
           type: Types.GET_FAILURE,
@@ -72,6 +78,31 @@ describe('Consortium Building Reducer', () => {
       status: '',
       hasError: true,
       isLoading: false,
+      closeLayer: false,
+    })
+  })
+
+  it('should handle GET_CLOSE_LAYER', () => {
+    expect(
+      reducer(
+        {
+          data: null,
+          hasError: false,
+          status: '',
+          isLoading: false,
+          closeLayer: false,
+        },
+        {
+          type: Types.GET_CLOSE_LAYER,
+          close: true,
+        }
+      )
+    ).toEqual({
+      data: null,
+      status: '',
+      hasError: false,
+      isLoading: false,
+      closeLayer: true,
     })
   })
 })
