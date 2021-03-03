@@ -44,8 +44,7 @@ export default function ConsortiumBuildingCreation({
   // 5 - Declarations
 
   React.useEffect(() => {
-    // if (isOpen && getLength() === 0) instantiate(Steps.chooseState)
-    if (isOpen && getLength() === 0) instantiate(Steps.declarationStep)
+    if (isOpen && getLength() === 0) instantiate(Steps.chooseState)
   }, [isOpen, instantiate, getLength])
 
   React.useEffect(() => {
