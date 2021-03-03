@@ -6,3 +6,4 @@ export const Types = {
 }
 
 export const TOKEN_NAME = 'accessToken'
+export const PARTNER_TOKEN_NAME = 'TOKEN'

@@ -39,6 +39,7 @@ import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
 import { ReactComponent as dollarsign } from 'assets/icons/dollar-sign.svg'
 import { ReactComponent as download } from 'assets/icons/download.svg'
 import { ReactComponent as drink } from 'assets/icons/drink.svg'
+import { ReactComponent as elo } from 'assets/icons/elo.svg'
 import { ReactComponent as eyeclosed } from 'assets/icons/eye-closed.svg'
 import { ReactComponent as eyeopen } from 'assets/icons/eye-open.svg'
 import { ReactComponent as filter } from 'assets/icons/filter.svg'
@@ -88,6 +89,7 @@ import { ReactComponent as subtract } from 'assets/icons/subtract.svg'
 import { ReactComponent as removeMultiselector } from 'assets/icons/removeMultiselector.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as scale } from 'assets/icons/scale.svg'
+import { ReactComponent as search } from 'assets/icons/search.svg'
 import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
 import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 import { ReactComponent as star } from 'assets/icons/star.svg'
@@ -146,6 +148,7 @@ export const dict = {
   dollarsign,
   download,
   drink,
+  elo,
   eyeclosed,
   eyeopen,
   filter,
@@ -192,6 +195,7 @@ export const dict = {
   removeMultiselector,
   safebox,
   scale,
+  search,
   smartphone,
   spinner,
   star,

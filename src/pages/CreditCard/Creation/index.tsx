@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
@@ -15,13 +15,15 @@ import {
   GetCreditCardExpirationDaysRequest,
   GetCreditCardExpirationDaysClearData,
 } from 'store/modules/CreditCard/ExpirationDays/action'
+import { CloseCreationLayer } from 'store/modules/CreditCard/action'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 
 import ClientInfoStep from './ClientInfoStep'
 import RegisterDocumentStep from './RegisterDocumentStep'
 import AddicionalInfoStep from './AddicionalInfoStep'
 import CreditCardStep from './CreditCardStep'
 import SummaryStep from './SummaryStep'
-import ConfirmationMessageStep from './ConfirmationMessageStep'
+import ConfirmationMessageStep from '../common/components/ConfirmationMessageStep'
 
 import { ICreditCardCreationPayload, IOrderResponse } from './types'
 import {
@@ -39,31 +41,50 @@ import {
 
 interface IProps {
   isOpen: boolean
-  handleClose: () => void
 }
 type steps = 1 | 2 | 3 | 4 | 5
-const Creation = ({ isOpen, handleClose }: IProps) => {
+const Creation = ({ isOpen }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const { addToast } = useToast()
+  const { reset } = useStackFluxManagement()
 
   const [step, setStep] = useState<steps>(1)
   const [isLastStep, setIsLastStep] = useState(false)
   const [formData, setFormData] = useState<ICreditCardCreationPayload>({})
   const [formResponse, setFormResponse] = useState<IOrderResponse>({})
   const [retrySubmit, setRetrySubmit] = useState<boolean>(false)
+  const [isLoadingSubmit, setIsLoadingSubmit] = useState(false)
   const [submitErrorCount, setSubmitErrorCount] = useState(0)
 
+  const { isCreationLayerOpen, creditCardExpirationDays } = useSelector((state: any) => ({
+    isCreationLayerOpen: state.creditCard.isCreationLayerOpen,
+    creditCardExpirationDays: state.creditCardExpirationDays.data
+  }))
+
+  const handleCloseCallback = useCallback(() => {
+    dispatch(CloseCreationLayer())
+  }, [dispatch])
+  
   useEffect(() => {
-    dispatch(GetCreditCardExpirationDaysRequest())
+    if (!creditCardExpirationDays) {
+      dispatch(GetCreditCardExpirationDaysRequest())
+    }
+  }, [dispatch, creditCardExpirationDays])
+
+  useEffect(() => {
     return () => {
+      if (isCreationLayerOpen) {
+        reset()
+        handleCloseCallback()
+      }
       dispatch(GetCreditCardExpirationDaysClearData())
     }
-  }, [dispatch])
+  }, [dispatch, reset, isCreationLayerOpen, handleCloseCallback])
 
   const goBack = () => {
     if (step === 1) {
-      return handleClose()
+      return handleCloseCallback()
     }
     setStep(prevState => (prevState - 1) as steps)
   }
@@ -93,6 +114,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
 
   const handlePostSubmit = useCallback(async () => {
     try {
+      setIsLoadingSubmit(true)
       const { data } = await post(
         `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
         formData
@@ -115,6 +137,8 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
         setFormResponse({})
         goNext({})
       }
+    } finally {
+      setIsLoadingSubmit(false)
     }
   }, [formData, goNext, addToast, submitErrorCount])
 
@@ -129,12 +153,13 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       setFormData={setFormData}
       onSubmit={handlePostSubmit}
       retrySubmit={retrySubmit}
+      isLoading={isLoadingSubmit}
     />,
     <ConfirmationMessageStep
       formData={formData}
       formOrderResponse={formResponse}
       hasError={submitErrorCount === 3}
-      handleClose={handleClose}
+      handleClose={handleCloseCallback}
     />,
   ]
 
@@ -150,7 +175,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     <Layer
       data-testid="layer-credit-card-creation"
       isOpen={isOpen}
-      handleClose={handleClose}
+      handleClose={handleCloseCallback}
       headerContent={
         <GridContainer>
           <GridRow>
@@ -172,7 +197,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
                   data-gtm-name="botao fechar"
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
-                  onClick={handleClose}
+                  onClick={handleCloseCallback}
                 />
               </HeaderContent>
             </GridCol>

@@ -1,0 +1,28 @@
+[
+  {
+    "Tipo": "GOLD",
+    "Bandeira": "MASTERCARD",
+    "Fatura": {
+      "MelhorDataCompra": "8",
+      "Valor": "97.14",
+      "Vencimento": "8"
+    },
+    "UltimosDigitos": "8884",
+    "LimiteTitularCartao": {
+      "LimiteDisponivel": "15505.72"
+    }
+  },
+  {
+    "Tipo": "BLACK",
+    "Bandeira": "VISA",
+    "Fatura": {
+      "MelhorDataCompra": "8",
+      "Valor": "97.14",
+      "Vencimento": "8"
+    },
+    "UltimosDigitos": "1112",
+    "LimiteTitularCartao": {
+      "LimiteDisponivel": "15505.72"
+    }
+  }
+]

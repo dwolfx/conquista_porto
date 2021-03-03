@@ -3,9 +3,8 @@ import React from 'react'
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
-import SummaryStep from '.'
-
 import { ICreditCardExpirationDays } from 'store/modules/CreditCard/ExpirationDays/types'
+import SummaryStep from '.'
 
 const defaultStore = {
   creditCardExpirationDays: {

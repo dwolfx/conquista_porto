@@ -14,13 +14,29 @@ export const DatePickerStyled = styled.div`
 
     /* Necessário reestilização da fonte */
     font-weight: 400;
-    ${({ theme }) => theme.fontTypes['body']};
+    ${({ theme }) => theme.fontTypes.body};
 
     width: 145px;
     height: 35px;
     input {
       width: 145px;
       height: 35px;
+    }
+
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: ${({ theme }) => theme.colors.gray4};
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: ${({ theme }) => theme.colors.gray4};
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: ${({ theme }) => theme.colors.gray4};
     }
 
     @media ${props => props.theme.mediaQueries.sm} {
@@ -100,7 +116,7 @@ export const DatePickerStyled = styled.div`
 
     /* Necessário reestilização da fonte */
     font-weight: 400;
-    ${({ theme }) => theme.fontTypes['body']};
+    ${({ theme }) => theme.fontTypes.body};
   }
 
   .CalendarDay__blocked_calendar,
@@ -136,7 +152,7 @@ export const DatePickerStyled = styled.div`
 
     /* Necessário sobrescrever o font-weight no elemento strong */
     strong {
-      ${({ theme }) => theme.fontTypes['title']};
+      ${({ theme }) => theme.fontTypes.title};
       @media ${props => props.theme.mediaQueries.sm} {
         margin-right: ${({ theme }) => theme.spacing(1)}px;
       }

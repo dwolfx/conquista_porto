@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event'
 
 import ComparativeModal from './index'
 
+import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
+
 const createRootContainer = () => {
   let container = document.getElementById('root')
   if (!container) {
@@ -16,21 +18,32 @@ const createRootContainer = () => {
 }
 
 const setup = () =>
-  renderWithReduxAndTheme(<ComparativeModal isOpen handleClose={() => {}} />, {
-    container: createRootContainer(),
-  })
+  renderWithReduxAndTheme(
+    <ComparativeModal
+      isOpen
+      handleClose={() => {}}
+      travelPlans={tripInsuranceQuotationMock.ViagemPacote.pacotes}
+      isLoading={false}
+    />,
+    {
+      container: createRootContainer(),
+    }
+  )
 
-describe('EditingCardData component', () => {
+describe('ComparativeModal component', () => {
   it('should exists', () => {
     expect(ComparativeModal).toBeDefined()
   })
   it(`should trigger 'CLOSE' button`, () => {
     const handleClose = jest.fn()
 
-    setup()
-
     renderWithReduxAndTheme(
-      <ComparativeModal isOpen handleClose={handleClose} />,
+      <ComparativeModal
+        isOpen
+        handleClose={handleClose}
+        travelPlans={tripInsuranceQuotationMock.ViagemPacote.pacotes}
+        isLoading={false}
+      />,
       {
         container: createRootContainer(),
       }
@@ -53,6 +66,60 @@ describe('EditingCardData component', () => {
       window.resizeTo(400, 600)
     })
 
-    expect(screen.getByText(/planos brasil/i)).toBeDefined()
+    expect(screen.getByText(/coberturas/i)).toBeDefined()
+  })
+  it('should render loading state', () => {
+    setup()
+    renderWithReduxAndTheme(
+      <ComparativeModal
+        isOpen
+        handleClose={() => {}}
+        travelPlans={tripInsuranceQuotationMock.ViagemPacote.pacotes}
+        isLoading
+      />,
+      {
+        container: createRootContainer(),
+      }
+    )
+
+    expect(
+      screen.getByText(/aguarde, estamos buscando suas informações\.\.\./i)
+    ).toBeDefined()
+  })
+  it('should render empty state', () => {
+    const { container } = renderWithReduxAndTheme(
+      <ComparativeModal isOpen handleClose={() => {}} travelPlans={null} />,
+      {
+        container: createRootContainer(),
+      }
+    )
+    expect(container.children[0].children[1].children[1]).toBeEmptyDOMElement()
+  })
+  it('should render loading state', () => {
+    setup()
+    renderWithReduxAndTheme(
+      <ComparativeModal
+        isOpen
+        handleClose={() => {}}
+        travelPlans={tripInsuranceQuotationMock.ViagemPacote.pacotes}
+        isLoading
+      />,
+      {
+        container: createRootContainer(),
+      }
+    )
+
+    expect(
+      screen.getByText(/aguarde, estamos buscando suas informações\.\.\./i)
+    ).toBeDefined()
+  })
+  it('should render empty state', () => {
+    const { container } = renderWithReduxAndTheme(
+      <ComparativeModal isOpen handleClose={() => {}} travelPlans={null} />,
+      {
+        container: createRootContainer(),
+      }
+    )
+    expect(container.children[0].children[1].children[1]).toBeEmptyDOMElement()
   })
 })

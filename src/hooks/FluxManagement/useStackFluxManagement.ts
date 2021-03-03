@@ -2,7 +2,11 @@ import { StepComponent } from './types'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { AddElementFluxManagementStack, PopElementFluxManagementStack} from 'store/modules/FluxManagement/actions'
+import {
+  AddElementFluxManagementStack,
+  PopElementFluxManagementStack,
+  ResetFormFluxManagement,
+} from 'store/modules/FluxManagement/actions'
 
 export interface IUseStackFluxManagement<T> {
   stack: React.ReactElement<T>[]
@@ -12,8 +16,10 @@ export interface IUseStackFluxManagement<T> {
   pop(): void
 }
 
-export default function useStackFluxManagement<T> () {
-  const stack: React.ReactElement<T>[] = useSelector((state: any) => state.fluxManagement.stack)
+export default function useStackFluxManagement<T>() {
+  const stack: React.ReactElement<T>[] = useSelector(
+    (state: any) => state.fluxManagement.stack
+  )
 
   const dispatch = useDispatch()
 
@@ -25,18 +31,28 @@ export default function useStackFluxManagement<T> () {
     return stack[getLength() - 1]
   }, [stack, getLength])
 
-  const add = React.useCallback((element: React.ReactElement<T>) => {
-    dispatch(AddElementFluxManagementStack<T>(element))
-  }, [dispatch])
+  const add = React.useCallback(
+    (element: React.ReactElement<T>) => {
+      dispatch(AddElementFluxManagementStack<T>(element))
+    },
+    [dispatch]
+  )
 
-  const instantiate = React.useCallback((element: StepComponent) => {
-    const algumaCoisa = React.createElement(element) as React.ReactElement
-    add(algumaCoisa)
-  }, [add])
+  const instantiate = React.useCallback(
+    (element: StepComponent) => {
+      const jsxElement = React.createElement(element) as React.ReactElement
+      add(jsxElement)
+    },
+    [add]
+  )
 
   const pop = React.useCallback(() => {
     dispatch(PopElementFluxManagementStack())
   }, [dispatch])
 
-  return { stack, instantiate, getLast, getLength, add, pop }
+  const reset = React.useCallback(() => {
+    dispatch(ResetFormFluxManagement())
+  }, [dispatch])
+
+  return { stack, instantiate, getLast, getLength, add, pop, reset }
 }

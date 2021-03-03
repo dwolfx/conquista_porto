@@ -1,0 +1,2236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sumary renders correctly 1`] = `
+Array [
+  .c7 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c8 {
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c11 {
+  color: #BABABA;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c4 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c6.c6 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c10.c10 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c0 {
+  background-color: #555861;
+  height: 56px;
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0;
+  padding: 0 14px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c3 p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.c12 .c5 {
+  width: 161px;
+  margin-right: 14px;
+}
+
+.c12 .c9 {
+  width: auto;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:980px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media (max-width:735px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+      data-name="container"
+    >
+      <div
+        className="c2"
+        data-name="row"
+      >
+        <div
+          className="c3"
+          data-name="col-lg-12"
+        >
+          <div
+            className="c4"
+            size="small"
+          >
+            <div
+              className="c5 c6"
+            >
+              <h5
+                className="c7"
+                color="gray4"
+                type="headline"
+              >
+                Contratação
+              </h5>
+              <h5
+                className="c8"
+                color="white"
+                type="headline"
+              >
+                Seguro Viagem
+              </h5>
+            </div>
+            <div
+              className="c9 c10"
+            >
+              <h6
+                className="c11"
+                color="gray4"
+                type="title"
+              >
+                ETAPA 3 de 3
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  .c5 {
+  color: unset;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c29 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 22px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+}
+
+.c30 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c37 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c42 {
+  color: #898989;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c45 {
+  color: #272727;
+  text-align: unset;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.c25 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c31 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c46 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c46 svg {
+  height: 21px;
+}
+
+.c46 svg path {
+  fill: currentColor;
+}
+
+.c47 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c38 {
+  width: 100%;
+  height: 49px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c41 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c41.c41 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c44 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c44.c44 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c22 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c22:hover:active {
+  pointer-events: auto;
+}
+
+.c22:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c22:hover:before {
+  width: 100%;
+}
+
+.c22:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c22:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c24 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c15 {
+  background-color: #F1F1F1;
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c18 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 7px;
+  position: relative;
+}
+
+.c18 #prefix {
+  padding-left: 7px;
+}
+
+.c18 #suffix {
+  padding-right: 7px;
+}
+
+.c18:focus-within {
+  border-bottom: 2px solid #00ADEF;
+}
+
+.c18:focus-within #prefix,
+.c18:focus-within #suffix {
+  color: #272727;
+}
+
+.c16 {
+  color: #898989;
+  padding-left: 14px;
+  padding-top: 7px;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c20 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #BABABA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font: inherit;
+  height: 100%;
+}
+
+.c19 {
+  background-color: inherit;
+  border: none;
+  color: #272727;
+  font: inherit;
+  height: 100%;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.c19:-webkit-autofill {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #F1F1F1 inset;
+}
+
+.c19::-webkit-input-placeholder {
+  color: #BABABA;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c14 {
+  position: relative;
+  height: 70px;
+}
+
+.c14 .c17 {
+  height: calc(100% - 24px);
+}
+
+.c11 {
+  position: relative;
+}
+
+.c13 {
+  position: relative;
+}
+
+.c13:after {
+  content: '';
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c7 {
+  fill: #BABABA;
+  cursor: pointer;
+  height: 28px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 28px;
+}
+
+.c7:hover {
+  fill: #00ADEF;
+}
+
+.c8 {
+  overflow-y: auto;
+  height: 100%;
+  padding: 28px 14px;
+}
+
+.c21 {
+  border-top: 1px solid #DDDDDD;
+  height: 63px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 14px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.c4 {
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 14px 14px;
+}
+
+.c6 {
+  color: #272727;
+}
+
+.c3 {
+  background-color: #FFFFFF;
+  box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  max-width: 658px;
+  top: 0;
+  right: calc(-100% - 7px);
+}
+
+.c1 {
+  width: 100%;
+  height: 100%;
+  z-index: 13;
+}
+
+.c2 {
+  background-color: rgba(39,39,39,0.63);
+  height: 100%;
+  position: fixed;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.c32 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c34 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c10 {
+  width: 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.c12 {
+  margin: 0 0 28px;
+}
+
+.c23 {
+  width: 100%;
+}
+
+.c39 {
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin: 14px 0;
+}
+
+.c39 .c40 {
+  width: 161px;
+  margin-right: 14px;
+}
+
+.c39 .c43 {
+  width: auto;
+}
+
+.c26 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin: 35px auto 63px auto;
+}
+
+.c33 {
+  margin-bottom: 14px;
+}
+
+.c27 {
+  margin-left: 21px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 14px;
+}
+
+.c35 {
+  padding: 21px;
+}
+
+.c36 {
+  margin: 0 0 28px 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+  .c31 {
+    -ms-flex: 0 0 83.333333%;
+    -webkit-flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+}
+
+@media (min-width:768px) {
+  .c31 {
+    margin-left: 8.333333%;
+  }
+}
+
+@media (min-width:992px) {
+  .c31 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:992px) {
+  .c31 {
+    margin-left: 0;
+  }
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+  .c8 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c21 {
+    padding: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c21 {
+    padding: 0;
+  }
+}
+
+@media (max-width:735px) {
+  .c4 {
+    padding: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c3 {
+    max-width: 484px;
+    margin: 0;
+  }
+}
+
+@media (max-width:735px) {
+  .c3 {
+    min-width: 100vw;
+    padding: 0;
+  }
+}
+
+@media (min-width:768px) {
+  .c26 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:992px) {
+  .c26 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width:735px) {
+  .c26 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width:576px) {
+  .c0 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c0 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width:735px) {
+  .c33 {
+    margin: 0 7px 14px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c27 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 0 28px;
+  }
+}
+
+@media (max-width:735px) {
+  .c27 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    margin: 0 14px 28px 0;
+  }
+}
+
+@media (max-width:980px) {
+  .c28 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width:735px) {
+  .c28 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width:980px) {
+  .c35 {
+    padding: 14px;
+  }
+}
+
+@media (max-width:735px) {
+  .c35 {
+    padding: 14px 0;
+  }
+}
+
+@media (max-width:736px) {
+  .c36 {
+    margin: 0 0 28px;
+  }
+}
+
+@media (max-width:735px) {
+  .c36 {
+    margin: 0 14px 28px;
+  }
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+<div
+    className="c0"
+    data-name="container"
+  >
+    <div
+      className="c1"
+    >
+      <div
+        className="c2"
+        onClick={[Function]}
+      />
+      <div
+        className="c3"
+      >
+        <div
+          className="c4"
+        >
+          <h5
+            className="c5 c6"
+            color="unset"
+            type="headline"
+          >
+            Alterar dados
+          </h5>
+          <svg
+            aria-label="close"
+            className="c7"
+            data-gtm-clicktype="button"
+            data-gtm-name="botao fechar"
+            data-gtm-subname="menu Alterar dados"
+            data-gtm-type="click"
+            fill="#BABABA"
+            onClick={[Function]}
+            role="img"
+            width={21}
+          >
+            close.svg
+          </svg>
+        </div>
+        <div
+          className="c8"
+        >
+          <form
+            className="c9"
+          >
+            <div
+              className="c10"
+            >
+              <div
+                className="c11 c12"
+              >
+                <div
+                  className="c13"
+                  data-testid="select-Forma de Pagamento"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="c14"
+                    disabled={false}
+                  >
+                    <div
+                      className="c15"
+                    >
+                      <label
+                        className="c16"
+                      >
+                        Forma de Pagamento
+                      </label>
+                      <div
+                        className="c17 c18"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c19"
+                          data-testid="select-option-input-undefined"
+                          disabled={false}
+                          placeholder="Selecione"
+                          readOnly={true}
+                          value=""
+                        />
+                        <div
+                          className="c20"
+                          id="suffix"
+                        >
+                          <svg
+                            aria-label="arrowdown"
+                            fill="#272727"
+                            height={21}
+                            role="img"
+                            width={21}
+                          >
+                            arrow-down.svg
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="c10"
+            >
+              <div
+                className="c11 c12"
+              >
+                <div
+                  className="c13"
+                  data-testid="select-Número de Parcelas"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="c14"
+                    disabled={false}
+                  >
+                    <div
+                      className="c15"
+                    >
+                      <label
+                        className="c16"
+                      >
+                        Número de Parcelas
+                      </label>
+                      <div
+                        className="c17 c18"
+                        onClick={[Function]}
+                      >
+                        <input
+                          className="c19"
+                          data-testid="select-option-input-undefined"
+                          disabled={false}
+                          placeholder="Selecione"
+                          readOnly={true}
+                          value=""
+                        />
+                        <div
+                          className="c20"
+                          id="suffix"
+                        >
+                          <svg
+                            aria-label="arrowdown"
+                            fill="#272727"
+                            height={21}
+                            role="img"
+                            width={21}
+                          >
+                            arrow-down.svg
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div
+          className="c21"
+        >
+          <button
+            className="c22 c23"
+            color="primary"
+            data-gtm-clicktype="button"
+            data-gtm-name="salvar alterações"
+            data-gtm-type="click"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="c24"
+            >
+              SALVAR ALTERAÇÕES
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c25"
+      data-name="row"
+    >
+      <div
+        className="c26"
+        data-name="col-md-12 col-lg-3"
+      >
+        <div
+          className="c27"
+        >
+          <div
+            className="c28"
+          >
+            <h4
+              className="c29"
+              color="gray6"
+              type="heading4"
+            >
+              Resumo do contrato
+            </h4>
+          </div>
+          <div
+            className="c28"
+          >
+            <h5
+              className="c30"
+              color="gray6"
+              type="headline"
+            >
+              Revise as informações e os termos do seu contrato.
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c31"
+        data-name="col-md-10 offset-md-1 col-lg-8 offset-lg-0"
+      >
+        <div
+          className="c32 c33"
+        >
+          <div
+            className="c34"
+            data-testid="card-body"
+            overflow="hidden"
+          >
+            <div
+              className="c35"
+            >
+              <div
+                className="c36"
+              >
+                <p
+                  className="c37"
+                  color="gray5"
+                  type="subheading"
+                >
+                  RESUMO
+                </p>
+              </div>
+              <div>
+                <div
+                  className="c38 c39"
+                  size="default"
+                >
+                  <div
+                    className="c40 c41"
+                  >
+                    <span
+                      className="c42"
+                      color="gray5"
+                      type="caption"
+                    >
+                      Tipo de Seguro
+                    </span>
+                  </div>
+                  <div
+                    className="c43 c44"
+                  >
+                    <h6
+                      className="c45"
+                      color="gray6"
+                      type="title"
+                    >
+                      Internacional
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="c32 c33"
+        >
+          <div
+            className="c34"
+            data-testid="card-body"
+            overflow="hidden"
+          >
+            <div
+              className="c35"
+            >
+              <div
+                className="c36"
+              >
+                <p
+                  className="c37"
+                  color="gray5"
+                  type="subheading"
+                >
+                  COBERTURA
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="c32 c33"
+        >
+          <div
+            className="c34"
+            data-testid="card-body"
+            overflow="hidden"
+          >
+            <div
+              className="c35"
+            >
+              <div
+                className="c36"
+              >
+                <p
+                  className="c37"
+                  color="gray5"
+                  type="subheading"
+                >
+                  FORMA DE PAGAMENTO
+                </p>
+                <a
+                  className="c46"
+                  disabled={false}
+                  onClick={[Function]}
+                >
+                  ALTERAR
+                  <svg
+                    aria-label="arrowright"
+                    fill="#BABABA"
+                    role="img"
+                    width={21}
+                  >
+                    arrow-right.svg
+                  </svg>
+                </a>
+              </div>
+              <div>
+                <div
+                  className="c38 c39"
+                  size="default"
+                >
+                  <div
+                    className="c40 c41"
+                  >
+                    <span
+                      className="c42"
+                      color="gray5"
+                      type="caption"
+                    >
+                      Modelo
+                    </span>
+                  </div>
+                  <div
+                    className="c43 c44"
+                  >
+                    <h6
+                      className="c45"
+                      color="gray6"
+                      type="title"
+                    >
+                      
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c47"
+              />
+              <div>
+                <div
+                  className="c38 c39"
+                  size="default"
+                >
+                  <div
+                    className="c40 c41"
+                  >
+                    <span
+                      className="c42"
+                      color="gray5"
+                      type="caption"
+                    >
+                      Número
+                    </span>
+                  </div>
+                  <div
+                    className="c43 c44"
+                  >
+                    <h6
+                      className="c45"
+                      color="gray6"
+                      type="title"
+                    >
+                      
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c47"
+              />
+              <div>
+                <div
+                  className="c38 c39"
+                  size="default"
+                >
+                  <div
+                    className="c40 c41"
+                  >
+                    <span
+                      className="c42"
+                      color="gray5"
+                      type="caption"
+                    >
+                      Vencimento
+                    </span>
+                  </div>
+                  <div
+                    className="c43 c44"
+                  >
+                    <h6
+                      className="c45"
+                      color="gray6"
+                      type="title"
+                    >
+                      
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="c47"
+              />
+              <div>
+                <div
+                  className="c38 c39"
+                  size="default"
+                >
+                  <div
+                    className="c40 c41"
+                  >
+                    <span
+                      className="c42"
+                      color="gray5"
+                      type="caption"
+                    >
+                      Número de Parcelas
+                    </span>
+                  </div>
+                  <div
+                    className="c43 c44"
+                  >
+                    <h6
+                      className="c45"
+                      color="gray6"
+                      type="title"
+                    >
+                      
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  .c1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c5 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c5:hover:active {
+  pointer-events: auto;
+}
+
+.c5:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c5:hover:before {
+  width: 100%;
+}
+
+.c5:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c5:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c7 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100vw;
+  height: 63px;
+  border: 1px solid #DDDDDD;
+}
+
+.c6 {
+  width: 134px;
+}
+
+.c4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+@media (min-width:576px) {
+  .c1 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:768px) {
+  .c3 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:992px) {
+  .c3 {
+    -ms-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:980px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:736px) {
+
+}
+
+@media (max-width:735px) {
+
+}
+
+@media (max-width:735px) {
+  .c0 {
+    padding: 0;
+  }
+}
+
+@media (max-width:735px) {
+  .c6 {
+    width: 100%;
+    margin: 14px;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    -ms-flex: 0 0 83.333333%;
+    -webkit-flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    margin-left: 8.333333%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    -ms-flex: 0 0 66.666667%;
+    -webkit-flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    margin-left: 0;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+      data-name="container"
+    >
+      <div
+        className="c2"
+        data-name="row"
+      >
+        <div
+          className="c3"
+          data-name="col-md-12 col-lg-3"
+        />
+        <div
+          className="c4"
+          data-name="col-md-10 offset-md-1 col-lg-8 offset-lg-0"
+        >
+          <button
+            className="c5 c6"
+            color="secondary"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="c7"
+            >
+              CONTRATAR
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

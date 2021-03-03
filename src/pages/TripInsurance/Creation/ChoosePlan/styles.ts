@@ -2,13 +2,26 @@ import styled from 'styled-components'
 import ButtonComponent from 'components/Button'
 
 import Icon from 'components/IconExporter'
+import LoadingStateComponent from 'pages/Home/commons/LoadingState'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
+
+import { Container as ContainerCmp } from 'styled-bootstrap-grid'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
+  padding-bottom: ${({ theme }) => theme.spacing(9)}px;
+  justify-content: center;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    min-height: 0;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding-bottom: ${({ theme }) => theme.spacing(18)}px;
+  }
 `
 
 export const HeaderContent = styled.div`
@@ -59,8 +72,9 @@ export const StepBarWrapper = styled.div`
   align-items: center;
 `
 
-export const ContentContainer = styled.div`
-  max-width: 1282px;
+export const ContentContainer = styled(ContainerCmp)`
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -69,10 +83,39 @@ export const ContentContainer = styled.div`
     flex-direction: column;
     padding: 0 ${({ theme }) => theme.spacing(3)}px;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const SimulationText = styled(Text)`
   margin-right: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const LoadingState = styled(LoadingStateComponent)`
+  width: 428px;
+  min-height: calc(100vh - 136px);
+  align-self: center;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 304px;
+  }
+`
+
+export const ErrorState = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 434px;
+  min-height: calc(100vh - 136px);
+  align-self: center;
+  text-align: center;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 304px;
+  }
 `
 
 export const DarkBackground = styled.div`
@@ -107,20 +150,36 @@ export const ContentWrapper = styled.div`
   margin: 0 auto;
 `
 
-export const TitleWrapper = styled.div`
+interface ITitleWrapper {
+  cardsQuantity: number
+}
+
+export const TitleWrapper = styled.div<ITitleWrapper>`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+
+
+  ${({ cardsQuantity, theme }) =>
+    cardsQuantity < 3
+      ? `
+    @media ${theme.mediaQueries.lg} {
+      flex-direction: column;
+      align-items: flex-start;
+    }`
+      : `flex-direction: row;
+        align-items: center;`}
+
+  justify-content: ${({ cardsQuantity }) =>
+    cardsQuantity === 1 ? `center` : `space-between`};
+
   width: 100%;
-  padding: ${({ theme }) => theme.spacing(2)}px 0px;
+  padding: ${({ theme }) => `${theme.spacing(4)}px 0px ${theme.spacing(3)}px`};
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
     margin: 0 auto;
     align-items: flex-start;
     width: 607px;
-    padding: ${({ theme }) => theme.spacing(4)}px 0px
+    padding: ${({ theme }) => theme.spacing(3)}px 0px
       ${({ theme }) => theme.spacing(3)}px;
   }
 
@@ -136,6 +195,12 @@ export const TitleWrapperColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    flex-direction: row;
+    align-items: unset;
+    justify-content: space-between;
+  }
+
   width: 100%;
   padding: ${({ theme }) => theme.spacing(2)}px 0px;
   margin-bottom: ${({ theme }) => theme.spacing(1)}px;
@@ -145,7 +210,9 @@ export const TitleWrapperCentralized = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
   justify-content: center;
+
   width: 100%;
   padding: ${({ theme }) => theme.spacing(2)}px 0px;
 
@@ -166,24 +233,49 @@ export const TitleWrapperCentralized = styled.div`
   }
 `
 
-export const Title = styled(Text)``
+export const Title = styled(Text)`
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
 
 export const SwitchWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
+
   @media ${({ theme }) => theme.mediaQueries.lg} {
-    margin-top: ${({ theme }) => theme.spacing(3)}px;
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    margin: 0;
   }
 `
 
 export const SwitchText = styled(Text)`
-  max-width: 285px;
+  max-width: 236px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    max-width: 298px;
+  }
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    max-width: 285px;
+  }
 `
-export const CardsWrapper = styled.div`
+
+interface ICardsWrapper {
+  cardsQuantity: number
+}
+
+export const CardsWrapper = styled.div<ICardsWrapper>`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+
+  ${({ cardsQuantity }) =>
+    cardsQuantity > 3
+      ? `flex-wrap: wrap; align-content: flex-start;`
+      : `justify-content: center;`}
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;
@@ -196,8 +288,16 @@ export const DisclosureWrapper = styled.div`
   flex-direction: column;
   margin: ${({ theme }) => theme.spacing(5)}px 0px;
 
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin: ${({ theme }) => theme.spacing(3)}px auto;
+  }
+
   @media ${({ theme }) => theme.mediaQueries.md} {
-    margin: ${({ theme }) => `${theme.spacing(7)}px 0px ${theme.spacing(5)}px`};
+    max-width: 607px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(1)}px`};
   }
 `
 
@@ -206,12 +306,14 @@ export const Link = styled.a`
 `
 
 export const Footer = styled.div`
+  position: fixed;
+  z-index: 1;
   width: 100%;
   bottom: 0;
   margin-top: auto;
   border-top: 1px solid ${({ theme }) => theme.colors.gray3};
   background-color: ${({ theme }) => theme.colors.white};
-  padding: ${({ theme }) => theme.spacing(2)}px};
+  padding: ${({ theme }) => theme.spacing(2)}px;
 
   display: flex;
   justify-content: flex-end;
@@ -224,7 +326,7 @@ export const Footer = styled.div`
       width: 100%;
 
       &:first-of-type {
-        margin-bottom: ${({ theme }) => theme.spacing(2)}px};
+        margin-bottom: ${({ theme }) => theme.spacing(2)}px;
       }
     }
   }
@@ -236,6 +338,15 @@ export const Button = styled(ButtonComponent)`
   }
 `
 
+export const TryAgainButton = styled(ButtonComponent)`
+  width: 192px;
+  margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
+`
+
 export const Divider = styled(Divisor)`
-  color: ${({ theme }) => theme.colors.gray5};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
+`
+
+export const LoadingText = styled(Text)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `

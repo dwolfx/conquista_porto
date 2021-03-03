@@ -12,7 +12,7 @@ describe('Investment/Redeem actions', () => {
     const payload = {
       data_operacao: '',
       id_fundo: '',
-      onErrorToast: (toast: {}) => {},
+      onErrorToast: () => {},
     }
     expect(GetRedeemRequest(payload)).toEqual({
       payload,

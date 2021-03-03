@@ -454,6 +454,7 @@ Object {
 
 .c91 {
   overflow: auto;
+  height: unset;
   padding: 21px 14px;
 }
 
@@ -715,16 +716,12 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 1px solid #BABABA;
+  border-bottom: 1px solid #DDDDDD;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 35px;
-}
-
-.c3 svg {
-  margin-right: 15px;
+  padding: 10px 21px;
 }
 
 .c0 {
@@ -1205,7 +1202,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c85 {
     min-width: unset;
     width: calc(100vw - 28px);
@@ -1255,14 +1252,14 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c76 {
     width: 25%;
     margin-right: 14px;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c79 {
     width: 25%;
     margin-right: 14px;
@@ -1275,7 +1272,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c80 {
     width: 100%;
     height: auto;
@@ -1288,7 +1285,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c78 {
     width: 100%;
     height: auto;
@@ -1301,7 +1298,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c81 {
     width: 100%;
     height: auto;
@@ -1314,10 +1311,16 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c77 {
     width: 100%;
     height: auto;
+  }
+}
+
+@media (min-width:736px) {
+  .c3 {
+    padding: 10px 49px;
   }
 }
 
@@ -1517,7 +1520,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c22 {
     height: calc(100% - 125px);
   }
@@ -1535,7 +1538,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c28 {
     border-radius: 0;
     padding: 21px 0 0 0;
@@ -1543,7 +1546,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c28 .c29 {
     max-height: 100vh;
   }
@@ -1559,7 +1562,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c41 {
     padding: 0 21px;
     margin-bottom: 21px;
@@ -1570,7 +1573,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c54 {
     margin: 21px 0 21px 21px;
   }
@@ -1582,6 +1585,7 @@ Object {
     <div>
       <div
         class="c0 c1"
+        id="layer-wrapper"
       >
         <div
           class="c2"
@@ -1653,6 +1657,7 @@ Object {
           </div>
           <div
             class="c10 c11"
+            id="layer-children"
           >
             <div
               class="c12"
@@ -1729,6 +1734,7 @@ Object {
                         <div
                           class="c29 c30"
                           data-testid="card-body"
+                          overflow="hidden"
                         >
                           <div
                             class="c31"
@@ -2279,12 +2285,13 @@ Object {
   "container": <div>
     <div
       class="sc-fznzqM bzOQlX sc-fznYue bSgAkg"
+      id="layer-wrapper"
     >
       <div
         class="sc-fzoWqW eFrYuG"
       >
         <div
-          class="sc-fzplgP pGJde"
+          class="sc-fzplgP iwfkPf"
         >
           <div
             class="sc-fzplWN sc-fzpdbB kuEyUr"
@@ -2350,6 +2357,7 @@ Object {
         </div>
         <div
           class="sc-fznOgF eUmWEO"
+          id="layer-children"
         >
           <div
             class="sc-fzonjX CsrKq"
@@ -2400,7 +2408,7 @@ Object {
               </div>
             </div>
             <div
-              class="sc-fzppip eazbjw"
+              class="sc-fzppip gHqZPt"
             >
               <div
                 class="sc-fzplWN sc-fzppAM eWqgXy"
@@ -2421,20 +2429,21 @@ Object {
                     data-name="col-sm-12 col-md-8 col-lg-9"
                   >
                     <div
-                      class="sc-fznLxA dRhPYK sc-pRTZB bGtRXb"
+                      class="sc-fznLxA dRhPYK sc-pRTZB bkLStj"
                     >
                       <div
-                        class="sc-fzoxnE bLirWg"
+                        class="sc-fzoxnE hqwfX"
                         data-testid="card-body"
+                        overflow="hidden"
                       >
                         <div
                           class="sc-oTmZL bSpqfV"
                         >
                           <div
-                            class="sc-pAZqv kIeQpj sc-pbIaG dOeYGc"
+                            class="sc-pAZqv ispdrs sc-pbIaG dOeYGc"
                           >
                             <div
-                              class="sc-pJurq dWXwp"
+                              class="sc-pJurq ibKfHq"
                             >
                               <span
                                 class="sc-AxhUy ldvITA"
@@ -2460,10 +2469,10 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-pAZqv kIeQpj sc-pbIaG dOeYGc"
+                            class="sc-pAZqv ispdrs sc-pbIaG dOeYGc"
                           >
                             <div
-                              class="sc-pJurq dWXwp"
+                              class="sc-pJurq ibKfHq"
                             >
                               <span
                                 class="sc-AxhUy ldvITA"
@@ -2497,7 +2506,7 @@ Object {
                           data-name="row"
                         >
                           <div
-                            class="sc-fznKkj sc-qQxXP KnGyc"
+                            class="sc-fznKkj sc-qQxXP dlsOfR"
                             data-name="col-sm-6"
                           >
                             <h5
@@ -2534,7 +2543,7 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-fznKkj sc-qQxXP KnGyc"
+                            class="sc-fznKkj sc-qQxXP dlsOfR"
                             data-name="col-sm-6"
                           >
                             <h5
@@ -2585,7 +2594,7 @@ Object {
                           class="sc-AxjAm gmpEky"
                         />
                         <div
-                          class="sc-pReKu iiNcfy"
+                          class="sc-pReKu bCrNBL"
                         >
                           <div
                             class="sc-AxirZ kxJjvp"
@@ -2771,47 +2780,47 @@ Object {
                             class="sc-fzowVh hKVrJX"
                           >
                             <a
-                              class="sc-fzpkqZ evTKGJ"
+                              class="sc-fzpkqZ iuGTFY"
                               href="http://www.cvm.gov.br/index.html"
                               rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - CVM"
-                                class="sc-fzqAui lcGYRg"
+                                class="sc-fzqAui gCImCF"
                                 src="logo-anbima-cvm.png"
                               />
                             </a>
                             <a
-                              class="sc-fzpkqZ evTKGJ"
+                              class="sc-fzpkqZ iuGTFY"
                               href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
                               rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - Gestao"
-                                class="sc-fzoaKM gnDYFA"
+                                class="sc-fzoaKM epJIDN"
                                 src="logo-anbima-gestao.png"
                               />
                             </a>
                             <div
-                              class="sc-fznAgC ghKibE"
+                              class="sc-fznAgC gmOutJ"
                             >
                               <img
                                 alt="Logo Anbima - Distribuição"
-                                class="sc-fznLPX hKBORO"
+                                class="sc-fznLPX dlwHVT"
                                 src="logo-anbima-distribuicao.png"
                               />
                             </div>
                             <a
-                              class="sc-fzpkqZ evTKGJ"
+                              class="sc-fzpkqZ iuGTFY"
                               href="https://comoinvestir.anbima.com.br/"
                               rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - Investir"
-                                class="sc-fzomuh kaajdf"
+                                class="sc-fzomuh qVGvy"
                                 src="logo-anbima-como-investir.png"
                               />
                             </a>
@@ -2831,7 +2840,7 @@ Object {
               class="sc-fzoNJl CtmJN"
             />
             <div
-              class="sc-fznxKY hddCP"
+              class="sc-fznxKY kSxdYm"
             >
               <header
                 class="sc-fznMAR gbmMMc"
@@ -2860,7 +2869,7 @@ Object {
                 class="sc-AxjAm JzSYK sc-fzpmMD ezznjC"
               />
               <div
-                class="sc-fzoXWK gsqYKB"
+                class="sc-fzoXWK cnhcBj"
               >
                 <h5
                   class="sc-AxhUy iPsvxf"
@@ -2903,7 +2912,7 @@ Object {
               class="sc-fzoNJl CtmJN"
             />
             <div
-              class="sc-fznxKY hddCP"
+              class="sc-fznxKY kSxdYm"
             >
               <header
                 class="sc-fznMAR gbmMMc"
@@ -2932,7 +2941,7 @@ Object {
                 class="sc-AxjAm JzSYK sc-fzpmMD ezznjC"
               />
               <div
-                class="sc-fzoXWK gsqYKB"
+                class="sc-fzoXWK cnhcBj"
               >
                 <h5
                   class="sc-AxhUy iPsvxf"

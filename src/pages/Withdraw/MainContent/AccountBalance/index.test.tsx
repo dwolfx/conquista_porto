@@ -21,7 +21,7 @@ describe('AccountBalance', () => {
       <AccountBalance
         reloadOnClickFunction={() => {}}
         accountBalanceValue={null}
-        hasError={true}
+        hasError
         isLoading={false}
       />
     )
@@ -54,7 +54,7 @@ describe('AccountBalance', () => {
         reloadOnClickFunction={() => {}}
         accountBalanceValue={null}
         hasError={false}
-        isLoading={true}
+        isLoading
       />
     )
 

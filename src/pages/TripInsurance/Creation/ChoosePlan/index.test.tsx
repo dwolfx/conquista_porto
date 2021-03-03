@@ -1,8 +1,12 @@
 import React from 'react'
+import { storeFactory } from 'setupTests'
 
-import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
+
+import responseMock from 'mocks/tripInsuranceQuotation.json'
 
 import ChoosePlan from '.'
+import userEvent from '@testing-library/user-event'
 
 let portalRoot = document.getElementById('root')
 
@@ -12,33 +16,79 @@ if (!portalRoot) {
   document.body.appendChild(portalRoot)
 }
 
+const defaulState = {
+  tripInsuranceQuotation: {
+    data: responseMock,
+    isLoading: false,
+    hasError: false,
+  },
+}
+
+const setup = (initialState: any) => {
+  let store = storeFactory(initialState)
+  store = { ...store, dispatch: jest.fn() }
+  return renderWithReduxAndTheme(<ChoosePlan />, { store })
+}
+
 describe('Choose Plan tests', () => {
   it('should exists', () => {
     expect(ChoosePlan).toBeDefined()
   })
   it('should render one card correctly', () => {
-    renderWithReduxAndTheme(<ChoosePlan />, { container: portalRoot })
+    setup(defaulState)
+
     const title = screen.getByText('Escolha um plano disponível')
     const switchText = screen.getByText(
       'simular em até 12x sem juros com 5% de desconto no Cartão Porto Seguro'
     )
-    const planName = screen.getByText('Brasil Terra')
-    const installmentsAmount = screen.getByText('3x sem juros de R$ 209,97')
-    const upfrontAmount = screen.getByText('R$ 659,82 à vista')
-    const firstCoverageAmount = screen.getByText('R$ 150.000,00')
-    const secondCoverageAmount = screen.getByText('R$ 250.000,00')
-    const thridCoverageAmount = screen.getByText('R$ 350.000,00')
+    const planName = screen.getAllByText(/BRASIL TERRA/i)
+    const installmentsAmount = screen.getByText('6X SEM JUROS DE R$ 5,31')
+    const upfrontAmount = screen.getByText('R$ 31,83 à vista')
+    const firstCoverageAmount = screen.getAllByText('R$ 10.000,00')
+    const secondCoverageAmount = screen.getAllByText('R$ 80.000,00')
     const openModal = screen.getByText('comparativo de coberturas')
     const editData = screen.getByText('alterar dados')
     expect(title).toBeInTheDocument()
     expect(switchText).toBeInTheDocument()
-    expect(planName).toBeInTheDocument()
+    expect(planName[0]).toBeInTheDocument()
     expect(installmentsAmount).toBeInTheDocument()
     expect(upfrontAmount).toBeInTheDocument()
-    expect(firstCoverageAmount).toBeInTheDocument()
-    expect(secondCoverageAmount).toBeInTheDocument()
-    expect(thridCoverageAmount).toBeInTheDocument()
+    expect(firstCoverageAmount[0]).toBeInTheDocument()
+    expect(secondCoverageAmount[0]).toBeInTheDocument()
     expect(openModal).toBeInTheDocument()
     expect(editData).toBeInTheDocument()
+  })
+  it('should render loading state', () => {
+    setup({
+      tripInsuranceQuotation: {
+        data: responseMock,
+        isLoading: true,
+        hasError: false,
+      },
+    })
+
+    const title = screen.getAllByRole('heading', {
+      name: 'Aguarde, estamos buscando suas informações...',
+    })
+
+    expect(title[0]).toBeInTheDocument()
+  })
+  it('should render error state', () => {
+    setup({
+      tripInsuranceQuotation: {
+        data: responseMock,
+        isLoading: false,
+        hasError: true,
+      },
+    })
+
+    const title = screen.getByText(
+      /Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente./i
+    )
+    const tryAgainButton = screen.getByText(/tentar novamente/i)
+    userEvent.click(tryAgainButton)
+
+    expect(title).toBeInTheDocument()
+    expect(tryAgainButton).toBeInTheDocument()
   })
 })

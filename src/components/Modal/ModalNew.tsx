@@ -26,19 +26,21 @@ interface IProps {
   isHeaderComponent?: boolean
   header?: React.ReactNode
   noChildrenPadding?: boolean
+  fullHeightOnMobile?: boolean
 }
 const ModalNew: React.FC<IProps> = ({
-  headerIcon = null,
-  modalTitle = '',
-  modalSubtitle = '',
   handleClose,
   isOpen,
-  alignItems = '',
-  isHeaderComponent = true,
-  noChildrenPadding = false,
   children,
   footer,
   header,
+  alignItems = '',
+  modalTitle = '',
+  modalSubtitle = '',
+  headerIcon = null,
+  isHeaderComponent = true,
+  noChildrenPadding = false,
+  fullHeightOnMobile = false,
   ...rest
 }) => {
   const themeContext = useContext(ThemeContext)
@@ -107,7 +109,12 @@ const ModalNew: React.FC<IProps> = ({
             <Divisor customSize="calc(100% - 14px)" />
           </>
         ) : null}
-        <ChildrenWrapper noChildrenPadding={noChildrenPadding}>{children}</ChildrenWrapper>
+        <ChildrenWrapper 
+          noChildrenPadding={noChildrenPadding}
+          fullHeightOnMobile={fullHeightOnMobile}
+        >
+          {children}
+        </ChildrenWrapper>
         {footer && (
           <>
             <Divisor customSize="100%" />

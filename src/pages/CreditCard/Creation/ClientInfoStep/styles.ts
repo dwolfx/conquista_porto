@@ -5,7 +5,7 @@ import ButtonComponent from 'components/Button'
 import DivisorComponent from 'components/Divisor'
 import Text from 'components/Text'
 import CardComponent from 'components/Card'
-import { CardBody } from 'components/Card/styles'
+import { CardBody, CardFooter } from 'components/Card/styles'
 import SelectBrazilianStates from '../common/SelectBrazilianStates'
 
 export const GridRow = styled(RowComponent)`
@@ -74,7 +74,7 @@ export const FooterText = styled(Text).attrs(() => ({
   color: 'gray5',
 }))`
   text-align: center;
-  margin-top: ${({ theme }) => theme.spacing(3)}px;
+  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(4)}px`};
 `
 
 export const LoadingWrapper = styled.div`
@@ -113,8 +113,8 @@ export const CenterContentCardWrapper = styled.div`
 `
 
 export const StyledSelectBrazilianStates = styled(SelectBrazilianStates)`
-    width: 100%;
-    margin-top: ${({ theme }) => theme.spacing(4)}px;
+  width: 100%;
+  margin-top: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const TextTitleNoOffer = styled(Text).attrs(() => ({
@@ -132,11 +132,11 @@ export const TextBodyNoOffer = styled(Text).attrs(() => ({
 }))``
 
 export const FullHeightRow = styled(RowComponent)`
-  height: calc(90vh - 142px);
-  margin: ${({ theme }) => `${theme.spacing(2)}px 0`};
+  height: calc(100vh - 185px);
+  margin: ${({ theme }) => `${theme.spacing(4)}px 0`};
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    height: calc(90vh - 155px);
+    margin: ${({ theme }) => `${theme.spacing(3)}px 0`};
   }
 `
 
@@ -162,13 +162,22 @@ export const CenterContentCard = styled(CardComponent)`
       padding: ${({ theme }) => theme.spacing(2)}px;
     }
   }
+
+  ${CardFooter} {
+    width: 100%;
+    justify-content: flex-end;
+  }
 `
 
 export const ButtonPrimary = styled(ButtonComponent).attrs(() => ({
   color: 'primary',
 }))`
+  width: 98px;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
+
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
+    margin: 0;
   }
 `
 

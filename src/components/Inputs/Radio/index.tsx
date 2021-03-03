@@ -4,7 +4,8 @@ import { RadioWrapper, RadioTitle, RadioLabel, RadioInput } from './styles'
 
 interface IProps {
   itemsDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
-  itemsAlign?: 'flex-start' | 'center' | 'flex-end'
+  itemsAlign?: 'flex-start' | 'start ' | 'center' | 'flex-end' | 'end'
+  justifyContent?: 'flex-start' | 'center' | 'flex-end'
   marginLeft?: number
   marginRight?: number
   options?: {
@@ -25,6 +26,7 @@ interface IProps {
 const RadioComponent = ({
   itemsDirection = 'row',
   itemsAlign = 'center',
+  justifyContent = 'center',
   marginLeft = 0,
   marginRight = 0,
   onChange,
@@ -63,6 +65,7 @@ const RadioComponent = ({
       width={width}
       itemsDirection={itemsDirection}
       itemsAlign={itemsAlign}
+      justifyContent={justifyContent}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       marginLeft={marginLeft}

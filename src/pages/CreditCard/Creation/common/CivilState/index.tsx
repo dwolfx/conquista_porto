@@ -2,13 +2,11 @@ import React from 'react'
 
 import Select from 'components/Inputs/Select'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import { IOption } from 'pages/CreditCard/Creation/types'
 
 import * as S from '../styles'
-
 interface IProps {
-  selectedOption: IOption
-  setSelectedOption: (civilState: IOption) => void
+  selectedOption: TSelected
+  setSelectedOption: (civilState: TSelected) => void
   preSelectedCivilState?: number
 }
 

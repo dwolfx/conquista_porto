@@ -6,16 +6,15 @@ import React, {
   MutableRefObject,
 } from 'react'
 
-import * as s from './styles'
-
 import { dict } from 'components/IconExporter'
-
 import InputText from 'components/NewInput'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 import Loading from 'components/Loading'
 
 import { IProps, IOption } from './types'
+
+import * as s from './styles'
 
 /** This component is a multi selector
  *
@@ -47,15 +46,21 @@ import { IProps, IOption } from './types'
  */
 
 const MultiSelector: React.FC<IProps> = ({
+  error = false,
   options,
   disabled = false,
   inputLabel = 'Selecione',
   loading = false,
   onChange,
+  onFocusFunction = () => {},
   selectedOptions,
   setSelectedOptions,
+  optionsContainerHeight = 350,
+  showLockIconIfDisable = true,
   ...rest
 }) => {
+  const optionsContainerRef = React.createRef<HTMLDivElement>()
+  const inputTextRef = React.createRef<HTMLInputElement>()
   const [inputValue, setInputValue] = useState('')
   const [filteredOptions, setFilteredOptions] = useState<IOption[]>([])
   const [selectOptionsDropdown, setSelectOptionsDropdown] = useState(false)
@@ -116,10 +121,10 @@ const MultiSelector: React.FC<IProps> = ({
     if (selectOptionsDropdown && !disabled) {
       setSelectIcon('arrowup')
     }
-    if (disabled) {
+    if (showLockIconIfDisable && disabled) {
       setSelectIcon('lock')
     }
-  }, [disabled, selectOptionsDropdown])
+  }, [disabled, selectOptionsDropdown, showLockIconIfDisable])
 
   //get selectedOptions array
   useEffect(() => {
@@ -157,6 +162,36 @@ const MultiSelector: React.FC<IProps> = ({
     }
   }
 
+  const handleClickOutsideTextInputAndOptionsContainer = useCallback(
+    (event: MouseEvent): void => {
+      if (
+        optionsContainerRef &&
+        !optionsContainerRef.current?.contains(event.target as Node) &&
+        inputTextRef &&
+        !inputTextRef.current?.contains(event.target as Node)
+      ) {
+        setSelectOptionsDropdown(false)
+      }
+    },
+    [optionsContainerRef, inputTextRef]
+  )
+
+  //handle with outside click
+  useEffect(() => {
+    if (selectOptionsDropdown) {
+      document.addEventListener(
+        'mousedown',
+        handleClickOutsideTextInputAndOptionsContainer
+      )
+      return () => {
+        document.removeEventListener(
+          'mousedown',
+          handleClickOutsideTextInputAndOptionsContainer
+        )
+      }
+    }
+  }, [selectOptionsDropdown, handleClickOutsideTextInputAndOptionsContainer])
+
   return (
     <s.SelectContainer
       ref={selectContainerElement}
@@ -165,7 +200,20 @@ const MultiSelector: React.FC<IProps> = ({
     >
       <s.SelectWrapper>
         <InputText
-          onFocus={() => setSelectOptionsDropdown(true)}
+          ref={inputTextRef}
+          error={
+            error
+              ? {
+                  icon: 'alertrounded',
+                  message:
+                    'Erro ao carregar informações. Por favor, tente novamente',
+                }
+              : false
+          }
+          onFocus={() => {
+            onFocusFunction()
+            setSelectOptionsDropdown(true)
+          }}
           label={inputLabel}
           placeholder="Selecione"
           onChange={e => setInputValue(e.target.value)}
@@ -184,6 +232,8 @@ const MultiSelector: React.FC<IProps> = ({
           }
         />
         <s.OptionsContainer
+          ref={optionsContainerRef}
+          optionsContainerHeight={optionsContainerHeight}
           $hasOptions={selectOptionsDropdown}
           optionBoxDirection="top"
         >
@@ -221,15 +271,15 @@ const MultiSelector: React.FC<IProps> = ({
           {selectedOptions.map((option: IOption) => (
             <s.SelectedListLi key={option.id}>
               <s.SelectedListButton>
-                <s.Text type="subheading" textTransform="uppercase">
+                <s.Text type="button" bold color="blue4">
                   {option.text}
                 </s.Text>
                 <s.SelectedListIcon
                   onClick={() => removeOptionToSelectList(option)}
                   color="blue4"
                   name="removeMultiselector"
-                  width={21}
-                  height={21}
+                  width={14}
+                  height={14}
                 />
               </s.SelectedListButton>
             </s.SelectedListLi>

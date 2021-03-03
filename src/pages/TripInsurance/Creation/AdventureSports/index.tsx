@@ -1,12 +1,16 @@
-import React from 'react'
-import * as s from './styles'
+import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
+
 import Radio from 'components/Inputs/Radio'
-import { useState } from 'react'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import { Steps, IForm } from '../types'
+
+import * as s from './styles'
 
 const radioOptions = [
   {
@@ -20,22 +24,45 @@ const radioOptions = [
 ]
 
 const AdventureSports: StepComponent = () => {
-  const [hasAdventureSports, setHasAdventureSports] = useState<string>()
+  const [hasAdventureSports, setHasAdventureSports] = useState<string>('')
 
-  const { instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
-  const handleChange = (value: string) => {
-    setHasAdventureSports(value)
+  const handleClick = () => {
+    updateForm({
+      isPraticaAventura: !!+hasAdventureSports,
+      isMotocicleta: form.hasOnlyLatinAmericaDestination ? false : true,
+    })
+
+    if (form.hasOnlyLatinAmericaDestination) {
+      instantiate(Steps.choosePlan)
+    } else {
+      instantiate(Steps.motocicleQuestion)
+    }
   }
 
   return (
     <s.ContentWrapper>
-      <StepBar actualStep={4} totalNumberOfSteps={5} />
+      <StepBar
+        title="Simulação"
+        actualStep={4}
+        totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
+      />
       <s.ContentContainer>
-        <s.RowContainer justifyContent="center" lgAlignItems="center">
-          <Col lg={4} md={4} sm={6} alignSelf="center">
+        <s.RowContainer
+          alignItems="center"
+          mdJustifyContent="start"
+          smJustifyContent="center"
+        >
+          <Col lg={3} md={3} hiddenMdDown>
+            <DivisorDescription
+              title="Cobertura"
+              text="O seguro cobre acidentes causados pela prática de esportes de aventura."
+            />
+          </Col>
+          <Col lg={1} md={1} hiddenMdDown />
+          <Col lg={4} md={4} sm={6}>
             <s.ContentWrapper>
               <s.QuestionText textAlign="center" type="headline">
                 Você pretende praticar esportes de aventura durante a viagem?
@@ -45,16 +72,33 @@ const AdventureSports: StepComponent = () => {
                 itemsDirection="column"
                 itemsAlign="center"
                 checkedItem={hasAdventureSports}
-                onChange={e => handleChange(e.currentTarget.value)}
+                onChange={e => setHasAdventureSports(e.currentTarget.value)}
                 data-testid="radio-input-adventure-sports"
               />
-              <s.NextButton
-                disabled={hasAdventureSports === undefined}
-                data-testid="button-adventure-sports"
-                onClick={() => instantiate(Steps.motocicleQuestion)}
-              >
-                PRÓXIMO
-              </s.NextButton>
+              {form.hasOnlyLatinAmericaDestination ? (
+                <s.NextButton
+                  disabled={hasAdventureSports === ''}
+                  data-testid="button-adventure-sports"
+                  data-gtm-name="simular"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={() => handleClick()}
+                  color="secondary"
+                >
+                  SIMULAR
+                </s.NextButton>
+              ) : (
+                <s.NextButton
+                  disabled={hasAdventureSports === ''}
+                  data-testid="button-adventure-sports"
+                  data-gtm-name="proximo"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={() => handleClick()}
+                >
+                  PRÓXIMO
+                </s.NextButton>
+              )}
             </s.ContentWrapper>
           </Col>
         </s.RowContainer>

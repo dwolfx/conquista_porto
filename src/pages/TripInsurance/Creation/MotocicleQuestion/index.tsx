@@ -1,16 +1,17 @@
-import React from 'react'
-import * as s from './styles'
+import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import Radio from 'components/Inputs/Radio'
-import { useState } from 'react'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 import Popover from 'components/Popover'
 
 import StepBar from 'pages/TripInsurance/commons/StepBar'
-import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import * as s from './styles'
+import { IForm, Steps } from '../types'
 
 const radioOptions = [
   {
@@ -24,50 +25,65 @@ const radioOptions = [
 ]
 
 const MotocicleQuestion: StepComponent = () => {
-  // Olhar depois os SETTERS ==========================
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  // Olhar depois os SETTERS ==========================
+  const { updateForm, form } = useFormFluxManagement<IForm>()
 
-  const [isAnswerPositive, setIsAnswerPositive] = useState<string>()
+  const [isAnswerPositive, setIsAnswerPositive] = useState<string>('')
 
   const isMobile = useMedia('md')
 
-  const { instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
   const handleChange = (value: string) => {
     setIsAnswerPositive(value)
   }
 
+  const submitButton = () => {
+    updateForm({
+      ...form,
+      isMotocicleta: !!+isAnswerPositive,
+    })
+    instantiate(Steps.choosePlan)
+  }
+
   return (
     <s.ContentWrapper>
-      <StepBar actualStep={5} totalNumberOfSteps={5} />
+      <StepBar
+        title="Simulação"
+        actualStep={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
+        totalNumberOfSteps={form.qtdPassagMaiorSetentaAnos !== 0 ? 4 : 5}
+      />
       <s.ContentContainer>
         <s.ContentRow justifyContent={isMobile ? 'center' : 'start'}>
           <Col lg={3} md={3} hiddenMdDown>
-            <s.ContentWrapper>
-              <s.TitleInfo type="heading4" bold>
-                Cobertura
-              </s.TitleInfo>
-              <s.DivisorInfo />
-              <Text type="headline">
-                Eventos decorrentes de acidentes com motocicletas na América
-                Latina não tem cobertura.
-              </Text>
-            </s.ContentWrapper>
+            {form.hasLatinAmericaCountryAndOtherCountry ? null : (
+              <s.ContentWrapper>
+                <s.TitleInfo type="heading4" bold>
+                  Cobertura
+                </s.TitleInfo>
+                <s.DivisorInfo />
+                <Text type="headline">
+                  Cobertura para eventos decorrentes de viagens de motocicleta.
+                </Text>
+              </s.ContentWrapper>
+            )}
           </Col>
           <Col lg={1} md={1} hiddenMdDown />
           <Col lg={4} md={4} sm={6}>
             <s.ContentWrapper>
-              <s.QuestionText textAlign="center" type="headline">
+              <s.QuestionText
+                textAlign="center"
+                type="headline"
+                hasLatinAmericaCountryAndOtherCountry={
+                  !!form.hasLatinAmericaCountryAndOtherCountry
+                }
+              >
                 Pretende usar motocicleta durante a viagem?
                 {isMobile ? (
                   <Popover
                     content={() => (
                       <s.TooltipText type="body" color="gray5">
-                        Eventos decorrentes de acidentes com motocicletas na
-                        América Latina não tem cobertura.
+                        Cobertura para eventos decorrentes de viagens de
+                        motocicleta.
                       </s.TooltipText>
                     )}
                     placement="top"
@@ -76,6 +92,17 @@ const MotocicleQuestion: StepComponent = () => {
                   </Popover>
                 ) : null}
               </s.QuestionText>
+              {form.hasLatinAmericaCountryAndOtherCountry ? (
+                <s.LatinAmericaWarningText
+                  bold
+                  type="caption"
+                  color="gray5"
+                  textAlign="center"
+                >
+                  Não haverá cobertura para eventos decorrentes de viagens de
+                  motocicleta nos países selecionados da América Latina.
+                </s.LatinAmericaWarningText>
+              ) : null}
               <Radio
                 options={radioOptions}
                 itemsDirection="column"
@@ -84,10 +111,12 @@ const MotocicleQuestion: StepComponent = () => {
                 onChange={e => handleChange(e.currentTarget.value)}
               />
               <s.SimulateButton
-                disabled={isAnswerPositive === undefined}
-                loading={isLoading}
+                disabled={!isAnswerPositive}
                 color="secondary"
-                onClick={() => instantiate(Steps.choosePlan)}
+                onClick={submitButton}
+                data-gtm-name="simular"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
               >
                 Simular
               </s.SimulateButton>

@@ -7,6 +7,7 @@ import {
 
 describe('Consortium Building Actions', () => {
   test('if GetConsortiumBuildingDataRequest returns the correct object', () => {
+    // @ts-expect-error
     expect(GetConsortiumBuildingDataRequest()).toEqual({
       type: Types.GET_REQUEST,
     })
@@ -15,6 +16,7 @@ describe('Consortium Building Actions', () => {
   test('if GetConsortiumBuildingDataSuccess returns the correct object', () => {
     const payload = {}
 
+    // @ts-expect-error
     expect(GetConsortiumBuildingDataSuccess(payload)).toEqual({
       type: Types.GET_SUCCESS,
       payload,

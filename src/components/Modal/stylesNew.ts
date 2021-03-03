@@ -5,6 +5,7 @@ import DivisorComponent from 'components/Divisor'
 
 interface IProps {
   noChildrenPadding?: boolean
+  fullHeightOnMobile?: boolean
 }
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
@@ -21,6 +22,7 @@ export const ModalOverlay = styled.div<{ isOpen: boolean }>`
 
 export const ChildrenWrapper = styled.div<IProps>`
   overflow: auto;
+  height: ${({ fullHeightOnMobile }) => fullHeightOnMobile ? '100vh' : 'unset'};
   padding: ${props => !props.noChildrenPadding && props.theme.spacing(3)}px
     ${props => !props.noChildrenPadding && props.theme.spacing(2)}px;
 

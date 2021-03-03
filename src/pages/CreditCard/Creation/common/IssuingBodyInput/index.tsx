@@ -6,12 +6,15 @@ import * as s from '../styles'
 
 interface IProps {
   issuingBody: string
+  touched: boolean
+  handleTouchField: () => void
   setIssuingBody: (date: string) => void
 }
-
 const IssuingBodyInput: React.FC<IProps> = ({
   issuingBody,
   setIssuingBody,
+  handleTouchField,
+  touched,
   ...rest
 }) => {
   const issuingBodyError = {
@@ -21,12 +24,14 @@ const IssuingBodyInput: React.FC<IProps> = ({
   return (
     <s.Input
       label="órgão emissor"
-      error={
-        (!issuingBody.length || issuingBody.length < 3) && issuingBodyError
-      }
+      placeholder="Digite aqui..."
       value={issuingBody}
+      onBlur={handleTouchField}
       onChange={e =>
         setIssuingBody(e.target.value.toUpperCase().replace(/[^\D]/g, ''))
+      }
+      error={
+        ((!issuingBody.length || issuingBody.length < 3) && touched) && issuingBodyError
       }
       {...rest}
     />

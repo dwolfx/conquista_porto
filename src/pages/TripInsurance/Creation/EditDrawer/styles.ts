@@ -1,7 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import NewInput from 'components/NewInput'
-import CountryOriginSelectCmp from '../../commons/CountryOriginSelect'
 import DivisorCmp from 'components/Divisor'
 import SelectCmp from 'components/Inputs/Select'
 import DatePickerRangeCmp from 'components/Dates/DatePickerRange'
@@ -9,6 +8,8 @@ import ButtonCmp from 'components/Button'
 import Text from 'components/Text'
 import PopoverCmp from 'components/Popover'
 import IconExporter from 'components/IconExporter'
+import CountryOriginSelectCmp from '../../commons/CountryOriginSelect'
+import MultiSelectorComponent from 'components/MultiSelector'
 
 export const Input = styled(NewInput)`
   margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(5)}px`};
@@ -34,16 +35,23 @@ export const Divisor = styled(DivisorCmp)`
   margin: ${({ theme }) => theme.spacing(3)}px 0;
 `
 
-export const Select = styled(SelectCmp)`
+export const Select = styled(SelectCmp)<{ marginBottom?: boolean }>`
   width: 100%;
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+    `}
 `
 
 export const DatePickerRange = styled(DatePickerRangeCmp)`
   align-self: center;
   width: max-content;
+  z-index: 3;
+
   .DateRangePickerInput_arrow {
     width: 7px;
-    
+
     @media ${props => props.theme.mediaQueries.lg} {
       width: 14px !important;
     }
@@ -51,7 +59,6 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
     @media ${props => props.theme.mediaQueries.xs} {
       width: 21px !important;
     }
-
   }
 
   .DateInput {
@@ -68,12 +75,11 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
     }
 
     @media ${props => props.theme.mediaQueries.xs} {
-      width: 150px;
+      width: 133px;
       input {
-        width: 150px;
+        width: 133px;
       }
     }
-
   }
 `
 
@@ -90,15 +96,29 @@ export const ButtonSubmit = styled(ButtonCmp)`
 `
 
 export const TooltipText = styled(Text)`
-  width: 213px;
-` 
+  width: 185px;
+`
 
 export const Popover = styled(PopoverCmp)`
   width: 100%;
-  margin: ${({ theme }) => theme.spacing(4)}px 0 ${({ theme }) => theme.spacing(4)}px 0 ;
+  margin-bottom: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const InfoIcon = styled(IconExporter)`
   margin-left: ${({ theme }) => theme.spacing(1.5)}px;
   margin-bottom: -${({ theme }) => theme.spacing(0.5)}px;
+`
+
+export const MultiSelector = styled(MultiSelectorComponent)<{
+  marginBottom: boolean
+}>`
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${({ theme }) => theme.spacing(10)}px;
+    `}
+
+  svg {
+    width: 21px;
+  }
 `

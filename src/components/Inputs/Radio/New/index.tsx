@@ -10,6 +10,7 @@ interface IProps {
   label?: string
   disabled?: boolean
   handleChange: (event?: React.FormEvent<HTMLInputElement>) => void
+  boldLabel?: boolean
 }
 
 const RadioComponent = ({
@@ -19,13 +20,14 @@ const RadioComponent = ({
   value,
   checked,
   handleChange,
-  disabled = false
+  disabled = false,
+  ...rest
 }: IProps & React.HTMLAttributes<HTMLInputElement>) => {
-
   return (
-    <s.RadioInputWrapper>
+    <s.RadioInputWrapper {...rest}>
       <s.RadioInput
         id={`input-radio-${id}`}
+        data-testid={`input-radio-${id}`}
         type="radio"
         name={name}
         value={value}
@@ -37,7 +39,9 @@ const RadioComponent = ({
         aria-label={label ? label : id}
       />
       {label && (
-        <s.RadioLabel disabled={disabled} htmlFor={`input-radio-${id}`}>{label}</s.RadioLabel>
+        <s.RadioLabel disabled={disabled} htmlFor={`input-radio-${id}`}>
+          {label}
+        </s.RadioLabel>
       )}
     </s.RadioInputWrapper>
   )

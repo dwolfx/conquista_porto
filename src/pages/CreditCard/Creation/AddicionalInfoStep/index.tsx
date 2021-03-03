@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupation/action'
 
 import { dict } from 'components/IconExporter'
 import Divisor from 'components/Divisor'
+import { TSelected } from 'components/Inputs/Select/types'
 
 import {
   ECivilStateLabel,
@@ -14,9 +15,9 @@ import CivilState from 'pages/CreditCard/Creation/common/CivilState'
 import Sex from 'pages/CreditCard/Creation/common/Sex'
 import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 
-import { IStepComponent, IOption } from '../types'
-
+import { IStepComponent } from '../types'
 import { GridContainer } from '../styles'
+
 import { IState } from './types'
 import * as S from './styles'
 
@@ -36,12 +37,12 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
   const [city, setCity] = useState('')
   const [motherName, setMotherName] = useState('')
   const [errors, setErrors] = useState({ mother: false, city: false })
-  const [selectedCivilState, setSelectedCivilState] = useState<IOption>({
+  const [selectedCivilState, setSelectedCivilState] = useState<TSelected>({
     id: -1,
     name: '',
   })
-  const [selectedSex, setSelectedSex] = useState<IOption>({ id: -1, name: '' })
-  const [selectedOcupation, setSelectedOcupation] = useState<IOption>({
+  const [selectedSex, setSelectedSex] = useState<TSelected>({ id: -1, name: '' })
+  const [selectedOcupation, setSelectedOcupation] = useState<TSelected>({
     id: -1,
     name: '',
   })
@@ -51,11 +52,20 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
     onNextStep({
       cidade: city,
       nomeMae: motherName,
-      codigoEstadoCivil: selectedCivilState.id.toString(),
-      codigoProfissao: selectedOcupation.id.toString(),
-      sexo: selectedSex.id.toString(),
+      codigoEstadoCivil: selectedCivilState?.id?.toString(),
+      codigoProfissao: selectedOcupation?.id?.toString(),
+      sexo: selectedSex?.id?.toString(),
     })
   }
+
+  useLayoutEffect(() => {
+    const layerChildrenElement = document.querySelector('#layer-children')
+    if (layerChildrenElement) {
+      layerChildrenElement.scrollTo({ 
+        top: 0
+      })
+    }
+  }, [])
 
   useEffect(() => {
     if (creditCardOccupation.data === null) {
@@ -107,79 +117,81 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
   return (
     <S.Wrapper>
       <GridContainer>
-        <S.StyledMain xs={12} sm={6} lg={4}>
-          <S.StyledText>
-            Agora confirme alguns dados do seu cadastro:
-          </S.StyledText>
-          <S.StyledForm>
-            <S.FlexWrapper>
+        <S.Row>
+          <S.StyledMain xs={12} sm={6} lg={4}>
+            <S.StyledText>
+              Agora confirme alguns dados do seu cadastro:
+            </S.StyledText>
+            <S.StyledForm>
+              <S.FlexWrapper>
+                <>
+                  <CivilState
+                    preSelectedCivilState={
+                      formData.codigoEstadoCivil ? +formData.codigoEstadoCivil : 0
+                    }
+                    selectedOption={selectedCivilState}
+                    setSelectedOption={setSelectedCivilState}
+                  />
+                </>
+                <>
+                  <Sex
+                    preSelectedSex={formData.sexo}
+                    selectedOption={selectedSex}
+                    setSelectedOption={setSelectedSex}
+                  />
+                </>
+              </S.FlexWrapper>
+
               <>
-                <CivilState
-                  preSelectedCivilState={
-                    formData.codigoEstadoCivil ? +formData.codigoEstadoCivil : 0
+                <Ocupation
+                  selectedOption={selectedOcupation}
+                  setSelectedOption={setSelectedOcupation}
+                  creditCardOccupation={creditCardOccupation}
+                  preSelectedOccupation={
+                    formData.codigoProfissao ? +formData.codigoProfissao : 0
                   }
-                  selectedOption={selectedCivilState}
-                  setSelectedOption={setSelectedCivilState}
                 />
               </>
-              <>
-                <Sex
-                  preSelectedSex={formData.sexo}
-                  selectedOption={selectedSex}
-                  setSelectedOption={setSelectedSex}
-                />
-              </>
-            </S.FlexWrapper>
 
-            <>
-              <Ocupation
-                selectedOption={selectedOcupation}
-                setSelectedOption={setSelectedOcupation}
-                creditCardOccupation={creditCardOccupation}
-                preSelectedOccupation={
-                  formData.codigoProfissao ? +formData.codigoProfissao : 0
-                }
+              <S.StyledInput
+                label="cidade"
+                error={errors.city && cityError}
+                value={city}
+                onChange={e => {
+                  const { value } = e.target
+                  setCity(value)
+                  setErrors({ ...errors, city: !value.length })
+                }}
               />
-            </>
 
-            <S.StyledInput
-              label="cidade"
-              error={errors.city && cityError}
-              value={city}
-              onChange={e => {
-                const { value } = e.target
-                setCity(value)
-                setErrors({ ...errors, city: !value.length })
-              }}
-            />
+              <S.StyledInput
+                label="nome da mãe"
+                error={errors.mother && motherNameError}
+                value={motherName}
+                onChange={e => {
+                  const { value } = e.target
+                  setMotherName(value)
+                  setErrors({ ...errors, mother: !value.length })
+                }}
+              />
 
-            <S.StyledInput
-              label="nome da mãe"
-              error={errors.mother && motherNameError}
-              value={motherName}
-              onChange={e => {
-                const { value } = e.target
-                setMotherName(value)
-                setErrors({ ...errors, mother: !value.length })
-              }}
-            />
+              <S.StyledButton
+                disabled={hasAnyError}
+                onClick={() => handleOnClick()}
+              >
+                próximo
+              </S.StyledButton>
 
-            <S.StyledButton
-              disabled={hasAnyError}
-              onClick={() => handleOnClick()}
-            >
-              próximo
-            </S.StyledButton>
-
-            <S.Footer>
-              <Divisor />
-              <S.AnotherStyledText>
-                Não se preocupe, a solicitação só será enviada após informarmos
-                o cartão disponível para você.
-              </S.AnotherStyledText>
-            </S.Footer>
-          </S.StyledForm>
-        </S.StyledMain>
+              <S.Footer>
+                <Divisor />
+                <S.AnotherStyledText>
+                  Não se preocupe, a solicitação só será enviada após informarmos
+                  o cartão disponível para você.
+                </S.AnotherStyledText>
+              </S.Footer>
+            </S.StyledForm>
+          </S.StyledMain>
+        </S.Row>
       </GridContainer>
     </S.Wrapper>
   )

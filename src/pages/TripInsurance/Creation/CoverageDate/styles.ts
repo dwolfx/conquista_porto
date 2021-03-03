@@ -4,8 +4,30 @@ import Text from 'components/Text'
 import DatePickerRangeCmp from 'components/Dates/DatePickerRange'
 import IconExporter from 'components/IconExporter'
 
-export const ContentWrapper = styled.div`
+interface IContentProps {
+  focus: string | null
+}
+
+export const ContentWrapper = styled.div<IContentProps>`
   background-color: ${props => props.theme.colors.white};
+  display: flex;
+  justify-content: ${props =>
+    typeof props.focus === 'string' ? 'initial' : 'center'};
+  flex-direction: column;
+  height: ${props =>
+    typeof props.focus === 'string' ? '100vh' : 'calc(100vh - 128px)'};
+
+  ${({ theme }) =>
+    `@media ${theme.mediaQueries.smUp} and ${theme.mediaQueries.md}`} {
+    height: calc(100vh - 128px);
+  }
+
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    height: calc(100vh - 128px);
+  }
+`
+
+export const Content = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -25,8 +47,8 @@ export const NextButton = styled(Button)`
 export const QuestionText = styled(Text)`
   margin-bottom: ${({ theme }) => theme.spacing(4)}px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
-    width: 65%;
+  @media ${props => props.theme.mediaQueries.md} {
+    width: 75%;
     align-self: center;
   }
 `
@@ -60,10 +82,10 @@ export const DatePickerRange = styled(DatePickerRangeCmp)`
 `
 
 export const InfoIcon = styled(IconExporter)`
-  margin-left: ${({ theme }) => theme.spacing(1.5)}px;
-  margin-bottom: -${({ theme }) => theme.spacing(0.5)}px;
+  margin-left: ${({ theme }) => theme.spacing(2)}px;
+  vertical-align: middle;
 `
 
 export const TooltipText = styled(Text)`
   width: 213px;
-` 
+`

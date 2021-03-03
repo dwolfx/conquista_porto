@@ -1,4 +1,4 @@
-import { Types, ISummartPayload } from './types'
+import { Types } from './types'
 import {
   GetWithdrawDetailsRequest,
   GetWithdrawDetailsSuccess,

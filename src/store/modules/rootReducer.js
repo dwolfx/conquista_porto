@@ -12,6 +12,7 @@ import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import customerProfile from './CustomerProfile/reducer'
+import destinationCountries from './TripInsurance/DestinationCountries/reducer'
 import {
   financialApplicationGetData,
   financialApplicationPostData,
@@ -24,6 +25,9 @@ import income from './Investment/Income/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
+import tripInsuranceCreditCard from './TripInsurance/CreditCard/reducer'
+import tripInsuranceProposal from './TripInsurance/Proposal/reducer'
+import tripInsuranceQuotation from './TripInsurance/InsuranceQuotation/reducer'
 import fluxManagement from './FluxManagement/reducer'
 import points from './Points/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
@@ -42,6 +46,7 @@ import virtualKeyboard from './VirtualKeyboard/reducer'
 import token2fa from './2FAToken/reducer'
 import lastTransaction from './Investment/LastTransaction/reducer'
 import withdraw from './Withdraw/reducer'
+import zipCode from './ZipCode/reducer'
 
 export default combineReducers({
   alignmentTerms,
@@ -55,18 +60,22 @@ export default combineReducers({
   creditCardOccupation,
   creditCardOffer,
   customerProfile,
+  destinationCountries,
   financialApplicationGetData,
   financialApplicationPostData,
+  fluxManagement,
   investmentsList,
   investmentDetails,
   investmentPosition,
   comparativeProfitability,
-  fluxManagement,
   income,
   lifeInsurance,
   consolidatedPosition,
   vehicleFinancing,
   tripInsurance,
+  tripInsuranceCreditCard,
+  tripInsuranceProposal,
+  tripInsuranceQuotation,
   notifications,
   points,
   privateWelfare,
@@ -84,4 +93,5 @@ export default combineReducers({
   token2fa,
   lastTransaction,
   withdraw,
+  zipCode,
 })

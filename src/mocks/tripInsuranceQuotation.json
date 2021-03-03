@@ -1,0 +1,1228 @@
+{
+  "ViagemPacote": {
+    "pacotes": [
+      {
+        "valorCartaoPortoSeguro": "31.94",
+        "ViagemCobertura": {
+          "coberturas": [
+            {
+              "valor": "R$ 10.000,00",
+              "descricao": "Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO"
+            },
+            {
+              "valor": "R$ 80.000,00",
+              "descricao": "Morte acidental"
+            },
+            {
+              "valor": "R$ 80.000,00",
+              "descricao": "Invalidez Permanente Total ou Parcial por Acidente"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Cancelamento de Viagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Interrupção da viagem"
+            },
+            {
+              "valor": "R$  1.000,00",
+              "descricao": "Extravio de bagagem"
+            },
+            {
+              "valor": "R$ 300,00",
+              "descricao": "Danos de Bagagem"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado de Corpo"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado Médico"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Regresso Sanitário"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Assistência Funeral"
+            },
+            {
+              "valor": "R$100,00/Dia  Limite 5 Dias",
+              "descricao": "Hospedagem após Alta Hospitalar"
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Remarcação de Passagem para Regresso"
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Remarcação de passagem para regresso de membros da família."
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 100,00 / dia - Limite 5 dias",
+              "descricao": "Hospedagem para Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Acompanhamento de menor"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Fisioterapia"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Farmacêuticas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Jurídicas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Pagamento de Fiança"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Extensão de Vigência por Razões Médicas"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Porto Viaje Bem"
+            },
+            {
+              "valor": "Sim (se transporte aéreo ou marítimo)",
+              "descricao": "Localização e Encaminhamento de bagagem"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Orientação e envio em caso de perda de documentos"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Transmissão de Mensagens Urgentes"
+            }
+          ]
+        },
+        "valorAssistencia": "0.0",
+        "formasPagamento": {
+          "listaParcelamentoCartao": [
+            {
+              "valor": "33.63",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "16.82",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "11.21",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "8.41",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "6.73",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "5.61",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "4.8",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "4.2",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "3.74",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "3.36",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "3.06",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "2.8",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ],
+          "listaParcelamentoCartaoPorto": [
+            {
+              "valor": "31.94",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "15.97",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "10.65",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "7.99",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "6.39",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "5.32",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "4.56",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "3.99",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "3.55",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "3.19",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "2.9",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "2.66",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ]
+        },
+        "valorTotal": "33.63",
+        "codigoPlano": "1",
+        "nomePlano": "Brasil Prata",
+        "urlManualPlano": "http://www.portoseguro.com.br/static-files/Institucional/Documento/SeguroViagem/Porto%20Brasil%20Prata%202386.16.01.I.pdf",
+        "valorSeguroBruto": "33.63"
+      },
+      {
+        "valorCartaoPortoSeguro": "30.23",
+        "ViagemCobertura": {
+          "coberturas": [
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO"
+            },
+            {
+              "valor": "R$ 50.000,00",
+              "descricao": "Morte acidental"
+            },
+            {
+              "valor": "R$ 50.000,00",
+              "descricao": "Invalidez Permanente Total ou Parcial por Acidente"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Cancelamento de Viagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Interrupção da viagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Extravio de bagagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Danos de Bagagem"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado de Corpo"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado Médico"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Regresso Sanitário"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Assistência Funeral"
+            },
+            {
+              "valor": "R$100,00/Dia  Limite 5 Dias",
+              "descricao": "Hospedagem após Alta Hospitalar"
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Remarcação de Passagem para Regresso"
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Remarcação de passagem para regresso de membros da família."
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 100,00 / dia - Limite 5 dias",
+              "descricao": "Hospedagem para Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 3.000,00",
+              "descricao": "Acompanhamento de menor"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Fisioterapia"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Farmacêuticas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Jurídicas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Pagamento de Fiança"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Extensão de Vigência por Razões Médicas"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Porto Viaje Bem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Localização e Encaminhamento de bagagem"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Orientação e envio em caso de perda de documentos"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Transmissão de Mensagens Urgentes"
+            }
+          ]
+        },
+        "valorAssistencia": "0.0",
+        "formasPagamento": {
+          "listaParcelamentoCartao": [
+            {
+              "valor": "31.83",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "15.92",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "10.61",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "7.96",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "6.37",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "5.31",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "4.55",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "3.98",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "3.54",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "3.18",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "2.89",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "2.65",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ],
+          "listaParcelamentoCartaoPorto": [
+            {
+              "valor": "30.23",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "15.12",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "10.08",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "7.56",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "6.05",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "5.04",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "4.32",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "3.78",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "3.36",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "3.02",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "2.75",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "2.52",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ]
+        },
+        "valorTotal": "31.83",
+        "codigoPlano": "2",
+        "nomePlano": "Brasil Terra",
+        "urlManualPlano": "http://www.portoseguro.com.br/static-files/Institucional/Documento/SeguroViagem/Porto%20Brasil%20Terra%202384.16.01.I.pdf",
+        "valorSeguroBruto": "31.83"
+      },
+      {
+        "valorCartaoPortoSeguro": "60.33",
+        "ViagemCobertura": {
+          "coberturas": [
+            {
+              "valor": "R$ 30.000,00",
+              "descricao": "Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO"
+            },
+            {
+              "valor": "R$ 100.000,00",
+              "descricao": "Morte acidental"
+            },
+            {
+              "valor": "R$ 100.000,00",
+              "descricao": "Invalidez Permanente Total ou Parcial por Acidente"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Cancelamento de Viagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Interrupção da viagem"
+            },
+            {
+              "valor": "R$ 1.500,00",
+              "descricao": "Extravio de bagagem"
+            },
+            {
+              "valor": "R$ 500,00",
+              "descricao": "Danos de Bagagem"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado de Corpo"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado Médico"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Regresso Sanitário"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Assistência Funeral"
+            },
+            {
+              "valor": "R$ 200,00/Dia  Limite 5 Dias",
+              "descricao": "Hospedagem após Alta Hospitalar"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Remarcação de Passagem para Regresso"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Remarcação de passagem para regresso de membros da família."
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 200,00 / dia - Limite 5 dias",
+              "descricao": "Hospedagem para Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Acompanhamento de menor"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Fisioterapia"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Farmacêuticas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Jurídicas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Pagamento de Fiança"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Extensão de Vigência por Razões Médicas"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Porto Viaje Bem"
+            },
+            {
+              "valor": "Sim (se transporte aéreo ou marítimo)",
+              "descricao": "Localização e Encaminhamento de bagagem"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Orientação e envio em caso de perda de documentos"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Transmissão de Mensagens Urgentes"
+            }
+          ]
+        },
+        "valorAssistencia": "0.0",
+        "formasPagamento": {
+          "listaParcelamentoCartao": [
+            {
+              "valor": "63.5",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "31.75",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "21.17",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "15.88",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "12.7",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "10.58",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "9.07",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "7.94",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "7.06",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "6.35",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "5.77",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "5.29",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ],
+          "listaParcelamentoCartaoPorto": [
+            {
+              "valor": "60.33",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "30.17",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "20.11",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "15.08",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "12.07",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "10.06",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "8.62",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "7.54",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "6.7",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "6.03",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "5.48",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "5.03",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ]
+        },
+        "valorTotal": "63.5",
+        "codigoPlano": "3",
+        "nomePlano": "Brasil Ouro",
+        "urlManualPlano": "http://www.portoseguro.com.br/static-files/Institucional/Documento/SeguroViagem/Porto%20Brasil%20Ouro%202385.16.01.I.pdf",
+        "valorSeguroBruto": "63.5"
+      },
+      {
+        "valorCartaoPortoSeguro": "60.33",
+        "ViagemCobertura": {
+          "coberturas": [
+            {
+              "valor": "R$ 30.000,00",
+              "descricao": "Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO"
+            },
+            {
+              "valor": "R$ 100.000,00",
+              "descricao": "Morte acidental"
+            },
+            {
+              "valor": "R$ 100.000,00",
+              "descricao": "Invalidez Permanente Total ou Parcial por Acidente"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Cancelamento de Viagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Interrupção da viagem"
+            },
+            {
+              "valor": "R$ 1.500,00",
+              "descricao": "Extravio de bagagem"
+            },
+            {
+              "valor": "R$ 500,00",
+              "descricao": "Danos de Bagagem"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado de Corpo"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado Médico"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Regresso Sanitário"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Assistência Funeral"
+            },
+            {
+              "valor": "R$ 200,00/Dia  Limite 5 Dias",
+              "descricao": "Hospedagem após Alta Hospitalar"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Remarcação de Passagem para Regresso"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Remarcação de passagem para regresso de membros da família."
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 200,00 / dia - Limite 5 dias",
+              "descricao": "Hospedagem para Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Acompanhamento de menor"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Fisioterapia"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Farmacêuticas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Jurídicas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Pagamento de Fiança"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Extensão de Vigência por Razões Médicas"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Porto Viaje Bem"
+            },
+            {
+              "valor": "Sim (se transporte aéreo ou marítimo)",
+              "descricao": "Localização e Encaminhamento de bagagem"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Orientação e envio em caso de perda de documentos"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Transmissão de Mensagens Urgentes"
+            }
+          ]
+        },
+        "valorAssistencia": "0.0",
+        "formasPagamento": {
+          "listaParcelamentoCartao": [
+            {
+              "valor": "63.5",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "31.75",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "21.17",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "15.88",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "12.7",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "10.58",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "9.07",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "7.94",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "7.06",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "6.35",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "5.77",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "5.29",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ],
+          "listaParcelamentoCartaoPorto": [
+            {
+              "valor": "60.33",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "30.17",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "20.11",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "15.08",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "12.07",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "10.06",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "8.62",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "7.54",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "6.7",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "6.03",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "5.48",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "5.03",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ]
+        },
+        "valorTotal": "63.5",
+        "codigoPlano": "4",
+        "nomePlano": "Brasil Diamante",
+        "urlManualPlano": "http://www.portoseguro.com.br/static-files/Institucional/Documento/SeguroViagem/Porto%20Brasil%20Ouro%202385.16.01.I.pdf",
+        "valorSeguroBruto": "63.5"
+      },
+      {
+        "valorCartaoPortoSeguro": "60.33",
+        "ViagemCobertura": {
+          "coberturas": [
+            {
+              "valor": "R$ 30.000,00",
+              "descricao": "Despesas Médicas, Hospitalares e/ou Odontológicas - DMHO"
+            },
+            {
+              "valor": "R$ 100.000,00",
+              "descricao": "Morte acidental"
+            },
+            {
+              "valor": "R$ 100.000,00",
+              "descricao": "Invalidez Permanente Total ou Parcial por Acidente"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Cancelamento de Viagem"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Interrupção da viagem"
+            },
+            {
+              "valor": "R$ 1.500,00",
+              "descricao": "Extravio de bagagem"
+            },
+            {
+              "valor": "R$ 500,00",
+              "descricao": "Danos de Bagagem"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado de Corpo"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Traslado Médico"
+            },
+            {
+              "valor": "R$ 20.000,00",
+              "descricao": "Regresso Sanitário"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Assistência Funeral"
+            },
+            {
+              "valor": "R$ 200,00/Dia  Limite 5 Dias",
+              "descricao": "Hospedagem após Alta Hospitalar"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Remarcação de Passagem para Regresso"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Remarcação de passagem para regresso de membros da família."
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 200,00 / dia - Limite 5 dias",
+              "descricao": "Hospedagem para Acompanhante em caso de Hospitalização Prolongada"
+            },
+            {
+              "valor": "R$ 5.000,00",
+              "descricao": "Acompanhamento de menor"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Fisioterapia"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Farmacêuticas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Despesas Jurídicas"
+            },
+            {
+              "valor": "Não",
+              "descricao": "Pagamento de Fiança"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Extensão de Vigência por Razões Médicas"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Porto Viaje Bem"
+            },
+            {
+              "valor": "Sim (se transporte aéreo ou marítimo)",
+              "descricao": "Localização e Encaminhamento de bagagem"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Orientação e envio em caso de perda de documentos"
+            },
+            {
+              "valor": "Sim",
+              "descricao": "Transmissão de Mensagens Urgentes"
+            }
+          ]
+        },
+        "valorAssistencia": "0.0",
+        "formasPagamento": {
+          "listaParcelamentoCartao": [
+            {
+              "valor": "63.5",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "31.75",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "21.17",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "15.88",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "12.7",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "10.58",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "9.07",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "7.94",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "7.06",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "6.35",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "5.77",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "5.29",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ],
+          "listaParcelamentoCartaoPorto": [
+            {
+              "valor": "60.33",
+              "id": "1",
+              "descricao": "À vista"
+            },
+            {
+              "valor": "30.17",
+              "id": "2",
+              "descricao": "2x"
+            },
+            {
+              "valor": "20.11",
+              "id": "3",
+              "descricao": "3x"
+            },
+            {
+              "valor": "15.08",
+              "id": "4",
+              "descricao": "4x"
+            },
+            {
+              "valor": "12.07",
+              "id": "5",
+              "descricao": "5x"
+            },
+            {
+              "valor": "10.06",
+              "id": "6",
+              "descricao": "6x"
+            },
+            {
+              "valor": "8.62",
+              "id": "7",
+              "descricao": "7x"
+            },
+            {
+              "valor": "7.54",
+              "id": "8",
+              "descricao": "8x"
+            },
+            {
+              "valor": "6.7",
+              "id": "9",
+              "descricao": "9x"
+            },
+            {
+              "valor": "6.03",
+              "id": "10",
+              "descricao": "10x"
+            },
+            {
+              "valor": "5.48",
+              "id": "11",
+              "descricao": "11x"
+            },
+            {
+              "valor": "5.03",
+              "id": "12",
+              "descricao": "12x"
+            }
+          ]
+        },
+        "valorTotal": "63.5",
+        "codigoPlano": "5",
+        "nomePlano": "Brasil Adamantium",
+        "urlManualPlano": "http://www.portoseguro.com.br/static-files/Institucional/Documento/SeguroViagem/Porto%20Brasil%20Ouro%202385.16.01.I.pdf",
+        "valorSeguroBruto": "63.5"
+      }
+    ]
+  },
+  "urlManuais": "http://www.portoseguro.com.br/seguros/seguro-viagem",
+  "urlCondicoesGerais": "http://www.portoseguro.com.br/static-files/Institucional/Documento/SeguroViagem/Seguro%20Viagem%20-%20Processo%20SUSEP%20n%2015414.002867-2011-76%20-%20Atual.pdf",
+  "Message": {
+    "TipoCritica": "SUCESSO",
+    "Mensagem": "SUCESSO"
+  },
+  "idSimulacao": "4172"
+}

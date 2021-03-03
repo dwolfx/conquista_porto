@@ -13,12 +13,12 @@ export const LayerContainer = styled.div`
 
 export const LayerHeader = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.gray4};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
-  padding: 10px 35px;
+  padding: 10px ${({ theme }) => theme.spacing(3)}px;
 
-  svg {
-    margin-right: 15px;
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    padding: 10px ${({ theme }) => theme.spacing(7)}px;
   }
 `
 

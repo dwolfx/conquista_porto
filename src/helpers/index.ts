@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie'
+import moment from 'moment'
+import { FLAGS } from 'pages/CreditCard/Creation/types'
 
 type IFormatMoneyOptions = {
   currency?: string
@@ -36,7 +38,9 @@ export const formatMoneyDecimal = (value: number | string = 0) => {
 
 export const capitalize = (stringValue: string) => {
   if (typeof stringValue !== 'string') return ''
-  return stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
+  return (
+    stringValue.charAt(0).toUpperCase() + stringValue.slice(1).toLowerCase()
+  )
 }
 
 export const formatMoneyWithoutCurrencyFlag = (value: string) => {
@@ -106,7 +110,9 @@ export function handlePrivateWelfareRedirect() {
       : 'http://otclienthom.portoseguro.brasil/react/previdencia.html#/'
 }
 
-export function handlePrivateWelfareRedirectWithAffiliation(affiliationID: number) {
+export function handlePrivateWelfareRedirectWithAffiliation(
+  affiliationID: number
+) {
   window.location.href =
     process.env.REACT_APP_ENV === 'production'
       ? `https://cliente.portoseguro.com.br/react/previdencia.html#/previdencia-privada/visualizar/${affiliationID}`
@@ -147,7 +153,6 @@ export const removeCookieValue = (key: string) => {
       window.location.hostname.length
     )
   }
-
   Cookies.remove(key, { domain })
 }
 
@@ -214,22 +219,16 @@ export const truncateString = (str: string, num: number) => {
   return str.slice(0, num) + '...'
 }
 
-export const formatPhoneNumber = (
-  areaCode: number | undefined,
-  phoneNumber: number | undefined
-) => {
-  if (!areaCode || !phoneNumber) {
+export const formatPhoneNumber = (phoneNumber: number | string | undefined) => {
+  if (!phoneNumber) {
     return ''
   } else {
-    return String(phoneNumber).length === 9
-      ? `${areaCode}${phoneNumber}`.replace(
+    return String(phoneNumber).length === 11
+      ? `${phoneNumber}`.replace(
           /(\d{2})(\d{1})(\d{4})(\d{4})/,
           '($1) $2 $3-$4'
         )
-      : `${areaCode}${phoneNumber}`.replace(
-          /(\d{2})(\d{4})(\d{4})/,
-          '($1) $2-$3'
-        )
+      : `${phoneNumber}`.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3')
   }
 }
 
@@ -243,3 +242,45 @@ export const base64decode = (token: any) => {
   }
   return parsed
 }
+
+export const calculateAge = (birthDateString: string) => {
+  const today = moment()
+  const birthDate = moment(birthDateString, 'DD/MM/YYYY')
+  let age = moment(today).get('year') - moment(birthDate).get('year')
+  const month = moment(today).get('month') - moment(birthDate).get('month')
+  if (
+    month < 0 ||
+    (month === 0 && moment(today).get('day') < moment(birthDate).get('day'))
+  ) {
+    age -= 1
+  }
+  return age
+}
+
+export const exchangePROToken = () => {
+  console.log('accessToken atual: ', Cookies.get('accessToken'))
+  const tokenPRO = Cookies.get('TOKEN')
+  console.log('tokenPRO: ', tokenPRO)
+  if (tokenPRO) {
+    Cookies.set('accessToken', tokenPRO)
+    console.log('Caiu no IF e veja se mudou o accessToken', Cookies.get('accessToken'))
+  }
+  // Cookies.set('TOKEN', 'skjadiosjiapdkpasdhjsaijdaidsoh', { domain: '.portoseguro.brasil' })
+  // console.log('accessToken atual: ', Cookies.get('accessToken'))
+  // const accessToken = Cookies.get('accessToken')
+  // console.log('accessToken: ', accessToken)
+  // if (accessToken) {
+  //   Cookies.set('tokenPRO', accessToken, { domain: '.portoseguro.brasil' })
+  //   console.log('Caiu no IF e veja se mudou o accessToken', Cookies.get('tokenPRO'))
+  // }
+}
+
+export const getCreditCardDetails = (flagCode: FLAGS | null) => {
+  const flagName = flagCode === FLAGS.MASTERCARD ? 'MASTERCARD' : 'VISA'
+  return {
+    flagCode: flagCode ? flagCode : null,
+    flagName: flagCode ? flagName : null
+  }
+}
+
+export * from 'cpf-cnpj-validator'

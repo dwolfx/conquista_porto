@@ -1,15 +1,15 @@
 import React from 'react'
 
-import { 
+import {
   BannerTipCaption,
   BannerTipContent,
   BannerTipTitle,
-  BannerTipWrapper
+  BannerTipWrapper,
 } from './styles'
 
 interface IProps {
   bgImage: string
-  caption?: string 
+  caption?: string
   title?: string | React.ReactNode
   height: string
 }
@@ -19,15 +19,19 @@ const BannerTip: React.FC<IProps> = ({
   title,
   caption,
   height = '280px',
-  ...rest 
+  ...rest
 }) => {
   return (
     <BannerTipWrapper image={bgImage} height={height} {...rest}>
       <BannerTipContent>
         <BannerTipCaption>{caption}</BannerTipCaption>
-        {typeof title === 'string' ? <BannerTipTitle>{title}</BannerTipTitle> : title}
+        {typeof title === 'string' ? (
+          <BannerTipTitle>{title}</BannerTipTitle>
+        ) : (
+          title
+        )}
         {children}
-      </BannerTipContent>    
+      </BannerTipContent>
     </BannerTipWrapper>
   )
 }

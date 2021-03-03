@@ -1,4 +1,4 @@
-import { call, put, select } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { get } from 'services/api'
 
 import { getData } from './sagas'
@@ -78,8 +78,8 @@ const normalizedResponse = [
 describe('Investment Sagas', () => {
   it('success triggers success action', () => {
     const payload = {
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
     const generator = getData({ payload })
 
@@ -96,7 +96,7 @@ describe('Investment Sagas', () => {
   it('success triggers success action without onSuccess function', () => {
     const payload = {
       onSuccess: undefined,
-      onErrorToast: (toast: {}) => {},
+      onErrorToast: () => {},
     }
     const generator = getData({ payload })
 
@@ -112,8 +112,8 @@ describe('Investment Sagas', () => {
   })
   it('failure triggers failure action', () => {
     const payload = {
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
     const generator = getData({ payload })
 
@@ -127,7 +127,7 @@ describe('Investment Sagas', () => {
   })
   it('failure triggers failure action without onErrorToast function', () => {
     const payload = {
-      onSuccess: (data: {}) => {},
+      onSuccess: () => {},
       onErrorToast: undefined,
     }
     const generator = getData({ payload })

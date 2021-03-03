@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComissionDetailsModal renders correctly 1`] = `
+.c0 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c1 {
+  margin-bottom: 14px;
+  height: auto;
+}
+
+.c3 {
+  padding: 21px 14px;
+}
+
+.c4 {
+  margin-bottom: 7px;
+}
+
+.c5 {
+  margin: 21px 0;
+}
+
+.c6 {
+  margin: 7px 0;
+}
+
+<div
+  className="c0 c1"
+>
+  <div
+    className="c2"
+    data-testid="card-body"
+    overflow="hidden"
+  >
+    <div
+      className="css-1qxswz9-SkeletonTheme"
+    >
+      <div
+        className="c3"
+      >
+        <span>
+          <span
+            className="react-loading-skeleton c4 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 14,
+                "width": "60%",
+              }
+            }
+          >
+            ‌
+          </span>
+          <span
+            className="react-loading-skeleton c4 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 14,
+                "width": "60%",
+              }
+            }
+          >
+            ‌
+          </span>
+          <span
+            className="react-loading-skeleton c4 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 14,
+                "width": "60%",
+              }
+            }
+          >
+            ‌
+          </span>
+        </span>
+        <span>
+          <span
+            className="react-loading-skeleton c5 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 110,
+                "width": "100%",
+              }
+            }
+          >
+            ‌
+          </span>
+        </span>
+        <span>
+          <span
+            className="react-loading-skeleton c6 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 40,
+                "width": "100%",
+              }
+            }
+          >
+            ‌
+          </span>
+          <span
+            className="react-loading-skeleton c6 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 40,
+                "width": "100%",
+              }
+            }
+          >
+            ‌
+          </span>
+          <span
+            className="react-loading-skeleton c6 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 40,
+                "width": "100%",
+              }
+            }
+          >
+            ‌
+          </span>
+          <span
+            className="react-loading-skeleton c6 css-1vmnjpn-skeletonStyles-Skeleton"
+            style={
+              Object {
+                "height": 40,
+                "width": "100%",
+              }
+            }
+          >
+            ‌
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

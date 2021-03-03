@@ -23,10 +23,10 @@ const objectiveMock: IObjectManagement = require('mocks/objective.json')
 const recommedationMock: IRecommendations = require('mocks/recommendation.json')
 
 describe('ObjectiveManagement Sagas', () => {
-  //Mock JSON.parse toast err.message
-  JSON.parse = jest.fn().mockImplementation(() => {
-    return { msg: `Cannot read property 'data' of undefined` }
-  })
+  // Mock JSON.parse toast err.message
+  JSON.parse = jest.fn().mockImplementation(() => ({
+    msg: `Cannot read property 'data' of undefined`,
+  }))
 
   describe('postData function', () => {
     it('GET: postData: success triggers success action', () => {
@@ -144,6 +144,30 @@ describe('ObjectiveManagement Sagas', () => {
       expect(generator.next().value).toEqual(call(remove, `/goals/${param.id}`))
 
       expect(generator.next().value).toEqual(put(DeleteObjectiveSuccess()))
+
+      expect(generator.next()).toEqual({ done: true, value: undefined })
+    })
+
+    it('GET: deleteObjective: fail triggers fail action', () => {
+      // Mock JSON.parse toast err.message
+      JSON.parse = jest.fn().mockImplementationOnce(() => ({
+        msg: `pushHistoryToHomeScreen is not a function`,
+      }))
+
+      const param = {
+        payload: {
+          id: 1,
+          pushHistoryToHomeScreen: () => {},
+          addToast: () => {},
+        },
+      }
+
+      const generator = deleteObjective({ addToast: () => {} })
+
+      expect(generator.next().value).toEqual(call(remove, `/goals/undefined`))
+      // generator.next()
+
+      expect(generator.next().value).toEqual(put(DeleteObjectiveFailure()))
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })

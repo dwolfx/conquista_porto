@@ -6,10 +6,10 @@ import { storeFactory } from 'setupTests'
 import privateWelfareResponse from 'mocks/privateWelfare.json'
 import privateWelfateWithStatusPREResponse from 'mocks/privateWelfateWithStatusPRE.json'
 
-import PrivateWelfareSection from '.'
 import { IPrivateWelfare } from 'store/modules/PrivateWelfare/types'
+import PrivateWelfareSection from '.'
 
-//@ts-ignore
+// @ts-ignore
 global.document.createRange = () => ({
   setStart: () => {},
   setEnd: () => {},
@@ -29,21 +29,22 @@ const createRootContainer = () => {
   }
   return container
 }
-//garante que o retorno será um array
+// garante que o retorno será um array
 const newData = [privateWelfareResponse].flatMap(item => item)
 
-//pega todas as previdências que não possuem status 'CAN' ou 'RCH' ou 'ERR
-//@ts-ignore
+// pega todas as previdências que não possuem status 'CAN' ou 'RCH' ou 'ERR
+// @ts-ignore
 const filteredData: IPrivateWelfare[] = [...newData].filter(
-  //@ts-ignore
+  // @ts-ignore
   (pv: IPrivateWelfare) =>
     pv.status !== 'CAN' && pv.status !== 'RCH' && pv.status !== 'ERR'
 )
 
-//garante que o retorno do campo 'benefits' será um array
-const filteredDataWithNewBenefitsArrayMock = [...filteredData].map(pv => {
-  return { ...pv, benefits: [pv.benefits].flatMap(item => item) }
-})
+// garante que o retorno do campo 'benefits' será um array
+const filteredDataWithNewBenefitsArrayMock = [...filteredData].map(pv => ({
+  ...pv,
+  benefits: [pv.benefits].flatMap(item => item),
+}))
 
 const INITIAL_STATE = {
   data: filteredDataWithNewBenefitsArrayMock,
@@ -123,7 +124,7 @@ describe('PrivateWelfareSection - Home', () => {
         ...INITIAL_STATE,
       },
     })
-    //@ts-expect-error
+    // @ts-expect-error
     delete window.location
     window.location = {
       ...window.location,
@@ -274,7 +275,7 @@ describe('PrivateWelfareSection - Home', () => {
       },
     })
 
-    //@ts-expect-error
+    // @ts-expect-error
     delete window.location
     window.location = {
       ...window.location,

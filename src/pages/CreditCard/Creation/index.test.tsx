@@ -20,13 +20,13 @@ describe('Creation tests', () => {
     expect(Creation).toBeDefined()
   })
   it('should be a layer component', () => {
-    renderWithReduxAndTheme(<Creation isOpen handleClose={() => {}} />, {
+    renderWithReduxAndTheme(<Creation isOpen />, {
       container: createRootContainer(),
     })
     expect(screen.getByTestId('layer-credit-card-creation')).toBeInTheDocument()
   })
   it('should render correclty the header', () => {
-    renderWithReduxAndTheme(<Creation isOpen handleClose={() => {}} />, {
+    renderWithReduxAndTheme(<Creation isOpen />, {
       container: createRootContainer(),
     })
     expect(screen.getByRole('img', { name: 'close' })).toBeInTheDocument()
@@ -34,30 +34,11 @@ describe('Creation tests', () => {
       screen.getByRole('img', { name: 'Logo Conquista Beta' })
     ).toBeInTheDocument()
   })
-  it('should close the layer when clicking the close button', () => {
-    const handleCloseMock = jest.fn()
-    renderWithReduxAndTheme(<Creation isOpen handleClose={handleCloseMock} />, {
-      container: createRootContainer(),
-    })
-    const closeButton = screen.getByRole('img', { name: 'close' })
-    fireEvent.click(closeButton)
-    expect(handleCloseMock).toHaveBeenCalled()
-  })
-  // it('should close the layer when clicking the arrow left button at step 1', () => {
-  //   const handleCloseMock = jest.fn()
-  //   renderWithReduxAndTheme(<Creation isOpen handleClose={handleCloseMock} />, {
-  //     container: createRootContainer(),
-  //   })
-  //   const goBackButton = screen.getByRole('img', { name: 'arrowleft' })
-  //   fireEvent.click(goBackButton)
-  //   expect(handleCloseMock).toHaveBeenCalled()
-  // })
   it('should render correctly the subheader', () => {
-    renderWithReduxAndTheme(<Creation isOpen handleClose={() => {}} />, {
+    renderWithReduxAndTheme(<Creation isOpen />, {
       container: createRootContainer(),
     })
     expect(screen.getAllByText(/Solicitação/i)[0]).toBeInTheDocument()
     expect(screen.getByText(/Cartão de Crédito/i)).toBeInTheDocument()
-    // expect(screen.getByText(/etapa 1 de 5/i)).toBeInTheDocument()
   })
 })

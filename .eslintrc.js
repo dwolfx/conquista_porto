@@ -32,6 +32,7 @@ module.exports = {
   },
   rules: {
     camelcase: 0,
+    '@typescript-eslint/member-delimiter-style': 0,
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
@@ -117,12 +118,13 @@ module.exports = {
     'react/jsx-uses-vars': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/prop-types': 2,
+    'react/prop-types': 0,
     'react/require-default-props': 1,
     'react/require-extension': 0,
     'react/self-closing-comp': 0,
     'react/prefer-stateless-function': 0,
     'react/sort-comp': 0,
     'require-yield': 0,
+    'no-delete-var': 0,
   },
 }

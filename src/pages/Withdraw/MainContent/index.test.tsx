@@ -1,6 +1,5 @@
 import React from 'react'
 import { renderWithReduxAndTheme } from 'testUtils'
-import { render } from '@testing-library/react'
 
 import MainContent from '.'
 

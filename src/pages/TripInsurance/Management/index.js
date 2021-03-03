@@ -1,26 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components/macro'
 import { useLocation } from 'react-router-dom'
 
 import moment from 'moment'
 // eslint-disable-next-line no-unused-vars
-import { css, ThemeContext } from 'styled-components/macro'
-
-import { useSelector } from 'react-redux'
 
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
-
 import Container from 'components/Management/Container'
 import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 import TopicsIconContent from 'components/TopicsIconContent'
-
 import Icon from 'components/IconExporter'
-
 import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
@@ -48,10 +44,10 @@ export default function ManagementTripInsurance() {
   useFetchTripInsurance()
 
   const [isOpenModal, setIsOpenModal] = useState(false)
+
   const [selectedTripInsurance, setSelectedTripInsurance] = useState(null)
   // const [isOpenCreationLayer, setOpenCreationLayer] = useState(false)
   const themeContext = useContext(ThemeContext)
-  // const dispatch = useDispatch()
   const { state: locationState } = useLocation()
 
   const tripInsurance = useSelector(state => state.tripInsurance)

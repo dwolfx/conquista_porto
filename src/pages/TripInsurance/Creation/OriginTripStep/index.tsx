@@ -1,66 +1,56 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 import { Col } from 'styled-bootstrap-grid'
+
+import Text from 'components/Text'
+import Popover from 'components/Popover'
+import { IOption } from 'components/MultiSelector/types'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
+import { GetDestinationCountriesRequest } from 'store/modules/TripInsurance/DestinationCountries/action'
+import {
+  hasLatinAmerica,
+  hasLatinAmericaCountryAndOtherCountry,
+  hasOnlyLatinAmerica,
+} from './helpers'
+
+import LatinAmericaModal from './LatinAmericaModal'
+import { Steps, IForm } from '../types'
 
 import * as S from './styles'
 import * as T from './types'
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-
-import Text from 'components/Text'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
-
-import { IOption } from 'components/MultiSelector/types'
-import { Steps } from '../types'
-import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-
-// mock, remove after
-const countries: IOption[] = [
-  {
-    text: 'Brasil',
-    id: 1,
-    value: 'brasil',
-  },
-  {
-    text: 'Alemanha',
-    id: 2,
-    value: 'alemanha',
-  },
-  {
-    text: 'Itália',
-    id: 3,
-    value: 'italia',
-  },
-  {
-    text: 'Estados Unidos',
-    id: 4,
-    value: 'estadosunidos',
-  },
-  {
-    text: 'Espanha',
-    id: 5,
-    value: 'espanha',
-  },
-  {
-    text: 'Inglaterra',
-    id: 6,
-    value: 'inglaterra',
-  },
-  {
-    text: 'Paises Baixos',
-    id: 7,
-    value: 'paisesbaixos',
-  },
-]
 
 const OriginTripStep: StepComponent = () => {
+  useFetchCustomerProfile()
+  const dispatch = useDispatch()
   const isTabletVertical = useMedia('md')
+  const { updateForm } = useFormFluxManagement<IForm>()
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [countries, setCountries] = useState<IOption[]>([])
 
   const [selectedOriginCountry, setOriginCountry] = useState<T.ISelected>({
     id: 1,
     name: 'Brasil',
   })
+  const {
+    customerProfileData,
+    destinationCountriesData,
+    isLoadingDestinationCountries,
+    hasErrorDestinationCountries,
+  } = useSelector((state: any) => ({
+    customerProfileData: state.customerProfile.data,
+    destinationCountriesData: state.destinationCountries.data,
+    isLoadingDestinationCountries: state.destinationCountries.isLoading,
+    hasErrorDestinationCountries: state.destinationCountries.hasError,
+  }))
+
 
   const originOptions = [
     {
@@ -94,35 +84,144 @@ const OriginTripStep: StepComponent = () => {
     setSelectedDestinationCountries,
   ] = useState<IOption[]>([])
 
+  useEffect(() => {
+    if (selectedDestinationType.id === 1) {
+      if (!destinationCountriesData) {
+        dispatch(GetDestinationCountriesRequest())
+      }
+    }
+  }, [selectedDestinationType, destinationCountriesData, dispatch])
+
+  useEffect(() => {
+    if (selectedDestinationType.id === 2) {
+      if (destinationCountriesData) {
+        setCountries(
+          destinationCountriesData?.ViagemPais?.destinos.filter(
+            (destino: IOption) => destino.value !== 'brasil'
+          )
+        )
+      }
+    }
+  }, [selectedDestinationType, destinationCountriesData])
+
+  const handleClick = () => {
+    updateForm({
+      passageiroPrincipal: {
+        nome: customerProfileData.customerName,
+        email: customerProfileData.customerEmail,
+        dataNascimento: moment(customerProfileData.customerBirthdate).format(
+          'DD/MM/YYYY'
+        ),
+        sexo: customerProfileData.customerGender,
+        celularDDD: customerProfileData.customerAreaCode,
+        celularNumero: customerProfileData.customerPhoneNumber,
+        numeroCpf: customerProfileData.cpfCnpj.slice(0, 9),
+        digitoCpf: customerProfileData.cpfCnpj.slice(9),
+      },
+      codigoPaisDestino:
+        selectedDestinationType.id === 1
+          ? `${
+              destinationCountriesData?.ViagemPais?.destinos.filter(
+                (c: IOption) => c.value === 'brasil'
+              )[0].id
+            }`
+          : `${selectedDestinationCountries[0].id}`,
+      paisesAdicionais: selectedDestinationCountries
+        .slice(1)
+        .map((selectedCountry: IOption) => ({
+          codigo: `${selectedCountry.id}`,
+          descricao: selectedCountry.text,
+        })),
+      motivoViagem: 1,
+      codigoCanal: 1,
+      nationalDestination: selectedDestinationType.id === 1,
+      codigoUfOrigem: customerProfileData.customerState,
+      hasOnlyLatinAmericaDestination:
+        selectedDestinationType.id === 1 ||
+        hasOnlyLatinAmerica(selectedDestinationCountries),
+      hasLatinAmericaCountryAndOtherCountry:
+        selectedDestinationType.id !== 1 &&
+        hasLatinAmericaCountryAndOtherCountry(selectedDestinationCountries),
+    })
+    if (
+      hasLatinAmerica(selectedDestinationCountries) ||
+      selectedDestinationType.id === 1
+    ) {
+      setIsModalOpen(true)
+    } else {
+      instantiate(Steps.coverageDate)
+    }
+  }
+
   return (
     <>
-      <StepBar actualStep={1} totalNumberOfSteps={5} />
+      <LatinAmericaModal
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+        handleAccept={() => instantiate(Steps.coverageDate)}
+      />
+      <StepBar title="Simulação" actualStep={1} totalNumberOfSteps={5} />
       <S.Wrapper>
         <S.StyledContainer>
           <S.StyledRow
             alignItems="center"
             justifyContent={isTabletVertical ? 'center' : 'start'}
           >
-            <Col hiddenMdDown md={3} auto>
+            <Col hiddenMdDown md={3} lg={3}>
               <DivisorDescription
                 data-testid="sideText"
                 title="Destino"
                 text="Aqui você não precisa informar as escalas do seu trajeto, apenas o destino final. Se sua viagem tiver mais de um destino, adicione ao mesmo campo para incluí-los."
               />
             </Col>
-            <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
+            <S.Col
+              offset={isTabletVertical ? 0 : 1}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={4}
+            >
               <S.FlexContainer>
                 <Text type="headline" color="gray6" textAlign="center">
                   Confirme a origem e o destino da sua viagem
+                  {isTabletVertical ? (
+                    <Popover
+                      content={() => (
+                        <S.TooltipText type="body" color="gray5">
+                          Aqui você não precisa informar as escalas do seu
+                          trajeto, apenas o destino final. Se sua viagem tiver
+                          mais de um destino, adicione ao mesmo campo para
+                          incluí-los.
+                        </S.TooltipText>
+                      )}
+                      placement="top"
+                      showArrow={!isTabletVertical}
+                    >
+                      <S.InfoIcon name="information" color="blue4" />
+                    </Popover>
+                  ) : null}
                 </Text>
               </S.FlexContainer>
-              <S.StyledCountryOriginSelect
-                data-testid="originCountrySelect"
-                options={originOptions}
-                selected={selectedOriginCountry}
-                disabled
-                label="origem"
-              />
+              <S.PopoverContainer>
+                <S.Popover
+                  content={() => (
+                    <S.TooltipText bold color="gray5">
+                      A origem da sua viagem precisa ser o Brasil para ter
+                      cobertura do Seguro Viagem Porto Seguro.
+                    </S.TooltipText>
+                  )}
+                  placement="top"
+                  zIndex={15}
+                >
+                  <S.StyledCountryOriginSelect
+                    data-testid="originCountrySelect"
+                    options={originOptions}
+                    selected={selectedOriginCountry}
+                    disabled
+                    label="origem"
+                  />
+                </S.Popover>
+              </S.PopoverContainer>
               <S.Select
                 options={destinationTypes}
                 selected={selectedDestinationType}
@@ -130,26 +229,44 @@ const OriginTripStep: StepComponent = () => {
               />
               {selectedDestinationType.id !== 2 ? null : (
                 <S.MultiSelector
+                  error={hasErrorDestinationCountries}
+                  marginBottom={hasErrorDestinationCountries}
+                  loading={isLoadingDestinationCountries}
+                  disabled={isLoadingDestinationCountries}
                   options={countries}
                   inputLabel="Você irá para qual(is) país(es)?"
                   onChange={selectedDestinationCountry =>
                     selectedDestinationCountry
                   }
+                  onFocusFunction={() => {
+                    if (!destinationCountriesData) {
+                      dispatch(GetDestinationCountriesRequest())
+                    }
+                  }}
                   selectedOptions={selectedDestinationCountries}
                   setSelectedOptions={setSelectedDestinationCountries}
+                  showLockIconIfDisable={false}
                 />
               )}
               <S.StyledButton
+                data-gtm-name="proximo"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                loading={
+                  selectedDestinationType.id === 1 &&
+                  isLoadingDestinationCountries
+                }
                 disabled={
                   selectedDestinationType.id === 0 ||
                   (selectedDestinationType.id === 2 &&
-                    !selectedDestinationCountries.length)
+                    !selectedDestinationCountries.length) ||
+                  !destinationCountriesData
                 }
-                onClick={() => instantiate(Steps.coverageDate)}
+                onClick={handleClick}
               >
                 Próximo
               </S.StyledButton>
-            </Col>
+            </S.Col>
           </S.StyledRow>
         </S.StyledContainer>
       </S.Wrapper>

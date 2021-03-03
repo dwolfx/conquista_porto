@@ -76,13 +76,13 @@ pipeline {
 
         stage('Install Packages') {
           steps {
-            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:14.15.1 yarn install"
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:14.15.4 yarn install"
           }
         }
 
         stage('Build') {
           steps {
-            sh "docker run --user node -v \$(pwd):/app:rw -w /app -e BASE_URL=$BASE_URL node:14.15.1 yarn build extract"
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app -e BASE_URL=$BASE_URL node:14.15.4 yarn build extract"
           }
           post {
             failure {
@@ -96,7 +96,7 @@ pipeline {
           stages {
             stage('Test') {
               steps {
-                sh "docker run --user node -v \$(pwd):/app -w /app node:14.15.1 yarn run test:ci"
+                sh "docker run --user node -v \$(pwd):/app -w /app node:14.15.4 yarn run test:ci"
               }
               post {
                 always {
@@ -139,7 +139,7 @@ pipeline {
         }
 
         stage('Deployment - EVOLUCAO') {
-          when { expression { env.GIT_BRANCH?.startsWith("sprint/PCNE") } }
+          when { expression { env.GIT_BRANCH?.startsWith("sprint/PC") } }
           steps {
             withAWS (credentials:"${AWS_CREDENTIALS}") {
               sh '''
@@ -224,6 +224,41 @@ pipeline {
                   -v \$(pwd):/app \
                   -w /app \
                   amazon/aws-cli:2.0.47 s3 sync ./build s3://${BUCKET_NAME}/conquista/ --acl public-read --include '**/*'
+              '''
+            }
+          }
+          post {
+            success {
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }
+            failure {
+              slackSend (color: 'danger', message: "[ FALHA ] Erro ao publicar as alterações no ambiente (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }  
+          }
+        }
+
+        stage('Deployment - QA') {
+          when { anyOf {
+            branch 'qa';
+            expression { return Boolean.valueOf(FORCE_DEPLOY) }
+          }}
+          steps {
+            withAWS (credentials:"${AWS_CREDENTIALS}") {
+              sh '''
+                docker run \
+                  -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  amazon/aws-cli:2.0.47 s3 rm s3://qa.conquista.sciensa.click --recursive
+              '''
+              sh '''
+                docker run -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  -v ~/.aws:/root/.aws \
+                  -v \$(pwd):/app \
+                  -w /app \
+                  amazon/aws-cli:2.0.47 s3 sync ./build s3://qa.conquista.sciensa.click/conquista/ --acl public-read --include '**/*'
               '''
             }
           }

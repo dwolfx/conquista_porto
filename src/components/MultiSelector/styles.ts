@@ -17,10 +17,13 @@ export const Input = styled.input`
 `
 
 export const OptionsContainer = styled.div<IOptionsContainer>`
+  box-shadow: ${props => props.theme.shadows.gray3};
   position: absolute;
   display: ${props => (props.$hasOptions ? 'block' : 'none')};
   width: 100%;
   max-height: 350px;
+  ${({ optionsContainerHeight }) =>
+    optionsContainerHeight && `max-height: ${optionsContainerHeight}px;`};
   overflow-y: auto;
   z-index: 99;
   ${({ optionBoxDirection, theme }) =>
@@ -79,7 +82,7 @@ export const SelectedListLi = styled.li`
     margin-right: 0;
   }
   margin-right: ${({ theme }) => theme.spacing(1)}px;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const SelectedListButton = styled.button`

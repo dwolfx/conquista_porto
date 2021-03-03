@@ -1,0 +1,41 @@
+import React from 'react'
+
+import { renderWithReduxAndTheme, screen } from 'testUtils'
+
+import HorizontalCard from '.'
+
+import tripInsuranceQuotationMock from 'mocks/tripInsuranceQuotation.json'
+
+import { IPlan } from 'store/modules/TripInsurance/InsuranceQuotation/types'
+
+const plano: IPlan = tripInsuranceQuotationMock.ViagemPacote.pacotes[0]
+
+const setup = () =>
+  renderWithReduxAndTheme(
+    <HorizontalCard
+      comparativeModalSetState={() => {}}
+      planInformation={plano}
+    />
+  )
+
+describe('HorizontalCard component tests', () => {
+  it('should exists', () => {
+    expect(HorizontalCard).toBeDefined()
+  })
+  it('should render the selected card correctly', () => {
+    setup()
+    const textsToBeDefined = [
+      'Pré-selecionado pelo seu parceiro',
+      'Brasil Prata',
+      '6x SEM JUROS DE R$ 5,61',
+      'R$ 33,63 à vista',
+      'R$ 10.000,00',
+    ]
+
+    const suiteTests = textsToBeDefined.map(word => ({
+      execution: screen.getByText(word),
+    }))
+
+    suiteTests.forEach(({ execution }) => expect(execution).toBeInTheDocument())
+  })
+})

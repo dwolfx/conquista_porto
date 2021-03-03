@@ -6,12 +6,13 @@ export type TOptions = {
   text: string
   onClick?: () => void
   selected?: boolean
+  value?: string | number
 }
 
 export type TSelected = {
   id?: number | string
   name?: string
-  value?: number
+  value?: any
 }
 
 export interface IProps {

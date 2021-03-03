@@ -994,14 +994,14 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c59 {
     width: 25%;
     margin-right: 14px;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c62 {
     width: 25%;
     margin-right: 14px;
@@ -1014,7 +1014,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c63 {
     width: 100%;
     height: auto;
@@ -1027,7 +1027,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c61 {
     width: 100%;
     height: auto;
@@ -1040,7 +1040,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c64 {
     width: 100%;
     height: auto;
@@ -1053,7 +1053,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c60 {
     width: 100%;
     height: auto;
@@ -5908,47 +5908,47 @@ Object {
             class="sc-fzqzlV ibyOaQ"
           >
             <a
-              class="sc-fzoJus hCZGDm"
+              class="sc-fzoJus lcYNzz"
               href="http://www.cvm.gov.br/index.html"
               rel="noopener noreferrer"
               target="blank"
             >
               <img
                 alt="Logo Anbima - CVM"
-                class="sc-fznXWL dlLkbp"
+                class="sc-fznXWL gCTuBs"
                 src="logo-anbima-cvm.png"
               />
             </a>
             <a
-              class="sc-fzoJus hCZGDm"
+              class="sc-fzoJus lcYNzz"
               href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
               rel="noopener noreferrer"
               target="blank"
             >
               <img
                 alt="Logo Anbima - Gestao"
-                class="sc-fznyYp GNFAy"
+                class="sc-fznyYp gzUBQf"
                 src="logo-anbima-gestao.png"
               />
             </a>
             <div
-              class="sc-fzoVTD iupUgy"
+              class="sc-fzoVTD bNvFb"
             >
               <img
                 alt="Logo Anbima - Distribuição"
-                class="sc-fzpisO iCApuR"
+                class="sc-fzpisO htSqtQ"
                 src="logo-anbima-distribuicao.png"
               />
             </div>
             <a
-              class="sc-fzoJus hCZGDm"
+              class="sc-fzoJus lcYNzz"
               href="https://comoinvestir.anbima.com.br/"
               rel="noopener noreferrer"
               target="blank"
             >
               <img
                 alt="Logo Anbima - Investir"
-                class="sc-fznLxA cgytz"
+                class="sc-fznLxA hENZju"
                 src="logo-anbima-como-investir.png"
               />
             </a>

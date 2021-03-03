@@ -13,6 +13,7 @@ import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import customerProfile from './CustomerProfile/sagas'
+import destinationCountries from './TripInsurance/DestinationCountries/sagas'
 import {
   financialApplicationGetData,
   financialApplicationPostData,
@@ -27,6 +28,9 @@ import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
 import tripInsurance from './TripInsurance/sagas'
+import tripInsuranceCreditCard from './TripInsurance/CreditCard/sagas'
+import tripInsuranceProposal from './TripInsurance/Proposal/sagas'
+import tripInsuranceQuotation from './TripInsurance/InsuranceQuotation/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import notifications from './Notifications/sagas'
 import auth from './Auth/sagas'
@@ -42,6 +46,7 @@ import rewardsTypes from './Rewards/Types/sagas'
 import virtualKeyboard from './VirtualKeyboard/sagas'
 import token2fa from './2FAToken/sagas'
 import withdraw from './Withdraw/sagas'
+import zipCode from './ZipCode/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -57,6 +62,7 @@ export default function* rootSaga() {
     consortiumBuilding,
     consortiumVehicle,
     customerProfile,
+    destinationCountries,
     financialApplicationGetData,
     financialApplicationPostData,
     investmentsList,
@@ -68,6 +74,9 @@ export default function* rootSaga() {
     points,
     privateWelfare,
     tripInsurance,
+    tripInsuranceCreditCard,
+    tripInsuranceProposal,
+    tripInsuranceQuotation,
     vehicleFinancing,
     notifications,
     auth,
@@ -84,5 +93,6 @@ export default function* rootSaga() {
     token2fa,
     lastTransaction,
     withdraw,
+    zipCode,
   ])
 }

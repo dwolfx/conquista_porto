@@ -1,9 +1,59 @@
 import React from 'react'
-
 import 'jest-styled-components'
+import { renderWithReduxAndTheme, screen } from 'testUtils'
+import { storeFactory } from 'setupTests'
+import userEvent from '@testing-library/user-event'
 
-import { renderWithReduxAndTheme } from 'testUtils'
 import OriginTripStep from 'pages/TripInsurance/Creation/OriginTripStep'
+
+import * as t from './types'
+
+let portalRoot = document.getElementById('root')
+
+if (!portalRoot) {
+  portalRoot = document.createElement('div')
+  portalRoot.setAttribute('id', 'root')
+  document.body.appendChild(portalRoot)
+}
+
+const defaultStore: t.IDefaultStore = {
+  destinationCountries: {
+    data: {
+      Message: {
+        TipoCritica: 'SUCESSO',
+        Mensagem: 'SUCESSO',
+      },
+      ViagemPais: {
+        destinos: [
+          {
+            text: 'AFEGANISTAO',
+            id: 1,
+            value: 'Afeganistao',
+          },
+          {
+            text: 'AFRICA DO SUL',
+            id: 2,
+            value: 'Africa do sul',
+          },
+          {
+            text: 'BRASIL',
+            id: 3,
+            value: 'Brasil',
+          },
+        ],
+      },
+    },
+    isLoading: false,
+    hasError: false,
+  },
+}
+
+const setup = (initialState: t.IDefaultStore) => {
+  const store = storeFactory(initialState)
+  return renderWithReduxAndTheme(<OriginTripStep />, {
+    store,
+  })
+}
 
 describe('OriginTripStep component', () => {
   it('should exists', () => {
@@ -25,7 +75,7 @@ describe('OriginTripStep component', () => {
     const originCountryValue = getByDisplayValue('Brasil')
     const destinationCountryLabel = getByText('origem')
     const destinationCountryValue = getAllByPlaceholderText('Selecione')
-    const button = getByRole('button')
+    const button = getByText('Próximo')
 
     expect(stepDescription).toBeVisible()
     expect(introText).toBeVisible()
@@ -36,47 +86,35 @@ describe('OriginTripStep component', () => {
     expect(button).toBeVisible()
   })
 
-  // it('should has a specifc text', () => {
-  //   const { getByTestId } = render(
-  //     <ThemeProvider theme={theme}>
-  //       <OriginTripStep />
-  //     </ThemeProvider>
-  //   )
-  //   const text = getByTestId('introText')
+  it('should has a specifc text', () => {
+    renderWithReduxAndTheme(<OriginTripStep />)
 
-  //   expect(text).toHaveTextContent(
-  //     'Confirme a origem e o destino da sua viagem'
-  //   )
-  // })
+    expect(
+      screen.getByText(/confirme a origem e o destino da sua viagem/i)
+    ).toBeDefined()
+  })
 
-  // it('should capture event', () => {
-  //   const { getByTestId } = render(
-  //     <ThemeProvider theme={theme}>
-  //       <OriginTripStep />
-  //     </ThemeProvider>
-  //   )
-  //   const destinationSelect = getByTestId('select-DESTINO')
+  it('should render multiselector', () => {
+    setup(defaultStore)
 
-  //   userEvent.click(destinationSelect)
+    const destinationSelect = screen.getByTestId('select-Destino')
 
-  //   const option = getByTestId('option-Brasil')
-  //   expect(option).toBeVisible();
+    userEvent.click(destinationSelect)
 
-  // })
+    const option = screen.getByTestId('option-Internacional')
 
-  // it('should correct handle option click', () => {
-  //   const { getByTestId } = render(
-  //     <ThemeProvider theme={theme}>
-  //       <OriginTripStep />
-  //     </ThemeProvider>
-  //   )
-  //   const destinationSelect = getByTestId('select-DESTINO')
-  //   const selectInput = getByTestId('select-option-input-inputId')
-  //   userEvent.click(destinationSelect)
+    userEvent.click(option)
 
-  //   const option = getByTestId('option-Brasil')
-  //   userEvent.click(option)
+    expect(option).toBeVisible()
 
-  //   expect(selectInput).toHaveValue('Brasil')
-  // })
+    const multiselector = screen.getByTestId('você irá para qual(is) país(es)?')
+
+    expect(multiselector).toBeVisible()
+
+    userEvent.click(multiselector)
+
+    const optionBrasil = screen.getByText('BRASIL')
+
+    expect(optionBrasil).toBeVisible()
+  })
 })

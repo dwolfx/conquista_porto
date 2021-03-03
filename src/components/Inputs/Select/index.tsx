@@ -27,7 +27,7 @@ export default function Select({
   const renderOptions = useCallback(() => {
     if (!options.length) {
       return (
-        <s.OptionsItem data-testid={`option-empty`} key={uuid()}>
+        <s.OptionsItem data-testid="option-empty" key={uuid()}>
           <Text type="headline" color="gray6" bold>
             {emptyText}
           </Text>
@@ -37,14 +37,14 @@ export default function Select({
     return options.map(option => (
       <s.OptionsItem
         selected={option.id === selected.id}
+        data-testid={`option-${option.text.replace(/\s/gs, '-')}`}
+        key={uuid()}
         onClick={() => {
           if (option.onClick) {
             option.onClick()
           }
           setOptionsOpen(false)
         }}
-        data-testid={`option-${option.text}`}
-        key={uuid()}
       >
         {option.icon && (
           <Icon name={option.icon} color="gray6" width={21} height={21} />
@@ -59,7 +59,8 @@ export default function Select({
   const suffixRender = () => {
     if (isLoading) {
       return <Loading type="spinner" color="blue4" />
-    } else if (hasLockIcon) {
+    }
+    if (hasLockIcon) {
       return (
         <Icon
           name="lock"
@@ -68,16 +69,15 @@ export default function Select({
           height={21}
         />
       )
-    } else {
-      return (
-        <Icon
-          name={isOptionsOpen ? 'arrowup' : 'arrowdown'}
-          color={disabled ? 'gray4' : 'gray6'}
-          width={21}
-          height={21}
-        />
-      )
     }
+    return (
+      <Icon
+        name={isOptionsOpen ? 'arrowup' : 'arrowdown'}
+        color={disabled ? 'gray4' : 'gray6'}
+        width={21}
+        height={21}
+      />
+    )
   }
   return (
     <s.Container {...rest}>

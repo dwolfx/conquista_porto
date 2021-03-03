@@ -1,4 +1,4 @@
-import { all, takeLatest, call, put, select, fork } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 
 import { post, put as putAxios, baseURLNamespaceAuth2 } from 'services/api'
 
@@ -12,7 +12,6 @@ import {
   PostVirtualKeyboardDataSuccess,
   PostVirtualKeyboardDataFailure,
   PutVirtualKeyboardDataSuccess,
-  PutVirtualKeyboardDataFailure,
   SetNewSignatureLoading,
 } from './action'
 
@@ -107,6 +106,7 @@ describe('VirtualKeyboard Sagas', () => {
     it('postNewSignature: success triggers success action', () => {
       const param: IGenerateNewSignaturePayload = {
         type: 'email_otp',
+        // @ts-expect-error
         payload: {
           type: 'email_otp',
           addToast: () => {},

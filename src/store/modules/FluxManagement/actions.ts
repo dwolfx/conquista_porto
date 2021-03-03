@@ -1,6 +1,8 @@
 import { Types } from './types'
 
-export function AddElementFluxManagementStack<T>(element: React.ReactElement<T>) {
+export function AddElementFluxManagementStack<T>(
+  element: React.ReactElement<T>
+) {
   return {
     type: Types.FLUX_MANAGEMENT_ADD_TO_STACK,
     element,
@@ -16,12 +18,18 @@ export function PopElementFluxManagementStack() {
 export function UpdateFormFluxManagementStack<T>(updatedKeys: T) {
   return {
     type: Types.FLUX_MANAGEMENT_UPDATE_FORM,
-    updatedKeys
+    updatedKeys,
+  }
+}
+
+export function ResetFormFluxManagement() {
+  return {
+    type: Types.FLUX_MANAGEMENT_RESET_FLUX,
   }
 }
 
 export function ResetFluxManagement() {
   return {
-    type: Types.FLUX_MANAGEMENT_RESET_FLUX,
+    type: Types.FLUX_MANAGEMENT_RESET_FORM,
   }
 }

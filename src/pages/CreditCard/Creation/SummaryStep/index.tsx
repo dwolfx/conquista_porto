@@ -1,22 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useLayoutEffect } from 'react'
+import { ThemeContext } from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
 import Checkbox from 'components/Inputs/Checkbox'
 import Button from 'components/Button'
 
-import PersonalData from './PersonalData'
-import CardData from './CardData'
-import DeliveryData from './DeliveryData'
-
 import { ISummaryStep } from 'pages/CreditCard/Creation/types'
+import PersonalData from 'pages/CreditCard/common/components/PersonalData'
+import CardData from 'pages/CreditCard/common/components/CardData'
+import { StyledCard } from 'pages/CreditCard/common/components/CardData/styles'
+import DeliveryData from 'pages/CreditCard/common/components/DeliveryData'
 
-import { StyledCard } from './CardData/styles'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 
-const FifthStep = ({ formData, setFormData, onSubmit, retrySubmit }: ISummaryStep) => {
+const FifthStep = ({
+  formData,
+  setFormData,
+  onSubmit,
+  retrySubmit,
+  isLoading,
+}: ISummaryStep) => {
   const [isChecked, setChecked] = useState(false)
+  const themeContext = useContext(ThemeContext)
+
+  useLayoutEffect(() => {
+    const layerChildrenElement = document.querySelector('#layer-children')
+    if (layerChildrenElement) {
+      layerChildrenElement.scrollTo({ 
+        top: 0
+      })
+    }
+  }, [])
 
   return (
     <>
@@ -40,7 +57,11 @@ const FifthStep = ({ formData, setFormData, onSubmit, retrySubmit }: ISummarySte
               <PersonalData formData={formData} setFormData={setFormData} />
               <CardData formData={formData} setFormData={setFormData} />
               <DeliveryData formData={formData} setFormData={setFormData} />
-              <StyledCard>
+              <StyledCard
+                css={`
+                  margin-bottom: ${themeContext.spacing(11)}px;
+                `}
+              >
                 <S.CheckboxWrapper>
                   <Checkbox
                     data-testid="credit-card-check"
@@ -66,9 +87,10 @@ const FifthStep = ({ formData, setFormData, onSubmit, retrySubmit }: ISummarySte
         <Button
           color="secondary"
           disabled={!isChecked}
+          loading={isLoading}
           onClick={() => onSubmit()}
         >
-          {retrySubmit ? 'TENTAR NOVAMENTE' : 'SOLICITAR CARTÃO' }
+          {retrySubmit ? 'TENTAR NOVAMENTE' : 'SOLICITAR CARTÃO'}
         </Button>
       </S.Footer>
     </>

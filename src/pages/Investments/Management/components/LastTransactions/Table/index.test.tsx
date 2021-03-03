@@ -4,8 +4,8 @@ import moment from 'moment'
 import { renderWithReduxAndTheme, within } from 'testUtils'
 import ITransacation from 'store/modules/Investment/LastTransaction/iTransaction'
 
-import Table from '.'
 import { formatMoney } from 'helpers'
+import Table from '.'
 
 describe('LastTransactions/Table Last Transactions', () => {
   it('should render all data that has been passed', () => {

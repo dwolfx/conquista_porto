@@ -17,8 +17,8 @@ describe('Investment/FinancialApplication/AlignmentTerms Sagas', () => {
         valor_bruto: 0,
         id_fundo: '123456',
       },
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
     const generator = getAlignmentTermsData({
       payload,
@@ -80,7 +80,7 @@ describe('Investment/FinancialApplication/AlignmentTerms Sagas', () => {
         id_fundo: '123456',
       },
       onSuccess: undefined,
-      onErrorToast: (toast: {}) => {},
+      onErrorToast: () => {},
     }
     const generator = getAlignmentTermsData({
       payload,
@@ -91,7 +91,7 @@ describe('Investment/FinancialApplication/AlignmentTerms Sagas', () => {
     generator.next()
     // second select (getAuth => cpf)
     generator.next({ id_cotista: '888888', cpf: '33333333333' })
-    //call GET
+    // call GET
     generator.next({ id_cotista: '888888', cpf: '33333333333' })
 
     const response = {
@@ -126,8 +126,8 @@ describe('Investment/FinancialApplication/AlignmentTerms Sagas', () => {
         valor_bruto: 0,
         id_fundo: '123456',
       },
-      onSuccess: (data: {}) => {},
-      onErrorToast: (toast: {}) => {},
+      onSuccess: () => {},
+      onErrorToast: () => {},
     }
     const generator = getAlignmentTermsData({
       payload,

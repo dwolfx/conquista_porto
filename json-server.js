@@ -6,6 +6,10 @@ const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
+const destinationContriesMock = require('./src/mocks/destinationCountries.json')
+const tripInsuranceCreditCardMock = require('./src/mocks/tripInsuranceCreditCard.json')
+const tripInsuranceQuotationMock = require('./src/mocks/tripInsuranceQuotation.json')
+const tripInsuranceProposalMock = require('./src/mocks/tripInsuranceProposal.json')
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
@@ -21,6 +25,7 @@ const privateWelfare = require('./src/mocks/privateWelfare.json')
 const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatusPRE.json')
 const getBond = require('./src/mocks/getBond.json')
 const fundExtract = require('./src/mocks/fundExtract.json')
+const creditCardPROCreationResponse = require('./src/mocks/PRO/cartao-credito/success-response-creation.json')
 
 server.use(middlewares)
 
@@ -105,6 +110,12 @@ router.render = (req, res) => {
     return res.status(200).jsonp({})
   }
 
+  if (req.originalUrl.startsWith('/api/pro/cartao/proposta')) {
+    return res.status(200).jsonp({
+      ...creditCardPROCreationResponse,
+    })
+  }
+
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
       if (req.originalUrl.includes('allocation-statement')) {
@@ -181,6 +192,26 @@ router.render = (req, res) => {
     }
   }
 
+  if (req.originalUrl.endsWith('/viagem/proposta')) {
+    if (req.method === 'POST') {
+      return res.status(200).jsonp({ ...tripInsuranceProposalMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/viagem/paises/destino')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp({ ...destinationContriesMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/viagem/cotacao/seguro')) {
+    if (req.method === 'POST') {
+      return Math.ceil(Math.random() * 10) % 2 === 0
+        ? res.status(200).jsonp({ ...tripInsuranceQuotationMock })
+        : res.status(500).jsonp({ message: 'Internal server error mock' })
+    }
+  }
+
   if (req.originalUrl.endsWith('/otp')) {
     if (req.method === 'PUT') {
       return res.status(200).jsonp('{}')
@@ -238,6 +269,13 @@ router.render = (req, res) => {
         tipoCritica: 'SUCESSO',
       },
     })
+  }
+
+  if (
+    req.originalUrl.endsWith('/cartoes?codigoCanal=1&integracao=1') &&
+    req.method === 'GET'
+  ) {
+    return res.status(200).jsonp(tripInsuranceCreditCardMock)
   }
 
   return res.jsonp(res.locals.data)

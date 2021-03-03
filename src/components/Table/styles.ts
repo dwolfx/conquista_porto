@@ -141,7 +141,9 @@ export const TheadTh = styled.div<ITheadTh>`
         margin-left: 0;
         padding-right: 0;
         padding-left: ${theme.spacing(2)}px;
-
+        position: sticky;
+        z-index: 3;
+        left: 0px;
       `
       : ''}
 `
@@ -254,6 +256,7 @@ interface ITbodyTd {
   width?: string | number
   inheritMarginFirstCell: boolean
   isSticky?: boolean
+  marginLeftCell?: number
 }
 
 export const TbodyTd = styled.div<ITbodyTd>`
@@ -261,7 +264,8 @@ export const TbodyTd = styled.div<ITbodyTd>`
   display: flex;
   font-size: 14px;
   justify-content: ${props => props.align || 'center'};
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
+  margin-left: ${props =>
+    props.theme.spacing(props.marginLeftCell ? props.marginLeftCell : 2)}px;
   min-width: ${props => {
     if (props.minWidth) {
       return typeof props.minWidth === 'string'
@@ -336,7 +340,6 @@ export const Checkbox = styled(CheckboxComponent)`
   input {
     z-index: 1;
   }
-
 `
 
 export const PaginationWrapper = styled.div`
@@ -382,7 +385,7 @@ export const Button = styled.button`
   }
 
   & + button {
-    border-left: 1px solid ${({ theme }) => theme.colors.gray3}
+    border-left: 1px solid ${({ theme }) => theme.colors.gray3};
   }
 
   svg {
@@ -390,4 +393,3 @@ export const Button = styled.button`
     display: block;
   }
 `
-

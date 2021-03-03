@@ -1,40 +1,55 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import moment from 'moment'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
+
+import Popover from 'components/Popover'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 
 import useMedia from 'hooks/useMedia'
 
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-
-import * as s from './styles'
-import Popover from 'components/Popover'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
-
-import { Steps } from '../types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { Steps, IForm } from '../types'
+import * as s from './styles'
+
 const CoverageDate: StepComponent = () => {
+  const { updateForm, form } = useFormFluxManagement<IForm>()
   const [initialDate, setInitialDate] = useState<moment.Moment | null>(null)
   const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
-  const [focusedInput, setFocusedInput] = useState(null)
+  const [focusedInput, setFocusedInput] = useState<
+    'startDate' | 'endDate' | null
+  >(null)
   const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
 
-  const { instantiate } = useStackFluxManagement<
-    StepComponentProps
-  >()
+  const { instantiate } = useStackFluxManagement<StepComponentProps>()
 
-  const onHandleRangeFocused = (focus: any) => {
-    setFocusedInput(focus)
+  const onHandleRangeFocused = (focused: 'startDate' | 'endDate' | null) => {
+    setFocusedInput(focused)
+  }
+
+  const onSubmitButton = () => {
+    updateForm({
+      ...form,
+      dataIda: initialDate?.format('DD/MM/YYYY'),
+      dataVolta: finalDate?.format('DD/MM/YYYY'),
+    })
+    instantiate(Steps.passengerStep)
   }
 
   return (
     <>
-      <StepBar actualStep={2} totalNumberOfSteps={5} />
-      <s.ContentWrapper>
+      <StepBar
+        title="Simulação"
+        actualStep={2}
+        totalNumberOfSteps={form.hasOnlyLatinAmericaDestination ? 4 : 5}
+      />
+      <s.ContentWrapper focus={focusedInput}>
         <Container>
           <Row
             alignItems="center"
@@ -47,10 +62,10 @@ const CoverageDate: StepComponent = () => {
               />
             </Col>
             <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={8} md={4}>
-              <s.ContentWrapper>
+              <s.Content>
                 <s.QuestionText textAlign="center" type="headline">
                   Quais as datas de partida e de chegada da sua viagem?
-                  {isMobile ? (
+                  {isMobile || isTabletVertical ? (
                     <Popover
                       content={() => (
                         <s.TooltipText type="body" color="gray5">
@@ -59,6 +74,7 @@ const CoverageDate: StepComponent = () => {
                         </s.TooltipText>
                       )}
                       placement="top"
+                      showArrow={!isMobile}
                     >
                       <s.InfoIcon name="information" color="blue4" />
                     </Popover>
@@ -66,6 +82,7 @@ const CoverageDate: StepComponent = () => {
                 </s.QuestionText>
                 <s.DatePickerRange
                   idDatePickerRange="id-coverage-date-range"
+                  keepOpenOnDateSelect={false}
                   numberOfMonths={1}
                   rangeDates={{
                     dateBegin: initialDate,
@@ -82,16 +99,19 @@ const CoverageDate: StepComponent = () => {
                   }}
                   startDateText="Data de partida"
                   endDateText="Data de chegada"
-                  blockPastDays={true}
+                  blockPastDays
                 />
                 <s.NextButton
                   id="next-button"
+                  data-gtm-name="proximo"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
                   disabled={!(initialDate && finalDate)}
-                  onClick={() => instantiate(Steps.passengerStep)}
+                  onClick={onSubmitButton}
                 >
                   PRÓXIMO
                 </s.NextButton>
-              </s.ContentWrapper>
+              </s.Content>
             </Col>
           </Row>
         </Container>

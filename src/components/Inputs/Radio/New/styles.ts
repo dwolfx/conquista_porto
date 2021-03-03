@@ -4,7 +4,7 @@ export const RadioInput = styled.input`
   height: 20px;
   margin-right: 10px;
   position: relative;
-  width: 20px;
+  min-width: 20px;
 
   &:before {
     content: '';
@@ -34,9 +34,20 @@ export const RadioInput = styled.input`
       background-color: ${props => props.theme.colors.blue4};
     }
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    &:checked {
+      &:after {
+        background-color: ${props => props.theme.colors.gray4};
+      }
+    }
+  }
 `
 
-export const RadioLabel = styled.label<{ disabled: boolean }>`
+export const RadioLabel = styled.label<{
+  disabled: boolean
+}>`
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -45,7 +56,6 @@ export const RadioLabel = styled.label<{ disabled: boolean }>`
 
   ${({ theme, disabled }) => `
     color: ${disabled ? theme.colors.gray5 : theme.colors.black}};
-    font-style: ${disabled ? 'italic' : 'normal'};
     pointer-events: ${disabled ? 'none' : 'all'};
   `}
 
@@ -57,4 +67,3 @@ export const RadioInputWrapper = styled.div`
   display: flex;
   align-items: center;
 `
-

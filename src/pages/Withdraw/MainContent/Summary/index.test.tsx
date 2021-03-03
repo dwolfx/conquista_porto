@@ -2,9 +2,9 @@ import React from 'react'
 
 import { renderWithReduxAndTheme } from 'testUtils'
 
+import { formatLocaleStringToNumber } from 'helpers'
 import BankCards from './BankCards'
 import Summary from './index'
-import { formatLocaleStringToNumber } from 'helpers'
 
 const mock = {
   conta_porto_seguro: {
@@ -72,12 +72,12 @@ describe('Bank Cards component', () => {
   })
 
   it('expect to render loading bar', () => {
-    const { container } = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <BankCards
         bankInfos={[]}
         bankSelected=""
         onBankSelectedChange={() => null}
-        isLoading={true}
+        isLoading
         hasError={false}
         onError={() => null}
       />
@@ -85,20 +85,20 @@ describe('Bank Cards component', () => {
   })
 
   it('expect to show error message/button', () => {
-    const { container } = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <BankCards
         bankInfos={[]}
         bankSelected=""
         onBankSelectedChange={() => null}
         isLoading={false}
-        hasError={true}
+        hasError
         onError={() => null}
       />
     )
   })
 
   it('renders card as expected', () => {
-    const {} = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <BankCards
         bankInfos={mock.contas_liquidacao.conta_liquidacao}
         bankSelected=""
@@ -116,9 +116,10 @@ describe('Summary component', () => {
     const inputValue = '10.000,00'
     let bankSelected = ''
 
+    // eslint-disable-next-line no-return-assign
     const onBankSelected = (bankId: string) => (bankSelected = bankId)
 
-    const {} = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <Summary
         bankSelected={bankSelected}
         onBankSelectedChange={onBankSelected}

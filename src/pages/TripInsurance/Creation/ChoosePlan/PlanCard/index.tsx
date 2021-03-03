@@ -2,31 +2,32 @@ import React from 'react'
 import * as s from './styles'
 
 import MainCoverages from './MainCoverages'
-import RatingStars from './RatingStars'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 
 interface IPlanCardProps {
   planName: string
-  rating: string
-  installmentsAmount: string
-  upfrontAmount: string
-  firstCoverageAmount: string
-  secondCoverageAmount: string
-  thridCoverageAmount: string
+  planId: string
+  recommendedPaymentPlan: string
+  upfrontPayment: string
+  firstCoverageAmount?: string
+  secondCoverageAmount?: string
+  thridCoverageAmount?: string
   isLoading: boolean
+  onHireClick: (choosedPlan: string) => void
 }
 
 const PlanCard = ({
-  planName = 'Brasil Terra',
-  rating = '3',
-  installmentsAmount = '3x sem juros de R$ 209,97',
-  upfrontAmount = 'R$ 659,82 à vista',
-  firstCoverageAmount = 'R$ 150.000,00',
-  secondCoverageAmount = 'R$ 250.000,00',
-  thridCoverageAmount = 'R$ 350.000,00',
-  isLoading = true,
+  planName,
+  planId,
+  recommendedPaymentPlan,
+  upfrontPayment,
+  firstCoverageAmount,
+  secondCoverageAmount,
+  thridCoverageAmount,
+  isLoading,
+  onHireClick,
 }: IPlanCardProps) => {
   const isMobile = useMedia('sm')
   const isMdUp = useMedia('mdUp')
@@ -39,19 +40,19 @@ const PlanCard = ({
           <s.PlanName type="heading4" bold>
             {planName}
           </s.PlanName>
-          <RatingStars rating={rating} />
         </s.PlanNameWrapper>
         <s.Installments type="captionUppercase" color="gray5">
-          {installmentsAmount}
+          {recommendedPaymentPlan}
         </s.Installments>
         <Text type="heading4" bold>
-          {upfrontAmount}
+          {upfrontPayment}
         </Text>
       </s.InfoWrapper>
       <s.ContractButton
         color="secondary"
         loading={isLoading}
         loadingColor="green3"
+        onClick={() => onHireClick(planId)}
       >
         Contratar
       </s.ContractButton>
@@ -59,11 +60,10 @@ const PlanCard = ({
       <s.MainCoveragesTitle
         type="subheading"
         bold
-        textTransform="uppercase"
         textAlign="center"
         color="gray5"
       >
-        Principais coberturas
+        PRINCIPAIS COBERTURAS
       </s.MainCoveragesTitle>
       <MainCoverages
         isMobile={isMobile}

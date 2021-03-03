@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface IContainer {
-  size: 'large' | 'medium' | 'small' | 'default'
+  size: 'large' | 'medium-large' | 'medium' | 'small' | 'default'
   noPadding: boolean
 }
 
@@ -11,6 +11,8 @@ export const Container = styled.div<IContainer>`
     switch (props.size) {
       case 'large':
         return `${props.theme.spacing(9)}px`
+      case 'medium-large':
+        return `${props.theme.spacing(8)}px`
       case 'medium':
         return `${props.theme.spacing(5)}px`
       case 'small':

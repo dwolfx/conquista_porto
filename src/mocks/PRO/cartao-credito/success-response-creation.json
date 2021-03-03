@@ -1,0 +1,14 @@
+{
+  "bandeira": "1",
+  "dataVencimento": "12",
+  "enderecoRecebimento": {
+      "cep": "11533230",
+      "endereco": "Rua Amazonas",
+      "numero": "526",
+      "complemento": "Apto. 32",
+      "bairro": "Jardim Rosa",
+      "cidade": "Santos",
+      "estado": "SP"
+  },
+  "dadosAdicionais": {}
+}

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { uuid } from 'uuidv4'
 
 import EmptyStateContent from './EmptyStateContent'
 import { useCardItems } from './useCardItems'
-
 import { GridColFlexCardCarrousel } from './styles'
 import CreditCardContent from './CreditCardContent'
 import CreditCardError from './CreditCardError'
 import FinantialProgressContent from './FinantialProgressContent'
 import LoadingStateContent from './LoadingStateContent'
-import { useSelector } from 'react-redux'
 
 const Credits: React.FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
@@ -44,8 +43,8 @@ const Credits: React.FC = ({ children }) => {
     isCreditCardLoading,
   ])
 
-  const content = () => {
-    return creditItems.map(cardItem => {
+  const content = () =>
+    creditItems.map(cardItem => {
       if (cardItem.type === 'info') {
         return (
           <CreditCardContent
@@ -92,7 +91,6 @@ const Credits: React.FC = ({ children }) => {
         />
       )
     })
-  }
 
   const wrapper = () => {
     if (isLoading) {

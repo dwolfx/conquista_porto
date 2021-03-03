@@ -767,7 +767,7 @@ exports[`FundsInfo renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c4 {
     display: none;
   }

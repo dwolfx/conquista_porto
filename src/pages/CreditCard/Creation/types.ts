@@ -15,11 +15,7 @@ export interface ISummaryStep {
   setFormData: Dispatch<SetStateAction<ICreditCardCreationPayload>>
   onSubmit: () => void
   retrySubmit: boolean
-}
-
-export interface IOption {
-  id: number | string
-  name: string
+  isLoading: boolean
 }
 
 export enum DocumentType {

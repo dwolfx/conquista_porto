@@ -62,18 +62,16 @@ export const RadioLabel = styled.label<ILabel>`
   margin: 8px 16px 8px 0;
   pointer-events: ${props => (props.disabled ? 'none' : 'all')};
 
-
   ${props =>
     (props.itemsDirection === 'row' ||
       props.itemsDirection === 'row-reverse') &&
-    `&:last-of-type {
-    margin-right: 0;
-  }`}
-}`
+    '&:last-of-type { margin-right: 0; }'}
+`
 
 interface IWrapper {
-  itemsAlign: 'flex-start' | 'center' | 'flex-end'
+  itemsAlign: 'flex-start' | 'start ' | 'center' | 'flex-end' | 'end'
   itemsDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+  justifyContent: 'flex-start' | 'center' | 'flex-end'
   paddingLeft: number
   paddingRight: number
   marginLeft: number
@@ -91,7 +89,7 @@ export const RadioWrapper = styled.div<IWrapper>`
   margin-right: ${props => `${props.marginRight}px`};
   width: ${props =>
     typeof props.width === 'string' ? props.width : `${props.width}%`};
-  justify-content: center;
+  justify-content: ${props => props.justifyContent};
 
   @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;

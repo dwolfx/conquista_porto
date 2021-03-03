@@ -423,13 +423,13 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c11 {
     margin: 0 21px 28px;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c25 {
     margin: 0 14px;
   }
@@ -439,7 +439,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c23 {
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
@@ -454,7 +454,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c1 {
     height: 100%;
     border-radius: 0;
@@ -462,7 +462,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c3 {
     margin-top: 11px;
   }
@@ -474,7 +474,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c9 {
     margin-right: 21px;
     margin-left: 70px;
@@ -487,7 +487,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c19 {
     margin: 0 21px 21px;
     padding-bottom: 0;
@@ -500,13 +500,13 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c10 {
     margin-left: 21px;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c13 {
     min-width: 100%;
   }
@@ -518,7 +518,7 @@ Object {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:735px) {
   .c4 {
     margin-left: 21px;
   }
@@ -532,6 +532,7 @@ Object {
         <div
           class="c2"
           data-testid="card-body"
+          overflow="hidden"
         >
           <div
             class="c3"
@@ -783,17 +784,18 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-fzqBZW HXgqz sc-fzoNJl kzOFyM"
+      class="sc-fzqBZW HXgqz sc-fzoNJl fvsect"
     >
       <div
-        class="sc-fzpjYC ikWzWA"
+        class="sc-fzpjYC fUicIH"
         data-testid="card-body"
+        overflow="hidden"
       >
         <div
-          class="sc-fzpmMD jfcpLp"
+          class="sc-fzpmMD CvjmU"
         >
           <div
-            class="sc-fzoKki gGpkzS"
+            class="sc-fzoKki cRHrsv"
           >
             <svg
               aria-label="check"
@@ -813,7 +815,7 @@ Object {
             </h5>
           </div>
           <p
-            class="sc-AxiKw pMGfi sc-fznMAR iDzilq"
+            class="sc-AxiKw pMGfi sc-fznMAR cCDRkP"
             color="unset"
             type="body"
           >
@@ -822,26 +824,26 @@ Object {
             Pode levar alguns minutos até que o fundo apareça na sua tela de gestão.
           </p>
           <h5
-            class="sc-AxiKw hKkLVt sc-fzqBkg bXhEJI"
+            class="sc-AxiKw hKkLVt sc-fzqBkg czvPOd"
             color="unset"
             type="headline"
           >
             Dados para tranferência (TED)
           </h5>
           <div
-            class="sc-fzoiQi cdWIhU"
+            class="sc-fzoiQi giuLiN"
           >
             <div
               class="sc-fzoXWK dYEOYE"
             >
               <div
-                class="sc-fzqPZZ cPHmbH"
+                class="sc-fzqPZZ iZgTdS"
               >
                 <div
-                  class="sc-AxjAm fsRXxQ"
+                  class="sc-AxjAm iGgnvr"
                 >
                   <div
-                    class="sc-AxirZ eDJESt"
+                    class="sc-AxirZ lBiya"
                   >
                     <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
@@ -861,13 +863,13 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzqPZZ cPHmbH"
+                class="sc-fzqPZZ iZgTdS"
               >
                 <div
-                  class="sc-AxjAm fsRXxQ"
+                  class="sc-AxjAm iGgnvr"
                 >
                   <div
-                    class="sc-AxirZ eDJESt"
+                    class="sc-AxirZ lBiya"
                   >
                     <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
@@ -887,13 +889,13 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzqPZZ cPHmbH"
+                class="sc-fzqPZZ iZgTdS"
               >
                 <div
-                  class="sc-AxjAm fsRXxQ"
+                  class="sc-AxjAm iGgnvr"
                 >
                   <div
-                    class="sc-AxirZ eDJESt"
+                    class="sc-AxirZ lBiya"
                   >
                     <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
@@ -913,13 +915,13 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzqPZZ cPHmbH"
+                class="sc-fzqPZZ iZgTdS"
               >
                 <div
-                  class="sc-AxjAm fsRXxQ"
+                  class="sc-AxjAm iGgnvr"
                 >
                   <div
-                    class="sc-AxirZ eDJESt"
+                    class="sc-AxirZ lBiya"
                   >
                     <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
@@ -939,13 +941,13 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzqPZZ cPHmbH"
+                class="sc-fzqPZZ iZgTdS"
               >
                 <div
-                  class="sc-AxjAm fsRXxQ"
+                  class="sc-AxjAm iGgnvr"
                 >
                   <div
-                    class="sc-AxirZ eDJESt"
+                    class="sc-AxirZ lBiya"
                   >
                     <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
@@ -967,14 +969,14 @@ Object {
             </div>
           </div>
           <h5
-            class="sc-AxiKw hKkLVt sc-fzqBkg bXhEJI"
+            class="sc-AxiKw hKkLVt sc-fzqBkg czvPOd"
             color="unset"
             type="headline"
           >
             Regras e Condições
           </h5>
           <div
-            class="sc-fzolEj fRSMzZ"
+            class="sc-fzolEj kSwyYc"
           >
             <h5
               class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
@@ -1004,10 +1006,10 @@ Object {
         class="sc-fznxsB hxMZIB"
       >
         <div
-          class="sc-fzqNqU ckGiiA"
+          class="sc-fzqNqU islEuN"
         >
           <button
-            class="sc-AxmLO kLkWlN sc-fzqARJ fEA-dee"
+            class="sc-AxmLO kLkWlN sc-fzqARJ ckyhRD"
             color="primary"
             data-gtm-clicktype="button"
             data-gtm-name="gerenciar investimentos"
@@ -1020,7 +1022,7 @@ Object {
             </span>
           </button>
           <button
-            class="sc-AxmLO fQZdHq sc-fzqARJ fEA-dee"
+            class="sc-AxmLO fQZdHq sc-fzqARJ ckyhRD"
             color="primary"
             data-gtm-clicktype="button"
             data-gtm-name="lista de fundos"

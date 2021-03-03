@@ -4,26 +4,30 @@ import { uuid } from 'uuidv4'
 import VerticalList from 'components/VerticalList'
 import { Tab } from 'components/Tab/NewTab'
 
-import * as t from '../types'
+import {
+  IPlan,
+  ICoverage,
+} from 'store/modules/TripInsurance/InsuranceQuotation/types'
+
 import * as s from './styles'
 
 interface IComparativeTabs {
-  travelPlans: t.ITravelPlans[]
+  travelPlans: IPlan[]
 }
 
 const ComparativeTabs: React.FC<IComparativeTabs> = ({
   travelPlans,
   ...rest
 }) => {
-  const [planContent, setPlanContent] = useState<t.ITravelCoverage[]>([])
+  const [planContent, setPlanContent] = useState<ICoverage[]>([])
 
   useEffect(() => {
     if (travelPlans.length > 0) {
-      setPlanContent(travelPlans[0].viagemCobertura)
+      setPlanContent(travelPlans[0].ViagemCobertura.coberturas)
     }
   }, [travelPlans])
 
-  const renderItems = (planContent: t.ITravelCoverage[]) =>
+  const renderItems = (planContent: ICoverage[]) =>
     planContent.map((item, index) => (
       <div key={uuid()}>
         <VerticalList
@@ -39,40 +43,42 @@ const ComparativeTabs: React.FC<IComparativeTabs> = ({
   const renderTabs = () => (
     <s.StyledTabs
       name="tab-planos"
-      initialValue={`tab-plano-${travelPlans[0].nomePlano
-        .replace(' ', '')
-        .replace('Brasil', '')}`}
+      initialValue={`tab-plano-${travelPlans[0].nomePlano}`}
       initialReset
       {...rest}
     >
-      <s.StickyContent>
-        <s.StyledTabList
-          ariaLabel="Detalhes do fundo"
-          data-testid="drawer-tabs"
-        >
-          {travelPlans.map(plan => {
-            const planName = plan.nomePlano
-              .replace(' ', '')
-              .replace('Brasil', '')
+      <s.OverflowWrapper travelPlansLength={travelPlans.length}>
+        <s.StickyContent travelPlansLength={travelPlans.length}>
+          <s.StyledTabList
+            ariaLabel="Detalhes do fundo"
+            data-testid="drawer-tabs"
+          >
+            {travelPlans.map(plan => {
+              const planName = plan.nomePlano
 
-            return (
-              <Tab
-                name={`tab-plano-${planName}`}
-                key={uuid()}
-                onClick={() => setPlanContent(plan.viagemCobertura)}
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                data-gtm-subname={`Plano ${planName}`}
-                data-gtm-name="Modal Comparativo"
-              >
-                {planName}
-              </Tab>
-            )
-          })}
-        </s.StyledTabList>
-      </s.StickyContent>
+              return (
+                <Tab
+                  name={`tab-plano-${planName}`}
+                  key={uuid()}
+                  onClick={() =>
+                    setPlanContent(plan.ViagemCobertura.coberturas)
+                  }
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  data-gtm-subname={`Plano ${planName}`}
+                  data-gtm-name="Modal Comparativo"
+                >
+                  {planName}
+                </Tab>
+              )
+            })}
+          </s.StyledTabList>
+        </s.StickyContent>
+      </s.OverflowWrapper>
 
-      <s.PlansData>{renderItems(planContent)}</s.PlansData>
+      <s.PlansData travelPlansLength={travelPlans.length}>
+        {renderItems(planContent)}
+      </s.PlansData>
     </s.StyledTabs>
   )
 

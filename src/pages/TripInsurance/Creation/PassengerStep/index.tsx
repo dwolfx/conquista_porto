@@ -1,39 +1,107 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
-
-import useMedia from 'hooks/useMedia'
-
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
-import StepBar from 'pages/TripInsurance/commons/StepBar'
+import moment from 'moment'
 
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
-
-import * as S from './styles'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
+import useMedia from 'hooks/useMedia'
 import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import { Steps } from '../types'
+import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
+import { truncateString, calculateAge } from 'helpers'
+
+import PassengersOverSeventyModal from './PassengersOverSeventyModal'
+import { Steps, IForm } from '../types'
+import * as S from './styles'
 
 const PassengerStep: StepComponent = () => {
   const maximumPermittedPassengers = 20
-  const theme = React.useContext(ThemeContext)
-  const [counts, setCounts] = React.useState({ young: 0, old: 0, total: 0 })
+  const theme = useContext(ThemeContext)
+  const [counts, setCounts] = useState({ young: 0, old: 0, total: 0 })
   const isTabletVertical = useMedia('md')
   const { instantiate } = useStackFluxManagement<StepComponentProps>()
+  const { updateForm, form } = useFormFluxManagement<IForm>()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  React.useEffect(() => {
-    setCounts(counts => ({ ...counts, total: counts.young + counts.old }))
+  useEffect(() => {
+    setCounts(prevCounts => ({
+      ...prevCounts,
+      total: prevCounts.young + prevCounts.old,
+    }))
   }, [counts.young, counts.old])
 
   const handleButtonClick = () => {
-    instantiate(Steps.adventureSports)
+    let { old, young, total } = counts
+    const mainPassenger = moment(
+      form.passageiroPrincipal?.dataNascimento,
+      'DD/MM/YYYY'
+    )
+    const mainPassengerAge = calculateAge(mainPassenger.format('DD/MM/YYYY'))
+    if (mainPassengerAge <= 70) {
+      if (counts.young === 1) {
+        total -= 1
+      } else if (counts.young > 1) {
+        young -= 1
+        total -= 1
+      }
+    } else if (counts.old === 1) {
+      total -= 1
+    } else if (counts.old > 1) {
+      old -= 1
+      total -= 1
+    }
+    const newCompanions = [...new Array(total)].map((_, index) => ({
+      id: index + 1,
+      nome: truncateString(`Acompanhante ${index + 1}`, 25),
+      status: false,
+    }))
+    updateForm({
+      qtdPassagMenorSetentaAnos: young,
+      qtdPassagMaiorSetentaAnos: old,
+      acompanhantes: [...newCompanions],
+    })
+    return counts.old > 0
+      ? setIsModalOpen(true)
+      : instantiate(Steps.adventureSports)
+  }
+
+  const handleModalAcceptButton = () => {
+    if (!!form.hasOnlyLatinAmericaDestination && counts.old > 0) {
+      updateForm({
+        isPraticaAventura: false,
+        isMotocicleta: false,
+      })
+      instantiate(Steps.choosePlan)
+    } else {
+      updateForm({
+        isPraticaAventura: false,
+      })
+      instantiate(Steps.motocicleQuestion)
+    }
   }
 
   return (
     <>
-      <StepBar actualStep={3} totalNumberOfSteps={5} />
+      <PassengersOverSeventyModal
+        isOpen={isModalOpen}
+        isLastStep={!!form.hasOnlyLatinAmericaDestination && counts.old > 0}
+        handleClose={() => setIsModalOpen(false)}
+        handleAccept={() => handleModalAcceptButton()}
+      />
+      <StepBar
+        title="Simulação"
+        actualStep={3}
+        totalNumberOfSteps={
+          form.hasOnlyLatinAmericaDestination ||
+          form.qtdPassagMaiorSetentaAnos !== 0
+            ? 4
+            : 5
+        }
+      />
       <S.Wrapper data-testid="passenger-step">
         <S.StyledContainer>
           <S.Row
@@ -43,7 +111,7 @@ const PassengerStep: StepComponent = () => {
             <Col hiddenMdDown md={3} auto>
               <DivisorDescription
                 title="Passageiros"
-                text="O seguro cobre até 20 passageiros"
+                text="O seguro cobre até 20 passageiros, incluindo você."
               />
             </Col>
             <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
@@ -51,11 +119,11 @@ const PassengerStep: StepComponent = () => {
                 <Text type="headline" color="gray6" textAlign="center">
                   Quantos passageiros haverá na viagem?
                   <Popover
-                    tooltip
+                    showArrow={false}
                     content={() => (
-                      <Text bold type="body" color="gray5">
-                        O seguro cobre até 20 passageiros.
-                      </Text>
+                      <S.PopoverText bold type="body" color="gray5">
+                        O seguro cobre até 20 passageiros, incluindo você.
+                      </S.PopoverText>
                     )}
                   >
                     <Icon
@@ -69,6 +137,15 @@ const PassengerStep: StepComponent = () => {
                     />
                   </Popover>
                 </Text>
+                <S.SubTitle
+                  type="caption"
+                  bold
+                  color="gray5"
+                  textAlign="center"
+                >
+                  Indique o número de passageiros, incluindo você. Considere a
+                  idade atual de todos com base na data de hoje.
+                </S.SubTitle>
               </S.FlexContainer>
 
               <S.StyledCounter
@@ -87,6 +164,9 @@ const PassengerStep: StepComponent = () => {
                 afterOnChange={value => setCounts({ ...counts, old: value })}
               />
               <S.StyledButton
+                data-gtm-name="proximo"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
                 onClick={handleButtonClick}
                 disabled={counts.total === 0}
               >

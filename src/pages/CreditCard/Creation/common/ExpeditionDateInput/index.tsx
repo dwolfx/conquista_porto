@@ -19,12 +19,15 @@ export const isExpeditionDateValid = (value: string) => {
 
 interface IProps {
   expeditionDate: string
+  touched: boolean
+  handleTouchField: () => void
   setExpeditionDate: (date: string) => void
 }
-
 const ExpeditionDateInput: React.FC<IProps> = ({
   expeditionDate,
   setExpeditionDate,
+  handleTouchField,
+  touched,
   ...rest
 }) => {
   const expeditionDateError = {
@@ -35,10 +38,14 @@ const ExpeditionDateInput: React.FC<IProps> = ({
   return (
     <s.DateInput
       newInput
+      placeholder="Digite aqui..."
       label="data de expedição"
-      error={!isExpeditionDateValid(expeditionDate) && expeditionDateError}
+      error={((!expeditionDate.length || !isExpeditionDateValid(expeditionDate)) && touched) && expeditionDateError }
       value={expeditionDate}
-      onChange={(e: any) => setExpeditionDate(e.target.value)}
+      onChange={(e: any) => {
+        handleTouchField()
+        setExpeditionDate(e.target.value) 
+      }}
       {...rest}
     />
   )

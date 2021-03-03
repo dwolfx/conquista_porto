@@ -3,6 +3,7 @@ import { Types } from './types'
 
 describe('Customer Profile reducer', () => {
   it('should return INITIAL_STATE', () => {
+    // @ts-expect-error
     expect(reducer(undefined, {})).toEqual({
       data: null,
       status: '',
@@ -51,6 +52,7 @@ describe('Customer Profile reducer', () => {
             dataNascimento: '',
             numeroTelefone: '',
             dddNumeroTelefone: '',
+            sexo: '',
           },
         }
       )
@@ -59,6 +61,7 @@ describe('Customer Profile reducer', () => {
         cpfCnpj: '',
         customerName: '',
         customerEmail: '',
+        customerGender: '',
         customerState: '',
         customerBirthdate: '',
         customerPhoneNumber: '',

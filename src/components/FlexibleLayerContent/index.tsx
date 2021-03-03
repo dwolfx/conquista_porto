@@ -44,7 +44,7 @@ export default function FlexibleLayerContent({
 }: {
   children: ReactNode
   bottomNavigationContent?: ReactNode
-  wrapWithContainer?: Boolean
+  wrapWithContainer?: boolean
   headerHeight?: number
   bottomNavigationJustifyContent?: JustifyContent
 }) {

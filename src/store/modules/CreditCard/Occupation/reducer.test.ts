@@ -18,7 +18,9 @@ describe('Credit Card Expiration Days reducer tests', () => {
       hasError: false,
       isLoading: false,
     }
-    expect(reducer(initialState, {type: Types.CREDIT_CARD_OCCUPATION_REQUEST})).toEqual({
+    expect(
+      reducer(initialState, { type: Types.CREDIT_CARD_OCCUPATION_REQUEST })
+    ).toEqual({
       data: null,
       hasError: false,
       isLoading: true,
@@ -30,7 +32,9 @@ describe('Credit Card Expiration Days reducer tests', () => {
       hasError: false,
       isLoading: false,
     }
-    expect(reducer(initialState, { type: Types.CREDIT_CARD_OCCUPATION_FAILURE })).toEqual({
+    expect(
+      reducer(initialState, { type: Types.CREDIT_CARD_OCCUPATION_FAILURE })
+    ).toEqual({
       data: null,
       hasError: true,
       isLoading: false,
@@ -42,7 +46,12 @@ describe('Credit Card Expiration Days reducer tests', () => {
       hasError: false,
       isLoading: false,
     }
-    expect(reducer(initialState, { type: Types.CREDIT_CARD_OCCUPATION_SUCCESS, payload: { name: 'Teste' }, })).toEqual({
+    expect(
+      reducer(initialState, {
+        type: Types.CREDIT_CARD_OCCUPATION_SUCCESS,
+        payload: { name: 'Teste' },
+      })
+    ).toEqual({
       data: { name: 'Teste' },
       hasError: false,
       isLoading: false,

@@ -7,12 +7,11 @@ import {
   Occupation,
 } from 'store/modules/CreditCard/Occupation/types'
 
-import { IOption } from '../../types'
 import * as S from '../styles'
 
 interface IProps {
-  selectedOption: IOption
-  setSelectedOption: (ocupation: IOption) => void
+  selectedOption: TSelected
+  setSelectedOption: (ocupation: TSelected) => void
   creditCardOccupation: ICreditCardOccupationState
   preSelectedOccupation?: number
 }
