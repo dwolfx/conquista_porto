@@ -33,9 +33,19 @@ interface IFormatValue {
   onBlur: ({ row, event, value }: IHandleInputsBlur) => void
   type: 'initial_value' | 'monthly_value'
   onChange?: ({ row, inputedValue }: IHandleInputsChange) => void
+  handleOnChange?: (
+    value: number,
+    type: 'initial_value' | 'monthly_value'
+  ) => void
 }
 
-export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
+export const FormatValue = ({
+  row,
+  onBlur,
+  onChange,
+  type,
+  handleOnChange,
+}: IFormatValue) => {
   const { addToast } = useToast()
   const minValue = getMinFundValue(type)
 
@@ -133,6 +143,9 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
 
           if (onChange) {
             onChange({ row, inputedValue: innerValue, type })
+          }
+          if (handleOnChange) {
+            handleOnChange(+event.target.value, type)
           }
         }}
         onBlur={(event: React.ChangeEvent<HTMLInputElement>) => {

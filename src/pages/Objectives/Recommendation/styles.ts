@@ -78,12 +78,17 @@ export const ButtonBar = styled(Button)`
 export const FullHeightCard = styled(Card)`
   height: 100%;
   position: relative;
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
     height: auto;
   }
   & ${CardBody} {
     overflow: visible;
+  }
+
+  &:first-of-type {
+    margin-top: 0px;
   }
 `
 

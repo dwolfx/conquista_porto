@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 import CardCmp from 'components/Card'
 import TextCmp from 'components/Text'
+import { CardBody } from 'components/Card/styles'
 
 export const Text = styled(TextCmp)`
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const TotalAmountDistributed = styled.div`
@@ -90,14 +90,15 @@ export const ToDistributeWrapper = styled.div`
 
 export const MobileTotalAmountDistributedCard = styled(CardCmp)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
-
-export const MobileTotalAmountDistributed = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
+  padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(3)}px`};
+
+  ${CardBody} {
+    width: 100%;
+  }
 `
 
 export const MobileAmountWrapper = styled.div`
@@ -116,5 +117,9 @@ export const MobileAmountWrapper = styled.div`
       margin: ${({ theme }) =>
         `${theme.spacing(4)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
     }
+  }
+
+  &:first-of-type {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   }
 `

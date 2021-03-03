@@ -18,9 +18,23 @@ import { FormatValue } from '../utils'
 import { IMobileProps, IEditCards } from './types'
 import * as s from './styles'
 
-const EditableCards = ({ fund, onBlurAction, removeAction }: IEditCards) => {
+const EditableCards = ({
+  fund,
+  onBlurAction,
+  removeAction,
+  recalculateAction,
+}: IEditCards) => {
   const theme = useContext(ThemeContext)
   const [isExpanded, setExpanded] = useState(false)
+  const [initialValue, setInitialValue] = useState(fund.initial_value)
+  const [monthlyValue, setMonthlyValue] = useState(fund.monthly_value)
+
+  const handleOnChange = (
+    value: number,
+    type: 'initial_value' | 'monthly_value'
+  ) => {
+    type === 'initial_value' ? setInitialValue(value) : setMonthlyValue(value)
+  }
 
   return (
     <FullHeightCard
@@ -34,15 +48,21 @@ const EditableCards = ({ fund, onBlurAction, removeAction }: IEditCards) => {
       }
       footer={
         isExpanded ? (
-          <Button
-            outline
-            onClick={() => removeAction(fund.fund_id)}
-            css={`
-              width: 100%;
-            `}
-          >
-            Remover fundo
-          </Button>
+          <s.ButtonsWrapper>
+            <s.RemoveFundButton
+              outline
+              onClick={() => removeAction(fund.fund_id)}
+            >
+              Remover fundo
+            </s.RemoveFundButton>
+            <Button
+              onClick={() =>
+                recalculateAction(initialValue, monthlyValue, fund)
+              }
+            >
+              Recalcular resultados
+            </Button>
+          </s.ButtonsWrapper>
         ) : null
       }
       css={`
@@ -65,6 +85,7 @@ const EditableCards = ({ fund, onBlurAction, removeAction }: IEditCards) => {
                 type="initial_value"
                 row={fund}
                 onBlur={onBlurAction}
+                handleOnChange={handleOnChange}
               />
             ) : (
               <Text type="title" color="gray6" bold>
@@ -98,10 +119,14 @@ const EditableCards = ({ fund, onBlurAction, removeAction }: IEditCards) => {
   )
 }
 
-const MobileCards = ({ funds, ...rest }: IMobileProps) => (
+const MobileCards = ({ funds, recalculateAction, ...rest }: IMobileProps) => (
   <s.Container>
     {funds.map((fund: IFunds) => (
-      <EditableCards fund={fund} {...rest} />
+      <EditableCards
+        fund={fund}
+        recalculateAction={recalculateAction}
+        {...rest}
+      />
     ))}
   </s.Container>
 )

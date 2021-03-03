@@ -188,7 +188,7 @@ const Table = ({
       pixelValue += +widthToCalculate || +minWidthToCalculate || 0
     }
 
-    return `calc(${percentageValue}% + ${pixelValue}px)`
+    return `calc(${percentageValue}% + ${pixelValue - 7}px)`
   }
 
   const stickyElementRight = useMemo(

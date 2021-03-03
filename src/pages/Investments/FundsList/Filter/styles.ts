@@ -19,7 +19,9 @@ export const ButtonContainer = styled.div`
 `
 export const FilterRowContent = styled(Row)`
   margin: ${props =>
-    `0 ${props.theme.spacing(1)}px ${props.theme.spacing(3)}px`};
+    `${props.theme.spacing(1)}px ${props.theme.spacing(
+      1
+    )}px ${props.theme.spacing(3)}px`};
 `
 
 export const RowFilterByType = styled(Row)`
@@ -54,9 +56,9 @@ export const SquareRiskLevel = styled.div.attrs(() => ({
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   width: ${props => props.theme.spacing(3)}px;
   height: ${props => props.theme.spacing(3)}px;
-  margin-right: ${props => props.theme.spacing(1) / 2 }px;
+  margin-right: ${props => props.theme.spacing(1) / 2}px;
   background-color: ${props => props.theme.colors[props.color]};
-  border-radius: ${props => props.theme.spacing(1) / 2 }px;
+  border-radius: ${props => props.theme.spacing(1) / 2}px;
   transition: all 0.3s ease;
   opacity: ${handleOpacitySquareRisk};
   :last-child {

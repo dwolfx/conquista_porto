@@ -39,11 +39,11 @@ export default function DistribuitedValues({
   if (isMobile) {
     return (
       <s.MobileTotalAmountDistributedCard>
-        <s.MobileTotalAmountDistributed>
+        <section id="distributed-amount">
           <s.MobileAmountWrapper>
-            <Text type="headline" bold color="gray6">
+            <s.Text type="headline" bold color="gray6">
               Investimento Inicial
-            </Text>
+            </s.Text>
             <HorizontalList
               size="small"
               startItems={[
@@ -113,9 +113,9 @@ export default function DistribuitedValues({
             />
           </s.MobileAmountWrapper>
           <s.MobileAmountWrapper>
-            <Text type="headline" bold color="gray6">
+            <s.Text type="headline" bold color="gray6">
               Investimento Mensal
-            </Text>
+            </s.Text>
             <HorizontalList
               size="small"
               startItems={[
@@ -184,7 +184,7 @@ export default function DistribuitedValues({
               ]}
             />
           </s.MobileAmountWrapper>
-        </s.MobileTotalAmountDistributed>
+        </section>
       </s.MobileTotalAmountDistributedCard>
     )
   }
@@ -196,9 +196,9 @@ export default function DistribuitedValues({
           <Text type="captionUppercase" color="gray5" bold>
             Total Distribuído
           </Text>
-          <s.Text type="captionUppercase" color="gray5" bold>
+          <Text type="captionUppercase" color="gray5" bold>
             Planejado
-          </s.Text>
+          </Text>
           <Text type="captionUppercase" color="gray5" bold>
             A Distribuir
           </Text>
@@ -207,9 +207,9 @@ export default function DistribuitedValues({
           <Text type="caption" color="gray6" bold>
             {Currency.parse(initialDistribuition, true)}
           </Text>
-          <s.Text type="caption" color="gray6" bold>
+          <Text type="caption" color="gray6" bold>
             {Currency.parse(recommendationData.answer.initial_value, true)}
-          </s.Text>
+          </Text>
           <s.ToDistributeWrapper>
             <Text
               type="caption"
@@ -237,9 +237,9 @@ export default function DistribuitedValues({
           <Text type="caption" color="gray6" bold>
             {Currency.parse(monthlyDistribuition, true)}
           </Text>
-          <s.Text type="caption" color="gray6" bold>
+          <Text type="caption" color="gray6" bold>
             {Currency.parse(recommendationData.answer.monthly_value, true)}
-          </s.Text>
+          </Text>
           <s.ToDistributeWrapper>
             <Text
               type="caption"

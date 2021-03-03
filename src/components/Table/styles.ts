@@ -14,6 +14,7 @@ interface IWrapper {
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `
 
 export const WrapperContent = styled.div<IWrapper>`
@@ -336,7 +337,6 @@ export const Checkbox = styled(CheckboxComponent)`
   input {
     z-index: 1;
   }
-
 `
 
 export const PaginationWrapper = styled.div`
@@ -382,7 +382,7 @@ export const Button = styled.button`
   }
 
   & + button {
-    border-left: 1px solid ${({ theme }) => theme.colors.gray3}
+    border-left: 1px solid ${({ theme }) => theme.colors.gray3};
   }
 
   svg {
@@ -390,4 +390,3 @@ export const Button = styled.button`
     display: block;
   }
 `
-

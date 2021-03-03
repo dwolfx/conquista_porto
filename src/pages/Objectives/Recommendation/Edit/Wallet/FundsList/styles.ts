@@ -7,6 +7,8 @@ import LayerCmp from 'components/Layer'
 import { LayerHeader } from 'components/Layer/styles'
 import { RiskColorTag as RiskColor } from 'pages/Objectives/Recommendation/WalletSection/styles'
 import { CardBody } from 'components/Card/styles'
+import { Wrapper } from 'components/Table/styles'
+import TableCmp from 'components/Table/TableWithCheckbox'
 
 export const Layer = styled(LayerCmp)`
   ${LayerHeader} {
@@ -26,6 +28,12 @@ export const Card = styled(CardCmp)`
   min-height: 500px;
   height: calc(100vh - 250px);
   ${CardBody} {
+    position: relative;
+  }
+`
+
+export const Table = styled(TableCmp)`
+  ${Wrapper} {
     overflow: auto;
   }
 `
@@ -36,6 +44,8 @@ export const InfoRow = styled.div`
   justify-content: space-between;
   margin-top: ${({ theme }) => theme.spacing(1.5)}px;
   padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  position: sticky;
+  bottom: 0;
 `
 
 export const RiskColorTag = styled(RiskColor)`
@@ -49,6 +59,15 @@ export const RiskColorTag = styled(RiskColor)`
   }
   @media ${({ theme }) => theme.mediaQueries.xs} {
     left: 4px;
+  }
+`
+
+export const CellWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    justify-content: center;
   }
 `
 

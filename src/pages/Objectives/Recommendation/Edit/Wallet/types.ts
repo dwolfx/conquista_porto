@@ -7,6 +7,13 @@ export interface IHandleInputsBlur {
   hasError: boolean
 }
 
+export interface IHandleOnClickRecalculate {
+  initialValue: number
+  monthlyValue: number
+  fund: IFunds
+  hasError: boolean
+}
+
 export type THandleInputBlurFunction = ({
   event,
   value,

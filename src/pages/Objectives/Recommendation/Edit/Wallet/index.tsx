@@ -18,7 +18,6 @@ import Card from 'components/Card'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
 import InformativeHeader from 'components/Objective/InformativeHeader'
-import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
@@ -39,13 +38,13 @@ import {
   IRecommendations,
 } from 'store/modules/Objective/types'
 import { TPrediction } from './ResultPrediction/types'
+import { IState, IHandleInputsBlur } from './types'
 
 import DistribuitedValues from './DistribuitedValue'
 import FundsList from './FundsList'
 import RemovedFunds from './RemovedFunds'
 import MobileFundCards from './Mobile'
 import { columns } from './constants'
-import { IState, IHandleInputsBlur } from './types'
 import * as s from './styles'
 
 interface IProps {
@@ -246,6 +245,45 @@ export default function WalletComposition({ onClose }: IProps) {
           [...currentInvalids].filter(id => id !== row.fund_id)
         )
       }
+
+      // calculate distribuition based on initial value
+      const calculateInitialDistribution: number = [...newValues].reduce(
+        (acc: number, cur: IFunds) => acc + +cur.initial_value,
+        0
+      )
+
+      // calculate distribuition based on monthly value
+      const calculateMonthlyDistribution: number = [...newValues].reduce(
+        (acc: number, cur: IFunds) => acc + +cur.monthly_value,
+        0
+      )
+
+      setInitialDistributedValue(calculateInitialDistribution)
+      setMonthlyDistributedValue(calculateMonthlyDistribution)
+    },
+    [funds]
+  )
+
+  const recalculateValues = useCallback(
+    (initialValue: number, monthlyValue: number, fund: IFunds) => {
+      // update 'initial_value' or 'monthly_value' on funds state
+      const newValues = [...funds].reduce((acc: IFunds[], cur: IFunds) => {
+        if (cur.fund_id === fund.fund_id) {
+          return [
+            ...acc,
+            {
+              ...cur,
+              initial_value: +initialValue,
+              monthly_value: +monthlyValue,
+            },
+          ]
+        }
+
+        return [...acc, cur]
+      }, [])
+
+      // update funds state with new values
+      setFunds(newValues)
 
       // calculate distribuition based on initial value
       const calculateInitialDistribution: number = [...newValues].reduce(
@@ -473,7 +511,7 @@ export default function WalletComposition({ onClose }: IProps) {
         handleButtonAction={() => goToObjectiveManagement()}
       />
       <s.Container isFirst>
-        <s.InformativeRow>
+        <s.Row>
           <Col>
             <InformativeHeader
               nickname={recommendationData.answer.nickname}
@@ -483,16 +521,15 @@ export default function WalletComposition({ onClose }: IProps) {
               monthlyInvestment={recommendationData.answer.monthly_value}
             />
           </Col>
-        </s.InformativeRow>
+        </s.Row>
 
         <s.CompositionRow>
-          <Col lg={3}>
+          <s.Col lg={3}>
             <ResultPredictionCard
               prediction={prediction}
               warning={!isReachedGoal}
             />
-          </Col>
-
+          </s.Col>
           {!isMobile && !isTabletVertical ? (
             <Col lg={9} md={12} sm={12}>
               <s.CardTable headerTitle="Minha carteira" headerIcon="financial">
@@ -549,6 +586,7 @@ export default function WalletComposition({ onClose }: IProps) {
                 funds={funds}
                 onBlurAction={handleInputsBlur}
                 removeAction={removeAction}
+                recalculateAction={recalculateValues}
               />
             </Col>
           )}
