@@ -14,6 +14,7 @@ export default function DistribuitedValues({
   initialDistribuition,
   monthlyDistribuition,
   isMobile,
+  distributedAmountCardRef,
 }: IDistribuitedProps) {
   const { recommendationData } = useSelector((state: IState) => ({
     recommendationData: state.objective.data,
@@ -39,7 +40,7 @@ export default function DistribuitedValues({
   if (isMobile) {
     return (
       <s.MobileTotalAmountDistributedCard>
-        <section id="distributed-amount">
+        <section id="distributed-amount" ref={distributedAmountCardRef}>
           <s.MobileAmountWrapper>
             <s.Text type="headline" bold color="gray6">
               Investimento Inicial

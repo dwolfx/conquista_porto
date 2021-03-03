@@ -36,6 +36,10 @@ export default function FundsTable({
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
   const isTabletVertical = useMedia('md')
+  const minimunTabletHorizontal = useMedia('mdUp')
+  const maximumTabletVertical = useMedia('lg')
+  const isTabletHorizontal = minimunTabletHorizontal && maximumTabletVertical
+  console.log('isTabletHorizontal: ', isTabletHorizontal)
 
   const [isInvestLayerOpen, setInvestLayerOpen] = useState(false)
   const [fundDetailsOpen, setFundDetailsOpen] = useState(false)
@@ -71,8 +75,9 @@ export default function FundsTable({
   }
 
   const columnsToRender = useMemo(
-    () => columns(menuActions, isTabletVertical, isPendingFund),
-    [menuActions, isTabletVertical, isPendingFund]
+    () =>
+      columns(menuActions, isTabletVertical, isPendingFund, isTabletHorizontal),
+    [menuActions, isTabletVertical, isPendingFund, isTabletHorizontal]
   )
 
   const renderActions = () => (
