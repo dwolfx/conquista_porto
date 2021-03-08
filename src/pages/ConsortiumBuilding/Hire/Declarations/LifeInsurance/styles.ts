@@ -148,14 +148,16 @@ export const ItemsList = styled.li`
   padding: ${({ theme }) => theme.spacing(1)}px
     ${({ theme }) => theme.spacing(1)}px;
   text-align: left;
-  color: ${({ theme }) => theme.colors.gray6};
-  font-size: ${props => props.theme.fontTypes.body};
-  font-weight: 300;
-  letter-spacing: 0;
-  line-height: 24px;
   @media ${({ theme }) => theme.mediaQueries.sm} {
     padding: 0;
   }
+`
+export const TextList = styled(Text)`
+  font-size: ${props => props.theme.fontTypes.body};
+  color: ${({ theme }) => theme.colors.gray6};
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 24px;
 `
 export const Divider = styled(DivisorCmp)`
   margin: ${({ theme }) => theme.spacing(4)}px 0;

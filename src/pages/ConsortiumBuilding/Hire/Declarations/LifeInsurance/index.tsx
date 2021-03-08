@@ -95,7 +95,7 @@ const LifeInsurance = () => {
               <s.OrderedList>
                 {secondItems &&
                   secondItems.map((item: string) => {
-                    return <s.ItemsList key={uuid()}>{item}</s.ItemsList>
+                    return <s.ItemsList key={uuid()}><s.TextList>{item}</s.TextList></s.ItemsList>
                   })}
               </s.OrderedList>
             </s.Div>
