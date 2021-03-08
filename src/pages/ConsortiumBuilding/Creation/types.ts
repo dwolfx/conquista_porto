@@ -1,4 +1,5 @@
 import { ISimulation } from 'store/modules/ConsortiumBuilding/ProposalSimulations/types'
+import Declarations from '../Hire/Declarations'
 import InformationConfirmation from '../Hire/InformationConfirmation'
 import ChoosePlan from './ChoosePlan'
 import ChooseState from './ChooseState'
@@ -10,6 +11,7 @@ export const Steps = {
   contemplatedStep: ContemplatedValue,
   choosePlanStep: ChoosePlan,
   informationConfirmationStep: InformationConfirmation,
+  declarationStep: Declarations,
   summaryStep: Summary,
 }
 
@@ -21,6 +23,7 @@ export interface IFormConsortiumBuilding {
   uf: string
   codigoCanal: 7
   plan?: ISimulation
+  preEvents?: string
 }
 
 export interface IMaxMinProductResponse {

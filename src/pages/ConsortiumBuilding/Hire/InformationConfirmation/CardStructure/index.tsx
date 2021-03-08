@@ -6,14 +6,14 @@ import * as s from './styles'
 
 interface ICardStructure {
   children: React.ReactNode
-  title: string
+  title?: string
   link?: string
 }
 
 const CardStructure: React.FC<ICardStructure> = ({
   children,
   title,
-  link
+  link,
 }: ICardStructure) => {
   const { reset } = useStackFluxManagement<StepComponentProps>()
 
@@ -24,26 +24,32 @@ const CardStructure: React.FC<ICardStructure> = ({
 
   return (
     <s.Card data-testid="card-structure-id">
-      <s.CardTitleWrapper>
-        <s.CardTitleText
-          type="subheading"
-          bold
-          color="gray5"
-          textTransform="uppercase"
-        >
-          {title}
-        </s.CardTitleText>
-        {link && (<s.BtnLink onClick={handlerClick}>
-          <s.TextLink
-            bold
-            type="button"
-            color="blue4"
-            textTransform="uppercase"
-          >
-            {link}
-          </s.TextLink>
-        </s.BtnLink>)}
-      </s.CardTitleWrapper>
+      {title || link ? (
+        <s.CardTitleWrapper>
+          {title ? (
+            <s.CardTitleText
+              type="subheading"
+              bold
+              color="gray5"
+              textTransform="uppercase"
+            >
+              {title}
+            </s.CardTitleText>
+          ) : null}
+          {link ? (
+            <s.BtnLink onClick={handlerClick}>
+              <s.TextLink
+                bold
+                type="button"
+                color="blue4"
+                textTransform="uppercase"
+              >
+                {link}
+              </s.TextLink>
+            </s.BtnLink>
+          ) : null}
+        </s.CardTitleWrapper>
+      ) : null}
       {children}
     </s.Card>
   )

@@ -41,6 +41,7 @@ export default function ConsortiumBuildingCreation({
   // 2 - ContemplatedValue
   // 3 - ChoosePlan
   // 4 - InformationConfirmation
+  // 5 - Declarations
 
   React.useEffect(() => {
     if (isOpen && getLength() === 0) instantiate(Steps.chooseState)

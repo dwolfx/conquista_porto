@@ -245,9 +245,12 @@ export const TextsConsortiumBuilding = (
               item: 'A.',
               text: [
                 'Tenho conhecimento da possibilidade de contratação de um seguro de vida destinado à quitação do saldo devedor do plano de consórcio na hipótese de morte natural ou acidental e invalidez permanente total por acidente do consorciado, mediante pagamento do prêmio (preço do seguro) cujos valores mensais, corresponderão ao percentual indicado no ',
-                'Regulamento Geral para Constituição e Funcionamento de Grupos de Consórcio, ',
+                'Regulamento Geral para Constituição e Funcionamento de Grupos de Consórcio',
+                ', ',
                 'no capítulo ',
-                '"Dos Pagamentos".',
+                '"',
+                'Dos Pagamentos',
+                '".',
               ],
             },
             textSecond: {
@@ -256,7 +259,7 @@ export const TextsConsortiumBuilding = (
                 'Tomei ciência das condições contratuais do seguro referido e tenho interesse em contratá-lo;',
             },
             textThird: {
-              item: 'C',
+              item: 'C.',
               text:
                 'Para formalizar o meu interesse, assino esta Proposta de Adesão e Termo de Consentimento para Contratação do Seguro de Vida, devidamente preenchida, para ser entregue à Seguradora, ciente de que o seguro será considerado contratado desde que a Seguradora, respeitados os prazos legais, aceite os riscos e emita a respectiva apólice.',
             },
