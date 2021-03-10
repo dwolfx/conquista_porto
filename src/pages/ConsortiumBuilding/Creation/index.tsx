@@ -42,9 +42,10 @@ export default function ConsortiumBuildingCreation({
   // 3 - ChoosePlan
   // 4 - InformationConfirmation
   // 5 - Declarations
+  // 6 - Credit Life Insurance
 
   React.useEffect(() => {
-    if (isOpen && getLength() === 0) instantiate(Steps.chooseState)
+    if (isOpen && getLength() === 0) instantiate(Steps.declarationStep)
   }, [isOpen, instantiate, getLength])
 
   React.useEffect(() => {

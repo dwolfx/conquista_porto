@@ -45,7 +45,6 @@ export const SideTitle = styled(TextLiteral)<{ spacing?: number }>`
 export const TitleText = styled(TextLiteral)<{ spacing?: number }>`
   padding-left: ${({ theme }) => theme.spacing(4)}px;
   padding-bottom: ${({ theme, spacing }) => theme.spacing(spacing ?? 0)}px;
-  text-align: 'left';
   @media ${({ theme }) => theme.mediaQueries.md} {
     padding-left: 0;
   }
@@ -57,12 +56,10 @@ export const TitleText = styled(TextLiteral)<{ spacing?: number }>`
   }
 `
 export const Text = styled(TextLiteral)<{ spacing?: number }>`
-  text-align: 'left';
   padding-top: ${({ theme }) => theme.spacing(2)}px;
   padding-left: ${({ theme, spacing }) => theme.spacing(spacing ?? 0)}px;
 `
 export const Title = styled(TextLiteral)<{ spacing?: number }>`
-  text-align: 'left';
   color: ${({ theme }) => theme.colors.gray6};
   padding-bottom: ${({ theme }) => theme.spacing(2)}px;
   padding-left: ${({ theme, spacing }) => theme.spacing(spacing ?? 0)}px;

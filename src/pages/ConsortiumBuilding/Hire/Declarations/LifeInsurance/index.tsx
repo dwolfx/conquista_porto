@@ -1,14 +1,13 @@
 import { TextsConsortiumBuilding } from 'pages/ConsortiumBuilding/commons/Texts'
 import React, { useState } from 'react'
-import CardStructure from '../../InformationConfirmation/CardStructure'
-import * as s from './styles'
+import { uuid } from 'uuidv4'
 import Checkbox from 'components/Inputs/Checkbox'
 import Text from 'components/Text'
 import useFormFluxManagement from 'hooks/FluxManagement/useFormFluxManagement'
 import { IFormConsortiumBuilding } from 'pages/ConsortiumBuilding/Creation/types'
-import { uuid } from 'uuidv4'
+import CardStructure from '../../InformationConfirmation/CardStructure'
+import * as s from './styles'
 
-//updateform
 const LifeInsurance = () => {
   const { hire } = TextsConsortiumBuilding()
   const firstItems: string[] | undefined =
@@ -47,15 +46,15 @@ const LifeInsurance = () => {
               </s.Text>
               <s.Text spacing={1}>
                 {firstItems &&
-                  firstItems.map((item: string, index: number) => {
-                    return index === 1 || index === 5 ? (
+                  firstItems.map((item: string, index: number) =>
+                    index === 1 || index === 5 ? (
                       <s.Link href="" key={uuid()}>
                         {item}
                       </s.Link>
                     ) : (
                       item
                     )
-                  })}
+                  )}
               </s.Text>
             </s.Div>
             <s.Div col={false}>
@@ -91,19 +90,19 @@ const LifeInsurance = () => {
             <s.TitleText type="headline" bold spacing={3}>
               {hire.steps.lifeInsurance.containerSecond?.title}
             </s.TitleText>
-            <s.Div col={true}>
+            <s.Div col>
               <s.OrderedList>
                 {secondItems &&
-                  secondItems.map((item: string) => {
-                    return <s.ItemsList key={uuid()}>{item}</s.ItemsList>
-                  })}
+                  secondItems.map((item: string) => (
+                    <s.ItemsList key={uuid()}>{item}</s.ItemsList>
+                  ))}
               </s.OrderedList>
             </s.Div>
             <s.Divider></s.Divider>
             <s.TitleText type="headline" bold spacing={3}>
               {hire.steps.lifeInsurance.containerSecond?.titleTextArea}
             </s.TitleText>
-            <s.DivTextArea col={true}>
+            <s.DivTextArea col>
               <s.CompTextArea
                 disabled={false}
                 rows={5}
@@ -113,11 +112,11 @@ const LifeInsurance = () => {
             </s.DivTextArea>
           </CardStructure>
           <CardStructure>
-            <s.DivLastComp col={true}>
+            <s.DivLastComp col>
               {thirdItems &&
-                thirdItems.map((item: string) => {
-                  return <s.Text key={uuid()}>{item}</s.Text>
-                })}
+                thirdItems.map((item: string) => (
+                  <s.Text key={uuid()}>{item}</s.Text>
+                ))}
             </s.DivLastComp>
             <s.Divider></s.Divider>
             <s.DivWithoutSpace col={false}>
